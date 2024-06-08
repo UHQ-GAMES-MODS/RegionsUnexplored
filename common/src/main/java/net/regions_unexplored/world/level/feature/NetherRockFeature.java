@@ -1,8 +1,6 @@
 package net.regions_unexplored.world.level.feature;
 
 import com.mojang.serialization.Codec;
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
-import io.github.uhq_games.regions_unexplored.data.tags.RuTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
@@ -15,6 +13,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.data.tags.RuTags;
 
 import java.util.Random;
 

@@ -1,7 +1,6 @@
 package net.regions_unexplored.world.level.feature;
 
 import com.mojang.serialization.Codec;
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
@@ -11,6 +10,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
+import net.regions_unexplored.block.RuBlocks;
 
 public class HyacinthPlantsFeature extends Feature<ProbabilityFeatureConfiguration> {
    public HyacinthPlantsFeature(Codec<ProbabilityFeatureConfiguration> p_66768_) {

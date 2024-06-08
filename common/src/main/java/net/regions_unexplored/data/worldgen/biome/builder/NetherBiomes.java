@@ -1,9 +1,5 @@
 package net.regions_unexplored.data.worldgen.biome.builder;
 
-import io.github.uhq_games.regions_unexplored.client.particle.RuParticleTypes;
-import io.github.uhq_games.regions_unexplored.data.worldgen.RuBiomeDefaultFeatures;
-import io.github.uhq_games.regions_unexplored.data.worldgen.placement.RuNetherPlacements;
-import io.github.uhq_games.regions_unexplored.data.worldgen.placement.RuTreePlacements;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
@@ -19,6 +15,10 @@ import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.regions_unexplored.client.particle.RuParticleTypes;
+import net.regions_unexplored.data.worldgen.RuBiomeDefaultFeatures;
+import net.regions_unexplored.data.worldgen.placement.RuNetherPlacements;
+import net.regions_unexplored.data.worldgen.placement.RuTreePlacements;
 
 public class NetherBiomes {
 

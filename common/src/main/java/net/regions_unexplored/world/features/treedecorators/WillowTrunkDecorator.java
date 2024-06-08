@@ -1,6 +1,6 @@
 package net.regions_unexplored.world.features.treedecorators;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
@@ -17,7 +17,7 @@ import java.util.Random;
 
 public class WillowTrunkDecorator extends TreeDecorator {
 	public static final WillowTrunkDecorator INSTANCE = new WillowTrunkDecorator();
-	public static final Codec<WillowTrunkDecorator> CODEC = Codec.unit(() -> INSTANCE);
+	public static final MapCodec<WillowTrunkDecorator> CODEC = MapCodec.unit(() -> INSTANCE);
 
 	@Override
 	protected TreeDecoratorType<?> type() {

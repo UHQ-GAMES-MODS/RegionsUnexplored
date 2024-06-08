@@ -1,10 +1,6 @@
 package net.regions_unexplored.world.level.feature.tree;
 
 import com.mojang.serialization.Codec;
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
-import io.github.uhq_games.regions_unexplored.data.tags.RuTags;
-import io.github.uhq_games.regions_unexplored.world.level.block.plant.branch.BranchBlock;
-import io.github.uhq_games.regions_unexplored.world.level.feature.configuration.RuTreeConfiguration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -18,10 +14,15 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.BeehiveBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.entity.BeehiveBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.world.level.block.plant.branch.BranchBlock;
+import net.regions_unexplored.world.level.feature.configuration.RuTreeConfiguration;
 
 import java.util.Random;
 
@@ -285,9 +286,7 @@ public class MapleTreeFeature extends Feature<RuTreeConfiguration> {
             level.getBlockEntity(pos.north(), BlockEntityType.BEEHIVE).ifPresent((addBee) -> {
                 int j = 2 + random.nextInt(2);
                 for(int k = 0; k < j; ++k) {
-                    CompoundTag compoundtag = new CompoundTag();
-                    compoundtag.putString("id", BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.BEE).toString());
-                    addBee.storeBee(compoundtag, random.nextInt(599), false);
+                    addBee.storeBee(BeehiveBlockEntity.Occupant.create(k));
                 }
             });
         }
@@ -302,9 +301,7 @@ public class MapleTreeFeature extends Feature<RuTreeConfiguration> {
                 level.getBlockEntity(pos.south(), BlockEntityType.BEEHIVE).ifPresent((addBee) -> {
                     int j = 2 + random.nextInt(2);
                     for(int k = 0; k < j; ++k) {
-                        CompoundTag compoundtag = new CompoundTag();
-                        compoundtag.putString("id", BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.BEE).toString());
-                        addBee.storeBee(compoundtag, random.nextInt(599), false);
+                        addBee.storeBee(BeehiveBlockEntity.Occupant.create(k));
                     }
                 });
             }
@@ -319,9 +316,7 @@ public class MapleTreeFeature extends Feature<RuTreeConfiguration> {
                 level.getBlockEntity(pos.east(), BlockEntityType.BEEHIVE).ifPresent((addBee) -> {
                     int j = 2 + random.nextInt(2);
                     for(int k = 0; k < j; ++k) {
-                        CompoundTag compoundtag = new CompoundTag();
-                        compoundtag.putString("id", BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.BEE).toString());
-                        addBee.storeBee(compoundtag, random.nextInt(599), false);
+                        addBee.storeBee(BeehiveBlockEntity.Occupant.create(k));
                     }
                 });
             }
@@ -336,9 +331,7 @@ public class MapleTreeFeature extends Feature<RuTreeConfiguration> {
                 level.getBlockEntity(pos.west(), BlockEntityType.BEEHIVE).ifPresent((addBee) -> {
                     int j = 2 + random.nextInt(2);
                     for(int k = 0; k < j; ++k) {
-                        CompoundTag compoundtag = new CompoundTag();
-                        compoundtag.putString("id", BuiltInRegistries.ENTITY_TYPE.getKey(EntityType.BEE).toString());
-                        addBee.storeBee(compoundtag, random.nextInt(599), false);
+                        addBee.storeBee(BeehiveBlockEntity.Occupant.create(k));
                     }
                 });
             }

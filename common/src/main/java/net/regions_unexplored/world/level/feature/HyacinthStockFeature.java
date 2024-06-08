@@ -1,11 +1,6 @@
 package net.regions_unexplored.world.level.feature;
 
 import com.mojang.serialization.Codec;
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
-import io.github.uhq_games.regions_unexplored.data.tags.RuTags;
-import io.github.uhq_games.regions_unexplored.world.level.block.plant.aquatic.TallHyacinthStockBlock;
-import io.github.uhq_games.regions_unexplored.world.level.block.state.properties.TallHyacinthStockShape;
-import io.github.uhq_games.regions_unexplored.world.level.feature.configuration.HyacinthStockConfiguration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
@@ -16,6 +11,11 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.world.level.block.plant.aquatic.TallHyacinthStockBlock;
+import net.regions_unexplored.world.level.block.state.properties.TallHyacinthStockShape;
+import net.regions_unexplored.world.level.feature.configuration.HyacinthStockConfiguration;
 
 import java.util.Random;
 
@@ -60,7 +60,7 @@ public class HyacinthStockFeature extends Feature<HyacinthStockConfiguration> {
             level.setBlock(pos, stockConfiguration.stockProvider.getState(randomSource, pos), 2);
         }
         if(level.getBlockState(pos.below())== RuBlocks.TALL_HYACINTH_STOCK.defaultBlockState()){
-            level.setBlock(pos, stockConfiguration.stockProvider.getState(randomSource, pos).setValue(TallHyacinthStockBlock.SHAPE, TallHyacinthStockShape.BASE.TIP), 2);
+            level.setBlock(pos, stockConfiguration.stockProvider.getState(randomSource, pos).setValue(TallHyacinthStockBlock.SHAPE, TallHyacinthStockShape.TIP), 2);
             level.setBlock(pos.below(), stockConfiguration.stockProvider.getState(randomSource, pos.below()).setValue(TallHyacinthStockBlock.SHAPE, TallHyacinthStockShape.BASE_FRUSTUM), 2);
         }
         if(level.getBlockState(pos.below().below())== RuBlocks.TALL_HYACINTH_STOCK.defaultBlockState().setValue(TallHyacinthStockBlock.SHAPE, TallHyacinthStockShape.BASE_FRUSTUM)){

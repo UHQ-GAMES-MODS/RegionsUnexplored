@@ -1,9 +1,6 @@
 package net.regions_unexplored.world.level.feature;
 
 import com.mojang.serialization.Codec;
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
-import io.github.uhq_games.regions_unexplored.world.level.feature.configuration.LargePointedRedstoneConfiguration;
-import io.github.uhq_games.regions_unexplored.world.level.feature.configuration.PointedRedstoneUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
@@ -18,6 +15,9 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.phys.Vec3;
+import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.world.level.feature.configuration.LargePointedRedstoneConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.PointedRedstoneUtils;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;

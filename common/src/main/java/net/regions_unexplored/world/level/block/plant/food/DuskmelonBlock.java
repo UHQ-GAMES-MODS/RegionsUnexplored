@@ -1,7 +1,6 @@
 package net.regions_unexplored.world.level.block.plant.food;
 
 import com.mojang.serialization.MapCodec;
-import io.github.uhq_games.regions_unexplored.item.RuItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -9,6 +8,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -26,6 +26,7 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.regions_unexplored.item.RuItems;
 
 public class DuskmelonBlock extends BushBlock implements BonemealableBlock {
    public static final MapCodec<? extends DuskmelonBlock> CODEC = simpleCodec(DuskmelonBlock::new);
@@ -71,20 +72,21 @@ public class DuskmelonBlock extends BushBlock implements BonemealableBlock {
       }
    }
 
-   public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+   @Override
+   protected ItemInteractionResult useItemOn(ItemStack stack, BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
       int i = blockState.getValue(AGE);
       boolean flag = i == 2;
       if (!flag && player.getItemInHand(interactionHand).is(Items.BONE_MEAL)) {
-         return InteractionResult.PASS;
+         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
       } else if (i > 1) {
          popResource(level, blockPos, new ItemStack(RuItems.DUSKMELON_SLICE, 1));
          level.playSound(null, blockPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
          BlockState blockstate = blockState.setValue(AGE, 0);
          level.setBlock(blockPos, blockstate, 2);
          level.gameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Context.of(player, blockstate));
-         return InteractionResult.sidedSuccess(level.isClientSide);
+         return ItemInteractionResult.sidedSuccess(level.isClientSide);
       } else {
-         return super.use(blockState, level, blockPos, player, interactionHand, blockHitResult);
+         return super.useItemOn(stack, blockState, level, blockPos, player, interactionHand, blockHitResult);
       }
    }
 

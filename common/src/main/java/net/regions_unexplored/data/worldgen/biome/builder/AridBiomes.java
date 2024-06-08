@@ -1,8 +1,5 @@
 package net.regions_unexplored.data.worldgen.biome.builder;
 
-import io.github.uhq_games.regions_unexplored.data.worldgen.RuBiomeDefaultFeatures;
-import io.github.uhq_games.regions_unexplored.data.worldgen.placement.RuTreePlacements;
-import io.github.uhq_games.regions_unexplored.data.worldgen.placement.RuVegetationPlacements;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
@@ -15,6 +12,9 @@ import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.regions_unexplored.data.worldgen.RuBiomeDefaultFeatures;
+import net.regions_unexplored.data.worldgen.placement.RuTreePlacements;
+import net.regions_unexplored.data.worldgen.placement.RuVegetationPlacements;
 
 public class AridBiomes {
     protected static final int NORMAL_WATER_COLOR = 4159204;

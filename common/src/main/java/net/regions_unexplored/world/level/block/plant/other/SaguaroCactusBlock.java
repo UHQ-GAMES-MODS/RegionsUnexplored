@@ -1,8 +1,5 @@
 package net.regions_unexplored.world.level.block.plant.other;
 
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
-import io.github.uhq_games.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
-import io.github.uhq_games.regions_unexplored.world.level.block.state.properties.SaguaroCactusShape;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -11,6 +8,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
+import net.regions_unexplored.world.level.block.state.properties.SaguaroCactusShape;
 
 public class SaguaroCactusBlock extends Block {
     public static final EnumProperty<SaguaroCactusShape> SHAPE = RuBlockStateProperties.CACTUS_SHAPE;

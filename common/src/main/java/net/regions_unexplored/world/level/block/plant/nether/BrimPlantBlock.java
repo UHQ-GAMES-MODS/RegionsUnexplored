@@ -1,7 +1,6 @@
 package net.regions_unexplored.world.level.block.plant.nether;
 
 import com.mojang.serialization.MapCodec;
-import io.github.uhq_games.regions_unexplored.data.tags.RuTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
@@ -10,6 +9,7 @@ import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.regions_unexplored.data.tags.RuTags;
 
 public class BrimPlantBlock extends BushBlock {
     public static final MapCodec<? extends BrimPlantBlock> CODEC = simpleCodec(BrimPlantBlock::new);

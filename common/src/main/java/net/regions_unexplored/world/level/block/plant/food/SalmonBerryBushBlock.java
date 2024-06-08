@@ -1,7 +1,6 @@
 package net.regions_unexplored.world.level.block.plant.food;
 
 import com.mojang.serialization.MapCodec;
-import io.github.uhq_games.regions_unexplored.item.RuItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -9,6 +8,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -30,6 +30,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.regions_unexplored.item.RuItems;
 
 public class SalmonBerryBushBlock extends BushBlock implements BonemealableBlock {
    public static final MapCodec<? extends SalmonBerryBushBlock> CODEC = simpleCodec(SalmonBerryBushBlock::new);
@@ -87,20 +88,21 @@ public class SalmonBerryBushBlock extends BushBlock implements BonemealableBlock
       }
    }
 
-   public InteractionResult use(BlockState p_57275_, Level p_57276_, BlockPos p_57277_, Player p_57278_, InteractionHand p_57279_, BlockHitResult p_57280_) {
-      int i = p_57275_.getValue(AGE);
+   @Override
+   protected ItemInteractionResult useItemOn(ItemStack stack, BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+      int i = blockState.getValue(AGE);
       boolean flag = i == 3;
-      if (!flag && p_57278_.getItemInHand(p_57279_).is(Items.BONE_MEAL)) {
-         return InteractionResult.PASS;
+      if (!flag && player.getItemInHand(interactionHand).is(Items.BONE_MEAL)) {
+         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
       } else if (i > 1) {
-         popResource(p_57276_, p_57277_, new ItemStack(RuItems.SALMONBERRY, flag ? 2 : 1));
-         p_57276_.playSound((Player)null, p_57277_, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + p_57276_.random.nextFloat() * 0.4F);
-         BlockState blockstate = p_57275_.setValue(AGE, Integer.valueOf(1));
-         p_57276_.setBlock(p_57277_, blockstate, 2);
-         p_57276_.gameEvent(GameEvent.BLOCK_CHANGE, p_57277_, GameEvent.Context.of(p_57278_, blockstate));
-         return InteractionResult.sidedSuccess(p_57276_.isClientSide);
+         popResource(level, blockPos, new ItemStack(RuItems.SALMONBERRY, flag ? 2 : 1));
+         level.playSound((Player)null, blockPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
+         BlockState blockstate = blockState.setValue(AGE, Integer.valueOf(1));
+         level.setBlock(blockPos, blockstate, 2);
+         level.gameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Context.of(player, blockstate));
+         return ItemInteractionResult.sidedSuccess(level.isClientSide);
       } else {
-         return super.use(p_57275_, p_57276_, p_57277_, p_57278_, p_57279_, p_57280_);
+         return super.useItemOn(stack, blockState, level, blockPos, player, interactionHand, blockHitResult);
       }
    }
 

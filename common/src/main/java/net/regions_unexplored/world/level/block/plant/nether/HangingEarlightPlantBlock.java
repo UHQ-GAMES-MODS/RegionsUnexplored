@@ -1,12 +1,12 @@
 package net.regions_unexplored.world.level.block.plant.nether;
 
 import com.mojang.serialization.MapCodec;
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.GrowingPlantBodyBlock;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.regions_unexplored.block.RuBlocks;
 
 public class HangingEarlightPlantBlock extends GrowingPlantBodyBlock {
     public static final MapCodec<? extends HangingEarlightPlantBlock> CODEC = simpleCodec(HangingEarlightPlantBlock::new);

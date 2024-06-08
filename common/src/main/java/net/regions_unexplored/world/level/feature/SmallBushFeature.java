@@ -1,8 +1,6 @@
 package net.regions_unexplored.world.level.feature;
 
 import com.mojang.serialization.Codec;
-import io.github.uhq_games.regions_unexplored.data.tags.RuTags;
-import io.github.uhq_games.regions_unexplored.world.level.feature.configuration.SmallBushConfiguration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
@@ -13,6 +11,8 @@ import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.world.level.feature.configuration.SmallBushConfiguration;
 
 import java.util.Random;
 

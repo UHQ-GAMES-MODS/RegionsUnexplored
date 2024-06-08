@@ -1,6 +1,6 @@
 package net.regions_unexplored.world.features.treedecorators;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.Blocks;
@@ -13,7 +13,7 @@ import net.regions_unexplored.data.tags.RuTags;
 
 public class BlackwoodBioshroom extends TreeDecorator {
 	public static final BlackwoodBioshroom INSTANCE = new BlackwoodBioshroom();
-	public static final Codec<BlackwoodBioshroom> CODEC = Codec.unit(() -> INSTANCE);
+	public static final MapCodec<BlackwoodBioshroom> CODEC = MapCodec.unit(() -> INSTANCE);
 
 	@Override
 	protected TreeDecoratorType<?> type() {

@@ -1,8 +1,6 @@
 package net.regions_unexplored.world.level.feature;
 
 import com.mojang.serialization.Codec;
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
-import io.github.uhq_games.regions_unexplored.world.level.block.plant.aquatic.GiantLilyBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.WorldGenLevel;
@@ -10,6 +8,8 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.material.Fluids;
+import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.world.level.block.plant.aquatic.GiantLilyBlock;
 
 public class GiantLilyPadFeature extends Feature<NoneFeatureConfiguration> {
 

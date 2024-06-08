@@ -1,8 +1,5 @@
 package net.regions_unexplored.world.level.block.plant.aquatic;
 
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
-import io.github.uhq_games.regions_unexplored.world.level.block.state.properties.TallHyacinthStockShape;
-import io.github.uhq_games.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
@@ -22,6 +19,9 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
+import net.regions_unexplored.world.level.block.state.properties.TallHyacinthStockShape;
 import org.jetbrains.annotations.Nullable;
 
 public class TallHyacinthStockBlock extends Block implements LiquidBlockContainer {

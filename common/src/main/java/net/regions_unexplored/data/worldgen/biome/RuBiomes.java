@@ -1,10 +1,9 @@
 package net.regions_unexplored.data.worldgen.biome;
 
-import io.github.uhq_games.regions_unexplored.RegionsUnexplored;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
+import net.regions_unexplored.Constants;
 
 public class RuBiomes {
     public static ResourceKey<Biome> ALPHA_GROVE = createKey("alpha_grove");
@@ -82,6 +81,6 @@ public class RuBiomes {
     public static ResourceKey<Biome> DARK_ABYSS_HIGHLANDS = createKey("dark_abyss_highlands");
 
     public static ResourceKey<Biome> createKey(String name) {
-        return ResourceKey.create(Registries.BIOME, new ResourceLocation(RegionsUnexplored.MODID, name));
+        return ResourceKey.create(Registries.BIOME, Constants.id(name));
     }
 }

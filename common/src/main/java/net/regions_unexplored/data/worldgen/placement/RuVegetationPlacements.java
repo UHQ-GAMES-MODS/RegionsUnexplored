@@ -1,11 +1,9 @@
 package net.regions_unexplored.data.worldgen.placement;
 
-import io.github.uhq_games.regions_unexplored.data.worldgen.features.RuVegetationFeatures;
-import io.github.uhq_games.regions_unexplored.registry.PlacedFeatureRegistry;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
@@ -15,6 +13,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
+import net.regions_unexplored.data.worldgen.features.RuVegetationFeatures;
+import net.regions_unexplored.registry.PlacedFeatureRegistry;
 
 import java.util.List;
 
@@ -177,7 +177,7 @@ public class RuVegetationPlacements {
     public static final ResourceKey<PlacedFeature> PRAIRIE_TREES = PlacedFeatureRegistry.createKey("prairie_trees");
 
 
-    public static void bootstrap(BootstapContext<PlacedFeature> context) {
+    public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> featureGetter = context.lookup(Registries.CONFIGURED_FEATURE);
 
         //---------------------FEATURES---------------------//
@@ -485,11 +485,11 @@ public class RuVegetationPlacements {
         register(context, RuVegetationPlacements.BLADED_GRASS_BONEMEAL, BLADED_GRASS_BONEMEAL, PlacementUtils.isEmpty());
     }
 
-    protected static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> feature, PlacementModifier... placement) {
+    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> feature, PlacementModifier... placement) {
         register(context, key, feature, List.of(placement));
     }
 
-    protected static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> feature, List<PlacementModifier> placement) {
+    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> feature, List<PlacementModifier> placement) {
         context.register(key, new PlacedFeature(feature, placement));
     }
 }

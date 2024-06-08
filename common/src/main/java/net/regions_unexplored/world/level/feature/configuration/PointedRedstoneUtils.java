@@ -1,7 +1,5 @@
 package net.regions_unexplored.world.level.feature.configuration;
 
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
-import io.github.uhq_games.regions_unexplored.world.level.block.cave.PointedRedstoneBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
@@ -11,6 +9,8 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DripstoneThickness;
+import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.world.level.block.cave.PointedRedstoneBlock;
 
 import java.util.function.Consumer;
 

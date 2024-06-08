@@ -1,16 +1,15 @@
 package net.regions_unexplored.data.worldgen.biome.surface;
 
 import com.google.common.collect.ImmutableList;
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
-import io.github.uhq_games.regions_unexplored.config.RegionsUnexploredConfig;
-import io.github.uhq_games.regions_unexplored.data.noise.RuNoises;
-import io.github.uhq_games.regions_unexplored.data.noise.RuleWeight;
-import io.github.uhq_games.regions_unexplored.data.worldgen.biome.RuBiomes;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Noises;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
+import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.data.noise.RuNoises;
+import net.regions_unexplored.data.noise.RuleWeight;
+import net.regions_unexplored.data.worldgen.biome.RuBiomes;
 
 public class RuSurfaceRuleData {
     //FILL_BLOCKS

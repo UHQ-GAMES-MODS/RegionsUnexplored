@@ -1,12 +1,9 @@
 package net.regions_unexplored.data.worldgen;
 
-import io.github.uhq_games.regions_unexplored.data.worldgen.placement.RuMiscOverworldPlacements;
-import io.github.uhq_games.regions_unexplored.data.worldgen.placement.RuNetherPlacements;
-import io.github.uhq_games.regions_unexplored.data.worldgen.placement.RuTreePlacements;
-import io.github.uhq_games.regions_unexplored.data.worldgen.placement.RuVegetationPlacements;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.regions_unexplored.data.worldgen.placement.*;
 
 public class RuBiomeDefaultFeatures {
 

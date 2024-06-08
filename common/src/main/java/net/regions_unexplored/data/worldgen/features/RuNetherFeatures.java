@@ -1,17 +1,10 @@
 package net.regions_unexplored.data.worldgen.features;
 
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
-import io.github.uhq_games.regions_unexplored.registry.ConfiguredFeatureRegistry;
-import io.github.uhq_games.regions_unexplored.registry.FeatureRegistry;
-import io.github.uhq_games.regions_unexplored.world.level.block.plant.flower.GroundCoverBlock;
-import io.github.uhq_games.regions_unexplored.world.level.feature.configuration.LargePointedRedstoneConfiguration;
-import io.github.uhq_games.regions_unexplored.world.level.feature.configuration.PointedRedstoneClusterConfiguration;
-import io.github.uhq_games.regions_unexplored.world.level.feature.configuration.PointedRedstoneConfiguration;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
@@ -30,6 +23,13 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.placement.EnvironmentScanPlacement;
 import net.minecraft.world.level.levelgen.placement.RandomOffsetPlacement;
+import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.ConfiguredFeatureRegistry;
+import net.regions_unexplored.registry.FeatureRegistry;
+import net.regions_unexplored.world.level.block.plant.flower.GroundCoverBlock;
+import net.regions_unexplored.world.level.feature.configuration.LargePointedRedstoneConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.PointedRedstoneClusterConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.PointedRedstoneConfiguration;
 
 public class RuNetherFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_YELLOW_BIOSHROOM = ConfiguredFeatureRegistry.createKey("small_yellow_bioshroom");
@@ -66,7 +66,7 @@ public class RuNetherFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> COBALT_NYLIUM_BONEMEAL = ConfiguredFeatureRegistry.createKey("cobalt_nylium_bonemeal");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BRIMSPROUT_NYLIUM_BONEMEAL = ConfiguredFeatureRegistry.createKey("brimsprout_nylium_bonemeal");
 
-    public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
+    public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<ConfiguredFeature<?, ?>> holderGetter = context.lookup(Registries.CONFIGURED_FEATURE);
 
         SimpleWeightedRandomList.Builder<BlockState> mycotoxicMushroomsBuilder = SimpleWeightedRandomList.builder();
@@ -140,7 +140,7 @@ public class RuNetherFeatures {
         return FeatureUtils.simpleRandomPatchConfiguration(i, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(stateProvider)));
     }
 
-    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC config) {
+    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC config) {
         context.register(key, new ConfiguredFeature<>(feature, config));
     }
 }

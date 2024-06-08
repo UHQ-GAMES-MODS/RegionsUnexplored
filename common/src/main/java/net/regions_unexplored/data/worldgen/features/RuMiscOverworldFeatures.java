@@ -1,19 +1,10 @@
 package net.regions_unexplored.data.worldgen.features;
 
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
-import io.github.uhq_games.regions_unexplored.registry.ConfiguredFeatureRegistry;
-import io.github.uhq_games.regions_unexplored.registry.FeatureRegistry;
-import io.github.uhq_games.regions_unexplored.world.level.block.other.AshBlock;
-import io.github.uhq_games.regions_unexplored.world.level.block.wood.AspenLogBlock;
-import io.github.uhq_games.regions_unexplored.world.level.feature.configuration.FallenTreeConfiguration;
-import io.github.uhq_games.regions_unexplored.world.level.feature.configuration.LargePointedRedstoneConfiguration;
-import io.github.uhq_games.regions_unexplored.world.level.feature.configuration.PointedRedstoneClusterConfiguration;
-import io.github.uhq_games.regions_unexplored.world.level.feature.configuration.PointedRedstoneConfiguration;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.CaveFeatures;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
@@ -40,6 +31,15 @@ import net.minecraft.world.level.levelgen.placement.EnvironmentScanPlacement;
 import net.minecraft.world.level.levelgen.placement.RandomOffsetPlacement;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
+import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.ConfiguredFeatureRegistry;
+import net.regions_unexplored.registry.FeatureRegistry;
+import net.regions_unexplored.world.level.block.other.AshBlock;
+import net.regions_unexplored.world.level.block.wood.AspenLogBlock;
+import net.regions_unexplored.world.level.feature.configuration.FallenTreeConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.LargePointedRedstoneConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.PointedRedstoneClusterConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.PointedRedstoneConfiguration;
 
 import java.util.List;
 
@@ -85,7 +85,7 @@ public class RuMiscOverworldFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NOISE_ROCKS = ConfiguredFeatureRegistry.createKey("patch_noise_rocks");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NOISE_BUSH = ConfiguredFeatureRegistry.createKey("patch_noise_bush");
 
-    public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
+    public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<ConfiguredFeature<?, ?>> holderGetter = context.lookup(Registries.CONFIGURED_FEATURE);
         RuleTest baseStoneTest = new TagMatchTest(BlockTags.BASE_STONE_OVERWORLD);
         RuleTest stoneOreTest = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
@@ -139,7 +139,7 @@ public class RuMiscOverworldFeatures {
         return FeatureUtils.simpleRandomPatchConfiguration(i, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(stateProvider)));
     }
 
-    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC config) {
+    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC config) {
         context.register(key, new ConfiguredFeature<>(feature, config));
     }
 }

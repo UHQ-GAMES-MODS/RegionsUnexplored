@@ -2,7 +2,6 @@ package net.regions_unexplored.world.level.block.plant.sapling;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import io.github.uhq_games.regions_unexplored.block.sapling.RuUltraFromSuperTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -18,6 +17,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.regions_unexplored.block.sapling.RuUltraFromSuperTreeGrower;
 
 public class RuUltraFromSuperSaplingBlock extends BushBlock implements BonemealableBlock {
     protected final RuUltraFromSuperTreeGrower treeGrower;
