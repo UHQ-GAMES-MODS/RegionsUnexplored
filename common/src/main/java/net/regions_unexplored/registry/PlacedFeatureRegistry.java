@@ -1,18 +1,18 @@
 package net.regions_unexplored.registry;
 
-import io.github.uhq_games.regions_unexplored.RegionsUnexplored;
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
-import io.github.uhq_games.regions_unexplored.data.worldgen.placement.*;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.regions_unexplored.Constants;
+import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.data.worldgen.placement.*;
 
 public class PlacedFeatureRegistry {
-    public static void bootstrap(BootstapContext<PlacedFeature> context) {
+    public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         RuAquaticPlacements.bootstrap(context);
         RuMiscOverworldPlacements.bootstrap(context);
         RuNetherPlacements.bootstrap(context);
@@ -21,7 +21,7 @@ public class PlacedFeatureRegistry {
     }
 
     public static ResourceKey<PlacedFeature> createKey(String name) {
-        return ResourceKey.create(Registries.PLACED_FEATURE, RegionsUnexplored.ID(name));
+        return ResourceKey.create(Registries.PLACED_FEATURE, Constants.id(name));
     }
 
     public static BlockPredicate onDirtPredicate = BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL, Blocks.COARSE_DIRT, Blocks.DIRT, RuBlocks.PEAT_DIRT, RuBlocks.SILT_DIRT, RuBlocks.PEAT_COARSE_DIRT, RuBlocks.SILT_COARSE_DIRT, RuBlocks.PEAT_PODZOL, RuBlocks.SILT_PODZOL);

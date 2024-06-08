@@ -13,6 +13,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraft.world.level.material.Fluids;
+import net.regions_unexplored.RegionsUnexplored;
 
 public class SakuraFoliagePlacer extends FoliagePlacer {
     public static final Codec<SakuraFoliagePlacer> CODEC = RecordCodecBuilder.create((placer) -> foliagePlacerParts(placer).and(placer.group(

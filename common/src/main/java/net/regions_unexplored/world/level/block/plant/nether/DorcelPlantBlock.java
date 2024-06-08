@@ -1,7 +1,5 @@
 package net.regions_unexplored.world.level.block.plant.nether;
 
-import io.github.uhq_games.regions_unexplored.data.tags.RuTags;
-import io.github.uhq_games.regions_unexplored.entity.RuDamageTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
@@ -14,6 +12,8 @@ import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.entity.RuDamageTypes;
 
 public class DorcelPlantBlock extends FlowerBlock {
     protected static final float AABB_OFFSET = 6.0F;

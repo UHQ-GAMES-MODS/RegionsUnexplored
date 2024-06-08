@@ -1,18 +1,5 @@
 package net.regions_unexplored.registry;
 
-import io.github.uhq_games.regions_unexplored.RegionsUnexplored;
-import io.github.uhq_games.regions_unexplored.block.sapling.RuUltraFromMegaTreeGrower;
-import io.github.uhq_games.regions_unexplored.block.sapling.RuUltraFromSuperTreeGrower;
-import io.github.uhq_games.regions_unexplored.world.level.block.leaves.*;
-import io.github.uhq_games.regions_unexplored.world.level.block.plant.sapling.RuUltraFromMegaSaplingBlock;
-import io.github.uhq_games.regions_unexplored.world.level.block.plant.sapling.RuUltraFromSuperSaplingBlock;
-import io.github.uhq_games.regions_unexplored.world.level.block.sign.RuCeilingHangingSignBlock;
-import io.github.uhq_games.regions_unexplored.world.level.block.sign.RuStandingSignBlock;
-import io.github.uhq_games.regions_unexplored.world.level.block.sign.RuWallHangingSignBlock;
-import io.github.uhq_games.regions_unexplored.world.level.block.sign.RuWallSignBlock;
-import io.github.uhq_games.regions_unexplored.world.level.block.wood.AspenLogBlock;
-import io.github.uhq_games.regions_unexplored.world.level.block.wood.MagmaLogBlock;
-import io.github.uhq_games.regions_unexplored.world.level.block.wood.PineLogBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
@@ -28,18 +15,24 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
+import net.regions_unexplored.Constants;
+import net.regions_unexplored.block.sapling.*;
+import net.regions_unexplored.world.level.block.leaves.*;
+import net.regions_unexplored.world.level.block.plant.sapling.*;
+import net.regions_unexplored.world.level.block.sign.*;
+import net.regions_unexplored.world.level.block.wood.*;
 
 public class BlockRegistry {
     //Register default blocks and items
     public static Block registerDefaultBlock(String name, Block block) {
-        Block toReturn = Registry.register(BuiltInRegistries.BLOCK, RegionsUnexplored.ID(name), block);
+        Block toReturn = Registry.register(BuiltInRegistries.BLOCK, Constants.id(name), block);
         ItemRegistry.registerDefaultBlockItem(name, toReturn);
         return toReturn;
     }
 
     //Register default block without item
     public static Block registerDefaultBlockNoItem(String name, Block block) {
-        Block toReturn = Registry.register(BuiltInRegistries.BLOCK, RegionsUnexplored.ID(name), block);
+        Block toReturn = Registry.register(BuiltInRegistries.BLOCK, Constants.id(name), block);
         return toReturn;
     }
 
@@ -61,7 +54,7 @@ public class BlockRegistry {
 
     //Register Duckweed block and item
     public static Block registerPlaceOnWaterBlock(String name, Block block) {
-        Block toReturn = Registry.register(BuiltInRegistries.BLOCK, RegionsUnexplored.ID(name), block);
+        Block toReturn = Registry.register(BuiltInRegistries.BLOCK, Constants.id(name), block);
         ItemRegistry.registerPlaceOnWaterItem(name, toReturn);
         return toReturn;
     }

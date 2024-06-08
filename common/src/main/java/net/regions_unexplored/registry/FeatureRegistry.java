@@ -1,19 +1,15 @@
 package net.regions_unexplored.registry;
 
-import io.github.uhq_games.regions_unexplored.RegionsUnexplored;
-import io.github.uhq_games.regions_unexplored.world.level.feature.*;
-import io.github.uhq_games.regions_unexplored.world.level.feature.bioshroom.GiantBlueBioshroomFeature;
-import io.github.uhq_games.regions_unexplored.world.level.feature.bioshroom.GiantGreenBioshroomFeature;
-import io.github.uhq_games.regions_unexplored.world.level.feature.bioshroom.GiantPinkBioshroomFeature;
-import io.github.uhq_games.regions_unexplored.world.level.feature.bioshroom.GiantYellowBioshroomFeature;
-import io.github.uhq_games.regions_unexplored.world.level.feature.configuration.*;
-import io.github.uhq_games.regions_unexplored.world.level.feature.tree.*;
-import io.github.uhq_games.regions_unexplored.world.level.feature.tree.nether.BrimWillowFeature;
-import io.github.uhq_games.regions_unexplored.world.level.feature.tree.nether.TallBrimWillowFeature;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
+import net.regions_unexplored.Constants;
+import net.regions_unexplored.world.level.feature.*;
+import net.regions_unexplored.world.level.feature.bioshroom.*;
+import net.regions_unexplored.world.level.feature.configuration.*;
+import net.regions_unexplored.world.level.feature.tree.*;
+import net.regions_unexplored.world.level.feature.tree.nether.*;
 
 public class FeatureRegistry {
     //BIOSHROOMS
@@ -96,81 +92,81 @@ public class FeatureRegistry {
 
     public static void addFeatures() {
         //BIOSHROOMS
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("giant_blue_bioshroom"), GIANT_BLUE_BIOSHROOM);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("giant_green_bioshroom"), GIANT_GREEN_BIOSHROOM);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("giant_pink_bioshroom"), GIANT_PINK_BIOSHROOM);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("giant_yellow_bioshroom"), GIANT_YELLOW_BIOSHROOM);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("small_yellow_bioshroom"), SMALL_YELLOW_BIOSHROOM);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("giant_blue_bioshroom"), GIANT_BLUE_BIOSHROOM);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("giant_green_bioshroom"), GIANT_GREEN_BIOSHROOM);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("giant_pink_bioshroom"), GIANT_PINK_BIOSHROOM);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("giant_yellow_bioshroom"), GIANT_YELLOW_BIOSHROOM);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("small_yellow_bioshroom"), SMALL_YELLOW_BIOSHROOM);
         //TREES
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("ashen_tree"),ASHEN_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("aspen_tree"),ASPEN_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("bamboo_tree"),BAMBOO_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("blackwood_tree"),BLACKWOOD_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("cobalt_tree"),COBALT_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("cypress_tree"),CYPRESS_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("dead_tree"),DEAD_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("eucalyptus_tree"),EUCALYPTUS_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("giant_cypress_tree"),GIANT_CYPRESS_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("kapok_tree"),KAPOK_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("larch_tree"),LARCH_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("large_joshua_tree"),LARGE_JOSHUA_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("large_socotra_tree"),LARGE_SOCOTRA_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("lush_pine_tree"),LUSH_PINE_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("maple_tree"),MAPLE_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("medium_joshua_tree"),MEDIUM_JOSHUA_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("mega_baobab_tree"),MEGA_BAOBAB_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("palm_tree"),PALM_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("pine_tree"),PINE_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("redwood_tree"),REDWOOD_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("saguaro_cactus"),SAGUARO_CACTUS);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("sakura_tree"),SAKURA_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("small_eucalyptus_tree"),SMALL_EUCALYPTUS_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("small_joshua_tree"),SMALL_JOSHUA_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("small_oak_tree"),SMALL_OAK_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("small_socotra_tree"),SMALL_SOCOTRA_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("stripped_pine_tree"),STRIPPED_PINE_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("super_redwood_tree"),SUPER_REDWOOD_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("ultra_baobab_tree"),ULTRA_BAOBAB_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("ultra_redwood_tree"),ULTRA_REDWOOD_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("ashen_tree"),ASHEN_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("aspen_tree"),ASPEN_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("bamboo_tree"),BAMBOO_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("blackwood_tree"),BLACKWOOD_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("cobalt_tree"),COBALT_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("cypress_tree"),CYPRESS_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("dead_tree"),DEAD_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("eucalyptus_tree"),EUCALYPTUS_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("giant_cypress_tree"),GIANT_CYPRESS_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("kapok_tree"),KAPOK_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("larch_tree"),LARCH_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("large_joshua_tree"),LARGE_JOSHUA_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("large_socotra_tree"),LARGE_SOCOTRA_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("lush_pine_tree"),LUSH_PINE_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("maple_tree"),MAPLE_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("medium_joshua_tree"),MEDIUM_JOSHUA_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("mega_baobab_tree"),MEGA_BAOBAB_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("palm_tree"),PALM_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("pine_tree"),PINE_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("redwood_tree"),REDWOOD_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("saguaro_cactus"),SAGUARO_CACTUS);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("sakura_tree"),SAKURA_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("small_eucalyptus_tree"),SMALL_EUCALYPTUS_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("small_joshua_tree"),SMALL_JOSHUA_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("small_oak_tree"),SMALL_OAK_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("small_socotra_tree"),SMALL_SOCOTRA_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("stripped_pine_tree"),STRIPPED_PINE_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("super_redwood_tree"),SUPER_REDWOOD_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("ultra_baobab_tree"),ULTRA_BAOBAB_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("ultra_redwood_tree"),ULTRA_REDWOOD_TREE);
         //CAVE
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("scorch_vent"), ASH_VENT);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("basalt_blob"), BASALT_BLOB);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("dropleaf"), DROPLEAF);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("hanging_prismarite"), HANGING_PRISMARITE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("large_pointed_redstone"), LARGE_POINTED_REDSTONE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("lava_fall"), LAVA_FALL);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("overworld_lava_delta"), OVERWORLD_LAVA_DELTA);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("pointed_redstone"), POINTED_REDSTONE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("pointed_redstone_cluster"), POINTED_REDSTONE_CLUSTER);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("scorch_vent"), ASH_VENT);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("basalt_blob"), BASALT_BLOB);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("dropleaf"), DROPLEAF);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("hanging_prismarite"), HANGING_PRISMARITE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("large_pointed_redstone"), LARGE_POINTED_REDSTONE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("lava_fall"), LAVA_FALL);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("overworld_lava_delta"), OVERWORLD_LAVA_DELTA);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("pointed_redstone"), POINTED_REDSTONE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("pointed_redstone_cluster"), POINTED_REDSTONE_CLUSTER);
         //NETHER
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("brim_willow"), BRIM_WILLOW);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("tall_brim_willow"), TALL_BRIM_WILLOW);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("brim_willow"), BRIM_WILLOW);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("tall_brim_willow"), TALL_BRIM_WILLOW);
         //VEGETATION
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("giant_lily"), GIANT_LILY);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("shrub"), SHRUB);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("tree_shrub"), TREE_SHRUB);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("giant_lily"), GIANT_LILY);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("shrub"), SHRUB);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("tree_shrub"), TREE_SHRUB);
         //DECORATION
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("air_multiface_growth"), AIR_MULTIFACE_GROWTH);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("fallen_blob_tree"), FALLEN_BLOB_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("fallen_snow_tree"), FALLEN_SNOW_TREE);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("icicle_up"), ICICLE_UP);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("meadow_rock"), MEADOW_ROCK);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("rock"), ROCK);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("smouldering_dirt"), SMOULDERING_DIRT);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("spire"), SPIRE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("air_multiface_growth"), AIR_MULTIFACE_GROWTH);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("fallen_blob_tree"), FALLEN_BLOB_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("fallen_snow_tree"), FALLEN_SNOW_TREE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("icicle_up"), ICICLE_UP);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("meadow_rock"), MEADOW_ROCK);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("rock"), ROCK);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("smouldering_dirt"), SMOULDERING_DIRT);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("spire"), SPIRE);
         //AQUATIC
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("fen_cattail"), FEN_CATTAIL);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("hyacinth_plants"), HYACINTH_PLANTS);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("marsh"), MARSH);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("ocean_rock"), OCEAN_ROCK);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("rock_pillar"), ROCK_PILLAR);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("tall_hyacinth_stock"), TALL_HYACINTH_STOCK);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("water_cattail"), WATER_CATTAIL);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("water_edge"), WATER_EDGE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("fen_cattail"), FEN_CATTAIL);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("hyacinth_plants"), HYACINTH_PLANTS);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("marsh"), MARSH);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("ocean_rock"), OCEAN_ROCK);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("rock_pillar"), ROCK_PILLAR);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("tall_hyacinth_stock"), TALL_HYACINTH_STOCK);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("water_cattail"), WATER_CATTAIL);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("water_edge"), WATER_EDGE);
         //NETHER
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("glistering_ivy"), GLISTERING_IVY);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("hanging_earlight"), HANGING_EARLIGHT);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("nether_rock"), NETHER_ROCK);
-        Registry.register(BuiltInRegistries.FEATURE, RegionsUnexplored.ID("obsidian_spire"), OBSIDIAN_SPIRE);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("glistering_ivy"), GLISTERING_IVY);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("hanging_earlight"), HANGING_EARLIGHT);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("nether_rock"), NETHER_ROCK);
+        Registry.register(BuiltInRegistries.FEATURE, Constants.id("obsidian_spire"), OBSIDIAN_SPIRE);
     }
 }

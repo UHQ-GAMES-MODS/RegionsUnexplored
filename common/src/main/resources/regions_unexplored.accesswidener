@@ -1,0 +1,5 @@
+accessWidener   v1    named
+
+accessible field net/minecraft/world/entity/vehicle/Boat DATA_ID_TYPE Lnet/minecraft/network/syncher/EntityDataAccessor;
+accessible field net/minecraft/world/entity/vehicle/Boat status Lnet/minecraft/world/entity/vehicle/Boat$Status;
+accessible field net/minecraft/world/entity/vehicle/Boat lastYd D
