@@ -9,6 +9,7 @@ import net.regions_unexplored.mixin.invoke.*;
 import net.regions_unexplored.platform.Services;
 import net.regions_unexplored.world.features.foliageplacers.*;
 import net.regions_unexplored.world.features.treedecorators.*;
+import terrablender.api.SurfaceRuleManager;
 
 
 // This class is part of the common project meaning it is shared between all supported loaders. Code written here can only
@@ -23,6 +24,10 @@ public class RegionsUnexplored {
     public static final TreeDecoratorType<BlackwoodBioshroom> BLACKWOOD_BIOSHROOM = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:blackwood_bioshrooms", BlackwoodBioshroom.CODEC);
     public static final TreeDecoratorType<ChanceWillowTrunkDecorator> CHANCE_WILLOW_TRUNK_DECORATOR = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:chance_willow_trunk_decorator", ChanceWillowTrunkDecorator.CODEC);
     public static final TreeDecoratorType<WillowTrunkDecorator> WILLOW_TRUNK_DECORATOR = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:willow_trunk_decorator", WillowTrunkDecorator.CODEC);
+
+    public static SurfaceRules.RuleSource getSurfaceRules(SurfaceRules.RuleSource fallBack) {
+        return SurfaceRuleManager.getNamespacedRules(SurfaceRuleManager.RuleCategory.NETHER, fallBack);
+    }
 
     // The loader specific projects are able to import and use any code from the common project. This allows you to
     // write the majority of your code here and load it from your loader specific projects. This example has some

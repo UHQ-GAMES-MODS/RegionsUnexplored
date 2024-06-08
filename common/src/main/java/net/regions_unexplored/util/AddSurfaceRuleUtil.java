@@ -12,6 +12,7 @@ import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.regions_unexplored.Constants;
+import net.regions_unexplored.RegionsUnexplored;
 import net.regions_unexplored.mixin.access.BiomeSourceAccess;
 import net.regions_unexplored.mixin.access.NoiseBasedChunkGeneratorAccess;
 import net.regions_unexplored.mixin.access.NoiseGeneratorSettingsAccess;

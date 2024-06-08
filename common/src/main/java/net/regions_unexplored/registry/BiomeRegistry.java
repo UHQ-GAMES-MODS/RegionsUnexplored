@@ -8,13 +8,28 @@ import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.regions_unexplored.Constants;
 import net.regions_unexplored.data.worldgen.biome.RuBiomes;
 import net.regions_unexplored.data.worldgen.biome.builder.*;
+import net.regions_unexplored.data.worldgen.biome.surface.RuSurfaceRuleData;
+import net.regions_unexplored.world.level.region.RuRegionNether;
+import net.regions_unexplored.world.level.region.RuRegionPrimary;
+import net.regions_unexplored.world.level.region.RuRegionSecondary;
+import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
 
 public class BiomeRegistry {
 
     public static void addBiomes() {
         registerVillagerTypes();
+    }
+
+    public static void setupTerrablender() {
+        Regions.register(new RuRegionPrimary(RegionsUnexploredConfig.REGION_PRIMARY_WEIGHT));
+        Regions.register(new RuRegionSecondary(RegionsUnexploredConfig.REGION_SECONDARY_WEIGHT));
+        Regions.register(new RuRegionNether(RegionsUnexploredConfig.REGION_NETHER_WEIGHT));
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.NETHER, Constants.MOD_ID, RuSurfaceRuleData.nether());
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, Constants.MOD_ID, RuSurfaceRuleData.overworld());
     }
 
     public static void bootstrap(BootstrapContext<Biome> context) {
