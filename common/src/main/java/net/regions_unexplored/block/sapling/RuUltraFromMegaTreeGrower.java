@@ -8,7 +8,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
@@ -26,7 +25,7 @@ public final class RuUltraFromMegaTreeGrower {
     private static final Map<String, RuUltraFromMegaTreeGrower> GROWERS = new Object2ObjectArrayMap<>();
 
     // TODO: Fix this codec
-    public static final Codec<RuUltraFromMegaTreeGrower> CODEC = ExtraCodecs.stringResolverCodec((grower) -> {
+    public static final Codec<RuUltraFromMegaTreeGrower> CODEC = Codec.stringResolver((grower) -> {
         return grower.name;
     }, GROWERS::get);
 
