@@ -26,7 +26,7 @@ public final class RuUltraFromSuperTreeGrower {
     private static final Map<String, RuUltraFromSuperTreeGrower> GROWERS = new Object2ObjectArrayMap<>();
 
     // TODO: Fix this codec
-    public static final Codec<RuUltraFromSuperTreeGrower> CODEC = ExtraCodecs.stringResolverCodec((grower) -> grower.name, GROWERS::get);
+    public static final Codec<RuUltraFromSuperTreeGrower> CODEC = Codec.stringResolver((grower) -> grower.name, GROWERS::get);
 
     private final String name;
     private final float secondaryChance;
