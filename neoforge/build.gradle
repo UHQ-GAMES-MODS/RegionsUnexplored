@@ -10,6 +10,14 @@ def at = file('src/main/resources/META-INF/accesstransformer.cfg')
 if (at.exists()) {
     minecraft.accessTransformers.file at
 }
+
+repositories {
+    maven {
+        name = "Fuzs Mod Resources"
+        url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
+    }
+}
+
 runs {
     configureEach {
         modSource project.sourceSets.main

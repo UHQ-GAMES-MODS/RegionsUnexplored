@@ -1,9 +1,23 @@
 package net.regions_unexplored;
 
+import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.NeoForgeConfigRegistry;
 import net.fabricmc.api.ModInitializer;
+import net.neoforged.fml.config.ModConfig;
+import net.regions_unexplored.config.RuCommonConfig;
+import net.regions_unexplored.config.RuPrimaryRegionConfig;
+import net.regions_unexplored.config.RuSecondaryRegionConfig;
+import net.regions_unexplored.registry.BiomeRegistry;
+import terrablender.api.TerraBlenderApi;
 
-public class RegionsUnexploredFabric implements ModInitializer {
-    
+public class RegionsUnexploredFabric implements ModInitializer, TerraBlenderApi {
+
+    static {
+        Constants.LOG.info("[Regions Unexplored] generating and loading config");
+        NeoForgeConfigRegistry.INSTANCE.register(Constants.MOD_ID, ModConfig.Type.COMMON, RuCommonConfig.SPEC, "regions_unexplored/regions_unexplored-common.toml");
+        NeoForgeConfigRegistry.INSTANCE.register(Constants.MOD_ID, ModConfig.Type.COMMON, RuPrimaryRegionConfig.SPEC, "regions_unexplored/regions_unexplored-primary-region.toml");
+        NeoForgeConfigRegistry.INSTANCE.register(Constants.MOD_ID, ModConfig.Type.COMMON, RuSecondaryRegionConfig.SPEC, "regions_unexplored/regions_unexplored-secondary-region.toml");
+    }
+
     @Override
     public void onInitialize() {
         
@@ -14,5 +28,10 @@ public class RegionsUnexploredFabric implements ModInitializer {
         // Use Fabric to bootstrap the Common mod.
         Constants.LOG.info("Hello Fabric world!");
         RegionsUnexplored.init();
+    }
+
+    @Override
+    public void onTerraBlenderInitialized() {
+        BiomeRegistry.setupTerrablender();
     }
 }
