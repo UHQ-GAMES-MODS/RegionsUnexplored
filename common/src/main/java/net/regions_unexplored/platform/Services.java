@@ -3,6 +3,7 @@ package net.regions_unexplored.platform;
 import net.regions_unexplored.Constants;
 import net.regions_unexplored.platform.services.IPlatformHelper;
 import net.regions_unexplored.platform.services.IRegistar;
+import net.regions_unexplored.platform.services.IRenderHelper;
 
 import java.util.ServiceLoader;
 
@@ -16,6 +17,7 @@ public class Services {
     // mod is loaded.
     public static final IPlatformHelper PLATFORM = load(IPlatformHelper.class);
     public static final IRegistar REGISTAR = load(IRegistar.class);
+    public static final IRenderHelper RENDERHELPER = load(IRenderHelper.class);
 
     // This code is used to load a service for the current environment. Your implementation of the service must be defined
     // manually by including a text file in META-INF/services named with the fully qualified class name of the service.
