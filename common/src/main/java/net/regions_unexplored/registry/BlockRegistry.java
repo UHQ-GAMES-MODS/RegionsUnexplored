@@ -22,11 +22,13 @@ import net.regions_unexplored.world.level.block.plant.sapling.*;
 import net.regions_unexplored.world.level.block.sign.*;
 import net.regions_unexplored.world.level.block.wood.*;
 
+import java.util.function.Supplier;
+
 public class BlockRegistry {
     //Register default blocks and items
     public static Block registerDefaultBlock(String name, Block block) {
         Block toReturn = Registry.register(BuiltInRegistries.BLOCK, Constants.id(name), block);
-        ItemRegistry.registerDefaultBlockItem(name, toReturn);
+        ItemRegistry.registerDefaultBlockItem(name, () -> toReturn);
         return toReturn;
     }
 

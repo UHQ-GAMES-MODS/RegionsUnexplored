@@ -14,6 +14,7 @@ minecraft {
 dependencies {
     compileOnly group:'org.spongepowered', name:'mixin', version:'0.8.5'
     compileOnly 'com.github.glitchfiend:TerraBlender-common:' + minecraft_version + '-' + terrablender_version
+    compileOnly 'fuzs.forgeconfigapiport:forgeconfigapiport-common-neoforgeapi:' + fcap_version
 }
 
 configurations {

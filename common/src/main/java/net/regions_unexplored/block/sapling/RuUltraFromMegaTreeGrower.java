@@ -24,6 +24,8 @@ import java.util.Optional;
 
 public final class RuUltraFromMegaTreeGrower {
     private static final Map<String, RuUltraFromMegaTreeGrower> GROWERS = new Object2ObjectArrayMap<>();
+
+    // TODO: Fix this codec
     public static final Codec<RuUltraFromMegaTreeGrower> CODEC = ExtraCodecs.stringResolverCodec((grower) -> {
         return grower.name;
     }, GROWERS::get);

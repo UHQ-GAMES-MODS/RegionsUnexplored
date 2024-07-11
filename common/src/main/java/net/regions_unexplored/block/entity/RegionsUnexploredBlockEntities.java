@@ -1,12 +1,12 @@
 package net.regions_unexplored.block.entity;
 
-import io.github.uhq_games.regions_unexplored.RegionsUnexplored;
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
-import io.github.uhq_games.regions_unexplored.block.entity.custom.RuHangingSignBlockEntity;
-import io.github.uhq_games.regions_unexplored.block.entity.custom.RuSignBlockEntity;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.regions_unexplored.Constants;
+import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.block.entity.custom.RuHangingSignBlockEntity;
+import net.regions_unexplored.block.entity.custom.RuSignBlockEntity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -75,6 +75,6 @@ public class RegionsUnexploredBlockEntities {
     }
 
     private static BlockEntityType registerBlockEntity(String path, BlockEntityType type) {
-        return Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, RegionsUnexplored.ID(path), type);
+        return Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, Constants.id(path), type);
     }
 }

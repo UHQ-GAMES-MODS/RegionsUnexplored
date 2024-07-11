@@ -77,8 +77,6 @@ public class RuBiomes {
     public static ResourceKey<Biome> TROPICAL_RIVER = createKey("tropical_river");
     public static ResourceKey<Biome> TROPICS = createKey("tropics");
     public static ResourceKey<Biome> WILLOW_FOREST = createKey("willow_forest");
-    public static ResourceKey<Biome> DARK_ABYSS_FOREST = createKey("dark_abyss_forest");
-    public static ResourceKey<Biome> DARK_ABYSS_HIGHLANDS = createKey("dark_abyss_highlands");
 
     public static ResourceKey<Biome> createKey(String name) {
         return ResourceKey.create(Registries.BIOME, Constants.id(name));

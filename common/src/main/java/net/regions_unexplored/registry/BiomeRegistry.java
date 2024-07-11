@@ -9,6 +9,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.regions_unexplored.Constants;
+import net.regions_unexplored.config.RuCommonConfig;
 import net.regions_unexplored.data.worldgen.biome.RuBiomes;
 import net.regions_unexplored.data.worldgen.biome.builder.*;
 import net.regions_unexplored.data.worldgen.biome.surface.RuSurfaceRuleData;
@@ -25,9 +26,9 @@ public class BiomeRegistry {
     }
 
     public static void setupTerrablender() {
-        Regions.register(new RuRegionPrimary(RegionsUnexploredConfig.REGION_PRIMARY_WEIGHT));
-        Regions.register(new RuRegionSecondary(RegionsUnexploredConfig.REGION_SECONDARY_WEIGHT));
-        Regions.register(new RuRegionNether(RegionsUnexploredConfig.REGION_NETHER_WEIGHT));
+        Regions.register(new RuRegionPrimary(RuCommonConfig.REGION_PRIMARY_WEIGHT.get()));
+        Regions.register(new RuRegionSecondary(RuCommonConfig.REGION_SECONDARY_WEIGHT.get()));
+        Regions.register(new RuRegionNether(RuCommonConfig.REGION_NETHER_WEIGHT.get()));
         SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.NETHER, Constants.MOD_ID, RuSurfaceRuleData.nether());
         SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, Constants.MOD_ID, RuSurfaceRuleData.overworld());
     }

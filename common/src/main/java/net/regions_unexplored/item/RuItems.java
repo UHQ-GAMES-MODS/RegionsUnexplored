@@ -12,9 +12,11 @@ import net.regions_unexplored.api.item.FoodItemWithBlock;
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.entity.custom.RuBoat;
 import net.regions_unexplored.item.items.RuBoatItem;
+import net.regions_unexplored.platform.Services;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class RuItems {
     public static Map<String, Item> ITEMS = new HashMap<>();
@@ -109,6 +111,6 @@ public class RuItems {
     }
 
     private static Item registerItem(String path, Item item) {
-        return Registry.register(BuiltInRegistries.ITEM, Constants.id(path), item);
+        return Services.REGISTAR.register(BuiltInRegistries.ITEM, path, () -> item).get();
     }
 }

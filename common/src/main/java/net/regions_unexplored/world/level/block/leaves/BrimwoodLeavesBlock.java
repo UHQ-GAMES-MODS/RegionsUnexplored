@@ -23,6 +23,6 @@ public class BrimwoodLeavesBlock extends LeavesBlock {
     }
 
     private static Boolean ocelotOrParrot(BlockState state, BlockGetter getter, BlockPos pos, EntityType<?> type) {
-        return (boolean)(type == EntityType.OCELOT || type == EntityType.PARROT);
+        return type == EntityType.OCELOT || type == EntityType.PARROT;
     }
 }
