@@ -3,6 +3,7 @@
 ## initial port
 
 - [ ] Client Registry
-  - [ ] Create render methods for everything.....
+  - [x] Create render methods for everything.....
+  - [ ] Create particle registry 
 - [ ] Fix registry
 - [ ] Datagen setup

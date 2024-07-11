@@ -1,6 +1,5 @@
 package net.regions_unexplored.client.particle;
 
-
 public class RuParticles {
 
     public static void init() {
