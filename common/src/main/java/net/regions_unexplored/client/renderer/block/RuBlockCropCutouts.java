@@ -7,7 +7,7 @@ import net.regions_unexplored.platform.Services;
 
 public class RuBlockCropCutouts {
     public static void init() {
-        RenderUtil.putBlocks(Services.RENDERHELPER, RenderType.cutout(),
+        RenderUtil.putBlocks(Services.RENDER_HELPER, RenderType.cutout(),
                 /*-----------------CAVE_BLOCKS-----------------*/
                 //temp fix
                 RuBlocks.FLOWERING_LEAVES,

@@ -1,22 +1,21 @@
 package net.regions_unexplored.client.color;
 
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
-import io.github.uhq_games.regions_unexplored.config.RegionsUnexploredConfig;
-import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
+import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.config.RuCommonConfig;
+import net.regions_unexplored.platform.Services;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 
 public class RuColors {
-
     public static void init () {
-        ColorProviderRegistry.BLOCK.register((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? BiomeColors.getAverageGrassColor(blockAndTintGetter, blockPos) : GrassColor.get(0.5D, 1.0D),
+        Services.TINT_HELPER.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? BiomeColors.getAverageGrassColor(blockAndTintGetter, blockPos) : GrassColor.get(0.5D, 1.0D),
                 RuBlocks.PEAT_GRASS_BLOCK,
                 RuBlocks.SILT_GRASS_BLOCK,
                 RuBlocks.STONE_GRASS_BLOCK,
@@ -36,7 +35,7 @@ public class RuColors {
                 RuBlocks.BLADED_TALL_GRASS
         );
 
-        ColorProviderRegistry.ITEM.register((itemStack, i) -> GrassColor.get(0.5D, 1.0D),
+        Services.TINT_HELPER.tintItems((itemStack, i) -> GrassColor.get(0.5D, 1.0D),
                 RuBlocks.PEAT_GRASS_BLOCK,
                 RuBlocks.SILT_GRASS_BLOCK,
                 RuBlocks.STONE_GRASS_BLOCK,
@@ -51,7 +50,7 @@ public class RuColors {
                 RuBlocks.BLADED_TALL_GRASS
         );
 
-        ColorProviderRegistry.BLOCK.register((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? BiomeColors.getAverageFoliageColor(blockAndTintGetter, blockPos) : FoliageColor.get(0.5D, 1.0D),
+        Services.TINT_HELPER.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? BiomeColors.getAverageFoliageColor(blockAndTintGetter, blockPos) : FoliageColor.get(0.5D, 1.0D),
                 RuBlocks.STEPPE_SHRUB,
                 RuBlocks.STEPPE_TALL_GRASS,
                 RuBlocks.ELEPHANT_EAR,
@@ -76,7 +75,7 @@ public class RuColors {
                 RuBlocks.SMALL_OAK_LEAVES
         );
 
-        ColorProviderRegistry.ITEM.register((itemStack, i) -> FoliageColor.get(0.5D, 1.0D),
+        Services.TINT_HELPER.tintItems((itemStack, i) -> FoliageColor.get(0.5D, 1.0D),
                 RuBlocks.STEPPE_SHRUB,
                 RuBlocks.STEPPE_TALL_GRASS,
                 RuBlocks.ELEPHANT_EAR,
@@ -101,16 +100,7 @@ public class RuColors {
                 RuBlocks.SMALL_OAK_LEAVES
         );
 
-
-        ColorProviderRegistry.BLOCK.register((blockState, blockAndTintGetter, blockPos, i) -> FoliageColor.getBirchColor(),
-                RuBlocks.BIRCH_SHRUB
-        );
-
-        ColorProviderRegistry.BLOCK.register((blockState, blockAndTintGetter, blockPos, i) -> FoliageColor.getEvergreenColor(),
-                RuBlocks.SPRUCE_SHRUB
-        );
-
-        ColorProviderRegistry.BLOCK.register((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getRainbowColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
+        Services.TINT_HELPER.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getRainbowColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
                 RuBlocks.HANGING_PRISMARITE,
                 RuBlocks.PRISMARITE_CLUSTER,
                 RuBlocks.LARGE_PRISMARITE_CLUSTER,
@@ -119,21 +109,21 @@ public class RuColors {
                 RuBlocks.PRISMOSS_SPROUT
         );
 
-        ColorProviderRegistry.BLOCK.register((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getRainbowGlassColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
+        Services.TINT_HELPER.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getRainbowGlassColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
                 RuBlocks.PRISMAGLASS
         );
 
-        ColorProviderRegistry.BLOCK.register((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getRainbowEucalyptusColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
+        Services.TINT_HELPER.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getRainbowEucalyptusColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
                 RuBlocks.EUCALYPTUS_WOOD,
                 RuBlocks.EUCALYPTUS_LOG
         );
 
-        ColorProviderRegistry.BLOCK.register((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getAspenColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
+        Services.TINT_HELPER.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getAspenColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
                 RuBlocks.SILVER_BIRCH_LEAVES,
                 RuBlocks.SILVER_BIRCH_LEAF_PILE
         );
 
-        ColorProviderRegistry.BLOCK.register((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getEnchantedAspenColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
+        Services.TINT_HELPER.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getEnchantedAspenColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
                 RuBlocks.ENCHANTED_BIRCH_LEAVES,
                 RuBlocks.ENCHANTED_BIRCH_LEAF_PILE
         );
@@ -156,9 +146,9 @@ public class RuColors {
 
     private static int getRainbowEucalyptusColor(BlockAndTintGetter world, @NotNull BlockPos pos) {
         Color rainbow = Color.getHSBColor(((float)pos.getX() + (float)pos.getY() + (float)pos.getZ()) /
-                        RegionsUnexploredConfig.WorldGenOptions.BlockColorOptions.EUCALYPTUS_TRANSITION_SIZE.floatValue(),
-                RegionsUnexploredConfig.WorldGenOptions.BlockColorOptions.EUCALYPTUS_SATURATION.floatValue(),
-                RegionsUnexploredConfig.WorldGenOptions.BlockColorOptions.EUCALYPTUS_BRIGHTNESS.floatValue());
+                        RuCommonConfig.EUCALYPTUS_TRANSITION_SIZE.get().floatValue(),
+                RuCommonConfig.EUCALYPTUS_SATURATION.get().floatValue(),
+                RuCommonConfig.EUCALYPTUS_BRIGHTNESS.get().floatValue());
         return rainbow.getRGB();
     }
 
