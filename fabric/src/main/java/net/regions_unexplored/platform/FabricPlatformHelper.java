@@ -1,8 +1,10 @@
 package net.regions_unexplored.platform;
 
-import net.regions_unexplored.platform.services.IPlatformHelper;
+import com.google.auto.service.AutoService;
 import net.fabricmc.loader.api.FabricLoader;
+import net.regions_unexplored.platform.services.IPlatformHelper;
 
+@AutoService(IPlatformHelper.class)
 public class FabricPlatformHelper implements IPlatformHelper {
 
     @Override

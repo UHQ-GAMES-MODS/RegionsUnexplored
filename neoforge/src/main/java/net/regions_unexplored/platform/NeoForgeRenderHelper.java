@@ -1,5 +1,6 @@
 package net.regions_unexplored.platform;
 
+import com.google.auto.service.AutoService;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -14,6 +15,7 @@ import net.regions_unexplored.platform.services.IRenderHelper;
 
 import java.util.function.Supplier;
 
+@AutoService(IRenderHelper.class)
 public class NeoForgeRenderHelper implements IRenderHelper {
     @Override
     public void setRenderType(Block block, RenderType type) {
