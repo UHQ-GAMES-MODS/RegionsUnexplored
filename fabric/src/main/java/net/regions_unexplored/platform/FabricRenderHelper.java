@@ -1,5 +1,6 @@
 package net.regions_unexplored.platform;
 
+import com.google.auto.service.AutoService;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -14,6 +15,7 @@ import net.regions_unexplored.platform.services.IRenderHelper;
 
 import java.util.function.Supplier;
 
+@AutoService(IRenderHelper.class)
 public class FabricRenderHelper implements IRenderHelper {
     @Override
     public void setRenderType(Block block, RenderType type) {
