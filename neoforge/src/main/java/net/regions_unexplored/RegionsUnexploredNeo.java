@@ -4,6 +4,10 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
+import net.regions_unexplored.block.BlockToolCompat;
+import net.regions_unexplored.block.CompostableBlocks;
+import net.regions_unexplored.block.FlammableBlocks;
+import net.regions_unexplored.block.compat.FurnaceBurnTimesNeo;
 import net.regions_unexplored.config.RuCommonConfig;
 import net.regions_unexplored.config.RuPrimaryRegionConfig;
 import net.regions_unexplored.config.RuSecondaryRegionConfig;
@@ -21,6 +25,10 @@ public class RegionsUnexploredNeo {
         container.registerConfig(ModConfig.Type.COMMON, RuSecondaryRegionConfig.SPEC);
 
         IEventBus bus = container.getEventBus();
+
+        BlockToolCompat.setup();
+        CompostableBlocks.setup();
+        FlammableBlocks.setup();
 
         // Use NeoForge to bootstrap the Common mod.
         Constants.LOG.info("Hello NeoForge world!");
