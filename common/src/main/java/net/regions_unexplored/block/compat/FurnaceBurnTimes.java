@@ -1,4 +1,4 @@
-package net.regions_unexplored.block;
+package net.regions_unexplored.block.compat;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.world.item.Item;

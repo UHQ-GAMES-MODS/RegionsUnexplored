@@ -5,7 +5,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.regions_unexplored.Constants;
 
-import static net.regions_unexplored.block.FurnaceBurnTimes.*;
+import static net.regions_unexplored.block.compat.FurnaceBurnTimes.*;
 
 @EventBusSubscriber(modid = Constants.MOD_ID)
 public class FurnaceBurnTimesNeo {

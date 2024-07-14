@@ -1,12 +1,11 @@
 package net.regions_unexplored.block.compat;
 
 import net.fabricmc.fabric.api.registry.FuelRegistry;
-import net.regions_unexplored.block.entity.RegionsUnexploredBlockEntities;
 
-import static net.regions_unexplored.block.FurnaceBurnTimes.BURN_TIME_300;
-import static net.regions_unexplored.block.FurnaceBurnTimes.BURN_TIME_200;
-import static net.regions_unexplored.block.FurnaceBurnTimes.BURN_TIME_150;
-import static net.regions_unexplored.block.FurnaceBurnTimes.BURN_TIME_100;
+import static net.regions_unexplored.block.compat.FurnaceBurnTimes.BURN_TIME_300;
+import static net.regions_unexplored.block.compat.FurnaceBurnTimes.BURN_TIME_200;
+import static net.regions_unexplored.block.compat.FurnaceBurnTimes.BURN_TIME_150;
+import static net.regions_unexplored.block.compat.FurnaceBurnTimes.BURN_TIME_100;
 
 public class FurnaceBurnTimesFabric {
     public static FuelRegistry registry = FuelRegistry.INSTANCE;
