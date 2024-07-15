@@ -1,5 +1,6 @@
 package net.regions_unexplored.datagen.provider;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.ItemLike;
@@ -9,6 +10,7 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.regions_unexplored.Constants;
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.data.worldgen.biome.RuBiomes;
+import net.regions_unexplored.entity.RuEntities;
 import org.jetbrains.annotations.NotNull;
 
 public class RuLanguageProvider extends LanguageProvider {
@@ -65,24 +67,25 @@ public class RuLanguageProvider extends LanguageProvider {
         this.add("advancements.regions_unexplored.ancient_specimens.description", "Collect every Bioshroom Stem type.");
 
         // Block translations
-        RegionsUnexploredMod.BLOCK_REGISTRY.getEntries().forEach(blockRegistryObject -> {
-            if(!blockRegistryObject.get().toString().contains("potted_")&&
-                    !blockRegistryObject.get().toString().contains("hanging_earlight")&&
-                    !blockRegistryObject.get().toString().contains("duskmelon")&&
-                    !blockRegistryObject.get().toString().contains("salmonberry")&&
-                    !blockRegistryObject.get().toString().contains("_wall_sign")&&
-                    !blockRegistryObject.get().toString().contains("_wall_hanging_sign")){
-                this.add(blockRegistryObject.get(), capitalizeString(filterBlockLang(blockRegistryObject.get())));
+        BuiltInRegistries.BLOCK.stream().forEach(blockRegistryObject -> {
+            if(blockRegistryObject.toString().contains("regions_unexplored")&&
+                    !blockRegistryObject.toString().contains("potted_")&&
+                    !blockRegistryObject.toString().contains("hanging_earlight")&&
+                    !blockRegistryObject.toString().contains("duskmelon")&&
+                    !blockRegistryObject.toString().contains("salmonberry")&&
+                    !blockRegistryObject.toString().contains("_wall_sign")&&
+                    !blockRegistryObject.toString().contains("_wall_hanging_sign")){
+                this.add(blockRegistryObject, capitalizeString(filterBlockLang(blockRegistryObject)));
             }
         });
         //Misc block translations
-        this.add(RuBlocks.DUSKMELON.get(), "Duskmelon Slice");
-        this.add(RuBlocks.SALMONBERRY_BUSH.get(), "Salmonberry");
-        this.add(RuBlocks.HANGING_EARLIGHT.get(), "Hanging Earlight Fruit");
+        this.add(RuBlocks.DUSKMELON, "Duskmelon Slice");
+        this.add(RuBlocks.SALMONBERRY_BUSH, "Salmonberry");
+        this.add(RuBlocks.HANGING_EARLIGHT, "Hanging Earlight Fruit");
 
         //Entity translations
-        this.add(RuEntities.BOAT.get(), "Boat");
-        this.add(RuEntities.CHEST_BOAT.get(), "Boat With Chest");
+        this.add(RuEntities.BOAT, "Boat");
+        this.add(RuEntities.CHEST_BOAT, "Boat With Chest");
 
         this.add("death.attack.dorcel", "%s was dragged underground by Dorcel");
         this.add("death.attack.dorcel.player", "%s was dragged underground by Dorcel");
@@ -91,13 +94,15 @@ public class RuLanguageProvider extends LanguageProvider {
         this.add("death.attack.dusk_trap.player", "%s was eaten by a Dusktrap");
 
         // Item translations
-        RegionsUnexploredMod.ITEM_REGISTRY.getEntries().forEach(itemRegistryObject -> {
-            if(itemRegistryObject.get().toString().contains("boat")){
-                if(itemRegistryObject.get().toString().contains("chest_boat")){
-                    this.add(itemRegistryObject.get(), filterChestBoatLang(itemRegistryObject.get()));
-                }
-                else{
-                    this.add(itemRegistryObject.get(), capitalizeString(filterItemLang(itemRegistryObject.get())));
+        BuiltInRegistries.ITEM.stream().forEach(itemRegistryObject -> {
+            if(itemRegistryObject.toString().contains("regions_unexplored")){
+                if(itemRegistryObject.toString().contains("boat")){
+                    if(itemRegistryObject.toString().contains("chest_boat")){
+                        this.add(itemRegistryObject, filterChestBoatLang(itemRegistryObject));
+                    }
+                    else{
+                        this.add(itemRegistryObject, capitalizeString(filterItemLang(itemRegistryObject)));
+                    }
                 }
             }
         });

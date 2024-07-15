@@ -18,7 +18,7 @@ import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import net.regions_unexplored.entity.RegionsUnexploredEntities;
+import net.regions_unexplored.entity.RuEntities;
 import net.regions_unexplored.item.RuItems;
 import org.jetbrains.annotations.NotNull;
 
@@ -30,7 +30,7 @@ public class RuChestBoat extends ChestBoat
     }
 
     public RuChestBoat(Level level, double x, double y, double z) {
-        this(RegionsUnexploredEntities.CHEST_BOAT, level);
+        this(RuEntities.CHEST_BOAT, level);
         this.setPos(x, y, z); this.xo = x; this.yo = y; this.zo = z;
     }
 
