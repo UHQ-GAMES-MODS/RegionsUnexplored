@@ -35,12 +35,12 @@ public class WillowFoliagePlacer extends FoliagePlacer {
         this.flowerDecorationChance = flowerDecorationChance;
     }
 
-    //    public static FoliagePlacerType<?> fpt;
-//    static {
-//        fpt = new FoliagePlacerType<>(CODEC);
-//    }
+    public static FoliagePlacerType<?> fpt;
+    static {
+        fpt = new FoliagePlacerType<>(CODEC);
+    }
     protected FoliagePlacerType<?> type() {
-        return RegionsUnexplored.WILLOW_FOLIAGE_PLACER;
+        return fpt;
     }
 
     protected void createFoliage(LevelSimulatedReader level, FoliageSetter setter, RandomSource random, TreeConfiguration treeConfig, int p_272975_, FoliageAttachment foliage, int j, int k, int height) {

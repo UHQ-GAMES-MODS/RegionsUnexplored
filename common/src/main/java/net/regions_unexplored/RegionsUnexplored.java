@@ -11,7 +11,6 @@ import net.regions_unexplored.client.particle.RuParticleTypes;
 import net.regions_unexplored.entity.RuEntities;
 import net.regions_unexplored.item.RuItems;
 import net.regions_unexplored.mixin.invoke.*;
-import net.regions_unexplored.platform.Services;
 import net.regions_unexplored.registry.BiomeRegistry;
 import net.regions_unexplored.registry.FeatureRegistry;
 import net.regions_unexplored.world.features.foliageplacers.*;
@@ -27,7 +26,7 @@ public class RegionsUnexplored {
 
     // TODO: Convert these to MapCodecs o7
     public static final FoliagePlacerType<SakuraFoliagePlacer> SAKURA_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("regions_unexplored:sakura_foliage_placer", SakuraFoliagePlacer.CODEC);
-    public static final FoliagePlacerType<WillowFoliagePlacer> WILLOW_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("regions_unexplored:willow_foliage_placer", WillowFoliagePlacer.CODEC);
+//    public static final FoliagePlacerType<WillowFoliagePlacer> WILLOW_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("regions_unexplored:willow_foliage_placer", WillowFoliagePlacer.CODEC);
     public static final TreeDecoratorType<BlackwoodBioshroom> BLACKWOOD_BIOSHROOM = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:blackwood_bioshrooms", BlackwoodBioshroom.CODEC);
     public static final TreeDecoratorType<ChanceWillowTrunkDecorator> CHANCE_WILLOW_TRUNK_DECORATOR = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:chance_willow_trunk_decorator", ChanceWillowTrunkDecorator.CODEC);
     public static final TreeDecoratorType<WillowTrunkDecorator> WILLOW_TRUNK_DECORATOR = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:willow_trunk_decorator", WillowTrunkDecorator.CODEC);
@@ -65,7 +64,7 @@ public class RegionsUnexplored {
     }
 
     private static void registerFoliagePlacers(){
-        Registry.register(BuiltInRegistries.FOLIAGE_PLACER_TYPE, "willow_foliage_placer", RegionsUnexplored.WILLOW_FOLIAGE_PLACER);
+        Registry.register(BuiltInRegistries.FOLIAGE_PLACER_TYPE, "willow_foliage_placer", WillowFoliagePlacer.fpt);
         Registry.register(BuiltInRegistries.FOLIAGE_PLACER_TYPE, "sakura_foliage_placer", RegionsUnexplored.SAKURA_FOLIAGE_PLACER);
     }
 
