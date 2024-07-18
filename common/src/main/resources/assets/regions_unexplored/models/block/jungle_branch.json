@@ -1,0 +1,9 @@
+{
+  "parent": "regions_unexplored:block/branch",
+  "textures": {
+    "log": "block/jungle_log",
+    "branch": "regions_unexplored:block/jungle_branch",
+    "particle": "block/jungle_log"
+  },
+  "render_type": "cutout"
+}

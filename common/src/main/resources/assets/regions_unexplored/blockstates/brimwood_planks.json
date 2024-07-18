@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "regions_unexplored:block/brimwood_planks"
+      },
+      {
+        "model": "regions_unexplored:block/brimwood_planks_2"
+      }
+    ]
+  }
+}

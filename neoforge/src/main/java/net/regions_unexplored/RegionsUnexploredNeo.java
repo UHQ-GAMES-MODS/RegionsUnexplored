@@ -1,5 +1,7 @@
 package net.regions_unexplored;
 
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -19,19 +21,19 @@ public class RegionsUnexploredNeo {
         // This method is invoked by the NeoForge mod loader when it is ready
         // to load your mod. You can access NeoForge and Common code in this
         // project.
-        container.registerConfig(ModConfig.Type.COMMON, RuCommonConfig.SPEC);
-        container.registerConfig(ModConfig.Type.COMMON, RuPrimaryRegionConfig.SPEC);
-        container.registerConfig(ModConfig.Type.COMMON, RuSecondaryRegionConfig.SPEC);
+        container.registerConfig(ModConfig.Type.COMMON, RuCommonConfig.SPEC, "regions_unexplored/regions_unexplored-common.toml");
+        container.registerConfig(ModConfig.Type.COMMON, RuPrimaryRegionConfig.SPEC, "regions_unexplored/regions_unexplored-primary-region.toml");
+        container.registerConfig(ModConfig.Type.COMMON, RuSecondaryRegionConfig.SPEC, "regions_unexplored/regions_unexplored-secondary-region.toml");
 
         IEventBus bus = container.getEventBus();
-
-        BlockToolCompat.setup();
-        CompostableBlocks.setup();
-        FlammableBlocks.setup();
 
         // Use NeoForge to bootstrap the Common mod.
         Constants.LOG.info("Hello NeoForge world!");
         RegionsUnexplored.init();
         NeoForgeRegistar.CACHE.values().forEach(deferredRegister -> deferredRegister.register(bus));
+
+        BlockToolCompat.setup();
+        CompostableBlocks.setup();
+        FlammableBlocks.setup();
     }
 }

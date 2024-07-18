@@ -1,14 +1,14 @@
 package net.regions_unexplored;
 
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.block.entity.RegionsUnexploredBlockEntities;
 import net.regions_unexplored.client.particle.RuParticleTypes;
-import net.regions_unexplored.entity.RegionsUnexploredEntities;
+import net.regions_unexplored.entity.RuEntities;
 import net.regions_unexplored.item.RuItems;
 import net.regions_unexplored.mixin.invoke.*;
 import net.regions_unexplored.platform.Services;
@@ -40,12 +40,15 @@ public class RegionsUnexplored {
     // write the majority of your code here and load it from your loader specific projects. This example has some
     // code that gets invoked by the entry point of the loader specific projects.
     public static void init() {
+        registerFoliagePlacers();
+        registerTreeDecorators();
+
         BiomeRegistry.addBiomes();
         FeatureRegistry.addFeatures();
         RuBlocks.addBlocks();
         RegionsUnexploredBlockEntities.addBlockEntities();
         RuItems.addItems();
-        RegionsUnexploredEntities.addEntities();
+        RuEntities.addEntities();
         RuParticleTypes.addParticles();
 //        Constants.LOG.info("Hello from Common init on {}! we are currently in a {} environment!", Services.PLATFORM.getPlatformName(), Services.PLATFORM.getEnvironmentName());
 //        Constants.LOG.info("The ID for diamonds is {}", BuiltInRegistries.ITEM.getKey(Items.DIAMOND));
@@ -59,5 +62,16 @@ public class RegionsUnexplored {
 //
 //            Constants.LOG.info("Hello to examplemod");
 //        }
+    }
+
+    private static void registerFoliagePlacers(){
+        Registry.register(BuiltInRegistries.FOLIAGE_PLACER_TYPE, "willow_foliage_placer", RegionsUnexplored.WILLOW_FOLIAGE_PLACER);
+        Registry.register(BuiltInRegistries.FOLIAGE_PLACER_TYPE, "sakura_foliage_placer", RegionsUnexplored.SAKURA_FOLIAGE_PLACER);
+    }
+
+    private static void registerTreeDecorators(){
+        Registry.register(BuiltInRegistries.TREE_DECORATOR_TYPE, "blackwood_bioshrooms", RegionsUnexplored.BLACKWOOD_BIOSHROOM);
+        Registry.register(BuiltInRegistries.TREE_DECORATOR_TYPE, "chance_willow_trunk_decorator", RegionsUnexplored.CHANCE_WILLOW_TRUNK_DECORATOR);
+        Registry.register(BuiltInRegistries.TREE_DECORATOR_TYPE, "willow_trunk_decorator", RegionsUnexplored.WILLOW_TRUNK_DECORATOR);
     }
 }

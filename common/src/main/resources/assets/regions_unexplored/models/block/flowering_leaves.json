@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "regions_unexplored:block/flowering_leaves_flower",
+    "particle": "block/oak_leaves"
+  },
+  "render_type": "cutout"
+}
