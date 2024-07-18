@@ -15,7 +15,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.Vec3;
 import net.regions_unexplored.block.RuBlocks;
-import net.regions_unexplored.entity.RegionsUnexploredEntities;
+import net.regions_unexplored.entity.RuEntities;
 import net.regions_unexplored.item.RuItems;
 import org.jetbrains.annotations.NotNull;
 
@@ -28,7 +28,7 @@ public class RuBoat extends Boat {
     }
 
     public RuBoat(Level level, double x, double y, double z) {
-        this(RegionsUnexploredEntities.BOAT, level);
+        this(RuEntities.BOAT, level);
         this.setPos(x, y, z); this.xo = x; this.yo = y; this.zo = z;
     }
 

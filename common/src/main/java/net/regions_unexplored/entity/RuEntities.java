@@ -12,7 +12,7 @@ import net.regions_unexplored.entity.custom.RuChestBoat;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegionsUnexploredEntities {
+public class RuEntities {
     public static Map<String, EntityType<?>> ENTITY = new HashMap<>();
 
 
@@ -27,7 +27,7 @@ public class RegionsUnexploredEntities {
 
     public static void addEntities() {
         if (ENTITY.isEmpty()) return;
-        ENTITY.forEach(RegionsUnexploredEntities::registerEntity);
+        ENTITY.forEach(RuEntities::registerEntity);
     }
 
     private static <T extends Entity> EntityType<T> registerEntity(String path, EntityType<T> type) {
