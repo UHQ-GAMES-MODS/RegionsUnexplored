@@ -1,8 +1,6 @@
 package net.regions_unexplored.world.level.block.plant.grass;
 
 import com.mojang.serialization.MapCodec;
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
-import io.github.uhq_games.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
@@ -16,6 +14,8 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
 
 public class AshenGrassBlock extends BushBlock {
     public static final MapCodec<? extends AshenGrassBlock> CODEC = simpleCodec(AshenGrassBlock::new);
@@ -42,7 +42,7 @@ public class AshenGrassBlock extends BushBlock {
     }
 
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        if(state== RuBlocks.ASHEN_GRASS.defaultBlockState().setValue(SMOULDERING, true)){
+        if(state==RuBlocks.ASHEN_GRASS.defaultBlockState().setValue(SMOULDERING, true)){
             super.animateTick(state, level, pos, random);
             if (random.nextInt(20) == 0) {
                 level.addParticle(ParticleTypes.FLAME, (double)pos.getX() + random.nextDouble(), (double)pos.getY() + 0.25D, (double)pos.getZ() + random.nextDouble(), 0.0D, 0.0D, 0.0D);

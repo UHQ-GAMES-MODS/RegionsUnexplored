@@ -3,6 +3,10 @@ package net.regions_unexplored;
 import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.NeoForgeConfigRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.neoforged.fml.config.ModConfig;
+import net.regions_unexplored.block.compat.BlockToolCompat;
+import net.regions_unexplored.block.compat.CompostableBlocks;
+import net.regions_unexplored.block.compat.FlammableBlocks;
+import net.regions_unexplored.block.compat.FurnaceBurnTimesFabric;
 import net.regions_unexplored.config.RuCommonConfig;
 import net.regions_unexplored.config.RuPrimaryRegionConfig;
 import net.regions_unexplored.config.RuSecondaryRegionConfig;
@@ -28,6 +32,11 @@ public class RegionsUnexploredFabric implements ModInitializer, TerraBlenderApi 
         // Use Fabric to bootstrap the Common mod.
         Constants.LOG.info("Hello Fabric world!");
         RegionsUnexplored.init();
+
+        BlockToolCompat.setup();
+        CompostableBlocks.setup();
+        FlammableBlocks.setup();
+        FurnaceBurnTimesFabric.setup();
     }
 
     @Override

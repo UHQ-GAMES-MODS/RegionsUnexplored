@@ -17,6 +17,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.regions_unexplored.Constants;
 import net.regions_unexplored.block.sapling.*;
+import net.regions_unexplored.platform.Services;
 import net.regions_unexplored.world.level.block.leaves.*;
 import net.regions_unexplored.world.level.block.plant.sapling.*;
 import net.regions_unexplored.world.level.block.sign.*;
@@ -27,15 +28,14 @@ import java.util.function.Supplier;
 public class BlockRegistry {
     //Register default blocks and items
     public static Block registerDefaultBlock(String name, Block block) {
-        Block toReturn = Registry.register(BuiltInRegistries.BLOCK, Constants.id(name), block);
+        Block toReturn = Services.REGISTAR.register(BuiltInRegistries.BLOCK, name, () -> block).get();
         ItemRegistry.registerDefaultBlockItem(name, () -> toReturn);
         return toReturn;
     }
 
     //Register default block without item
     public static Block registerDefaultBlockNoItem(String name, Block block) {
-        Block toReturn = Registry.register(BuiltInRegistries.BLOCK, Constants.id(name), block);
-        return toReturn;
+        return Services.REGISTAR.register(BuiltInRegistries.BLOCK, name, () -> block).get();
     }
 
     public static Block registerSaplingBlock(String name, TreeGrower grower) {

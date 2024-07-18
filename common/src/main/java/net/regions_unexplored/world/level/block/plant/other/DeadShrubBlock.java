@@ -1,7 +1,6 @@
 package net.regions_unexplored.world.level.block.plant.other;
 
 import com.mojang.serialization.MapCodec;
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.BlockGetter;
@@ -10,6 +9,7 @@ import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.regions_unexplored.block.RuBlocks;
 
 public class DeadShrubBlock extends BushBlock {
     public static final MapCodec<DeadShrubBlock> CODEC = simpleCodec(DeadShrubBlock::new);

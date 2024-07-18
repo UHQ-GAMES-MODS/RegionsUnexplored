@@ -1,10 +1,6 @@
 package net.regions_unexplored.world.level.block.plant.grass;
 
 import com.mojang.serialization.MapCodec;
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
-import io.github.uhq_games.regions_unexplored.data.tags.RuTags;
-import io.github.uhq_games.regions_unexplored.world.level.block.plant.tall.RuSandyDoublePlantBlock;
-import io.github.uhq_games.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
@@ -24,6 +20,10 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.world.level.block.plant.tall.RuSandyDoublePlantBlock;
+import net.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
 
 import static net.minecraft.world.level.block.DoublePlantBlock.copyWaterloggedFrom;
 

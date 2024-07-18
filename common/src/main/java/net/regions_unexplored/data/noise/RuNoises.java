@@ -1,9 +1,9 @@
 package net.regions_unexplored.data.noise;
 
-import io.github.uhq_games.regions_unexplored.registry.NoiseRegistry;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
+import net.regions_unexplored.registry.NoiseRegistry;
 
 public class RuNoises {
 

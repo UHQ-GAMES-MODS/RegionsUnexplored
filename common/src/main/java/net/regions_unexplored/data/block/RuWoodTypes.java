@@ -2,6 +2,7 @@ package net.regions_unexplored.data.block;
 
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
+import net.regions_unexplored.platform.Services;
 
 public class RuWoodTypes {
     public static WoodType ALPHA = register("alpha", RuBlockSetType.ALPHA);
@@ -29,6 +30,6 @@ public class RuWoodTypes {
     public static WoodType YELLOW_BIOSHROOM = register("yellow_bioshroom", RuBlockSetType.YELLOW_BIOSHROOM);
 
     private static WoodType register(String name, BlockSetType blockSetType) {
-//        return new WoodTypeBuilder().register(RegionsUnexplored.ID(name), blockSetType);
+        return Services.BLOCK_HELPER.setWoodType(name, blockSetType);
     }
 }

@@ -1,6 +1,5 @@
 package net.regions_unexplored.world.level.block.plant.dusktrap;
 
-import io.github.uhq_games.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -11,6 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
 
 public class DuskTrapBlock extends BaseDuskTrapBlock {
     public static final BooleanProperty POWERED = RuBlockStateProperties.CLOSED;

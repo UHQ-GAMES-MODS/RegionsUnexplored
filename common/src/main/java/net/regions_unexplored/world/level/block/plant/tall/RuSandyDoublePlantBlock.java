@@ -1,7 +1,5 @@
 package net.regions_unexplored.world.level.block.plant.tall;
 
-import io.github.uhq_games.regions_unexplored.data.tags.RuTags;
-import io.github.uhq_games.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -16,6 +14,8 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.FluidState;
+import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
 import org.jetbrains.annotations.Nullable;
 
 public class RuSandyDoublePlantBlock extends DoublePlantBlock {

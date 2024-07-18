@@ -169,4 +169,8 @@ public class FeatureRegistry {
         Registry.register(BuiltInRegistries.FEATURE, Constants.id("nether_rock"), NETHER_ROCK);
         Registry.register(BuiltInRegistries.FEATURE, Constants.id("obsidian_spire"), OBSIDIAN_SPIRE);
     }
+
+    private static void register(String path, Feature<?> feature) {
+
+    }
 }

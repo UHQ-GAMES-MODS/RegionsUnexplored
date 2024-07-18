@@ -1,8 +1,7 @@
 package net.regions_unexplored.world.level.block.plant.flower;
 
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
-import io.github.uhq_games.regions_unexplored.data.tags.RuTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -11,6 +10,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.data.tags.RuTags;
 
 public class RuFlowerBlock extends FlowerBlock {
     protected static final float AABB_OFFSET = 6.0F;
@@ -19,7 +20,7 @@ public class RuFlowerBlock extends FlowerBlock {
     protected static final VoxelShape SHAPE_BUSH = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
     protected static final VoxelShape SHAPE_DAISY = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 6.0D, 14.0D);
 
-    public RuFlowerBlock(MobEffect mobEffect, int i, Properties properties) {
+    public RuFlowerBlock(Holder<MobEffect> mobEffect, int i, Properties properties) {
         super(mobEffect, i, properties);
     }
 
