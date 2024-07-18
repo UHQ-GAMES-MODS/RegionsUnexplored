@@ -17,6 +17,7 @@ public class Services {
     public static final IRegistar REGISTAR = load(IRegistar.class);
     public static final IRenderHelper RENDER_HELPER = load(IRenderHelper.class);
     public static final ITintHelper TINT_HELPER = load(ITintHelper.class);
+    public static final IParticleRegistry PARTICLES = load(IParticleRegistry.class);
     public static final IBlockHelper BLOCK_HELPER = load(IBlockHelper.class);
 
     // This code is used to load a service for the current environment. Your implementation of the service must be defined

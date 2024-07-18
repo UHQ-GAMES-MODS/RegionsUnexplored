@@ -2,10 +2,10 @@
 
 ## initial port
 
-- [ ] Client Registry
+- [x] Client Registry
   - [x] Create render methods for everything.....
-  - [ ] Create particle registry 
-  - [ ] Create color registry
+  - [x] Create particle registry 
+  - [x] Create color registry
 - [ ] Content Registries
   - [ ] Compostable register
   - [ ] Flammable register

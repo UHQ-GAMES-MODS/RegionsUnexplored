@@ -21,6 +21,8 @@ accessible method net/minecraft/world/damagesource/DamageSources source (Lnet/mi
 
 accessible class net/minecraft/world/level/block/entity/BlockEntityType$BlockEntitySupplier
 
+accessible class net/minecraft/client/particle/ParticleEngine$SpriteParticleRegistration
+
 accessible field net/minecraft/world/item/AxeItem STRIPPABLES Ljava/util/Map;
 accessible field net/minecraft/world/item/ShovelItem FLATTENABLES Ljava/util/Map;
 mutable field net/minecraft/world/item/AxeItem STRIPPABLES Ljava/util/Map;
