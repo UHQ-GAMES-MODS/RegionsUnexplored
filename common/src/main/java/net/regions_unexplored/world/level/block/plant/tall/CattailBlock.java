@@ -1,6 +1,5 @@
 package net.regions_unexplored.world.level.block.plant.tall;
 
-import io.github.uhq_games.regions_unexplored.data.tags.RuTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -19,6 +18,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.regions_unexplored.data.tags.RuTags;
 import org.jetbrains.annotations.Nullable;
 
 public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedBlock {

@@ -5,8 +5,15 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
+import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.block.entity.RegionsUnexploredBlockEntities;
+import net.regions_unexplored.client.particle.RuParticleTypes;
+import net.regions_unexplored.entity.RegionsUnexploredEntities;
+import net.regions_unexplored.item.RuItems;
 import net.regions_unexplored.mixin.invoke.*;
 import net.regions_unexplored.platform.Services;
+import net.regions_unexplored.registry.BiomeRegistry;
+import net.regions_unexplored.registry.FeatureRegistry;
 import net.regions_unexplored.world.features.foliageplacers.*;
 import net.regions_unexplored.world.features.treedecorators.*;
 import terrablender.api.SurfaceRuleManager;
@@ -33,18 +40,24 @@ public class RegionsUnexplored {
     // write the majority of your code here and load it from your loader specific projects. This example has some
     // code that gets invoked by the entry point of the loader specific projects.
     public static void init() {
-
-        Constants.LOG.info("Hello from Common init on {}! we are currently in a {} environment!", Services.PLATFORM.getPlatformName(), Services.PLATFORM.getEnvironmentName());
-        Constants.LOG.info("The ID for diamonds is {}", BuiltInRegistries.ITEM.getKey(Items.DIAMOND));
+        BiomeRegistry.addBiomes();
+        FeatureRegistry.addFeatures();
+        RuBlocks.addBlocks();
+        RegionsUnexploredBlockEntities.addBlockEntities();
+        RuItems.addItems();
+        RegionsUnexploredEntities.addEntities();
+        RuParticleTypes.addParticles();
+//        Constants.LOG.info("Hello from Common init on {}! we are currently in a {} environment!", Services.PLATFORM.getPlatformName(), Services.PLATFORM.getEnvironmentName());
+//        Constants.LOG.info("The ID for diamonds is {}", BuiltInRegistries.ITEM.getKey(Items.DIAMOND));
 
         // It is common for all supported loaders to provide a similar feature that can not be used directly in the
         // common code. A popular way to get around this is using Java's built-in service loader feature to create
         // your own abstraction layer. You can learn more about this in our provided services class. In this example
         // we have an interface in the common code and use a loader specific implementation to delegate our call to
         // the platform specific approach.
-        if (Services.PLATFORM.isModLoaded("examplemod")) {
-
-            Constants.LOG.info("Hello to examplemod");
-        }
+//        if (Services.PLATFORM.isModLoaded("examplemod")) {
+//
+//            Constants.LOG.info("Hello to examplemod");
+//        }
     }
 }
