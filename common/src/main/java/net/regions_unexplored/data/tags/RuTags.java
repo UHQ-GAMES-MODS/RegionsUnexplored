@@ -1,12 +1,12 @@
 package net.regions_unexplored.data.tags;
 
-import io.github.uhq_games.regions_unexplored.RegionsUnexplored;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.tags.TagKey;
+import net.regions_unexplored.Constants;
 
 public final class RuTags {
    public static final TagKey<Block> BRANCHES_CAN_SURVIVE_ON = createBlock("branches_can_survive_on");
@@ -90,21 +90,21 @@ public final class RuTags {
    }
 
    private static TagKey<Block> createBlock(String key) {
-      return TagKey.create(Registries.BLOCK, new ResourceLocation(RegionsUnexplored.MODID, key));
+      return TagKey.create(Registries.BLOCK, new ResourceLocation(Constants.MOD_ID, key));
    }
    public static TagKey<Block> createBlock(ResourceLocation name) {
       return TagKey.create(Registries.BLOCK, name);
    }
 
    private static TagKey<Item> createItem(String key) {
-      return TagKey.create(Registries.ITEM, new ResourceLocation(RegionsUnexplored.MODID, key));
+      return TagKey.create(Registries.ITEM, new ResourceLocation(Constants.MOD_ID, key));
    }
    public static TagKey<Item> createItem(ResourceLocation name) {
       return TagKey.create(Registries.ITEM, name);
    }
 
    private static TagKey<Biome> createBiome(String key) {
-      return TagKey.create(Registries.BIOME, new ResourceLocation(RegionsUnexplored.MODID, key));
+      return TagKey.create(Registries.BIOME, new ResourceLocation(Constants.MOD_ID, key));
    }
    public static TagKey<Biome> createBiome(ResourceLocation name) {
       return TagKey.create(Registries.BIOME, name);

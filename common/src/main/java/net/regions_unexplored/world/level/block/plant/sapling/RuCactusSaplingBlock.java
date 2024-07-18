@@ -1,6 +1,5 @@
 package net.regions_unexplored.world.level.block.plant.sapling;
 
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.BlockGetter;
@@ -10,6 +9,7 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
+import net.regions_unexplored.block.RuBlocks;
 
 public class RuCactusSaplingBlock extends SaplingBlock implements BonemealableBlock {
 

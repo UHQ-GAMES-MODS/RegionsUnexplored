@@ -1,7 +1,6 @@
 package net.regions_unexplored.world.level.block.plant.grass;
 
 import com.mojang.serialization.MapCodec;
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -13,6 +12,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.regions_unexplored.block.RuBlocks;
 
 import static net.minecraft.world.level.block.DoublePlantBlock.copyWaterloggedFrom;
 
@@ -32,7 +32,7 @@ public class RuPlantBlock extends BushBlock implements BonemealableBlock {
     }
 
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-        if(state== RuBlocks.MEDIUM_GRASS.defaultBlockState()){
+        if(state==RuBlocks.MEDIUM_GRASS.defaultBlockState()){
             return SHAPE_MEDIUM_GRASS;
         }
         else{

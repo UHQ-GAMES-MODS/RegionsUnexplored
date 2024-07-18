@@ -1,7 +1,6 @@
 package net.regions_unexplored.world.level.block.plant.grass;
 
 import com.mojang.serialization.MapCodec;
-import io.github.uhq_games.regions_unexplored.data.tags.RuTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -14,6 +13,7 @@ import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.regions_unexplored.data.tags.RuTags;
 
 public class RuStonePlantBlock extends BushBlock implements BonemealableBlock {
     public static final MapCodec<? extends RuStonePlantBlock> CODEC = simpleCodec(RuStonePlantBlock::new);

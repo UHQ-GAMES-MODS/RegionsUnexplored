@@ -9,6 +9,7 @@ import net.minecraft.world.level.material.PushReaction;
 import net.regions_unexplored.block.sapling.RuTreeGrowers;
 import net.regions_unexplored.data.block.RuBlockSetType;
 import net.regions_unexplored.data.block.RuWoodTypes;
+import net.regions_unexplored.data.worldgen.features.RuNetherFeatures;
 import net.regions_unexplored.registry.BlockRegistry;
 import net.regions_unexplored.world.level.block.alpha.*;
 import net.regions_unexplored.world.level.block.cave.*;

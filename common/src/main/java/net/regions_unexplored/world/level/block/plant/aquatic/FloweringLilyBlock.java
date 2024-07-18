@@ -1,6 +1,5 @@
 package net.regions_unexplored.world.level.block.plant.aquatic;
 
-import io.github.uhq_games.regions_unexplored.block.RuBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -16,6 +15,7 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.regions_unexplored.block.RuBlocks;
 
 public class FloweringLilyBlock extends WaterlilyBlock implements BonemealableBlock {
     protected static final VoxelShape AABB = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 0.5D, 14.0D);

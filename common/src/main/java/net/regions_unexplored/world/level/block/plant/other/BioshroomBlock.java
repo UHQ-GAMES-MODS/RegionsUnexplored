@@ -1,7 +1,7 @@
 package net.regions_unexplored.world.level.block.plant.other;
 
-import io.github.uhq_games.regions_unexplored.data.tags.RuTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.regions_unexplored.data.tags.RuTags;
 
 public class BioshroomBlock extends SaplingBlock {
     protected static final float AABB_OFFSET = 3.0F;
@@ -20,10 +21,10 @@ public class BioshroomBlock extends SaplingBlock {
     private final MobEffect suspiciousStewEffect;
     private final int effectDuration;
 
-    public BioshroomBlock(TreeGrower tree, MobEffect mobEffect, int duration, Properties properties) {
+    public BioshroomBlock(TreeGrower tree, Holder<MobEffect> mobEffect, int duration, Properties properties) {
         super(tree, properties);
-        this.suspiciousStewEffect = mobEffect;
-        if (mobEffect.isInstantenous()) {
+        this.suspiciousStewEffect = mobEffect.value();
+        if (mobEffect.value().isInstantenous()) {
             this.effectDuration = duration;
         } else {
             this.effectDuration = duration * 20;

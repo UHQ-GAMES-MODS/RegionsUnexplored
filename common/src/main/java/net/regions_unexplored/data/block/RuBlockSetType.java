@@ -2,6 +2,7 @@ package net.regions_unexplored.data.block;
 
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.regions_unexplored.Constants;
+import net.regions_unexplored.platform.Services;
 
 public class RuBlockSetType {
     public static final BlockSetType ALPHA = register("alpha");
@@ -29,6 +30,6 @@ public class RuBlockSetType {
     public static final BlockSetType YELLOW_BIOSHROOM = register("yellow_bioshroom");
 
     private static BlockSetType register(String name) {
-//        return new BlockSetTypeBuilder().register(Constants.id(name));
+        return Services.BLOCK_HELPER.setBlockSetType(name);
     }
 }

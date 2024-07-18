@@ -7,6 +7,7 @@ import net.minecraft.world.level.levelgen.Noises;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.config.RuCommonConfig;
 import net.regions_unexplored.data.noise.RuNoises;
 import net.regions_unexplored.data.noise.RuleWeight;
 import net.regions_unexplored.data.worldgen.biome.RuBiomes;
@@ -18,18 +19,18 @@ public class RuSurfaceRuleData {
     private static final SurfaceRules.RuleSource LAVA = makeStateRule(Blocks.LAVA);
 
     //PEAT_BLOCKS
-    private static final SurfaceRules.RuleSource PEAT_GRASS_BLOCK = makeStateRule(RegionsUnexploredConfig.WorldGenOptions.SurfaceRules.TOGGLE_CUSTOM_DIRTS ? RuBlocks.PEAT_GRASS_BLOCK : Blocks.GRASS_BLOCK);
-    private static final SurfaceRules.RuleSource PEAT_COARSE_DIRT = makeStateRule(RegionsUnexploredConfig.WorldGenOptions.SurfaceRules.TOGGLE_CUSTOM_DIRTS ? RuBlocks.PEAT_COARSE_DIRT : Blocks.COARSE_DIRT);
-    private static final SurfaceRules.RuleSource PEAT_PODZOL = makeStateRule(RegionsUnexploredConfig.WorldGenOptions.SurfaceRules.TOGGLE_CUSTOM_DIRTS ? RuBlocks.PEAT_PODZOL : Blocks.PODZOL);
-    private static final SurfaceRules.RuleSource PEAT_DIRT = makeStateRule(RegionsUnexploredConfig.WorldGenOptions.SurfaceRules.TOGGLE_CUSTOM_DIRTS ? RuBlocks.PEAT_DIRT : Blocks.DIRT);
-    private static final SurfaceRules.RuleSource PEAT_MUD = makeStateRule(RegionsUnexploredConfig.WorldGenOptions.SurfaceRules.TOGGLE_CUSTOM_DIRTS ? RuBlocks.PEAT_MUD : Blocks.MUD);
+    private static final SurfaceRules.RuleSource PEAT_GRASS_BLOCK = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.PEAT_GRASS_BLOCK : Blocks.GRASS_BLOCK);
+    private static final SurfaceRules.RuleSource PEAT_COARSE_DIRT = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.PEAT_COARSE_DIRT : Blocks.COARSE_DIRT);
+    private static final SurfaceRules.RuleSource PEAT_PODZOL = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.PEAT_PODZOL : Blocks.PODZOL);
+    private static final SurfaceRules.RuleSource PEAT_DIRT = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.PEAT_DIRT : Blocks.DIRT);
+    private static final SurfaceRules.RuleSource PEAT_MUD = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.PEAT_MUD : Blocks.MUD);
 
     //SILT_BLOCKS
-    private static final SurfaceRules.RuleSource SILT_GRASS_BLOCK = makeStateRule(RegionsUnexploredConfig.WorldGenOptions.SurfaceRules.TOGGLE_CUSTOM_DIRTS ? RuBlocks.SILT_GRASS_BLOCK : Blocks.GRASS_BLOCK);
-    private static final SurfaceRules.RuleSource SILT_COARSE_DIRT = makeStateRule(RegionsUnexploredConfig.WorldGenOptions.SurfaceRules.TOGGLE_CUSTOM_DIRTS ? RuBlocks.SILT_COARSE_DIRT : Blocks.COARSE_DIRT);
-    private static final SurfaceRules.RuleSource SILT_PODZOL = makeStateRule(RegionsUnexploredConfig.WorldGenOptions.SurfaceRules.TOGGLE_CUSTOM_DIRTS ? RuBlocks.SILT_PODZOL : Blocks.PODZOL);
-    private static final SurfaceRules.RuleSource SILT_DIRT = makeStateRule(RegionsUnexploredConfig.WorldGenOptions.SurfaceRules.TOGGLE_CUSTOM_DIRTS ? RuBlocks.SILT_DIRT : Blocks.DIRT);
-    private static final SurfaceRules.RuleSource SILT_MUD = makeStateRule(RegionsUnexploredConfig.WorldGenOptions.SurfaceRules.TOGGLE_CUSTOM_DIRTS ? RuBlocks.SILT_MUD : Blocks.MUD);
+    private static final SurfaceRules.RuleSource SILT_GRASS_BLOCK = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.SILT_GRASS_BLOCK : Blocks.GRASS_BLOCK);
+    private static final SurfaceRules.RuleSource SILT_COARSE_DIRT = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.SILT_COARSE_DIRT : Blocks.COARSE_DIRT);
+    private static final SurfaceRules.RuleSource SILT_PODZOL = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.SILT_PODZOL : Blocks.PODZOL);
+    private static final SurfaceRules.RuleSource SILT_DIRT = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.SILT_DIRT : Blocks.DIRT);
+    private static final SurfaceRules.RuleSource SILT_MUD = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.SILT_MUD : Blocks.MUD);
 
     //DIRT_BLOCKS
     private static final SurfaceRules.RuleSource GRASS_BLOCK = makeStateRule(Blocks.GRASS_BLOCK);
