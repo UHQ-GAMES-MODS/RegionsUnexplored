@@ -1,11 +1,16 @@
 package net.regions_unexplored;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.registries.RegisterEvent;
+import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.block.compat.BlockToolCompat;
 import net.regions_unexplored.block.compat.CompostableBlocks;
 import net.regions_unexplored.block.compat.FlammableBlocks;
@@ -23,20 +28,16 @@ public class RegionsUnexploredNeo {
 
     public RegionsUnexploredNeo(ModContainer container) {
         IEventBus bus = container.getEventBus();
-
-        NeoForgeRegistar.CACHE.values().forEach(deferredRegister -> deferredRegister.register(bus));
-
-        bus.addListener(this::clientSetup);
+        NeoForgeRegistar.CACHE.values().forEach(deferredRegister -> deferredRegister.register(NeoForge.EVENT_BUS));
         bus.addListener(this::commonSetup);
 
         //RuTabs.addTabs();
 
-
         registerConfig(container);
 
         RegionsUnexplored.init();
+        Constants.LOG.info("{}", RuBlocks.TALL_HYACINTH_STOCK);
     }
-
     //set up client side features
     public void clientSetup(final FMLClientSetupEvent event) {
         //WoodTypeRegistry.addSheets();
@@ -45,7 +46,8 @@ public class RegionsUnexploredNeo {
     }
 
     //set up non-client side features
-    private void commonSetup(final FMLCommonSetupEvent event) {
+    @SubscribeEvent
+    private void commonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             BiomeRegistry.setupTerrablender();
             //PottedPlants.setup();

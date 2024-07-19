@@ -13,6 +13,6 @@ public class RuSignBlockEntity extends SignBlockEntity {
 
     @Override
     public BlockEntityType<?> getType(){
-        return RegionsUnexploredBlockEntities.SIGN_BLOCK_ENTITIES;
+        return RegionsUnexploredBlockEntities.SIGN_BLOCK_ENTITIES.get();
     }
 }

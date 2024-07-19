@@ -1,5 +1,6 @@
 package net.regions_unexplored.datagen.provider;
 
+import com.google.common.base.Suppliers;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.Criterion;
@@ -28,11 +29,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class RuRecipeProvider extends RecipeProvider implements IConditionBuilder {
 
-    public static final ImmutableList<ItemLike> REDSTONE_SMELTABLES = ImmutableList.of(RuBlocks.RAW_REDSTONE_BLOCK.get(), RuBlocks.REDSTONE_BULB.get());
-    public static final ImmutableList<ItemLike> MOSSY_STONE_SMELTABLES = ImmutableList.of(Blocks.MOSSY_COBBLESTONE);
+    public static final Supplier<ImmutableList<ItemLike>> REDSTONE_SMELTABLES = Suppliers.memoize(() -> ImmutableList.of(RuBlocks.RAW_REDSTONE_BLOCK.get(), RuBlocks.REDSTONE_BULB.get()));
+    public static final Supplier<ImmutableList<ItemLike>> MOSSY_STONE_SMELTABLES = Suppliers.memoize(() ->ImmutableList.of(Blocks.MOSSY_COBBLESTONE));
 
     public RuRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> holder) {
         super(output, holder);
@@ -48,8 +50,8 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.PRISMAGLASS.get(), 2).define('#', TagKey.create(Registries.ITEM, new ResourceLocation("forge", "glass"))).define('X', RuTags.PRISMARITE_CRYSTALS_ITEM).pattern(" X ").pattern("X#X").pattern(" X ").group("stained_glass").unlockedBy("has_glass", has(TagKey.create(Registries.ITEM, new ResourceLocation("forge", "glass")))).save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, RuBlocks.RAW_REDSTONE_BLOCK.get(), 1).define('#', Items.REDSTONE).pattern("##").pattern("##").group("redstone").unlockedBy("has_redstone", has(Items.REDSTONE)).save(consumer);
-        oreSmelting(consumer, REDSTONE_SMELTABLES, RecipeCategory.REDSTONE, Items.REDSTONE, 0.7F, 200, "redstone");
-        oreBlasting(consumer, REDSTONE_SMELTABLES, RecipeCategory.REDSTONE, Items.REDSTONE, 0.7F, 100, "redstone");
+        oreSmelting(consumer, REDSTONE_SMELTABLES.get(), RecipeCategory.REDSTONE, Items.REDSTONE, 0.7F, 200, "redstone");
+        oreBlasting(consumer, REDSTONE_SMELTABLES.get(), RecipeCategory.REDSTONE, Items.REDSTONE, 0.7F, 100, "redstone");
         ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, RuBlocks.REDSTONE_BUD.get(), 2).define('#', Items.REDSTONE).pattern("###").group("redstone").unlockedBy("has_redstone", has(Items.REDSTONE)).save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.STONE_GRASS_BLOCK.get(), 1).define('#', Blocks.STONE).define('X', RuTags.GRASS_ITEM).pattern("X").pattern("#").group("stone_grass").unlockedBy("has_stone", has(Blocks.STONE)).save(consumer);
@@ -369,8 +371,8 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         stonecutterResultFromBase(consumer, RecipeCategory.BUILDING_BLOCKS, RuBlocks.POLISHED_CHALK_STAIRS.get(), RuBlocks.POLISHED_CHALK.get());
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, RuBlocks.MOSSY_STONE.get(), 1).requires(Blocks.STONE).requires(Blocks.VINE).group("mossy").unlockedBy("has_stone", has(Blocks.STONE)).unlockedBy("has_vine", has(Blocks.VINE)).save(consumer);
-        oreSmelting(consumer, MOSSY_STONE_SMELTABLES, RecipeCategory.BUILDING_BLOCKS, RuBlocks.MOSSY_STONE.get(), 0.1F, 200, "mossy");
-        oreBlasting(consumer, MOSSY_STONE_SMELTABLES, RecipeCategory.BUILDING_BLOCKS, RuBlocks.MOSSY_STONE.get(), 0.1F, 100, "mossy");
+        oreSmelting(consumer, MOSSY_STONE_SMELTABLES.get(), RecipeCategory.BUILDING_BLOCKS, RuBlocks.MOSSY_STONE.get(), 0.1F, 200, "mossy");
+        oreBlasting(consumer, MOSSY_STONE_SMELTABLES.get(), RecipeCategory.BUILDING_BLOCKS, RuBlocks.MOSSY_STONE.get(), 0.1F, 100, "mossy");
 
         /*-----------------OCEAN_BLOCKS-----------------*/
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, RuBlocks.HYACINTH_LAMP.get()).define('#', Items.PRISMARINE_SLAB).define('X', RuTags.HYACINTH_BLOOMS_ITEM).pattern("X").pattern("#").group("hyacinth").unlockedBy("has_prismarine_slab", has(Items.PRISMARINE_SLAB)).unlockedBy("has_hyacinth", has(RuTags.HYACINTH_BLOOMS_ITEM)).save(consumer);

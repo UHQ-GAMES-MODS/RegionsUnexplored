@@ -30,7 +30,7 @@ public class RuChestBoat extends ChestBoat
     }
 
     public RuChestBoat(Level level, double x, double y, double z) {
-        this(RuEntities.CHEST_BOAT, level);
+        this(RuEntities.CHEST_BOAT.get(), level);
         this.setPos(x, y, z); this.xo = x; this.yo = y; this.zo = z;
     }
 

@@ -13,6 +13,6 @@ public class RuHangingSignBlockEntity extends HangingSignBlockEntity {
 
     @Override
     public BlockEntityType<?> getType(){
-        return RegionsUnexploredBlockEntities.HANGING_SIGN_BLOCK_ENTITIES;
+        return RegionsUnexploredBlockEntities.HANGING_SIGN_BLOCK_ENTITIES.get();
     }
 }

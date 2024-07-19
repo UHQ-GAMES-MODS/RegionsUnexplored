@@ -18,7 +18,7 @@ public class RuEntityRenderer {
             Services.RENDER_HELPER.registerLayerDefinition(RuBoatRenderer.chestBoatTextureLocation(type), () -> chestBoatLayerDefinition);
         }
 
-        Services.RENDER_HELPER.registerEntityRenderer(RuEntities.BOAT, context -> new RuBoatRenderer(context, false));
-        Services.RENDER_HELPER.registerEntityRenderer(RuEntities.CHEST_BOAT, context -> new RuBoatRenderer(context, true));
+        Services.RENDER_HELPER.registerEntityRenderer(RuEntities.BOAT.get(), context -> new RuBoatRenderer(context, false));
+        Services.RENDER_HELPER.registerEntityRenderer(RuEntities.CHEST_BOAT.get(), context -> new RuBoatRenderer(context, true));
     }
 }

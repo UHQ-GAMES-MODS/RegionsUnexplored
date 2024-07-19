@@ -37,21 +37,21 @@ public class RuAquaticPlacements {
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> featureGetter = context.lookup(Registries.CONFIGURED_FEATURE);
 
-        final Holder<ConfiguredFeature<?, ?>> FEN_CATTAIL = featureGetter.getOrThrow(RuAquaticFeatures.FEN_CATTAIL);
-        final Holder<ConfiguredFeature<?, ?>> WATER_CATTAIL = featureGetter.getOrThrow(RuAquaticFeatures.WATER_CATTAIL);
+        final Holder<ConfiguredFeature<?, ?>> FEN_CATTAIL = featureGetter.getOrThrow(RuAquaticFeatures.FEN_CATTAIL.get());
+        final Holder<ConfiguredFeature<?, ?>> WATER_CATTAIL = featureGetter.getOrThrow(RuAquaticFeatures.WATER_CATTAIL.get());
 
-        final Holder<ConfiguredFeature<?, ?>> TALL_HYACINTH_STOCK = featureGetter.getOrThrow(RuAquaticFeatures.TALL_HYACINTH_STOCK);
-        final Holder<ConfiguredFeature<?, ?>> HYACINTH_PLANTS = featureGetter.getOrThrow(RuAquaticFeatures.HYACINTH_PLANTS);
-        final Holder<ConfiguredFeature<?, ?>> HYACINTH_FLOWERS = featureGetter.getOrThrow(RuAquaticFeatures.HYACINTH_FLOWERS);
-        final Holder<ConfiguredFeature<?, ?>> HYACINTH_ROCKS = featureGetter.getOrThrow(RuAquaticFeatures.HYACINTH_ROCKS);
+        final Holder<ConfiguredFeature<?, ?>> TALL_HYACINTH_STOCK = featureGetter.getOrThrow(RuAquaticFeatures.TALL_HYACINTH_STOCK.get());
+        final Holder<ConfiguredFeature<?, ?>> HYACINTH_PLANTS = featureGetter.getOrThrow(RuAquaticFeatures.HYACINTH_PLANTS.get());
+        final Holder<ConfiguredFeature<?, ?>> HYACINTH_FLOWERS = featureGetter.getOrThrow(RuAquaticFeatures.HYACINTH_FLOWERS.get());
+        final Holder<ConfiguredFeature<?, ?>> HYACINTH_ROCKS = featureGetter.getOrThrow(RuAquaticFeatures.HYACINTH_ROCKS.get());
 
-        final Holder<ConfiguredFeature<?, ?>> MOSSY_SEA_ROCKS = featureGetter.getOrThrow(RuAquaticFeatures.MOSSY_SEA_ROCKS);
-        final Holder<ConfiguredFeature<?, ?>> BLUE_MAGNOLIA_FLOWERS_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.BLUE_MAGNOLIA_FLOWERS_AQUATIC);
-        final Holder<ConfiguredFeature<?, ?>> PINK_MAGNOLIA_FLOWERS_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.PINK_MAGNOLIA_FLOWERS_AQUATIC);
-        final Holder<ConfiguredFeature<?, ?>> WHITE_MAGNOLIA_FLOWERS_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.WHITE_MAGNOLIA_FLOWERS_AQUATIC);
-        final Holder<ConfiguredFeature<?, ?>> JUNGLE_TREE_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.JUNGLE_TREE_AQUATIC);
-        final Holder<ConfiguredFeature<?, ?>> PALM_TREE_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.PALM_TREE_AQUATIC);
-        final Holder<ConfiguredFeature<?, ?>> ELEPHANT_EAR_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.ELEPHANT_EAR_AQUATIC);
+        final Holder<ConfiguredFeature<?, ?>> MOSSY_SEA_ROCKS = featureGetter.getOrThrow(RuAquaticFeatures.MOSSY_SEA_ROCKS.get());
+        final Holder<ConfiguredFeature<?, ?>> BLUE_MAGNOLIA_FLOWERS_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.BLUE_MAGNOLIA_FLOWERS_AQUATIC.get());
+        final Holder<ConfiguredFeature<?, ?>> PINK_MAGNOLIA_FLOWERS_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.PINK_MAGNOLIA_FLOWERS_AQUATIC.get());
+        final Holder<ConfiguredFeature<?, ?>> WHITE_MAGNOLIA_FLOWERS_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.WHITE_MAGNOLIA_FLOWERS_AQUATIC.get());
+        final Holder<ConfiguredFeature<?, ?>> JUNGLE_TREE_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.JUNGLE_TREE_AQUATIC.get());
+        final Holder<ConfiguredFeature<?, ?>> PALM_TREE_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.PALM_TREE_AQUATIC.get());
+        final Holder<ConfiguredFeature<?, ?>> ELEPHANT_EAR_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.ELEPHANT_EAR_AQUATIC.get());
         final Holder<ConfiguredFeature<?, ?>> PALM_SAPLING_AQUATIC = featureGetter.getOrThrow(RuVegetationFeatures.PALM_SHRUB);
 
 

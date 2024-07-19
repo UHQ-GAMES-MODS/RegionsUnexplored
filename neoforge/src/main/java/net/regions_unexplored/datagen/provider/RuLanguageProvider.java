@@ -84,8 +84,8 @@ public class RuLanguageProvider extends LanguageProvider {
         this.add(RuBlocks.HANGING_EARLIGHT.get(), "Hanging Earlight Fruit");
 
         //Entity translations
-        this.add(RuEntities.BOAT, "Boat");
-        this.add(RuEntities.CHEST_BOAT, "Boat With Chest");
+        this.add(RuEntities.BOAT.get(), "Boat");
+        this.add(RuEntities.CHEST_BOAT.get(), "Boat With Chest");
 
         this.add("death.attack.dorcel", "%s was dragged underground by Dorcel");
         this.add("death.attack.dorcel.player", "%s was dragged underground by Dorcel");

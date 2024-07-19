@@ -28,7 +28,7 @@ public class RuBoat extends Boat {
     }
 
     public RuBoat(Level level, double x, double y, double z) {
-        this(RuEntities.BOAT, level);
+        this(RuEntities.BOAT.get(), level);
         this.setPos(x, y, z); this.xo = x; this.yo = y; this.zo = z;
     }
 

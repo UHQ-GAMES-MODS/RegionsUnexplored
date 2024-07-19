@@ -1,12 +1,13 @@
 package net.regions_unexplored.client;
 
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.regions_unexplored.Constants;
 import net.regions_unexplored.platform.NeoForgeTintHelper;
 
-@EventBusSubscriber(modid = Constants.MOD_ID)
+@EventBusSubscriber(value = Dist.CLIENT, modid = Constants.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class TintRegistration {
     @SubscribeEvent
     public static void registerBlockColorHandlers(RegisterColorHandlersEvent.Block event) {

@@ -33,10 +33,12 @@ public class RegionsUnexplored {
     // code that gets invoked by the entry point of the loader specific projects.
     public static void init() {
         BiomeRegistry.addBiomes();
-        FeatureRegistry.addFeatures();
         RuBlocks.addBlocks();
-        RegionsUnexploredBlockEntities.addBlockEntities();
         RuItems.addItems();
+
+        FeatureRegistry.addFeatures();
+
+        RegionsUnexploredBlockEntities.addBlockEntities();
         RuEntities.addEntities();
         RuParticleTypes.addParticles();
 
