@@ -19,18 +19,18 @@ public class RuSurfaceRuleData {
     private static final SurfaceRules.RuleSource LAVA = makeStateRule(Blocks.LAVA);
 
     //PEAT_BLOCKS
-    private static final SurfaceRules.RuleSource PEAT_GRASS_BLOCK = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.PEAT_GRASS_BLOCK : Blocks.GRASS_BLOCK);
-    private static final SurfaceRules.RuleSource PEAT_COARSE_DIRT = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.PEAT_COARSE_DIRT : Blocks.COARSE_DIRT);
-    private static final SurfaceRules.RuleSource PEAT_PODZOL = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.PEAT_PODZOL : Blocks.PODZOL);
-    private static final SurfaceRules.RuleSource PEAT_DIRT = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.PEAT_DIRT : Blocks.DIRT);
-    private static final SurfaceRules.RuleSource PEAT_MUD = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.PEAT_MUD : Blocks.MUD);
+    private static final SurfaceRules.RuleSource PEAT_GRASS_BLOCK = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.PEAT_GRASS_BLOCK.get() : Blocks.GRASS_BLOCK);
+    private static final SurfaceRules.RuleSource PEAT_COARSE_DIRT = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.PEAT_COARSE_DIRT.get() : Blocks.COARSE_DIRT);
+    private static final SurfaceRules.RuleSource PEAT_PODZOL = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.PEAT_PODZOL.get() : Blocks.PODZOL);
+    private static final SurfaceRules.RuleSource PEAT_DIRT = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.PEAT_DIRT.get() : Blocks.DIRT);
+    private static final SurfaceRules.RuleSource PEAT_MUD = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.PEAT_MUD.get() : Blocks.MUD);
 
     //SILT_BLOCKS
-    private static final SurfaceRules.RuleSource SILT_GRASS_BLOCK = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.SILT_GRASS_BLOCK : Blocks.GRASS_BLOCK);
-    private static final SurfaceRules.RuleSource SILT_COARSE_DIRT = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.SILT_COARSE_DIRT : Blocks.COARSE_DIRT);
-    private static final SurfaceRules.RuleSource SILT_PODZOL = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.SILT_PODZOL : Blocks.PODZOL);
-    private static final SurfaceRules.RuleSource SILT_DIRT = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.SILT_DIRT : Blocks.DIRT);
-    private static final SurfaceRules.RuleSource SILT_MUD = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.SILT_MUD : Blocks.MUD);
+    private static final SurfaceRules.RuleSource SILT_GRASS_BLOCK = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.SILT_GRASS_BLOCK.get() : Blocks.GRASS_BLOCK);
+    private static final SurfaceRules.RuleSource SILT_COARSE_DIRT = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.SILT_COARSE_DIRT.get() : Blocks.COARSE_DIRT);
+    private static final SurfaceRules.RuleSource SILT_PODZOL = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.SILT_PODZOL.get() : Blocks.PODZOL);
+    private static final SurfaceRules.RuleSource SILT_DIRT = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.SILT_DIRT.get() : Blocks.DIRT);
+    private static final SurfaceRules.RuleSource SILT_MUD = makeStateRule(RuCommonConfig.TOGGLE_CUSTOM_DIRTS.get() ? RuBlocks.SILT_MUD.get() : Blocks.MUD);
 
     //DIRT_BLOCKS
     private static final SurfaceRules.RuleSource GRASS_BLOCK = makeStateRule(Blocks.GRASS_BLOCK);
@@ -42,21 +42,21 @@ public class RuSurfaceRuleData {
     private static final SurfaceRules.RuleSource MUD = makeStateRule(Blocks.MUD);
 
     //ASHEN_BLOCKS
-    private static final SurfaceRules.RuleSource ASHEN_DIRT = makeStateRule(RuBlocks.ASHEN_DIRT);
-    private static final SurfaceRules.RuleSource ASH_VENT = makeStateRule(RuBlocks.ASH_VENT);
+    private static final SurfaceRules.RuleSource ASHEN_DIRT = makeStateRule(RuBlocks.ASHEN_DIRT.get());
+    private static final SurfaceRules.RuleSource ASH_VENT = makeStateRule(RuBlocks.ASH_VENT.get());
 
     //ALPHA_BLOCKS
-    private static final SurfaceRules.RuleSource ALPHA_GRASS = makeStateRule(RuBlocks.ALPHA_GRASS_BLOCK);
+    private static final SurfaceRules.RuleSource ALPHA_GRASS = makeStateRule(RuBlocks.ALPHA_GRASS_BLOCK.get());
 
     //STONE_BLOCKS
-    private static final SurfaceRules.RuleSource ARGILLITE_GRASS_BLOCK = makeStateRule(RuBlocks.ARGILLITE_GRASS_BLOCK);
-    private static final SurfaceRules.RuleSource CHALK_GRASS_BLOCK = makeStateRule(RuBlocks.CHALK_GRASS_BLOCK);
-    private static final SurfaceRules.RuleSource PRISMOSS = makeStateRule(RuBlocks.PRISMOSS);
-    private static final SurfaceRules.RuleSource VIRIDESCENT_NYLIUM = makeStateRule(RuBlocks.VIRIDESCENT_NYLIUM);
-    private static final SurfaceRules.RuleSource DEEPSLATE_PRISMOSS = makeStateRule(RuBlocks.DEEPSLATE_PRISMOSS);
-    private static final SurfaceRules.RuleSource DEEPSLATE_VIRIDESCENT_NYLIUM = makeStateRule(RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM);
-    private static final SurfaceRules.RuleSource ARGILLITE = makeStateRule(RuBlocks.ARGILLITE);
-    private static final SurfaceRules.RuleSource CHALK = makeStateRule(RuBlocks.CHALK);
+    private static final SurfaceRules.RuleSource ARGILLITE_GRASS_BLOCK = makeStateRule(RuBlocks.ARGILLITE_GRASS_BLOCK.get());
+    private static final SurfaceRules.RuleSource CHALK_GRASS_BLOCK = makeStateRule(RuBlocks.CHALK_GRASS_BLOCK.get());
+    private static final SurfaceRules.RuleSource PRISMOSS = makeStateRule(RuBlocks.PRISMOSS.get());
+    private static final SurfaceRules.RuleSource VIRIDESCENT_NYLIUM = makeStateRule(RuBlocks.VIRIDESCENT_NYLIUM.get());
+    private static final SurfaceRules.RuleSource DEEPSLATE_PRISMOSS = makeStateRule(RuBlocks.DEEPSLATE_PRISMOSS.get());
+    private static final SurfaceRules.RuleSource DEEPSLATE_VIRIDESCENT_NYLIUM = makeStateRule(RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get());
+    private static final SurfaceRules.RuleSource ARGILLITE = makeStateRule(RuBlocks.ARGILLITE.get());
+    private static final SurfaceRules.RuleSource CHALK = makeStateRule(RuBlocks.CHALK.get());
     private static final SurfaceRules.RuleSource STONE = makeStateRule(Blocks.STONE);
     private static final SurfaceRules.RuleSource CALCITE = makeStateRule(Blocks.STONE);
     private static final SurfaceRules.RuleSource DEEPSLATE = makeStateRule(Blocks.DEEPSLATE);
@@ -66,12 +66,12 @@ public class RuSurfaceRuleData {
     private static final SurfaceRules.RuleSource BEDROCK = makeStateRule(Blocks.BEDROCK);
 
     //OTHER_STONE_BLOCKS
-    private static final SurfaceRules.RuleSource RAW_REDSTONE = makeStateRule(RuBlocks.RAW_REDSTONE_BLOCK);
+    private static final SurfaceRules.RuleSource RAW_REDSTONE = makeStateRule(RuBlocks.RAW_REDSTONE_BLOCK.get());
     private static final SurfaceRules.RuleSource TERRACOTTA = makeStateRule(Blocks.TERRACOTTA);
     private static final SurfaceRules.RuleSource ORANGE_TERRACOTTA = makeStateRule(Blocks.ORANGE_TERRACOTTA);
     private static final SurfaceRules.RuleSource WHITE_TERRACOTTA = makeStateRule(Blocks.ORANGE_TERRACOTTA);
     private static final SurfaceRules.RuleSource COBBLESTONE = makeStateRule(Blocks.COBBLESTONE);
-    private static final SurfaceRules.RuleSource MOSSY_STONE = makeStateRule(RuBlocks.MOSSY_STONE);
+    private static final SurfaceRules.RuleSource MOSSY_STONE = makeStateRule(RuBlocks.MOSSY_STONE.get());
     private static final SurfaceRules.RuleSource SANDSTONE = makeStateRule(Blocks.SANDSTONE);
     private static final SurfaceRules.RuleSource RED_SANDSTONE = makeStateRule(Blocks.RED_SANDSTONE);
 
@@ -79,7 +79,7 @@ public class RuSurfaceRuleData {
     private static final SurfaceRules.RuleSource SAND = makeStateRule(Blocks.SAND);
     private static final SurfaceRules.RuleSource RED_SAND = makeStateRule(Blocks.RED_SAND);
     private static final SurfaceRules.RuleSource GRAVEL = makeStateRule(Blocks.GRAVEL);
-    private static final SurfaceRules.RuleSource ASH = makeStateRule(RuBlocks.ASH);
+    private static final SurfaceRules.RuleSource ASH = makeStateRule(RuBlocks.ASH.get());
 
     //COLD_BLOCKS
     private static final SurfaceRules.RuleSource SNOW_BLOCK = makeStateRule(Blocks.SNOW_BLOCK);
@@ -88,11 +88,11 @@ public class RuSurfaceRuleData {
     private static final SurfaceRules.RuleSource PACKED_ICE = makeStateRule(Blocks.PACKED_ICE);
 
     //NETHER_BLOCKS
-    private static final SurfaceRules.RuleSource BRIMSPROUT_NYLIUM = makeStateRule(RuBlocks.BRIMSPROUT_NYLIUM);
-    private static final SurfaceRules.RuleSource MYCOTOXIC_NYLIUM = makeStateRule(RuBlocks.MYCOTOXIC_NYLIUM);
-    private static final SurfaceRules.RuleSource GLISTERING_NYLIUM = makeStateRule(RuBlocks.GLISTERING_NYLIUM);
-    private static final SurfaceRules.RuleSource GLISTERING_WART = makeStateRule(RuBlocks.GLISTERING_WART);
-    private static final SurfaceRules.RuleSource COBALT_NYLIUM = makeStateRule(RuBlocks.COBALT_NYLIUM);
+    private static final SurfaceRules.RuleSource BRIMSPROUT_NYLIUM = makeStateRule(RuBlocks.BRIMSPROUT_NYLIUM.get());
+    private static final SurfaceRules.RuleSource MYCOTOXIC_NYLIUM = makeStateRule(RuBlocks.MYCOTOXIC_NYLIUM.get());
+    private static final SurfaceRules.RuleSource GLISTERING_NYLIUM = makeStateRule(RuBlocks.GLISTERING_NYLIUM.get());
+    private static final SurfaceRules.RuleSource GLISTERING_WART = makeStateRule(RuBlocks.GLISTERING_WART.get());
+    private static final SurfaceRules.RuleSource COBALT_NYLIUM = makeStateRule(RuBlocks.COBALT_NYLIUM.get());
     private static final SurfaceRules.RuleSource SOUL_SAND = makeStateRule(Blocks.SOUL_SAND);
     private static final SurfaceRules.RuleSource SOUL_SOIL = makeStateRule(Blocks.SOUL_SOIL);
     private static final SurfaceRules.RuleSource BASALT = makeStateRule(Blocks.BASALT);

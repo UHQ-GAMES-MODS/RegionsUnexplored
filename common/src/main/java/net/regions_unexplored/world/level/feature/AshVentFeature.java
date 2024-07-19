@@ -59,8 +59,8 @@ public class AshVentFeature extends Feature<NoneFeatureConfiguration> {
             Blocks.NETHER_BRICK_STAIRS,
             Blocks.NETHER_WART,
             Blocks.CHEST,
-            RuBlocks.ASH_VENT,
-            RuBlocks.DEAD_LEAVES)
+            RuBlocks.ASH_VENT.get(),
+            RuBlocks.DEAD_LEAVES.get())
     );
 
     public AshVentFeature(Codec<NoneFeatureConfiguration> codec) {
@@ -117,12 +117,12 @@ public class AshVentFeature extends Feature<NoneFeatureConfiguration> {
         int size = random.nextInt(6);
         if (level.isEmptyBlock(pos) ) {
             if(level.getBlockState(pos.below()).isFaceSturdy(level, pos.below(), Direction.DOWN)
-                    ||!level.getBlockState(pos.below()).is(RuBlocks.ASH_VENT)) {
+                    ||!level.getBlockState(pos.below()).is(RuBlocks.ASH_VENT.get())) {
 
                 BlockPos.MutableBlockPos placePos = pos.mutable();
                 int count = 0;
                 while (level.isEmptyBlock(placePos)) {
-                    if(level.getBlockState(placePos.below()).is(RuBlocks.ASH_VENT)) {
+                    if(level.getBlockState(placePos.below()).is(RuBlocks.ASH_VENT.get())) {
                         return true;
                     }
                     if(count==size){
@@ -133,7 +133,7 @@ public class AshVentFeature extends Feature<NoneFeatureConfiguration> {
                     }
                     if(count==size-1){
                         if(random.nextInt(6)==0){
-                            level.setBlock(placePos, RuBlocks.ASH_VENT.defaultBlockState(), 2);
+                            level.setBlock(placePos, RuBlocks.ASH_VENT.get().defaultBlockState(), 2);
                         }
                         else{
                             level.setBlock(placePos, Blocks.BASALT.defaultBlockState(), 2);

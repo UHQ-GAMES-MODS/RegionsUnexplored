@@ -66,7 +66,7 @@ public class WaterEdgeFeature extends Feature<NoneFeatureConfiguration> {
     public boolean placeBlock(LevelAccessor level, BlockPos pos) {
         if (level.getBlockState(pos.below()).is(Blocks.DIRT)&&level.isWaterAt(pos)) {
             level.setBlock(pos, Blocks.GRASS_BLOCK.defaultBlockState(), 2);
-            if (level.getBlockState(pos.above())== RuBlocks.CATTAIL.defaultBlockState().setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)||level.getBlockState(pos.above()).is(RuBlocks.DUCKWEED)) {
+            if (level.getBlockState(pos.above())== RuBlocks.CATTAIL.get().defaultBlockState().setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)||level.getBlockState(pos.above()).is(RuBlocks.DUCKWEED.get())) {
                 level.setBlock(pos.above(), Blocks.AIR.defaultBlockState(), 2);
             }
         }

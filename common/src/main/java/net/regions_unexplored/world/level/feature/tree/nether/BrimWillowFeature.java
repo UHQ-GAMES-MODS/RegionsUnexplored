@@ -89,13 +89,13 @@ public class BrimWillowFeature extends Feature<NoneFeatureConfiguration> {
                         break;
                     }
                     if(i==2){
-                        level.setBlock(placePos, RuBlocks.BRIMWOOD_LOG_MAGMA.defaultBlockState().setValue(MagmaLogBlock.TRANSITION_BLOCK, true), 2);
+                        level.setBlock(placePos, RuBlocks.BRIMWOOD_LOG_MAGMA.get().defaultBlockState().setValue(MagmaLogBlock.TRANSITION_BLOCK, true), 2);
                     }
                     else if(i<2){
-                        level.setBlock(placePos, RuBlocks.BRIMWOOD_LOG_MAGMA.defaultBlockState().setValue(MagmaLogBlock.TRANSITION_BLOCK, false), 2);
+                        level.setBlock(placePos, RuBlocks.BRIMWOOD_LOG_MAGMA.get().defaultBlockState().setValue(MagmaLogBlock.TRANSITION_BLOCK, false), 2);
                     }
                     else if(i>2){
-                        level.setBlock(placePos, RuBlocks.BRIMWOOD_LOG.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.Y), 2);
+                        level.setBlock(placePos, RuBlocks.BRIMWOOD_LOG.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.Y), 2);
                     }
                 }
                 if(i==height){
@@ -201,7 +201,7 @@ public class BrimWillowFeature extends Feature<NoneFeatureConfiguration> {
             return;
         }
         if (isReplaceable(level, pos)) {
-            level.setBlock(pos, RuBlocks.BRIMWOOD_LOG.defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
+            level.setBlock(pos, RuBlocks.BRIMWOOD_LOG.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
         }
     }
 
@@ -210,7 +210,7 @@ public class BrimWillowFeature extends Feature<NoneFeatureConfiguration> {
             return;
         }
         if (isReplaceable(level, pos)) {
-            level.setBlock(pos, RuBlocks.BRIMWOOD_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
+            level.setBlock(pos, RuBlocks.BRIMWOOD_LEAVES.get().defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
         }
     }
 
@@ -338,13 +338,13 @@ public class BrimWillowFeature extends Feature<NoneFeatureConfiguration> {
                     if(level.isOutsideBuildHeight(place)){
                         break;
                     }
-                    level.setBlock(place, RuBlocks.BRIMWOOD_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
+                    level.setBlock(place, RuBlocks.BRIMWOOD_LEAVES.get().defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
                 }
                 else {
                     if(level.isOutsideBuildHeight(place)){
                         break;
                     }
-                    level.setBlock(place, RuBlocks.BRIMWOOD_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
+                    level.setBlock(place, RuBlocks.BRIMWOOD_LEAVES.get().defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
                 }
                 place = place.above();
             }
@@ -353,7 +353,7 @@ public class BrimWillowFeature extends Feature<NoneFeatureConfiguration> {
                     if(level.isOutsideBuildHeight(place)){
                         break;
                     }
-                    level.setBlock(place.below(), RuBlocks.BRIMWOOD_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
+                    level.setBlock(place.below(), RuBlocks.BRIMWOOD_LEAVES.get().defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
                 }
                 break;
             }

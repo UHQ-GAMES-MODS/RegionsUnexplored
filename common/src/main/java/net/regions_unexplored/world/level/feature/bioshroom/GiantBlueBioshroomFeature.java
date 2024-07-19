@@ -99,25 +99,25 @@ public class GiantBlueBioshroomFeature extends Feature<GiantBioshroomConfigurati
         if(level.isOutsideBuildHeight(pos)){
             return;
         }
-        if(level.getBlockState(pos).is(RuBlocks.PEAT_GRASS_BLOCK)){
-            level.setBlock(pos, RuBlocks.PEAT_DIRT.defaultBlockState(), 2);
+        if(level.getBlockState(pos).is(RuBlocks.PEAT_GRASS_BLOCK.get())){
+            level.setBlock(pos, RuBlocks.PEAT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.SILT_GRASS_BLOCK)){
-            level.setBlock(pos, RuBlocks.SILT_DIRT.defaultBlockState(), 2);
+        else if(level.getBlockState(pos).is(RuBlocks.SILT_GRASS_BLOCK.get())){
+            level.setBlock(pos, RuBlocks.SILT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.ALPHA_GRASS_BLOCK)||level.getBlockState(pos).is(Blocks.GRASS_BLOCK)||level.getBlockState(pos).is(Blocks.MYCELIUM)){
+        else if(level.getBlockState(pos).is(RuBlocks.ALPHA_GRASS_BLOCK.get())||level.getBlockState(pos).is(Blocks.GRASS_BLOCK)||level.getBlockState(pos).is(Blocks.MYCELIUM)){
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.MYCOTOXIC_NYLIUM)||level.getBlockState(pos).is(RuBlocks.GLISTERING_NYLIUM)|| level.getBlockState(pos).is(Blocks.CRIMSON_NYLIUM)|| level.getBlockState(pos).is(Blocks.WARPED_NYLIUM)){
+        else if(level.getBlockState(pos).is(RuBlocks.MYCOTOXIC_NYLIUM.get())||level.getBlockState(pos).is(RuBlocks.GLISTERING_NYLIUM.get())|| level.getBlockState(pos).is(Blocks.CRIMSON_NYLIUM)|| level.getBlockState(pos).is(Blocks.WARPED_NYLIUM)){
             level.setBlock(pos, Blocks.NETHERRACK.defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.COBALT_NYLIUM)){
+        else if(level.getBlockState(pos).is(RuBlocks.COBALT_NYLIUM.get())){
             level.setBlock(pos, Blocks.BLACKSTONE.defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.PRISMOSS)|| level.getBlockState(pos).is(RuBlocks.VIRIDESCENT_NYLIUM)|| level.getBlockState(pos).is(RuBlocks.STONE_GRASS_BLOCK)){
+        else if(level.getBlockState(pos).is(RuBlocks.PRISMOSS.get())|| level.getBlockState(pos).is(RuBlocks.VIRIDESCENT_NYLIUM.get())|| level.getBlockState(pos).is(RuBlocks.STONE_GRASS_BLOCK.get())){
             level.setBlock(pos, Blocks.STONE.defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.DEEPSLATE_PRISMOSS)||level.getBlockState(pos).is(RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM)||level.getBlockState(pos).is(RuBlocks.DEEPSLATE_GRASS_BLOCK)){
+        else if(level.getBlockState(pos).is(RuBlocks.DEEPSLATE_PRISMOSS.get())||level.getBlockState(pos).is(RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get())||level.getBlockState(pos).is(RuBlocks.DEEPSLATE_GRASS_BLOCK.get())){
             level.setBlock(pos, Blocks.DEEPSLATE.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos)) {
@@ -127,25 +127,25 @@ public class GiantBlueBioshroomFeature extends Feature<GiantBioshroomConfigurati
             return;
         }
 
-        if(level.getBlockState(pos.below()).is(RuBlocks.PEAT_GRASS_BLOCK)){
-            level.setBlock(pos.below(), RuBlocks.PEAT_DIRT.defaultBlockState(), 2);
+        if(level.getBlockState(pos.below()).is(RuBlocks.PEAT_GRASS_BLOCK.get())){
+            level.setBlock(pos.below(), RuBlocks.PEAT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.SILT_GRASS_BLOCK)){
-            level.setBlock(pos.below(), RuBlocks.SILT_DIRT.defaultBlockState(), 2);
+        else if(level.getBlockState(pos.below()).is(RuBlocks.SILT_GRASS_BLOCK.get())){
+            level.setBlock(pos.below(), RuBlocks.SILT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.ALPHA_GRASS_BLOCK)||level.getBlockState(pos.below()).is(Blocks.GRASS_BLOCK)||level.getBlockState(pos.below()).is(Blocks.MYCELIUM)){
+        else if(level.getBlockState(pos.below()).is(RuBlocks.ALPHA_GRASS_BLOCK.get())||level.getBlockState(pos.below()).is(Blocks.GRASS_BLOCK)||level.getBlockState(pos.below()).is(Blocks.MYCELIUM)){
             level.setBlock(pos.below(), Blocks.DIRT.defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.MYCOTOXIC_NYLIUM)||level.getBlockState(pos.below()).is(RuBlocks.GLISTERING_NYLIUM)|| level.getBlockState(pos.below()).is(Blocks.CRIMSON_NYLIUM)|| level.getBlockState(pos.below()).is(Blocks.WARPED_NYLIUM)){
+        else if(level.getBlockState(pos.below()).is(RuBlocks.MYCOTOXIC_NYLIUM.get())||level.getBlockState(pos.below()).is(RuBlocks.GLISTERING_NYLIUM.get())|| level.getBlockState(pos.below()).is(Blocks.CRIMSON_NYLIUM)|| level.getBlockState(pos.below()).is(Blocks.WARPED_NYLIUM)){
             level.setBlock(pos.below(), Blocks.NETHERRACK.defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.COBALT_NYLIUM)){
+        else if(level.getBlockState(pos.below()).is(RuBlocks.COBALT_NYLIUM.get())){
             level.setBlock(pos.below(), Blocks.BLACKSTONE.defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.PRISMOSS)|| level.getBlockState(pos.below()).is(RuBlocks.VIRIDESCENT_NYLIUM)|| level.getBlockState(pos.below()).is(RuBlocks.STONE_GRASS_BLOCK)){
+        else if(level.getBlockState(pos.below()).is(RuBlocks.PRISMOSS.get())|| level.getBlockState(pos.below()).is(RuBlocks.VIRIDESCENT_NYLIUM.get())|| level.getBlockState(pos.below()).is(RuBlocks.STONE_GRASS_BLOCK.get())){
             level.setBlock(pos.below(), Blocks.STONE.defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.DEEPSLATE_PRISMOSS)||level.getBlockState(pos.below()).is(RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM)||level.getBlockState(pos.below()).is(RuBlocks.DEEPSLATE_GRASS_BLOCK)){
+        else if(level.getBlockState(pos.below()).is(RuBlocks.DEEPSLATE_PRISMOSS.get())||level.getBlockState(pos.below()).is(RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get())||level.getBlockState(pos.below()).is(RuBlocks.DEEPSLATE_GRASS_BLOCK.get())){
             level.setBlock(pos.below(), Blocks.DEEPSLATE.defaultBlockState(), 2);
         }
     }

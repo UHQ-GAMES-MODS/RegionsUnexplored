@@ -29,7 +29,7 @@ public class HyacinthPlantsFeature extends Feature<ProbabilityFeatureConfigurati
       if (worldgenlevel.getBlockState(blockpos1).is(Blocks.WATER)) {
          if (blockstate.canSurvive(worldgenlevel, blockpos1)) {
             if(randomsource.nextInt(7)==0){
-               blockstate = RuBlocks.HYACINTH_BLOOM.defaultBlockState();
+               blockstate = RuBlocks.HYACINTH_BLOOM.get().defaultBlockState();
             }
             else{
                blockstate = Blocks.SEAGRASS.defaultBlockState();

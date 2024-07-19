@@ -45,13 +45,13 @@ public class TillableDirtBlock extends Block {
                 level.addParticle(ParticleTypes.SPLASH, (double) pos.getX() + level.random.nextDouble(), pos.getY() + 1, (double) pos.getZ() + level.random.nextDouble(), level.random.nextFloat() / 2.0F, 5.0E-5D, level.random.nextFloat() / 2.0F);
             }
             level.playSound((Player) null, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
-            if(level.getBlockState(pos)== RuBlocks.PEAT_DIRT.defaultBlockState()||level.getBlockState(pos)== RuBlocks.PEAT_COARSE_DIRT.defaultBlockState()){
-                level.setBlock(pos, RuBlocks.PEAT_MUD.defaultBlockState(), 2);
-                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, RuBlocks.PEAT_MUD.defaultBlockState()));
+            if(level.getBlockState(pos)== RuBlocks.PEAT_DIRT.get().defaultBlockState()||level.getBlockState(pos)== RuBlocks.PEAT_COARSE_DIRT.get().defaultBlockState()){
+                level.setBlock(pos, RuBlocks.PEAT_MUD.get().defaultBlockState(), 2);
+                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, RuBlocks.PEAT_MUD.get().defaultBlockState()));
             }
-            else if(level.getBlockState(pos)== RuBlocks.SILT_DIRT.defaultBlockState()||level.getBlockState(pos)== RuBlocks.SILT_COARSE_DIRT.defaultBlockState()){
-                level.setBlock(pos, RuBlocks.SILT_MUD.defaultBlockState(), 2);
-                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, RuBlocks.SILT_MUD.defaultBlockState()));
+            else if(level.getBlockState(pos)== RuBlocks.SILT_DIRT.get().defaultBlockState()||level.getBlockState(pos)== RuBlocks.SILT_COARSE_DIRT.get().defaultBlockState()){
+                level.setBlock(pos, RuBlocks.SILT_MUD.get().defaultBlockState(), 2);
+                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, RuBlocks.SILT_MUD.get().defaultBlockState()));
             }
             else{
                 level.setBlock(pos, Blocks.MUD.defaultBlockState(), 2);

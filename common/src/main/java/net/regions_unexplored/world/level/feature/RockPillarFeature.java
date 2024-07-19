@@ -430,7 +430,7 @@ public class RockPillarFeature extends Feature<NoneFeatureConfiguration> {
                     if (pos1.distSqr(pos) <= (double)(f * f)) {
                         if(level.isEmptyBlock(pos1.above())||level.getBlockState(pos1.above()).is(Blocks.SHORT_GRASS)) {
                             if(level.getBlockState(pos1.below()).is(Blocks.STONE)){
-                                level.setBlock(pos1, RuBlocks.STONE_GRASS_BLOCK.defaultBlockState(), 4);
+                                level.setBlock(pos1, RuBlocks.STONE_GRASS_BLOCK.get().defaultBlockState(), 4);
                                 if(random.nextInt(4)==0) {
                                     level.setBlock(pos1.above(), Blocks.SHORT_GRASS.defaultBlockState(), 4);
                                 }
@@ -449,7 +449,7 @@ public class RockPillarFeature extends Feature<NoneFeatureConfiguration> {
 
 
     private static boolean isRockState(BlockState p_159886_) {
-        return p_159886_.is(Blocks.STONE) || p_159886_.is(RuBlocks.STONE_GRASS_BLOCK) || p_159886_.is(Blocks.MOSS_BLOCK);
+        return p_159886_.is(Blocks.STONE) || p_159886_.is(RuBlocks.STONE_GRASS_BLOCK.get()) || p_159886_.is(Blocks.MOSS_BLOCK);
     }
 
     private boolean belowIsAir(BlockGetter p_66046_, BlockPos p_66047_) {

@@ -42,19 +42,19 @@ public class HangingPrismariteBlock extends Block {
     }
 
     public boolean mayPlaceOn(BlockState state, BlockGetter getter, BlockPos pos) {
-        return state.isFaceSturdy(getter, pos, Direction.DOWN) || state.is(RuBlocks.HANGING_PRISMARITE);
+        return state.isFaceSturdy(getter, pos, Direction.DOWN) || state.is(RuBlocks.HANGING_PRISMARITE.get());
     }
 
     @Override
     public BlockState updateShape(BlockState state, Direction facing, BlockState state1, LevelAccessor level, BlockPos pos, BlockPos pos1) {
         HangingPrismariteShape shape = state.getValue(SHAPE);
-        if(level.getBlockState(pos.below()) == RuBlocks.HANGING_PRISMARITE.defaultBlockState().setValue(SHAPE, HangingPrismariteShape.TIP)) {
+        if(level.getBlockState(pos.below()) == RuBlocks.HANGING_PRISMARITE.get().defaultBlockState().setValue(SHAPE, HangingPrismariteShape.TIP)) {
                 shape = HangingPrismariteShape.FRUSTUM;
         }
-        else if(level.getBlockState(pos.below()) == RuBlocks.HANGING_PRISMARITE.defaultBlockState().setValue(SHAPE, HangingPrismariteShape.FRUSTUM)) {
+        else if(level.getBlockState(pos.below()) == RuBlocks.HANGING_PRISMARITE.get().defaultBlockState().setValue(SHAPE, HangingPrismariteShape.FRUSTUM)) {
             shape = HangingPrismariteShape.COLUMN;
         }
-        else if(!level.getBlockState(pos.below()).is(RuBlocks.HANGING_PRISMARITE)) {
+        else if(!level.getBlockState(pos.below()).is(RuBlocks.HANGING_PRISMARITE.get())) {
             shape = HangingPrismariteShape.TIP;
         }
         if(!this.canSurvive(state, level, pos)){
@@ -64,11 +64,11 @@ public class HangingPrismariteBlock extends Block {
     }
 
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        if(context.getLevel().getBlockState(context.getClickedPos().below())== RuBlocks.HANGING_PRISMARITE.defaultBlockState().setValue(SHAPE, HangingPrismariteShape.FRUSTUM)
-                ||context.getLevel().getBlockState(context.getClickedPos().below())== RuBlocks.HANGING_PRISMARITE.defaultBlockState().setValue(SHAPE, HangingPrismariteShape.COLUMN)){
+        if(context.getLevel().getBlockState(context.getClickedPos().below())== RuBlocks.HANGING_PRISMARITE.get().defaultBlockState().setValue(SHAPE, HangingPrismariteShape.FRUSTUM)
+                ||context.getLevel().getBlockState(context.getClickedPos().below())== RuBlocks.HANGING_PRISMARITE.get().defaultBlockState().setValue(SHAPE, HangingPrismariteShape.COLUMN)){
             return this.defaultBlockState().setValue(SHAPE, HangingPrismariteShape.COLUMN);
         }
-        if(context.getLevel().getBlockState(context.getClickedPos().below())== RuBlocks.HANGING_PRISMARITE.defaultBlockState().setValue(SHAPE, HangingPrismariteShape.TIP)){
+        if(context.getLevel().getBlockState(context.getClickedPos().below())== RuBlocks.HANGING_PRISMARITE.get().defaultBlockState().setValue(SHAPE, HangingPrismariteShape.TIP)){
             return this.defaultBlockState().setValue(SHAPE, HangingPrismariteShape.FRUSTUM);
         }
         else{

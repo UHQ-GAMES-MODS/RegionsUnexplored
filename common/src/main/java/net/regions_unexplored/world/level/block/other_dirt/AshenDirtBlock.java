@@ -29,12 +29,12 @@ public class AshenDirtBlock extends Block {
 
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (level.getBlockState(pos.above()).is(Blocks.FIRE)) {
-            level.setBlockAndUpdate(pos, RuBlocks.ASHEN_DIRT.defaultBlockState().setValue(SMOULDERING, true));
+            level.setBlockAndUpdate(pos, RuBlocks.ASHEN_DIRT.get().defaultBlockState().setValue(SMOULDERING, true));
         }
     }
 
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        if(state== RuBlocks.ASHEN_DIRT.defaultBlockState().setValue(SMOULDERING, true)){
+        if(state== RuBlocks.ASHEN_DIRT.get().defaultBlockState().setValue(SMOULDERING, true)){
             super.animateTick(state, level, pos, random);
             if (random.nextInt(20) == 0) {
                 level.addParticle(ParticleTypes.FLAME, (double)pos.getX() + random.nextDouble(), (double)pos.getY() + 1.1D, (double)pos.getZ() + random.nextDouble(), 0.0D, 0.0D, 0.0D);

@@ -37,7 +37,7 @@ public class DropleafBlock extends GrowingPlantHeadBlock {
     }
 
     protected Block getBodyBlock() {
-        return RuBlocks.DROPLEAF_PLANT;
+        return RuBlocks.DROPLEAF_PLANT.get();
     }
 
     protected boolean canGrowInto(BlockState state) {

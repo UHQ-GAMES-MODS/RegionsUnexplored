@@ -33,7 +33,7 @@ public class ArgilliteGrassBlock extends ArgilliteDirtBlock implements Bonemeala
 
    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
       BlockPos blockPos = pos.above();
-      BlockState blockState = RuBlocks.BLADED_GRASS.defaultBlockState();
+      BlockState blockState = RuBlocks.BLADED_GRASS.get().defaultBlockState();
       Optional<Holder.Reference<PlacedFeature>> optional = level.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(VegetationPlacements.GRASS_BONEMEAL);
 
       label46:

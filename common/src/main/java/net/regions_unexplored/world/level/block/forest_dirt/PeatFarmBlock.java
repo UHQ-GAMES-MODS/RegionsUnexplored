@@ -39,7 +39,7 @@ public class PeatFarmBlock extends FarmBlock {
     }
 
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return !this.defaultBlockState().canSurvive(context.getLevel(), context.getClickedPos()) ? RuBlocks.PEAT_DIRT.defaultBlockState() : super.getStateForPlacement(context);
+        return !this.defaultBlockState().canSurvive(context.getLevel(), context.getClickedPos()) ? RuBlocks.PEAT_DIRT.get().defaultBlockState() : super.getStateForPlacement(context);
     }
 
     public @NotNull VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
@@ -80,7 +80,7 @@ public class PeatFarmBlock extends FarmBlock {
     }
 
     public static void turnToDirt(BlockState state, Level level, BlockPos pos) {
-        level.setBlockAndUpdate(pos, pushEntitiesUp(state, RuBlocks.PEAT_DIRT.defaultBlockState(), level, pos));
+        level.setBlockAndUpdate(pos, pushEntitiesUp(state, RuBlocks.PEAT_DIRT.get().defaultBlockState(), level, pos));
     }
 
     private static boolean isUnderCrops(BlockGetter getter, BlockPos pos) {

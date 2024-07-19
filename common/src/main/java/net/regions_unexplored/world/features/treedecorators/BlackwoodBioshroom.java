@@ -32,31 +32,31 @@ public class BlackwoodBioshroom extends TreeDecorator {
 				BlockPos px1n = new BlockPos(newpos.getX(),newpos.getY()+1,newpos.getZ()-1);
 
 				if (isReplaceable(context.level(), px1)) {
-					context.setBlock(px1, RuBlocks.PINK_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1, RuBlocks.PINK_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1e)) {
-					context.setBlock(px1e, RuBlocks.PINK_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1e, RuBlocks.PINK_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1w)) {
-					context.setBlock(px1w, RuBlocks.PINK_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1w, RuBlocks.PINK_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1s)) {
-					context.setBlock(px1s, RuBlocks.PINK_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1s, RuBlocks.PINK_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1n)) {
-					context.setBlock(px1n, RuBlocks.PINK_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1n, RuBlocks.PINK_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1s.west())) {
-					context.setBlock(px1s.west(), RuBlocks.PINK_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1s.west(), RuBlocks.PINK_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1n.west())) {
-					context.setBlock(px1n.west(), RuBlocks.PINK_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1n.west(), RuBlocks.PINK_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1s.east())) {
-					context.setBlock(px1s.east(), RuBlocks.PINK_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1s.east(), RuBlocks.PINK_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1n.east())) {
-					context.setBlock(px1n.east(), RuBlocks.PINK_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1n.east(), RuBlocks.PINK_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 			}
 			if(type==1){
@@ -68,31 +68,31 @@ public class BlackwoodBioshroom extends TreeDecorator {
 				BlockPos px1n = new BlockPos(newpos.getX(),newpos.getY()+1,newpos.getZ()-1);
 
 				if (isReplaceable(context.level(), px1)) {
-					context.setBlock(px1, RuBlocks.BLUE_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1, RuBlocks.BLUE_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1e)) {
-					context.setBlock(px1e, RuBlocks.BLUE_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1e, RuBlocks.BLUE_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1w)) {
-					context.setBlock(px1w, RuBlocks.BLUE_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1w, RuBlocks.BLUE_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1s)) {
-					context.setBlock(px1s, RuBlocks.BLUE_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1s, RuBlocks.BLUE_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1n)) {
-					context.setBlock(px1n, RuBlocks.BLUE_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1n, RuBlocks.BLUE_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1s.west())) {
-					context.setBlock(px1s.west(), RuBlocks.BLUE_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1s.west(), RuBlocks.BLUE_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1n.west())) {
-					context.setBlock(px1n.west(), RuBlocks.BLUE_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1n.west(), RuBlocks.BLUE_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1s.east())) {
-					context.setBlock(px1s.east(), RuBlocks.BLUE_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1s.east(), RuBlocks.BLUE_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1n.east())) {
-					context.setBlock(px1n.east(), RuBlocks.BLUE_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1n.east(), RuBlocks.BLUE_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 
 			}
@@ -105,19 +105,19 @@ public class BlackwoodBioshroom extends TreeDecorator {
 				BlockPos px1n = new BlockPos(newpos.getX(),newpos.getY(),newpos.getZ()-1);
 
 				if (isReplaceable(context.level(), px1)) {
-					context.setBlock(px1, RuBlocks.PINK_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1, RuBlocks.PINK_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1.north())) {
-					context.setBlock(px1.north(), RuBlocks.PINK_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1.north(), RuBlocks.PINK_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1.south())) {
-					context.setBlock(px1.south(), RuBlocks.PINK_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1.south(), RuBlocks.PINK_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1.east())) {
-					context.setBlock(px1.east(), RuBlocks.PINK_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1.east(), RuBlocks.PINK_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1.west())) {
-					context.setBlock(px1.west(), RuBlocks.PINK_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1.west(), RuBlocks.PINK_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 
 
@@ -135,16 +135,16 @@ public class BlackwoodBioshroom extends TreeDecorator {
 				}
 
 				if (isReplaceable(context.level(), px1s.west())) {
-					context.setBlock(px1s.west(), RuBlocks.PINK_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1s.west(), RuBlocks.PINK_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1n.west())) {
-					context.setBlock(px1n.west(), RuBlocks.PINK_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1n.west(), RuBlocks.PINK_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1s.east())) {
-					context.setBlock(px1s.east(), RuBlocks.PINK_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1s.east(), RuBlocks.PINK_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1n.east())) {
-					context.setBlock(px1n.east(), RuBlocks.PINK_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1n.east(), RuBlocks.PINK_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 			}
 			if(type==3){
@@ -156,19 +156,19 @@ public class BlackwoodBioshroom extends TreeDecorator {
 				BlockPos px1n = new BlockPos(newpos.getX(),newpos.getY(),newpos.getZ()-1);
 
 				if (isReplaceable(context.level(), px1)) {
-					context.setBlock(px1, RuBlocks.BLUE_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1, RuBlocks.BLUE_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1.north())) {
-					context.setBlock(px1.north(), RuBlocks.BLUE_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1.north(), RuBlocks.BLUE_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1.south())) {
-					context.setBlock(px1.south(), RuBlocks.BLUE_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1.south(), RuBlocks.BLUE_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1.east())) {
-					context.setBlock(px1.east(), RuBlocks.BLUE_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1.east(), RuBlocks.BLUE_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1.west())) {
-					context.setBlock(px1.west(), RuBlocks.BLUE_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1.west(), RuBlocks.BLUE_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 
 
@@ -186,16 +186,16 @@ public class BlackwoodBioshroom extends TreeDecorator {
 				}
 
 				if (isReplaceable(context.level(), px1s.west())) {
-					context.setBlock(px1s.west(), RuBlocks.BLUE_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1s.west(), RuBlocks.BLUE_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1n.west())) {
-					context.setBlock(px1n.west(), RuBlocks.BLUE_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1n.west(), RuBlocks.BLUE_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1s.east())) {
-					context.setBlock(px1s.east(), RuBlocks.BLUE_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1s.east(), RuBlocks.BLUE_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 				if (isReplaceable(context.level(), px1n.east())) {
-					context.setBlock(px1n.east(), RuBlocks.BLUE_BIOSHROOM_BLOCK.defaultBlockState());
+					context.setBlock(px1n.east(), RuBlocks.BLUE_BIOSHROOM_BLOCK.get().defaultBlockState());
 				}
 			}
 		}

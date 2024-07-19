@@ -28,7 +28,7 @@ public class GlisteringIvyBlock extends GrowingPlantHeadBlock {
     }
 
     protected Block getBodyBlock() {
-        return RuBlocks.GLISTERING_IVY_PLANT;
+        return RuBlocks.GLISTERING_IVY_PLANT.get();
     }
 
     protected boolean canGrowInto(BlockState state) {

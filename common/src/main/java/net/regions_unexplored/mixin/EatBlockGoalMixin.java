@@ -34,7 +34,7 @@ public class EatBlockGoalMixin {
     private void regions_unexplored$canUse(CallbackInfoReturnable<Boolean> cir) {
         BlockPos pos = this.mob.blockPosition();
 
-        if (this.level.getBlockState(pos.below()).is(RuBlocks.SILT_GRASS_BLOCK) || this.level.getBlockState(pos.below()).is(RuBlocks.PEAT_GRASS_BLOCK)) {
+        if (this.level.getBlockState(pos.below()).is(RuBlocks.SILT_GRASS_BLOCK.get()) || this.level.getBlockState(pos.below()).is(RuBlocks.PEAT_GRASS_BLOCK.get())) {
             cir.setReturnValue(true);
         }
     }
@@ -48,11 +48,11 @@ public class EatBlockGoalMixin {
         BlockState down = this.level.getBlockState(downPos);
 
         // Modded Dirt likes
-        if (down.is(RuBlocks.PEAT_GRASS_BLOCK)) {
+        if (down.is(RuBlocks.PEAT_GRASS_BLOCK.get())) {
             if (this.level.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)) {
-                this.level.levelEvent(2001, downPos, Block.getId(RuBlocks.PEAT_GRASS_BLOCK.defaultBlockState()));
+                this.level.levelEvent(2001, downPos, Block.getId(RuBlocks.PEAT_GRASS_BLOCK.get().defaultBlockState()));
 
-                Block replacement = RuBlocks.PEAT_DIRT;
+                Block replacement = RuBlocks.PEAT_DIRT.get();
 
                 this.level.setBlock(downPos, replacement.defaultBlockState(), 2);
             }
@@ -60,11 +60,11 @@ public class EatBlockGoalMixin {
             this.mob.ate();
         }
 
-        if (down.is(RuBlocks.SILT_GRASS_BLOCK)) {
+        if (down.is(RuBlocks.SILT_GRASS_BLOCK.get())) {
             if (this.level.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)) {
-                this.level.levelEvent(2001, downPos, Block.getId(RuBlocks.SILT_GRASS_BLOCK.defaultBlockState()));
+                this.level.levelEvent(2001, downPos, Block.getId(RuBlocks.SILT_GRASS_BLOCK.get().defaultBlockState()));
 
-                Block replacement = RuBlocks.SILT_DIRT;
+                Block replacement = RuBlocks.SILT_DIRT.get();
 
                 this.level.setBlock(downPos, replacement.defaultBlockState(), 2);
             }

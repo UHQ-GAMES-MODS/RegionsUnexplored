@@ -42,7 +42,7 @@ public class AshenGrassBlock extends BushBlock {
     }
 
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        if(state==RuBlocks.ASHEN_GRASS.defaultBlockState().setValue(SMOULDERING, true)){
+        if(state==RuBlocks.ASHEN_GRASS.get().defaultBlockState().setValue(SMOULDERING, true)){
             super.animateTick(state, level, pos, random);
             if (random.nextInt(20) == 0) {
                 level.addParticle(ParticleTypes.FLAME, (double)pos.getX() + random.nextDouble(), (double)pos.getY() + 0.25D, (double)pos.getZ() + random.nextDouble(), 0.0D, 0.0D, 0.0D);

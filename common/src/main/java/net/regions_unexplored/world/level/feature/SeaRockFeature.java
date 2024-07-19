@@ -153,7 +153,7 @@ public class SeaRockFeature extends Feature<SeaRockConfiguration> {
         }
 
         private static boolean isRockState(BlockState p_159886_) {
-            return p_159886_.is(Blocks.STONE) || p_159886_.is(RuBlocks.MOSSY_STONE) || p_159886_.is(Blocks.PACKED_ICE)|| p_159886_.is(Blocks.MOSS_BLOCK);
+            return p_159886_.is(Blocks.STONE) || p_159886_.is(RuBlocks.MOSSY_STONE.get()) || p_159886_.is(Blocks.PACKED_ICE)|| p_159886_.is(Blocks.MOSS_BLOCK);
         }
 
         private boolean belowIsAir(BlockGetter p_66046_, BlockPos p_66047_) {

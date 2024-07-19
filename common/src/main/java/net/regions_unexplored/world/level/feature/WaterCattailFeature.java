@@ -65,12 +65,12 @@ public class WaterCattailFeature extends Feature<NoneFeatureConfiguration> {
 
     public boolean placeCattail(LevelAccessor level, BlockPos pos) {
         if (level.getBlockState(pos.below()).is(RuTags.CATTAIL_CAN_SURVIVE_ON)&&level.isWaterAt(pos)&&level.isEmptyBlock(pos.above())) {
-            level.setBlock(pos, RuBlocks.CATTAIL.defaultBlockState().setValue(CattailBlock.HALF, DoubleBlockHalf.LOWER).setValue(CattailBlock.WATERLOGGED, true), 2);
-            level.setBlock(pos.above(), RuBlocks.CATTAIL.defaultBlockState().setValue(CattailBlock.HALF, DoubleBlockHalf.UPPER).setValue(CattailBlock.WATERLOGGED, false), 2);
+            level.setBlock(pos, RuBlocks.CATTAIL.get().defaultBlockState().setValue(CattailBlock.HALF, DoubleBlockHalf.LOWER).setValue(CattailBlock.WATERLOGGED, true), 2);
+            level.setBlock(pos.above(), RuBlocks.CATTAIL.get().defaultBlockState().setValue(CattailBlock.HALF, DoubleBlockHalf.UPPER).setValue(CattailBlock.WATERLOGGED, false), 2);
         }
         else if (level.getBlockState(pos.below()).is(RuTags.CATTAIL_CAN_SURVIVE_ON)&&level.isEmptyBlock(pos)&&level.isEmptyBlock(pos.above())) {
-            level.setBlock(pos, RuBlocks.CATTAIL.defaultBlockState().setValue(CattailBlock.HALF, DoubleBlockHalf.LOWER).setValue(CattailBlock.WATERLOGGED, false), 2);
-            level.setBlock(pos.above(), RuBlocks.CATTAIL.defaultBlockState().setValue(CattailBlock.HALF, DoubleBlockHalf.UPPER).setValue(CattailBlock.WATERLOGGED, false), 2);
+            level.setBlock(pos, RuBlocks.CATTAIL.get().defaultBlockState().setValue(CattailBlock.HALF, DoubleBlockHalf.LOWER).setValue(CattailBlock.WATERLOGGED, false), 2);
+            level.setBlock(pos.above(), RuBlocks.CATTAIL.get().defaultBlockState().setValue(CattailBlock.HALF, DoubleBlockHalf.UPPER).setValue(CattailBlock.WATERLOGGED, false), 2);
         }
         return true;
     }

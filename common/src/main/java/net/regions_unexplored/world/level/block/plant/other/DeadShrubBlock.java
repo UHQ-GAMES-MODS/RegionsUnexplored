@@ -27,7 +27,7 @@ public class DeadShrubBlock extends BushBlock {
     }
 
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-        if(state== RuBlocks.SMALL_DESERT_SHRUB.defaultBlockState()){
+        if(state== RuBlocks.SMALL_DESERT_SHRUB.get().defaultBlockState()){
             return SHAPE_SMALL_DESERT_SHRUB;
         }
         else{

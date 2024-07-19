@@ -21,10 +21,10 @@ public class ElephantEarBlock extends DoublePlantBlock {
     }
 
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-        if(state== RuBlocks.ELEPHANT_EAR.defaultBlockState().setValue(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)){
+        if(state== RuBlocks.ELEPHANT_EAR.get().defaultBlockState().setValue(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)){
             return SHAPE_LOWER;
         }
-        else if(state== RuBlocks.ELEPHANT_EAR.defaultBlockState().setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)){
+        else if(state== RuBlocks.ELEPHANT_EAR.get().defaultBlockState().setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)){
             return SHAPE_UPPER;
         }
         return SHAPE_LOWER;

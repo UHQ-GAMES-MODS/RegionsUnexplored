@@ -141,7 +141,7 @@ public class LargePointedRedstoneFeature extends Feature<LargePointedRedstoneCon
                                 BlockPos blockpos = windOffsetter.offset(pos);
                                 if (PointedRedstoneUtils.isEmptyOrWaterOrLava(level, blockpos)) {
                                     flag = true;
-                                    Block block = RuBlocks.RAW_REDSTONE_BLOCK;
+                                    Block block = RuBlocks.RAW_REDSTONE_BLOCK.get();
                                     level.setBlock(blockpos, block.defaultBlockState(), 2);
                                 } else if (flag && level.getBlockState(blockpos).is(BlockTags.BASE_STONE_OVERWORLD)) {
                                     break;

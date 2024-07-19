@@ -20,8 +20,8 @@ public class SmoulderingDirtFeature extends Feature<NoneFeatureConfiguration> {
         WorldGenLevel level = context.level();
 
 
-        if(level.getBlockState(pos.below()).is(RuBlocks.ASHEN_DIRT)&&level.getBlockState(pos).isAir()){
-            level.setBlock(pos.below(), RuBlocks.ASHEN_DIRT.defaultBlockState().setValue(AshenDirtBlock.SMOULDERING, true), 2);
+        if(level.getBlockState(pos.below()).is(RuBlocks.ASHEN_DIRT.get())&&level.getBlockState(pos).isAir()){
+            level.setBlock(pos.below(), RuBlocks.ASHEN_DIRT.get().defaultBlockState().setValue(AshenDirtBlock.SMOULDERING, true), 2);
             return true;
         }
 

@@ -400,13 +400,13 @@ public class LushPineTreeFeature extends Feature<RuTreeConfiguration> {
         if(level.isOutsideBuildHeight(pos)){
             return true;
         }
-        if(level.getBlockState(pos).is(RuBlocks.PEAT_GRASS_BLOCK)){
-            level.setBlock(pos, RuBlocks.PEAT_DIRT.defaultBlockState(), 2);
+        if(level.getBlockState(pos).is(RuBlocks.PEAT_GRASS_BLOCK.get())){
+            level.setBlock(pos, RuBlocks.PEAT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.SILT_GRASS_BLOCK)){
-            level.setBlock(pos, RuBlocks.SILT_DIRT.defaultBlockState(), 2);
+        else if(level.getBlockState(pos).is(RuBlocks.SILT_GRASS_BLOCK.get())){
+            level.setBlock(pos, RuBlocks.SILT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.ALPHA_GRASS_BLOCK)){
+        else if(level.getBlockState(pos).is(RuBlocks.ALPHA_GRASS_BLOCK.get())){
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(level.getBlockState(pos).is(Blocks.GRASS_BLOCK)){
@@ -419,13 +419,13 @@ public class LushPineTreeFeature extends Feature<RuTreeConfiguration> {
             return true;
         }
 
-        if(level.getBlockState(pos.below()).is(RuBlocks.PEAT_GRASS_BLOCK)){
-            level.setBlock(pos.below(), RuBlocks.PEAT_DIRT.defaultBlockState(), 2);
+        if(level.getBlockState(pos.below()).is(RuBlocks.PEAT_GRASS_BLOCK.get())){
+            level.setBlock(pos.below(), RuBlocks.PEAT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.SILT_GRASS_BLOCK)){
-            level.setBlock(pos.below(), RuBlocks.SILT_DIRT.defaultBlockState(), 2);
+        else if(level.getBlockState(pos.below()).is(RuBlocks.SILT_GRASS_BLOCK.get())){
+            level.setBlock(pos.below(), RuBlocks.SILT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.ALPHA_GRASS_BLOCK)){
+        else if(level.getBlockState(pos.below()).is(RuBlocks.ALPHA_GRASS_BLOCK.get())){
             level.setBlock(pos.below(), Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(level.getBlockState(pos.below()).is(Blocks.GRASS_BLOCK)){

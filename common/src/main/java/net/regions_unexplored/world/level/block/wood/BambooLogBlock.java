@@ -112,8 +112,8 @@ public class BambooLogBlock extends Block implements BonemealableBlock, SimpleWa
         Direction.Axis axis = state.getValue(AXIS);
         boolean water = state.getValue(WATERLOGGED);
 
-        popResourceFromFace(context.getLevel(), context.getClickedPos(), context.getClickedFace(), new ItemStack(RuBlocks.BAMBOO_SAPLING.asItem(), 1));
-        context.getLevel().setBlock(context.getClickedPos(), RuBlocks.BAMBOO_LOG.defaultBlockState().setValue(AXIS, axis).setValue(LEAVES,false).setValue(WATERLOGGED, water), 2);
+        popResourceFromFace(context.getLevel(), context.getClickedPos(), context.getClickedFace(), new ItemStack(RuBlocks.BAMBOO_SAPLING.get().asItem(), 1));
+        context.getLevel().setBlock(context.getClickedPos(), RuBlocks.BAMBOO_LOG.get().defaultBlockState().setValue(AXIS, axis).setValue(LEAVES,false).setValue(WATERLOGGED, water), 2);
         return state.getValue(LEAVES);
     }
 }

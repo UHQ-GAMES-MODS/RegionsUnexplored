@@ -24,8 +24,8 @@ public class PlacedFeatureRegistry {
         return ResourceKey.create(Registries.PLACED_FEATURE, Constants.id(name));
     }
 
-    public static BlockPredicate onDirtPredicate = BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL, Blocks.COARSE_DIRT, Blocks.DIRT, RuBlocks.PEAT_DIRT, RuBlocks.SILT_DIRT, RuBlocks.PEAT_COARSE_DIRT, RuBlocks.SILT_COARSE_DIRT, RuBlocks.PEAT_PODZOL, RuBlocks.SILT_PODZOL);
-    public static BlockPredicate onGrassBlockPredicate = BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.GRASS_BLOCK, RuBlocks.PEAT_GRASS_BLOCK, RuBlocks.SILT_GRASS_BLOCK, RuBlocks.STONE_GRASS_BLOCK, RuBlocks.DEEPSLATE_GRASS_BLOCK);
-    public static BlockPredicate onViridescentNyliumPredicate = BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), RuBlocks.VIRIDESCENT_NYLIUM, RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM);
-    public static BlockPredicate onSnowPredicate = BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.SNOW_BLOCK, Blocks.GRASS_BLOCK, RuBlocks.PEAT_GRASS_BLOCK, RuBlocks.SILT_GRASS_BLOCK);
+    public static BlockPredicate onDirtPredicate = BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL, Blocks.COARSE_DIRT, Blocks.DIRT, RuBlocks.PEAT_DIRT.get(), RuBlocks.SILT_DIRT.get(), RuBlocks.PEAT_COARSE_DIRT.get(), RuBlocks.SILT_COARSE_DIRT.get(), RuBlocks.PEAT_PODZOL.get(), RuBlocks.SILT_PODZOL.get());
+    public static BlockPredicate onGrassBlockPredicate = BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.GRASS_BLOCK, RuBlocks.PEAT_GRASS_BLOCK.get(), RuBlocks.SILT_GRASS_BLOCK.get(), RuBlocks.STONE_GRASS_BLOCK.get(), RuBlocks.DEEPSLATE_GRASS_BLOCK.get());
+    public static BlockPredicate onViridescentNyliumPredicate = BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), RuBlocks.VIRIDESCENT_NYLIUM.get(), RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get());
+    public static BlockPredicate onSnowPredicate = BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.SNOW_BLOCK, Blocks.GRASS_BLOCK, RuBlocks.PEAT_GRASS_BLOCK.get(), RuBlocks.SILT_GRASS_BLOCK.get());
 }

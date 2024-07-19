@@ -24,10 +24,10 @@ public class GiantLilyPadFeature extends Feature<NoneFeatureConfiguration> {
             if(level.getFluidState(pos.below().south()).is(Fluids.WATER)&&level.getBlockState(pos.south()).isAir()){
                 if(level.getFluidState(pos.below().south().west()).is(Fluids.WATER)&&level.getBlockState(pos.south().west()).isAir()){
                     if(level.getFluidState(pos.below().west()).is(Fluids.WATER)&&level.getBlockState(pos.west()).isAir()){
-                        level.setBlock(pos, RuBlocks.GIANT_LILY_PAD.defaultBlockState().setValue(GiantLilyBlock.FACING, Direction.NORTH), 2);
-                        level.setBlock(pos.south(), RuBlocks.GIANT_LILY_PAD.defaultBlockState().setValue(GiantLilyBlock.FACING, Direction.EAST), 2);
-                        level.setBlock(pos.south().west(), RuBlocks.GIANT_LILY_PAD.defaultBlockState().setValue(GiantLilyBlock.FACING, Direction.SOUTH), 2);
-                        level.setBlock(pos.west(), RuBlocks.GIANT_LILY_PAD.defaultBlockState().setValue(GiantLilyBlock.FACING, Direction.WEST), 2);
+                        level.setBlock(pos, RuBlocks.GIANT_LILY_PAD.get().defaultBlockState().setValue(GiantLilyBlock.FACING, Direction.NORTH), 2);
+                        level.setBlock(pos.south(), RuBlocks.GIANT_LILY_PAD.get().defaultBlockState().setValue(GiantLilyBlock.FACING, Direction.EAST), 2);
+                        level.setBlock(pos.south().west(), RuBlocks.GIANT_LILY_PAD.get().defaultBlockState().setValue(GiantLilyBlock.FACING, Direction.SOUTH), 2);
+                        level.setBlock(pos.west(), RuBlocks.GIANT_LILY_PAD.get().defaultBlockState().setValue(GiantLilyBlock.FACING, Direction.WEST), 2);
                     }
                 }
             }

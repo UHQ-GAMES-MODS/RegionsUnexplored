@@ -26,7 +26,7 @@ public class ObsidianSpireFeature extends Feature<NoneFeatureConfiguration> {
         if (level.isEmptyBlock(pos) && !level.isEmptyBlock(pos.below())) {
             BlockPos.MutableBlockPos placePos = pos.mutable();
 
-            while(level.isEmptyBlock(placePos)||level.getBlockState(placePos).is(RuBlocks.COBALT_OBSIDIAN)||level.getBlockState(placePos).is(Blocks.OBSIDIAN)) {
+            while(level.isEmptyBlock(placePos)||level.getBlockState(placePos).is(RuBlocks.COBALT_OBSIDIAN.get())||level.getBlockState(placePos).is(Blocks.OBSIDIAN)) {
                 if (level.isOutsideBuildHeight(placePos)) {
                     return true;
                 }
@@ -36,26 +36,26 @@ public class ObsidianSpireFeature extends Feature<NoneFeatureConfiguration> {
                 int west = context.random().nextInt(4);
                 level.setBlock(placePos, Blocks.OBSIDIAN.defaultBlockState(), 2);
                 if(north==0){
-                    level.setBlock(placePos.north(), RuBlocks.COBALT_OBSIDIAN.defaultBlockState(), 2);
+                    level.setBlock(placePos.north(), RuBlocks.COBALT_OBSIDIAN.get().defaultBlockState(), 2);
                         if(context.random().nextInt(3)==0){
                             placeBlob(level, placePos, context.random());
                         }
                 }
                 if(south==0){
-                    level.setBlock(placePos.south(), RuBlocks.COBALT_OBSIDIAN.defaultBlockState(), 2);
+                    level.setBlock(placePos.south(), RuBlocks.COBALT_OBSIDIAN.get().defaultBlockState(), 2);
                     if(context.random().nextInt(3)==0){
                         placeBlob(level, placePos, context.random());
                     }
                 }
                 if(east==0){
-                    level.setBlock(placePos.east(), RuBlocks.COBALT_OBSIDIAN.defaultBlockState(), 2);
+                    level.setBlock(placePos.east(), RuBlocks.COBALT_OBSIDIAN.get().defaultBlockState(), 2);
                     int east2 = context.random().nextInt(3);
                     if(context.random().nextInt(3)==0){
                         placeBlob(level, placePos, context.random());
                     }
                 }
                 if(west==0){
-                    level.setBlock(placePos.west(), RuBlocks.COBALT_OBSIDIAN.defaultBlockState(), 2);
+                    level.setBlock(placePos.west(), RuBlocks.COBALT_OBSIDIAN.get().defaultBlockState(), 2);
                     int west2 = context.random().nextInt(3);
                     if(context.random().nextInt(3)==0){
                         placeBlob(level, placePos, context.random());
@@ -146,7 +146,7 @@ public class ObsidianSpireFeature extends Feature<NoneFeatureConfiguration> {
                 level.setBlock(pos, Blocks.OBSIDIAN.defaultBlockState(), 2);
             }
             else {
-                level.setBlock(pos, RuBlocks.COBALT_OBSIDIAN.defaultBlockState(), 2);
+                level.setBlock(pos, RuBlocks.COBALT_OBSIDIAN.get().defaultBlockState(), 2);
             }
         }
     }

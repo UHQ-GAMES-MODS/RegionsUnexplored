@@ -8,10 +8,10 @@ import net.regions_unexplored.platform.Services;
 public class RuBlockTranslucency {
     public static void init() {
         RenderUtil.putBlocks(Services.RENDER_HELPER, RenderType.translucent(),
-                RuBlocks.PRISMARITE_CLUSTER,
-                RuBlocks.LARGE_PRISMARITE_CLUSTER,
-                RuBlocks.HANGING_PRISMARITE,
-                RuBlocks.PRISMAGLASS
+                RuBlocks.PRISMARITE_CLUSTER.get(),
+                RuBlocks.LARGE_PRISMARITE_CLUSTER.get(),
+                RuBlocks.HANGING_PRISMARITE.get(),
+                RuBlocks.PRISMAGLASS.get()
         );
     }
 }

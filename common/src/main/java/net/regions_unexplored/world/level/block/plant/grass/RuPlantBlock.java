@@ -32,7 +32,7 @@ public class RuPlantBlock extends BushBlock implements BonemealableBlock {
     }
 
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-        if(state==RuBlocks.MEDIUM_GRASS.defaultBlockState()){
+        if(state==RuBlocks.MEDIUM_GRASS.get().defaultBlockState()){
             return SHAPE_MEDIUM_GRASS;
         }
         else{
@@ -53,13 +53,13 @@ public class RuPlantBlock extends BushBlock implements BonemealableBlock {
     }
 
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
-        if(state.is(RuBlocks.MEDIUM_GRASS)){
+        if(state.is(RuBlocks.MEDIUM_GRASS.get())){
             TallGrassBlock grass = (TallGrassBlock) Blocks.SHORT_GRASS;
             if (grass.defaultBlockState().canSurvive(level, pos)) {
                 placeAt(level, grass.defaultBlockState(), pos, 2);
             }
         }
-        else if(state.is(RuBlocks.STEPPE_GRASS)||state.is(RuBlocks.STEPPE_SHRUB)){
+        else if(state.is(RuBlocks.STEPPE_GRASS.get())||state.is(RuBlocks.STEPPE_SHRUB.get())){
             DoublePlantBlock tallSteppeGrass = (DoublePlantBlock) RuBlocks.STEPPE_TALL_GRASS;
             if (tallSteppeGrass.defaultBlockState().canSurvive(level, pos) && level.isEmptyBlock(pos.above())) {
                 DoublePlantBlock.placeAt(level, tallSteppeGrass.defaultBlockState(), pos, 2);

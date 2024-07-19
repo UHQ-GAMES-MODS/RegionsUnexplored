@@ -50,7 +50,7 @@ public class PineLogBlock extends Block {
       boolean isTransition = false;
       if(!state.getValue(IS_STRIPPED)){
          if(state.getValue(AXIS)==Direction.Axis.Y){
-            if(level.getBlockState(pos.below())== RuBlocks.STRIPPED_PINE_LOG.defaultBlockState()||level.getBlockState(pos.below())==RuBlocks.PINE_LOG.defaultBlockState().setValue(PineLogBlock.IS_STRIPPED, true)){
+            if(level.getBlockState(pos.below())== RuBlocks.STRIPPED_PINE_LOG.get().defaultBlockState()||level.getBlockState(pos.below())==RuBlocks.PINE_LOG.get().defaultBlockState().setValue(PineLogBlock.IS_STRIPPED, true)){
                isTransition = true;
             }
          }
@@ -68,7 +68,7 @@ public class PineLogBlock extends Block {
 
       if(!this.defaultBlockState().getValue(IS_STRIPPED)){
          if(this.defaultBlockState().getValue(AXIS)==Direction.Axis.Y){
-            if(context.getLevel().getBlockState(context.getClickedPos().below())==RuBlocks.STRIPPED_PINE_LOG.defaultBlockState()||context.getLevel().getBlockState(context.getClickedPos().below())==RuBlocks.PINE_LOG.defaultBlockState().setValue(PineLogBlock.IS_STRIPPED, true)){
+            if(context.getLevel().getBlockState(context.getClickedPos().below())==RuBlocks.STRIPPED_PINE_LOG.get().defaultBlockState()||context.getLevel().getBlockState(context.getClickedPos().below())==RuBlocks.PINE_LOG.get().defaultBlockState().setValue(PineLogBlock.IS_STRIPPED, true)){
                isTransition = true;
             }
          }

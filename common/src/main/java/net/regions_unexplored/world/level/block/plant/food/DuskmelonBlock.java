@@ -48,7 +48,7 @@ public class DuskmelonBlock extends BushBlock implements BonemealableBlock {
 
    @Override
    public ItemStack getCloneItemStack(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
-      return new ItemStack(RuItems.DUSKMELON_SLICE);
+      return new ItemStack(RuItems.DUSKMELON_SLICE.get());
    }
 
    public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
@@ -79,7 +79,7 @@ public class DuskmelonBlock extends BushBlock implements BonemealableBlock {
       if (!flag && player.getItemInHand(interactionHand).is(Items.BONE_MEAL)) {
          return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
       } else if (i > 1) {
-         popResource(level, blockPos, new ItemStack(RuItems.DUSKMELON_SLICE, 1));
+         popResource(level, blockPos, new ItemStack(RuItems.DUSKMELON_SLICE.get(), 1));
          level.playSound(null, blockPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
          BlockState blockstate = blockState.setValue(AGE, 0);
          level.setBlock(blockPos, blockstate, 2);

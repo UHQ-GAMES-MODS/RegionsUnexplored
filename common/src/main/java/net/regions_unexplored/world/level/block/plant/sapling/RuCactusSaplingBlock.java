@@ -26,7 +26,7 @@ public class RuCactusSaplingBlock extends SaplingBlock implements BonemealableBl
 
     @Override
     public boolean mayPlaceOn(BlockState state, BlockGetter getter, BlockPos pos) {
-        return state.is(BlockTags.SAND) || state.is(BlockTags.DIRT) || state.is(Blocks.FARMLAND)|| state.is(RuBlocks.SAGUARO_CACTUS)|| state.is(Blocks.CACTUS);
+        return state.is(BlockTags.SAND) || state.is(BlockTags.DIRT) || state.is(Blocks.FARMLAND)|| state.is(RuBlocks.SAGUARO_CACTUS.get())|| state.is(Blocks.CACTUS);
     }
 }
 

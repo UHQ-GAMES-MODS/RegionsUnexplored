@@ -28,7 +28,7 @@ public class HangingEarlightBlock extends GrowingPlantHeadBlock {
     }
 
     protected Block getBodyBlock() {
-        return RuBlocks.HANGING_EARLIGHT_PLANT;
+        return RuBlocks.HANGING_EARLIGHT_PLANT.get();
     }
 
     protected boolean canGrowInto(BlockState state) {

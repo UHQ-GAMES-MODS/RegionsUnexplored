@@ -7,12 +7,12 @@ import net.regions_unexplored.block.RuBlocks;
 
 public class TrunkPlacerDirtUtil {
     public static boolean isForestGrass(LevelSimulatedReader levelSimulatedReader, BlockPos blockPos) {
-        return levelSimulatedReader.isStateAtPosition(blockPos, (blockState) -> blockState.is(RuBlocks.PEAT_GRASS_BLOCK)||blockState.is(RuBlocks.PEAT_DIRT));
+        return levelSimulatedReader.isStateAtPosition(blockPos, (blockState) -> blockState.is(RuBlocks.PEAT_GRASS_BLOCK.get())||blockState.is(RuBlocks.PEAT_DIRT.get()));
     }
     public static boolean isPlainsGrass(LevelSimulatedReader levelSimulatedReader, BlockPos blockPos) {
-        return levelSimulatedReader.isStateAtPosition(blockPos, (blockState) -> blockState.is(RuBlocks.SILT_GRASS_BLOCK)||blockState.is(RuBlocks.SILT_DIRT));
+        return levelSimulatedReader.isStateAtPosition(blockPos, (blockState) -> blockState.is(RuBlocks.SILT_GRASS_BLOCK.get())||blockState.is(RuBlocks.SILT_DIRT.get()));
     }
     public static boolean isAlphaGrass(LevelSimulatedReader levelSimulatedReader, BlockPos blockPos) {
-        return levelSimulatedReader.isStateAtPosition(blockPos, (blockState) -> blockState.is(RuBlocks.ALPHA_GRASS_BLOCK)||blockState.is(Blocks.DIRT));
+        return levelSimulatedReader.isStateAtPosition(blockPos, (blockState) -> blockState.is(RuBlocks.ALPHA_GRASS_BLOCK.get())||blockState.is(Blocks.DIRT));
     }
 }

@@ -391,13 +391,13 @@ public class KapokTreeFeature extends Feature<RuTreeConfiguration> {
         if(level.isOutsideBuildHeight(pos)){
             return true;
         }
-        if(level.getBlockState(pos).is(RuBlocks.PEAT_GRASS_BLOCK)){
-            level.setBlock(pos, RuBlocks.PEAT_DIRT.defaultBlockState(), 2);
+        if(level.getBlockState(pos).is(RuBlocks.PEAT_GRASS_BLOCK.get())){
+            level.setBlock(pos, RuBlocks.PEAT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.SILT_GRASS_BLOCK)){
-            level.setBlock(pos, RuBlocks.SILT_DIRT.defaultBlockState(), 2);
+        else if(level.getBlockState(pos).is(RuBlocks.SILT_GRASS_BLOCK.get())){
+            level.setBlock(pos, RuBlocks.SILT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.ALPHA_GRASS_BLOCK)){
+        else if(level.getBlockState(pos).is(RuBlocks.ALPHA_GRASS_BLOCK.get())){
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(level.getBlockState(pos).is(Blocks.GRASS_BLOCK)){
@@ -410,13 +410,13 @@ public class KapokTreeFeature extends Feature<RuTreeConfiguration> {
             return true;
         }
 
-        if(level.getBlockState(pos.below()).is(RuBlocks.PEAT_GRASS_BLOCK)){
-            level.setBlock(pos.below(), RuBlocks.PEAT_DIRT.defaultBlockState(), 2);
+        if(level.getBlockState(pos.below()).is(RuBlocks.PEAT_GRASS_BLOCK.get())){
+            level.setBlock(pos.below(), RuBlocks.PEAT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.SILT_GRASS_BLOCK)){
-            level.setBlock(pos.below(), RuBlocks.SILT_DIRT.defaultBlockState(), 2);
+        else if(level.getBlockState(pos.below()).is(RuBlocks.SILT_GRASS_BLOCK.get())){
+            level.setBlock(pos.below(), RuBlocks.SILT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.ALPHA_GRASS_BLOCK)){
+        else if(level.getBlockState(pos.below()).is(RuBlocks.ALPHA_GRASS_BLOCK.get())){
             level.setBlock(pos.below(), Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(level.getBlockState(pos.below()).is(Blocks.GRASS_BLOCK)){
@@ -430,13 +430,13 @@ public class KapokTreeFeature extends Feature<RuTreeConfiguration> {
         if(level.isOutsideBuildHeight(pos)){
             return true;
         }
-        if(level.getBlockState(pos).is(RuBlocks.PEAT_GRASS_BLOCK)){
-            level.setBlock(pos, RuBlocks.PEAT_DIRT.defaultBlockState(), 2);
+        if(level.getBlockState(pos).is(RuBlocks.PEAT_GRASS_BLOCK.get())){
+            level.setBlock(pos, RuBlocks.PEAT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.SILT_GRASS_BLOCK)){
-            level.setBlock(pos, RuBlocks.SILT_DIRT.defaultBlockState(), 2);
+        else if(level.getBlockState(pos).is(RuBlocks.SILT_GRASS_BLOCK.get())){
+            level.setBlock(pos, RuBlocks.SILT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.ALPHA_GRASS_BLOCK)){
+        else if(level.getBlockState(pos).is(RuBlocks.ALPHA_GRASS_BLOCK.get())){
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(level.getBlockState(pos).is(Blocks.GRASS_BLOCK)){
@@ -452,13 +452,13 @@ public class KapokTreeFeature extends Feature<RuTreeConfiguration> {
             return true;
         }
 
-        if(level.getBlockState(pos.below()).is(RuBlocks.PEAT_GRASS_BLOCK)){
-            level.setBlock(pos.below(), RuBlocks.PEAT_DIRT.defaultBlockState(), 2);
+        if(level.getBlockState(pos.below()).is(RuBlocks.PEAT_GRASS_BLOCK.get())){
+            level.setBlock(pos.below(), RuBlocks.PEAT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.SILT_GRASS_BLOCK)){
-            level.setBlock(pos.below(), RuBlocks.SILT_DIRT.defaultBlockState(), 2);
+        else if(level.getBlockState(pos.below()).is(RuBlocks.SILT_GRASS_BLOCK.get())){
+            level.setBlock(pos.below(), RuBlocks.SILT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.ALPHA_GRASS_BLOCK)){
+        else if(level.getBlockState(pos.below()).is(RuBlocks.ALPHA_GRASS_BLOCK.get())){
             level.setBlock(pos.below(), Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(level.getBlockState(pos.below()).is(Blocks.GRASS_BLOCK)){
@@ -474,16 +474,16 @@ public class KapokTreeFeature extends Feature<RuTreeConfiguration> {
         for(int i = 0; i<=size; i++){
             if(level.getBlockState(place).isAir()){
                 if(i==size){
-                    level.setBlock(place, RuBlocks.KAPOK_VINES.defaultBlockState().setValue(SpanishMossBlock.AGE, 25), 2);
+                    level.setBlock(place, RuBlocks.KAPOK_VINES.get().defaultBlockState().setValue(SpanishMossBlock.AGE, 25), 2);
                 }
                 else {
-                    level.setBlock(place, RuBlocks.KAPOK_VINES_PLANT.defaultBlockState(), 2);
+                    level.setBlock(place, RuBlocks.KAPOK_VINES_PLANT.get().defaultBlockState(), 2);
                 }
                 place = place.below();
             }
             else{
                 if(i!=0){
-                    level.setBlock(place.above(), RuBlocks.KAPOK_VINES.defaultBlockState().setValue(SpanishMossBlock.AGE, 25), 2);
+                    level.setBlock(place.above(), RuBlocks.KAPOK_VINES.get().defaultBlockState().setValue(SpanishMossBlock.AGE, 25), 2);
                 }
                 break;
             }

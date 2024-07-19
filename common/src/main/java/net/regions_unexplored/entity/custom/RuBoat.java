@@ -35,22 +35,22 @@ public class RuBoat extends Boat {
     @Override
     public Item getDropItem() {
         return switch (getModel()) {
-            case BAOBAB -> RuItems.BAOBAB_BOAT;
-            case BLACKWOOD -> RuItems.BLACKWOOD_BOAT;
-            case CYPRESS -> RuItems.CYPRESS_BOAT;
-            case DEAD -> RuItems.DEAD_BOAT;
-            case EUCALYPTUS -> RuItems.EUCALYPTUS_BOAT;
-            case JOSHUA -> RuItems.JOSHUA_BOAT;
-            case KAPOK -> RuItems.KAPOK_BOAT;
-            case LARCH -> RuItems.LARCH_BOAT;
-            case MAGNOLIA -> RuItems.MAGNOLIA_BOAT;
-            case MAPLE -> RuItems.MAPLE_BOAT;
-            case MAUVE -> RuItems.MAUVE_BOAT;
-            case PALM -> RuItems.PALM_BOAT;
-            case PINE -> RuItems.PINE_BOAT;
-            case REDWOOD -> RuItems.REDWOOD_BOAT;
-            case SOCOTRA -> RuItems.SOCOTRA_BOAT;
-            case WILLOW -> RuItems.WILLOW_BOAT;
+            case BAOBAB -> RuItems.BAOBAB_BOAT.get();
+            case BLACKWOOD -> RuItems.BLACKWOOD_BOAT.get();
+            case CYPRESS -> RuItems.CYPRESS_BOAT.get();
+            case DEAD -> RuItems.DEAD_BOAT.get();
+            case EUCALYPTUS -> RuItems.EUCALYPTUS_BOAT.get();
+            case JOSHUA -> RuItems.JOSHUA_BOAT.get();
+            case KAPOK -> RuItems.KAPOK_BOAT.get();
+            case LARCH -> RuItems.LARCH_BOAT.get();
+            case MAGNOLIA -> RuItems.MAGNOLIA_BOAT.get();
+            case MAPLE -> RuItems.MAPLE_BOAT.get();
+            case MAUVE -> RuItems.MAUVE_BOAT.get();
+            case PALM -> RuItems.PALM_BOAT.get();
+            case PINE -> RuItems.PINE_BOAT.get();
+            case REDWOOD -> RuItems.REDWOOD_BOAT.get();
+            case SOCOTRA -> RuItems.SOCOTRA_BOAT.get();
+            case WILLOW -> RuItems.WILLOW_BOAT.get();
         };
     }
 
@@ -99,22 +99,22 @@ public class RuBoat extends Boat {
     }
 
     public enum ModelType {
-        BAOBAB("baobab", RuBlocks.BAOBAB_PLANKS),
-        BLACKWOOD("blackwood", RuBlocks.BLACKWOOD_PLANKS),
-        CYPRESS("cypress", RuBlocks.CYPRESS_PLANKS),
-        DEAD("dead", RuBlocks.DEAD_PLANKS),
-        EUCALYPTUS("eucalyptus", RuBlocks.EUCALYPTUS_PLANKS),
-        JOSHUA("joshua", RuBlocks.JOSHUA_PLANKS),
-        KAPOK("kapok", RuBlocks.KAPOK_PLANKS),
-        LARCH("larch", RuBlocks.LARCH_PLANKS),
-        MAGNOLIA("magnolia", RuBlocks.MAGNOLIA_PLANKS),
-        MAPLE("maple", RuBlocks.MAPLE_PLANKS),
-        MAUVE("mauve", RuBlocks.MAUVE_PLANKS),
-        PALM("palm", RuBlocks.PALM_PLANKS),
-        PINE("pine", RuBlocks.PINE_PLANKS),
-        REDWOOD("redwood", RuBlocks.REDWOOD_PLANKS),
-        SOCOTRA("socotra", RuBlocks.SOCOTRA_PLANKS),
-        WILLOW("willow", RuBlocks.WILLOW_PLANKS);
+        BAOBAB("baobab", RuBlocks.BAOBAB_PLANKS.get()),
+        BLACKWOOD("blackwood", RuBlocks.BLACKWOOD_PLANKS.get()),
+        CYPRESS("cypress", RuBlocks.CYPRESS_PLANKS.get()),
+        DEAD("dead", RuBlocks.DEAD_PLANKS.get()),
+        EUCALYPTUS("eucalyptus", RuBlocks.EUCALYPTUS_PLANKS.get()),
+        JOSHUA("joshua", RuBlocks.JOSHUA_PLANKS.get()),
+        KAPOK("kapok", RuBlocks.KAPOK_PLANKS.get()),
+        LARCH("larch", RuBlocks.LARCH_PLANKS.get()),
+        MAGNOLIA("magnolia", RuBlocks.MAGNOLIA_PLANKS.get()),
+        MAPLE("maple", RuBlocks.MAPLE_PLANKS.get()),
+        MAUVE("mauve", RuBlocks.MAUVE_PLANKS.get()),
+        PALM("palm", RuBlocks.PALM_PLANKS.get()),
+        PINE("pine", RuBlocks.PINE_PLANKS.get()),
+        REDWOOD("redwood", RuBlocks.REDWOOD_PLANKS.get()),
+        SOCOTRA("socotra", RuBlocks.SOCOTRA_PLANKS.get()),
+        WILLOW("willow", RuBlocks.WILLOW_PLANKS.get());
 
         private final String name;
         private final Block planks;

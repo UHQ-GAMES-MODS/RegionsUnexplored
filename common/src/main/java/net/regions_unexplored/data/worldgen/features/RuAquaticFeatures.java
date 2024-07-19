@@ -43,19 +43,19 @@ public class RuAquaticFeatures {
         register(context, FEN_CATTAIL, FeatureRegistry.FEN_CATTAIL, FeatureConfiguration.NONE);
         register(context, WATER_CATTAIL, FeatureRegistry.WATER_CATTAIL, FeatureConfiguration.NONE);
         
-        register(context, TALL_HYACINTH_STOCK, FeatureRegistry.TALL_HYACINTH_STOCK, new HyacinthStockConfiguration(BlockStateProvider.simple(RuBlocks.TALL_HYACINTH_STOCK), 1, 14));
+        register(context, TALL_HYACINTH_STOCK, FeatureRegistry.TALL_HYACINTH_STOCK, new HyacinthStockConfiguration(BlockStateProvider.simple(RuBlocks.TALL_HYACINTH_STOCK.get()), 1, 14));
         register(context, HYACINTH_PLANTS, FeatureRegistry.HYACINTH_PLANTS, new ProbabilityFeatureConfiguration(0.1F));
         register(context, HYACINTH_FLOWERS, Feature.MULTIFACE_GROWTH, new MultifaceGrowthConfiguration((MultifaceBlock) RuBlocks.HYACINTH_FLOWERS, 20, true, true, true, 1.0F, HolderSet.direct(Block::builtInRegistryHolder, Blocks.STONE, Blocks.PRISMARINE, Blocks.PRISMARINE_BRICKS)));
-        register(context, HYACINTH_ROCKS, FeatureRegistry.OCEAN_ROCK, new SeaRockConfiguration(Blocks.STONE.defaultBlockState(), RuBlocks.MOSSY_STONE.defaultBlockState()));
+        register(context, HYACINTH_ROCKS, FeatureRegistry.OCEAN_ROCK, new SeaRockConfiguration(Blocks.STONE.defaultBlockState(), RuBlocks.MOSSY_STONE.get().defaultBlockState()));
         //ROCKY_REEF
         register(context, MOSSY_SEA_ROCKS, FeatureRegistry.ROCK_PILLAR, FeatureConfiguration.NONE);
-        register(context, BLUE_MAGNOLIA_FLOWERS_AQUATIC, FeatureRegistry.AIR_MULTIFACE_GROWTH, new MultifaceGrowthConfiguration((MultifaceBlock) RuBlocks.BLUE_MAGNOLIA_FLOWERS, 20, true, true, true, 1.0F, HolderSet.direct(Block::builtInRegistryHolder, Blocks.STONE, RuBlocks.STONE_GRASS_BLOCK)));
-        register(context, PINK_MAGNOLIA_FLOWERS_AQUATIC, FeatureRegistry.AIR_MULTIFACE_GROWTH, new MultifaceGrowthConfiguration((MultifaceBlock) RuBlocks.PINK_MAGNOLIA_FLOWERS, 20, true, true, true, 1.0F, HolderSet.direct(Block::builtInRegistryHolder, Blocks.STONE, RuBlocks.STONE_GRASS_BLOCK)));
-        register(context, WHITE_MAGNOLIA_FLOWERS_AQUATIC, FeatureRegistry.AIR_MULTIFACE_GROWTH, new MultifaceGrowthConfiguration((MultifaceBlock) RuBlocks.WHITE_MAGNOLIA_FLOWERS, 20, true, true, true, 1.0F, HolderSet.direct(Block::builtInRegistryHolder, Blocks.STONE, RuBlocks.STONE_GRASS_BLOCK)));
-        register(context, JUNGLE_TREE_AQUATIC, FeatureRegistry.SAKURA_TREE, new RuTreeConfiguration(BlockStateProvider.simple(Blocks.JUNGLE_LOG.defaultBlockState()), BlockStateProvider.simple(Blocks.JUNGLE_LEAVES.defaultBlockState()), BlockStateProvider.simple(RuBlocks.JUNGLE_BRANCH.defaultBlockState()), 1, 4));
+        register(context, BLUE_MAGNOLIA_FLOWERS_AQUATIC, FeatureRegistry.AIR_MULTIFACE_GROWTH, new MultifaceGrowthConfiguration((MultifaceBlock) RuBlocks.BLUE_MAGNOLIA_FLOWERS, 20, true, true, true, 1.0F, HolderSet.direct(Block::builtInRegistryHolder, Blocks.STONE, RuBlocks.STONE_GRASS_BLOCK.get())));
+        register(context, PINK_MAGNOLIA_FLOWERS_AQUATIC, FeatureRegistry.AIR_MULTIFACE_GROWTH, new MultifaceGrowthConfiguration((MultifaceBlock) RuBlocks.PINK_MAGNOLIA_FLOWERS, 20, true, true, true, 1.0F, HolderSet.direct(Block::builtInRegistryHolder, Blocks.STONE, RuBlocks.STONE_GRASS_BLOCK.get())));
+        register(context, WHITE_MAGNOLIA_FLOWERS_AQUATIC, FeatureRegistry.AIR_MULTIFACE_GROWTH, new MultifaceGrowthConfiguration((MultifaceBlock) RuBlocks.WHITE_MAGNOLIA_FLOWERS, 20, true, true, true, 1.0F, HolderSet.direct(Block::builtInRegistryHolder, Blocks.STONE, RuBlocks.STONE_GRASS_BLOCK.get())));
+        register(context, JUNGLE_TREE_AQUATIC, FeatureRegistry.SAKURA_TREE, new RuTreeConfiguration(BlockStateProvider.simple(Blocks.JUNGLE_LOG.defaultBlockState()), BlockStateProvider.simple(Blocks.JUNGLE_LEAVES.defaultBlockState()), BlockStateProvider.simple(RuBlocks.JUNGLE_BRANCH.get().defaultBlockState()), 1, 4));
 
-        register(context, PALM_TREE_AQUATIC, FeatureRegistry.PALM_TREE, new RuTreeConfiguration(BlockStateProvider.simple(RuBlocks.PALM_LOG.defaultBlockState()), BlockStateProvider.simple(RuBlocks.PALM_LEAVES.defaultBlockState()), BlockStateProvider.simple(RuBlocks.PALM_BEARD.defaultBlockState()), 8, 4));
-        register(context, ELEPHANT_EAR_AQUATIC, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RuBlocks.ELEPHANT_EAR.defaultBlockState()), 32));
+        register(context, PALM_TREE_AQUATIC, FeatureRegistry.PALM_TREE, new RuTreeConfiguration(BlockStateProvider.simple(RuBlocks.PALM_LOG.get().defaultBlockState()), BlockStateProvider.simple(RuBlocks.PALM_LEAVES.get().defaultBlockState()), BlockStateProvider.simple(RuBlocks.PALM_BEARD.get().defaultBlockState()), 8, 4));
+        register(context, ELEPHANT_EAR_AQUATIC, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RuBlocks.ELEPHANT_EAR.get().defaultBlockState()), 32));
     }
 
     private static RandomPatchConfiguration grassPatch(BlockStateProvider stateProvider, int i) {

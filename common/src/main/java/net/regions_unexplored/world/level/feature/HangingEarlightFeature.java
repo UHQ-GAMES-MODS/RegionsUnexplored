@@ -30,7 +30,7 @@ public class HangingEarlightFeature extends Feature<NoneFeatureConfiguration> {
             return false;
         } else {
             BlockState blockstate = level.getBlockState(pos.above());
-            if (!blockstate.is(Blocks.BLACKSTONE) && !blockstate.is(RuBlocks.COBALT_OBSIDIAN)) {
+            if (!blockstate.is(Blocks.BLACKSTONE) && !blockstate.is(RuBlocks.COBALT_OBSIDIAN.get())) {
                 return false;
             } else {
                 this.placeRoofCobaltObsidian(level, random, pos);
@@ -41,7 +41,7 @@ public class HangingEarlightFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     private void placeRoofCobaltObsidian(LevelAccessor level, RandomSource random, BlockPos pos) {
-        level.setBlock(pos, RuBlocks.COBALT_OBSIDIAN.defaultBlockState(), 2);
+        level.setBlock(pos, RuBlocks.COBALT_OBSIDIAN.get().defaultBlockState(), 2);
         BlockPos.MutableBlockPos pos1 = new BlockPos.MutableBlockPos();
         BlockPos.MutableBlockPos pos2 = new BlockPos.MutableBlockPos();
 
@@ -52,7 +52,7 @@ public class HangingEarlightFeature extends Feature<NoneFeatureConfiguration> {
 
                 for(Direction direction : DIRECTIONS) {
                     BlockState blockstate = level.getBlockState(pos2.setWithOffset(pos1, direction));
-                    if (blockstate.is(Blocks.NETHERRACK) || blockstate.is(RuBlocks.COBALT_OBSIDIAN)) {
+                    if (blockstate.is(Blocks.NETHERRACK) || blockstate.is(RuBlocks.COBALT_OBSIDIAN.get())) {
                         ++j;
                     }
 
@@ -62,7 +62,7 @@ public class HangingEarlightFeature extends Feature<NoneFeatureConfiguration> {
                 }
 
                 if (j == 1) {
-                    level.setBlock(pos1, RuBlocks.COBALT_OBSIDIAN.defaultBlockState(), 2);
+                    level.setBlock(pos1, RuBlocks.COBALT_OBSIDIAN.get().defaultBlockState(), 2);
                 }
             }
         }
@@ -76,7 +76,7 @@ public class HangingEarlightFeature extends Feature<NoneFeatureConfiguration> {
             pos1.setWithOffset(pos, random.nextInt(8) - random.nextInt(8), random.nextInt(2) - random.nextInt(7), random.nextInt(8) - random.nextInt(8));
             if (level.isEmptyBlock(pos1)) {
                 BlockState blockstate = level.getBlockState(pos1.above());
-                if (blockstate.is(Blocks.NETHERRACK) || blockstate.is(RuBlocks.COBALT_OBSIDIAN)) {
+                if (blockstate.is(Blocks.NETHERRACK) || blockstate.is(RuBlocks.COBALT_OBSIDIAN.get())) {
                     int j = Mth.nextInt(random, 1, 19);
                     if (random.nextInt(6) == 0) {
                         j *= 2;
@@ -97,11 +97,11 @@ public class HangingEarlightFeature extends Feature<NoneFeatureConfiguration> {
         for(int i = 0; i <= length; ++i) {
             if (level.isEmptyBlock(pos)) {
                 if (i == length || !level.isEmptyBlock(pos.below())) {
-                    level.setBlock(pos, RuBlocks.HANGING_EARLIGHT.defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, Mth.nextInt(random, low, high)), 2);
+                    level.setBlock(pos, RuBlocks.HANGING_EARLIGHT.get().defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, Mth.nextInt(random, low, high)), 2);
                     break;
                 }
 
-                level.setBlock(pos, RuBlocks.HANGING_EARLIGHT_PLANT.defaultBlockState(), 2);
+                level.setBlock(pos, RuBlocks.HANGING_EARLIGHT_PLANT.get().defaultBlockState(), 2);
             }
 
             pos.move(Direction.DOWN);

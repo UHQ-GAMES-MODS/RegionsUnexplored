@@ -45,7 +45,7 @@ public class SiltFarmBlock extends Block {
     }
 
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return !this.defaultBlockState().canSurvive(context.getLevel(), context.getClickedPos()) ? RuBlocks.SILT_DIRT.defaultBlockState() : super.getStateForPlacement(context);
+        return !this.defaultBlockState().canSurvive(context.getLevel(), context.getClickedPos()) ? RuBlocks.SILT_DIRT.get().defaultBlockState() : super.getStateForPlacement(context);
     }
 
     public boolean useShapeForLightOcclusion(BlockState state) {
@@ -90,7 +90,7 @@ public class SiltFarmBlock extends Block {
     }
 
     public static void turnToDirt(BlockState state, Level level, BlockPos pos) {
-        level.setBlockAndUpdate(pos, pushEntitiesUp(state, RuBlocks.SILT_DIRT.defaultBlockState(), level, pos));
+        level.setBlockAndUpdate(pos, pushEntitiesUp(state, RuBlocks.SILT_DIRT.get().defaultBlockState(), level, pos));
     }
 
     private static boolean isUnderCrops(BlockGetter getter, BlockPos pos) {

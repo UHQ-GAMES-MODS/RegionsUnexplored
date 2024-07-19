@@ -79,9 +79,9 @@ public class RuLanguageProvider extends LanguageProvider {
             }
         });
         //Misc block translations
-        this.add(RuBlocks.DUSKMELON, "Duskmelon Slice");
-        this.add(RuBlocks.SALMONBERRY_BUSH, "Salmonberry");
-        this.add(RuBlocks.HANGING_EARLIGHT, "Hanging Earlight Fruit");
+        this.add(RuBlocks.DUSKMELON.get(), "Duskmelon Slice");
+        this.add(RuBlocks.SALMONBERRY_BUSH.get(), "Salmonberry");
+        this.add(RuBlocks.HANGING_EARLIGHT.get(), "Hanging Earlight Fruit");
 
         //Entity translations
         this.add(RuEntities.BOAT, "Boat");

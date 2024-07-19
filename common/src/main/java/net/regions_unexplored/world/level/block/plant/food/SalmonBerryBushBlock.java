@@ -52,7 +52,7 @@ public class SalmonBerryBushBlock extends BushBlock implements BonemealableBlock
 
    @Override
    public ItemStack getCloneItemStack(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
-      return new ItemStack(RuItems.SALMONBERRY);
+      return new ItemStack(RuItems.SALMONBERRY.get());
    }
 
    public VoxelShape getShape(BlockState p_57291_, BlockGetter p_57292_, BlockPos p_57293_, CollisionContext p_57294_) {
@@ -95,7 +95,7 @@ public class SalmonBerryBushBlock extends BushBlock implements BonemealableBlock
       if (!flag && player.getItemInHand(interactionHand).is(Items.BONE_MEAL)) {
          return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
       } else if (i > 1) {
-         popResource(level, blockPos, new ItemStack(RuItems.SALMONBERRY, flag ? 2 : 1));
+         popResource(level, blockPos, new ItemStack(RuItems.SALMONBERRY.get(), flag ? 2 : 1));
          level.playSound((Player)null, blockPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
          BlockState blockstate = blockState.setValue(AGE, Integer.valueOf(1));
          level.setBlock(blockPos, blockstate, 2);

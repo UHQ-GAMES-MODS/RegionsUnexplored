@@ -31,7 +31,7 @@ public class KapokVinesBlock extends GrowingPlantHeadBlock {
     }
 
     protected Block getBodyBlock() {
-        return RuBlocks.KAPOK_VINES_PLANT;
+        return RuBlocks.KAPOK_VINES_PLANT.get();
     }
 
     @Override

@@ -26,25 +26,25 @@ public class RuFlowerBlock extends FlowerBlock {
 
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
         Vec3 vec3 = state.getOffset(getter, pos);
-        if(state== RuBlocks.POPPY_BUSH.defaultBlockState()
-                ||state== RuBlocks.SALMON_POPPY_BUSH.defaultBlockState()
-                ||state== RuBlocks.BLUE_LUPINE.defaultBlockState()
-                ||state== RuBlocks.PINK_LUPINE.defaultBlockState()
-                ||state== RuBlocks.PURPLE_LUPINE.defaultBlockState()
-                ||state== RuBlocks.YELLOW_LUPINE.defaultBlockState()
-                ||state== RuBlocks.RED_LUPINE.defaultBlockState()
-                ||state== RuBlocks.HYSSOP.defaultBlockState()
+        if(state== RuBlocks.POPPY_BUSH.get().defaultBlockState()
+                ||state== RuBlocks.SALMON_POPPY_BUSH.get().defaultBlockState()
+                ||state== RuBlocks.BLUE_LUPINE.get().defaultBlockState()
+                ||state== RuBlocks.PINK_LUPINE.get().defaultBlockState()
+                ||state== RuBlocks.PURPLE_LUPINE.get().defaultBlockState()
+                ||state== RuBlocks.YELLOW_LUPINE.get().defaultBlockState()
+                ||state== RuBlocks.RED_LUPINE.get().defaultBlockState()
+                ||state== RuBlocks.HYSSOP.get().defaultBlockState()
                 ||state.is(RuTags.SNOWBELLE)){
             return SHAPE_BUSH.move(vec3.x, vec3.y, vec3.z);
         }
-        if(state== RuBlocks.FIREWEED.defaultBlockState()
-                ||state== RuBlocks.WILTING_TRILLIUM.defaultBlockState()
-                ||state== RuBlocks.WHITE_TRILLIUM.defaultBlockState()
-                ||state== RuBlocks.WARATAH.defaultBlockState()){
+        if(state== RuBlocks.FIREWEED.get().defaultBlockState()
+                ||state== RuBlocks.WILTING_TRILLIUM.get().defaultBlockState()
+                ||state== RuBlocks.WHITE_TRILLIUM.get().defaultBlockState()
+                ||state== RuBlocks.WARATAH.get().defaultBlockState()){
             return SHAPE_TALL.move(vec3.x, vec3.y, vec3.z);
         }
-        if(state== RuBlocks.DAISY.defaultBlockState()
-                ||state== RuBlocks.FELICIA_DAISY.defaultBlockState()){
+        if(state== RuBlocks.DAISY.get().defaultBlockState()
+                ||state== RuBlocks.FELICIA_DAISY.get().defaultBlockState()){
             return SHAPE_DAISY.move(vec3.x, vec3.y, vec3.z);
         }
         else{

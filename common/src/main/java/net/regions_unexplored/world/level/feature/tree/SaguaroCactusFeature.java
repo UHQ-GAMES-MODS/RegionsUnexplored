@@ -34,14 +34,14 @@ public class SaguaroCactusFeature extends Feature<RuTreeConfiguration> {
         int height_main = context.random().nextInt(treeConfiguration.sizeVariation) + treeConfiguration.minimumSize;
 
         BlockPos checkCactus = pos.above(3);
-        if(level.getBlockState(checkCactus.north()).is(RuBlocks.SAGUARO_CACTUS)||
-           level.getBlockState(checkCactus.south()).is(RuBlocks.SAGUARO_CACTUS)||
-           level.getBlockState(checkCactus.east()).is(RuBlocks.SAGUARO_CACTUS)||
-           level.getBlockState(checkCactus.west()).is(RuBlocks.SAGUARO_CACTUS)||
-           level.getBlockState(checkCactus.north().east()).is(RuBlocks.SAGUARO_CACTUS)||
-           level.getBlockState(checkCactus.north().west()).is(RuBlocks.SAGUARO_CACTUS)||
-           level.getBlockState(checkCactus.south().east()).is(RuBlocks.SAGUARO_CACTUS)||
-           level.getBlockState(checkCactus.south().west()).is(RuBlocks.SAGUARO_CACTUS)){
+        if(level.getBlockState(checkCactus.north()).is(RuBlocks.SAGUARO_CACTUS.get())||
+           level.getBlockState(checkCactus.south()).is(RuBlocks.SAGUARO_CACTUS.get())||
+           level.getBlockState(checkCactus.east()).is(RuBlocks.SAGUARO_CACTUS.get())||
+           level.getBlockState(checkCactus.west()).is(RuBlocks.SAGUARO_CACTUS.get())||
+           level.getBlockState(checkCactus.north().east()).is(RuBlocks.SAGUARO_CACTUS.get())||
+           level.getBlockState(checkCactus.north().west()).is(RuBlocks.SAGUARO_CACTUS.get())||
+           level.getBlockState(checkCactus.south().east()).is(RuBlocks.SAGUARO_CACTUS.get())||
+           level.getBlockState(checkCactus.south().west()).is(RuBlocks.SAGUARO_CACTUS.get())){
             return false;
         }
 
@@ -118,13 +118,13 @@ public class SaguaroCactusFeature extends Feature<RuTreeConfiguration> {
         if(level.isOutsideBuildHeight(pos)){
             return true;
         }
-        if(level.getBlockState(pos).is(RuBlocks.PEAT_GRASS_BLOCK)){
-            level.setBlock(pos, RuBlocks.PEAT_DIRT.defaultBlockState(), 2);
+        if(level.getBlockState(pos).is(RuBlocks.PEAT_GRASS_BLOCK.get())){
+            level.setBlock(pos, RuBlocks.PEAT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.SILT_GRASS_BLOCK)){
-            level.setBlock(pos, RuBlocks.SILT_DIRT.defaultBlockState(), 2);
+        else if(level.getBlockState(pos).is(RuBlocks.SILT_GRASS_BLOCK.get())){
+            level.setBlock(pos, RuBlocks.SILT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.ALPHA_GRASS_BLOCK)){
+        else if(level.getBlockState(pos).is(RuBlocks.ALPHA_GRASS_BLOCK.get())){
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(level.getBlockState(pos).is(Blocks.GRASS_BLOCK)){
@@ -137,13 +137,13 @@ public class SaguaroCactusFeature extends Feature<RuTreeConfiguration> {
             return true;
         }
 
-        if(level.getBlockState(pos.below()).is(RuBlocks.PEAT_GRASS_BLOCK)){
-            level.setBlock(pos.below(), RuBlocks.PEAT_DIRT.defaultBlockState(), 2);
+        if(level.getBlockState(pos.below()).is(RuBlocks.PEAT_GRASS_BLOCK.get())){
+            level.setBlock(pos.below(), RuBlocks.PEAT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.SILT_GRASS_BLOCK)){
-            level.setBlock(pos.below(), RuBlocks.SILT_DIRT.defaultBlockState(), 2);
+        else if(level.getBlockState(pos.below()).is(RuBlocks.SILT_GRASS_BLOCK.get())){
+            level.setBlock(pos.below(), RuBlocks.SILT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.ALPHA_GRASS_BLOCK)){
+        else if(level.getBlockState(pos.below()).is(RuBlocks.ALPHA_GRASS_BLOCK.get())){
             level.setBlock(pos.below(), Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(level.getBlockState(pos.below()).is(Blocks.GRASS_BLOCK)){

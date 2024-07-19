@@ -126,28 +126,28 @@ public class CobaltShrubFeature extends Feature<NoneFeatureConfiguration> {
         if(level.isOutsideBuildHeight(pos)){
             return;
         }
-        if(level.getBlockState(pos).is(RuBlocks.GLISTERING_NYLIUM)||level.getBlockState(pos).is(RuBlocks.MYCOTOXIC_NYLIUM)||level.getBlockState(pos).is(RuBlocks.BRIMSPROUT_NYLIUM)){
+        if(level.getBlockState(pos).is(RuBlocks.GLISTERING_NYLIUM.get())||level.getBlockState(pos).is(RuBlocks.MYCOTOXIC_NYLIUM.get())||level.getBlockState(pos).is(RuBlocks.BRIMSPROUT_NYLIUM.get())){
             level.setBlock(pos, Blocks.NETHERRACK.defaultBlockState(), 2);
         }
-        if(level.getBlockState(pos).is(RuBlocks.COBALT_NYLIUM)){
+        if(level.getBlockState(pos).is(RuBlocks.COBALT_NYLIUM.get())){
             level.setBlock(pos, Blocks.BLACKSTONE.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos)) {
-                level.setBlock(pos, RuBlocks.COBALT_LOG.defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
+                level.setBlock(pos, RuBlocks.COBALT_LOG.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
         }
         else{
             return;
         }
 
 
-        if(level.getBlockState(pos.below()).is(RuBlocks.GLISTERING_NYLIUM)||level.getBlockState(pos.below()).is(RuBlocks.MYCOTOXIC_NYLIUM)||level.getBlockState(pos.below()).is(RuBlocks.BRIMSPROUT_NYLIUM)){
+        if(level.getBlockState(pos.below()).is(RuBlocks.GLISTERING_NYLIUM.get())||level.getBlockState(pos.below()).is(RuBlocks.MYCOTOXIC_NYLIUM.get())||level.getBlockState(pos.below()).is(RuBlocks.BRIMSPROUT_NYLIUM.get())){
             level.setBlock(pos.below(), Blocks.NETHERRACK.defaultBlockState(), 2);
         }
-        if(level.getBlockState(pos.below()).is(RuBlocks.COBALT_NYLIUM)){
+        if(level.getBlockState(pos.below()).is(RuBlocks.COBALT_NYLIUM.get())){
             level.setBlock(pos.below(), Blocks.BLACKSTONE.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos.below())) {
-            level.setBlock(pos.below(), RuBlocks.COBALT_LOG.defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
+            level.setBlock(pos.below(), RuBlocks.COBALT_LOG.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
         }
     }
 
@@ -157,7 +157,7 @@ public class CobaltShrubFeature extends Feature<NoneFeatureConfiguration> {
             return;
         }
         if(level.getBlockState(pos).canBeReplaced()) {
-            level.setBlock(pos, RuBlocks.COBALT_WEBBING.defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), 2);
+            level.setBlock(pos, RuBlocks.COBALT_WEBBING.get().defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), 2);
         }
     }
 

@@ -65,26 +65,26 @@ public class WillowTrunkDecorator extends TreeDecorator {
 		LevelSimulatedReader level = context.level();
 		
 		if(level.isStateAtPosition(pos, WillowTrunkDecorator::isForestGrass)){
-			context.setBlock(pos, RuBlocks.PEAT_DIRT.defaultBlockState());
+			context.setBlock(pos, RuBlocks.PEAT_DIRT.get().defaultBlockState());
 		}
 		else if(level.isStateAtPosition(pos, WillowTrunkDecorator::isPlainsGrass)){
-			context.setBlock(pos, RuBlocks.SILT_DIRT.defaultBlockState());
+			context.setBlock(pos, RuBlocks.SILT_DIRT.get().defaultBlockState());
 		}
 		else if(level.isStateAtPosition(pos, WillowTrunkDecorator::isGrass)){
 			context.setBlock(pos, Blocks.DIRT.defaultBlockState());
 		}
 		else if(isReplaceable(level, pos)) {
-			context.setBlock(pos, RuBlocks.WILLOW_LOG.defaultBlockState());
+			context.setBlock(pos, RuBlocks.WILLOW_LOG.get().defaultBlockState());
 		}
 		else{
 			return ;
 		}
 
 		if(level.isStateAtPosition(pos, WillowTrunkDecorator::isForestGrass)){
-			context.setBlock(pos.below(), RuBlocks.PEAT_DIRT.defaultBlockState());
+			context.setBlock(pos.below(), RuBlocks.PEAT_DIRT.get().defaultBlockState());
 		}
 		else if(level.isStateAtPosition(pos, WillowTrunkDecorator::isPlainsGrass)){
-			context.setBlock(pos.below(), RuBlocks.SILT_DIRT.defaultBlockState());
+			context.setBlock(pos.below(), RuBlocks.SILT_DIRT.get().defaultBlockState());
 		}
 		else if(level.isStateAtPosition(pos, WillowTrunkDecorator::isGrass)){
 			context.setBlock(pos.below(), Blocks.DIRT.defaultBlockState());
@@ -95,15 +95,15 @@ public class WillowTrunkDecorator extends TreeDecorator {
 		return state.is(Blocks.GRASS_BLOCK)
 				||state.is(Blocks.MYCELIUM)
 				||state.is(Blocks.DIRT)
-				||state.is(RuBlocks.ALPHA_GRASS_BLOCK);
+				||state.is(RuBlocks.ALPHA_GRASS_BLOCK.get());
 	}
 	public static boolean isForestGrass(BlockState state) {
-		return state.is(RuBlocks.PEAT_GRASS_BLOCK)
-				||state.is(RuBlocks.PEAT_DIRT);
+		return state.is(RuBlocks.PEAT_GRASS_BLOCK.get())
+				||state.is(RuBlocks.PEAT_DIRT.get());
 	}
 	public static boolean isPlainsGrass(BlockState state) {
-		return state.is(RuBlocks.SILT_GRASS_BLOCK)
-				||state.is(RuBlocks.SILT_DIRT);
+		return state.is(RuBlocks.SILT_GRASS_BLOCK.get())
+				||state.is(RuBlocks.SILT_DIRT.get());
 	}
 	public static boolean isDirt(BlockState state) {
 		return state.is(BlockTags.DIRT);
@@ -112,11 +112,11 @@ public class WillowTrunkDecorator extends TreeDecorator {
 		return state.is(Blocks.GRASS_BLOCK)
 				||state.is(Blocks.MYCELIUM)
 				||state.is(Blocks.DIRT)
-				||state.is(RuBlocks.PEAT_GRASS_BLOCK)
-				||state.is(RuBlocks.SILT_GRASS_BLOCK)
-				||state.is(RuBlocks.ALPHA_GRASS_BLOCK)
-				||state.is(RuBlocks.PEAT_DIRT)
-				||state.is(RuBlocks.SILT_DIRT);
+				||state.is(RuBlocks.PEAT_GRASS_BLOCK.get())
+				||state.is(RuBlocks.SILT_GRASS_BLOCK.get())
+				||state.is(RuBlocks.ALPHA_GRASS_BLOCK.get())
+				||state.is(RuBlocks.PEAT_DIRT.get())
+				||state.is(RuBlocks.SILT_DIRT.get());
 	}
 
 	public static boolean isReplaceableBlock(BlockState state) {

@@ -20,10 +20,10 @@ public abstract class TrunkPlacerDirtMixin {
     @Inject(at=@At("HEAD"), method = "setDirtAt(Lnet/minecraft/world/level/LevelSimulatedReader;Ljava/util/function/BiConsumer;Lnet/minecraft/util/RandomSource;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/levelgen/feature/configurations/TreeConfiguration;)V")
     private static void regions_unexplored$setDirtAt(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> dirt, RandomSource random, BlockPos pos, TreeConfiguration configuration, CallbackInfo ci) {
         if ((TrunkPlacerDirtUtil.isForestGrass(level, pos))) {
-            dirt.accept(pos, RuBlocks.PEAT_DIRT.defaultBlockState());
+            dirt.accept(pos, RuBlocks.PEAT_DIRT.get().defaultBlockState());
         }
         if ((TrunkPlacerDirtUtil.isPlainsGrass(level, pos))) {
-            dirt.accept(pos, RuBlocks.SILT_DIRT.defaultBlockState());
+            dirt.accept(pos, RuBlocks.SILT_DIRT.get().defaultBlockState());
         }
         if ((TrunkPlacerDirtUtil.isAlphaGrass(level, pos))) {
             dirt.accept(pos, Blocks.DIRT.defaultBlockState());

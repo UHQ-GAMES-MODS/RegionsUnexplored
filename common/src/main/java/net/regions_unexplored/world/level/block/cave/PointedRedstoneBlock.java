@@ -285,7 +285,7 @@ public class PointedRedstoneBlock extends Block implements Fallable, SimpleWater
     }
 
     private static void createDripstone(LevelAccessor level, BlockPos pos, Direction direction, DripstoneThickness thickness) {
-        BlockState blockstate = RuBlocks.POINTED_REDSTONE.defaultBlockState().setValue(TIP_DIRECTION, direction).setValue(THICKNESS, thickness).setValue(WATERLOGGED, Boolean.valueOf(level.getFluidState(pos).getType() == Fluids.WATER));
+        BlockState blockstate = RuBlocks.POINTED_REDSTONE.get().defaultBlockState().setValue(TIP_DIRECTION, direction).setValue(THICKNESS, thickness).setValue(WATERLOGGED, Boolean.valueOf(level.getFluidState(pos).getType() == Fluids.WATER));
         level.setBlock(pos, blockstate, 3);
     }
 
@@ -322,7 +322,7 @@ public class PointedRedstoneBlock extends Block implements Fallable, SimpleWater
         } else {
             Direction direction = state.getValue(TIP_DIRECTION);
             BiPredicate<BlockPos, BlockState> bipredicate = (pos1, state1) -> {
-                return state1.is(RuBlocks.POINTED_REDSTONE) && state1.getValue(TIP_DIRECTION) == direction;
+                return state1.is(RuBlocks.POINTED_REDSTONE.get()) && state1.getValue(TIP_DIRECTION) == direction;
             };
             return findBlockVertical(level, pos, direction.getAxisDirection(), bipredicate, (state1) -> {
                 return isTip(state1, bool);
@@ -382,10 +382,10 @@ public class PointedRedstoneBlock extends Block implements Fallable, SimpleWater
     private static Optional<BlockPos> findRootBlock(Level level, BlockPos pos, BlockState state, int i) {
         Direction direction = state.getValue(TIP_DIRECTION);
         BiPredicate<BlockPos, BlockState> bipredicate = (pos1, state1) -> {
-            return state1.is(RuBlocks.POINTED_REDSTONE) && state1.getValue(TIP_DIRECTION) == direction;
+            return state1.is(RuBlocks.POINTED_REDSTONE.get()) && state1.getValue(TIP_DIRECTION) == direction;
         };
         return findBlockVertical(level, pos, direction.getOpposite().getAxisDirection(), bipredicate, (state1) -> {
-            return !state1.is(RuBlocks.POINTED_REDSTONE);
+            return !state1.is(RuBlocks.POINTED_REDSTONE.get());
         }, i);
     }
 
@@ -396,7 +396,7 @@ public class PointedRedstoneBlock extends Block implements Fallable, SimpleWater
     }
 
     private static boolean isTip(BlockState state, boolean bool) {
-        if (!state.is(RuBlocks.POINTED_REDSTONE)) {
+        if (!state.is(RuBlocks.POINTED_REDSTONE.get())) {
             return false;
         } else {
             DripstoneThickness dripstonethickness = state.getValue(THICKNESS);
@@ -417,7 +417,7 @@ public class PointedRedstoneBlock extends Block implements Fallable, SimpleWater
     }
 
     private static boolean isStalactiteStartPos(BlockState state, LevelReader level, BlockPos pos) {
-        return isStalactite(state) && !level.getBlockState(pos.above()).is(RuBlocks.POINTED_REDSTONE);
+        return isStalactite(state) && !level.getBlockState(pos.above()).is(RuBlocks.POINTED_REDSTONE.get());
     }
 
     public boolean isPathfindable(BlockState state, BlockGetter getter, BlockPos pos, PathComputationType type) {
@@ -425,7 +425,7 @@ public class PointedRedstoneBlock extends Block implements Fallable, SimpleWater
     }
 
     private static boolean isPointedDripstoneWithDirection(BlockState state, Direction direction) {
-        return state.is(RuBlocks.POINTED_REDSTONE) && state.getValue(TIP_DIRECTION) == direction;
+        return state.is(RuBlocks.POINTED_REDSTONE.get()) && state.getValue(TIP_DIRECTION) == direction;
     }
 
     private static Optional<FluidInfo> getFluidAboveStalactite(Level level, BlockPos pos, BlockState state) {
@@ -448,7 +448,7 @@ public class PointedRedstoneBlock extends Block implements Fallable, SimpleWater
     }
 
     private static boolean canGrow(BlockState state, BlockState state1) {
-        return state.is(RuBlocks.RAW_REDSTONE_BLOCK) && state1.is(Blocks.WATER) && state1.getFluidState().isSource();
+        return state.is(RuBlocks.RAW_REDSTONE_BLOCK.get()) && state1.is(Blocks.WATER) && state1.getFluidState().isSource();
     }
 
     private static Fluid getDripFluid(Level level, Fluid fluid) {

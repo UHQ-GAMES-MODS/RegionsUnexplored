@@ -38,14 +38,14 @@ public abstract class ArgilliteDirtBlock extends SnowyDirtBlock {
 
    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
       if (!canBeGrass(state, level, pos)) {
-         level.setBlockAndUpdate(pos, RuBlocks.ARGILLITE.defaultBlockState());
+         level.setBlockAndUpdate(pos, RuBlocks.ARGILLITE.get().defaultBlockState());
       } else {
          if (level.getMaxLocalRawBrightness(pos.above()) >= 9) {
             BlockState blockstate = this.defaultBlockState();
 
             for(int i = 0; i < 4; ++i) {
                BlockPos blockpos = pos.offset(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
-               if (level.getBlockState(blockpos).is(RuBlocks.ARGILLITE) && canPropagate(blockstate, level, blockpos)) {
+               if (level.getBlockState(blockpos).is(RuBlocks.ARGILLITE.get()) && canPropagate(blockstate, level, blockpos)) {
                }
             }
          }

@@ -61,7 +61,7 @@ public class MarshFeature extends Feature<NoneFeatureConfiguration> {
         if(chance== 0){
             if (!level.getFluidState(pos.below(5)).is(FluidTags.WATER)&&level.isWaterAt(pos)) {
                 level.setBlock(pos, Blocks.GRASS_BLOCK.defaultBlockState(), 2);
-                if(level.getBlockState(pos.above()).is(Blocks.LILY_PAD)||level.getBlockState(pos.above()).is(RuBlocks.DUCKWEED)||level.getBlockState(pos.above()).is(RuBlocks.FLOWERING_LILY_PAD)){
+                if(level.getBlockState(pos.above()).is(Blocks.LILY_PAD)||level.getBlockState(pos.above()).is(RuBlocks.DUCKWEED.get())||level.getBlockState(pos.above()).is(RuBlocks.FLOWERING_LILY_PAD.get())){
                     level.setBlock(pos.above(), Blocks.AIR.defaultBlockState(), 2);
                 }
                 if(level.getBlockState(pos.above()).isAir()&&level.getBlockState(pos.above(2)).isAir()){

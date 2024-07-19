@@ -80,8 +80,8 @@ public class DropleafFeature extends Feature<NoneFeatureConfiguration> {
         }
         size=(size/2)+random.nextInt(size/2);
             if(level.getBlockState(pos.above()).isFaceSturdy(level, pos.above(), Direction.DOWN)
-                    ||level.getBlockState(pos.above()).is(RuBlocks.DROPLEAF)
-                    ||level.getBlockState(pos.above()).is(RuBlocks.DROPLEAF_PLANT)) {
+                    ||level.getBlockState(pos.above()).is(RuBlocks.DROPLEAF.get())
+                    ||level.getBlockState(pos.above()).is(RuBlocks.DROPLEAF_PLANT.get())) {
                 BlockPos.MutableBlockPos placePos = pos.mutable();
                 int count = 0;
                 while (level.isEmptyBlock(placePos)) {
@@ -92,10 +92,10 @@ public class DropleafFeature extends Feature<NoneFeatureConfiguration> {
                         return true;
                     }
 
-                    if(level.getBlockState(placePos.above()).is(RuBlocks.DROPLEAF)){
-                        level.setBlock(placePos.above(), RuBlocks.DROPLEAF_PLANT.defaultBlockState(), 2);
+                    if(level.getBlockState(placePos.above()).is(RuBlocks.DROPLEAF.get())){
+                        level.setBlock(placePos.above(), RuBlocks.DROPLEAF_PLANT.get().defaultBlockState(), 2);
                     }
-                    level.setBlock(placePos, RuBlocks.DROPLEAF.defaultBlockState().setValue(DropleafBlock.AGE, 23+random.nextInt(2)), 2);
+                    level.setBlock(placePos, RuBlocks.DROPLEAF.get().defaultBlockState().setValue(DropleafBlock.AGE, 23+random.nextInt(2)), 2);
                     placePos.move(Direction.DOWN);
                     count=count+1;
                 }

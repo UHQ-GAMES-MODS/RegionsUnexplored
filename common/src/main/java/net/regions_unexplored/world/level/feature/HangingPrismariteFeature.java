@@ -67,7 +67,7 @@ public class HangingPrismariteFeature extends Feature<NoneFeatureConfiguration> 
         int size = random.nextInt(5)+1;
         if (level.isEmptyBlock(pos) ) {
             if(level.getBlockState(pos.above()).isFaceSturdy(level, pos.above(), Direction.DOWN)
-                    ||level.getBlockState(pos.above()).is(RuBlocks.HANGING_PRISMARITE)) {
+                    ||level.getBlockState(pos.above()).is(RuBlocks.HANGING_PRISMARITE.get())) {
 
                 BlockPos.MutableBlockPos placePos = pos.mutable();
                 int count = 0;
@@ -78,13 +78,13 @@ public class HangingPrismariteFeature extends Feature<NoneFeatureConfiguration> 
                     if (level.isOutsideBuildHeight(placePos)) {
                         return true;
                     }
-                    if(level.getBlockState(placePos.above()).is(RuBlocks.HANGING_PRISMARITE)){
-                        level.setBlock(placePos.above(), RuBlocks.HANGING_PRISMARITE.defaultBlockState().setValue(HangingPrismariteBlock.SHAPE, HangingPrismariteShape.FRUSTUM), 2);
+                    if(level.getBlockState(placePos.above()).is(RuBlocks.HANGING_PRISMARITE.get())){
+                        level.setBlock(placePos.above(), RuBlocks.HANGING_PRISMARITE.get().defaultBlockState().setValue(HangingPrismariteBlock.SHAPE, HangingPrismariteShape.FRUSTUM), 2);
                     }
-                    if(level.getBlockState(placePos.above().above()).is(RuBlocks.HANGING_PRISMARITE)){
-                        level.setBlock(placePos.above().above(), RuBlocks.HANGING_PRISMARITE.defaultBlockState().setValue(HangingPrismariteBlock.SHAPE, HangingPrismariteShape.COLUMN), 2);
+                    if(level.getBlockState(placePos.above().above()).is(RuBlocks.HANGING_PRISMARITE.get())){
+                        level.setBlock(placePos.above().above(), RuBlocks.HANGING_PRISMARITE.get().defaultBlockState().setValue(HangingPrismariteBlock.SHAPE, HangingPrismariteShape.COLUMN), 2);
                     }
-                    level.setBlock(placePos, RuBlocks.HANGING_PRISMARITE.defaultBlockState(), 2);
+                    level.setBlock(placePos, RuBlocks.HANGING_PRISMARITE.get().defaultBlockState(), 2);
                     placePos.move(Direction.DOWN);
                     count=count+1;
                 }
