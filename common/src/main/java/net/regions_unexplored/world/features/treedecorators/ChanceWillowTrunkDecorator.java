@@ -16,12 +16,13 @@ import net.regions_unexplored.data.tags.RuTags;
 import java.util.Random;
 
 public class ChanceWillowTrunkDecorator extends TreeDecorator {
-	public static final ChanceWillowTrunkDecorator INSTANCE = new ChanceWillowTrunkDecorator();
-	public static final MapCodec<ChanceWillowTrunkDecorator> CODEC = MapCodec.unit(() -> INSTANCE);
+	public static ChanceWillowTrunkDecorator INSTANCE = new ChanceWillowTrunkDecorator();
+	public static final MapCodec<ChanceWillowTrunkDecorator> CODEC = MapCodec.unit(ChanceWillowTrunkDecorator::new);
+	public static TreeDecoratorType<?> CHANCE_WILLOW_TRUNK_DECORATOR = new TreeDecoratorType<>(CODEC);
 
 	@Override
 	protected TreeDecoratorType<?> type() {
-		return RegionsUnexplored.CHANCE_WILLOW_TRUNK_DECORATOR;
+		return CHANCE_WILLOW_TRUNK_DECORATOR;
 	}
 
 	@Override

@@ -7,17 +7,17 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
-import net.regions_unexplored.RegionsUnexplored;
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.data.tags.RuTags;
 
 public class BlackwoodBioshroom extends TreeDecorator {
-	public static final BlackwoodBioshroom INSTANCE = new BlackwoodBioshroom();
-	public static final MapCodec<BlackwoodBioshroom> CODEC = MapCodec.unit(() -> INSTANCE);
+	public static BlackwoodBioshroom INSTANCE = new BlackwoodBioshroom();
+	public static MapCodec<BlackwoodBioshroom> CODEC = MapCodec.unit(BlackwoodBioshroom::new);
+	public static TreeDecoratorType<?> BLACKWOOD_BIOSHROOM = new TreeDecoratorType<>(CODEC);
 
 	@Override
 	protected TreeDecoratorType<?> type() {
-		return RegionsUnexplored.BLACKWOOD_BIOSHROOM;
+		return BLACKWOOD_BIOSHROOM;
 	}
 
 	@Override

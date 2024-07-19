@@ -26,6 +26,12 @@ public class WillowFoliagePlacer extends FoliagePlacer {
         )
         .apply(placer, WillowFoliagePlacer::new)
     );
+    public static FoliagePlacerType<?> WILLOW_FOLIAGE_PLACER = new FoliagePlacerType<>(CODEC);
+
+    protected FoliagePlacerType<?> type() {
+        return WILLOW_FOLIAGE_PLACER;
+    }
+
     private final IntProvider height;
     private final float flowerDecorationChance;
 
@@ -33,14 +39,6 @@ public class WillowFoliagePlacer extends FoliagePlacer {
         super(ip1, ip2);
         this.height = height;
         this.flowerDecorationChance = flowerDecorationChance;
-    }
-
-    public static FoliagePlacerType<?> fpt;
-    static {
-        fpt = new FoliagePlacerType<>(CODEC);
-    }
-    protected FoliagePlacerType<?> type() {
-        return fpt;
     }
 
     protected void createFoliage(LevelSimulatedReader level, FoliageSetter setter, RandomSource random, TreeConfiguration treeConfig, int p_272975_, FoliageAttachment foliage, int j, int k, int height) {

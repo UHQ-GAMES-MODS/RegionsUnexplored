@@ -29,3 +29,4 @@ mutable field net/minecraft/world/item/AxeItem STRIPPABLES Ljava/util/Map;
 mutable field net/minecraft/world/item/ShovelItem FLATTENABLES Ljava/util/Map;
 
 accessible method net/minecraft/world/level/levelgen/feature/foliageplacers/FoliagePlacerType <init> (Lcom/mojang/serialization/MapCodec;)V
+accessible method net/minecraft/world/level/levelgen/feature/treedecorators/TreeDecoratorType <init> (Lcom/mojang/serialization/MapCodec;)V

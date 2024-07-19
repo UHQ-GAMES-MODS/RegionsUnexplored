@@ -24,13 +24,6 @@ import terrablender.api.SurfaceRuleManager;
 // however it will be compatible with all supported mod loaders.
 public class RegionsUnexplored {
 
-    // TODO: Convert these to MapCodecs o7
-    public static final FoliagePlacerType<SakuraFoliagePlacer> SAKURA_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("regions_unexplored:sakura_foliage_placer", SakuraFoliagePlacer.CODEC);
-//    public static final FoliagePlacerType<WillowFoliagePlacer> WILLOW_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("regions_unexplored:willow_foliage_placer", WillowFoliagePlacer.CODEC);
-    public static final TreeDecoratorType<BlackwoodBioshroom> BLACKWOOD_BIOSHROOM = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:blackwood_bioshrooms", BlackwoodBioshroom.CODEC);
-    public static final TreeDecoratorType<ChanceWillowTrunkDecorator> CHANCE_WILLOW_TRUNK_DECORATOR = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:chance_willow_trunk_decorator", ChanceWillowTrunkDecorator.CODEC);
-    public static final TreeDecoratorType<WillowTrunkDecorator> WILLOW_TRUNK_DECORATOR = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:willow_trunk_decorator", WillowTrunkDecorator.CODEC);
-
     public static SurfaceRules.RuleSource getSurfaceRules(SurfaceRules.RuleSource fallBack) {
         return SurfaceRuleManager.getNamespacedRules(SurfaceRuleManager.RuleCategory.NETHER, fallBack);
     }
@@ -39,9 +32,6 @@ public class RegionsUnexplored {
     // write the majority of your code here and load it from your loader specific projects. This example has some
     // code that gets invoked by the entry point of the loader specific projects.
     public static void init() {
-        registerFoliagePlacers();
-        registerTreeDecorators();
-
         BiomeRegistry.addBiomes();
         FeatureRegistry.addFeatures();
         RuBlocks.addBlocks();
@@ -49,6 +39,7 @@ public class RegionsUnexplored {
         RuItems.addItems();
         RuEntities.addEntities();
         RuParticleTypes.addParticles();
+
 //        Constants.LOG.info("Hello from Common init on {}! we are currently in a {} environment!", Services.PLATFORM.getPlatformName(), Services.PLATFORM.getEnvironmentName());
 //        Constants.LOG.info("The ID for diamonds is {}", BuiltInRegistries.ITEM.getKey(Items.DIAMOND));
 
@@ -63,14 +54,11 @@ public class RegionsUnexplored {
 //        }
     }
 
-    private static void registerFoliagePlacers(){
-        Registry.register(BuiltInRegistries.FOLIAGE_PLACER_TYPE, "willow_foliage_placer", WillowFoliagePlacer.fpt);
-        Registry.register(BuiltInRegistries.FOLIAGE_PLACER_TYPE, "sakura_foliage_placer", RegionsUnexplored.SAKURA_FOLIAGE_PLACER);
-    }
-
-    private static void registerTreeDecorators(){
-        Registry.register(BuiltInRegistries.TREE_DECORATOR_TYPE, "blackwood_bioshrooms", RegionsUnexplored.BLACKWOOD_BIOSHROOM);
-        Registry.register(BuiltInRegistries.TREE_DECORATOR_TYPE, "chance_willow_trunk_decorator", RegionsUnexplored.CHANCE_WILLOW_TRUNK_DECORATOR);
-        Registry.register(BuiltInRegistries.TREE_DECORATOR_TYPE, "willow_trunk_decorator", RegionsUnexplored.WILLOW_TRUNK_DECORATOR);
-    }
+//    public static void registerPlacers() {
+//        FoliagePlacerType<SakuraFoliagePlacer> SAKURA_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("regions_unexplored:sakura_foliage_placer", SakuraFoliagePlacer.CODEC);
+//        FoliagePlacerType<WillowFoliagePlacer> WILLOW_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("regions_unexplored:willow_foliage_placer", WillowFoliagePlacer.CODEC);
+//        TreeDecoratorType<BlackwoodBioshroom> BLACKWOOD_BIOSHROOM = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:blackwood_bioshrooms", BlackwoodBioshroom.CODEC);
+//        TreeDecoratorType<ChanceWillowTrunkDecorator> CHANCE_WILLOW_TRUNK_DECORATOR = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:chance_willow_trunk_decorator", ChanceWillowTrunkDecorator.CODEC);
+//        TreeDecoratorType<WillowTrunkDecorator> WILLOW_TRUNK_DECORATOR = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:willow_trunk_decorator", WillowTrunkDecorator.CODEC);
+//    }
 }

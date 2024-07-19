@@ -26,6 +26,12 @@ public class SakuraFoliagePlacer extends FoliagePlacer {
             )
             .apply(placer, SakuraFoliagePlacer::new)
     );
+    public static FoliagePlacerType<?> SAKURA_FOLIAGE_PLACER = new FoliagePlacerType<>(CODEC);
+
+    protected FoliagePlacerType<?> type() {
+        return SAKURA_FOLIAGE_PLACER;
+    }
+
     private final IntProvider height;
     private final float flowerDecorationChance;
 
@@ -33,14 +39,6 @@ public class SakuraFoliagePlacer extends FoliagePlacer {
         super(ip1, ip2);
         this.height = height;
         this.flowerDecorationChance = flowerDecorationChance;
-    }
-
-    /* public static FoliagePlacerType<?> fpt;
-     static {
-         fpt = new FoliagePlacerType<>(CODEC);
-     }*/
-    protected FoliagePlacerType<?> type() {
-        return RegionsUnexplored.SAKURA_FOLIAGE_PLACER;
     }
 
 

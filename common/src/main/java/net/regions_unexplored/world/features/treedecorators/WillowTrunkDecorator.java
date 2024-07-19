@@ -17,11 +17,12 @@ import java.util.Random;
 
 public class WillowTrunkDecorator extends TreeDecorator {
 	public static final WillowTrunkDecorator INSTANCE = new WillowTrunkDecorator();
-	public static final MapCodec<WillowTrunkDecorator> CODEC = MapCodec.unit(() -> INSTANCE);
+	public static final MapCodec<WillowTrunkDecorator> CODEC = MapCodec.unit(WillowTrunkDecorator::new);
+	public static TreeDecoratorType<?> WILLOW_TRUNK_DECORATOR = new TreeDecoratorType<>(CODEC);
 
 	@Override
 	protected TreeDecoratorType<?> type() {
-		return RegionsUnexplored.WILLOW_TRUNK_DECORATOR;
+		return WILLOW_TRUNK_DECORATOR;
 	}
 
 	@Override
