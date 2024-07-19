@@ -52,7 +52,7 @@ public class DataGeneration {
         generator.addProvider(event.includeServer(), new RuBlockModelProvider(packOutput, Constants.MOD_ID, existingFileHelper));
 
         generator.addProvider(true, new RuRecipeProvider(packOutput, holder));
-        generator.addProvider(true, RuLootTableProvider.create(packOutput, holder));
+        //generator.addProvider(true, RuLootTableProvider.create(packOutput, holder));
         generator.addProvider(true, new RuLanguageProvider(packOutput));
 
         //tags

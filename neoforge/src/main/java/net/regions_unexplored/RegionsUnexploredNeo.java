@@ -9,6 +9,7 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.RegisterEvent;
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.block.compat.BlockToolCompat;
@@ -28,14 +29,15 @@ public class RegionsUnexploredNeo {
 
     public RegionsUnexploredNeo(ModContainer container) {
         IEventBus bus = container.getEventBus();
-        NeoForgeRegistar.CACHE.values().forEach(deferredRegister -> deferredRegister.register(NeoForge.EVENT_BUS));
+
         bus.addListener(this::commonSetup);
 
         //RuTabs.addTabs();
-
         registerConfig(container);
 
         RegionsUnexplored.init();
+        NeoForgeRegistar.CACHE.values().forEach(deferredRegister -> deferredRegister.register(bus));
+
         Constants.LOG.info("{}", RuBlocks.TALL_HYACINTH_STOCK);
     }
     //set up client side features
