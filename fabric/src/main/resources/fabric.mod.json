@@ -17,6 +17,9 @@
     "entrypoints": {
         "main": [
             "net.regions_unexplored.RegionsUnexploredFabric"
+        ],
+        "client": [
+            "net.regions_unexplored.RegionsUnexploredFabricClient"
         ]
     },
     "mixins": [

@@ -14,13 +14,11 @@ import java.util.function.Supplier;
 public class FabricRegistar implements IRegistar {
     @Override
     public <T> Supplier<T> register(Registry<T> registry, String name, Supplier<T> value) {
-        Registry.register(registry, Constants.id(name), value.get());
-        return value;
+        return () -> Registry.register(registry, Constants.id(name), value.get());
     }
 
     @Override
     public <T extends Entity> Supplier<EntityType<T>> register(DefaultedRegistry<EntityType<?>> entityType, String path, Supplier<EntityType<T>> type) {
-        Registry.register(entityType, Constants.id(path), type.get());
-        return type;
+        return () -> Registry.register(entityType, Constants.id(path), type.get());
     }
 }

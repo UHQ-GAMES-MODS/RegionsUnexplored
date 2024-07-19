@@ -27,7 +27,7 @@ public class DropleafPlantBlock extends GrowingPlantBodyBlock {
     }
 
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) RuBlocks.DROPLEAF;
+        return (GrowingPlantHeadBlock) RuBlocks.DROPLEAF.get();
     }
 
     @Override
