@@ -27,36 +27,36 @@ import java.util.function.Supplier;
 
 public class BlockRegistry {
     //Register default blocks and items
-    public static Block registerDefaultBlock(String name, Block block) {
-        Block toReturn = Services.REGISTAR.register(BuiltInRegistries.BLOCK, name, () -> block).get();
-        ItemRegistry.registerDefaultBlockItem(name, () -> toReturn);
+    public static Supplier<Block> registerDefaultBlock(String name, Supplier<Block> block) {
+        Supplier<Block> toReturn = Services.REGISTAR.register(BuiltInRegistries.BLOCK, name, block);
+        ItemRegistry.registerDefaultBlockItem(name, toReturn);
         return toReturn;
     }
 
     //Register default block without item
-    public static Block registerDefaultBlockNoItem(String name, Block block) {
-        return Services.REGISTAR.register(BuiltInRegistries.BLOCK, name, () -> block).get();
+    public static Supplier<Block> registerDefaultBlockNoItem(String name, Supplier<Block> block) {
+        return Services.REGISTAR.register(BuiltInRegistries.BLOCK, name, block);
     }
 
-    public static Block registerSaplingBlock(String name, TreeGrower grower) {
-        return registerDefaultBlock(name, new SaplingBlock(grower, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+    public static Supplier<Block> registerSaplingBlock(String name, TreeGrower grower) {
+        return registerDefaultBlock(name, () -> new SaplingBlock(grower, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
     }
 
-    public static Block registerMegaSaplingBlock(String name, RuUltraFromMegaTreeGrower grower) {
-        return registerDefaultBlock(name, new RuUltraFromMegaSaplingBlock(grower, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+    public static Supplier<Block> registerMegaSaplingBlock(String name, RuUltraFromMegaTreeGrower grower) {
+        return registerDefaultBlock(name, () -> new RuUltraFromMegaSaplingBlock(grower, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
     }
 
-    public static Block registerSuperSaplingBlock(String name, RuUltraFromSuperTreeGrower grower) {
-        return registerDefaultBlock(name, new RuUltraFromSuperSaplingBlock(grower, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+    public static Supplier<Block> registerSuperSaplingBlock(String name, RuUltraFromSuperTreeGrower grower) {
+        return registerDefaultBlock(name, () -> new RuUltraFromSuperSaplingBlock(grower, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
     }
 
-    public static Block registerNetherSaplingBlock(String name, TreeGrower grower) {
-        return registerDefaultBlock(name, new SaplingBlock(grower, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).randomTicks()));
+    public static Supplier<Block> registerNetherSaplingBlock(String name, TreeGrower grower) {
+        return registerDefaultBlock(name, () -> new SaplingBlock(grower, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).randomTicks()));
     }
 
     //Register Duckweed block and item
-    public static Block registerPlaceOnWaterBlock(String name, Block block) {
-        Block toReturn = Registry.register(BuiltInRegistries.BLOCK, Constants.id(name), block);
+    public static Supplier<Block> registerPlaceOnWaterBlock(String name, Supplier<Block> block) {
+        Supplier<Block> toReturn = Services.REGISTAR.register(BuiltInRegistries.BLOCK, name, block);
         ItemRegistry.registerPlaceOnWaterItem(name, toReturn);
         return toReturn;
     }

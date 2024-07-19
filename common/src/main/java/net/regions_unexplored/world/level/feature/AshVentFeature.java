@@ -1,5 +1,6 @@
 package net.regions_unexplored.world.level.feature;
 
+import com.google.common.base.Suppliers;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
@@ -14,9 +15,10 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import net.regions_unexplored.block.RuBlocks;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class AshVentFeature extends Feature<NoneFeatureConfiguration> {
-    private static final ImmutableList<Block> CANNOT_PLACE_ON = ImmutableList.of(
+    private static final Supplier<ImmutableList<Block>> CANNOT_PLACE_ON = Suppliers.memoize(() ->  ImmutableList.of(
             Blocks.COBBLESTONE,
             Blocks.COBBLESTONE_SLAB,
             Blocks.COBBLESTONE_STAIRS,
@@ -58,7 +60,8 @@ public class AshVentFeature extends Feature<NoneFeatureConfiguration> {
             Blocks.NETHER_WART,
             Blocks.CHEST,
             RuBlocks.ASH_VENT,
-            RuBlocks.DEAD_LEAVES);
+            RuBlocks.DEAD_LEAVES)
+    );
 
     public AshVentFeature(Codec<NoneFeatureConfiguration> codec) {
         super(codec);
@@ -92,7 +95,7 @@ public class AshVentFeature extends Feature<NoneFeatureConfiguration> {
                     if (blockpos1.distSqr(pos) <= (double)(f * f)) {
                         if(level.getBlockState(blockpos1.below()).isFaceSturdy(level, pos.below(), Direction.DOWN)){
                             if(random.nextInt(5)== 0){
-                                if (CANNOT_PLACE_ON.contains(level.getBlockState(pos.below()))) {
+                                if (CANNOT_PLACE_ON.get().contains(level.getBlockState(pos.below()))) {
                                     return true;
                                 }
                                 placePillar(level,blockpos1);

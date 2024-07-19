@@ -17,7 +17,7 @@ public class ItemRegistry {
         return Services.REGISTAR.register(BuiltInRegistries.ITEM, name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
-    public static Supplier<Item> registerPlaceOnWaterItem(String name, Block block) {
-        return Services.REGISTAR.register(BuiltInRegistries.ITEM, name, () -> new PlaceOnWaterBlockItem(block, new Item.Properties()));
+    public static Supplier<Item> registerPlaceOnWaterItem(String name, Supplier<Block> block) {
+        return Services.REGISTAR.register(BuiltInRegistries.ITEM, name, () -> new PlaceOnWaterBlockItem(block.get(), new Item.Properties()));
     }
 }

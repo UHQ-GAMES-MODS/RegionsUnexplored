@@ -1,5 +1,6 @@
 package net.regions_unexplored.world.level.feature;
 
+import com.google.common.base.Suppliers;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
@@ -16,8 +17,10 @@ import net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureCo
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.data.tags.RuTags;
 
+import java.util.function.Supplier;
+
 public class BasaltBlobFeature extends Feature<ColumnFeatureConfiguration> {
-    private static final ImmutableList<Block> CANNOT_PLACE_ON = ImmutableList.of(
+    private static final Supplier<ImmutableList<Block>> CANNOT_PLACE_ON = Suppliers.memoize(() ->  ImmutableList.of(
             Blocks.COBBLESTONE,
             Blocks.COBBLESTONE_SLAB,
             Blocks.COBBLESTONE_STAIRS,
@@ -59,7 +62,8 @@ public class BasaltBlobFeature extends Feature<ColumnFeatureConfiguration> {
             Blocks.NETHER_WART,
             Blocks.CHEST,
             RuBlocks.ASH_VENT,
-            RuBlocks.DEAD_LEAVES);
+            RuBlocks.DEAD_LEAVES)
+    );
 
     public BasaltBlobFeature(Codec<ColumnFeatureConfiguration> codec) {
         super(codec);
@@ -138,7 +142,7 @@ public class BasaltBlobFeature extends Feature<ColumnFeatureConfiguration> {
         } else {
             BlockState blockstate = level.getBlockState(pos.move(Direction.DOWN));
             pos.move(Direction.UP);
-            return !blockstate.isAir() && !CANNOT_PLACE_ON.contains(blockstate.getBlock());
+            return !blockstate.isAir() && !CANNOT_PLACE_ON.get().contains(blockstate.getBlock());
         }
     }
 
@@ -146,7 +150,7 @@ public class BasaltBlobFeature extends Feature<ColumnFeatureConfiguration> {
         while(pos.getY() < level.getMaxBuildHeight() && i > 0) {
             --i;
             BlockState blockstate = level.getBlockState(pos);
-            if (CANNOT_PLACE_ON.contains(blockstate.getBlock())) {
+            if (CANNOT_PLACE_ON.get().contains(blockstate.getBlock())) {
                 return null;
             }
 
