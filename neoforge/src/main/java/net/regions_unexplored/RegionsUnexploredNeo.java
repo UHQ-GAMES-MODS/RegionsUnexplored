@@ -36,9 +36,8 @@ public class RegionsUnexploredNeo {
         registerConfig(container);
 
         RegionsUnexplored.init();
-        NeoForgeRegistar.CACHE.values().forEach(deferredRegister -> deferredRegister.register(bus));
 
-        Constants.LOG.info("{}", RuBlocks.TALL_HYACINTH_STOCK);
+        NeoForgeRegistar.CACHE.values().forEach(deferredRegister -> deferredRegister.register(bus));
     }
     //set up client side features
     public void clientSetup(final FMLClientSetupEvent event) {
