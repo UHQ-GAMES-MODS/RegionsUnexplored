@@ -172,6 +172,6 @@ public class FeatureRegistry {
 
 
     private static <FC extends FeatureConfiguration> Supplier<Feature> register(String path, Supplier<Feature> feature) {
-       return Services.REGISTAR.register(path, feature);
+       return Services.REGISTAR.registerFeature(path, feature);
     }
 }

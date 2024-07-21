@@ -12,9 +12,6 @@ import net.regions_unexplored.block.compat.BlockToolCompat;
 import net.regions_unexplored.block.compat.CompostableBlocks;
 import net.regions_unexplored.block.compat.FlammableBlocks;
 import net.regions_unexplored.block.compat.FurnaceBurnTimesFabric;
-import net.regions_unexplored.client.RegionsUnexploredClient;
-import net.regions_unexplored.client.particle.RuParticleTypes;
-import net.regions_unexplored.client.particle.RuParticles;
 import net.regions_unexplored.config.RuCommonConfig;
 import net.regions_unexplored.config.RuPrimaryRegionConfig;
 import net.regions_unexplored.config.RuSecondaryRegionConfig;
@@ -46,27 +43,8 @@ public class RegionsUnexploredFabric implements ModInitializer, TerraBlenderApi 
     @Override
     public void onInitialize() {
         Constants.LOG.info("Hello Fabric world!");
+
         RegionsUnexplored.init();
-        //for some reason, loading blocks with log fixes them
-        Constants.LOG.info(RuBlocks.SILT_PODZOL.get().builtInRegistryHolder().getRegisteredName());
-        Constants.LOG.info(RuBlocks.SILT_COARSE_DIRT.get().builtInRegistryHolder().getRegisteredName());
-        Constants.LOG.info(RuBlocks.SILT_GRASS_BLOCK.get().builtInRegistryHolder().getRegisteredName());
-        Constants.LOG.info(RuBlocks.SILT_DIRT.get().builtInRegistryHolder().getRegisteredName());
-        Constants.LOG.info(RuBlocks.SILT_FARMLAND.get().builtInRegistryHolder().getRegisteredName());
-        Constants.LOG.info(RuBlocks.SILT_DIRT_PATH.get().builtInRegistryHolder().getRegisteredName());
-        Constants.LOG.info(RuBlocks.SILT_MUD.get().builtInRegistryHolder().getRegisteredName());
-
-        Constants.LOG.info(RuBlocks.PEAT_PODZOL.get().builtInRegistryHolder().getRegisteredName());
-        Constants.LOG.info(RuBlocks.PEAT_COARSE_DIRT.get().builtInRegistryHolder().getRegisteredName());
-        Constants.LOG.info(RuBlocks.PEAT_GRASS_BLOCK.get().builtInRegistryHolder().getRegisteredName());
-        Constants.LOG.info(RuBlocks.PEAT_DIRT.get().builtInRegistryHolder().getRegisteredName());
-        Constants.LOG.info(RuBlocks.PEAT_FARMLAND.get().builtInRegistryHolder().getRegisteredName());
-        Constants.LOG.info(RuBlocks.PEAT_DIRT_PATH.get().builtInRegistryHolder().getRegisteredName());
-        Constants.LOG.info(RuBlocks.PEAT_MUD.get().builtInRegistryHolder().getRegisteredName());
-
-        Constants.LOG.info(RuBlocks.GLISTERING_NYLIUM.get().builtInRegistryHolder().getRegisteredName());
-        Constants.LOG.info(RuBlocks.VOLCANIC_ASH.get().builtInRegistryHolder().getRegisteredName());
-        Constants.LOG.info(RuBlocks.BLACKSTONE_CLUSTER.get().builtInRegistryHolder().getRegisteredName());
 
         setupBlockFeatures();
     }

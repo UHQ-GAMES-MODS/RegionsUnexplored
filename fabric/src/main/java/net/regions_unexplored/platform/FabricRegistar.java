@@ -6,6 +6,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.regions_unexplored.Constants;
@@ -15,13 +16,20 @@ import java.util.function.Supplier;
 
 @AutoService(IRegistar.class)
 public class FabricRegistar implements IRegistar {
+
     @Override
     public <T> Supplier<T> register(Registry<T> registry, String name, Supplier<T> value) {
         return () -> Registry.register(registry, Constants.id(name), value.get());
     }
 
     @Override
-    public <FC extends FeatureConfiguration> Supplier<Feature> register(String name, Supplier<Feature> value) {
+    public Supplier<Block> registerBlock(String name, Supplier<Block> value) {
+        Registry.register(BuiltInRegistries.BLOCK, Constants.id(name), value.get());
+        return value;
+    }
+
+    @Override
+    public <FC extends FeatureConfiguration> Supplier<Feature> registerFeature(String name, Supplier<Feature> value) {
         Registry.register(BuiltInRegistries.FEATURE, Constants.id(name), value.get());
         return value;
     }

@@ -28,14 +28,14 @@ import java.util.function.Supplier;
 public class BlockRegistry {
     //Register default blocks and items
     public static Supplier<Block> registerDefaultBlock(String name, Supplier<Block> block) {
-        Supplier<Block> toReturn = Services.REGISTAR.register(BuiltInRegistries.BLOCK, name, block);
+        Supplier<Block> toReturn = Services.REGISTAR.registerBlock(name, block);
         ItemRegistry.registerDefaultBlockItem(name, toReturn);
         return toReturn;
     }
 
     //Register default block without item
     public static Supplier<Block> registerDefaultBlockNoItem(String name, Supplier<Block> block) {
-        return Services.REGISTAR.register(BuiltInRegistries.BLOCK, name, block);
+        return Services.REGISTAR.registerBlock(name, block);
     }
 
     public static Supplier<Block> registerSaplingBlock(String name, TreeGrower grower) {
@@ -56,7 +56,7 @@ public class BlockRegistry {
 
     //Register Duckweed block and item
     public static Supplier<Block> registerPlaceOnWaterBlock(String name, Supplier<Block> block) {
-        Supplier<Block> toReturn = Services.REGISTAR.register(BuiltInRegistries.BLOCK, name, block);
+        Supplier<Block> toReturn = Services.REGISTAR.registerBlock(name, block);
         ItemRegistry.registerPlaceOnWaterItem(name, toReturn);
         return toReturn;
     }

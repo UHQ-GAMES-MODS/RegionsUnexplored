@@ -15,11 +15,14 @@
     "icon": "${mod_id}.png",
     "environment": "*",
     "entrypoints": {
+        "client": [
+            "net.regions_unexplored.RegionsUnexploredFabricClient"
+        ],
         "main": [
             "net.regions_unexplored.RegionsUnexploredFabric"
         ],
-        "client": [
-            "net.regions_unexplored.RegionsUnexploredFabricClient"
+        "terrablender": [
+            "net.regions_unexplored.RegionsUnexploredFabric"
         ]
     },
     "mixins": [

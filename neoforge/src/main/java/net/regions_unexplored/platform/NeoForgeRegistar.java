@@ -32,7 +32,13 @@ public class NeoForgeRegistar implements IRegistar {
 
     @SuppressWarnings("unchecked")
     @Override
-    public <FC extends FeatureConfiguration> Supplier<Feature> register(String name, Supplier<Feature> value) {
+    public Supplier<Block> registerBlock(String name, Supplier<Block> value) {
+        return CACHE.computeIfAbsent(BuiltInRegistries.BLOCK.key(), key -> DeferredRegister.create(BuiltInRegistries.BLOCK.key().location(), Constants.MOD_ID)).register(name, value);
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public <FC extends FeatureConfiguration> Supplier<Feature> registerFeature(String name, Supplier<Feature> value) {
         return CACHE.computeIfAbsent(BuiltInRegistries.FEATURE.key(), resourceKey -> DeferredRegister.create(BuiltInRegistries.FEATURE, Constants.MOD_ID)).register(name, value);
 
     }
