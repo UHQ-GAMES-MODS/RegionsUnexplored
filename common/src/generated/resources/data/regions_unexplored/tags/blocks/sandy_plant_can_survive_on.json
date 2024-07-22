@@ -1,0 +1,9 @@
+{
+  "values": [
+    "#minecraft:sand",
+    {
+      "id": "#forge:sandstone",
+      "required": false
+    }
+  ]
+}

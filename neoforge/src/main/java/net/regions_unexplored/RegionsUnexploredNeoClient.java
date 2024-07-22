@@ -8,7 +8,8 @@ import net.regions_unexplored.client.TintRegistration;
 
 @Mod(value = Constants.MOD_ID, dist = Dist.CLIENT)
 public class RegionsUnexploredNeoClient {
-    public RegionsUnexploredNeoClient(IEventBus bus) {
+
+    public static void regionsUnexploredNeoClient(IEventBus bus) {
         bus.addListener(TintRegistration::registerBlockColorHandlers);
         bus.addListener(TintRegistration::registerItemColorHandlers);
         bus.addListener(ParticleRegistration::registerParticleProviders);

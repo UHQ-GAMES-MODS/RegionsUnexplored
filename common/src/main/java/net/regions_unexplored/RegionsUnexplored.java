@@ -1,36 +1,55 @@
 package net.regions_unexplored;
 
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.SurfaceRules;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
-import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.block.compat.BlockToolCompat;
+import net.regions_unexplored.block.compat.CompostableBlocks;
+import net.regions_unexplored.block.compat.FlammableBlocks;
 import net.regions_unexplored.block.entity.RegionsUnexploredBlockEntities;
 import net.regions_unexplored.client.particle.RuParticleTypes;
 import net.regions_unexplored.entity.RuEntities;
 import net.regions_unexplored.item.RuItems;
-import net.regions_unexplored.mixin.invoke.*;
+import net.regions_unexplored.item.items.RuCreativeModeTabs;
 import net.regions_unexplored.registry.BiomeRegistry;
 import net.regions_unexplored.registry.FeatureRegistry;
-import net.regions_unexplored.world.features.foliageplacers.*;
-import net.regions_unexplored.world.features.treedecorators.*;
+import org.jetbrains.annotations.Nullable;
 import terrablender.api.SurfaceRuleManager;
 
 public class RegionsUnexplored {
 
+    @Nullable
+    private static String initializedFrom = null;
+
+
     public static SurfaceRules.RuleSource getSurfaceRules(SurfaceRules.RuleSource fallBack) {
         return SurfaceRuleManager.getNamespacedRules(SurfaceRuleManager.RuleCategory.NETHER, fallBack);
     }
-    public static void init() {
+
+
+    // We do this because terrablender might load before us or after us, so this catches both cases.
+    public static void init(String from) {
+        if (initializedFrom != null) {
+            Constants.LOG.info("Already initialized Regions Unexplored from %s entrypoint.".formatted(initializedFrom));
+            return;
+        }
+        initializedFrom = from;
+
+        Constants.LOG.info("Initializing Regions Unexplored from %s entrypoint.".formatted(initializedFrom));
+
+
         FeatureRegistry.addFeatures();
         RuParticleTypes.addParticles();
         BiomeRegistry.addBiomes();
         RuBlocks.addBlocks();
         RuItems.addItems();
+        RuCreativeModeTabs.init();
         RegionsUnexploredBlockEntities.addBlockEntities();
         RuEntities.addEntities();
-
     }
 
+    public static void afterRegistriesFreeze(){
+        BlockToolCompat.setup();
+        CompostableBlocks.setup();
+        FlammableBlocks.setup();
+    }
 }

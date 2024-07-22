@@ -16,10 +16,13 @@
     "environment": "*",
     "entrypoints": {
         "client": [
-            "net.regions_unexplored.RegionsUnexploredFabricClient"
+          "net.regions_unexplored.client.RegionsUnexploredFabricClient"
         ],
         "main": [
             "net.regions_unexplored.RegionsUnexploredFabric"
+        ],
+        "server": [
+            "net.regions_unexplored.server.RegionsUnexploredDedicatedServer"
         ],
         "terrablender": [
             "net.regions_unexplored.RegionsUnexploredFabric"

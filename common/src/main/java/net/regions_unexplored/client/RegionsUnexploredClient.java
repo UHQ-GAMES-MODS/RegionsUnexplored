@@ -1,5 +1,6 @@
 package net.regions_unexplored.client;
 
+import net.regions_unexplored.RegionsUnexplored;
 import net.regions_unexplored.client.color.RuColors;
 import net.regions_unexplored.client.particle.RuParticles;
 import net.regions_unexplored.client.renderer.RuBlockRenderer;
@@ -10,6 +11,5 @@ public class RegionsUnexploredClient  {
         RuEntityRenderer.renderBoat();
         RuParticles.init();
         RuBlockRenderer.init();
-        RuColors.init();
     }
 }

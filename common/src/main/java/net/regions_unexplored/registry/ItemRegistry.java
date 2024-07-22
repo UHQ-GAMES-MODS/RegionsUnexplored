@@ -1,12 +1,10 @@
 package net.regions_unexplored.registry;
 
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PlaceOnWaterBlockItem;
 import net.minecraft.world.level.block.Block;
-import net.regions_unexplored.Constants;
 import net.regions_unexplored.platform.Services;
 
 import java.util.function.Supplier;

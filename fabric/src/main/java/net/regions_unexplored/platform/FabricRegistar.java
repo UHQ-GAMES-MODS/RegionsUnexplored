@@ -1,17 +1,24 @@
 package net.regions_unexplored.platform;
 
 import com.google.auto.service.AutoService;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.core.DefaultedRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.regions_unexplored.Constants;
 import net.regions_unexplored.platform.services.IRegistar;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 
 @AutoService(IRegistar.class)
@@ -19,23 +26,36 @@ public class FabricRegistar implements IRegistar {
 
     @Override
     public <T> Supplier<T> register(Registry<T> registry, String name, Supplier<T> value) {
-        return () -> Registry.register(registry, Constants.id(name), value.get());
+        T registered = Registry.register(registry, Constants.id(name), value.get());
+        return () -> registered;
     }
 
     @Override
     public Supplier<Block> registerBlock(String name, Supplier<Block> value) {
-        Registry.register(BuiltInRegistries.BLOCK, Constants.id(name), value.get());
-        return value;
+        Block registered = Registry.register(BuiltInRegistries.BLOCK, Constants.id(name), value.get());
+        return () -> registered;
     }
 
     @Override
     public <FC extends FeatureConfiguration> Supplier<Feature> registerFeature(String name, Supplier<Feature> value) {
-        Registry.register(BuiltInRegistries.FEATURE, Constants.id(name), value.get());
-        return value;
+        Feature registered = Registry.register(BuiltInRegistries.FEATURE, Constants.id(name), value.get());
+        return () -> registered;
     }
 
     @Override
-    public <T extends Entity> Supplier<EntityType<T>> register(DefaultedRegistry<EntityType<?>> entityType, String path, Supplier<EntityType<T>> type) {
-        return () -> Registry.register(entityType, Constants.id(path), type.get());
+    public <T extends Entity> Supplier<EntityType<T>> registerEntity(DefaultedRegistry<EntityType<?>> entityType, String path, Supplier<EntityType<T>> type) {
+        EntityType<T> registered = Registry.register(entityType, Constants.id(path), type.get());
+        return () -> registered;
+    }
+
+    public Supplier<CreativeModeTab> registerCreativeModeTab(String name, Supplier<ItemStack> icon, Supplier<List<Supplier<Item>>> items) {
+        CreativeModeTab registered = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, Constants.id(name), FabricItemGroup.builder()
+                .title(Component.translatable("itemGroup." + Constants.MOD_ID + "." + name))
+                .icon(icon)
+                .displayItems((entry, context) -> {
+                        items.get().forEach((item1) -> context.accept(item1.get()));
+                })
+                .build());
+        return () -> registered;
     }
 }

@@ -1,16 +1,10 @@
 package net.regions_unexplored;
 
 import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.NeoForgeConfigRegistry;
-import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.neoforged.fml.config.ModConfig;
-import net.regions_unexplored.block.RuBlocks;
-import net.regions_unexplored.block.compat.BlockToolCompat;
-import net.regions_unexplored.block.compat.CompostableBlocks;
-import net.regions_unexplored.block.compat.FlammableBlocks;
 import net.regions_unexplored.block.compat.FurnaceBurnTimesFabric;
 import net.regions_unexplored.config.RuCommonConfig;
 import net.regions_unexplored.config.RuPrimaryRegionConfig;
@@ -42,23 +36,17 @@ public class RegionsUnexploredFabric implements ModInitializer, TerraBlenderApi 
 
     @Override
     public void onInitialize() {
-        Constants.LOG.info("Hello Fabric world!");
-
-        RegionsUnexplored.init();
-
-        setupBlockFeatures();
+        RegionsUnexplored.init("Fabric Mod Initializer");
     }
 
     @Override
     public void onTerraBlenderInitialized() {
+        RegionsUnexplored.init("Terrablender API Initializer");
         BiomeRegistry.setupTerrablender();
     }
 
-    public void setupBlockFeatures(){
-        BlockToolCompat.setup();
-        CompostableBlocks.setup();
-        FlammableBlocks.setup();
+    public static void afterRegistriesFreeze() {
+        RegionsUnexplored.afterRegistriesFreeze();
         FurnaceBurnTimesFabric.setup();
-
     }
 }

@@ -4,9 +4,13 @@ import com.google.auto.service.AutoService;
 import net.minecraft.core.DefaultedRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -14,7 +18,9 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.regions_unexplored.Constants;
 import net.regions_unexplored.platform.services.IRegistar;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
@@ -45,7 +51,21 @@ public class NeoForgeRegistar implements IRegistar {
 
     @SuppressWarnings("unchecked")
     @Override
-    public <T extends Entity> Supplier<EntityType<T>> register(DefaultedRegistry<EntityType<?>> entityType, String path, Supplier<EntityType<T>> type) {
+    public <T extends Entity> Supplier<EntityType<T>> registerEntity(DefaultedRegistry<EntityType<?>> entityType, String path, Supplier<EntityType<T>> type) {
         return CACHE.computeIfAbsent(entityType.key(), resourceKey -> DeferredRegister.create(entityType, Constants.MOD_ID)).register(path, type);
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public Supplier<CreativeModeTab> registerCreativeModeTab(String path, Supplier<ItemStack> icon, Supplier<List<Supplier<Item>>> items) {
+        return CACHE.computeIfAbsent(BuiltInRegistries.CREATIVE_MODE_TAB.key(), resourceKey -> DeferredRegister.create(BuiltInRegistries.CREATIVE_MODE_TAB, Constants.MOD_ID)).register(path, () -> CreativeModeTab.builder()
+                .title(Component.translatable("itemGroup." + Constants.MOD_ID + "." + path))
+                .icon(icon)
+                .displayItems((context, entries) -> {
+                        items.get().forEach((item1) -> entries.accept(item1.get()));
+                })
+                .withSearchBar()
+                .build()
+        );
     }
 }

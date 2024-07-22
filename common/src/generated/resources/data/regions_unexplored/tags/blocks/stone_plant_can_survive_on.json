@@ -1,0 +1,31 @@
+{
+  "values": [
+    "#minecraft:terracotta",
+    "#minecraft:base_stone_overworld",
+    "#minecraft:base_stone_nether",
+    {
+      "id": "#forge:ores",
+      "required": false
+    },
+    "minecraft:calcite",
+    "regions_unexplored:chalk",
+    "regions_unexplored:chalk_grass_block",
+    "minecraft:dripstone_block",
+    {
+      "id": "#forge:gravel",
+      "required": false
+    },
+    {
+      "id": "#forge:stone",
+      "required": false
+    },
+    "minecraft:gilded_blackstone",
+    "regions_unexplored:mossy_stone",
+    "regions_unexplored:argillite",
+    "regions_unexplored:viridescent_nylium",
+    "regions_unexplored:deepslate_viridescent_nylium",
+    "regions_unexplored:deepslate_grass_block",
+    "regions_unexplored:stone_grass_block",
+    "regions_unexplored:argillite_grass_block"
+  ]
+}

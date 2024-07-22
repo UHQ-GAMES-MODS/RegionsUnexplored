@@ -1,6 +1,5 @@
 package net.regions_unexplored;
 
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -8,13 +7,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.registries.RegisterEvent;
-import net.regions_unexplored.block.RuBlocks;
-import net.regions_unexplored.block.compat.BlockToolCompat;
-import net.regions_unexplored.block.compat.CompostableBlocks;
-import net.regions_unexplored.block.compat.FlammableBlocks;
+import net.regions_unexplored.client.RegionsUnexploredClient;
 import net.regions_unexplored.config.RuCommonConfig;
 import net.regions_unexplored.config.RuPrimaryRegionConfig;
 import net.regions_unexplored.config.RuSecondaryRegionConfig;
@@ -31,19 +24,19 @@ public class RegionsUnexploredNeo {
         IEventBus bus = container.getEventBus();
 
         bus.addListener(this::commonSetup);
+        bus.addListener(this::clientSetup);
 
         //RuTabs.addTabs();
         registerConfig(container);
 
-        RegionsUnexplored.init();
+        RegionsUnexplored.init("Forge Mod Initializer");
 
         NeoForgeRegistar.CACHE.values().forEach(deferredRegister -> deferredRegister.register(bus));
+        RegionsUnexploredNeoClient.regionsUnexploredNeoClient(bus);
     }
     //set up client side features
     public void clientSetup(final FMLClientSetupEvent event) {
-        //WoodTypeRegistry.addSheets();
-        //BlockEntityRenderers.register(RuBlockEntities.SIGN_BLOCK_ENTITIES.get(), SignRenderer::new);
-        //BlockEntityRenderers.register(RuBlockEntities.HANGING_SIGN_BLOCK_ENTITIES.get(), HangingSignRenderer::new);
+        RegionsUnexploredClient.clientInit();
     }
 
     //set up non-client side features
@@ -52,9 +45,7 @@ public class RegionsUnexploredNeo {
         event.enqueueWork(() -> {
             BiomeRegistry.setupTerrablender();
             //PottedPlants.setup();
-            CompostableBlocks.setup();
-            FlammableBlocks.setup();
-            BlockToolCompat.setup();
+            RegionsUnexplored.afterRegistriesFreeze();
         });
     }
 

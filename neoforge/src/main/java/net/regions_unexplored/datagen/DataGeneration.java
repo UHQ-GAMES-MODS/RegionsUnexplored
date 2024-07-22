@@ -20,6 +20,7 @@ import net.regions_unexplored.datagen.provider.*;
 import net.regions_unexplored.entity.RuDamageTypes;
 import net.regions_unexplored.registry.BiomeRegistry;
 import net.regions_unexplored.registry.ConfiguredFeatureRegistry;
+import net.regions_unexplored.registry.NoiseRegistry;
 import net.regions_unexplored.registry.PlacedFeatureRegistry;
 
 import java.util.Set;

@@ -1,12 +1,10 @@
 package net.regions_unexplored.item;
 
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
-import net.regions_unexplored.Constants;
 import net.regions_unexplored.api.item.Food;
 import net.regions_unexplored.api.item.FoodItemWithBlock;
 import net.regions_unexplored.block.RuBlocks;
@@ -14,12 +12,13 @@ import net.regions_unexplored.entity.custom.RuBoat;
 import net.regions_unexplored.item.items.RuBoatItem;
 import net.regions_unexplored.platform.Services;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
 public class RuItems {
-    public static Map<String, Item> ITEMS = new HashMap<>();
 
     public static final Supplier<Item> BAOBAB_HANGING_SIGN = registerItem("baobab_hanging_sign", () -> new HangingSignItem(RuBlocks.BAOBAB_HANGING_SIGN.get(), RuBlocks.BAOBAB_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
     public static final Supplier<Item> BLACKWOOD_HANGING_SIGN = registerItem("blackwood_hanging_sign", () -> new HangingSignItem(RuBlocks.BLACKWOOD_HANGING_SIGN.get(), RuBlocks.BLACKWOOD_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
