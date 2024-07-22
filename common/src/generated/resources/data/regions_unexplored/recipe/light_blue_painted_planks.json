@@ -7,7 +7,7 @@
       "tag": "minecraft:planks"
     },
     "X": {
-      "tag": "forge:dyes/light_blue"
+      "tag": "c:light_blue_dyes"
     }
   },
   "pattern": [

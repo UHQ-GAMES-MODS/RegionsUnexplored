@@ -47,7 +47,7 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.DEEPSLATE_PRISMOSS.get(), 1).define('#', Blocks.DEEPSLATE).define('X', RuBlocks.PRISMOSS_SPROUT.get()).pattern("X").pattern("#").group("prismoss").unlockedBy("has_deepslate", has(Blocks.DEEPSLATE)).save(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, RuBlocks.HANGING_PRISMARITE.get(), 1).define('#', RuBlocks.PRISMARITE_CLUSTER.get()).pattern("#").pattern("#").pattern("#").group("prismarite").unlockedBy("has_prismarite", has(RuBlocks.PRISMARITE_CLUSTER.get())).save(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, RuBlocks.LARGE_PRISMARITE_CLUSTER.get(), 1).define('#', RuBlocks.PRISMARITE_CLUSTER.get()).pattern("#").pattern("#").group("prismarite").unlockedBy("has_prismarite", has(RuBlocks.PRISMARITE_CLUSTER.get())).save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.PRISMAGLASS.get(), 2).define('#', TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "glass"))).define('X', RuTags.PRISMARITE_CRYSTALS_ITEM).pattern(" X ").pattern("X#X").pattern(" X ").group("stained_glass").unlockedBy("has_glass", has(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "glass")))).save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.PRISMAGLASS.get(), 2).define('#', TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "glass"))).define('X', RuTags.PRISMARITE_CRYSTALS_ITEM).pattern(" X ").pattern("X#X").pattern(" X ").group("stained_glass").unlockedBy("has_glass", has(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "glass")))).save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, RuBlocks.RAW_REDSTONE_BLOCK.get(), 1).define('#', Items.REDSTONE).pattern("##").pattern("##").group("redstone").unlockedBy("has_redstone", has(Items.REDSTONE)).save(consumer);
         oreSmelting(consumer, REDSTONE_SMELTABLES.get(), RecipeCategory.REDSTONE, Items.REDSTONE, 0.7F, 200, "redstone");
@@ -56,8 +56,8 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.STONE_GRASS_BLOCK.get(), 1).define('#', Blocks.STONE).define('X', RuTags.GRASS_ITEM).pattern("X").pattern("#").group("stone_grass").unlockedBy("has_stone", has(Blocks.STONE)).save(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.DEEPSLATE_GRASS_BLOCK.get(), 1).define('#', Blocks.DEEPSLATE).define('X', RuTags.GRASS_ITEM).pattern("X").pattern("#").group("stone_grass").unlockedBy("has_deepslate", has(Blocks.DEEPSLATE)).save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.VIRIDESCENT_NYLIUM.get(), 1).define('#', Blocks.STONE).define('X', TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "mushrooms"))).pattern("X").pattern("#").group("viridescent_nylium").unlockedBy("has_stone", has(Blocks.STONE)).unlockedBy("has_mushroom", has(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "mushrooms")))).save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get(), 1).define('#', Blocks.DEEPSLATE).define('X', TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "mushrooms"))).pattern("X").pattern("#").group("viridescent_nylium").unlockedBy("has_deepslate", has(Blocks.DEEPSLATE)).unlockedBy("has_mushroom", has(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "mushrooms")))).save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.VIRIDESCENT_NYLIUM.get(), 1).define('#', Blocks.STONE).define('X', TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "mushrooms"))).pattern("X").pattern("#").group("viridescent_nylium").unlockedBy("has_stone", has(Blocks.STONE)).unlockedBy("has_mushroom", has(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "mushrooms")))).save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get(), 1).define('#', Blocks.DEEPSLATE).define('X', TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "mushrooms"))).pattern("X").pattern("#").group("viridescent_nylium").unlockedBy("has_deepslate", has(Blocks.DEEPSLATE)).unlockedBy("has_mushroom", has(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "mushrooms")))).save(consumer);
 
         /*-----------------PLANTS-----------------*/
         oneToOneConversionRecipe(consumer, Items.BROWN_DYE, RuBlocks.DEAD_STEPPE_SHRUB.get(), "brown_dye");
@@ -89,37 +89,37 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
 
         //SNOWBELLE
         oneToOneConversionRecipe(consumer, Items.RED_DYE, RuBlocks.RED_SNOWBELLE.get(), "red_dye");
-        snowbelle(consumer, RuBlocks.RED_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/red")));
+        snowbelle(consumer, RuBlocks.RED_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "red_dyes")));
         oneToOneConversionRecipe(consumer, Items.ORANGE_DYE, RuBlocks.ORANGE_SNOWBELLE.get(), "orange_dye");
-        snowbelle(consumer, RuBlocks.ORANGE_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/orange")));
+        snowbelle(consumer, RuBlocks.ORANGE_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "orange_dyes")));
         oneToOneConversionRecipe(consumer, Items.YELLOW_DYE, RuBlocks.YELLOW_SNOWBELLE.get(), "yellow_dye");
-        snowbelle(consumer, RuBlocks.YELLOW_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/yellow")));
+        snowbelle(consumer, RuBlocks.YELLOW_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "yellow_dyes")));
         oneToOneConversionRecipe(consumer, Items.LIME_DYE, RuBlocks.LIME_SNOWBELLE.get(), "lime_dye");
-        snowbelle(consumer, RuBlocks.LIME_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/lime")));
+        snowbelle(consumer, RuBlocks.LIME_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "lime_dyes")));
         oneToOneConversionRecipe(consumer, Items.GREEN_DYE, RuBlocks.GREEN_SNOWBELLE.get(), "green_dye");
-        snowbelle(consumer, RuBlocks.GREEN_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/green")));
+        snowbelle(consumer, RuBlocks.GREEN_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "green_dyes")));
         oneToOneConversionRecipe(consumer, Items.CYAN_DYE, RuBlocks.CYAN_SNOWBELLE.get(), "cyan_dye");
-        snowbelle(consumer, RuBlocks.CYAN_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/cyan")));
+        snowbelle(consumer, RuBlocks.CYAN_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "cyan_dyes")));
         oneToOneConversionRecipe(consumer, Items.LIGHT_BLUE_DYE, RuBlocks.LIGHT_BLUE_SNOWBELLE.get(), "light_blue_dye");
-        snowbelle(consumer, RuBlocks.LIGHT_BLUE_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/light_blue")));
+        snowbelle(consumer, RuBlocks.LIGHT_BLUE_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "light_blue_dyes")));
         oneToOneConversionRecipe(consumer, Items.BLUE_DYE, RuBlocks.BLUE_SNOWBELLE.get(), "blue_dye");
-        snowbelle(consumer, RuBlocks.BLUE_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/blue")));
+        snowbelle(consumer, RuBlocks.BLUE_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "blue_dyes")));
         oneToOneConversionRecipe(consumer, Items.PURPLE_DYE, RuBlocks.PURPLE_SNOWBELLE.get(), "purple_dye");
-        snowbelle(consumer, RuBlocks.PURPLE_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/purple")));
+        snowbelle(consumer, RuBlocks.PURPLE_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "purple_dyes")));
         oneToOneConversionRecipe(consumer, Items.MAGENTA_DYE, RuBlocks.MAGENTA_SNOWBELLE.get(), "magenta_dye");
-        snowbelle(consumer, RuBlocks.MAGENTA_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/magenta")));
+        snowbelle(consumer, RuBlocks.MAGENTA_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "magenta_dyes")));
         oneToOneConversionRecipe(consumer, Items.PINK_DYE, RuBlocks.PINK_SNOWBELLE.get(), "pink_dye");
-        snowbelle(consumer, RuBlocks.PINK_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/pink")));
+        snowbelle(consumer, RuBlocks.PINK_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "pink_dyes")));
         oneToOneConversionRecipe(consumer, Items.BROWN_DYE, RuBlocks.BROWN_SNOWBELLE.get(), "brown_dye");
-        snowbelle(consumer, RuBlocks.BROWN_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/brown")));
+        snowbelle(consumer, RuBlocks.BROWN_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "brown_dyes")));
         oneToOneConversionRecipe(consumer, Items.WHITE_DYE, RuBlocks.WHITE_SNOWBELLE.get(), "white_dye");
-        snowbelle(consumer, RuBlocks.WHITE_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/white")));
+        snowbelle(consumer, RuBlocks.WHITE_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "white_dyes")));
         oneToOneConversionRecipe(consumer, Items.LIGHT_GRAY_DYE, RuBlocks.LIGHT_GRAY_SNOWBELLE.get(), "light_gray_dye");
-        snowbelle(consumer, RuBlocks.LIGHT_GRAY_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/light_gray")));
+        snowbelle(consumer, RuBlocks.LIGHT_GRAY_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "light_gray_dyes")));
         oneToOneConversionRecipe(consumer, Items.GRAY_DYE, RuBlocks.GRAY_SNOWBELLE.get(), "gray_dye");
-        snowbelle(consumer, RuBlocks.GRAY_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/gray")));
+        snowbelle(consumer, RuBlocks.GRAY_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "gray_dyes")));
         oneToOneConversionRecipe(consumer, Items.BLACK_DYE, RuBlocks.BLACK_SNOWBELLE.get(), "black_dye");
-        snowbelle(consumer, RuBlocks.BLACK_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/black")));
+        snowbelle(consumer, RuBlocks.BLACK_SNOWBELLE.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "black_dyes")));
 
         oneToOneConversionRecipe(consumer, Items.ORANGE_DYE, RuBlocks.ORANGE_CONEFLOWER.get(), "orange_dye");
         oneToOneConversionRecipe(consumer, Items.PURPLE_DYE, RuBlocks.PURPLE_CONEFLOWER.get(), "purple_dye");
@@ -743,22 +743,22 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         hangingSign(consumer, RuBlocks.YELLOW_BIOSHROOM_HANGING_SIGN.get(), RuBlocks.STRIPPED_YELLOW_BIOSHROOM_STEM.get());
 
         /*-----------------PAINTED PLANKS-----------------*/
-        paintedPlanks(consumer, RuBlocks.RED_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/red")));
-        paintedPlanks(consumer, RuBlocks.ORANGE_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/orange")));
-        paintedPlanks(consumer, RuBlocks.YELLOW_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/yellow")));
-        paintedPlanks(consumer, RuBlocks.LIME_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/lime")));
-        paintedPlanks(consumer, RuBlocks.GREEN_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/green")));
-        paintedPlanks(consumer, RuBlocks.CYAN_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/cyan")));
-        paintedPlanks(consumer, RuBlocks.LIGHT_BLUE_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/light_blue")));
-        paintedPlanks(consumer, RuBlocks.BLUE_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/blue")));
-        paintedPlanks(consumer, RuBlocks.PURPLE_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/purple")));
-        paintedPlanks(consumer, RuBlocks.MAGENTA_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/magenta")));
-        paintedPlanks(consumer, RuBlocks.PINK_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/pink")));
-        paintedPlanks(consumer, RuBlocks.BROWN_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/brown")));
-        paintedPlanks(consumer, RuBlocks.WHITE_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/white")));
-        paintedPlanks(consumer, RuBlocks.LIGHT_GRAY_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/light_gray")));
-        paintedPlanks(consumer, RuBlocks.GRAY_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/gray")));
-        paintedPlanks(consumer, RuBlocks.BLACK_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "dyes/black")));
+        paintedPlanks(consumer, RuBlocks.RED_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "red_dyes")));
+        paintedPlanks(consumer, RuBlocks.ORANGE_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "orange_dyes")));
+        paintedPlanks(consumer, RuBlocks.YELLOW_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "yellow_dyes")));
+        paintedPlanks(consumer, RuBlocks.LIME_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "lime_dyes")));
+        paintedPlanks(consumer, RuBlocks.GREEN_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "green_dyes")));
+        paintedPlanks(consumer, RuBlocks.CYAN_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "cyan_dyes")));
+        paintedPlanks(consumer, RuBlocks.LIGHT_BLUE_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "light_blue_dyes")));
+        paintedPlanks(consumer, RuBlocks.BLUE_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "blue_dyes")));
+        paintedPlanks(consumer, RuBlocks.PURPLE_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "purple_dyes")));
+        paintedPlanks(consumer, RuBlocks.MAGENTA_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "magenta_dyes")));
+        paintedPlanks(consumer, RuBlocks.PINK_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "pink_dyes")));
+        paintedPlanks(consumer, RuBlocks.BROWN_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "brown_dyes")));
+        paintedPlanks(consumer, RuBlocks.WHITE_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "white_dyes")));
+        paintedPlanks(consumer, RuBlocks.LIGHT_GRAY_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "light_gray_dyes")));
+        paintedPlanks(consumer, RuBlocks.GRAY_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "gray_dyes")));
+        paintedPlanks(consumer, RuBlocks.BLACK_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "black_dyes")));
         //STAIRS
         paintedStairs(consumer, RuBlocks.RED_PAINTED_STAIRS.get(), RuBlocks.RED_PAINTED_PLANKS.get());
         paintedStairs(consumer, RuBlocks.ORANGE_PAINTED_STAIRS.get(), RuBlocks.ORANGE_PAINTED_PLANKS.get());

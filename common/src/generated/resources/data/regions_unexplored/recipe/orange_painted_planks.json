@@ -7,7 +7,7 @@
       "tag": "minecraft:planks"
     },
     "X": {
-      "tag": "forge:dyes/orange"
+      "tag": "c:orange_dyes"
     }
   },
   "pattern": [

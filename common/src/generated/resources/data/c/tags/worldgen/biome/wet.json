@@ -1,0 +1,17 @@
+{
+  "values": [
+    "regions_unexplored:rainforest",
+    "regions_unexplored:sparse_rainforest",
+    "regions_unexplored:redwoods",
+    "regions_unexplored:sparse_redwoods",
+    "regions_unexplored:eucalyptus_forest",
+    "regions_unexplored:blackwood_taiga",
+    "regions_unexplored:hyacinth_deeps",
+    "regions_unexplored:rocky_reef",
+    "regions_unexplored:marsh",
+    "regions_unexplored:fen",
+    "regions_unexplored:fungal_fen",
+    "regions_unexplored:bayou",
+    "regions_unexplored:old_growth_bayou"
+  ]
+}

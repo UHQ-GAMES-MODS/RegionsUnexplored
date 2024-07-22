@@ -141,6 +141,7 @@ public class RuSurfaceRuleData {
         SurfaceRules.ConditionSource isSandBiome = SurfaceRules.isBiome(RuBiomes.ROCKY_REEF, RuBiomes.TROPICAL_RIVER, RuBiomes.GRASSY_BEACH);
         SurfaceRules.ConditionSource isPeatBiome = SurfaceRules.isBiome(RuBiomes.BAYOU, RuBiomes.FEN, RuBiomes.PINE_TAIGA, RuBiomes.BLACKWOOD_TAIGA, RuBiomes.BOREAL_TAIGA, RuBiomes.COLD_BOREAL_TAIGA, RuBiomes.GOLDEN_BOREAL_TAIGA);
         SurfaceRules.ConditionSource isSiltBiome = SurfaceRules.isBiome(RuBiomes.PUMPKIN_FIELDS, RuBiomes.POPPY_FIELDS, RuBiomes.AUTUMNAL_MAPLE_FOREST, RuBiomes.SILVER_BIRCH_FOREST, RuBiomes.TROPICS, RuBiomes.DRY_BUSHLAND, RuBiomes.JOSHUA_DESERT, RuBiomes.BARLEY_FIELDS, RuBiomes.PRAIRIE, RuBiomes.ORCHARD, RuBiomes.STEPPE);
+        SurfaceRules.ConditionSource isGrassBiome = SurfaceRules.isBiome(RuBiomes.ANCIENT_DELTA, RuBiomes.BAOBAB_SAVANNA, RuBiomes.BIOSHROOM_CAVES, RuBiomes.DECIDUOUS_FOREST, RuBiomes.FROZEN_TUNDRA, RuBiomes.FUNGAL_FEN, RuBiomes.PRISMACHASM, RuBiomes.REDSTONE_CAVES, RuBiomes.SCORCHING_CAVES);
 
         SurfaceRules.RuleSource AlphaGrassSurface = SurfaceRules.sequence(SurfaceRules.ifTrue(waterBlockCheck, ALPHA_GRASS), DIRT);
         SurfaceRules.RuleSource GrassSurface = SurfaceRules.sequence(SurfaceRules.ifTrue(waterBlockCheck, GRASS_BLOCK), DIRT);
@@ -237,7 +238,7 @@ public class RuSurfaceRuleData {
 
                 SurfaceRules.ifTrue(isPeatBiome, PEAT_DIRT),
                 SurfaceRules.ifTrue(isSiltBiome, SILT_DIRT),
-                DIRT
+                SurfaceRules.ifTrue(isGrassBiome, DIRT)
         );
 
         SurfaceRules.RuleSource onSurface = SurfaceRules.sequence(
@@ -312,7 +313,7 @@ public class RuSurfaceRuleData {
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(RuBiomes.CHALK_CLIFFS), ChalkSurface),
                 SurfaceRules.ifTrue(isPeatBiome, PeatGrassSurface),
                 SurfaceRules.ifTrue(isSiltBiome, SiltGrassSurface),
-                GrassSurface
+                SurfaceRules.ifTrue(isGrassBiome, GrassSurface)
         );
 
         SurfaceRules.RuleSource buildSurface = SurfaceRules.sequence(
@@ -410,7 +411,7 @@ public class RuSurfaceRuleData {
                         )
                 ),
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(RuBiomes.BLACKSTONE_BASIN), SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.UNDER_CEILING, SurfaceRules.ifTrue(stateSelectorNoise, BLACKSTONE)), SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, BLACKSTONE))),
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(RuBiomes.REDSTONE_ABYSS), SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.ifTrue(soulSandLayerNoise, SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.not(hole), SurfaceRules.ifTrue(start30, SurfaceRules.ifTrue(end35, SOUL_SAND))), NETHERRACK))), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(above31, SurfaceRules.ifTrue(end35, SurfaceRules.ifTrue(gravelLayerNoise, SurfaceRules.sequence(SurfaceRules.ifTrue(above32, GRAVEL), SurfaceRules.ifTrue(SurfaceRules.not(hole), GRAVEL)))))))), NETHERRACK
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(RuBiomes.REDSTONE_ABYSS), SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.ifTrue(soulSandLayerNoise, SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.not(hole), SurfaceRules.ifTrue(start30, SurfaceRules.ifTrue(end35, SOUL_SAND))), NETHERRACK))), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(above31, SurfaceRules.ifTrue(end35, SurfaceRules.ifTrue(gravelLayerNoise, SurfaceRules.sequence(SurfaceRules.ifTrue(above32, GRAVEL), SurfaceRules.ifTrue(SurfaceRules.not(hole), GRAVEL))))))))
         );
     }
 

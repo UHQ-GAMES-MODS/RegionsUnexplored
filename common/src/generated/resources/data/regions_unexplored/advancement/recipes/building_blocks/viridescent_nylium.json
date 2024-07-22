@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#forge:mushrooms"
+            "items": "#c:mushrooms"
           }
         ]
       },

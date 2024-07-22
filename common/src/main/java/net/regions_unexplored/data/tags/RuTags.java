@@ -86,6 +86,16 @@ public final class RuTags {
    public static final TagKey<Item> YELLOW_BIOSHROOM_LOGS_ITEM = createItem("yellow_bioshroom_logs");
    public static final TagKey<Block> CROP_PLANTABLE_BLOCKS = createBlock("crop_plantable_blocks");
 
+   public static final TagKey<Biome> HAS_ASHEN_WOLF = createBiome("has_wolf_variant/ashen");
+   public static final TagKey<Biome> HAS_BLACK_WOLF = createBiome("has_wolf_variant/black");
+   public static final TagKey<Biome> HAS_CHESTNUT_WOLF = createBiome("has_wolf_variant/chestnut");
+   public static final TagKey<Biome> HAS_PALE_WOLF = createBiome("has_wolf_variant/pale");
+   public static final TagKey<Biome> HAS_RUSTY_WOLF = createBiome("has_wolf_variant/rusty");
+   public static final TagKey<Biome> HAS_SNOWY_WOLF = createBiome("has_wolf_variant/snowy");
+   public static final TagKey<Biome> HAS_SPOTTED_WOLF = createBiome("has_wolf_variant/spotted");
+   public static final TagKey<Biome> HAS_STRIPED_WOLF = createBiome("has_wolf_variant/striped");
+   public static final TagKey<Biome> HAS_WOODS_WOLF = createBiome("has_wolf_variant/woods");
+
    private RuTags() {
    }
 

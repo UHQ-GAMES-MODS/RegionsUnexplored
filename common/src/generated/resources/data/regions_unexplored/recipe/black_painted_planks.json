@@ -7,7 +7,7 @@
       "tag": "minecraft:planks"
     },
     "X": {
-      "tag": "forge:dyes/black"
+      "tag": "c:black_dyes"
     }
   },
   "pattern": [

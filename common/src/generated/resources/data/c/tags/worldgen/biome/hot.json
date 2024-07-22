@@ -1,0 +1,20 @@
+{
+  "values": [
+    "regions_unexplored:mycotoxic_undergrowth",
+    "regions_unexplored:blackstone_basin",
+    "regions_unexplored:infernal_holt",
+    "regions_unexplored:glistering_meadow",
+    "regions_unexplored:redstone_abyss",
+    "regions_unexplored:joshua_desert",
+    "regions_unexplored:saguaro_desert",
+    "regions_unexplored:outback",
+    "regions_unexplored:arid_mountains",
+    "regions_unexplored:steppe",
+    "regions_unexplored:baobab_savanna",
+    "regions_unexplored:dry_bushland",
+    "regions_unexplored:rainforest",
+    "regions_unexplored:sparse_rainforest",
+    "regions_unexplored:grassland",
+    "regions_unexplored:eucalyptus_forest"
+  ]
+}

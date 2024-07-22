@@ -7,7 +7,7 @@
       "item": "minecraft:stone"
     },
     "X": {
-      "tag": "forge:mushrooms"
+      "tag": "c:mushrooms"
     }
   },
   "pattern": [

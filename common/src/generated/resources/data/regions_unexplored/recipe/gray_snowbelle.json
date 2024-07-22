@@ -4,7 +4,7 @@
   "group": "snowbelle",
   "ingredients": [
     {
-      "tag": "forge:dyes/gray"
+      "tag": "c:gray_dyes"
     },
     {
       "tag": "regions_unexplored:snowbelle"

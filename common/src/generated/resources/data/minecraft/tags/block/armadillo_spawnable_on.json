@@ -1,0 +1,9 @@
+{
+  "values": [
+    "minecraft:sand",
+    "regions_unexplored:peat_coarse_dirt",
+    "regions_unexplored:silt_coarse_dirt",
+    "regions_unexplored:silt_grass_block",
+    "regions_unexplored:silt_podzol"
+  ]
+}

@@ -2,7 +2,27 @@
   "values": [
     "#minecraft:sand",
     {
-      "id": "#forge:sandstone",
+      "id": "#c:sandstone",
+      "required": false
+    },
+    {
+      "id": "#c:sand",
+      "required": false
+    },
+    {
+      "id": "#c:red_sand",
+      "required": false
+    },
+    {
+      "id": "#c:sand/red",
+      "required": false
+    },
+    {
+      "id": "#c:red_sandstone",
+      "required": false
+    },
+    {
+      "id": "#c:sandstone/red",
       "required": false
     }
   ]

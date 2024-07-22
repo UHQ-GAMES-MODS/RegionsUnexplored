@@ -4,7 +4,7 @@
   "group": "snowbelle",
   "ingredients": [
     {
-      "tag": "forge:dyes/pink"
+      "tag": "c:pink_dyes"
     },
     {
       "tag": "regions_unexplored:snowbelle"

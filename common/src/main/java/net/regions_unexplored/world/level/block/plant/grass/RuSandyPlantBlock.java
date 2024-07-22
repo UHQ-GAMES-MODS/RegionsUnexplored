@@ -48,7 +48,11 @@ public class RuSandyPlantBlock extends BushBlock implements BonemealableBlock {
     }
 
     public BlockState updateShape(BlockState state, Direction direction, BlockState state1, LevelAccessor level, BlockPos pos, BlockPos pos2) {
-        if(level.getBlockState(pos.below()).is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("forge", "sand/red")))){
+        if(level.getBlockState(pos.below()).is(Blocks.RED_SAND)||level.getBlockState(pos.below()).is(Blocks.RED_SANDSTONE)
+                ||level.getBlockState(pos.below()).is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "red_sandstone")))
+                ||level.getBlockState(pos.below()).is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "sandstone/red")))
+                ||level.getBlockState(pos.below()).is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "red_sand")))
+                ||level.getBlockState(pos.below()).is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "sand/red")))){
             state.setValue(IS_RED, true);
         }
         else{
@@ -62,7 +66,12 @@ public class RuSandyPlantBlock extends BushBlock implements BonemealableBlock {
     }
 
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        boolean isRed = context.getLevel().getBlockState(context.getClickedPos().below()).is(Blocks.RED_SAND);
+        boolean isRed = context.getLevel().getBlockState(context.getClickedPos().below()).is(Blocks.RED_SAND)
+                ||context.getLevel().getBlockState(context.getClickedPos().below()).is(Blocks.RED_SANDSTONE)
+                ||context.getLevel().getBlockState(context.getClickedPos().below()).is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "red_sandstone")))
+                ||context.getLevel().getBlockState(context.getClickedPos().below()).is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "sandstone/red")))
+                ||context.getLevel().getBlockState(context.getClickedPos().below()).is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "red_sand")))
+                ||context.getLevel().getBlockState(context.getClickedPos().below()).is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "sand/red")));
         return (this.defaultBlockState().setValue(IS_RED, isRed));
     }
 

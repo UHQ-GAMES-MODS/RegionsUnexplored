@@ -4,7 +4,7 @@
     "#minecraft:base_stone_overworld",
     "#minecraft:base_stone_nether",
     {
-      "id": "#forge:ores",
+      "id": "#c:ores",
       "required": false
     },
     "minecraft:calcite",
@@ -12,11 +12,11 @@
     "regions_unexplored:chalk_grass_block",
     "minecraft:dripstone_block",
     {
-      "id": "#forge:gravel",
+      "id": "#c:gravel",
       "required": false
     },
     {
-      "id": "#forge:stone",
+      "id": "#c:stone",
       "required": false
     },
     "minecraft:gilded_blackstone",
