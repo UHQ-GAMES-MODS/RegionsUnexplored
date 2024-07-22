@@ -13,6 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
+import net.neoforged.neoforge.common.data.AdvancementProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.common.data.internal.NeoForgeAdvancementProvider;
 import net.regions_unexplored.Constants;
@@ -24,13 +25,13 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
-public class RuAdvancementProvider extends NeoForgeAdvancementProvider {
+public class RuAdvancementProvider extends AdvancementProvider {
 
     public RuAdvancementProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, ExistingFileHelper existingFileHelper) {
-        super(output, registries, existingFileHelper);
+        super(output, registries, existingFileHelper, List.of(new AdvancementBuilder()));
     }
 
-    private static class AdvancementBuilder implements NeoForgeAdvancementProvider.AdvancementGenerator {
+    private static class AdvancementBuilder implements AdvancementProvider.AdvancementGenerator {
         @Override
         public void generate(HolderLookup.Provider registries, Consumer<AdvancementHolder> saver, ExistingFileHelper existingFileHelper) {
             HolderGetter<Biome> holdergetter = registries.lookupOrThrow(Registries.BIOME);

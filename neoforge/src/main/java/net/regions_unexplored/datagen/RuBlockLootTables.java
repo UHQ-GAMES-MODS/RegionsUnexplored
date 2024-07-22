@@ -9,6 +9,7 @@ import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
@@ -34,11 +35,16 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
+import net.regions_unexplored.Constants;
+import net.regions_unexplored.RegionsUnexploredNeo;
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.item.RuItems;
+import net.regions_unexplored.platform.NeoForgeRegistar;
 import net.regions_unexplored.world.level.block.plant.food.SalmonBerryBushBlock;
+import org.spongepowered.asm.mixin.injection.struct.InjectorGroupInfo;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class RuBlockLootTables extends BlockLootSubProvider {
@@ -977,6 +983,11 @@ public class RuBlockLootTables extends BlockLootSubProvider {
         add(RuBlocks.MYCOTOXIC_DAISY.get(), (block) -> createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
         dropSelf(RuBlocks.MYCOTOXIC_GRASS.get());
         add(RuBlocks.MYCOTOXIC_NYLIUM.get(), (block) -> createSingleItemTableWithSilkTouch(block, Blocks.NETHERRACK));
+    }
+
+    @Override
+    protected Iterable<Block> getKnownBlocks() {
+        return BuiltInRegistries.BLOCK.entrySet().stream().filter(entry -> entry.getKey().location().getNamespace().contains(Constants.MOD_ID)).map(Map.Entry::getValue).toList();
     }
 
     protected LootTable.Builder createMushroomBlockDrop(Block block, ItemLike item) {
