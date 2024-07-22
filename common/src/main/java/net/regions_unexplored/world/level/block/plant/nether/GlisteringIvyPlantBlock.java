@@ -17,7 +17,7 @@ public class GlisteringIvyPlantBlock extends GrowingPlantBodyBlock {
     }
 
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) RuBlocks.GLISTERING_IVY;
+        return (GrowingPlantHeadBlock) RuBlocks.GLISTERING_IVY.get();
     }
 
     @Override

@@ -5,11 +5,11 @@ import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.block.compat.BlockToolCompat;
 import net.regions_unexplored.block.compat.CompostableBlocks;
 import net.regions_unexplored.block.compat.FlammableBlocks;
-import net.regions_unexplored.block.entity.RegionsUnexploredBlockEntities;
+import net.regions_unexplored.block.entity.RuBlockEntities;
 import net.regions_unexplored.client.particle.RuParticleTypes;
 import net.regions_unexplored.entity.RuEntities;
 import net.regions_unexplored.item.RuItems;
-import net.regions_unexplored.item.items.RuCreativeModeTabs;
+import net.regions_unexplored.item.tab.RuTabs;
 import net.regions_unexplored.registry.BiomeRegistry;
 import net.regions_unexplored.registry.FeatureRegistry;
 import org.jetbrains.annotations.Nullable;
@@ -42,8 +42,8 @@ public class RegionsUnexplored {
         BiomeRegistry.addBiomes();
         RuBlocks.addBlocks();
         RuItems.addItems();
-        RuCreativeModeTabs.init();
-        RegionsUnexploredBlockEntities.addBlockEntities();
+        RuTabs.init();
+        RuBlockEntities.addBlockEntities();
         RuEntities.addEntities();
     }
 

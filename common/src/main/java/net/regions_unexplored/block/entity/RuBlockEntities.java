@@ -9,9 +9,9 @@ import net.regions_unexplored.platform.Services;
 
 import java.util.function.Supplier;
 
-public class RegionsUnexploredBlockEntities {
+public class RuBlockEntities {
 
-    public static final Supplier<BlockEntityType<?>> SIGN_BLOCK_ENTITIES = registerBlockEntity("sign_block_entity",
+    public static final Supplier<BlockEntityType> SIGN_BLOCK_ENTITIES = registerBlockEntity("sign_block_entity",
             () -> BlockEntityType.Builder.of(RuSignBlockEntity::new,
                     RuBlocks.BAOBAB_WALL_SIGN.get(), RuBlocks.BAOBAB_SIGN.get(),
                     RuBlocks.BLACKWOOD_WALL_SIGN.get(), RuBlocks.BLACKWOOD_SIGN.get(),
@@ -37,7 +37,7 @@ public class RegionsUnexploredBlockEntities {
                     RuBlocks.YELLOW_BIOSHROOM_WALL_SIGN.get(), RuBlocks.YELLOW_BIOSHROOM_SIGN.get()
             ).build(null));
 
-    public static final Supplier<BlockEntityType<?>> HANGING_SIGN_BLOCK_ENTITIES = registerBlockEntity("hanging_sign_block_entity",
+    public static final Supplier<BlockEntityType> HANGING_SIGN_BLOCK_ENTITIES = registerBlockEntity("hanging_sign_block_entity",
             () -> BlockEntityType.Builder.of(RuHangingSignBlockEntity::new,
 
                     RuBlocks.BAOBAB_WALL_HANGING_SIGN.get(), RuBlocks.BAOBAB_HANGING_SIGN.get(),
@@ -69,7 +69,7 @@ public class RegionsUnexploredBlockEntities {
 
     }
 
-    private static Supplier<BlockEntityType<?>> registerBlockEntity(String path, Supplier<BlockEntityType<?>> type) {
-        return Services.REGISTAR.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, path, type);
+    private static Supplier<BlockEntityType> registerBlockEntity(String path, Supplier<BlockEntityType> type) {
+        return Services.REGISTAR.registerBlockEntity(path, type);
     }
 }

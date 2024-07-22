@@ -17,7 +17,7 @@ public class HangingEarlightPlantBlock extends GrowingPlantBodyBlock {
     }
 
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) RuBlocks.HANGING_EARLIGHT;
+        return (GrowingPlantHeadBlock) RuBlocks.HANGING_EARLIGHT.get();
     }
 
     @Override

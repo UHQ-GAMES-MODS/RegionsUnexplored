@@ -21,7 +21,7 @@ public class SpanishMossPlantBlock extends GrowingPlantBodyBlock {
     }
 
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) RuBlocks.SPANISH_MOSS;
+        return (GrowingPlantHeadBlock) RuBlocks.SPANISH_MOSS.get();
     }
 
     @Override

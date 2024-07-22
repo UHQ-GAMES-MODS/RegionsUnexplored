@@ -12,6 +12,8 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -51,18 +53,24 @@ public class NeoForgeRegistar implements IRegistar {
 
     @SuppressWarnings("unchecked")
     @Override
-    public <T extends Entity> Supplier<EntityType<T>> registerEntity(DefaultedRegistry<EntityType<?>> entityType, String path, Supplier<EntityType<T>> type) {
-        return CACHE.computeIfAbsent(entityType.key(), resourceKey -> DeferredRegister.create(entityType, Constants.MOD_ID)).register(path, type);
+    public <T extends BlockEntity> Supplier<BlockEntityType> registerBlockEntity(String path, Supplier<BlockEntityType> type) {
+        return CACHE.computeIfAbsent(BuiltInRegistries.BLOCK_ENTITY_TYPE.key(), resourceKey -> DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Constants.MOD_ID)).register(path, type);
     }
 
     @SuppressWarnings("unchecked")
     @Override
-    public Supplier<CreativeModeTab> registerCreativeModeTab(String path, Supplier<ItemStack> icon, Supplier<List<Supplier<Item>>> items) {
+    public <T extends Entity> Supplier<EntityType<T>> registerEntity(String path, Supplier<EntityType<T>> type) {
+        return CACHE.computeIfAbsent(BuiltInRegistries.ENTITY_TYPE.key(), resourceKey -> DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, Constants.MOD_ID)).register(path, type);
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public Supplier<CreativeModeTab> registerCreativeModeTab(String path, Supplier<ItemStack> icon, Supplier<List<Item>> items) {
         return CACHE.computeIfAbsent(BuiltInRegistries.CREATIVE_MODE_TAB.key(), resourceKey -> DeferredRegister.create(BuiltInRegistries.CREATIVE_MODE_TAB, Constants.MOD_ID)).register(path, () -> CreativeModeTab.builder()
                 .title(Component.translatable("itemGroup." + Constants.MOD_ID + "." + path))
                 .icon(icon)
                 .displayItems((context, entries) -> {
-                        items.get().forEach((item1) -> entries.accept(item1.get()));
+                        items.get().forEach((item1) -> entries.accept(item1));
                 })
                 .withSearchBar()
                 .build()

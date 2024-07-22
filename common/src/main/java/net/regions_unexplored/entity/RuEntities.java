@@ -23,6 +23,6 @@ public class RuEntities {
     }
 
     private static <T extends Entity> Supplier<EntityType<T>> registerEntity(String path, Supplier<EntityType<T>> type) {
-        return Services.REGISTAR.registerEntity(BuiltInRegistries.ENTITY_TYPE, path, type);
+        return Services.REGISTAR.registerEntity(path, type);
     }
 }

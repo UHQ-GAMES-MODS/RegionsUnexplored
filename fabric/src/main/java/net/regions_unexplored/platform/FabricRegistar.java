@@ -12,6 +12,8 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.regions_unexplored.Constants;
@@ -43,17 +45,23 @@ public class FabricRegistar implements IRegistar {
     }
 
     @Override
-    public <T extends Entity> Supplier<EntityType<T>> registerEntity(DefaultedRegistry<EntityType<?>> entityType, String path, Supplier<EntityType<T>> type) {
-        EntityType<T> registered = Registry.register(entityType, Constants.id(path), type.get());
+    public <T extends BlockEntity> Supplier<BlockEntityType> registerBlockEntity(String path, Supplier<BlockEntityType> type) {
+        BlockEntityType<T> registered = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, Constants.id(path), type.get());
         return () -> registered;
     }
 
-    public Supplier<CreativeModeTab> registerCreativeModeTab(String name, Supplier<ItemStack> icon, Supplier<List<Supplier<Item>>> items) {
+    @Override
+    public <T extends Entity> Supplier<EntityType<T>> registerEntity(String path, Supplier<EntityType<T>> type) {
+        EntityType<T> registered = Registry.register(BuiltInRegistries.ENTITY_TYPE, Constants.id(path), type.get());
+        return () -> registered;
+    }
+
+    public Supplier<CreativeModeTab> registerCreativeModeTab(String name, Supplier<ItemStack> icon, Supplier<List<Item>> items) {
         CreativeModeTab registered = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, Constants.id(name), FabricItemGroup.builder()
                 .title(Component.translatable("itemGroup." + Constants.MOD_ID + "." + name))
                 .icon(icon)
                 .displayItems((entry, context) -> {
-                        items.get().forEach((item1) -> context.accept(item1.get()));
+                        items.get().forEach(context::accept);
                 })
                 .build());
         return () -> registered;

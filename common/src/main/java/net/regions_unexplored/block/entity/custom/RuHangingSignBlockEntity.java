@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.HangingSignBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.regions_unexplored.block.entity.RegionsUnexploredBlockEntities;
+import net.regions_unexplored.block.entity.RuBlockEntities;
 
 public class RuHangingSignBlockEntity extends HangingSignBlockEntity {
     public RuHangingSignBlockEntity(BlockPos pos, BlockState state) {
@@ -13,6 +13,6 @@ public class RuHangingSignBlockEntity extends HangingSignBlockEntity {
 
     @Override
     public BlockEntityType<?> getType(){
-        return RegionsUnexploredBlockEntities.HANGING_SIGN_BLOCK_ENTITIES.get();
+        return RuBlockEntities.HANGING_SIGN_BLOCK_ENTITIES.get();
     }
 }
