@@ -20,6 +20,7 @@ public class RuLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
+        this.add("itemGroup.regions_unexplored.main", "Regions Unexplored");
         // Advancement translations
         this.add("advancements.regions_unexplored.title", "Regions Unexplored");
         this.add("advancements.regions_unexplored.description", "Discover the many biomes and explore the world!");
@@ -179,8 +180,6 @@ public class RuLanguageProvider extends LanguageProvider {
         this.add(RuBiomes.TOWERING_CLIFFS, capitalizeString(filterBiomeLang(RuBiomes.TOWERING_CLIFFS)));
         this.add(RuBiomes.WILLOW_FOREST, capitalizeString(filterBiomeLang(RuBiomes.WILLOW_FOREST)));
         this.add(RuBiomes.CLOVER_PLAINS, capitalizeString(filterBiomeLang(RuBiomes.CLOVER_PLAINS)));
-
-        this.add("itemGroup.regions_unexplored_main", "Regions Unexplored");
     }
 
     /**

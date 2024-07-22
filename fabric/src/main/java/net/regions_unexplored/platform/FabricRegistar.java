@@ -6,6 +6,7 @@ import net.minecraft.core.DefaultedRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.CreativeModeTab;
@@ -59,6 +60,8 @@ public class FabricRegistar implements IRegistar {
     public Supplier<CreativeModeTab> registerCreativeModeTab(String name, Supplier<ItemStack> icon, Supplier<List<Item>> items) {
         CreativeModeTab registered = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, Constants.id(name), FabricItemGroup.builder()
                 .title(Component.translatable("itemGroup." + Constants.MOD_ID + "." + name))
+                .hideTitle()
+                .backgroundTexture(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "textures/gui/container/creative_inventory/tab_regions_unexplored.png"))
                 .icon(icon)
                 .displayItems((entry, context) -> {
                         items.get().forEach(context::accept);

@@ -6,6 +6,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.CreativeModeTab;
@@ -68,9 +69,12 @@ public class NeoForgeRegistar implements IRegistar {
     public Supplier<CreativeModeTab> registerCreativeModeTab(String path, Supplier<ItemStack> icon, Supplier<List<Item>> items) {
         return CACHE.computeIfAbsent(BuiltInRegistries.CREATIVE_MODE_TAB.key(), resourceKey -> DeferredRegister.create(BuiltInRegistries.CREATIVE_MODE_TAB, Constants.MOD_ID)).register(path, () -> CreativeModeTab.builder()
                 .title(Component.translatable("itemGroup." + Constants.MOD_ID + "." + path))
+                .hideTitle()
+                .backgroundTexture(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "textures/gui/container/creative_inventory/tab_regions_unexplored_search.png"))
+                .withSearchBar(58)
                 .icon(icon)
                 .displayItems((context, entries) -> {
-                        items.get().forEach((item1) -> entries.accept(item1));
+                        items.get().forEach(entries::accept);
                 })
                 .withSearchBar()
                 .build()

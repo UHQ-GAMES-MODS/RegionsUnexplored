@@ -359,9 +359,9 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
 
     public void addWolfTags(HolderLookup.Provider provider) {
         //ashen
-        this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("forge", "has_wolf_variant/ashen")))
-                .addTag(RuTags.HAS_ASHEN_WOLF)
-        ;
+        //this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("forge", "has_wolf_variant/ashen")))
+        //        .addTag(RuTags.HAS_ASHEN_WOLF)
+        //;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "has_wolf_variant/ashen")))
                 .addTag(RuTags.HAS_ASHEN_WOLF)
         ;
@@ -370,9 +370,9 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
         ;
 
         //black
-        this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("forge", "has_wolf_variant/black")))
-                .addTag(RuTags.HAS_BLACK_WOLF)
-        ;
+        //this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("forge", "has_wolf_variant/black")))
+        //        .addTag(RuTags.HAS_BLACK_WOLF)
+        //;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "has_wolf_variant/black")))
                 .addTag(RuTags.HAS_ASHEN_WOLF)
         ;
@@ -381,9 +381,9 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
         ;
 
         //chestnut
-        this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("forge", "has_wolf_variant/chestnut")))
-                .addTag(RuTags.HAS_CHESTNUT_WOLF)
-        ;
+        //this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("forge", "has_wolf_variant/chestnut")))
+        //        .addTag(RuTags.HAS_CHESTNUT_WOLF)
+        //;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "has_wolf_variant/chestnut")))
                 .addTag(RuTags.HAS_CHESTNUT_WOLF)
         ;
@@ -392,9 +392,9 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
         ;
 
         //pale
-        this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("forge", "has_wolf_variant/pale")))
-                .addTag(RuTags.HAS_PALE_WOLF)
-        ;
+        //this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("forge", "has_wolf_variant/pale")))
+        //        .addTag(RuTags.HAS_PALE_WOLF)
+        //;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "has_wolf_variant/pale")))
                 .addTag(RuTags.HAS_PALE_WOLF)
         ;
@@ -403,9 +403,9 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
         ;
 
         //rusty
-        this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("forge", "has_wolf_variant/rusty")))
-                .addTag(RuTags.HAS_RUSTY_WOLF)
-        ;
+        //this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("forge", "has_wolf_variant/rusty")))
+        //        .addTag(RuTags.HAS_RUSTY_WOLF)
+        //;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "has_wolf_variant/rusty")))
                 .addTag(RuTags.HAS_RUSTY_WOLF)
         ;
@@ -414,9 +414,9 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
         ;
 
         //snowy
-        this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("forge", "has_wolf_variant/snowy")))
-                .addTag(RuTags.HAS_SNOWY_WOLF)
-        ;
+        //this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("forge", "has_wolf_variant/snowy")))
+        //        .addTag(RuTags.HAS_SNOWY_WOLF)
+        //;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "has_wolf_variant/snowy")))
                 .addTag(RuTags.HAS_SNOWY_WOLF)
         ;
@@ -425,9 +425,9 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
         ;
 
         //spotted
-        this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("forge", "has_wolf_variant/spotted")))
-                .addTag(RuTags.HAS_SPOTTED_WOLF)
-        ;
+        //this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("forge", "has_wolf_variant/spotted")))
+        //        .addTag(RuTags.HAS_SPOTTED_WOLF)
+        //;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "has_wolf_variant/spotted")))
                 .addTag(RuTags.HAS_SPOTTED_WOLF)
         ;
@@ -436,9 +436,9 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
         ;
 
         //striped
-        this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("forge", "has_wolf_variant/striped")))
-                .addTag(RuTags.HAS_STRIPED_WOLF)
-        ;
+        //this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("forge", "has_wolf_variant/striped")))
+        //        .addTag(RuTags.HAS_STRIPED_WOLF)
+        //;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "has_wolf_variant/striped")))
                 .addTag(RuTags.HAS_STRIPED_WOLF)
         ;
@@ -447,9 +447,9 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
         ;
 
         //woods
-        this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("forge", "has_wolf_variant/woods")))
-                .addTag(RuTags.HAS_WOODS_WOLF)
-        ;
+        //this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("forge", "has_wolf_variant/woods")))
+        //        .addTag(RuTags.HAS_WOODS_WOLF)
+        //;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "has_wolf_variant/woods")))
                 .addTag(RuTags.HAS_WOODS_WOLF)
         ;

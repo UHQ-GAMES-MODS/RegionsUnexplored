@@ -820,7 +820,7 @@ public class RuTabs {
     );
 
 
-    public static final Supplier<CreativeModeTab> TAB = registerTab("regions_unexplored",
+    public static final Supplier<CreativeModeTab> TAB = registerTab("main",
             () -> RuItems.BAOBAB_BOAT.get().getDefaultInstance(),
             TAB_ORDER);
             //comment out Corgi's solution for future use
