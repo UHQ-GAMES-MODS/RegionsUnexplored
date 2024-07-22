@@ -55,11 +55,6 @@ public class RuBoat extends Boat {
     }
 
     @Override
-    public Packet<ClientGamePacketListener> getAddEntityPacket() {
-        return new ClientboundAddEntityPacket(this);
-    }
-
-    @Override
     protected void addAdditionalSaveData(CompoundTag tag) {
         tag.putString("model", getModel().getName());
     }

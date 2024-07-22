@@ -90,21 +90,21 @@ public final class RuTags {
    }
 
    private static TagKey<Block> createBlock(String key) {
-      return TagKey.create(Registries.BLOCK, new ResourceLocation(Constants.MOD_ID, key));
+      return TagKey.create(Registries.BLOCK, Constants.id(key));
    }
    public static TagKey<Block> createBlock(ResourceLocation name) {
       return TagKey.create(Registries.BLOCK, name);
    }
 
    private static TagKey<Item> createItem(String key) {
-      return TagKey.create(Registries.ITEM, new ResourceLocation(Constants.MOD_ID, key));
+      return TagKey.create(Registries.ITEM, Constants.id(key));
    }
    public static TagKey<Item> createItem(ResourceLocation name) {
       return TagKey.create(Registries.ITEM, name);
    }
 
    private static TagKey<Biome> createBiome(String key) {
-      return TagKey.create(Registries.BIOME, new ResourceLocation(Constants.MOD_ID, key));
+      return TagKey.create(Registries.BIOME, Constants.id(key));
    }
    public static TagKey<Biome> createBiome(ResourceLocation name) {
       return TagKey.create(Registries.BIOME, name);

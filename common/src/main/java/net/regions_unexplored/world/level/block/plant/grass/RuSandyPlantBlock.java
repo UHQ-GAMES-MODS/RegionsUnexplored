@@ -48,7 +48,7 @@ public class RuSandyPlantBlock extends BushBlock implements BonemealableBlock {
     }
 
     public BlockState updateShape(BlockState state, Direction direction, BlockState state1, LevelAccessor level, BlockPos pos, BlockPos pos2) {
-        if(level.getBlockState(pos.below()).is(TagKey.create(Registries.BLOCK, new ResourceLocation("forge", "sand/red")))){
+        if(level.getBlockState(pos.below()).is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("forge", "sand/red")))){
             state.setValue(IS_RED, true);
         }
         else{

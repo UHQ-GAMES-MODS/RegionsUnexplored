@@ -68,7 +68,7 @@ public class RuBoatRenderer extends BoatRenderer
         matrixStack.mulPose(Axis.YP.rotationDegrees(90.0F));
         listModel.setupAnim(entity, partialTicks, 0.0F, -0.1F, 0.0F, 0.0F);
         VertexConsumer vertexConsumer = buffer.getBuffer(listModel.renderType(resourceLocation));
-        listModel.renderToBuffer(matrixStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        listModel.renderToBuffer(matrixStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY);
         if (!entity.isUnderWater()) {
             VertexConsumer vertexConsumer2 = buffer.getBuffer(RenderType.waterMask());
             if (listModel instanceof WaterPatchModel waterPatchModel) {
