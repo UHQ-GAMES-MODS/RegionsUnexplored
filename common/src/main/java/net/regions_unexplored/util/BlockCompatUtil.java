@@ -2,6 +2,7 @@ package net.regions_unexplored.util;
 
 import com.google.common.collect.Maps;
 import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
@@ -20,6 +21,7 @@ public class BlockCompatUtil {
         ShovelItem.FLATTENABLES = Maps.newHashMap(ShovelItem.FLATTENABLES);
         ShovelItem.FLATTENABLES.put(block, shovelledBlock);
     }
+
 
     public static void registerCompostableItems(float possibility, ItemLike item) {
         ComposterBlock.COMPOSTABLES.put(item.asItem(), possibility);

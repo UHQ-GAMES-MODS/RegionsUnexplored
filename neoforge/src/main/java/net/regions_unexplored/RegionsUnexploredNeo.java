@@ -7,6 +7,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.regions_unexplored.client.ParticleRegistration;
 import net.regions_unexplored.client.RegionsUnexploredClient;
 import net.regions_unexplored.config.RuCommonConfig;
 import net.regions_unexplored.config.RuPrimaryRegionConfig;
@@ -26,7 +27,6 @@ public class RegionsUnexploredNeo {
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
 
-        //RuTabs.addTabs();
         registerConfig(container);
 
         RegionsUnexplored.init("Forge Mod Initializer");

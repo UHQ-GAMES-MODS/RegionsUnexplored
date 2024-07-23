@@ -349,9 +349,7 @@ public class RuSurfaceRuleData {
 
                 SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.sequence(
 
-                        SurfaceRules.ifTrue(SurfaceRules.isBiome(RuBiomes.ROCKY_REEF), sandWithSandstoneOverhang),
-
-                        gravelWithStoneOverhang))
+                        SurfaceRules.ifTrue(SurfaceRules.isBiome(RuBiomes.ROCKY_REEF), sandWithSandstoneOverhang)))
         );
 
         ImmutableList.Builder<SurfaceRules.RuleSource> builder = ImmutableList.builder();
