@@ -11,7 +11,7 @@ import java.util.Map;
 
 @AutoService(IParticleRegistry.class)
 public class NeoForgeParticleHelper implements IParticleRegistry {
-    public static Map<ParticleType, ParticleEngine.SpriteParticleRegistration> spriteParticleRegistrationMap = new HashMap<>();
+    public static final Map<ParticleType, ParticleEngine.SpriteParticleRegistration> spriteParticleRegistrationMap = new HashMap<>();
 
     @Override
     public <T extends ParticleOptions> void register(ParticleType<T> type, ParticleEngine.SpriteParticleRegistration<T> factory) {
