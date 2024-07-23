@@ -13,7 +13,6 @@ import net.regions_unexplored.client.renderer.RuEntityRenderer;
 public class RegionsUnexploredClient  {
     public static void clientInit() {
         RuEntityRenderer.renderBoat();
-        RuParticles.init();
         RuBlockRenderer.init();
         BlockEntityRenderers.register(RuBlockEntities.SIGN_BLOCK_ENTITIES.get(), SignRenderer::new);
         BlockEntityRenderers.register(RuBlockEntities.HANGING_SIGN_BLOCK_ENTITIES.get(), HangingSignRenderer::new);
