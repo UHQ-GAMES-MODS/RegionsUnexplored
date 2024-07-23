@@ -70,10 +70,8 @@ public class BranchBlock extends BushBlock {
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         Direction direction = state.getValue(FACING).getOpposite();
         BlockPos.MutableBlockPos blockPos = pos.mutable().move(direction);
-        if(level.getBlockState(blockPos).is(RuBlocks.SMALL_OAK_LOG.get())) {
-            return true;
-        }
-        return mayPlaceOn(level.getBlockState(blockPos), level, blockPos) && level.getBlockState(blockPos).isFaceSturdy(level, blockPos, direction);
+
+        return mayPlaceOn(level.getBlockState(blockPos), level, blockPos);
     }
 
     @Override
