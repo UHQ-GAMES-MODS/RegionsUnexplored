@@ -6,15 +6,15 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.regions_unexplored.platform.Services;
 
 public class RuParticleTypes {
-    public static final SimpleParticleType MAUVE_LEAVES = new SimpleParticleType(false);
-    public static final SimpleParticleType MYCOTOXIC_SPORE = new SimpleParticleType(false);
-    public static final SimpleParticleType BLUE_MAGNOLIA_LEAVES = new SimpleParticleType(false);
-    public static final SimpleParticleType ENCHANTED_BIRCH_LEAVES = new SimpleParticleType(false);
-    public static final SimpleParticleType ORANGE_MAPLE_LEAVES = new SimpleParticleType(false);
-    public static final SimpleParticleType PINK_MAGNOLIA_LEAVES = new SimpleParticleType(false);
-    public static final SimpleParticleType RED_MAPLE_LEAVES = new SimpleParticleType(false);
-    public static final SimpleParticleType SILVER_BIRCH_LEAVES = new SimpleParticleType(false);
-    public static final SimpleParticleType WHITE_MAGNOLIA_LEAVES = new SimpleParticleType(false);
+    public static final SimpleParticleType MAUVE_LEAVES = simple(true);
+    public static final SimpleParticleType MYCOTOXIC_SPORE = simple(true);
+    public static final SimpleParticleType BLUE_MAGNOLIA_LEAVES = simple(true);
+    public static final SimpleParticleType ENCHANTED_BIRCH_LEAVES = simple(true);
+    public static final SimpleParticleType ORANGE_MAPLE_LEAVES = simple(true);
+    public static final SimpleParticleType PINK_MAGNOLIA_LEAVES = simple(true);
+    public static final SimpleParticleType RED_MAPLE_LEAVES = simple(true);
+    public static final SimpleParticleType SILVER_BIRCH_LEAVES = simple(true);
+    public static final SimpleParticleType WHITE_MAGNOLIA_LEAVES = simple(true);
 
     public static void addParticles() {
         register("mauve_leaves", MAUVE_LEAVES);
@@ -30,5 +30,9 @@ public class RuParticleTypes {
 
     private static void register(String name, ParticleType<?> particleType) {
         Services.REGISTAR.register(BuiltInRegistries.PARTICLE_TYPE, name, () -> particleType);
+    }
+
+    public static SimpleParticleType simple(boolean alwaysSpawn) {
+        return new SimpleParticleType(alwaysSpawn) { };
     }
 }
