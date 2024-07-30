@@ -78,13 +78,15 @@ processResources {
             "minecraft_version_range": minecraft_version_range,
             "fabric_version": fabric_version,
             "fabric_loader_version": fabric_loader_version,
+            "neoforge_version": neoforge_version,
+            "neoforge_loader_version_range": neoforge_loader_version_range,
+            "terrablender_version": terrablender_version,
+            "terrablender_version_range": terrablender_version_range,
             "mod_name": mod_name,
             "mod_author": mod_author,
             "mod_id": mod_id,
             "license": license,
             "description": project.description,
-            "neoforge_version": neoforge_version,
-            "neoforge_loader_version_range": neoforge_loader_version_range,
             "credits": credits,
             "java_version": java_version
     ]
