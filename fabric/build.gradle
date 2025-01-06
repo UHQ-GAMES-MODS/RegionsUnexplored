@@ -1,6 +1,6 @@
 plugins {
     id 'multiloader-loader'
-    id 'fabric-loom' version '1.7-SNAPSHOT'
+    id 'fabric-loom' version '1.9-SNAPSHOT'
 }
 
 repositories {
@@ -17,6 +17,7 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
     modImplementation "com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_version}"
     modApi "fuzs.forgeconfigapiport:forgeconfigapiport-fabric:${fcap_version}"
+    modApi "maven.modrinth:oh-the-trees-youll-grow:${minecraft_version}-${tyg_version}-Fabric"
 }
 
 loom {

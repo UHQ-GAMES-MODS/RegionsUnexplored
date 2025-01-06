@@ -52,4 +52,6 @@ sourceSets.main.resources { srcDir(project(':common').file('src/generated/resour
 dependencies {
     implementation "net.neoforged:neoforge:${neoforge_version}"
     implementation 'com.github.glitchfiend:TerraBlender-neoforge:' + minecraft_version + '-' + terrablender_version
+    implementation "maven.modrinth:oh-the-trees-youll-grow:${minecraft_version}-${tyg_version}-NeoForge"
+
 }
