@@ -1,5 +1,10 @@
 {
   "replace": false,
   "values": [
+    "regions_unexplored:clover_plains",
+    "regions_unexplored:flower_fields",
+    "regions_unexplored:highland_fields",
+    "regions_unexplored:mauve_hills",
+    "regions_unexplored:poppy_fields"
   ]
 }
