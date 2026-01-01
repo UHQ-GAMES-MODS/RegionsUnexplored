@@ -60,9 +60,11 @@ public class RuPlantBlock extends BushBlock implements BonemealableBlock {
             }
         }
         else if(state.is(RuBlocks.STEPPE_GRASS.get())||state.is(RuBlocks.STEPPE_SHRUB.get())){
-            DoublePlantBlock tallSteppeGrass = (DoublePlantBlock) RuBlocks.STEPPE_TALL_GRASS;
-            if (tallSteppeGrass.defaultBlockState().canSurvive(level, pos) && level.isEmptyBlock(pos.above())) {
-                DoublePlantBlock.placeAt(level, tallSteppeGrass.defaultBlockState(), pos, 2);
+            Block steppe_tall_grass = RuBlocks.STEPPE_TALL_GRASS.get();
+            if (steppe_tall_grass instanceof DoublePlantBlock tallSteppeGrass) {
+                if (tallSteppeGrass.defaultBlockState().canSurvive(level, pos) && level.isEmptyBlock(pos.above())) {
+                    DoublePlantBlock.placeAt(level, tallSteppeGrass.defaultBlockState(), pos, 2);
+                }
             }
         }
     }
