@@ -2,9 +2,6 @@ package net.regions_unexplored.entity.custom;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
-import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
@@ -94,22 +91,22 @@ public class RuBoat extends Boat {
     }
 
     public enum ModelType {
-        BAOBAB("baobab", RuBlocks.BAOBAB.getPlanks()),
-        BLACKWOOD("blackwood", RuBlocks.BLACKWOOD.getPlanks()),
-        CYPRESS("cypress", RuBlocks.CYPRESS.getPlanks()),
-        DEAD("dead", RuBlocks.DEAD.getPlanks()),
-        EUCALYPTUS("eucalyptus", RuBlocks.EUCALYPTUS.getPlanks()),
-        JOSHUA("joshua", RuBlocks.JOSHUA.getPlanks()),
-        KAPOK("kapok", RuBlocks.KAPOK.getPlanks()),
-        LARCH("larch", RuBlocks.LARCH.getPlanks()),
-        MAGNOLIA("magnolia", RuBlocks.MAGNOLIA.getPlanks()),
-        MAPLE("maple", RuBlocks.MAPLE.getPlanks()),
-        MAUVE("mauve", RuBlocks.MAUVE.getPlanks()),
-        PALM("palm", RuBlocks.PALM.getPlanks()),
-        PINE("pine", RuBlocks.PINE.getPlanks()),
-        REDWOOD("redwood", RuBlocks.REDWOOD.getPlanks()),
-        SOCOTRA("socotra", RuBlocks.SOCOTRA.getPlanks()),
-        WILLOW("willow", RuBlocks.WILLOW.getPlanks());
+        BAOBAB("baobab", RuBlocks.BAOBAB_WOOD_SET.getPlanks()),
+        BLACKWOOD("blackwood", RuBlocks.BLACKWOOD_WOOD_SET.getPlanks()),
+        CYPRESS("cypress", RuBlocks.CYPRESS_WOOD_SET.getPlanks()),
+        DEAD("dead", RuBlocks.DEAD_WOOD_SET.getPlanks()),
+        EUCALYPTUS("eucalyptus", RuBlocks.EUCALYPTUS_WOOD_SET.getPlanks()),
+        JOSHUA("joshua", RuBlocks.JOSHUA_WOOD_SET.getPlanks()),
+        KAPOK("kapok", RuBlocks.KAPOK_WOOD_SET.getPlanks()),
+        LARCH("larch", RuBlocks.LARCH_WOOD_SET.getPlanks()),
+        MAGNOLIA("magnolia", RuBlocks.MAGNOLIA_WOOD_SET.getPlanks()),
+        MAPLE("maple", RuBlocks.MAPLE_WOOD_SET.getPlanks()),
+        MAUVE("mauve", RuBlocks.MAUVE_WOOD_SET.getPlanks()),
+        PALM("palm", RuBlocks.PALM_WOOD_SET.getPlanks()),
+        PINE("pine", RuBlocks.PINE_WOOD_SET.getPlanks()),
+        REDWOOD("redwood", RuBlocks.REDWOOD_WOOD_SET.getPlanks()),
+        SOCOTRA("socotra", RuBlocks.SOCOTRA_WOOD_SET.getPlanks()),
+        WILLOW("willow", RuBlocks.WILLOW_WOOD_SET.getPlanks());
 
         private final String name;
         private final Block planks;

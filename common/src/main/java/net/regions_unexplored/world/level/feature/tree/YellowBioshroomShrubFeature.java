@@ -80,7 +80,7 @@ public class YellowBioshroomShrubFeature extends Feature<NoneFeatureConfiguratio
             level.setBlock(pos, Blocks.BLACKSTONE.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos)) {
-                level.setBlock(pos, RuBlocks.YELLOW_BIOSHROOM_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
+                level.setBlock(pos, RuBlocks.YELLOW_BIOSHROOM_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
         }
         else{
             return;
@@ -94,7 +94,7 @@ public class YellowBioshroomShrubFeature extends Feature<NoneFeatureConfiguratio
             level.setBlock(pos.below(), Blocks.BLACKSTONE.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos.below())) {
-            level.setBlock(pos.below(), RuBlocks.YELLOW_BIOSHROOM_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
+            level.setBlock(pos.below(), RuBlocks.YELLOW_BIOSHROOM_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
         }
     }
 

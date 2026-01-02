@@ -9,6 +9,7 @@ import net.minecraft.world.level.material.PushReaction;
 import net.regions_unexplored.block.sapling.RuTreeGrowers;
 import net.regions_unexplored.block.set.BrimwoodWoodSet;
 import net.regions_unexplored.block.set.ColoredSet;
+import net.regions_unexplored.block.set.NaturalSet;
 import net.regions_unexplored.block.set.WoodSet;
 import net.regions_unexplored.data.block.RuWoodTypes;
 import net.regions_unexplored.data.worldgen.features.RuNetherFeatures;
@@ -16,11 +17,13 @@ import net.regions_unexplored.registry.BlockRegistry;
 import net.regions_unexplored.world.level.block.alpha.*;
 import net.regions_unexplored.world.level.block.cave.*;
 import net.regions_unexplored.world.level.block.forest_dirt.*;
+import net.regions_unexplored.world.level.block.leaves.*;
 import net.regions_unexplored.world.level.block.nether.*;
 import net.regions_unexplored.world.level.block.other.*;
 import net.regions_unexplored.world.level.block.other_dirt.*;
 import net.regions_unexplored.world.level.block.plains_dirt.*;
 import net.regions_unexplored.world.level.block.plant.aquatic.*;
+import net.regions_unexplored.world.level.block.plant.branch.BranchBlock.BranchType;
 import net.regions_unexplored.world.level.block.plant.flower.*;
 import net.regions_unexplored.world.level.block.plant.food.*;
 import net.regions_unexplored.world.level.block.plant.grass.*;
@@ -112,11 +115,11 @@ public class RuBlocks {
     public static final Supplier<Block> WHITE_MAGNOLIA_FLOWERS = BlockRegistry.registerDefaultBlock("white_magnolia_flowers", () -> new GlowLichenBlock(BlockBehaviour.Properties.ofFullCopy(BLUE_MAGNOLIA_FLOWERS.get())));
     //SNOWBELLE
 
-    public static final Supplier<Block> MAPLE_LEAF_PILE = BlockRegistry.registerDefaultBlock("maple_leaf_pile", () -> new GroundCoverBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA_LEAVES)));
-    public static final Supplier<Block> RED_MAPLE_LEAF_PILE = BlockRegistry.registerDefaultBlock("red_maple_leaf_pile", () -> new GroundCoverBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA_LEAVES)));
-    public static final Supplier<Block> ORANGE_MAPLE_LEAF_PILE = BlockRegistry.registerDefaultBlock("orange_maple_leaf_pile", () -> new GroundCoverBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA_LEAVES)));
-    public static final Supplier<Block> SILVER_BIRCH_LEAF_PILE = BlockRegistry.registerDefaultBlock("silver_birch_leaf_pile", () -> new GroundCoverBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA_LEAVES)));
-    public static final Supplier<Block> ENCHANTED_BIRCH_LEAF_PILE = BlockRegistry.registerDefaultBlock("enchanted_birch_leaf_pile", () -> new GroundCoverBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA_LEAVES)));
+    public static final Supplier<Block> MAPLE_LEAF_PILE = BlockRegistry.registerDefaultBlock("maple_leaf_pile", () -> new GroundCoverBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
+    public static final Supplier<Block> RED_MAPLE_LEAF_PILE = BlockRegistry.registerDefaultBlock("red_maple_leaf_pile", () -> new GroundCoverBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
+    public static final Supplier<Block> ORANGE_MAPLE_LEAF_PILE = BlockRegistry.registerDefaultBlock("orange_maple_leaf_pile", () -> new GroundCoverBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
+    public static final Supplier<Block> SILVER_BIRCH_LEAF_PILE = BlockRegistry.registerDefaultBlock("silver_birch_leaf_pile", () -> new GroundCoverBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
+    public static final Supplier<Block> ENCHANTED_BIRCH_LEAF_PILE = BlockRegistry.registerDefaultBlock("enchanted_birch_leaf_pile", () -> new GroundCoverBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
     //TALL_PLANTS
     public static final Supplier<Block> MEADOW_SAGE = BlockRegistry.registerDefaultBlockNoItem("meadow_sage", () -> new RuDoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ROSE_BUSH)));
     public static final Supplier<Block> BARLEY = BlockRegistry.registerDefaultBlock("barley", () -> new RuDoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SUNFLOWER)));
@@ -124,77 +127,62 @@ public class RuBlocks {
     public static final Supplier<Block> TASSEL = BlockRegistry.registerDefaultBlock("tassel", () -> new RuDoubleFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SUNFLOWER)));
     public static final Supplier<Block> DAY_LILY = BlockRegistry.registerDefaultBlock("day_lily", () -> new RuDoubleFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SUNFLOWER)));
     //SAPLINGS
-    public static final Supplier<Block> ASHEN_SAPLING = BlockRegistry.registerDefaultBlock("ashen_sapling", () -> new SaplingBlock(RuTreeGrowers.ASHEN, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).randomTicks()));
-    public static final Supplier<Block> ALPHA_SAPLING = BlockRegistry.registerDefaultBlock("alpha_sapling", () -> new SaplingBlock(RuTreeGrowers.ALPHA_OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> APPLE_OAK_SAPLING = BlockRegistry.registerDefaultBlock("apple_oak_sapling", () -> new SaplingBlock(RuTreeGrowers.APPLE_OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> BAMBOO_SAPLING = BlockRegistry.registerDefaultBlock("bamboo_sapling", () -> new SaplingBlock(RuTreeGrowers.BAMBOO, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> BAOBAB_SAPLING = BlockRegistry.registerDefaultBlock("baobab_sapling", () -> new RuUltraFromMegaSaplingBlock(RuTreeGrowers.BAOBAB, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> BLACKWOOD_SAPLING = BlockRegistry.registerDefaultBlock("blackwood_sapling", () -> new SaplingBlock(RuTreeGrowers.BLACKWOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> CACTUS_FLOWER = BlockRegistry.registerDefaultBlock("cactus_flower", () -> new RuCactusSaplingBlock(RuTreeGrowers.SAGUARO_CACTUS, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> CYPRESS_SAPLING = BlockRegistry.registerDefaultBlock("cypress_sapling", () -> new SaplingBlock(RuTreeGrowers.CYPRESS, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> DEAD_PINE_SAPLING = BlockRegistry.registerDefaultBlock("dead_pine_sapling", () -> new SaplingBlock(RuTreeGrowers.DEAD_PINE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> DEAD_SAPLING = BlockRegistry.registerDefaultBlock("dead_sapling", () -> new SaplingBlock(RuTreeGrowers.DEAD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> EUCALYPTUS_SAPLING = BlockRegistry.registerDefaultBlock("eucalyptus_sapling", () -> new SaplingBlock(RuTreeGrowers.EUCALYPTUS, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> FLOWERING_SAPLING = BlockRegistry.registerDefaultBlock("flowering_sapling", () -> new SaplingBlock(RuTreeGrowers.FLOWERING_OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> GOLDEN_LARCH_SAPLING = BlockRegistry.registerDefaultBlock("golden_larch_sapling", () -> new SaplingBlock(RuTreeGrowers.GOLDEN_LARCH, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> JOSHUA_SAPLING = BlockRegistry.registerDefaultBlock("joshua_sapling", () -> new SaplingBlock(RuTreeGrowers.JOSHUA, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> KAPOK_SAPLING = BlockRegistry.registerDefaultBlock("kapok_sapling", () -> new RuUltraFromSuperSaplingBlock(RuTreeGrowers.KAPOK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> LARCH_SAPLING = BlockRegistry.registerDefaultBlock("larch_sapling", () -> new SaplingBlock(RuTreeGrowers.LARCH, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> MAPLE_SAPLING = BlockRegistry.registerDefaultBlock("maple_sapling", () -> new SaplingBlock(RuTreeGrowers.MAPLE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> MAUVE_SAPLING = BlockRegistry.registerDefaultBlock("mauve_sapling", () -> new SaplingBlock(RuTreeGrowers.MAUVE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> ORANGE_MAPLE_SAPLING = BlockRegistry.registerDefaultBlock("orange_maple_sapling", () -> new SaplingBlock(RuTreeGrowers.ORANGE_MAPLE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> PALM_SAPLING = BlockRegistry.registerDefaultBlock("palm_sapling", () -> new SaplingBlock(RuTreeGrowers.PALM, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> PINE_SAPLING = BlockRegistry.registerDefaultBlock("pine_sapling", () -> new SaplingBlock(RuTreeGrowers.PINE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> MAGNOLIA_SAPLING = BlockRegistry.registerDefaultBlock("magnolia_sapling", () -> new SaplingBlock(RuTreeGrowers.MAGNOLIA, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> WHITE_MAGNOLIA_SAPLING = BlockRegistry.registerDefaultBlock("white_magnolia_sapling", () -> new SaplingBlock(RuTreeGrowers.WHITE_MAGNOLIA, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> PINK_MAGNOLIA_SAPLING = BlockRegistry.registerDefaultBlock("pink_magnolia_sapling", () -> new SaplingBlock(RuTreeGrowers.PINK_MAGNOLIA, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> BLUE_MAGNOLIA_SAPLING = BlockRegistry.registerDefaultBlock("blue_magnolia_sapling", () -> new SaplingBlock(RuTreeGrowers.BLUE_MAGNOLIA, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> REDWOOD_SAPLING = BlockRegistry.registerDefaultBlock("redwood_sapling", () -> new RuUltraFromSuperSaplingBlock(RuTreeGrowers.REDWOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> RED_MAPLE_SAPLING = BlockRegistry.registerDefaultBlock("red_maple_sapling", () -> new SaplingBlock(RuTreeGrowers.RED_MAPLE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> BRIMWOOD_SAPLING = BlockRegistry.registerDefaultBlock("brimwood_sapling", () -> new RuBrimSaplingBlock(RuTreeGrowers.BRIMWOOD, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).randomTicks()));
-    public static final Supplier<Block> COBALT_SAPLING = BlockRegistry.registerDefaultBlock("cobalt_sapling", () -> new RuNetherSaplingBlock(RuTreeGrowers.COBALT, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).randomTicks()));
-    public static final Supplier<Block> ENCHANTED_BIRCH_SAPLING = BlockRegistry.registerDefaultBlock("enchanted_birch_sapling", () -> new SaplingBlock(RuTreeGrowers.ENCHANTED_BIRCH, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> SMALL_OAK_SAPLING = BlockRegistry.registerDefaultBlock("small_oak_sapling", () -> new SaplingBlock(RuTreeGrowers.SMALL_OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> SILVER_BIRCH_SAPLING = BlockRegistry.registerDefaultBlock("silver_birch_sapling", () -> new SaplingBlock(RuTreeGrowers.SILVER_BIRCH, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> SOCOTRA_SAPLING = BlockRegistry.registerDefaultBlock("socotra_sapling", () -> new SaplingBlock(RuTreeGrowers.SOCOTRA, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> WILLOW_SAPLING = BlockRegistry.registerDefaultBlock("willow_sapling", () -> new SaplingBlock(RuTreeGrowers.WILLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
 
-    //SHRUBS
-    public static final Supplier<Block> ACACIA_SHRUB = BlockRegistry.registerDefaultBlock("acacia_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.AZALEA).offsetType(BlockBehaviour.OffsetType.XZ)));
-    public static final Supplier<Block> BAOBAB_SHRUB = BlockRegistry.registerDefaultBlock("baobab_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> BIRCH_SHRUB = BlockRegistry.registerDefaultBlock("birch_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> BLACKWOOD_SHRUB = BlockRegistry.registerDefaultBlock("blackwood_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> BRIMWOOD_SHRUB = BlockRegistry.registerDefaultBlock("brimwood_shrub", () -> new BrimwoodShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> MAGNOLIA_SHRUB = BlockRegistry.registerDefaultBlock("magnolia_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> CHERRY_SHRUB = BlockRegistry.registerDefaultBlock("cherry_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> CYPRESS_SHRUB = BlockRegistry.registerDefaultBlock("cypress_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> DARK_OAK_SHRUB = BlockRegistry.registerDefaultBlock("dark_oak_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> DEAD_PINE_SHRUB = BlockRegistry.registerDefaultBlock("dead_pine_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> DEAD_SHRUB = BlockRegistry.registerDefaultBlock("dead_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> EUCALYPTUS_SHRUB = BlockRegistry.registerDefaultBlock("eucalyptus_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> FLOWERING_SHRUB = BlockRegistry.registerDefaultBlock("flowering_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> GOLDEN_LARCH_SHRUB = BlockRegistry.registerDefaultBlock("golden_larch_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> JOSHUA_SHRUB = BlockRegistry.registerDefaultBlock("joshua_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> JUNGLE_SHRUB = BlockRegistry.registerDefaultBlock("jungle_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> KAPOK_SHRUB = BlockRegistry.registerDefaultBlock("kapok_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> LARCH_SHRUB = BlockRegistry.registerDefaultBlock("larch_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> MANGROVE_SHRUB = BlockRegistry.registerDefaultBlock("mangrove_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> MAPLE_SHRUB = BlockRegistry.registerDefaultBlock("maple_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> MAUVE_SHRUB = BlockRegistry.registerDefaultBlock("mauve_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> OAK_SHRUB = BlockRegistry.registerDefaultBlock("oak_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> ORANGE_MAPLE_SHRUB = BlockRegistry.registerDefaultBlock("orange_maple_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> PALM_SHRUB = BlockRegistry.registerDefaultBlock("palm_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> PINE_SHRUB = BlockRegistry.registerDefaultBlock("pine_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> BLUE_MAGNOLIA_SHRUB = BlockRegistry.registerDefaultBlock("blue_magnolia_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> PINK_MAGNOLIA_SHRUB = BlockRegistry.registerDefaultBlock("pink_magnolia_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> REDWOOD_SHRUB = BlockRegistry.registerDefaultBlock("redwood_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> RED_MAPLE_SHRUB = BlockRegistry.registerDefaultBlock("red_maple_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> ENCHANTED_BIRCH_SHRUB = BlockRegistry.registerDefaultBlock("enchanted_birch_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> SILVER_BIRCH_SHRUB = BlockRegistry.registerDefaultBlock("silver_birch_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> SOCOTRA_SHRUB = BlockRegistry.registerDefaultBlock("socotra_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> SPRUCE_SHRUB = BlockRegistry.registerDefaultBlock("spruce_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> WHITE_MAGNOLIA_SHRUB = BlockRegistry.registerDefaultBlock("white_magnolia_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
-    public static final Supplier<Block> WILLOW_SHRUB = BlockRegistry.registerDefaultBlock("willow_shrub", () -> new ShrubBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_SHRUB.get())));
+    // NATURAL SETS
+    public static final List<NaturalSet> NATURAL_SETS = new ArrayList<>();
+    /* VANILLA */
+    public static final NaturalSet ACACIA_NATURAL_SET = NaturalSet.vanilla("acacia");
+    public static final NaturalSet BIRCH_NATURAL_SET = NaturalSet.vanilla("birch");
+    public static final NaturalSet CHERRY_NATURAL_SET = NaturalSet.vanilla("cherry");
+    public static final NaturalSet DARK_OAK_NATURAL_SET = NaturalSet.vanilla("dark_oak");
+    public static final NaturalSet JUNGLE_NATURAL_SET = NaturalSet.vanilla("jungle");
+    public static final NaturalSet MANGROVE_NATURAL_SET = NaturalSet.vanilla("mangrove");
+    public static final NaturalSet OAK_NATURAL_SET = NaturalSet.vanilla("oak");
+    //public static final NaturalSet PALE_OAK_NATURAL_SET = NaturalSet.vanilla("pale_oak");
+    public static final NaturalSet SPRUCE_NATURAL_SET = NaturalSet.vanilla("spruce");
+    /* MODDED */
+    public static final NaturalSet ALPHA_NATURAL_SET = NaturalSet.leavesAndSaplings("alpha", LeavesBlock::new, RuTreeGrowers.ALPHA_OAK);
+    public static final NaturalSet APPLE_OAK_NATURAL_SET = NaturalSet.leavesAndSaplings("apple_oak", AppleLeavesBlock::new, RuTreeGrowers.APPLE_OAK);
+    public static final NaturalSet BAMBOO_NATURAL_SET = NaturalSet.leavesAndSaplings("bamboo", LeavesBlock::new, RuTreeGrowers.BAMBOO);
+    public static final NaturalSet BAOBAB_NATURAL_SET = NaturalSet.full("baobab", MapColor.PLANT, BranchType.BRANCH, false, properties -> new RuUltraFromMegaSaplingBlock(RuTreeGrowers.BAOBAB, properties));
+    public static final NaturalSet BLACKWOOD_NATURAL_SET = NaturalSet.full("blackwood", MapColor.TERRACOTTA_GREEN, BranchType.BRANCH, false, RuTreeGrowers.BLACKWOOD);
+    public static final NaturalSet BLUE_MAGNOLIA_NATURAL_SET = NaturalSet.fullWithoutBranch("blue_magnolia", false, () -> BlockRegistry.leaves(MapColor.COLOR_LIGHT_BLUE, false, BlueMagnoliaLeavesBlock::new), properties -> new SaplingBlock(RuTreeGrowers.BLUE_MAGNOLIA, properties));
+    public static final NaturalSet BRIMWOOD_NATURAL_SET = NaturalSet.fullWithoutBranch("brimwood", false, () -> BlockRegistry.leaves(MapColor.COLOR_BROWN, false, p -> new BrimwoodLeavesBlock()), properties -> new RuBrimSaplingBlock(RuTreeGrowers.BRIMWOOD, properties));
+    public static final NaturalSet CYPRESS_NATURAL_SET = NaturalSet.full("cypress", RuTreeGrowers.CYPRESS);
+    public static final NaturalSet DEAD_PINE_NATURAL_SET = NaturalSet.fullWithoutBranch("dead_pine", MapColor.TERRACOTTA_GRAY, true, RuTreeGrowers.DEAD_PINE);
+    public static final NaturalSet DEAD_NATURAL_SET = NaturalSet.full("dead", MapColor.TERRACOTTA_GRAY, BranchType.BRANCH, true, RuTreeGrowers.DEAD);
+    public static final NaturalSet ENCHANTED_BIRCH_NATURAL_SET = NaturalSet.fullWithoutBranch("enchanted_birch", MapColor.COLOR_LIGHT_BLUE, false, RuTreeGrowers.ENCHANTED_BIRCH);
+    public static final NaturalSet EUCALYPTUS_NATURAL_SET = NaturalSet.full("eucalyptus", RuTreeGrowers.EUCALYPTUS);
+    public static final NaturalSet FLOWERING_NATURAL_SET = NaturalSet.fullWithoutBranch("flowering", MapColor.PLANT, false, RuTreeGrowers.FLOWERING_OAK);
+    public static final NaturalSet GOLDEN_LARCH_NATURAL_SET = NaturalSet.fullWithoutBranch("golden_larch", MapColor.PLANT, false, RuTreeGrowers.GOLDEN_LARCH);
+    public static final NaturalSet JOSHUA_NATURAL_SET = NaturalSet.full("joshua", BranchType.BEARD, false, () -> BlockRegistry.leaves(MapColor.PLANT, false, JoshuaLeavesBlock::new), properties -> new SaplingBlock(RuTreeGrowers.JOSHUA, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+    public static final NaturalSet KAPOK_NATURAL_SET = NaturalSet.full("kapok", MapColor.PLANT, BranchType.BRANCH, false, properties -> new RuUltraFromSuperSaplingBlock(RuTreeGrowers.KAPOK, properties));
+    public static final NaturalSet LARCH_NATURAL_SET = NaturalSet.full("larch", RuTreeGrowers.LARCH);
+    public static final NaturalSet MAGNOLIA_NATURAL_SET = NaturalSet.full("magnolia", RuTreeGrowers.MAGNOLIA);
+    public static final NaturalSet MAPLE_NATURAL_SET = NaturalSet.full("maple", RuTreeGrowers.MAPLE);
+    public static final NaturalSet MAUVE_NATURAL_SET = NaturalSet.full("mauve", BranchType.BRANCH, false, () -> BlockRegistry.leaves(MapColor.COLOR_PURPLE, false, MauveLeavesBlock::new), properties -> new SaplingBlock(RuTreeGrowers.MAUVE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+    public static final NaturalSet ORANGE_MAPLE_NATURAL_SET = NaturalSet.fullWithoutBranch("orange_maple", false, () -> BlockRegistry.leaves(MapColor.COLOR_ORANGE, false, OrangeMapleLeavesBlock::new), properties -> new SaplingBlock(RuTreeGrowers.ORANGE_MAPLE, properties));
+    public static final NaturalSet PALM_NATURAL_SET = NaturalSet.full("palm", MapColor.PLANT, BranchType.BEARD, false, RuTreeGrowers.PALM);
+    public static final NaturalSet PINE_NATURAL_SET = NaturalSet.full("pine", RuTreeGrowers.PINE);
+    public static final NaturalSet PINK_MAGNOLIA_NATURAL_SET = NaturalSet.fullWithoutBranch("pink_magnolia", false, () -> BlockRegistry.leaves(MapColor.COLOR_PINK, false, PinkMagnoliaLeavesBlock::new), properties -> new SaplingBlock(RuTreeGrowers.PINK_MAGNOLIA, properties));
+    public static final NaturalSet RED_MAPLE_NATURAL_SET = NaturalSet.fullWithoutBranch("red_maple", false, () -> BlockRegistry.leaves(MapColor.COLOR_RED, false, RedMapleLeavesBlock::new), properties -> new SaplingBlock(RuTreeGrowers.RED_MAPLE, properties));
+    public static final NaturalSet REDWOOD_NATURAL_SET = NaturalSet.full("redwood", MapColor.PLANT, BranchType.BRANCH, false, properties -> new RuUltraFromSuperSaplingBlock(RuTreeGrowers.REDWOOD, properties));
+    public static final NaturalSet SILVER_BIRCH_NATURAL_SET = NaturalSet.full("silver_birch", BranchType.BRANCH, false, () -> BlockRegistry.leaves(MapColor.COLOR_YELLOW, false, SilverBirchLeavesBlock::new), properties -> new SaplingBlock(RuTreeGrowers.SILVER_BIRCH, properties));
+    public static final NaturalSet SMALL_OAK_NATURAL_SET = NaturalSet.leavesAndSaplings("small_oak", LeavesBlock::new, RuTreeGrowers.SMALL_OAK);
+    public static final NaturalSet SOCOTRA_NATURAL_SET = NaturalSet.full("socotra", RuTreeGrowers.SOCOTRA);
+    public static final NaturalSet WHITE_MAGNOLIA_NATURAL_SET = NaturalSet.fullWithoutBranch("white_magnolia", false, () -> BlockRegistry.leaves(MapColor.TERRACOTTA_WHITE, false, WhiteMagnoliaLeavesBlock::new), properties -> new SaplingBlock(RuTreeGrowers.WHITE_MAGNOLIA, properties));
+    public static final NaturalSet WILLOW_NATURAL_SET = NaturalSet.full("willow", RuTreeGrowers.WILLOW);
+    /*-----------------SAPLINGS-----------------*/
+    public static final Supplier<Block> ASHEN_SAPLING = BlockRegistry.registerDefaultBlock("ashen_sapling", () -> new SaplingBlock(RuTreeGrowers.ASHEN, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).randomTicks()));
+    public static final Supplier<Block> CACTUS_FLOWER = BlockRegistry.registerDefaultBlock("cactus_flower", () -> new RuCactusSaplingBlock(RuTreeGrowers.SAGUARO_CACTUS, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+    public static final Supplier<Block> COBALT_SAPLING = BlockRegistry.registerDefaultBlock("cobalt_sapling", () -> new RuNetherSaplingBlock(RuTreeGrowers.COBALT, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).randomTicks()));
+    /*-----------------LEAVES-----------------*/
+    public static final Supplier<Block> COBALT_WEBBING = BlockRegistry.registerDefaultBlock("cobalt_webbing", () -> BlockRegistry.fireproofLeaves(MapColor.COLOR_BLUE));
+    /*-----------------POTTED SAPLINGS-----------------*/
+    public static final Supplier<Block> POTTED_ASHEN_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_ashen_sapling", () -> new FlowerPotBlock(ASHEN_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
+    public static final Supplier<Block> POTTED_CACTUS_FLOWER = BlockRegistry.registerDefaultBlockNoItem("potted_cactus_flower", () -> new FlowerPotBlock(CACTUS_FLOWER.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
+    public static final Supplier<Block> POTTED_COBALT_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_cobalt_sapling", () -> new FlowerPotBlock(COBALT_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
+
     //MUSHROOMS
     public static final Supplier<Block> BLUE_BIOSHROOM = BlockRegistry.registerDefaultBlock("blue_bioshroom", () -> new BioshroomBlock(RuTreeGrowers.BLUE_BIOSHROOM, MobEffects.POISON, 10, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).lightLevel(s -> 10)));
     public static final Supplier<Block> GREEN_BIOSHROOM = BlockRegistry.registerDefaultBlock("green_bioshroom", () -> new BioshroomBlock(RuTreeGrowers.GREEN_BIOSHROOM, MobEffects.POISON, 10, BlockBehaviour.Properties.ofFullCopy(BLUE_BIOSHROOM.get()).mapColor(MapColor.COLOR_LIGHT_GREEN)));
@@ -237,67 +225,6 @@ public class RuBlocks {
     public static final Supplier<Block> STRIPPED_SMALL_OAK_LOG = BlockRegistry.registerDefaultBlock("stripped_small_oak_log", SmallOakLogBlock::new);
     //CACTUS
     public static final Supplier<Block> SAGUARO_CACTUS = BlockRegistry.registerDefaultBlock("saguaro_cactus", () -> new SaguaroCactusBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).instrument(NoteBlockInstrument.GUITAR).sound(SoundType.WOOL).strength(2f)));
-
-    /*-----------------LEAVES-----------------*/
-    public static final Supplier<Block> ALPHA_LEAVES = BlockRegistry.registerDefaultBlock("alpha_leaves", () -> BlockRegistry.leaves(MapColor.COLOR_LIGHT_GREEN));
-    public static final Supplier<Block> APPLE_OAK_LEAVES = BlockRegistry.registerDefaultBlock("apple_oak_leaves", () -> BlockRegistry.appleLeaves(MapColor.PLANT));
-    public static final Supplier<Block> BAMBOO_LEAVES = BlockRegistry.registerDefaultBlock("bamboo_leaves", () -> BlockRegistry.leaves(MapColor.PLANT));
-    public static final Supplier<Block> BAOBAB_LEAVES = BlockRegistry.registerDefaultBlock("baobab_leaves", () -> BlockRegistry.leaves(MapColor.PLANT));
-    public static final Supplier<Block> BLACKWOOD_LEAVES = BlockRegistry.registerDefaultBlock("blackwood_leaves", () -> BlockRegistry.leaves(MapColor.TERRACOTTA_GREEN));
-    public static final Supplier<Block> MAGNOLIA_LEAVES = BlockRegistry.registerDefaultBlock("magnolia_leaves", () -> BlockRegistry.leaves(MapColor.PLANT));
-    public static final Supplier<Block> CYPRESS_LEAVES = BlockRegistry.registerDefaultBlock("cypress_leaves", () -> BlockRegistry.leaves(MapColor.PLANT));
-    public static final Supplier<Block> DEAD_LEAVES = BlockRegistry.registerDefaultBlock("dead_leaves", () -> BlockRegistry.fireproofLeaves(MapColor.TERRACOTTA_GRAY));
-    public static final Supplier<Block> DEAD_PINE_LEAVES = BlockRegistry.registerDefaultBlock("dead_pine_leaves", () -> BlockRegistry.fireproofLeaves(MapColor.TERRACOTTA_GRAY));
-    public static final Supplier<Block> EUCALYPTUS_LEAVES = BlockRegistry.registerDefaultBlock("eucalyptus_leaves", () -> BlockRegistry.leaves(MapColor.PLANT));
-    public static final Supplier<Block> FLOWERING_LEAVES = BlockRegistry.registerDefaultBlock("flowering_leaves", () -> BlockRegistry.leaves(MapColor.PLANT));
-    public static final Supplier<Block> GOLDEN_LARCH_LEAVES = BlockRegistry.registerDefaultBlock("golden_larch_leaves", () -> BlockRegistry.leaves(MapColor.COLOR_YELLOW));
-    public static final Supplier<Block> JOSHUA_LEAVES = BlockRegistry.registerDefaultBlock("joshua_leaves", () -> BlockRegistry.joshuaLeaves(MapColor.PLANT));
-    public static final Supplier<Block> KAPOK_LEAVES = BlockRegistry.registerDefaultBlock("kapok_leaves", () -> BlockRegistry.leaves(MapColor.PLANT));
-    public static final Supplier<Block> LARCH_LEAVES = BlockRegistry.registerDefaultBlock("larch_leaves", () -> BlockRegistry.leaves(MapColor.PLANT));
-    public static final Supplier<Block> MAPLE_LEAVES = BlockRegistry.registerDefaultBlock("maple_leaves", () -> BlockRegistry.leaves(MapColor.PLANT));
-    public static final Supplier<Block> MAUVE_LEAVES = BlockRegistry.registerDefaultBlock("mauve_leaves", () -> BlockRegistry.mauveLeaves(MapColor.COLOR_PURPLE));
-    public static final Supplier<Block> ORANGE_MAPLE_LEAVES = BlockRegistry.registerDefaultBlock("orange_maple_leaves", () -> BlockRegistry.orangeMapleLeaves(MapColor.COLOR_ORANGE));
-    public static final Supplier<Block> PALM_LEAVES = BlockRegistry.registerDefaultBlock("palm_leaves", () -> BlockRegistry.leaves(MapColor.PLANT));
-    public static final Supplier<Block> PINE_LEAVES = BlockRegistry.registerDefaultBlock("pine_leaves", () -> BlockRegistry.leaves(MapColor.PLANT));
-    public static final Supplier<Block> BLUE_MAGNOLIA_LEAVES = BlockRegistry.registerDefaultBlock("blue_magnolia_leaves", () -> BlockRegistry.blueMagnoliaLeaves(MapColor.COLOR_LIGHT_BLUE));
-    public static final Supplier<Block> PINK_MAGNOLIA_LEAVES = BlockRegistry.registerDefaultBlock("pink_magnolia_leaves", () -> BlockRegistry.pinkMagnoliaLeaves(MapColor.COLOR_PINK));
-    public static final Supplier<Block> REDWOOD_LEAVES = BlockRegistry.registerDefaultBlock("redwood_leaves", () -> BlockRegistry.leaves(MapColor.PLANT));
-    public static final Supplier<Block> RED_MAPLE_LEAVES = BlockRegistry.registerDefaultBlock("red_maple_leaves", () -> BlockRegistry.redMapleLeaves(MapColor.COLOR_RED));
-    public static final Supplier<Block> BRIMWOOD_LEAVES = BlockRegistry.registerDefaultBlock("brimwood_leaves", () -> BlockRegistry.brimLeaves(MapColor.COLOR_BROWN));
-    public static final Supplier<Block> COBALT_WEBBING = BlockRegistry.registerDefaultBlock("cobalt_webbing", () -> BlockRegistry.fireproofLeaves(MapColor.COLOR_BLUE));
-    public static final Supplier<Block> ENCHANTED_BIRCH_LEAVES = BlockRegistry.registerDefaultBlock("enchanted_birch_leaves", () -> BlockRegistry.enchantedBirchLeaves(MapColor.COLOR_LIGHT_BLUE));
-    public static final Supplier<Block> SMALL_OAK_LEAVES = BlockRegistry.registerDefaultBlock("small_oak_leaves", () -> BlockRegistry.leaves(MapColor.PLANT));
-    public static final Supplier<Block> SILVER_BIRCH_LEAVES = BlockRegistry.registerDefaultBlock("silver_birch_leaves", () -> BlockRegistry.silverBirchLeaves(MapColor.COLOR_YELLOW));
-    public static final Supplier<Block> SOCOTRA_LEAVES = BlockRegistry.registerDefaultBlock("socotra_leaves", () -> BlockRegistry.leaves(MapColor.PLANT));
-    public static final Supplier<Block> WHITE_MAGNOLIA_LEAVES = BlockRegistry.registerDefaultBlock("white_magnolia_leaves", () -> BlockRegistry.whiteMagnoliaLeaves(MapColor.TERRACOTTA_WHITE));
-    public static final Supplier<Block> WILLOW_LEAVES = BlockRegistry.registerDefaultBlock("willow_leaves", () -> BlockRegistry.leaves(MapColor.PLANT));
-
-    /*-----------------BRANCHES-----------------*/
-    public static final Supplier<Block> ACACIA_BRANCH = BlockRegistry.registerDefaultBlock("acacia_branch", () -> new BranchBlock(BlockBehaviour.Properties.of().noOcclusion().sound(SoundType.MANGROVE_ROOTS).strength(1.0F, 1.5F).dynamicShape(), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> BAOBAB_BRANCH = BlockRegistry.registerDefaultBlock("baobab_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> BIRCH_BRANCH = BlockRegistry.registerDefaultBlock("birch_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> BLACKWOOD_BRANCH = BlockRegistry.registerDefaultBlock("blackwood_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> MAGNOLIA_BRANCH = BlockRegistry.registerDefaultBlock("magnolia_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> CYPRESS_BRANCH = BlockRegistry.registerDefaultBlock("cypress_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> CHERRY_BRANCH = BlockRegistry.registerDefaultBlock("cherry_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> DARK_OAK_BRANCH = BlockRegistry.registerDefaultBlock("dark_oak_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> DEAD_BRANCH = BlockRegistry.registerDefaultBlock("dead_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> EUCALYPTUS_BRANCH = BlockRegistry.registerDefaultBlock("eucalyptus_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> JOSHUA_BEARD = BlockRegistry.registerDefaultBlock("joshua_beard", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BEARD));
-    public static final Supplier<Block> JUNGLE_BRANCH = BlockRegistry.registerDefaultBlock("jungle_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> KAPOK_BRANCH = BlockRegistry.registerDefaultBlock("kapok_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> LARCH_BRANCH = BlockRegistry.registerDefaultBlock("larch_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> MANGROVE_BRANCH = BlockRegistry.registerDefaultBlock("mangrove_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> MAPLE_BRANCH = BlockRegistry.registerDefaultBlock("maple_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> MAUVE_BRANCH = BlockRegistry.registerDefaultBlock("mauve_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> OAK_BRANCH = BlockRegistry.registerDefaultBlock("oak_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> PALM_BEARD = BlockRegistry.registerDefaultBlock("palm_beard", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BEARD));
-    public static final Supplier<Block> PINE_BRANCH = BlockRegistry.registerDefaultBlock("pine_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> REDWOOD_BRANCH = BlockRegistry.registerDefaultBlock("redwood_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> SILVER_BIRCH_BRANCH = BlockRegistry.registerDefaultBlock("silver_birch_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> SOCOTRA_BRANCH = BlockRegistry.registerDefaultBlock("socotra_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> SPRUCE_BRANCH = BlockRegistry.registerDefaultBlock("spruce_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
-    public static final Supplier<Block> WILLOW_BRANCH = BlockRegistry.registerDefaultBlock("willow_branch", () -> new BranchBlock(BlockBehaviour.Properties.ofFullCopy(ACACIA_BRANCH.get()), BranchBlock.BranchType.BRANCH));
 
     /*-----------------DIRT_BLOCKS-----------------*/
     //FOREST_DIRT_BLOCKS
@@ -356,32 +283,32 @@ public class RuBlocks {
     /*-----------------WOOD_TYPES-----------------*/
     public static final List<WoodSet> WOOD_SETS = new ArrayList<>();
 
-    public static final WoodSet ALPHA = WoodSet.alpha();
-    public static final WoodSet ASHEN = WoodSet.ashen();
-    public static final WoodSet BAOBAB = WoodSet.simple("baobab", RuWoodTypes.BAOBAB, SoundType.CHERRY_WOOD, MapColor.WOOD, MapColor.TERRACOTTA_LIGHT_GRAY, false);
-    public static final WoodSet BLACKWOOD = WoodSet.simple("blackwood", RuWoodTypes.BLACKWOOD, SoundType.NETHER_WOOD, MapColor.TERRACOTTA_BLACK, MapColor.TERRACOTTA_BROWN, false);
-    public static final BrimwoodWoodSet BRIMWOOD = BrimwoodWoodSet.brimwood("brimwood", RuWoodTypes.BRIMWOOD, SoundType.NETHER_WOOD, MapColor.COLOR_BROWN, MapColor.COLOR_ORANGE, true);
-    public static final WoodSet COBALT = WoodSet.simple("cobalt", RuWoodTypes.COBALT, SoundType.NETHER_WOOD, MapColor.COLOR_BLUE, MapColor.COLOR_BLACK, true);
-    public static final WoodSet CYPRESS = WoodSet.simple("cypress", RuWoodTypes.CYPRESS, SoundType.BAMBOO_WOOD, MapColor.WOOD, false);
-    public static final WoodSet DEAD = WoodSet.simple("dead", RuWoodTypes.DEAD, SoundType.WOOD, MapColor.WOOD, true);
-    public static final WoodSet EUCALYPTUS = WoodSet.simple("eucalyptus", RuWoodTypes.EUCALYPTUS, SoundType.WOOD, MapColor.WOOD, false);
-    public static final WoodSet JOSHUA = WoodSet.simple("joshua", RuWoodTypes.JOSHUA, SoundType.WOOD, MapColor.WOOD, false);
-    public static final WoodSet KAPOK = WoodSet.simple("kapok", RuWoodTypes.KAPOK, SoundType.WOOD, MapColor.TERRACOTTA_GREEN, MapColor.WOOD, false);
-    public static final WoodSet LARCH = WoodSet.simple("larch", RuWoodTypes.LARCH, SoundType.WOOD, MapColor.WOOD, false);
-    public static final WoodSet MAGNOLIA = WoodSet.simple("magnolia", RuWoodTypes.MAGNOLIA, SoundType.CHERRY_WOOD, MapColor.TERRACOTTA_PINK, MapColor.STONE, false);
-    public static final WoodSet MAPLE = WoodSet.simple("maple", RuWoodTypes.MAPLE, SoundType.WOOD, MapColor.WOOD, false);
-    public static final WoodSet MAUVE = WoodSet.simple("mauve", RuWoodTypes.MAUVE, SoundType.CHERRY_WOOD, MapColor.TERRACOTTA_PURPLE, MapColor.PODZOL, false);
-    public static final WoodSet PALM = WoodSet.simple("palm", RuWoodTypes.PALM, SoundType.BAMBOO_WOOD, MapColor.WOOD, false);
-    public static final WoodSet PINE = WoodSet.pine("pine", RuWoodTypes.PINE, SoundType.BAMBOO_WOOD, MapColor.WOOD, false);
-    public static final WoodSet REDWOOD = WoodSet.simple("redwood", RuWoodTypes.REDWOOD, SoundType.CHERRY_WOOD, MapColor.TERRACOTTA_RED, false);
-    public static final WoodSet SILVER_BIRCH = WoodSet.silverBirch();
-    public static final WoodSet SOCOTRA = WoodSet.simple("socotra", RuWoodTypes.SOCOTRA, SoundType.CHERRY_WOOD, MapColor.TERRACOTTA_ORANGE, false);
-    public static final WoodSet WILLOW = WoodSet.simple("willow", RuWoodTypes.WILLOW, SoundType.WOOD, MapColor.WOOD, false);
+    public static final WoodSet ALPHA_WOOD_SET = WoodSet.alpha();
+    public static final WoodSet ASHEN_WOOD_SET = WoodSet.ashen();
+    public static final WoodSet BAOBAB_WOOD_SET = WoodSet.simple("baobab", RuWoodTypes.BAOBAB, SoundType.CHERRY_WOOD, MapColor.WOOD, MapColor.TERRACOTTA_LIGHT_GRAY, false);
+    public static final WoodSet BLACKWOOD_WOOD_SET = WoodSet.simple("blackwood", RuWoodTypes.BLACKWOOD, SoundType.NETHER_WOOD, MapColor.TERRACOTTA_BLACK, MapColor.TERRACOTTA_BROWN, false);
+    public static final BrimwoodWoodSet BRIMWOOD_WOOD_SET = BrimwoodWoodSet.brimwood("brimwood", RuWoodTypes.BRIMWOOD, SoundType.NETHER_WOOD, MapColor.COLOR_BROWN, MapColor.COLOR_ORANGE, true);
+    public static final WoodSet COBALT_WOOD_SET = WoodSet.simple("cobalt", RuWoodTypes.COBALT, SoundType.NETHER_WOOD, MapColor.COLOR_BLUE, MapColor.COLOR_BLACK, true);
+    public static final WoodSet CYPRESS_WOOD_SET = WoodSet.simple("cypress", RuWoodTypes.CYPRESS, SoundType.BAMBOO_WOOD, MapColor.WOOD, false);
+    public static final WoodSet DEAD_WOOD_SET = WoodSet.simple("dead", RuWoodTypes.DEAD, SoundType.WOOD, MapColor.WOOD, true);
+    public static final WoodSet EUCALYPTUS_WOOD_SET = WoodSet.simple("eucalyptus", RuWoodTypes.EUCALYPTUS, SoundType.WOOD, MapColor.WOOD, false);
+    public static final WoodSet JOSHUA_WOOD_SET = WoodSet.simple("joshua", RuWoodTypes.JOSHUA, SoundType.WOOD, MapColor.WOOD, false);
+    public static final WoodSet KAPOK_WOOD_SET = WoodSet.simple("kapok", RuWoodTypes.KAPOK, SoundType.WOOD, MapColor.TERRACOTTA_GREEN, MapColor.WOOD, false);
+    public static final WoodSet LARCH_WOOD_SET = WoodSet.simple("larch", RuWoodTypes.LARCH, SoundType.WOOD, MapColor.WOOD, false);
+    public static final WoodSet MAGNOLIA_WOOD_SET = WoodSet.simple("magnolia", RuWoodTypes.MAGNOLIA, SoundType.CHERRY_WOOD, MapColor.TERRACOTTA_PINK, MapColor.STONE, false);
+    public static final WoodSet MAPLE_WOOD_SET = WoodSet.simple("maple", RuWoodTypes.MAPLE, SoundType.WOOD, MapColor.WOOD, false);
+    public static final WoodSet MAUVE_WOOD_SET = WoodSet.simple("mauve", RuWoodTypes.MAUVE, SoundType.CHERRY_WOOD, MapColor.TERRACOTTA_PURPLE, MapColor.PODZOL, false);
+    public static final WoodSet PALM_WOOD_SET = WoodSet.simple("palm", RuWoodTypes.PALM, SoundType.BAMBOO_WOOD, MapColor.WOOD, false);
+    public static final WoodSet PINE_WOOD_SET = WoodSet.pine("pine", RuWoodTypes.PINE, SoundType.BAMBOO_WOOD, MapColor.WOOD, false);
+    public static final WoodSet REDWOOD_WOOD_SET = WoodSet.simple("redwood", RuWoodTypes.REDWOOD, SoundType.CHERRY_WOOD, MapColor.TERRACOTTA_RED, false);
+    public static final WoodSet SILVER_BIRCH_WOOD_SET = WoodSet.silverBirch();
+    public static final WoodSet SOCOTRA_WOOD_SET = WoodSet.simple("socotra", RuWoodTypes.SOCOTRA, SoundType.CHERRY_WOOD, MapColor.TERRACOTTA_ORANGE, false);
+    public static final WoodSet WILLOW_WOOD_SET = WoodSet.simple("willow", RuWoodTypes.WILLOW, SoundType.WOOD, MapColor.WOOD, false);
 
-    public static final WoodSet PINK_BIOSHROOM_SET = WoodSet.bioshroom("pink_bioshroom", RuWoodTypes.PINK_BIOSHROOM, SoundType.NETHER_WOOD, MapColor.COLOR_PINK, false);
-    public static final WoodSet YELLOW_BIOSHROOM_SET = WoodSet.bioshroom("yellow_bioshroom", RuWoodTypes.YELLOW_BIOSHROOM, SoundType.NETHER_WOOD, MapColor.COLOR_YELLOW, true);
-    public static final WoodSet BLUE_BIOSHROOM_SET = WoodSet.bioshroom("blue_bioshroom", RuWoodTypes.BLUE_BIOSHROOM, SoundType.NETHER_WOOD, MapColor.COLOR_LIGHT_BLUE, false);
-    public static final WoodSet GREEN_BIOSHROOM_SET = WoodSet.bioshroom("green_bioshroom", RuWoodTypes.GREEN_BIOSHROOM, SoundType.NETHER_WOOD, MapColor.COLOR_LIGHT_GREEN, false);
+    public static final WoodSet PINK_BIOSHROOM_WOOD_SET = WoodSet.bioshroom("pink_bioshroom", RuWoodTypes.PINK_BIOSHROOM, SoundType.NETHER_WOOD, MapColor.COLOR_PINK, false);
+    public static final WoodSet YELLOW_BIOSHROOM_WOOD_SET = WoodSet.bioshroom("yellow_bioshroom", RuWoodTypes.YELLOW_BIOSHROOM, SoundType.NETHER_WOOD, MapColor.COLOR_YELLOW, true);
+    public static final WoodSet BLUE_BIOSHROOM_WOOD_SET = WoodSet.bioshroom("blue_bioshroom", RuWoodTypes.BLUE_BIOSHROOM, SoundType.NETHER_WOOD, MapColor.COLOR_LIGHT_BLUE, false);
+    public static final WoodSet GREEN_BIOSHROOM_WOOD_SET = WoodSet.bioshroom("green_bioshroom", RuWoodTypes.GREEN_BIOSHROOM, SoundType.NETHER_WOOD, MapColor.COLOR_LIGHT_GREEN, false);
 
 
     /*-----------------PAINTED PLANKS-----------------*/
@@ -456,41 +383,6 @@ public class RuBlocks {
     public static final Supplier<Block> POTTED_TALL_COBALT_EARLIGHT = BlockRegistry.registerDefaultBlockNoItem("potted_tall_cobalt_earlight", () -> new FlowerPotBlock(TALL_COBALT_EARLIGHT.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM).lightLevel(s -> 8)));
     public static final Supplier<Block> POTTED_MYCOTOXIC_DAISY = BlockRegistry.registerDefaultBlockNoItem("potted_mycotoxic_daisy", () -> new FlowerPotBlock(MYCOTOXIC_DAISY.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM).lightLevel(s -> 8)));
     public static final Supplier<Block> POTTED_GLISTER_SPIRE = BlockRegistry.registerDefaultBlockNoItem("potted_glister_spire", () -> new FlowerPotBlock(GLISTER_SPIRE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
-    //POTTED_SAPLINGS
-    public static final Supplier<Block> POTTED_ASHEN_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_ashen_sapling", () -> new FlowerPotBlock(ASHEN_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_ALPHA_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_alpha_sapling", () -> new FlowerPotBlock(ALPHA_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_APPLE_OAK_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_apple_oak_sapling", () -> new FlowerPotBlock(APPLE_OAK_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_BAMBOO_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_bamboo_sapling", () -> new FlowerPotBlock(BAMBOO_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_BAOBAB_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_baobab_sapling", () -> new FlowerPotBlock(BAOBAB_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_BLACKWOOD_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_blackwood_sapling", () -> new FlowerPotBlock(BLACKWOOD_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_CACTUS_FLOWER = BlockRegistry.registerDefaultBlockNoItem("potted_cactus_flower", () -> new FlowerPotBlock(CACTUS_FLOWER.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_MAGNOLIA_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_magnolia_sapling", () -> new FlowerPotBlock(MAGNOLIA_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_CYPRESS_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_cypress_sapling", () -> new FlowerPotBlock(CYPRESS_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_DEAD_PINE_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_dead_pine_sapling", () -> new FlowerPotBlock(DEAD_PINE_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_DEAD_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_dead_sapling", () -> new FlowerPotBlock(DEAD_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_EUCALYPTUS_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_eucalyptus_sapling", () -> new FlowerPotBlock(EUCALYPTUS_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_FLOWERING_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_flowering_sapling", () -> new FlowerPotBlock(FLOWERING_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_GOLDEN_LARCH_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_golden_larch_sapling", () -> new FlowerPotBlock(GOLDEN_LARCH_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_JOSHUA_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_joshua_sapling", () -> new FlowerPotBlock(JOSHUA_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_KAPOK_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_kapok_sapling", () -> new FlowerPotBlock(KAPOK_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_LARCH_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_larch_sapling", () -> new FlowerPotBlock(LARCH_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_MAPLE_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_maple_sapling", () -> new FlowerPotBlock(MAPLE_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_MAUVE_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_mauve_sapling", () -> new FlowerPotBlock(MAUVE_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_ORANGE_MAPLE_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_orange_maple_sapling", () -> new FlowerPotBlock(ORANGE_MAPLE_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_PALM_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_palm_sapling", () -> new FlowerPotBlock(PALM_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_PINE_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_pine_sapling", () -> new FlowerPotBlock(PINE_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_BLUE_MAGNOLIA_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_blue_magnolia_sapling", () -> new FlowerPotBlock(BLUE_MAGNOLIA_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_PINK_MAGNOLIA_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_pink_magnolia_sapling", () -> new FlowerPotBlock(PINK_MAGNOLIA_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_REDWOOD_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_redwood_sapling", () -> new FlowerPotBlock(REDWOOD_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_RED_MAPLE_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_red_maple_sapling", () -> new FlowerPotBlock(RED_MAPLE_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_BRIMWOOD_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_brimwood_sapling", () -> new FlowerPotBlock(BRIMWOOD_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_COBALT_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_cobalt_sapling", () -> new FlowerPotBlock(COBALT_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_ENCHANTED_BIRCH_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_enchanted_birch_sapling", () -> new FlowerPotBlock(ENCHANTED_BIRCH_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_SMALL_OAK_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_small_oak_sapling", () -> new FlowerPotBlock(SMALL_OAK_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_SILVER_BIRCH_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_silver_birch_sapling", () -> new FlowerPotBlock(SILVER_BIRCH_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_SOCOTRA_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_socotra_sapling", () -> new FlowerPotBlock(SOCOTRA_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_WHITE_MAGNOLIA_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_white_magnolia_sapling", () -> new FlowerPotBlock(WHITE_MAGNOLIA_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_WILLOW_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_willow_sapling", () -> new FlowerPotBlock(WILLOW_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
     //POTTED_MUSHROOMS
     public static final Supplier<Block> POTTED_BLUE_BIOSHROOM = BlockRegistry.registerDefaultBlockNoItem("potted_blue_bioshroom", () -> new FlowerPotBlock(BLUE_BIOSHROOM.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_BROWN_MUSHROOM).lightLevel(s -> 10)));
     public static final Supplier<Block> POTTED_GREEN_BIOSHROOM = BlockRegistry.registerDefaultBlockNoItem("potted_green_bioshroom", () -> new FlowerPotBlock(GREEN_BIOSHROOM.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_BROWN_MUSHROOM).lightLevel(s -> 10)));

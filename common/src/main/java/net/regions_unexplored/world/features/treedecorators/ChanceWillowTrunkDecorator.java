@@ -9,7 +9,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
-import net.regions_unexplored.RegionsUnexplored;
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.data.tags.RuTags;
 
@@ -76,7 +75,7 @@ public class ChanceWillowTrunkDecorator extends TreeDecorator {
 			context.setBlock(pos, Blocks.DIRT.defaultBlockState());
 		}
 		else if(isReplaceable(level, pos)) {
-			context.setBlock(pos, RuBlocks.WILLOW.getLog().defaultBlockState());
+			context.setBlock(pos, RuBlocks.WILLOW_WOOD_SET.getLog().defaultBlockState());
 		}
 		else{
 			return ;

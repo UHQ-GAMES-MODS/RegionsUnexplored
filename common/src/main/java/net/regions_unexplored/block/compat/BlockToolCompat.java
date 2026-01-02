@@ -24,11 +24,11 @@ public class BlockToolCompat {
             }
         }
         // Special cases
-        registerStrippableBlock(RuBlocks.ASHEN.getLog(), RuBlocks.DEAD.getStrippedLog());
-        registerStrippableBlock(RuBlocks.ASHEN.getWood(), RuBlocks.DEAD.getStrippedWood());
-        registerStrippableBlock(RuBlocks.SILVER_BIRCH.getLog(), Blocks.STRIPPED_BIRCH_LOG);
-        registerStrippableBlock(RuBlocks.SILVER_BIRCH.getWood(), Blocks.STRIPPED_BIRCH_WOOD);
-        registerStrippableBlock(RuBlocks.BRIMWOOD.getLogMagma(), RuBlocks.BRIMWOOD.getStrippedLog());
+        registerStrippableBlock(RuBlocks.ASHEN_WOOD_SET.getLog(), RuBlocks.DEAD_WOOD_SET.getStrippedLog());
+        registerStrippableBlock(RuBlocks.ASHEN_WOOD_SET.getWood(), RuBlocks.DEAD_WOOD_SET.getStrippedWood());
+        registerStrippableBlock(RuBlocks.SILVER_BIRCH_WOOD_SET.getLog(), Blocks.STRIPPED_BIRCH_LOG);
+        registerStrippableBlock(RuBlocks.SILVER_BIRCH_WOOD_SET.getWood(), Blocks.STRIPPED_BIRCH_WOOD);
+        registerStrippableBlock(RuBlocks.BRIMWOOD_WOOD_SET.getLogMagma(), RuBlocks.BRIMWOOD_WOOD_SET.getStrippedLog());
 
         //ShovelBlocks
         registerShovelled(RuBlocks.PEAT_PODZOL.get(), RuBlocks.PEAT_DIRT_PATH.get().defaultBlockState());

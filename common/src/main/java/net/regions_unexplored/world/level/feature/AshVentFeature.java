@@ -60,7 +60,7 @@ public class AshVentFeature extends Feature<NoneFeatureConfiguration> {
             Blocks.NETHER_WART,
             Blocks.CHEST,
             RuBlocks.ASH_VENT.get(),
-            RuBlocks.DEAD_LEAVES.get())
+            RuBlocks.DEAD_NATURAL_SET.getLeaves())
     );
 
     public AshVentFeature(Codec<NoneFeatureConfiguration> codec) {

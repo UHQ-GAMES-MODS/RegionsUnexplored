@@ -2,6 +2,7 @@ package net.regions_unexplored.block.compat;
 
 import net.minecraft.world.level.block.Block;
 import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.block.set.NaturalSet;
 import net.regions_unexplored.block.set.WoodSet;
 
 import static net.regions_unexplored.util.BlockCompatUtil.registerFlammableBlock;
@@ -81,68 +82,16 @@ public class FlammableBlocks {
         registerFlammableBlock(RuBlocks.TSUBAKI.get(), 60, 100);
         registerFlammableBlock(RuBlocks.DAY_LILY.get(), 60, 100);
         //SAPLINGS
-        registerFlammableBlock(RuBlocks.ALPHA_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.APPLE_OAK_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.BAMBOO_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.BAOBAB_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.BLACKWOOD_SAPLING.get(), 60, 100);
+        for (NaturalSet set : RuBlocks.NATURAL_SETS) {
+            if (set.fireproof || set.getSapling() == null) continue;
+            registerFlammableBlock(set.getSapling(), 60, 100);
+        }
         registerFlammableBlock(RuBlocks.CACTUS_FLOWER.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.CYPRESS_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.EUCALYPTUS_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.FLOWERING_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.GOLDEN_LARCH_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.JOSHUA_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.KAPOK_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.LARCH_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.MAGNOLIA_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.MAPLE_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.MAUVE_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.ORANGE_MAPLE_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.PALM_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.PINE_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.BLUE_MAGNOLIA_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.PINK_MAGNOLIA_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.REDWOOD_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.RED_MAPLE_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.ENCHANTED_BIRCH_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.SILVER_BIRCH_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.SMALL_OAK_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.SOCOTRA_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.WHITE_MAGNOLIA_SAPLING.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.WILLOW_SAPLING.get(), 60, 100);
         //SHRUBS
-        registerFlammableBlock(RuBlocks.ACACIA_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.BAOBAB_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.BIRCH_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.BLACKWOOD_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.CHERRY_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.CYPRESS_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.DARK_OAK_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.EUCALYPTUS_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.FLOWERING_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.GOLDEN_LARCH_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.JOSHUA_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.JUNGLE_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.KAPOK_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.LARCH_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.MAGNOLIA_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.MANGROVE_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.MAPLE_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.MAUVE_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.OAK_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.ORANGE_MAPLE_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.PALM_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.PINE_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.BLUE_MAGNOLIA_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.PINK_MAGNOLIA_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.REDWOOD_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.RED_MAPLE_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.ENCHANTED_BIRCH_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.SILVER_BIRCH_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.SOCOTRA_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.SPRUCE_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.WHITE_MAGNOLIA_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.WILLOW_SHRUB.get(), 60, 100);
+        for (NaturalSet set : RuBlocks.NATURAL_SETS) {
+            if (set.fireproof || set.getShrub() == null) continue;
+            registerFlammableBlock(set.getShrub(), 60, 100);
+        }
         //MUSHROOMS
         registerFlammableBlock(RuBlocks.BLUE_BIOSHROOM.get(), 30, 60);
         registerFlammableBlock(RuBlocks.GREEN_BIOSHROOM.get(), 30, 60);
@@ -180,60 +129,16 @@ public class FlammableBlocks {
         registerFlammableBlock(RuBlocks.SAGUARO_CACTUS.get(), 5, 5);
 
         /*-----------------LEAVES-----------------*/
-        registerFlammableBlock(RuBlocks.ALPHA_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.APPLE_OAK_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.BAMBOO_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.BAOBAB_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.BLACKWOOD_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.MAGNOLIA_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.CYPRESS_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.EUCALYPTUS_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.FLOWERING_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.GOLDEN_LARCH_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.JOSHUA_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.KAPOK_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.LARCH_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.MAPLE_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.MAUVE_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.ORANGE_MAPLE_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.PALM_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.PINE_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.BLUE_MAGNOLIA_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.PINK_MAGNOLIA_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.REDWOOD_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.RED_MAPLE_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.SMALL_OAK_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.SILVER_BIRCH_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.SOCOTRA_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.ENCHANTED_BIRCH_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.WHITE_MAGNOLIA_LEAVES.get(), 30, 60);
-        registerFlammableBlock(RuBlocks.WILLOW_LEAVES.get(), 30, 60);
+        for (NaturalSet set : RuBlocks.NATURAL_SETS) {
+            if (set.fireproof || set.getLeaves() == null) continue;
+            registerFlammableBlock(set.getLeaves(), 30, 60);
+        }
 
         /*-----------------BRANCHES-----------------*/
-        registerFlammableBlock(RuBlocks.ACACIA_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.BAOBAB_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.BIRCH_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.BLACKWOOD_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.MAGNOLIA_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.CYPRESS_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.CHERRY_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.DARK_OAK_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.EUCALYPTUS_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.JOSHUA_BEARD.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.JUNGLE_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.KAPOK_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.LARCH_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.MANGROVE_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.MAPLE_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.MAUVE_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.OAK_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.PALM_BEARD.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.PINE_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.REDWOOD_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.SILVER_BIRCH_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.SOCOTRA_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.SPRUCE_BRANCH.get(), 30, 100);
-        registerFlammableBlock(RuBlocks.WILLOW_BRANCH.get(), 30, 100);
+        for (NaturalSet set : RuBlocks.NATURAL_SETS) {
+            if (set.fireproof || set.getBranch() == null) continue;
+            registerFlammableBlock(set.getBranch(), 30, 100);
+        }
         /*-----------------WOOD_TYPES-----------------*/
         for (WoodSet set : RuBlocks.WOOD_SETS) {
             if (set.fireproof) continue;
