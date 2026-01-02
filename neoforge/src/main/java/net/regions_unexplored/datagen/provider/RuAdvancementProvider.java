@@ -408,10 +408,10 @@ public class RuAdvancementProvider extends AdvancementProvider {
                     .addCriterion("redwood_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.REDWOOD.getLog().asItem()))
                     .addCriterion("socotra_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SOCOTRA.getLog().asItem()))
                     .addCriterion("willow_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.WILLOW.getLog().asItem()))
-                    .addCriterion("blue_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.BLUE_BIOSHROOM_STEM.get().asItem()))
-                    .addCriterion("green_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.GREEN_BIOSHROOM_STEM.get().asItem()))
-                    .addCriterion("pink_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.PINK_BIOSHROOM_STEM.get().asItem()))
-                    .addCriterion("yellow_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.YELLOW_BIOSHROOM_STEM.get().asItem()))
+                    .addCriterion("blue_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.BLUE_BIOSHROOM_SET.getLog().asItem()))
+                    .addCriterion("green_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.GREEN_BIOSHROOM_SET.getLog().asItem()))
+                    .addCriterion("pink_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.PINK_BIOSHROOM_SET.getLog().asItem()))
+                    .addCriterion("yellow_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.YELLOW_BIOSHROOM_SET.getLog().asItem()))
 
                     .save(saver, getAdvancementName(Constants.MOD_ID, "got_wood"));
 
@@ -436,7 +436,7 @@ public class RuAdvancementProvider extends AdvancementProvider {
             AdvancementHolder ANCIENT_SPECIMENS = Advancement.Builder.advancement()
                     .parent(MYCOLOGIST)
                     .display(
-                            RuBlocks.BLUE_BIOSHROOM_STEM.get(),
+                            RuBlocks.BLUE_BIOSHROOM_SET.getLog(),
                             Component.translatable("advancements.regions_unexplored.ancient_specimens.title"),
                             Component.translatable("advancements.regions_unexplored.ancient_specimens.description"),
                             Constants.id("textures/gui/advancements/backgrounds/argillite.png"),
@@ -445,10 +445,10 @@ public class RuAdvancementProvider extends AdvancementProvider {
                             true,
                             false
                     )
-                    .addCriterion("blue_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.BLUE_BIOSHROOM_STEM.get().asItem()))
-                    .addCriterion("pink_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.PINK_BIOSHROOM_STEM.get().asItem()))
-                    .addCriterion("yellow_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.YELLOW_BIOSHROOM_STEM.get().asItem()))
-                    .addCriterion("green_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.GREEN_BIOSHROOM_STEM.get().asItem()))
+                    .addCriterion("blue_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.BLUE_BIOSHROOM_SET.getLog().asItem()))
+                    .addCriterion("pink_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.PINK_BIOSHROOM_SET.getLog().asItem()))
+                    .addCriterion("yellow_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.YELLOW_BIOSHROOM_SET.getLog().asItem()))
+                    .addCriterion("green_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.GREEN_BIOSHROOM_SET.getLog().asItem()))
                     .save(saver, getAdvancementName(Constants.MOD_ID, "ancient_specimens"));
         }
 

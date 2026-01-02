@@ -384,7 +384,7 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         //planksFromLogs(consumer, Blocks.BAMBOO_PLANKS, RuTags.BAMBOO_LOGS_ITEM, 4);
         //ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, Blocks.BAMBOO, 1).define('#', RuTags.BAMBOO_LOGS_ITEM).pattern("#").pattern("#").group("bamboo").unlockedBy("has_bamboo_log", has(RuTags.BAMBOO_LOGS_ITEM)).save(consumer);
         //ASHEN_BLOCKS
-        woodFromLogs(consumer, RuBlocks.ASHEN_WOOD.get(), RuBlocks.ASHEN.getLog());
+        /*woodFromLogs(consumer, RuBlocks.ASHEN_WOOD.get(), RuBlocks.ASHEN.getLog());
         //SILVER_BIRCH_BLOCKS
         woodFromLogs(consumer, RuBlocks.SILVER_BIRCH_WOOD.get(), RuBlocks.SILVER_BIRCH.getLog());
         //ALPHA_BLOCKS
@@ -740,7 +740,7 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(consumer, RuBlocks.YELLOW_BIOSHROOM_PRESSURE_PLATE.get(), RuBlocks.YELLOW_BIOSHROOM_PLANKS.get());
         woodenButton(consumer, RuBlocks.YELLOW_BIOSHROOM_BUTTON.get(), RuBlocks.YELLOW_BIOSHROOM_PLANKS.get());
         woodenSign(consumer, RuBlocks.YELLOW_BIOSHROOM_SIGN.get(), RuBlocks.YELLOW_BIOSHROOM_PLANKS.get());
-        hangingSign(consumer, RuBlocks.YELLOW_BIOSHROOM_HANGING_SIGN.get(), RuBlocks.STRIPPED_YELLOW_BIOSHROOM_STEM.get());
+        hangingSign(consumer, RuBlocks.YELLOW_BIOSHROOM_HANGING_SIGN.get(), RuBlocks.STRIPPED_YELLOW_BIOSHROOM_STEM.get());*/
 
         /*-----------------PAINTED PLANKS-----------------*/
         paintedPlanks(consumer, RuBlocks.RED_PAINTED_PLANKS.get(), TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "red_dyes")));

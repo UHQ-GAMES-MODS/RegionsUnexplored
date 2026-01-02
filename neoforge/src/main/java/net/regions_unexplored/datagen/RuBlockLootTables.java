@@ -488,7 +488,7 @@ public class RuBlockLootTables extends BlockLootSubProvider {
 
         /*-----------------WOOD_TYPES-----------------*/
         //ASHEN_BLOCKS
-        dropSelf(RuBlocks.ASHEN.getLog());
+        /*dropSelf(RuBlocks.ASHEN.getLog());
         dropSelf(RuBlocks.ASHEN_WOOD.get());
         //SILVER_BIRCH_BLOCKS
         dropSelf(RuBlocks.SILVER_BIRCH.getLog());
