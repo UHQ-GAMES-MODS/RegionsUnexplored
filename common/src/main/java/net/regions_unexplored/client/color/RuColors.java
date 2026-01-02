@@ -72,8 +72,8 @@ public class RuColors {
         );
 
         Services.TINT_HELPER.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getRainbowEucalyptusColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
-                RuBlocks.EUCALYPTUS_WOOD.get(),
-                RuBlocks.EUCALYPTUS_LOG.get()
+                RuBlocks.EUCALYPTUS.getLog(),
+                RuBlocks.EUCALYPTUS.getWood()
         );
 
         Services.TINT_HELPER.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getAspenColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),

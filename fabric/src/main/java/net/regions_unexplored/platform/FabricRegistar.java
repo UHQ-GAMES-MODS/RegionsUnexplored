@@ -40,14 +40,8 @@ public class FabricRegistar implements IRegistar {
     }
 
     @Override
-    public <FC extends FeatureConfiguration> Supplier<Feature> registerFeature(String name, Supplier<Feature> value) {
+    public Supplier<Feature> registerFeature(String name, Supplier<Feature> value) {
         Feature registered = Registry.register(BuiltInRegistries.FEATURE, Constants.id(name), value.get());
-        return () -> registered;
-    }
-
-    @Override
-    public <T extends BlockEntity> Supplier<BlockEntityType> registerBlockEntity(String path, Supplier<BlockEntityType> type) {
-        BlockEntityType<T> registered = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, Constants.id(path), type.get());
         return () -> registered;
     }
 
@@ -57,15 +51,13 @@ public class FabricRegistar implements IRegistar {
         return () -> registered;
     }
 
-    public Supplier<CreativeModeTab> registerCreativeModeTab(String name, Supplier<ItemStack> icon, Supplier<List<Item>> items) {
+    public Supplier<CreativeModeTab> registerCreativeModeTab(String name, Supplier<ItemStack> icon, Supplier<CreativeModeTab.DisplayItemsGenerator> items) {
         CreativeModeTab registered = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, Constants.id(name), FabricItemGroup.builder()
                 .title(Component.translatable("itemGroup." + Constants.MOD_ID + "." + name))
                 .hideTitle()
                 .backgroundTexture(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "textures/gui/container/creative_inventory/tab_regions_unexplored.png"))
                 .icon(icon)
-                .displayItems((entry, context) -> {
-                        items.get().forEach(context::accept);
-                })
+                .displayItems(items.get())
                 .build());
         return () -> registered;
     }

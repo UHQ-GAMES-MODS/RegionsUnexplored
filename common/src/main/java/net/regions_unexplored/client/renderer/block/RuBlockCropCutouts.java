@@ -1,7 +1,9 @@
 package net.regions_unexplored.client.renderer.block;
 
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.level.block.Block;
 import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.block.set.WoodSet;
 import net.regions_unexplored.client.util.RenderUtil;
 import net.regions_unexplored.platform.Services;
 
@@ -402,54 +404,9 @@ public class RuBlockCropCutouts {
                 RuBlocks.ASHEN_LEAVES.get(),
                 RuBlocks.ASHEN_GRASS.get(),
 
-                /*-----------------DOOR_BLOCKS-----------------*/
-                RuBlocks.BAOBAB_DOOR.get(),
-                RuBlocks.BAOBAB_TRAPDOOR.get(),
-                RuBlocks.BLACKWOOD_DOOR.get(),
-                RuBlocks.BLACKWOOD_TRAPDOOR.get(),
-                RuBlocks.BLUE_BIOSHROOM_DOOR.get(),
-                RuBlocks.BLUE_BIOSHROOM_TRAPDOOR.get(),
-                RuBlocks.BRIMWOOD_DOOR.get(),
-                RuBlocks.BRIMWOOD_TRAPDOOR.get(),
-                RuBlocks.COBALT_DOOR.get(),
-                RuBlocks.COBALT_TRAPDOOR.get(),
-                RuBlocks.CYPRESS_DOOR.get(),
-                RuBlocks.CYPRESS_TRAPDOOR.get(),
-                RuBlocks.DEAD_DOOR.get(),
-                RuBlocks.DEAD_TRAPDOOR.get(),
-                RuBlocks.EUCALYPTUS_DOOR.get(),
-                RuBlocks.EUCALYPTUS_TRAPDOOR.get(),
-                RuBlocks.GREEN_BIOSHROOM_DOOR.get(),
-                RuBlocks.GREEN_BIOSHROOM_TRAPDOOR.get(),
-                RuBlocks.JOSHUA_DOOR.get(),
-                RuBlocks.JOSHUA_TRAPDOOR.get(),
-                RuBlocks.KAPOK_DOOR.get(),
-                RuBlocks.KAPOK_TRAPDOOR.get(),
-                RuBlocks.LARCH_DOOR.get(),
-                RuBlocks.LARCH_TRAPDOOR.get(),
-                RuBlocks.MAGNOLIA_DOOR.get(),
-                RuBlocks.MAGNOLIA_TRAPDOOR.get(),
-                RuBlocks.MAPLE_DOOR.get(),
-                RuBlocks.MAPLE_TRAPDOOR.get(),
-                RuBlocks.MAUVE_DOOR.get(),
-                RuBlocks.MAUVE_TRAPDOOR.get(),
-                RuBlocks.PALM_DOOR.get(),
-                RuBlocks.PALM_TRAPDOOR.get(),
-                RuBlocks.PINE_DOOR.get(),
-                RuBlocks.PINE_TRAPDOOR.get(),
-                RuBlocks.PINK_BIOSHROOM_DOOR.get(),
-                RuBlocks.PINK_BIOSHROOM_TRAPDOOR.get(),
-                RuBlocks.REDWOOD_DOOR.get(),
-                RuBlocks.REDWOOD_TRAPDOOR.get(),
-                RuBlocks.SOCOTRA_DOOR.get(),
-                RuBlocks.SOCOTRA_TRAPDOOR.get(),
-                RuBlocks.WILLOW_DOOR.get(),
-                RuBlocks.WILLOW_TRAPDOOR.get(),
-                RuBlocks.YELLOW_BIOSHROOM_DOOR.get(),
-                RuBlocks.YELLOW_BIOSHROOM_TRAPDOOR.get(),
                 //EUCALYPTUS_BLOCKS
-                RuBlocks.EUCALYPTUS_LOG.get(),
-                RuBlocks.EUCALYPTUS_WOOD.get(),
+                RuBlocks.EUCALYPTUS.getLog(),
+                RuBlocks.EUCALYPTUS.getWood(),
 
                 /*-----------------NETHER_BLOCKS-----------------*/
                 //BRIMSPROUT_BLOCKS
@@ -473,5 +430,8 @@ public class RuBlockCropCutouts {
                 RuBlocks.MYCOTOXIC_DAISY.get(),
                 RuBlocks.MYCOTOXIC_GRASS.get()
         );
+        for (WoodSet set : RuBlocks.WOOD_SETS) {
+            RenderUtil.putBlocks(Services.RENDER_HELPER, RenderType.cutout(), set.getDoor(), set.getTrapdoor());
+        }
     }
 }

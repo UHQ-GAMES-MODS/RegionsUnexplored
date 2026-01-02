@@ -94,22 +94,22 @@ public class RuBoat extends Boat {
     }
 
     public enum ModelType {
-        BAOBAB("baobab", RuBlocks.BAOBAB_PLANKS.get()),
-        BLACKWOOD("blackwood", RuBlocks.BLACKWOOD_PLANKS.get()),
-        CYPRESS("cypress", RuBlocks.CYPRESS_PLANKS.get()),
-        DEAD("dead", RuBlocks.DEAD_PLANKS.get()),
-        EUCALYPTUS("eucalyptus", RuBlocks.EUCALYPTUS_PLANKS.get()),
-        JOSHUA("joshua", RuBlocks.JOSHUA_PLANKS.get()),
-        KAPOK("kapok", RuBlocks.KAPOK_PLANKS.get()),
-        LARCH("larch", RuBlocks.LARCH_PLANKS.get()),
-        MAGNOLIA("magnolia", RuBlocks.MAGNOLIA_PLANKS.get()),
-        MAPLE("maple", RuBlocks.MAPLE_PLANKS.get()),
-        MAUVE("mauve", RuBlocks.MAUVE_PLANKS.get()),
-        PALM("palm", RuBlocks.PALM_PLANKS.get()),
-        PINE("pine", RuBlocks.PINE_PLANKS.get()),
-        REDWOOD("redwood", RuBlocks.REDWOOD_PLANKS.get()),
-        SOCOTRA("socotra", RuBlocks.SOCOTRA_PLANKS.get()),
-        WILLOW("willow", RuBlocks.WILLOW_PLANKS.get());
+        BAOBAB("baobab", RuBlocks.BAOBAB.getPlanks()),
+        BLACKWOOD("blackwood", RuBlocks.BLACKWOOD.getPlanks()),
+        CYPRESS("cypress", RuBlocks.CYPRESS.getPlanks()),
+        DEAD("dead", RuBlocks.DEAD.getPlanks()),
+        EUCALYPTUS("eucalyptus", RuBlocks.EUCALYPTUS.getPlanks()),
+        JOSHUA("joshua", RuBlocks.JOSHUA.getPlanks()),
+        KAPOK("kapok", RuBlocks.KAPOK.getPlanks()),
+        LARCH("larch", RuBlocks.LARCH.getPlanks()),
+        MAGNOLIA("magnolia", RuBlocks.MAGNOLIA.getPlanks()),
+        MAPLE("maple", RuBlocks.MAPLE.getPlanks()),
+        MAUVE("mauve", RuBlocks.MAUVE.getPlanks()),
+        PALM("palm", RuBlocks.PALM.getPlanks()),
+        PINE("pine", RuBlocks.PINE.getPlanks()),
+        REDWOOD("redwood", RuBlocks.REDWOOD.getPlanks()),
+        SOCOTRA("socotra", RuBlocks.SOCOTRA.getPlanks()),
+        WILLOW("willow", RuBlocks.WILLOW.getPlanks());
 
         private final String name;
         private final Block planks;

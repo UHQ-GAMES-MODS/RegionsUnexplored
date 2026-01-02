@@ -112,7 +112,7 @@ public class SmallSocotraTreeFeature extends Feature<NoneFeatureConfiguration> {
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos)) {
-            level.setBlock(pos, RuBlocks.SOCOTRA_LOG.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
+            level.setBlock(pos, RuBlocks.SOCOTRA.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
         }
         else{
             return;
