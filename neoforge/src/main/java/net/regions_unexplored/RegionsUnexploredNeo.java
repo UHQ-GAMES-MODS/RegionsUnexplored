@@ -1,5 +1,6 @@
 package net.regions_unexplored;
 
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -7,7 +8,9 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.regions_unexplored.client.ParticleRegistration;
+import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
+import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.block.set.WoodSet;
 import net.regions_unexplored.client.RegionsUnexploredClient;
 import net.regions_unexplored.config.RuCommonConfig;
 import net.regions_unexplored.config.RuPrimaryRegionConfig;
@@ -26,6 +29,7 @@ public class RegionsUnexploredNeo {
 
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
+        bus.addListener(this::setupBlockEntities);
 
         registerConfig(container);
 
@@ -34,6 +38,25 @@ public class RegionsUnexploredNeo {
         NeoForgeRegistar.CACHE.values().forEach(deferredRegister -> deferredRegister.register(bus));
         RegionsUnexploredNeoClient.regionsUnexploredNeoClient(bus);
     }
+
+    private void setupBlockEntities(BlockEntityTypeAddBlocksEvent event) {
+        for (WoodSet set : RuBlocks.WOOD_SETS) {
+            if (set.getSign() != null) {
+                event.modify(BlockEntityType.SIGN, set.getSign());
+            }
+            if (set.getWallSign() != null) {
+                event.modify(BlockEntityType.SIGN, set.getWallSign());
+            }
+
+            if (set.getHangingSign() != null) {
+                event.modify(BlockEntityType.SIGN, set.getHangingSign());
+            }
+            if (set.getWallHangingSign() != null) {
+                event.modify(BlockEntityType.SIGN, set.getWallHangingSign());
+            }
+        }
+    }
+
     //set up client side features
     public void clientSetup(final FMLClientSetupEvent event) {
         RegionsUnexploredClient.clientInit();

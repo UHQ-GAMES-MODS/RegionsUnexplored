@@ -8,6 +8,7 @@ public class RenderUtil {
 
     public static void putBlocks(IRenderHelper renderHelper, RenderType type, Block... blocks) {
         for (Block block : blocks) {
+            if (block == null) continue;
             renderHelper.setRenderType(block, type);
         }
     }

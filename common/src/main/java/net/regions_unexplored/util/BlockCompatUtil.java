@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FireBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.Nullable;
 
 public class BlockCompatUtil {
     public static void registerStrippableBlock(Block log, Block strippedLog) {
@@ -27,7 +28,8 @@ public class BlockCompatUtil {
         ComposterBlock.COMPOSTABLES.put(item.asItem(), possibility);
     }
 
-    public static void registerFlammableBlock(Block block, int spreadSpeed, int flammability) {
+    public static void registerFlammableBlock(@Nullable Block block, int spreadSpeed, int flammability) {
+        if (block == null) return;
         FireBlock fireblock = (FireBlock) Blocks.FIRE;
         fireblock.setFlammable(block, spreadSpeed, flammability);
     }

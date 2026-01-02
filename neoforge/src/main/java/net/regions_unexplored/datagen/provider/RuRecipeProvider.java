@@ -251,19 +251,19 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         branchFromLog(consumer, RuBlocks.ACACIA_BRANCH.get(), Blocks.ACACIA_LOG);
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.ACACIA_BRANCH.get(), "stick", 4);
 
-        branchFromLog(consumer, RuBlocks.BAOBAB_BRANCH.get(), RuBlocks.BAOBAB_LOG.get());
+        branchFromLog(consumer, RuBlocks.BAOBAB_BRANCH.get(), RuBlocks.BAOBAB.getLog());
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.BAOBAB_BRANCH.get(), "stick", 4);
 
         branchFromLog(consumer, RuBlocks.BIRCH_BRANCH.get(), Blocks.BIRCH_LOG);
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.BIRCH_BRANCH.get(), "stick", 4);
 
-        branchFromLog(consumer, RuBlocks.BLACKWOOD_BRANCH.get(), RuBlocks.BLACKWOOD_LOG.get());
+        branchFromLog(consumer, RuBlocks.BLACKWOOD_BRANCH.get(), RuBlocks.BLACKWOOD.getLog());
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.BLACKWOOD_BRANCH.get(), "stick", 4);
 
-        branchFromLog(consumer, RuBlocks.MAGNOLIA_BRANCH.get(), RuBlocks.MAGNOLIA_LOG.get());
+        branchFromLog(consumer, RuBlocks.MAGNOLIA_BRANCH.get(), RuBlocks.MAGNOLIA.getLog());
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.MAGNOLIA_BRANCH.get(), "stick", 4);
 
-        branchFromLog(consumer, RuBlocks.CYPRESS_BRANCH.get(), RuBlocks.CYPRESS_LOG.get());
+        branchFromLog(consumer, RuBlocks.CYPRESS_BRANCH.get(), RuBlocks.CYPRESS.getLog());
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.CYPRESS_BRANCH.get(), "stick", 4);
 
         branchFromLog(consumer, RuBlocks.CHERRY_BRANCH.get(), Blocks.CHERRY_LOG);
@@ -272,55 +272,55 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         branchFromLog(consumer, RuBlocks.DARK_OAK_BRANCH.get(), Blocks.DARK_OAK_LOG);
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.DARK_OAK_BRANCH.get(), "stick", 4);
 
-        branchFromLog(consumer, RuBlocks.DEAD_BRANCH.get(), RuBlocks.DEAD_LOG.get());
+        branchFromLog(consumer, RuBlocks.DEAD_BRANCH.get(), RuBlocks.DEAD.getLog());
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.DEAD_BRANCH.get(), "stick", 4);
 
-        branchFromLog(consumer, RuBlocks.EUCALYPTUS_BRANCH.get(), RuBlocks.EUCALYPTUS_LOG.get());
+        branchFromLog(consumer, RuBlocks.EUCALYPTUS_BRANCH.get(), RuBlocks.EUCALYPTUS.getLog());
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.EUCALYPTUS_BRANCH.get(), "stick", 4);
 
-        branchFromLog(consumer, RuBlocks.JOSHUA_BEARD.get(), RuBlocks.JOSHUA_LOG.get());
+        branchFromLog(consumer, RuBlocks.JOSHUA_BEARD.get(), RuBlocks.JOSHUA.getLog());
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.JOSHUA_BEARD.get(), "stick", 4);
 
-        branchFromLog(consumer, RuBlocks.KAPOK_BRANCH.get(), RuBlocks.KAPOK_LOG.get());
+        branchFromLog(consumer, RuBlocks.KAPOK_BRANCH.get(), RuBlocks.KAPOK.getLog());
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.KAPOK_BRANCH.get(), "stick", 4);
 
         branchFromLog(consumer, RuBlocks.JUNGLE_BRANCH.get(), Blocks.JUNGLE_LOG);
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.JUNGLE_BRANCH.get(), "stick", 4);
 
-        branchFromLog(consumer, RuBlocks.LARCH_BRANCH.get(), RuBlocks.LARCH_LOG.get());
+        branchFromLog(consumer, RuBlocks.LARCH_BRANCH.get(), RuBlocks.LARCH.getLog());
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.LARCH_BRANCH.get(), "stick", 4);
 
         branchFromLog(consumer, RuBlocks.MANGROVE_BRANCH.get(), Blocks.MANGROVE_LOG);
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.MANGROVE_BRANCH.get(), "stick", 4);
 
-        branchFromLog(consumer, RuBlocks.MAPLE_BRANCH.get(), RuBlocks.MAPLE_LOG.get());
+        branchFromLog(consumer, RuBlocks.MAPLE_BRANCH.get(), RuBlocks.MAPLE.getLog());
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.MAPLE_BRANCH.get(), "stick", 4);
 
-        branchFromLog(consumer, RuBlocks.MAUVE_BRANCH.get(), RuBlocks.MAUVE_LOG.get());
+        branchFromLog(consumer, RuBlocks.MAUVE_BRANCH.get(), RuBlocks.MAUVE.getLog());
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.MAUVE_BRANCH.get(), "stick", 4);
 
         branchFromLog(consumer, RuBlocks.OAK_BRANCH.get(), Blocks.OAK_LOG);
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.OAK_BRANCH.get(), "stick", 4);
 
-        branchFromLog(consumer, RuBlocks.PALM_BEARD.get(), RuBlocks.PALM_LOG.get());
+        branchFromLog(consumer, RuBlocks.PALM_BEARD.get(), RuBlocks.PALM.getLog());
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.PALM_BEARD.get(), "stick", 4);
 
-        branchFromLog(consumer, RuBlocks.PINE_BRANCH.get(), RuBlocks.PINE_LOG.get());
+        branchFromLog(consumer, RuBlocks.PINE_BRANCH.get(), RuBlocks.PINE.getLog());
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.PINE_BRANCH.get(), "stick", 4);
 
-        branchFromLog(consumer, RuBlocks.REDWOOD_BRANCH.get(), RuBlocks.REDWOOD_LOG.get());
+        branchFromLog(consumer, RuBlocks.REDWOOD_BRANCH.get(), RuBlocks.REDWOOD.getLog());
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.REDWOOD_BRANCH.get(), "stick", 4);
 
-        branchFromLog(consumer, RuBlocks.SILVER_BIRCH_BRANCH.get(), RuBlocks.SILVER_BIRCH_LOG.get());
+        branchFromLog(consumer, RuBlocks.SILVER_BIRCH_BRANCH.get(), RuBlocks.SILVER_BIRCH.getLog());
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.SILVER_BIRCH_BRANCH.get(), "stick", 4);
 
-        branchFromLog(consumer, RuBlocks.SOCOTRA_BRANCH.get(), RuBlocks.SOCOTRA_LOG.get());
+        branchFromLog(consumer, RuBlocks.SOCOTRA_BRANCH.get(), RuBlocks.SOCOTRA.getLog());
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.SOCOTRA_BRANCH.get(), "stick", 4);
 
         branchFromLog(consumer, RuBlocks.SPRUCE_BRANCH.get(), Blocks.SPRUCE_LOG);
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.SPRUCE_BRANCH.get(), "stick", 4);
 
-        branchFromLog(consumer, RuBlocks.WILLOW_BRANCH.get(), RuBlocks.WILLOW_LOG.get());
+        branchFromLog(consumer, RuBlocks.WILLOW_BRANCH.get(), RuBlocks.WILLOW.getLog());
         oneToOneConversionRecipe(consumer, Items.STICK, RuBlocks.WILLOW_BRANCH.get(), "stick", 4);
 
         /*-----------------DIRT_BLOCKS-----------------*/
@@ -384,11 +384,11 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         //planksFromLogs(consumer, Blocks.BAMBOO_PLANKS, RuTags.BAMBOO_LOGS_ITEM, 4);
         //ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, Blocks.BAMBOO, 1).define('#', RuTags.BAMBOO_LOGS_ITEM).pattern("#").pattern("#").group("bamboo").unlockedBy("has_bamboo_log", has(RuTags.BAMBOO_LOGS_ITEM)).save(consumer);
         //ASHEN_BLOCKS
-        woodFromLogs(consumer, RuBlocks.ASHEN_WOOD.get(), RuBlocks.ASHEN_LOG.get());
+        woodFromLogs(consumer, RuBlocks.ASHEN_WOOD.get(), RuBlocks.ASHEN.getLog());
         //SILVER_BIRCH_BLOCKS
-        woodFromLogs(consumer, RuBlocks.SILVER_BIRCH_WOOD.get(), RuBlocks.SILVER_BIRCH_LOG.get());
+        woodFromLogs(consumer, RuBlocks.SILVER_BIRCH_WOOD.get(), RuBlocks.SILVER_BIRCH.getLog());
         //ALPHA_BLOCKS
-        planksFromOneLog(consumer, RuBlocks.ALPHA_PLANKS.get(), RuBlocks.ALPHA_LOG.get(), 4);
+        planksFromOneLog(consumer, RuBlocks.ALPHA_PLANKS.get(), RuBlocks.ALPHA.getLog(), 4);
         woodenStairs(consumer, RuBlocks.ALPHA_STAIRS.get(), RuBlocks.ALPHA_PLANKS.get());
         woodenSlab(consumer, RuBlocks.ALPHA_SLAB.get(), RuBlocks.ALPHA_PLANKS.get());
         woodenFence(consumer, Items.OAK_FENCE, RuBlocks.ALPHA_PLANKS.get());
@@ -401,8 +401,8 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         hangingSign(consumer, Items.OAK_HANGING_SIGN, RuBlocks.ALPHA_PLANKS.get());
         woodenBoat(consumer, Items.OAK_BOAT, RuBlocks.ALPHA_PLANKS.get());
         //BAOBAB_BLOCKS
-        woodFromLogs(consumer, RuBlocks.BAOBAB_WOOD.get(), RuBlocks.BAOBAB_LOG.get());
-        woodFromLogs(consumer, RuBlocks.STRIPPED_BAOBAB_WOOD.get(), RuBlocks.STRIPPED_BAOBAB_LOG.get());
+        woodFromLogs(consumer, RuBlocks.BAOBAB_WOOD.get(), RuBlocks.BAOBAB.getLog());
+        woodFromLogs(consumer, RuBlocks.STRIPPED_BAOBAB_WOOD.get(), RuBlocks.STRIPPED_BAOBAB.getLog());
         planksFromLogs(consumer, RuBlocks.BAOBAB_PLANKS.get(), RuTags.BAOBAB_LOGS_ITEM, 4);
         woodenStairs(consumer, RuBlocks.BAOBAB_STAIRS.get(), RuBlocks.BAOBAB_PLANKS.get());
         woodenSlab(consumer, RuBlocks.BAOBAB_SLAB.get(), RuBlocks.BAOBAB_PLANKS.get());
@@ -413,13 +413,13 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(consumer, RuBlocks.BAOBAB_PRESSURE_PLATE.get(), RuBlocks.BAOBAB_PLANKS.get());
         woodenButton(consumer, RuBlocks.BAOBAB_BUTTON.get(), RuBlocks.BAOBAB_PLANKS.get());
         woodenSign(consumer, RuBlocks.BAOBAB_SIGN.get(), RuBlocks.BAOBAB_PLANKS.get());
-        hangingSign(consumer, RuBlocks.BAOBAB_HANGING_SIGN.get(), RuBlocks.STRIPPED_BAOBAB_LOG.get());
+        hangingSign(consumer, RuBlocks.BAOBAB_HANGING_SIGN.get(), RuBlocks.STRIPPED_BAOBAB.getLog());
         woodenBoat(consumer, RuItems.BAOBAB_BOAT.get(), RuBlocks.BAOBAB_PLANKS.get());
         chestBoat(consumer, RuItems.BAOBAB_CHEST_BOAT.get(), RuItems.BAOBAB_BOAT.get());
         //BRIMWOOD_BLOCKS
-        woodFromLogs(consumer, RuBlocks.BRIMWOOD_WOOD.get(), RuBlocks.BRIMWOOD_LOG.get());
-        woodFromOtherItem(consumer, RuBlocks.BRIMWOOD_WOOD.get(), RuBlocks.BRIMWOOD_LOG_MAGMA.get());
-        woodFromLogs(consumer, RuBlocks.STRIPPED_BRIMWOOD_WOOD.get(), RuBlocks.STRIPPED_BRIMWOOD_LOG.get());
+        woodFromLogs(consumer, RuBlocks.BRIMWOOD_WOOD.get(), RuBlocks.BRIMWOOD.getLog());
+        woodFromOtherItem(consumer, RuBlocks.BRIMWOOD_WOOD.get(), RuBlocks.BRIMWOOD.getLogMagma().get());
+        woodFromLogs(consumer, RuBlocks.STRIPPED_BRIMWOOD_WOOD.get(), RuBlocks.STRIPPED_BRIMWOOD.getLog());
         planksFromLogs(consumer, RuBlocks.BRIMWOOD_PLANKS.get(), RuTags.BRIMWOOD_LOGS_ITEM, 4);
         woodenStairs(consumer, RuBlocks.BRIMWOOD_STAIRS.get(), RuBlocks.BRIMWOOD_PLANKS.get());
         woodenSlab(consumer, RuBlocks.BRIMWOOD_SLAB.get(), RuBlocks.BRIMWOOD_PLANKS.get());
@@ -430,7 +430,7 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(consumer, RuBlocks.BRIMWOOD_PRESSURE_PLATE.get(), RuBlocks.BRIMWOOD_PLANKS.get());
         woodenButton(consumer, RuBlocks.BRIMWOOD_BUTTON.get(), RuBlocks.BRIMWOOD_PLANKS.get());
         woodenSign(consumer, RuBlocks.BRIMWOOD_SIGN.get(), RuBlocks.BRIMWOOD_PLANKS.get());
-        hangingSign(consumer, RuBlocks.BRIMWOOD_HANGING_SIGN.get(), RuBlocks.STRIPPED_BRIMWOOD_LOG.get());
+        hangingSign(consumer, RuBlocks.BRIMWOOD_HANGING_SIGN.get(), RuBlocks.STRIPPED_BRIMWOOD.getLog());
         //BLUE_BIOSHROOM_BLOCKS
         woodFromLogs(consumer, RuBlocks.BLUE_BIOSHROOM_HYPHAE.get(), RuBlocks.BLUE_BIOSHROOM_STEM.get());
         woodFromLogs(consumer, RuBlocks.STRIPPED_BLUE_BIOSHROOM_HYPHAE.get(), RuBlocks.STRIPPED_BLUE_BIOSHROOM_STEM.get());
@@ -446,8 +446,8 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         woodenSign(consumer, RuBlocks.BLUE_BIOSHROOM_SIGN.get(), RuBlocks.BLUE_BIOSHROOM_PLANKS.get());
         hangingSign(consumer, RuBlocks.BLUE_BIOSHROOM_HANGING_SIGN.get(), RuBlocks.STRIPPED_BLUE_BIOSHROOM_STEM.get());
         //BLACKWOOD_BLOCKS
-        woodFromLogs(consumer, RuBlocks.BLACKWOOD_WOOD.get(), RuBlocks.BLACKWOOD_LOG.get());
-        woodFromLogs(consumer, RuBlocks.STRIPPED_BLACKWOOD_WOOD.get(), RuBlocks.STRIPPED_BLACKWOOD_LOG.get());
+        woodFromLogs(consumer, RuBlocks.BLACKWOOD_WOOD.get(), RuBlocks.BLACKWOOD.getLog());
+        woodFromLogs(consumer, RuBlocks.STRIPPED_BLACKWOOD_WOOD.get(), RuBlocks.STRIPPED_BLACKWOOD.getLog());
         planksFromLogs(consumer, RuBlocks.BLACKWOOD_PLANKS.get(), RuTags.BLACKWOOD_LOGS_ITEM, 4);
         woodenStairs(consumer, RuBlocks.BLACKWOOD_STAIRS.get(), RuBlocks.BLACKWOOD_PLANKS.get());
         woodenSlab(consumer, RuBlocks.BLACKWOOD_SLAB.get(), RuBlocks.BLACKWOOD_PLANKS.get());
@@ -458,12 +458,12 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(consumer, RuBlocks.BLACKWOOD_PRESSURE_PLATE.get(), RuBlocks.BLACKWOOD_PLANKS.get());
         woodenButton(consumer, RuBlocks.BLACKWOOD_BUTTON.get(), RuBlocks.BLACKWOOD_PLANKS.get());
         woodenSign(consumer, RuBlocks.BLACKWOOD_SIGN.get(), RuBlocks.BLACKWOOD_PLANKS.get());
-        hangingSign(consumer, RuBlocks.BLACKWOOD_HANGING_SIGN.get(), RuBlocks.STRIPPED_BLACKWOOD_LOG.get());
+        hangingSign(consumer, RuBlocks.BLACKWOOD_HANGING_SIGN.get(), RuBlocks.STRIPPED_BLACKWOOD.getLog());
         woodenBoat(consumer, RuItems.BLACKWOOD_BOAT.get(), RuBlocks.BLACKWOOD_PLANKS.get());
         chestBoat(consumer, RuItems.BLACKWOOD_CHEST_BOAT.get(), RuItems.BLACKWOOD_BOAT.get());
         //COBALT_BLOCKS
-        woodFromLogs(consumer, RuBlocks.COBALT_WOOD.get(), RuBlocks.COBALT_LOG.get());
-        woodFromLogs(consumer, RuBlocks.STRIPPED_COBALT_WOOD.get(), RuBlocks.STRIPPED_COBALT_LOG.get());
+        woodFromLogs(consumer, RuBlocks.COBALT_WOOD.get(), RuBlocks.COBALT.getLog());
+        woodFromLogs(consumer, RuBlocks.STRIPPED_COBALT_WOOD.get(), RuBlocks.STRIPPED_COBALT.getLog());
         planksFromLogs(consumer, RuBlocks.COBALT_PLANKS.get(), RuTags.COBALT_LOGS_ITEM, 4);
         woodenStairs(consumer, RuBlocks.COBALT_STAIRS.get(), RuBlocks.COBALT_PLANKS.get());
         woodenSlab(consumer, RuBlocks.COBALT_SLAB.get(), RuBlocks.COBALT_PLANKS.get());
@@ -474,10 +474,10 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(consumer, RuBlocks.COBALT_PRESSURE_PLATE.get(), RuBlocks.COBALT_PLANKS.get());
         woodenButton(consumer, RuBlocks.COBALT_BUTTON.get(), RuBlocks.COBALT_PLANKS.get());
         woodenSign(consumer, RuBlocks.COBALT_SIGN.get(), RuBlocks.COBALT_PLANKS.get());
-        hangingSign(consumer, RuBlocks.COBALT_HANGING_SIGN.get(), RuBlocks.STRIPPED_COBALT_LOG.get());
+        hangingSign(consumer, RuBlocks.COBALT_HANGING_SIGN.get(), RuBlocks.STRIPPED_COBALT.getLog());
         //CYPRESS_BLOCKS
-        woodFromLogs(consumer, RuBlocks.CYPRESS_WOOD.get(), RuBlocks.CYPRESS_LOG.get());
-        woodFromLogs(consumer, RuBlocks.STRIPPED_CYPRESS_WOOD.get(), RuBlocks.STRIPPED_CYPRESS_LOG.get());
+        woodFromLogs(consumer, RuBlocks.CYPRESS_WOOD.get(), RuBlocks.CYPRESS.getLog());
+        woodFromLogs(consumer, RuBlocks.STRIPPED_CYPRESS_WOOD.get(), RuBlocks.STRIPPED_CYPRESS.getLog());
         planksFromLogs(consumer, RuBlocks.CYPRESS_PLANKS.get(), RuTags.CYPRESS_LOGS_ITEM, 4);
         woodenStairs(consumer, RuBlocks.CYPRESS_STAIRS.get(), RuBlocks.CYPRESS_PLANKS.get());
         woodenSlab(consumer, RuBlocks.CYPRESS_SLAB.get(), RuBlocks.CYPRESS_PLANKS.get());
@@ -488,12 +488,12 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(consumer, RuBlocks.CYPRESS_PRESSURE_PLATE.get(), RuBlocks.CYPRESS_PLANKS.get());
         woodenButton(consumer, RuBlocks.CYPRESS_BUTTON.get(), RuBlocks.CYPRESS_PLANKS.get());
         woodenSign(consumer, RuBlocks.CYPRESS_SIGN.get(), RuBlocks.CYPRESS_PLANKS.get());
-        hangingSign(consumer, RuBlocks.CYPRESS_HANGING_SIGN.get(), RuBlocks.STRIPPED_CYPRESS_LOG.get());
+        hangingSign(consumer, RuBlocks.CYPRESS_HANGING_SIGN.get(), RuBlocks.STRIPPED_CYPRESS.getLog());
         woodenBoat(consumer, RuItems.CYPRESS_BOAT.get(), RuBlocks.CYPRESS_PLANKS.get());
         chestBoat(consumer, RuItems.CYPRESS_CHEST_BOAT.get(), RuItems.CYPRESS_BOAT.get());
         //DEAD_BLOCKS
-        woodFromLogs(consumer, RuBlocks.DEAD_WOOD.get(), RuBlocks.DEAD_LOG.get());
-        woodFromLogs(consumer, RuBlocks.STRIPPED_DEAD_WOOD.get(), RuBlocks.STRIPPED_DEAD_LOG.get());
+        woodFromLogs(consumer, RuBlocks.DEAD_WOOD.get(), RuBlocks.DEAD.getLog());
+        woodFromLogs(consumer, RuBlocks.STRIPPED_DEAD_WOOD.get(), RuBlocks.STRIPPED_DEAD.getLog());
         planksFromLogs(consumer, RuBlocks.DEAD_PLANKS.get(), RuTags.DEAD_LOGS_ITEM, 4);
         woodenStairs(consumer, RuBlocks.DEAD_STAIRS.get(), RuBlocks.DEAD_PLANKS.get());
         woodenSlab(consumer, RuBlocks.DEAD_SLAB.get(), RuBlocks.DEAD_PLANKS.get());
@@ -504,12 +504,12 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(consumer, RuBlocks.DEAD_PRESSURE_PLATE.get(), RuBlocks.DEAD_PLANKS.get());
         woodenButton(consumer, RuBlocks.DEAD_BUTTON.get(), RuBlocks.DEAD_PLANKS.get());
         woodenSign(consumer, RuBlocks.DEAD_SIGN.get(), RuBlocks.DEAD_PLANKS.get());
-        hangingSign(consumer, RuBlocks.DEAD_HANGING_SIGN.get(), RuBlocks.STRIPPED_DEAD_LOG.get());
+        hangingSign(consumer, RuBlocks.DEAD_HANGING_SIGN.get(), RuBlocks.STRIPPED_DEAD.getLog());
         woodenBoat(consumer, RuItems.DEAD_BOAT.get(), RuBlocks.DEAD_PLANKS.get());
         chestBoat(consumer, RuItems.DEAD_CHEST_BOAT.get(), RuItems.DEAD_BOAT.get());
         //EUCALYPTUS_BLOCKS
-        woodFromLogs(consumer, RuBlocks.EUCALYPTUS_WOOD.get(), RuBlocks.EUCALYPTUS_LOG.get());
-        woodFromLogs(consumer, RuBlocks.STRIPPED_EUCALYPTUS_WOOD.get(), RuBlocks.STRIPPED_EUCALYPTUS_LOG.get());
+        woodFromLogs(consumer, RuBlocks.EUCALYPTUS_WOOD.get(), RuBlocks.EUCALYPTUS.getLog());
+        woodFromLogs(consumer, RuBlocks.STRIPPED_EUCALYPTUS_WOOD.get(), RuBlocks.STRIPPED_EUCALYPTUS.getLog());
         planksFromLogs(consumer, RuBlocks.EUCALYPTUS_PLANKS.get(), RuTags.EUCALYPTUS_LOGS_ITEM, 4);
         woodenStairs(consumer, RuBlocks.EUCALYPTUS_STAIRS.get(), RuBlocks.EUCALYPTUS_PLANKS.get());
         woodenSlab(consumer, RuBlocks.EUCALYPTUS_SLAB.get(), RuBlocks.EUCALYPTUS_PLANKS.get());
@@ -520,7 +520,7 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(consumer, RuBlocks.EUCALYPTUS_PRESSURE_PLATE.get(), RuBlocks.EUCALYPTUS_PLANKS.get());
         woodenButton(consumer, RuBlocks.EUCALYPTUS_BUTTON.get(), RuBlocks.EUCALYPTUS_PLANKS.get());
         woodenSign(consumer, RuBlocks.EUCALYPTUS_SIGN.get(), RuBlocks.EUCALYPTUS_PLANKS.get());
-        hangingSign(consumer, RuBlocks.EUCALYPTUS_HANGING_SIGN.get(), RuBlocks.STRIPPED_EUCALYPTUS_LOG.get());
+        hangingSign(consumer, RuBlocks.EUCALYPTUS_HANGING_SIGN.get(), RuBlocks.STRIPPED_EUCALYPTUS.getLog());
         woodenBoat(consumer, RuItems.EUCALYPTUS_BOAT.get(), RuBlocks.EUCALYPTUS_PLANKS.get());
         chestBoat(consumer, RuItems.EUCALYPTUS_CHEST_BOAT.get(), RuItems.EUCALYPTUS_BOAT.get());
         //GREEN_BIOSHROOM_BLOCKS
@@ -538,8 +538,8 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         woodenSign(consumer, RuBlocks.GREEN_BIOSHROOM_SIGN.get(), RuBlocks.GREEN_BIOSHROOM_PLANKS.get());
         hangingSign(consumer, RuBlocks.GREEN_BIOSHROOM_HANGING_SIGN.get(), RuBlocks.STRIPPED_GREEN_BIOSHROOM_STEM.get());
         //JOSHUA_BLOCKS
-        woodFromLogs(consumer, RuBlocks.JOSHUA_WOOD.get(), RuBlocks.JOSHUA_LOG.get());
-        woodFromLogs(consumer, RuBlocks.STRIPPED_JOSHUA_WOOD.get(), RuBlocks.STRIPPED_JOSHUA_LOG.get());
+        woodFromLogs(consumer, RuBlocks.JOSHUA_WOOD.get(), RuBlocks.JOSHUA.getLog());
+        woodFromLogs(consumer, RuBlocks.STRIPPED_JOSHUA_WOOD.get(), RuBlocks.STRIPPED_JOSHUA.getLog());
         planksFromLogs(consumer, RuBlocks.JOSHUA_PLANKS.get(), RuTags.JOSHUA_LOGS_ITEM, 4);
         woodenStairs(consumer, RuBlocks.JOSHUA_STAIRS.get(), RuBlocks.JOSHUA_PLANKS.get());
         woodenSlab(consumer, RuBlocks.JOSHUA_SLAB.get(), RuBlocks.JOSHUA_PLANKS.get());
@@ -550,12 +550,12 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(consumer, RuBlocks.JOSHUA_PRESSURE_PLATE.get(), RuBlocks.JOSHUA_PLANKS.get());
         woodenButton(consumer, RuBlocks.JOSHUA_BUTTON.get(), RuBlocks.JOSHUA_PLANKS.get());
         woodenSign(consumer, RuBlocks.JOSHUA_SIGN.get(), RuBlocks.JOSHUA_PLANKS.get());
-        hangingSign(consumer, RuBlocks.JOSHUA_HANGING_SIGN.get(), RuBlocks.STRIPPED_JOSHUA_LOG.get());
+        hangingSign(consumer, RuBlocks.JOSHUA_HANGING_SIGN.get(), RuBlocks.STRIPPED_JOSHUA.getLog());
         woodenBoat(consumer, RuItems.JOSHUA_BOAT.get(), RuBlocks.JOSHUA_PLANKS.get());
         chestBoat(consumer, RuItems.JOSHUA_CHEST_BOAT.get(), RuItems.JOSHUA_BOAT.get());
         //KAPOK_BLOCKS
-        woodFromLogs(consumer, RuBlocks.KAPOK_WOOD.get(), RuBlocks.KAPOK_LOG.get());
-        woodFromLogs(consumer, RuBlocks.STRIPPED_KAPOK_WOOD.get(), RuBlocks.STRIPPED_KAPOK_LOG.get());
+        woodFromLogs(consumer, RuBlocks.KAPOK_WOOD.get(), RuBlocks.KAPOK.getLog());
+        woodFromLogs(consumer, RuBlocks.STRIPPED_KAPOK_WOOD.get(), RuBlocks.STRIPPED_KAPOK.getLog());
         planksFromLogs(consumer, RuBlocks.KAPOK_PLANKS.get(), RuTags.KAPOK_LOGS_ITEM, 4);
         woodenStairs(consumer, RuBlocks.KAPOK_STAIRS.get(), RuBlocks.KAPOK_PLANKS.get());
         woodenSlab(consumer, RuBlocks.KAPOK_SLAB.get(), RuBlocks.KAPOK_PLANKS.get());
@@ -566,12 +566,12 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(consumer, RuBlocks.KAPOK_PRESSURE_PLATE.get(), RuBlocks.KAPOK_PLANKS.get());
         woodenButton(consumer, RuBlocks.KAPOK_BUTTON.get(), RuBlocks.KAPOK_PLANKS.get());
         woodenSign(consumer, RuBlocks.KAPOK_SIGN.get(), RuBlocks.KAPOK_PLANKS.get());
-        hangingSign(consumer, RuBlocks.KAPOK_HANGING_SIGN.get(), RuBlocks.STRIPPED_KAPOK_LOG.get());
+        hangingSign(consumer, RuBlocks.KAPOK_HANGING_SIGN.get(), RuBlocks.STRIPPED_KAPOK.getLog());
         woodenBoat(consumer, RuItems.KAPOK_BOAT.get(), RuBlocks.KAPOK_PLANKS.get());
         chestBoat(consumer, RuItems.KAPOK_CHEST_BOAT.get(), RuItems.KAPOK_BOAT.get());
         //LARCH_BLOCKS
-        woodFromLogs(consumer, RuBlocks.LARCH_WOOD.get(), RuBlocks.LARCH_LOG.get());
-        woodFromLogs(consumer, RuBlocks.STRIPPED_LARCH_WOOD.get(), RuBlocks.STRIPPED_LARCH_LOG.get());
+        woodFromLogs(consumer, RuBlocks.LARCH_WOOD.get(), RuBlocks.LARCH.getLog());
+        woodFromLogs(consumer, RuBlocks.STRIPPED_LARCH_WOOD.get(), RuBlocks.STRIPPED_LARCH.getLog());
         planksFromLogs(consumer, RuBlocks.LARCH_PLANKS.get(), RuTags.LARCH_LOGS_ITEM, 4);
         woodenStairs(consumer, RuBlocks.LARCH_STAIRS.get(), RuBlocks.LARCH_PLANKS.get());
         woodenSlab(consumer, RuBlocks.LARCH_SLAB.get(), RuBlocks.LARCH_PLANKS.get());
@@ -582,12 +582,12 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(consumer, RuBlocks.LARCH_PRESSURE_PLATE.get(), RuBlocks.LARCH_PLANKS.get());
         woodenButton(consumer, RuBlocks.LARCH_BUTTON.get(), RuBlocks.LARCH_PLANKS.get());
         woodenSign(consumer, RuBlocks.LARCH_SIGN.get(), RuBlocks.LARCH_PLANKS.get());
-        hangingSign(consumer, RuBlocks.LARCH_HANGING_SIGN.get(), RuBlocks.STRIPPED_LARCH_LOG.get());
+        hangingSign(consumer, RuBlocks.LARCH_HANGING_SIGN.get(), RuBlocks.STRIPPED_LARCH.getLog());
         woodenBoat(consumer, RuItems.LARCH_BOAT.get(), RuBlocks.LARCH_PLANKS.get());
         chestBoat(consumer, RuItems.LARCH_CHEST_BOAT.get(), RuItems.LARCH_BOAT.get());
         //MAGNOLIA_BLOCKS
-        woodFromLogs(consumer, RuBlocks.MAGNOLIA_WOOD.get(), RuBlocks.MAGNOLIA_LOG.get());
-        woodFromLogs(consumer, RuBlocks.STRIPPED_MAGNOLIA_WOOD.get(), RuBlocks.STRIPPED_MAGNOLIA_LOG.get());
+        woodFromLogs(consumer, RuBlocks.MAGNOLIA_WOOD.get(), RuBlocks.MAGNOLIA.getLog());
+        woodFromLogs(consumer, RuBlocks.STRIPPED_MAGNOLIA_WOOD.get(), RuBlocks.STRIPPED_MAGNOLIA.getLog());
         planksFromLogs(consumer, RuBlocks.MAGNOLIA_PLANKS.get(), RuTags.MAGNOLIA_LOGS_ITEM, 4);
         woodenStairs(consumer, RuBlocks.MAGNOLIA_STAIRS.get(), RuBlocks.MAGNOLIA_PLANKS.get());
         woodenSlab(consumer, RuBlocks.MAGNOLIA_SLAB.get(), RuBlocks.MAGNOLIA_PLANKS.get());
@@ -598,12 +598,12 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(consumer, RuBlocks.MAGNOLIA_PRESSURE_PLATE.get(), RuBlocks.MAGNOLIA_PLANKS.get());
         woodenButton(consumer, RuBlocks.MAGNOLIA_BUTTON.get(), RuBlocks.MAGNOLIA_PLANKS.get());
         woodenSign(consumer, RuBlocks.MAGNOLIA_SIGN.get(), RuBlocks.MAGNOLIA_PLANKS.get());
-        hangingSign(consumer, RuBlocks.MAGNOLIA_HANGING_SIGN.get(), RuBlocks.STRIPPED_MAGNOLIA_LOG.get());
+        hangingSign(consumer, RuBlocks.MAGNOLIA_HANGING_SIGN.get(), RuBlocks.STRIPPED_MAGNOLIA.getLog());
         woodenBoat(consumer, RuItems.MAGNOLIA_BOAT.get(), RuBlocks.MAGNOLIA_PLANKS.get());
         chestBoat(consumer, RuItems.MAGNOLIA_CHEST_BOAT.get(), RuItems.MAGNOLIA_BOAT.get());
         //MAPLE_BLOCKS
-        woodFromLogs(consumer, RuBlocks.MAPLE_WOOD.get(), RuBlocks.MAPLE_LOG.get());
-        woodFromLogs(consumer, RuBlocks.STRIPPED_MAPLE_WOOD.get(), RuBlocks.STRIPPED_MAPLE_LOG.get());
+        woodFromLogs(consumer, RuBlocks.MAPLE_WOOD.get(), RuBlocks.MAPLE.getLog());
+        woodFromLogs(consumer, RuBlocks.STRIPPED_MAPLE_WOOD.get(), RuBlocks.STRIPPED_MAPLE.getLog());
         planksFromLogs(consumer, RuBlocks.MAPLE_PLANKS.get(), RuTags.MAPLE_LOGS_ITEM, 4);
         woodenStairs(consumer, RuBlocks.MAPLE_STAIRS.get(), RuBlocks.MAPLE_PLANKS.get());
         woodenSlab(consumer, RuBlocks.MAPLE_SLAB.get(), RuBlocks.MAPLE_PLANKS.get());
@@ -614,12 +614,12 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(consumer, RuBlocks.MAPLE_PRESSURE_PLATE.get(), RuBlocks.MAPLE_PLANKS.get());
         woodenButton(consumer, RuBlocks.MAPLE_BUTTON.get(), RuBlocks.MAPLE_PLANKS.get());
         woodenSign(consumer, RuBlocks.MAPLE_SIGN.get(), RuBlocks.MAPLE_PLANKS.get());
-        hangingSign(consumer, RuBlocks.MAPLE_HANGING_SIGN.get(), RuBlocks.STRIPPED_MAPLE_LOG.get());
+        hangingSign(consumer, RuBlocks.MAPLE_HANGING_SIGN.get(), RuBlocks.STRIPPED_MAPLE.getLog());
         woodenBoat(consumer, RuItems.MAPLE_BOAT.get(), RuBlocks.MAPLE_PLANKS.get());
         chestBoat(consumer, RuItems.MAPLE_CHEST_BOAT.get(), RuItems.MAPLE_BOAT.get());
         //MAUVE_BLOCKS
-        woodFromLogs(consumer, RuBlocks.MAUVE_WOOD.get(), RuBlocks.MAUVE_LOG.get());
-        woodFromLogs(consumer, RuBlocks.STRIPPED_MAUVE_WOOD.get(), RuBlocks.STRIPPED_MAUVE_LOG.get());
+        woodFromLogs(consumer, RuBlocks.MAUVE_WOOD.get(), RuBlocks.MAUVE.getLog());
+        woodFromLogs(consumer, RuBlocks.STRIPPED_MAUVE_WOOD.get(), RuBlocks.STRIPPED_MAUVE.getLog());
         planksFromLogs(consumer, RuBlocks.MAUVE_PLANKS.get(), RuTags.MAUVE_LOGS_ITEM, 4);
         woodenStairs(consumer, RuBlocks.MAUVE_STAIRS.get(), RuBlocks.MAUVE_PLANKS.get());
         woodenSlab(consumer, RuBlocks.MAUVE_SLAB.get(), RuBlocks.MAUVE_PLANKS.get());
@@ -630,12 +630,12 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(consumer, RuBlocks.MAUVE_PRESSURE_PLATE.get(), RuBlocks.MAUVE_PLANKS.get());
         woodenButton(consumer, RuBlocks.MAUVE_BUTTON.get(), RuBlocks.MAUVE_PLANKS.get());
         woodenSign(consumer, RuBlocks.MAUVE_SIGN.get(), RuBlocks.MAUVE_PLANKS.get());
-        hangingSign(consumer, RuBlocks.MAUVE_HANGING_SIGN.get(), RuBlocks.STRIPPED_MAUVE_LOG.get());
+        hangingSign(consumer, RuBlocks.MAUVE_HANGING_SIGN.get(), RuBlocks.STRIPPED_MAUVE.getLog());
         woodenBoat(consumer, RuItems.MAUVE_BOAT.get(), RuBlocks.MAUVE_PLANKS.get());
         chestBoat(consumer, RuItems.MAUVE_CHEST_BOAT.get(), RuItems.MAUVE_BOAT.get());
         //PALM_BLOCKS
-        woodFromLogs(consumer, RuBlocks.PALM_WOOD.get(), RuBlocks.PALM_LOG.get());
-        woodFromLogs(consumer, RuBlocks.STRIPPED_PALM_WOOD.get(), RuBlocks.STRIPPED_PALM_LOG.get());
+        woodFromLogs(consumer, RuBlocks.PALM_WOOD.get(), RuBlocks.PALM.getLog());
+        woodFromLogs(consumer, RuBlocks.STRIPPED_PALM_WOOD.get(), RuBlocks.STRIPPED_PALM.getLog());
         planksFromLogs(consumer, RuBlocks.PALM_PLANKS.get(), RuTags.PALM_LOGS_ITEM, 4);
         woodenStairs(consumer, RuBlocks.PALM_STAIRS.get(), RuBlocks.PALM_PLANKS.get());
         woodenSlab(consumer, RuBlocks.PALM_SLAB.get(), RuBlocks.PALM_PLANKS.get());
@@ -646,12 +646,12 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(consumer, RuBlocks.PALM_PRESSURE_PLATE.get(), RuBlocks.PALM_PLANKS.get());
         woodenButton(consumer, RuBlocks.PALM_BUTTON.get(), RuBlocks.PALM_PLANKS.get());
         woodenSign(consumer, RuBlocks.PALM_SIGN.get(), RuBlocks.PALM_PLANKS.get());
-        hangingSign(consumer, RuBlocks.PALM_HANGING_SIGN.get(), RuBlocks.STRIPPED_PALM_LOG.get());
+        hangingSign(consumer, RuBlocks.PALM_HANGING_SIGN.get(), RuBlocks.STRIPPED_PALM.getLog());
         woodenBoat(consumer, RuItems.PALM_BOAT.get(), RuBlocks.PALM_PLANKS.get());
         chestBoat(consumer, RuItems.PALM_CHEST_BOAT.get(), RuItems.PALM_BOAT.get());
         //PINE_BLOCKS
-        woodFromLogs(consumer, RuBlocks.PINE_WOOD.get(), RuBlocks.PINE_LOG.get());
-        woodFromLogs(consumer, RuBlocks.STRIPPED_PINE_WOOD.get(), RuBlocks.STRIPPED_PINE_LOG.get());
+        woodFromLogs(consumer, RuBlocks.PINE_WOOD.get(), RuBlocks.PINE.getLog());
+        woodFromLogs(consumer, RuBlocks.STRIPPED_PINE_WOOD.get(), RuBlocks.STRIPPED_PINE.getLog());
         planksFromLogs(consumer, RuBlocks.PINE_PLANKS.get(), RuTags.PINE_LOGS_ITEM, 4);
         woodenStairs(consumer, RuBlocks.PINE_STAIRS.get(), RuBlocks.PINE_PLANKS.get());
         woodenSlab(consumer, RuBlocks.PINE_SLAB.get(), RuBlocks.PINE_PLANKS.get());
@@ -662,7 +662,7 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(consumer, RuBlocks.PINE_PRESSURE_PLATE.get(), RuBlocks.PINE_PLANKS.get());
         woodenButton(consumer, RuBlocks.PINE_BUTTON.get(), RuBlocks.PINE_PLANKS.get());
         woodenSign(consumer, RuBlocks.PINE_SIGN.get(), RuBlocks.PINE_PLANKS.get());
-        hangingSign(consumer, RuBlocks.PINE_HANGING_SIGN.get(), RuBlocks.STRIPPED_PINE_LOG.get());
+        hangingSign(consumer, RuBlocks.PINE_HANGING_SIGN.get(), RuBlocks.STRIPPED_PINE.getLog());
         woodenBoat(consumer, RuItems.PINE_BOAT.get(), RuBlocks.PINE_PLANKS.get());
         chestBoat(consumer, RuItems.PINE_CHEST_BOAT.get(), RuItems.PINE_BOAT.get());
         //PINK_BIOSHROOM_BLOCKS
@@ -680,8 +680,8 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         woodenSign(consumer, RuBlocks.PINK_BIOSHROOM_SIGN.get(), RuBlocks.PINK_BIOSHROOM_PLANKS.get());
         hangingSign(consumer, RuBlocks.PINK_BIOSHROOM_HANGING_SIGN.get(), RuBlocks.STRIPPED_PINK_BIOSHROOM_STEM.get());
         //REDWOOD_BLOCKS
-        woodFromLogs(consumer, RuBlocks.REDWOOD_WOOD.get(), RuBlocks.REDWOOD_LOG.get());
-        woodFromLogs(consumer, RuBlocks.STRIPPED_REDWOOD_WOOD.get(), RuBlocks.STRIPPED_REDWOOD_LOG.get());
+        woodFromLogs(consumer, RuBlocks.REDWOOD_WOOD.get(), RuBlocks.REDWOOD.getLog());
+        woodFromLogs(consumer, RuBlocks.STRIPPED_REDWOOD_WOOD.get(), RuBlocks.STRIPPED_REDWOOD.getLog());
         planksFromLogs(consumer, RuBlocks.REDWOOD_PLANKS.get(), RuTags.REDWOOD_LOGS_ITEM, 4);
         woodenStairs(consumer, RuBlocks.REDWOOD_STAIRS.get(), RuBlocks.REDWOOD_PLANKS.get());
         woodenSlab(consumer, RuBlocks.REDWOOD_SLAB.get(), RuBlocks.REDWOOD_PLANKS.get());
@@ -692,12 +692,12 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(consumer, RuBlocks.REDWOOD_PRESSURE_PLATE.get(), RuBlocks.REDWOOD_PLANKS.get());
         woodenButton(consumer, RuBlocks.REDWOOD_BUTTON.get(), RuBlocks.REDWOOD_PLANKS.get());
         woodenSign(consumer, RuBlocks.REDWOOD_SIGN.get(), RuBlocks.REDWOOD_PLANKS.get());
-        hangingSign(consumer, RuBlocks.REDWOOD_HANGING_SIGN.get(), RuBlocks.STRIPPED_REDWOOD_LOG.get());
+        hangingSign(consumer, RuBlocks.REDWOOD_HANGING_SIGN.get(), RuBlocks.STRIPPED_REDWOOD.getLog());
         woodenBoat(consumer, RuItems.REDWOOD_BOAT.get(), RuBlocks.REDWOOD_PLANKS.get());
         chestBoat(consumer, RuItems.REDWOOD_CHEST_BOAT.get(), RuItems.REDWOOD_BOAT.get());
         //SOCOTRA_BLOCKS
-        woodFromLogs(consumer, RuBlocks.SOCOTRA_WOOD.get(), RuBlocks.SOCOTRA_LOG.get());
-        woodFromLogs(consumer, RuBlocks.STRIPPED_SOCOTRA_WOOD.get(), RuBlocks.STRIPPED_SOCOTRA_LOG.get());
+        woodFromLogs(consumer, RuBlocks.SOCOTRA_WOOD.get(), RuBlocks.SOCOTRA.getLog());
+        woodFromLogs(consumer, RuBlocks.STRIPPED_SOCOTRA_WOOD.get(), RuBlocks.STRIPPED_SOCOTRA.getLog());
         planksFromLogs(consumer, RuBlocks.SOCOTRA_PLANKS.get(), RuTags.SOCOTRA_LOGS_ITEM, 4);
         woodenStairs(consumer, RuBlocks.SOCOTRA_STAIRS.get(), RuBlocks.SOCOTRA_PLANKS.get());
         woodenSlab(consumer, RuBlocks.SOCOTRA_SLAB.get(), RuBlocks.SOCOTRA_PLANKS.get());
@@ -708,12 +708,12 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(consumer, RuBlocks.SOCOTRA_PRESSURE_PLATE.get(), RuBlocks.SOCOTRA_PLANKS.get());
         woodenButton(consumer, RuBlocks.SOCOTRA_BUTTON.get(), RuBlocks.SOCOTRA_PLANKS.get());
         woodenSign(consumer, RuBlocks.SOCOTRA_SIGN.get(), RuBlocks.SOCOTRA_PLANKS.get());
-        hangingSign(consumer, RuBlocks.SOCOTRA_HANGING_SIGN.get(), RuBlocks.STRIPPED_SOCOTRA_LOG.get());
+        hangingSign(consumer, RuBlocks.SOCOTRA_HANGING_SIGN.get(), RuBlocks.STRIPPED_SOCOTRA.getLog());
         woodenBoat(consumer, RuItems.SOCOTRA_BOAT.get(), RuBlocks.SOCOTRA_PLANKS.get());
         chestBoat(consumer, RuItems.SOCOTRA_CHEST_BOAT.get(), RuItems.SOCOTRA_BOAT.get());
         //WILLOW_BLOCKS
-        woodFromLogs(consumer, RuBlocks.WILLOW_WOOD.get(), RuBlocks.WILLOW_LOG.get());
-        woodFromLogs(consumer, RuBlocks.STRIPPED_WILLOW_WOOD.get(), RuBlocks.STRIPPED_WILLOW_LOG.get());
+        woodFromLogs(consumer, RuBlocks.WILLOW_WOOD.get(), RuBlocks.WILLOW.getLog());
+        woodFromLogs(consumer, RuBlocks.STRIPPED_WILLOW_WOOD.get(), RuBlocks.STRIPPED_WILLOW.getLog());
         planksFromLogs(consumer, RuBlocks.WILLOW_PLANKS.get(), RuTags.WILLOW_LOGS_ITEM, 4);
         woodenStairs(consumer, RuBlocks.WILLOW_STAIRS.get(), RuBlocks.WILLOW_PLANKS.get());
         woodenSlab(consumer, RuBlocks.WILLOW_SLAB.get(), RuBlocks.WILLOW_PLANKS.get());
@@ -724,7 +724,7 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         pressurePlate(consumer, RuBlocks.WILLOW_PRESSURE_PLATE.get(), RuBlocks.WILLOW_PLANKS.get());
         woodenButton(consumer, RuBlocks.WILLOW_BUTTON.get(), RuBlocks.WILLOW_PLANKS.get());
         woodenSign(consumer, RuBlocks.WILLOW_SIGN.get(), RuBlocks.WILLOW_PLANKS.get());
-        hangingSign(consumer, RuBlocks.WILLOW_HANGING_SIGN.get(), RuBlocks.STRIPPED_WILLOW_LOG.get());
+        hangingSign(consumer, RuBlocks.WILLOW_HANGING_SIGN.get(), RuBlocks.STRIPPED_WILLOW.getLog());
         woodenBoat(consumer, RuItems.WILLOW_BOAT.get(), RuBlocks.WILLOW_PLANKS.get());
         chestBoat(consumer, RuItems.WILLOW_CHEST_BOAT.get(), RuItems.WILLOW_BOAT.get());
         //YELLOW_BIOSHROOM_BLOCKS

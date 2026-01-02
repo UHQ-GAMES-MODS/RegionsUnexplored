@@ -2,20 +2,25 @@ package net.regions_unexplored.block.compat;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.block.set.WoodSet;
+
+import java.util.List;
+import java.util.Objects;
 
 
 public class FurnaceBurnTimes {
     public static final ImmutableList<Item> BURN_TIME_300 = ImmutableList.of(
-            RuBlocks.SILVER_BIRCH_LOG.get().asItem(),
+            /*RuBlocks.SILVER_BIRCH.getLog().asItem(),
             RuBlocks.SILVER_BIRCH_WOOD.get().asItem(),
 
-            RuBlocks.ALPHA_LOG.get().asItem(),
+            RuBlocks.ALPHA.getLog().asItem(),
             RuBlocks.ALPHA_PLANKS.get().asItem(),
             RuBlocks.ALPHA_STAIRS.get().asItem(),
 
-            RuBlocks.BAOBAB_LOG.get().asItem(),
-            RuBlocks.STRIPPED_BAOBAB_LOG.get().asItem(),
+            RuBlocks.BAOBAB.getLog().asItem(),
+            RuBlocks.STRIPPED_BAOBAB.getLog().asItem(),
             RuBlocks.BAOBAB_WOOD.get().asItem(),
             RuBlocks.STRIPPED_BAOBAB_WOOD.get().asItem(),
             RuBlocks.BAOBAB_PLANKS.get().asItem(),
@@ -25,8 +30,8 @@ public class FurnaceBurnTimes {
             RuBlocks.BAOBAB_TRAPDOOR.get().asItem(),
             RuBlocks.BAOBAB_PRESSURE_PLATE.get().asItem(),
 
-            RuBlocks.BLACKWOOD_LOG.get().asItem(),
-            RuBlocks.STRIPPED_BLACKWOOD_LOG.get().asItem(),
+            RuBlocks.BLACKWOOD.getLog().asItem(),
+            RuBlocks.STRIPPED_BLACKWOOD.getLog().asItem(),
             RuBlocks.BLACKWOOD_WOOD.get().asItem(),
             RuBlocks.STRIPPED_BLACKWOOD_WOOD.get().asItem(),
             RuBlocks.BLACKWOOD_PLANKS.get().asItem(),
@@ -47,9 +52,9 @@ public class FurnaceBurnTimes {
             RuBlocks.BLUE_BIOSHROOM_TRAPDOOR.get().asItem(),
             RuBlocks.BLUE_BIOSHROOM_PRESSURE_PLATE.get().asItem(),
 
-            RuBlocks.BRIMWOOD_LOG.get().asItem(),
-            RuBlocks.BRIMWOOD_LOG_MAGMA.get().asItem(),
-            RuBlocks.STRIPPED_BRIMWOOD_LOG.get().asItem(),
+            RuBlocks.BRIMWOOD.getLog().asItem(),
+            RuBlocks.BRIMWOOD.getLogMagma().get().asItem(),
+            RuBlocks.STRIPPED_BRIMWOOD.getLog().asItem(),
             RuBlocks.BRIMWOOD_WOOD.get().asItem(),
             RuBlocks.STRIPPED_BRIMWOOD_WOOD.get().asItem(),
             RuBlocks.BRIMWOOD_PLANKS.get().asItem(),
@@ -59,8 +64,8 @@ public class FurnaceBurnTimes {
             RuBlocks.BRIMWOOD_TRAPDOOR.get().asItem(),
             RuBlocks.BRIMWOOD_PRESSURE_PLATE.get().asItem(),
 
-            RuBlocks.COBALT_LOG.get().asItem(),
-            RuBlocks.STRIPPED_COBALT_LOG.get().asItem(),
+            RuBlocks.COBALT.getLog().asItem(),
+            RuBlocks.STRIPPED_COBALT.getLog().asItem(),
             RuBlocks.COBALT_WOOD.get().asItem(),
             RuBlocks.STRIPPED_COBALT_WOOD.get().asItem(),
             RuBlocks.COBALT_PLANKS.get().asItem(),
@@ -70,8 +75,8 @@ public class FurnaceBurnTimes {
             RuBlocks.COBALT_TRAPDOOR.get().asItem(),
             RuBlocks.COBALT_PRESSURE_PLATE.get().asItem(),
 
-            RuBlocks.CYPRESS_LOG.get().asItem(),
-            RuBlocks.STRIPPED_CYPRESS_LOG.get().asItem(),
+            RuBlocks.CYPRESS.getLog().asItem(),
+            RuBlocks.STRIPPED_CYPRESS.getLog().asItem(),
             RuBlocks.CYPRESS_WOOD.get().asItem(),
             RuBlocks.STRIPPED_CYPRESS_WOOD.get().asItem(),
             RuBlocks.CYPRESS_PLANKS.get().asItem(),
@@ -81,8 +86,8 @@ public class FurnaceBurnTimes {
             RuBlocks.CYPRESS_TRAPDOOR.get().asItem(),
             RuBlocks.CYPRESS_PRESSURE_PLATE.get().asItem(),
 
-            RuBlocks.DEAD_LOG.get().asItem(),
-            RuBlocks.STRIPPED_DEAD_LOG.get().asItem(),
+            RuBlocks.DEAD.getLog().asItem(),
+            RuBlocks.STRIPPED_DEAD.getLog().asItem(),
             RuBlocks.DEAD_WOOD.get().asItem(),
             RuBlocks.STRIPPED_DEAD_WOOD.get().asItem(),
             RuBlocks.DEAD_PLANKS.get().asItem(),
@@ -92,8 +97,8 @@ public class FurnaceBurnTimes {
             RuBlocks.DEAD_TRAPDOOR.get().asItem(),
             RuBlocks.DEAD_PRESSURE_PLATE.get().asItem(),
 
-            RuBlocks.EUCALYPTUS_LOG.get().asItem(),
-            RuBlocks.STRIPPED_EUCALYPTUS_LOG.get().asItem(),
+            RuBlocks.EUCALYPTUS.getLog().asItem(),
+            RuBlocks.STRIPPED_EUCALYPTUS.getLog().asItem(),
             RuBlocks.EUCALYPTUS_WOOD.get().asItem(),
             RuBlocks.STRIPPED_EUCALYPTUS_WOOD.get().asItem(),
             RuBlocks.EUCALYPTUS_PLANKS.get().asItem(),
@@ -114,8 +119,8 @@ public class FurnaceBurnTimes {
             RuBlocks.GREEN_BIOSHROOM_TRAPDOOR.get().asItem(),
             RuBlocks.GREEN_BIOSHROOM_PRESSURE_PLATE.get().asItem(),
 
-            RuBlocks.JOSHUA_LOG.get().asItem(),
-            RuBlocks.STRIPPED_JOSHUA_LOG.get().asItem(),
+            RuBlocks.JOSHUA.getLog().asItem(),
+            RuBlocks.STRIPPED_JOSHUA.getLog().asItem(),
             RuBlocks.JOSHUA_WOOD.get().asItem(),
             RuBlocks.STRIPPED_JOSHUA_WOOD.get().asItem(),
             RuBlocks.JOSHUA_PLANKS.get().asItem(),
@@ -125,8 +130,8 @@ public class FurnaceBurnTimes {
             RuBlocks.JOSHUA_TRAPDOOR.get().asItem(),
             RuBlocks.JOSHUA_PRESSURE_PLATE.get().asItem(),
 
-            RuBlocks.KAPOK_LOG.get().asItem(),
-            RuBlocks.STRIPPED_KAPOK_LOG.get().asItem(),
+            RuBlocks.KAPOK.getLog().asItem(),
+            RuBlocks.STRIPPED_KAPOK.getLog().asItem(),
             RuBlocks.KAPOK_WOOD.get().asItem(),
             RuBlocks.STRIPPED_KAPOK_WOOD.get().asItem(),
             RuBlocks.KAPOK_PLANKS.get().asItem(),
@@ -136,8 +141,8 @@ public class FurnaceBurnTimes {
             RuBlocks.KAPOK_TRAPDOOR.get().asItem(),
             RuBlocks.KAPOK_PRESSURE_PLATE.get().asItem(),
 
-            RuBlocks.LARCH_LOG.get().asItem(),
-            RuBlocks.STRIPPED_LARCH_LOG.get().asItem(),
+            RuBlocks.LARCH.getLog().asItem(),
+            RuBlocks.STRIPPED_LARCH.getLog().asItem(),
             RuBlocks.LARCH_WOOD.get().asItem(),
             RuBlocks.STRIPPED_LARCH_WOOD.get().asItem(),
             RuBlocks.LARCH_PLANKS.get().asItem(),
@@ -147,8 +152,8 @@ public class FurnaceBurnTimes {
             RuBlocks.LARCH_TRAPDOOR.get().asItem(),
             RuBlocks.LARCH_PRESSURE_PLATE.get().asItem(),
 
-            RuBlocks.MAGNOLIA_LOG.get().asItem(),
-            RuBlocks.STRIPPED_MAGNOLIA_LOG.get().asItem(),
+            RuBlocks.MAGNOLIA.getLog().asItem(),
+            RuBlocks.STRIPPED_MAGNOLIA.getLog().asItem(),
             RuBlocks.MAGNOLIA_WOOD.get().asItem(),
             RuBlocks.STRIPPED_MAGNOLIA_WOOD.get().asItem(),
             RuBlocks.MAGNOLIA_PLANKS.get().asItem(),
@@ -158,8 +163,8 @@ public class FurnaceBurnTimes {
             RuBlocks.MAGNOLIA_TRAPDOOR.get().asItem(),
             RuBlocks.MAGNOLIA_PRESSURE_PLATE.get().asItem(),
 
-            RuBlocks.MAPLE_LOG.get().asItem(),
-            RuBlocks.STRIPPED_MAPLE_LOG.get().asItem(),
+            RuBlocks.MAPLE.getLog().asItem(),
+            RuBlocks.STRIPPED_MAPLE.getLog().asItem(),
             RuBlocks.MAPLE_WOOD.get().asItem(),
             RuBlocks.STRIPPED_MAPLE_WOOD.get().asItem(),
             RuBlocks.MAPLE_PLANKS.get().asItem(),
@@ -169,8 +174,8 @@ public class FurnaceBurnTimes {
             RuBlocks.MAPLE_TRAPDOOR.get().asItem(),
             RuBlocks.MAPLE_PRESSURE_PLATE.get().asItem(),
 
-            RuBlocks.MAUVE_LOG.get().asItem(),
-            RuBlocks.STRIPPED_MAUVE_LOG.get().asItem(),
+            RuBlocks.MAUVE.getLog().asItem(),
+            RuBlocks.STRIPPED_MAUVE.getLog().asItem(),
             RuBlocks.MAUVE_WOOD.get().asItem(),
             RuBlocks.STRIPPED_MAUVE_WOOD.get().asItem(),
             RuBlocks.MAUVE_PLANKS.get().asItem(),
@@ -180,8 +185,8 @@ public class FurnaceBurnTimes {
             RuBlocks.MAUVE_TRAPDOOR.get().asItem(),
             RuBlocks.MAUVE_PRESSURE_PLATE.get().asItem(),
 
-            RuBlocks.PALM_LOG.get().asItem(),
-            RuBlocks.STRIPPED_PALM_LOG.get().asItem(),
+            RuBlocks.PALM.getLog().asItem(),
+            RuBlocks.STRIPPED_PALM.getLog().asItem(),
             RuBlocks.PALM_WOOD.get().asItem(),
             RuBlocks.STRIPPED_PALM_WOOD.get().asItem(),
             RuBlocks.PALM_PLANKS.get().asItem(),
@@ -191,8 +196,8 @@ public class FurnaceBurnTimes {
             RuBlocks.PALM_TRAPDOOR.get().asItem(),
             RuBlocks.PALM_PRESSURE_PLATE.get().asItem(),
 
-            RuBlocks.PINE_LOG.get().asItem(),
-            RuBlocks.STRIPPED_PINE_LOG.get().asItem(),
+            RuBlocks.PINE.getLog().asItem(),
+            RuBlocks.STRIPPED_PINE.getLog().asItem(),
             RuBlocks.PINE_WOOD.get().asItem(),
             RuBlocks.STRIPPED_PINE_WOOD.get().asItem(),
             RuBlocks.PINE_PLANKS.get().asItem(),
@@ -213,8 +218,8 @@ public class FurnaceBurnTimes {
             RuBlocks.PINK_BIOSHROOM_TRAPDOOR.get().asItem(),
             RuBlocks.PINK_BIOSHROOM_PRESSURE_PLATE.get().asItem(),
 
-            RuBlocks.REDWOOD_LOG.get().asItem(),
-            RuBlocks.STRIPPED_REDWOOD_LOG.get().asItem(),
+            RuBlocks.REDWOOD.getLog().asItem(),
+            RuBlocks.STRIPPED_REDWOOD.getLog().asItem(),
             RuBlocks.REDWOOD_WOOD.get().asItem(),
             RuBlocks.STRIPPED_REDWOOD_WOOD.get().asItem(),
             RuBlocks.REDWOOD_PLANKS.get().asItem(),
@@ -224,8 +229,8 @@ public class FurnaceBurnTimes {
             RuBlocks.REDWOOD_TRAPDOOR.get().asItem(),
             RuBlocks.REDWOOD_PRESSURE_PLATE.get().asItem(),
 
-            RuBlocks.SOCOTRA_LOG.get().asItem(),
-            RuBlocks.STRIPPED_SOCOTRA_LOG.get().asItem(),
+            RuBlocks.SOCOTRA.getLog().asItem(),
+            RuBlocks.STRIPPED_SOCOTRA.getLog().asItem(),
             RuBlocks.SOCOTRA_WOOD.get().asItem(),
             RuBlocks.STRIPPED_SOCOTRA_WOOD.get().asItem(),
             RuBlocks.SOCOTRA_PLANKS.get().asItem(),
@@ -235,8 +240,8 @@ public class FurnaceBurnTimes {
             RuBlocks.SOCOTRA_TRAPDOOR.get().asItem(),
             RuBlocks.SOCOTRA_PRESSURE_PLATE.get().asItem(),
 
-            RuBlocks.WILLOW_LOG.get().asItem(),
-            RuBlocks.STRIPPED_WILLOW_LOG.get().asItem(),
+            RuBlocks.WILLOW.getLog().asItem(),
+            RuBlocks.STRIPPED_WILLOW.getLog().asItem(),
             RuBlocks.WILLOW_WOOD.get().asItem(),
             RuBlocks.STRIPPED_WILLOW_WOOD.get().asItem(),
             RuBlocks.WILLOW_PLANKS.get().asItem(),
@@ -255,7 +260,7 @@ public class FurnaceBurnTimes {
             RuBlocks.YELLOW_BIOSHROOM_FENCE.get().asItem(),
             RuBlocks.YELLOW_BIOSHROOM_FENCE_GATE.get().asItem(),
             RuBlocks.YELLOW_BIOSHROOM_TRAPDOOR.get().asItem(),
-            RuBlocks.YELLOW_BIOSHROOM_PRESSURE_PLATE.get().asItem(),
+            RuBlocks.YELLOW_BIOSHROOM_PRESSURE_PLATE.get().asItem(),*/
 
             /*-----------------PAINTED PLANKS-----------------*/
             //PLANKS
@@ -311,33 +316,10 @@ public class FurnaceBurnTimes {
             RuBlocks.BLACK_PAINTED_SLAB.get().asItem()
     );
 
-    public static final ImmutableList<Item> BURN_TIME_200 = ImmutableList.of(
-            RuBlocks.BAOBAB_DOOR.get().asItem(),
-            RuBlocks.BLACKWOOD_DOOR.get().asItem(),
-            RuBlocks.BLUE_BIOSHROOM_DOOR.get().asItem(),
-            RuBlocks.BRIMWOOD_DOOR.get().asItem(),
-            RuBlocks.COBALT_DOOR.get().asItem(),
-            RuBlocks.CYPRESS_DOOR.get().asItem(),
-            RuBlocks.DEAD_DOOR.get().asItem(),
-            RuBlocks.EUCALYPTUS_DOOR.get().asItem(),
-            RuBlocks.GREEN_BIOSHROOM_DOOR.get().asItem(),
-            RuBlocks.JOSHUA_DOOR.get().asItem(),
-            RuBlocks.KAPOK_DOOR.get().asItem(),
-            RuBlocks.LARCH_DOOR.get().asItem(),
-            RuBlocks.MAGNOLIA_DOOR.get().asItem(),
-            RuBlocks.MAPLE_DOOR.get().asItem(),
-            RuBlocks.MAUVE_DOOR.get().asItem(),
-            RuBlocks.PALM_DOOR.get().asItem(),
-            RuBlocks.PINE_DOOR.get().asItem(),
-            RuBlocks.PINK_BIOSHROOM_DOOR.get().asItem(),
-            RuBlocks.REDWOOD_DOOR.get().asItem(),
-            RuBlocks.SOCOTRA_DOOR.get().asItem(),
-            RuBlocks.WILLOW_DOOR.get().asItem(),
-            RuBlocks.YELLOW_BIOSHROOM_DOOR.get().asItem()
-    );
+    public static final List<Item> BURN_TIME_200 = RuBlocks.WOOD_SETS.stream().map(WoodSet::getDoor).filter(Objects::nonNull).map(Block::asItem).toList();
 
     public static final ImmutableList<Item> BURN_TIME_150 = ImmutableList.of(
-            RuBlocks.BAOBAB_SLAB.get().asItem(),
+            /*RuBlocks.BAOBAB_SLAB.get().asItem(),
             RuBlocks.BLACKWOOD_SLAB.get().asItem(),
             RuBlocks.BLUE_BIOSHROOM_SLAB.get().asItem(),
             RuBlocks.BRIMWOOD_SLAB.get().asItem(),
@@ -358,7 +340,7 @@ public class FurnaceBurnTimes {
             RuBlocks.REDWOOD_SLAB.get().asItem(),
             RuBlocks.SOCOTRA_SLAB.get().asItem(),
             RuBlocks.WILLOW_SLAB.get().asItem(),
-            RuBlocks.YELLOW_BIOSHROOM_SLAB.get().asItem(),
+            RuBlocks.YELLOW_BIOSHROOM_SLAB.get().asItem(),*/
             RuBlocks.RED_PAINTED_SLAB.get().asItem(),
             RuBlocks.ORANGE_PAINTED_SLAB.get().asItem(),
             RuBlocks.YELLOW_PAINTED_SLAB.get().asItem(),
@@ -444,7 +426,7 @@ public class FurnaceBurnTimes {
             RuBlocks.SOCOTRA_SHRUB.get().asItem(),
             RuBlocks.SPRUCE_SHRUB.get().asItem(),
             RuBlocks.WHITE_MAGNOLIA_SHRUB.get().asItem(),
-            RuBlocks.WILLOW_SHRUB.get().asItem(),
+            RuBlocks.WILLOW_SHRUB.get().asItem()/*,
 
             RuBlocks.BAOBAB_BUTTON.get().asItem(),
             RuBlocks.BLACKWOOD_BUTTON.get().asItem(),
@@ -467,6 +449,6 @@ public class FurnaceBurnTimes {
             RuBlocks.REDWOOD_BUTTON.get().asItem(),
             RuBlocks.SOCOTRA_BUTTON.get().asItem(),
             RuBlocks.WILLOW_BUTTON.get().asItem(),
-            RuBlocks.YELLOW_BIOSHROOM_BUTTON.get().asItem()
+            RuBlocks.YELLOW_BIOSHROOM_BUTTON.get().asItem()*/
     );
 }

@@ -76,7 +76,7 @@ public class ChanceWillowTrunkDecorator extends TreeDecorator {
 			context.setBlock(pos, Blocks.DIRT.defaultBlockState());
 		}
 		else if(isReplaceable(level, pos)) {
-			context.setBlock(pos, RuBlocks.WILLOW_LOG.get().defaultBlockState());
+			context.setBlock(pos, RuBlocks.WILLOW.getLog().defaultBlockState());
 		}
 		else{
 			return ;
