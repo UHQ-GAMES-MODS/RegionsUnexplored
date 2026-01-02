@@ -70,8 +70,8 @@ public class WoodSet {
     public static WoodSet bioshroom(String name, WoodType woodType, SoundType sound, MapColor colour, boolean fireproof) {
         WoodSet set = new WoodSet(fireproof);
         set.log = BlockRegistry.registerDefaultBlock(name + "_stem", () -> BlockRegistry.log(colour, colour, sound, fireproof));
-        set.wood = BlockRegistry.registerDefaultBlock(name + "_hyphae", () -> BlockRegistry.log(colour, colour, sound, fireproof));
-        set.strippedLog = BlockRegistry.registerDefaultBlock("stripped_" + name + "_stem", () -> BlockRegistry.wood(colour, sound, fireproof));
+        set.wood = BlockRegistry.registerDefaultBlock(name + "_stem", () -> BlockRegistry.log(colour, colour, sound, fireproof));
+        set.strippedLog = BlockRegistry.registerDefaultBlock("stripped_" + name + "_hyphae", () -> BlockRegistry.wood(colour, sound, fireproof));
         set.strippedWood = BlockRegistry.registerDefaultBlock("stripped_" + name + "_hyphae", () -> BlockRegistry.wood(colour, sound, fireproof));
         set.planks = BlockRegistry.registerDefaultBlock(name + "_planks", () -> BlockRegistry.planks(colour, sound, fireproof));
         set.stairs = BlockRegistry.registerDefaultBlock(name + "_stairs", () -> BlockRegistry.stairs(colour, sound, fireproof));
