@@ -22,6 +22,7 @@ dependencies {
     compileOnly group:'org.spongepowered', name:'mixin', version:'0.8.5'
     compileOnly 'com.github.glitchfiend:TerraBlender-common:' + minecraft_version + '-' + terrablender_version
     api("fuzs.forgeconfigapiport:forgeconfigapiport-common-neoforgeapi:${fcap_version}") { transitive = false }
+    implementation("com.electronwill.night-config:toml:3.8.3")
 }
 
 configurations {

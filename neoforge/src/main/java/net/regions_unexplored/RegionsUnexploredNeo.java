@@ -7,11 +7,13 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.regions_unexplored.client.ParticleRegistration;
 import net.regions_unexplored.client.RegionsUnexploredClient;
 import net.regions_unexplored.config.RuCommonConfig;
 import net.regions_unexplored.config.RuPrimaryRegionConfig;
 import net.regions_unexplored.config.RuSecondaryRegionConfig;
+import net.regions_unexplored.internal.config.gui.ConfigSelectionScreen;
 import net.regions_unexplored.platform.NeoForgeRegistar;
 import net.regions_unexplored.registry.BiomeRegistry;
 import org.apache.logging.log4j.LogManager;
@@ -33,6 +35,11 @@ public class RegionsUnexploredNeo {
 
         NeoForgeRegistar.CACHE.values().forEach(deferredRegister -> deferredRegister.register(bus));
         RegionsUnexploredNeoClient.regionsUnexploredNeoClient(bus);
+
+        container.registerExtensionPoint(
+                IConfigScreenFactory.class,
+                (minecraft, parent) -> new ConfigSelectionScreen(parent)
+        );
     }
     //set up client side features
     public void clientSetup(final FMLClientSetupEvent event) {

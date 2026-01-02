@@ -8,6 +8,11 @@ repositories {
         name = "Fuzs Mod Resources"
         url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
     }
+
+    maven {
+        name = "Terraformers"
+        url = "https://maven.terraformersmc.com/"
+    }
 }
 
 dependencies {
@@ -17,6 +22,12 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
     modImplementation "com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_version}"
     modApi "fuzs.forgeconfigapiport:forgeconfigapiport-fabric:${fcap_version}"
+
+    // ModMenu integration (optional but recommended)
+    modCompileOnly "com.terraformersmc:modmenu:11.0.3"
+    modLocalRuntime "com.terraformersmc:modmenu:11.0.3"
+
+    include(implementation("com.electronwill.night-config:toml:3.8.3"))
 }
 
 loom {

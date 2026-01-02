@@ -1,9 +1,12 @@
 package net.regions_unexplored.platform;
 
 import com.google.auto.service.AutoService;
+import net.neoforged.fml.loading.FMLPaths;
 import net.regions_unexplored.platform.services.IPlatformHelper;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLLoader;
+
+import java.nio.file.Path;
 
 @AutoService(IPlatformHelper.class)
 public class NeoForgePlatformHelper implements IPlatformHelper {
@@ -24,5 +27,10 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
     public boolean isDevelopmentEnvironment() {
 
         return !FMLLoader.isProduction();
+    }
+
+    @Override
+    public Path getConfigDirectory() {
+        return FMLPaths.CONFIGDIR.get();
     }
 }

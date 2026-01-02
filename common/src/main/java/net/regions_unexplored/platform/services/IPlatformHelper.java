@@ -1,5 +1,7 @@
 package net.regions_unexplored.platform.services;
 
+import java.nio.file.Path;
+
 public interface IPlatformHelper {
 
     /**
@@ -33,4 +35,11 @@ public interface IPlatformHelper {
 
         return isDevelopmentEnvironment() ? "development" : "production";
     }
+
+    /**
+     * Gets the config directory path for the current platform.
+     *
+     * @return The path to the config directory.
+     */
+    Path getConfigDirectory();
 }

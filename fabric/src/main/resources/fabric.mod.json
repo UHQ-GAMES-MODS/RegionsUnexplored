@@ -26,6 +26,9 @@
         ],
         "terrablender": [
             "net.regions_unexplored.RegionsUnexploredFabric"
+        ],
+        "modmenu": [
+            "net.regions_unexplored.compat.ModMenuIntegration"
         ]
     },
     "mixins": [

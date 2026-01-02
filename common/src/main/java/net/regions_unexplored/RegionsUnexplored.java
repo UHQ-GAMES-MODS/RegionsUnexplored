@@ -3,11 +3,15 @@ package net.regions_unexplored;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.block.compat.BlockToolCompat;
-import net.regions_unexplored.block.compat.CompostableBlocks;
 import net.regions_unexplored.block.compat.FlammableBlocks;
 import net.regions_unexplored.block.entity.RuBlockEntities;
 import net.regions_unexplored.client.particle.RuParticleTypes;
+import net.regions_unexplored.config.RuClientConfig;
+import net.regions_unexplored.config.RuCommonConfigNew;
 import net.regions_unexplored.entity.RuEntities;
+import net.regions_unexplored.internal.config.Config;
+import net.regions_unexplored.internal.config.ConfigManager;
+import net.regions_unexplored.internal.config.gui.ConfigScreenRegistry;
 import net.regions_unexplored.item.RuItems;
 import net.regions_unexplored.item.tab.RuTabs;
 import net.regions_unexplored.registry.BiomeRegistry;
@@ -36,6 +40,8 @@ public class RegionsUnexplored {
 
         Constants.LOG.info("Initializing Regions Unexplored from %s entrypoint.".formatted(initializedFrom));
 
+        registerConfig("regions unexplored/regions_unexplored-client", RuClientConfig.class);
+        registerConfig("regions unexplored/regions_unexplored-common", RuCommonConfigNew.class);
 
         FeatureRegistry.addFeatures();
         RuParticleTypes.addParticles();
@@ -51,5 +57,18 @@ public class RegionsUnexplored {
         BlockToolCompat.setup();
 //        CompostableBlocks.setup();
         FlammableBlocks.setup();
+    }
+
+    /**
+     * Helper method to register a config with both the config system and GUI registry.
+     * This is the ONLY place you need to add new configs!
+     *
+     * @param filePath The config path's name (without .toml extension)
+     * @param configClass The config class
+     */
+    private static void registerConfig(String filePath, Class<? extends Config> configClass) {
+        ConfigManager manager = ConfigManager.of(filePath, configClass);
+        ConfigScreenRegistry.register(filePath, manager);
+        Constants.LOG.debug("Registered config '{}' with GUI system", filePath);
     }
 }
