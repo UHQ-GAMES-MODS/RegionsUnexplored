@@ -5,17 +5,14 @@ import net.regions_unexplored.internal.config.annotation.*;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Annotation-based configuration system.
  * Config values are defined using @ConfigOption and related annotations.
  */
 public abstract class Config {
-    private final Map<String, ConfigValue<?>> configValues = new HashMap<>();
+    private final Map<String, ConfigValue<?>> configValues = new LinkedHashMap<>();
 
     /**
      * Process annotations on this config class and register all config values.
