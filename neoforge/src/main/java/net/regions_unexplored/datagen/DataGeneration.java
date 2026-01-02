@@ -61,5 +61,6 @@ public class DataGeneration {
         TagsProvider<Item> itemTagsProvider = generator.addProvider(event.includeServer(), new RuItemTagProvider(packOutput, datapackRegistries.getRegistryProvider(), blockTagsProvider.contentsGetter(),  Constants.MOD_ID, existingFileHelper));
         TagsProvider<Biome> biomeTagsProvider = generator.addProvider(event.includeServer(), new RuBiomeTagProvider(packOutput, datapackRegistries.getRegistryProvider(), Constants.MOD_ID, existingFileHelper));
 
+        generator.addProvider(event.includeServer(), new RuDataMapGenerator(packOutput, holder));
     }
 }

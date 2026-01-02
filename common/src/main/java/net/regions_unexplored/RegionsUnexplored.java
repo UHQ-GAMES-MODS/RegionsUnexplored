@@ -49,7 +49,7 @@ public class RegionsUnexplored {
 
     public static void afterRegistriesFreeze(){
         BlockToolCompat.setup();
-        CompostableBlocks.setup();
+//        CompostableBlocks.setup();
         FlammableBlocks.setup();
     }
 }

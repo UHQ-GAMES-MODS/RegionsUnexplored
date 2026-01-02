@@ -1,257 +1,282 @@
 package net.regions_unexplored.block.compat;
 
+import net.minecraft.world.level.ItemLike;
 import net.regions_unexplored.block.RuBlocks;
 
-import static net.regions_unexplored.util.BlockCompatUtil.registerCompostableItems;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CompostableBlocks {
-    public static void setup() {
-        registerCompostableItems(0.3F, RuBlocks.ASHEN_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.ALPHA_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.APPLE_OAK_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.BAMBOO_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.BAOBAB_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.BLACKWOOD_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.BRIMWOOD_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.COBALT_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.CACTUS_FLOWER.get());
-        registerCompostableItems(0.3F, RuBlocks.CYPRESS_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.DEAD_PINE_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.DEAD_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.EUCALYPTUS_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.FLOWERING_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.GOLDEN_LARCH_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.JOSHUA_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.KAPOK_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.LARCH_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.MAGNOLIA_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.MAPLE_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.MAUVE_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.ORANGE_MAPLE_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.PALM_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.PINE_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.BLUE_MAGNOLIA_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.PINK_MAGNOLIA_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.REDWOOD_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.RED_MAPLE_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.ENCHANTED_BIRCH_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.SILVER_BIRCH_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.SMALL_OAK_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.SOCOTRA_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.WHITE_MAGNOLIA_SAPLING.get());
-        registerCompostableItems(0.3F, RuBlocks.WILLOW_SAPLING.get());
+    public static final Map<ItemLike, Float> COMPOSTABLES = new HashMap<>();
 
-        registerCompostableItems(0.3F, RuBlocks.ASHEN_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.ALPHA_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.APPLE_OAK_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.BAMBOO_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.BAOBAB_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.BLACKWOOD_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.BRIMWOOD_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.COBALT_WEBBING.get());
-        registerCompostableItems(0.3F, RuBlocks.MAGNOLIA_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.CYPRESS_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.DEAD_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.DEAD_PINE_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.EUCALYPTUS_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.FLOWERING_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.GOLDEN_LARCH_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.JOSHUA_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.KAPOK_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.LARCH_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.MAPLE_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.MAUVE_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.ORANGE_MAPLE_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.PALM_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.PINE_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.BLUE_MAGNOLIA_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.PINK_MAGNOLIA_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.REDWOOD_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.RED_MAPLE_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.SMALL_OAK_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.SILVER_BIRCH_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.SOCOTRA_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.ENCHANTED_BIRCH_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.WHITE_MAGNOLIA_LEAVES.get());
-        registerCompostableItems(0.3F, RuBlocks.WILLOW_LEAVES.get());
+    static {
+        // Saplings (0.3F)
+        COMPOSTABLES.put(RuBlocks.ASHEN_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.ALPHA_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.APPLE_OAK_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.BAMBOO_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.BAOBAB_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.BLACKWOOD_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.BRIMWOOD_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.COBALT_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.CACTUS_FLOWER.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.CYPRESS_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.DEAD_PINE_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.DEAD_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.EUCALYPTUS_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.FLOWERING_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.GOLDEN_LARCH_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.JOSHUA_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.KAPOK_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.LARCH_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.MAGNOLIA_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.MAPLE_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.MAUVE_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.ORANGE_MAPLE_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.PALM_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.PINE_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.BLUE_MAGNOLIA_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.PINK_MAGNOLIA_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.REDWOOD_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.RED_MAPLE_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.ENCHANTED_BIRCH_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.SILVER_BIRCH_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.SMALL_OAK_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.SOCOTRA_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.WHITE_MAGNOLIA_SAPLING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.WILLOW_SAPLING.get(), 0.3F);
 
-        registerCompostableItems(0.3F, RuBlocks.ACACIA_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.BAOBAB_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.BIRCH_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.BLACKWOOD_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.MAGNOLIA_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.CYPRESS_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.CHERRY_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.DARK_OAK_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.DEAD_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.EUCALYPTUS_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.JOSHUA_BEARD.get());
-        registerCompostableItems(0.3F, RuBlocks.JUNGLE_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.KAPOK_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.LARCH_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.MANGROVE_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.MAPLE_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.MAUVE_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.OAK_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.PALM_BEARD.get());
-        registerCompostableItems(0.3F, RuBlocks.PINE_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.REDWOOD_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.SILVER_BIRCH_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.SOCOTRA_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.SPRUCE_BRANCH.get());
-        registerCompostableItems(0.3F, RuBlocks.WILLOW_BRANCH.get());
+        // Leaves (0.3F)
+        COMPOSTABLES.put(RuBlocks.ASHEN_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.ALPHA_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.APPLE_OAK_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.BAMBOO_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.BAOBAB_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.BLACKWOOD_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.BRIMWOOD_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.COBALT_WEBBING.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.MAGNOLIA_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.CYPRESS_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.DEAD_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.DEAD_PINE_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.EUCALYPTUS_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.FLOWERING_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.GOLDEN_LARCH_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.JOSHUA_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.KAPOK_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.LARCH_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.MAPLE_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.MAUVE_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.ORANGE_MAPLE_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.PALM_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.PINE_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.BLUE_MAGNOLIA_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.PINK_MAGNOLIA_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.REDWOOD_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.RED_MAPLE_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.SMALL_OAK_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.SILVER_BIRCH_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.SOCOTRA_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.ENCHANTED_BIRCH_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.WHITE_MAGNOLIA_LEAVES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.WILLOW_LEAVES.get(), 0.3F);
 
+        // Branches (0.3F)
+        COMPOSTABLES.put(RuBlocks.ACACIA_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.BAOBAB_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.BIRCH_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.BLACKWOOD_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.MAGNOLIA_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.CYPRESS_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.CHERRY_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.DARK_OAK_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.DEAD_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.EUCALYPTUS_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.JOSHUA_BEARD.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.JUNGLE_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.KAPOK_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.LARCH_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.MANGROVE_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.MAPLE_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.MAUVE_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.OAK_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.PALM_BEARD.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.PINE_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.REDWOOD_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.SILVER_BIRCH_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.SOCOTRA_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.SPRUCE_BRANCH.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.WILLOW_BRANCH.get(), 0.3F);
 
-        registerCompostableItems(0.65F, RuBlocks.ACACIA_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.BAOBAB_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.BIRCH_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.BLACKWOOD_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.BRIMWOOD_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.CHERRY_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.CYPRESS_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.DARK_OAK_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.DEAD_PINE_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.DEAD_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.EUCALYPTUS_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.FLOWERING_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.GOLDEN_LARCH_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.JOSHUA_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.JUNGLE_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.KAPOK_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.LARCH_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.MAGNOLIA_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.MANGROVE_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.MAPLE_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.MAUVE_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.OAK_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.ORANGE_MAPLE_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.PALM_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.PINE_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.BLUE_MAGNOLIA_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.PINK_MAGNOLIA_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.REDWOOD_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.RED_MAPLE_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.ENCHANTED_BIRCH_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.SILVER_BIRCH_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.SOCOTRA_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.SPRUCE_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.WHITE_MAGNOLIA_SHRUB.get());
-        registerCompostableItems(0.65F, RuBlocks.WILLOW_SHRUB.get());
+        // Shrubs (0.65F)
+        COMPOSTABLES.put(RuBlocks.ACACIA_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.BAOBAB_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.BIRCH_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.BLACKWOOD_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.BRIMWOOD_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.CHERRY_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.CYPRESS_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.DARK_OAK_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.DEAD_PINE_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.DEAD_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.EUCALYPTUS_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.FLOWERING_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.GOLDEN_LARCH_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.JOSHUA_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.JUNGLE_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.KAPOK_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.LARCH_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.MAGNOLIA_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.MANGROVE_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.MAPLE_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.MAUVE_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.OAK_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.ORANGE_MAPLE_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.PALM_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.PINE_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.BLUE_MAGNOLIA_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.PINK_MAGNOLIA_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.REDWOOD_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.RED_MAPLE_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.ENCHANTED_BIRCH_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.SILVER_BIRCH_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.SOCOTRA_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.SPRUCE_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.WHITE_MAGNOLIA_SHRUB.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.WILLOW_SHRUB.get(), 0.65F);
 
-        registerCompostableItems(0.35F, RuBlocks.GREEN_BIOSHROOM.get());
-        registerCompostableItems(0.35F, RuBlocks.BLUE_BIOSHROOM.get());
-        registerCompostableItems(0.35F, RuBlocks.PINK_BIOSHROOM.get());
-        registerCompostableItems(0.35F, RuBlocks.YELLOW_BIOSHROOM.get());
+        // Bioshrooms (0.35F)
+        COMPOSTABLES.put(RuBlocks.GREEN_BIOSHROOM.get(), 0.35F);
+        COMPOSTABLES.put(RuBlocks.BLUE_BIOSHROOM.get(), 0.35F);
+        COMPOSTABLES.put(RuBlocks.PINK_BIOSHROOM.get(), 0.35F);
+        COMPOSTABLES.put(RuBlocks.YELLOW_BIOSHROOM.get(), 0.35F);
 
-        registerCompostableItems(0.65F, RuBlocks.TALL_GREEN_BIOSHROOM.get());
-        registerCompostableItems(0.65F, RuBlocks.TALL_BLUE_BIOSHROOM.get());
-        registerCompostableItems(0.65F, RuBlocks.TALL_PINK_BIOSHROOM.get());
-        registerCompostableItems(0.65F, RuBlocks.TALL_YELLOW_BIOSHROOM.get());
+        // Tall Bioshrooms (0.65F)
+        COMPOSTABLES.put(RuBlocks.TALL_GREEN_BIOSHROOM.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.TALL_BLUE_BIOSHROOM.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.TALL_PINK_BIOSHROOM.get(), 0.65F);
+        COMPOSTABLES.put(RuBlocks.TALL_YELLOW_BIOSHROOM.get(), 0.65F);
 
-        registerCompostableItems(0.3F, RuBlocks.DEAD_STEPPE_SHRUB.get());
-        registerCompostableItems(0.3F, RuBlocks.FROZEN_GRASS.get());
-        registerCompostableItems(0.3F, RuBlocks.MEDIUM_GRASS.get());
-        registerCompostableItems(0.3F, RuBlocks.SANDY_GRASS.get());
-        registerCompostableItems(0.3F, RuBlocks.SMALL_DESERT_SHRUB.get());
-        registerCompostableItems(0.3F, RuBlocks.STEPPE_GRASS.get());
-        registerCompostableItems(0.3F, RuBlocks.STEPPE_SHRUB.get());
-        registerCompostableItems(0.3F, RuBlocks.STONE_BUD.get());
+        // Small grass/shrubs (0.3F)
+        COMPOSTABLES.put(RuBlocks.DEAD_STEPPE_SHRUB.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.FROZEN_GRASS.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.MEDIUM_GRASS.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.SANDY_GRASS.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.SMALL_DESERT_SHRUB.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.STEPPE_GRASS.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.STEPPE_SHRUB.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.STONE_BUD.get(), 0.3F);
 
-        registerCompostableItems(0.5F, RuBlocks.ELEPHANT_EAR.get());
-        registerCompostableItems(0.5F, RuBlocks.SANDY_TALL_GRASS.get());
-        registerCompostableItems(0.5F, RuBlocks.STEPPE_TALL_GRASS.get());
-        registerCompostableItems(0.5F, RuBlocks.WINDSWEPT_GRASS.get());
+        // Tall grass (0.5F)
+        COMPOSTABLES.put(RuBlocks.ELEPHANT_EAR.get(), 0.5F);
+        COMPOSTABLES.put(RuBlocks.SANDY_TALL_GRASS.get(), 0.5F);
+        COMPOSTABLES.put(RuBlocks.STEPPE_TALL_GRASS.get(), 0.5F);
+        COMPOSTABLES.put(RuBlocks.WINDSWEPT_GRASS.get(), 0.5F);
 
-        registerCompostableItems(0.4F, RuBlocks.ALPHA_DANDELION.get());
-        registerCompostableItems(0.4F, RuBlocks.ALPHA_ROSE.get());
-        registerCompostableItems(0.4F, RuBlocks.ASTER.get());
-        registerCompostableItems(0.4F, RuBlocks.BLEEDING_HEART.get());
-        registerCompostableItems(0.4F, RuBlocks.BLUE_LUPINE.get());
-        registerCompostableItems(0.4F, RuBlocks.DAISY.get());
-        registerCompostableItems(0.4F, RuBlocks.DORCEL.get());
-        registerCompostableItems(0.4F, RuBlocks.FELICIA_DAISY.get());
-        registerCompostableItems(0.4F, RuBlocks.FIREWEED.get());
-        registerCompostableItems(0.4F, RuBlocks.HIBISCUS.get());
-        registerCompostableItems(0.4F, RuBlocks.HYSSOP.get());
-        registerCompostableItems(0.4F, RuBlocks.MALLOW.get());
-        registerCompostableItems(0.4F, RuBlocks.PINK_LUPINE.get());
-        registerCompostableItems(0.4F, RuBlocks.POPPY_BUSH.get());
-        registerCompostableItems(0.4F, RuBlocks.SALMON_POPPY_BUSH.get());
-        registerCompostableItems(0.4F, RuBlocks.PURPLE_LUPINE.get());
-        registerCompostableItems(0.4F, RuBlocks.RED_LUPINE.get());
-        registerCompostableItems(0.4F, RuBlocks.WARATAH.get());
-        registerCompostableItems(0.4F, RuBlocks.WHITE_TRILLIUM.get());
-        registerCompostableItems(0.4F, RuBlocks.WILTING_TRILLIUM.get());
-        registerCompostableItems(0.4F, RuBlocks.YELLOW_LUPINE.get());
-        registerCompostableItems(0.4F, RuBlocks.TSUBAKI.get());
+        // Flowers (0.4F)
+        COMPOSTABLES.put(RuBlocks.ALPHA_DANDELION.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.ALPHA_ROSE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.ASTER.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.BLEEDING_HEART.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.BLUE_LUPINE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.DAISY.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.DORCEL.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.FELICIA_DAISY.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.FIREWEED.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.HIBISCUS.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.HYSSOP.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.MALLOW.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.PINK_LUPINE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.POPPY_BUSH.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.SALMON_POPPY_BUSH.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.PURPLE_LUPINE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.RED_LUPINE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.WARATAH.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.WHITE_TRILLIUM.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.WILTING_TRILLIUM.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.YELLOW_LUPINE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.TSUBAKI.get(), 0.4F);
 
-        registerCompostableItems(0.25F, RuBlocks.ORANGE_CONEFLOWER.get());
-        registerCompostableItems(0.25F, RuBlocks.PURPLE_CONEFLOWER.get());
-        registerCompostableItems(0.25F, RuBlocks.BLUE_MAGNOLIA_FLOWERS.get());
-        registerCompostableItems(0.25F, RuBlocks.PINK_MAGNOLIA_FLOWERS.get());
-        registerCompostableItems(0.25F, RuBlocks.WHITE_MAGNOLIA_FLOWERS.get());
-        registerCompostableItems(0.2F, RuBlocks.CLOVER.get());
+        // Coneflowers (0.25F)
+        COMPOSTABLES.put(RuBlocks.ORANGE_CONEFLOWER.get(), 0.25F);
+        COMPOSTABLES.put(RuBlocks.PURPLE_CONEFLOWER.get(), 0.25F);
+        COMPOSTABLES.put(RuBlocks.BLUE_MAGNOLIA_FLOWERS.get(), 0.25F);
+        COMPOSTABLES.put(RuBlocks.PINK_MAGNOLIA_FLOWERS.get(), 0.25F);
+        COMPOSTABLES.put(RuBlocks.WHITE_MAGNOLIA_FLOWERS.get(), 0.25F);
 
-        registerCompostableItems(0.4F, RuBlocks.RED_SNOWBELLE.get());
-        registerCompostableItems(0.4F, RuBlocks.ORANGE_SNOWBELLE.get());
-        registerCompostableItems(0.4F, RuBlocks.YELLOW_SNOWBELLE.get());
-        registerCompostableItems(0.4F, RuBlocks.LIME_SNOWBELLE.get());
-        registerCompostableItems(0.4F, RuBlocks.GREEN_SNOWBELLE.get());
-        registerCompostableItems(0.4F, RuBlocks.CYAN_SNOWBELLE.get());
-        registerCompostableItems(0.4F, RuBlocks.LIGHT_BLUE_SNOWBELLE.get());
-        registerCompostableItems(0.4F, RuBlocks.BLUE_SNOWBELLE.get());
-        registerCompostableItems(0.4F, RuBlocks.PURPLE_SNOWBELLE.get());
-        registerCompostableItems(0.4F, RuBlocks.MAGENTA_SNOWBELLE.get());
-        registerCompostableItems(0.4F, RuBlocks.PINK_SNOWBELLE.get());
-        registerCompostableItems(0.4F, RuBlocks.BROWN_SNOWBELLE.get());
-        registerCompostableItems(0.4F, RuBlocks.WHITE_SNOWBELLE.get());
-        registerCompostableItems(0.4F, RuBlocks.LIGHT_GRAY_SNOWBELLE.get());
-        registerCompostableItems(0.4F, RuBlocks.GRAY_SNOWBELLE.get());
-        registerCompostableItems(0.4F, RuBlocks.BLACK_SNOWBELLE.get());
+        // Clover (0.2F)
+        COMPOSTABLES.put(RuBlocks.CLOVER.get(), 0.2F);
 
-        registerCompostableItems(0.1F, RuBlocks.MAPLE_LEAF_PILE.get());
-        registerCompostableItems(0.1F, RuBlocks.RED_MAPLE_LEAF_PILE.get());
-        registerCompostableItems(0.1F, RuBlocks.ORANGE_MAPLE_LEAF_PILE.get());
-        registerCompostableItems(0.1F, RuBlocks.SILVER_BIRCH_LEAF_PILE.get());
-        registerCompostableItems(0.1F, RuBlocks.ENCHANTED_BIRCH_LEAF_PILE.get());
+        // Snowbelles (0.4F)
+        COMPOSTABLES.put(RuBlocks.RED_SNOWBELLE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.ORANGE_SNOWBELLE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.YELLOW_SNOWBELLE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.LIME_SNOWBELLE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.GREEN_SNOWBELLE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.CYAN_SNOWBELLE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.LIGHT_BLUE_SNOWBELLE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.BLUE_SNOWBELLE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.PURPLE_SNOWBELLE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.MAGENTA_SNOWBELLE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.PINK_SNOWBELLE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.BROWN_SNOWBELLE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.WHITE_SNOWBELLE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.LIGHT_GRAY_SNOWBELLE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.GRAY_SNOWBELLE.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.BLACK_SNOWBELLE.get(), 0.4F);
 
-        registerCompostableItems(0.6F, RuBlocks.MEADOW_SAGE.get());
-        registerCompostableItems(0.6F, RuBlocks.BARLEY.get());
-        registerCompostableItems(0.6F, RuBlocks.CATTAIL.get());
-        registerCompostableItems(0.6F, RuBlocks.TASSEL.get());
-        registerCompostableItems(0.6F, RuBlocks.DAY_LILY.get());
+        // Leaf piles (0.1F)
+        COMPOSTABLES.put(RuBlocks.MAPLE_LEAF_PILE.get(), 0.1F);
+        COMPOSTABLES.put(RuBlocks.RED_MAPLE_LEAF_PILE.get(), 0.1F);
+        COMPOSTABLES.put(RuBlocks.ORANGE_MAPLE_LEAF_PILE.get(), 0.1F);
+        COMPOSTABLES.put(RuBlocks.SILVER_BIRCH_LEAF_PILE.get(), 0.1F);
+        COMPOSTABLES.put(RuBlocks.ENCHANTED_BIRCH_LEAF_PILE.get(), 0.1F);
 
-        registerCompostableItems(0.4F, RuBlocks.BARREL_CACTUS.get());
-        registerCompostableItems(0.4F, RuBlocks.CAVE_HYSSOP.get());
-        registerCompostableItems(0.15F, RuBlocks.DUCKWEED.get());
-        registerCompostableItems(0.3F, RuBlocks.SPANISH_MOSS.get());
-        registerCompostableItems(0.3F, RuBlocks.KAPOK_VINES.get());
-        registerCompostableItems(0.3F, RuBlocks.FLOWERING_LILY_PAD.get());
+        // Tall plants (0.6F)
+        COMPOSTABLES.put(RuBlocks.MEADOW_SAGE.get(), 0.6F);
+        COMPOSTABLES.put(RuBlocks.BARLEY.get(), 0.6F);
+        COMPOSTABLES.put(RuBlocks.CATTAIL.get(), 0.6F);
+        COMPOSTABLES.put(RuBlocks.TASSEL.get(), 0.6F);
+        COMPOSTABLES.put(RuBlocks.DAY_LILY.get(), 0.6F);
 
-        registerCompostableItems(0.25F, RuBlocks.SALMONBERRY_BUSH.get());
+        // Cacti and vines (varied)
+        COMPOSTABLES.put(RuBlocks.BARREL_CACTUS.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.CAVE_HYSSOP.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.DUCKWEED.get(), 0.15F);
+        COMPOSTABLES.put(RuBlocks.SPANISH_MOSS.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.KAPOK_VINES.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.FLOWERING_LILY_PAD.get(), 0.3F);
 
-        registerCompostableItems(0.2F, RuBlocks.PRISMOSS_SPROUT.get());
-        registerCompostableItems(0.6F, RuBlocks.CORPSE_FLOWER.get());
-        registerCompostableItems(0.3F, RuBlocks.BLADED_GRASS.get());
-        registerCompostableItems(0.5F, RuBlocks.BLADED_TALL_GRASS.get());
-        registerCompostableItems(0.15F, RuBlocks.DROPLEAF.get());
-        registerCompostableItems(0.5F, RuBlocks.DUSKMELON.get());
-        registerCompostableItems(0.3F, RuBlocks.DUSKTRAP.get());
+        // Berries (0.25F)
+        COMPOSTABLES.put(RuBlocks.SALMONBERRY_BUSH.get(), 0.25F);
 
-        registerCompostableItems(0.1F, RuBlocks.BRIMSPROUT.get());
+        // Misc plants (varied)
+        COMPOSTABLES.put(RuBlocks.PRISMOSS_SPROUT.get(), 0.2F);
+        COMPOSTABLES.put(RuBlocks.CORPSE_FLOWER.get(), 0.6F);
+        COMPOSTABLES.put(RuBlocks.BLADED_GRASS.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.BLADED_TALL_GRASS.get(), 0.5F);
+        COMPOSTABLES.put(RuBlocks.DROPLEAF.get(), 0.15F);
+        COMPOSTABLES.put(RuBlocks.DUSKMELON.get(), 0.5F);
+        COMPOSTABLES.put(RuBlocks.DUSKTRAP.get(), 0.3F);
 
-        registerCompostableItems(0.3F, RuBlocks.COBALT_EARLIGHT.get());
-        registerCompostableItems(0.35F, RuBlocks.TALL_COBALT_EARLIGHT.get());
-        registerCompostableItems(0.2F, RuBlocks.COBALT_ROOTS.get());
-        registerCompostableItems(0.1F, RuBlocks.HANGING_EARLIGHT.get());
+        // Brimsprout (0.1F)
+        COMPOSTABLES.put(RuBlocks.BRIMSPROUT.get(), 0.1F);
 
-        registerCompostableItems(0.1F, RuBlocks.GLISTERING_IVY.get());
-        registerCompostableItems(0.2F, RuBlocks.GLISTERING_SPROUT.get());
-        registerCompostableItems(0.4F, RuBlocks.GLISTER_BULB.get());
-        registerCompostableItems(0.3F, RuBlocks.GLISTER_SPIRE.get());
+        // Cobalt plants (varied)
+        COMPOSTABLES.put(RuBlocks.COBALT_EARLIGHT.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.TALL_COBALT_EARLIGHT.get(), 0.35F);
+        COMPOSTABLES.put(RuBlocks.COBALT_ROOTS.get(), 0.2F);
+        COMPOSTABLES.put(RuBlocks.HANGING_EARLIGHT.get(), 0.1F);
 
-        registerCompostableItems(0.1F, RuBlocks.MYCOTOXIC_MUSHROOMS.get());
-        registerCompostableItems(0.3F, RuBlocks.MYCOTOXIC_DAISY.get());
-        registerCompostableItems(0.2F, RuBlocks.MYCOTOXIC_GRASS.get());
+        // Glistering plants (varied)
+        COMPOSTABLES.put(RuBlocks.GLISTERING_IVY.get(), 0.1F);
+        COMPOSTABLES.put(RuBlocks.GLISTERING_SPROUT.get(), 0.2F);
+        COMPOSTABLES.put(RuBlocks.GLISTER_BULB.get(), 0.4F);
+        COMPOSTABLES.put(RuBlocks.GLISTER_SPIRE.get(), 0.3F);
+
+        // Mycotoxic plants (varied)
+        COMPOSTABLES.put(RuBlocks.MYCOTOXIC_MUSHROOMS.get(), 0.1F);
+        COMPOSTABLES.put(RuBlocks.MYCOTOXIC_DAISY.get(), 0.3F);
+        COMPOSTABLES.put(RuBlocks.MYCOTOXIC_GRASS.get(), 0.2F);
     }
 }

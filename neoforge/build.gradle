@@ -69,8 +69,8 @@ runs {
         arguments.addAll(
                 '--mod', project.mod_id,
                 '--all',
-                '--output', file('src/generated/resources/').toString(),
-                '--existing', file('src/main/resources/').toString()
+                '--output', project(':common').file('src/generated/resources/').toString(),
+                '--existing', project(':common').file('src/main/resources/').toString()
         )   }
 }
 
