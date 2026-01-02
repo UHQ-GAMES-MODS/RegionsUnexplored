@@ -1,22 +1,20 @@
 package net.regions_unexplored.item;
 
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.SignItem;
-import net.regions_unexplored.api.item.Food;
-import net.regions_unexplored.api.item.FoodItemWithBlock;
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.entity.custom.RuBoat;
 import net.regions_unexplored.item.items.RuBoatItem;
 import net.regions_unexplored.platform.Services;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 
 public class RuItems {
 
@@ -99,10 +97,14 @@ public class RuItems {
     public static final Supplier<Item> WILLOW_BOAT = registerItem("willow_boat", () -> new RuBoatItem(false, RuBoat.ModelType.WILLOW, (new Item.Properties()).stacksTo(1)));
     public static final Supplier<Item> WILLOW_CHEST_BOAT = registerItem("willow_chest_boat", () -> new RuBoatItem(true, RuBoat.ModelType.WILLOW, (new Item.Properties()).stacksTo(1)));
 
-    public static final Supplier<Item> SALMONBERRY = registerItem("salmonberry", () -> new FoodItemWithBlock(RuBlocks.SALMONBERRY_BUSH.get(), new Item.Properties(), new Food(3, 0.3f)));
-    public static final Supplier<Item> DUSKMELON_SLICE = registerItem("duskmelon_slice", () -> new FoodItemWithBlock(RuBlocks.DUSKMELON.get(), new Item.Properties(), new Food(5, 1.1f).addEffect(MobEffects.BLINDNESS, 240, 1)));
-    public static final Supplier<Item> HANGING_EARLIGHT_FRUIT = registerItem("hanging_earlight_fruit", () -> new FoodItemWithBlock(RuBlocks.HANGING_EARLIGHT.get(), new Item.Properties(), new Food(6, 0.4f).addEffect(MobEffects.GLOWING, 200, 0.1F)));
-    public static final Supplier<Item> MEADOW_SAGE = registerItem("meadow_sage", () -> new FoodItemWithBlock(RuBlocks.MEADOW_SAGE.get(), new Item.Properties(), new Food(2, 0.15f).addEffect(MobEffects.HEAL, 20, 0.5f)));
+    public static final Supplier<Item> SALMONBERRY = registerItem("salmonberry", () -> new ItemNameBlockItem(RuBlocks.SALMONBERRY_BUSH.get(), new Item.Properties().food(food(3, 0.3f, t -> t))));
+    public static final Supplier<Item> DUSKMELON_SLICE = registerItem("duskmelon_slice", () -> new ItemNameBlockItem(RuBlocks.DUSKMELON.get(), new Item.Properties().food(food(5, 1.1f, t -> t.effect(new MobEffectInstance(MobEffects.BLINDNESS, 240), 1)))));
+    public static final Supplier<Item> HANGING_EARLIGHT_FRUIT = registerItem("hanging_earlight_fruit", () -> new ItemNameBlockItem(RuBlocks.HANGING_EARLIGHT.get(), new Item.Properties().food(food(6, 0.4f, t -> t.effect(new MobEffectInstance(MobEffects.GLOWING, 200), 0.1F)))));
+    public static final Supplier<Item> MEADOW_SAGE = registerItem("meadow_sage", () -> new ItemNameBlockItem(RuBlocks.MEADOW_SAGE.get(), new Item.Properties().food(food(2, 0.15f, t -> t.effect(new MobEffectInstance(MobEffects.HEAL, 20), 0.5f)))));
+
+    private static FoodProperties food(int nutrition, float saturation, UnaryOperator<FoodProperties.Builder> operator) {
+        return operator.apply(new FoodProperties.Builder().nutrition(nutrition).saturationModifier(saturation)).build();
+    }
 
     public static void addItems() {
 
