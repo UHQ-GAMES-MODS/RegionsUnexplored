@@ -8,7 +8,7 @@ import net.regions_unexplored.block.entity.RuBlockEntities;
 
 public class RuSignBlockEntity extends SignBlockEntity {
     public RuSignBlockEntity(BlockPos pos, BlockState state) {
-        super(pos, state);
+        super(RuBlockEntities.SIGN_BLOCK_ENTITIES.get(), pos, state);
     }
 
     @Override
