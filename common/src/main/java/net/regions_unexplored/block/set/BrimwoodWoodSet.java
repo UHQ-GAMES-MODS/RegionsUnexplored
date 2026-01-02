@@ -23,7 +23,7 @@ public class BrimwoodWoodSet extends WoodSet {
     public static BrimwoodWoodSet brimwood(String name, WoodType woodType, SoundType sound, MapColor plankColour, MapColor logColour, boolean fireproof) {
         BrimwoodWoodSet set = new BrimwoodWoodSet(fireproof);
         set.log = BlockRegistry.registerDefaultBlock(name + "_log", () -> BlockRegistry.log(plankColour, logColour, sound, fireproof));
-        set.logMagma = BlockRegistry.registerDefaultBlock(name + "_magma", () -> BlockRegistry.block(2, 2, plankColour, sound, fireproof, MagmaLogBlock::new));
+        set.logMagma = BlockRegistry.registerDefaultBlock(name + "_log_magma", () -> BlockRegistry.block(2, 2, plankColour, sound, fireproof, MagmaLogBlock::new));
         set.wood = BlockRegistry.registerDefaultBlock(name + "_wood", () -> BlockRegistry.log(plankColour, logColour, sound, fireproof));
         set.strippedLog = BlockRegistry.registerDefaultBlock("stripped_" + name + "_log", () -> BlockRegistry.wood(plankColour, sound, fireproof));
         set.strippedWood = BlockRegistry.registerDefaultBlock("stripped_" + name + "_wood", () -> BlockRegistry.wood(plankColour, sound, fireproof));
