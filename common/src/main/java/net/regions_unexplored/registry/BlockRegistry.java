@@ -126,22 +126,6 @@ public class BlockRegistry {
         return Services.REGISTAR.registerBlock(name, block);
     }
 
-    public static Supplier<Block> registerSaplingBlock(String name, TreeGrower grower) {
-        return registerDefaultBlock(name, () -> new SaplingBlock(grower, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    }
-
-    public static Supplier<Block> registerMegaSaplingBlock(String name, RuUltraFromMegaTreeGrower grower) {
-        return registerDefaultBlock(name, () -> new RuUltraFromMegaSaplingBlock(grower, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    }
-
-    public static Supplier<Block> registerSuperSaplingBlock(String name, RuUltraFromSuperTreeGrower grower) {
-        return registerDefaultBlock(name, () -> new RuUltraFromSuperSaplingBlock(grower, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    }
-
-    public static Supplier<Block> registerNetherSaplingBlock(String name, TreeGrower grower) {
-        return registerDefaultBlock(name, () -> new SaplingBlock(grower, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).randomTicks()));
-    }
-
     //Register Duckweed block and item
     public static Supplier<Block> registerPlaceOnWaterBlock(String name, Supplier<Block> block) {
         Supplier<Block> toReturn = Services.REGISTAR.registerBlock(name, block);
@@ -158,14 +142,6 @@ public class BlockRegistry {
         return new AspenLogBlock(BlockBehaviour.Properties.of().mapColor((p_152624_) -> {
             return p_152624_.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? colour : colour2;
         }).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(sound).ignitedByLava());
-    }
-    //Configure wooden stairs
-    public static StairBlock woodStairs(MapColor colour, SoundType sound) {
-        return new StairBlock(Blocks.OAK_PLANKS.defaultBlockState(), BlockBehaviour.Properties.of().mapColor(colour).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(sound).ignitedByLava());
-    }
-    //Configure wooden slab
-    public static SlabBlock woodSlab(MapColor colour, SoundType sound) {
-        return new SlabBlock(BlockBehaviour.Properties.of().mapColor(colour).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(sound).ignitedByLava());
     }
 
     //Configure leaves blocks

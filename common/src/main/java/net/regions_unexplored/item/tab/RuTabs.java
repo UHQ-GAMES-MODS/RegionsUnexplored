@@ -3,6 +3,7 @@ package net.regions_unexplored.item.tab;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.block.set.WoodSet;
 import net.regions_unexplored.item.RuItems;
@@ -89,22 +90,9 @@ public class RuTabs {
         output.accept(RuBlocks.ORANGE_CONEFLOWER.get().asItem());
         output.accept(RuBlocks.PURPLE_CONEFLOWER.get().asItem());
         //SNOWBELLE
-        output.accept(RuBlocks.WHITE_SNOWBELLE.get().asItem());
-        output.accept(RuBlocks.LIGHT_GRAY_SNOWBELLE.get().asItem());
-        output.accept(RuBlocks.GRAY_SNOWBELLE.get().asItem());
-        output.accept(RuBlocks.RED_SNOWBELLE.get().asItem());
-        output.accept(RuBlocks.ORANGE_SNOWBELLE.get().asItem());
-        output.accept(RuBlocks.YELLOW_SNOWBELLE.get().asItem());
-        output.accept(RuBlocks.LIME_SNOWBELLE.get().asItem());
-        output.accept(RuBlocks.GREEN_SNOWBELLE.get().asItem());
-        output.accept(RuBlocks.CYAN_SNOWBELLE.get().asItem());
-        output.accept(RuBlocks.LIGHT_BLUE_SNOWBELLE.get().asItem());
-        output.accept(RuBlocks.BLUE_SNOWBELLE.get().asItem());
-        output.accept(RuBlocks.PURPLE_SNOWBELLE.get().asItem());
-        output.accept(RuBlocks.MAGENTA_SNOWBELLE.get().asItem());
-        output.accept(RuBlocks.PINK_SNOWBELLE.get().asItem());
-        output.accept(RuBlocks.BROWN_SNOWBELLE.get().asItem());
-        output.accept(RuBlocks.BLACK_SNOWBELLE.get().asItem());
+        for (Block snowbelle : RuBlocks.SNOWBELLES.getAll()) {
+            output.accept(snowbelle);
+        }
 
         output.accept(RuBlocks.HYACINTH_FLOWERS.get().asItem());
         output.accept(RuBlocks.BLUE_MAGNOLIA_FLOWERS.get().asItem());
@@ -371,105 +359,65 @@ public class RuTabs {
         output.accept(RuBlocks.SMALL_OAK_LOG.get().asItem());
         output.accept(RuBlocks.STRIPPED_SMALL_OAK_LOG.get().asItem());
         //BAOBAB_BLOCKS
-        RuItems.BAOBAB_BOAT.get().asItem();
-        RuItems.BAOBAB_CHEST_BOAT.get().asItem();
+        output.accept(RuItems.BAOBAB_BOAT.get().asItem());
+        output.accept(RuItems.BAOBAB_CHEST_BOAT.get().asItem());
         //BLACKWOOD_BLOCKS
-        RuItems.BLACKWOOD_BOAT.get().asItem();
-        RuItems.BLACKWOOD_CHEST_BOAT.get().asItem();
+        output.accept(RuItems.BLACKWOOD_BOAT.get().asItem());
+        output.accept(RuItems.BLACKWOOD_CHEST_BOAT.get().asItem());
         //CYPRESS_BLOCKS
-        RuItems.CYPRESS_BOAT.get().asItem();
-        RuItems.CYPRESS_CHEST_BOAT.get().asItem();
+        output.accept(RuItems.CYPRESS_BOAT.get().asItem());
+        output.accept(RuItems.CYPRESS_CHEST_BOAT.get().asItem());
         //DEAD_BLOCKS
-        RuItems.DEAD_BOAT.get().asItem();
-        RuItems.DEAD_CHEST_BOAT.get().asItem();
+        output.accept(RuItems.DEAD_BOAT.get().asItem());
+        output.accept(RuItems.DEAD_CHEST_BOAT.get().asItem());
         //EUCALYPTUS_BLOCKS
-        RuItems.EUCALYPTUS_BOAT.get().asItem();
-        RuItems.EUCALYPTUS_CHEST_BOAT.get().asItem();
+        output.accept(RuItems.EUCALYPTUS_BOAT.get().asItem());
+        output.accept(RuItems.EUCALYPTUS_CHEST_BOAT.get().asItem());
         //JOSHUA_BLOCKS
-        RuItems.JOSHUA_BOAT.get().asItem();
-        RuItems.JOSHUA_CHEST_BOAT.get().asItem();
+        output.accept(RuItems.JOSHUA_BOAT.get().asItem());
+        output.accept(RuItems.JOSHUA_CHEST_BOAT.get().asItem());
         //KAPOK_BLOCKS
-        RuItems.KAPOK_BOAT.get().asItem();
-        RuItems.KAPOK_CHEST_BOAT.get().asItem();
+        output.accept(RuItems.KAPOK_BOAT.get().asItem());
+        output.accept(RuItems.KAPOK_CHEST_BOAT.get().asItem());
         //LARCH_BLOCKS
-        RuItems.LARCH_BOAT.get().asItem();
-        RuItems.LARCH_CHEST_BOAT.get().asItem();
+        output.accept(RuItems.LARCH_BOAT.get().asItem());
+        output.accept(RuItems.LARCH_CHEST_BOAT.get().asItem());
         //MAGNOLIA_BLOCKS
-        RuItems.MAGNOLIA_BOAT.get().asItem();
-        RuItems.MAGNOLIA_CHEST_BOAT.get().asItem();
+        output.accept(RuItems.MAGNOLIA_BOAT.get().asItem());
+        output.accept(RuItems.MAGNOLIA_CHEST_BOAT.get().asItem());
         //MAPLE_BLOCKS
-        RuItems.MAPLE_BOAT.get().asItem();
-        RuItems.MAPLE_CHEST_BOAT.get().asItem();
+        output.accept(RuItems.MAPLE_BOAT.get().asItem());
+        output.accept(RuItems.MAPLE_CHEST_BOAT.get().asItem());
         //MAUVE_BLOCKS
-        RuItems.MAUVE_BOAT.get().asItem();
-        RuItems.MAUVE_CHEST_BOAT.get().asItem();
+        output.accept(RuItems.MAUVE_BOAT.get().asItem());
+        output.accept(RuItems.MAUVE_CHEST_BOAT.get().asItem());
         //PALM_BLOCKS
-        RuItems.PALM_BOAT.get().asItem();
-        RuItems.PALM_CHEST_BOAT.get().asItem();
+        output.accept(RuItems.PALM_BOAT.get().asItem());
+        output.accept(RuItems.PALM_CHEST_BOAT.get().asItem());
         //PINE_BLOCKS
-        RuItems.PINE_BOAT.get().asItem();
-        RuItems.PINE_CHEST_BOAT.get().asItem();
-        RuItems.REDWOOD_BOAT.get().asItem();
-        RuItems.REDWOOD_CHEST_BOAT.get().asItem();
+        output.accept(RuItems.PINE_BOAT.get().asItem());
+        output.accept(RuItems.PINE_CHEST_BOAT.get().asItem());
+
+        output.accept(RuItems.REDWOOD_BOAT.get().asItem());
+        output.accept(RuItems.REDWOOD_CHEST_BOAT.get().asItem());
         //SOCOTRA_BLOCKS
-        RuItems.SOCOTRA_BOAT.get().asItem();
-        RuItems.SOCOTRA_CHEST_BOAT.get().asItem();
+        output.accept(RuItems.SOCOTRA_BOAT.get().asItem());
+        output.accept(RuItems.SOCOTRA_CHEST_BOAT.get().asItem());
         //WILLOW_BLOCKS
-        RuItems.WILLOW_BOAT.get().asItem();
-        RuItems.WILLOW_CHEST_BOAT.get().asItem();
+        output.accept(RuItems.WILLOW_BOAT.get().asItem());
+        output.accept(RuItems.WILLOW_CHEST_BOAT.get().asItem());
 
         /*-----------------PAINTED PLANKS-----------------*/
         //PLANKS
-        output.accept(RuBlocks.RED_PAINTED_PLANKS.get().asItem());
-        output.accept(RuBlocks.ORANGE_PAINTED_PLANKS.get().asItem());
-        output.accept(RuBlocks.YELLOW_PAINTED_PLANKS.get().asItem());
-        output.accept(RuBlocks.LIME_PAINTED_PLANKS.get().asItem());
-        output.accept(RuBlocks.GREEN_PAINTED_PLANKS.get().asItem());
-        output.accept(RuBlocks.CYAN_PAINTED_PLANKS.get().asItem());
-        output.accept(RuBlocks.LIGHT_BLUE_PAINTED_PLANKS.get().asItem());
-        output.accept(RuBlocks.BLUE_PAINTED_PLANKS.get().asItem());
-        output.accept(RuBlocks.PURPLE_PAINTED_PLANKS.get().asItem());
-        output.accept(RuBlocks.MAGENTA_PAINTED_PLANKS.get().asItem());
-        output.accept(RuBlocks.PINK_PAINTED_PLANKS.get().asItem());
-        output.accept(RuBlocks.BROWN_PAINTED_PLANKS.get().asItem());
-        output.accept(RuBlocks.WHITE_PAINTED_PLANKS.get().asItem());
-        output.accept(RuBlocks.LIGHT_GRAY_PAINTED_PLANKS.get().asItem());
-        output.accept(RuBlocks.GRAY_PAINTED_PLANKS.get().asItem());
-        output.accept(RuBlocks.BLACK_PAINTED_PLANKS.get().asItem());
-        //STAIRS
-        output.accept(RuBlocks.RED_PAINTED_STAIRS.get().asItem());
-        output.accept(RuBlocks.ORANGE_PAINTED_STAIRS.get().asItem());
-        output.accept(RuBlocks.YELLOW_PAINTED_STAIRS.get().asItem());
-        output.accept(RuBlocks.LIME_PAINTED_STAIRS.get().asItem());
-        output.accept(RuBlocks.GREEN_PAINTED_STAIRS.get().asItem());
-        output.accept(RuBlocks.CYAN_PAINTED_STAIRS.get().asItem());
-        output.accept(RuBlocks.LIGHT_BLUE_PAINTED_STAIRS.get().asItem());
-        output.accept(RuBlocks.BLUE_PAINTED_STAIRS.get().asItem());
-        output.accept(RuBlocks.PURPLE_PAINTED_STAIRS.get().asItem());
-        output.accept(RuBlocks.MAGENTA_PAINTED_STAIRS.get().asItem());
-        output.accept(RuBlocks.PINK_PAINTED_STAIRS.get().asItem());
-        output.accept(RuBlocks.BROWN_PAINTED_STAIRS.get().asItem());
-        output.accept(RuBlocks.WHITE_PAINTED_STAIRS.get().asItem());
-        output.accept(RuBlocks.LIGHT_GRAY_PAINTED_STAIRS.get().asItem());
-        output.accept(RuBlocks.GRAY_PAINTED_STAIRS.get().asItem());
-        output.accept(RuBlocks.BLACK_PAINTED_STAIRS.get().asItem());
-        //SLABS
-        output.accept(RuBlocks.RED_PAINTED_SLAB.get().asItem());
-        output.accept(RuBlocks.ORANGE_PAINTED_SLAB.get().asItem());
-        output.accept(RuBlocks.YELLOW_PAINTED_SLAB.get().asItem());
-        output.accept(RuBlocks.LIME_PAINTED_SLAB.get().asItem());
-        output.accept(RuBlocks.GREEN_PAINTED_SLAB.get().asItem());
-        output.accept(RuBlocks.CYAN_PAINTED_SLAB.get().asItem());
-        output.accept(RuBlocks.LIGHT_BLUE_PAINTED_SLAB.get().asItem());
-        output.accept(RuBlocks.BLUE_PAINTED_SLAB.get().asItem());
-        output.accept(RuBlocks.PURPLE_PAINTED_SLAB.get().asItem());
-        output.accept(RuBlocks.MAGENTA_PAINTED_SLAB.get().asItem());
-        output.accept(RuBlocks.PINK_PAINTED_SLAB.get().asItem());
-        output.accept(RuBlocks.BROWN_PAINTED_SLAB.get().asItem());
-        output.accept(RuBlocks.WHITE_PAINTED_SLAB.get().asItem());
-        output.accept(RuBlocks.LIGHT_GRAY_PAINTED_SLAB.get().asItem());
-        output.accept(RuBlocks.GRAY_PAINTED_SLAB.get().asItem());
-        output.accept(RuBlocks.BLACK_PAINTED_SLAB.get().asItem());
+        for (Block block : RuBlocks.PAINTED_PLANKS.getAll()) {
+            output.accept(block);
+        }
+        for (Block block : RuBlocks.PAINTED_STAIRS.getAll()) {
+            output.accept(block);
+        }
+        for (Block block : RuBlocks.PAINTED_SLABS.getAll()) {
+            output.accept(block);
+        }
     };
 
 

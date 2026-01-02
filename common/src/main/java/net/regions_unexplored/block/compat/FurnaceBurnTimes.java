@@ -264,7 +264,7 @@ public class FurnaceBurnTimes {
 
             /*-----------------PAINTED PLANKS-----------------*/
             //PLANKS
-            RuBlocks.RED_PAINTED_PLANKS.get().asItem(),
+            /*RuBlocks.RED_PAINTED_PLANKS.get().asItem(),
             RuBlocks.ORANGE_PAINTED_PLANKS.get().asItem(),
             RuBlocks.YELLOW_PAINTED_PLANKS.get().asItem(),
             RuBlocks.LIME_PAINTED_PLANKS.get().asItem(),
@@ -313,7 +313,7 @@ public class FurnaceBurnTimes {
             RuBlocks.WHITE_PAINTED_SLAB.get().asItem(),
             RuBlocks.LIGHT_GRAY_PAINTED_SLAB.get().asItem(),
             RuBlocks.GRAY_PAINTED_SLAB.get().asItem(),
-            RuBlocks.BLACK_PAINTED_SLAB.get().asItem()
+            RuBlocks.BLACK_PAINTED_SLAB.get().asItem()*/
     );
 
     public static final List<Item> BURN_TIME_200 = RuBlocks.WOOD_SETS.stream().map(WoodSet::getDoor).filter(Objects::nonNull).map(Block::asItem).toList();
@@ -341,7 +341,7 @@ public class FurnaceBurnTimes {
             RuBlocks.SOCOTRA_SLAB.get().asItem(),
             RuBlocks.WILLOW_SLAB.get().asItem(),
             RuBlocks.YELLOW_BIOSHROOM_SLAB.get().asItem(),*/
-            RuBlocks.RED_PAINTED_SLAB.get().asItem(),
+            /*RuBlocks.RED_PAINTED_SLAB.get().asItem(),
             RuBlocks.ORANGE_PAINTED_SLAB.get().asItem(),
             RuBlocks.YELLOW_PAINTED_SLAB.get().asItem(),
             RuBlocks.LIME_PAINTED_SLAB.get().asItem(),
@@ -356,7 +356,7 @@ public class FurnaceBurnTimes {
             RuBlocks.WHITE_PAINTED_SLAB.get().asItem(),
             RuBlocks.LIGHT_GRAY_PAINTED_SLAB.get().asItem(),
             RuBlocks.GRAY_PAINTED_SLAB.get().asItem(),
-            RuBlocks.BLACK_PAINTED_SLAB.get().asItem()
+            RuBlocks.BLACK_PAINTED_SLAB.get().asItem()*/
     );
 
     public static final ImmutableList<Item> BURN_TIME_100 = ImmutableList.of(

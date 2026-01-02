@@ -235,7 +235,7 @@ public class RuVegetationFeatures {
         register(context, BARREL_CACTUS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RuBlocks.BARREL_CACTUS.get())));
         register(context, SANDY_GRASS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RuBlocks.SANDY_GRASS.get())));
         register(context, TASSEL, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RuBlocks.TASSEL.get())));
-        register(context, WHITE_SNOWBELLE, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RuBlocks.WHITE_SNOWBELLE.get())));
+        register(context, WHITE_SNOWBELLE, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RuBlocks.SNOWBELLES.getWhite().get())));
         //RANDOM_PATCH
         register(context, PATCH_ASHEN_GRASS, Feature.RANDOM_PATCH, grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(RuBlocks.ASHEN_GRASS.get().defaultBlockState(), 4).add(RuBlocks.ASHEN_GRASS.get().defaultBlockState().setValue(AshenGrassBlock.SMOULDERING, true), 1)), 32));
         register(context, PATCH_BARLEY, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RuBlocks.BARLEY.get()))));

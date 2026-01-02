@@ -10,6 +10,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -137,22 +138,9 @@ public class RuBlockLootTables extends BlockLootSubProvider {
         add(RuBlocks.PINK_MAGNOLIA_FLOWERS.get(), (block) -> createMultifaceBlockDrops(block, HAS_SHEARS));
         add(RuBlocks.WHITE_MAGNOLIA_FLOWERS.get(), (block) -> createMultifaceBlockDrops(block, HAS_SHEARS));
         //SNOWBELLE
-        dropSelf(RuBlocks.RED_SNOWBELLE.get());
-        dropSelf(RuBlocks.ORANGE_SNOWBELLE.get());
-        dropSelf(RuBlocks.YELLOW_SNOWBELLE.get());
-        dropSelf(RuBlocks.LIME_SNOWBELLE.get());
-        dropSelf(RuBlocks.GREEN_SNOWBELLE.get());
-        dropSelf(RuBlocks.CYAN_SNOWBELLE.get());
-        dropSelf(RuBlocks.LIGHT_BLUE_SNOWBELLE.get());
-        dropSelf(RuBlocks.BLUE_SNOWBELLE.get());
-        dropSelf(RuBlocks.PURPLE_SNOWBELLE.get());
-        dropSelf(RuBlocks.MAGENTA_SNOWBELLE.get());
-        dropSelf(RuBlocks.PINK_SNOWBELLE.get());
-        dropSelf(RuBlocks.BROWN_SNOWBELLE.get());
-        dropSelf(RuBlocks.WHITE_SNOWBELLE.get());
-        dropSelf(RuBlocks.LIGHT_GRAY_SNOWBELLE.get());
-        dropSelf(RuBlocks.GRAY_SNOWBELLE.get());
-        dropSelf(RuBlocks.BLACK_SNOWBELLE.get());
+        for (Block snowbelle : RuBlocks.SNOWBELLES.getAll()) {
+            dropSelf(snowbelle);
+        }
 
         add(RuBlocks.MAPLE_LEAF_PILE.get(), (block) -> createPetalsDrops(block));
         add(RuBlocks.RED_MAPLE_LEAF_PILE.get(), (block) -> createPetalsDrops(block));
@@ -286,22 +274,9 @@ public class RuBlockLootTables extends BlockLootSubProvider {
         add(RuBlocks.POTTED_YELLOW_LUPINE.get(), createPotFlowerItemTable(RuBlocks.YELLOW_LUPINE.get()));
         add(RuBlocks.POTTED_ORANGE_CONEFLOWER.get(), createPotFlowerItemTable(RuBlocks.ORANGE_CONEFLOWER.get()));
         add(RuBlocks.POTTED_PURPLE_CONEFLOWER.get(), createPotFlowerItemTable(RuBlocks.PURPLE_CONEFLOWER.get()));
-        add(RuBlocks.POTTED_WHITE_SNOWBELLE.get(), createPotFlowerItemTable(RuBlocks.WHITE_SNOWBELLE.get()));
-        add(RuBlocks.POTTED_LIGHT_GRAY_SNOWBELLE.get(), createPotFlowerItemTable(RuBlocks.LIGHT_GRAY_SNOWBELLE.get()));
-        add(RuBlocks.POTTED_GRAY_SNOWBELLE.get(), createPotFlowerItemTable(RuBlocks.GRAY_SNOWBELLE.get()));
-        add(RuBlocks.POTTED_RED_SNOWBELLE.get(), createPotFlowerItemTable(RuBlocks.RED_SNOWBELLE.get()));
-        add(RuBlocks.POTTED_ORANGE_SNOWBELLE.get(), createPotFlowerItemTable(RuBlocks.ORANGE_SNOWBELLE.get()));
-        add(RuBlocks.POTTED_YELLOW_SNOWBELLE.get(), createPotFlowerItemTable(RuBlocks.YELLOW_SNOWBELLE.get()));
-        add(RuBlocks.POTTED_LIME_SNOWBELLE.get(), createPotFlowerItemTable(RuBlocks.LIME_SNOWBELLE.get()));
-        add(RuBlocks.POTTED_GREEN_SNOWBELLE.get(), createPotFlowerItemTable(RuBlocks.GREEN_SNOWBELLE.get()));
-        add(RuBlocks.POTTED_CYAN_SNOWBELLE.get(), createPotFlowerItemTable(RuBlocks.CYAN_SNOWBELLE.get()));
-        add(RuBlocks.POTTED_LIGHT_BLUE_SNOWBELLE.get(), createPotFlowerItemTable(RuBlocks.LIGHT_BLUE_SNOWBELLE.get()));
-        add(RuBlocks.POTTED_BLUE_SNOWBELLE.get(), createPotFlowerItemTable(RuBlocks.BLUE_SNOWBELLE.get()));
-        add(RuBlocks.POTTED_PURPLE_SNOWBELLE.get(), createPotFlowerItemTable(RuBlocks.PURPLE_SNOWBELLE.get()));
-        add(RuBlocks.POTTED_MAGENTA_SNOWBELLE.get(), createPotFlowerItemTable(RuBlocks.MAGENTA_SNOWBELLE.get()));
-        add(RuBlocks.POTTED_PINK_SNOWBELLE.get(), createPotFlowerItemTable(RuBlocks.PINK_SNOWBELLE.get()));
-        add(RuBlocks.POTTED_BROWN_SNOWBELLE.get(), createPotFlowerItemTable(RuBlocks.BROWN_SNOWBELLE.get()));
-        add(RuBlocks.POTTED_BLACK_SNOWBELLE.get(), createPotFlowerItemTable(RuBlocks.BLACK_SNOWBELLE.get()));
+        for (Map.Entry<DyeColor, Block> entry : RuBlocks.POTTED_SNOWBELLES.getMap().entrySet()) {
+            add(entry.getValue(), createPotFlowerItemTable(RuBlocks.SNOWBELLES.getMap().get(entry.getKey())));
+        }
         add(RuBlocks.POTTED_DAY_LILY.get(), createPotFlowerItemTable(RuBlocks.DAY_LILY.get()));
         add(RuBlocks.POTTED_MEADOW_SAGE.get(), createPotFlowerItemTable(RuBlocks.MEADOW_SAGE.get()));
         add(RuBlocks.POTTED_CAVE_HYSSOP.get(), createPotFlowerItemTable(RuBlocks.CAVE_HYSSOP.get()));
@@ -897,57 +872,15 @@ public class RuBlockLootTables extends BlockLootSubProvider {
         add(RuBlocks.YELLOW_BIOSHROOM_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.YELLOW_BIOSHROOM_HANGING_SIGN.get()));
 
         /*-----------------PAINTED PLANKS-----------------*/
-        //PLANKS
-        dropSelf(RuBlocks.RED_PAINTED_PLANKS.get());
-        dropSelf(RuBlocks.ORANGE_PAINTED_PLANKS.get());
-        dropSelf(RuBlocks.YELLOW_PAINTED_PLANKS.get());
-        dropSelf(RuBlocks.LIME_PAINTED_PLANKS.get());
-        dropSelf(RuBlocks.GREEN_PAINTED_PLANKS.get());
-        dropSelf(RuBlocks.CYAN_PAINTED_PLANKS.get());
-        dropSelf(RuBlocks.LIGHT_BLUE_PAINTED_PLANKS.get());
-        dropSelf(RuBlocks.BLUE_PAINTED_PLANKS.get());
-        dropSelf(RuBlocks.PURPLE_PAINTED_PLANKS.get());
-        dropSelf(RuBlocks.MAGENTA_PAINTED_PLANKS.get());
-        dropSelf(RuBlocks.PINK_PAINTED_PLANKS.get());
-        dropSelf(RuBlocks.BROWN_PAINTED_PLANKS.get());
-        dropSelf(RuBlocks.WHITE_PAINTED_PLANKS.get());
-        dropSelf(RuBlocks.LIGHT_GRAY_PAINTED_PLANKS.get());
-        dropSelf(RuBlocks.GRAY_PAINTED_PLANKS.get());
-        dropSelf(RuBlocks.BLACK_PAINTED_PLANKS.get());
-        //STAIRS
-        dropSelf(RuBlocks.RED_PAINTED_STAIRS.get());
-        dropSelf(RuBlocks.ORANGE_PAINTED_STAIRS.get());
-        dropSelf(RuBlocks.YELLOW_PAINTED_STAIRS.get());
-        dropSelf(RuBlocks.LIME_PAINTED_STAIRS.get());
-        dropSelf(RuBlocks.GREEN_PAINTED_STAIRS.get());
-        dropSelf(RuBlocks.CYAN_PAINTED_STAIRS.get());
-        dropSelf(RuBlocks.LIGHT_BLUE_PAINTED_STAIRS.get());
-        dropSelf(RuBlocks.BLUE_PAINTED_STAIRS.get());
-        dropSelf(RuBlocks.PURPLE_PAINTED_STAIRS.get());
-        dropSelf(RuBlocks.MAGENTA_PAINTED_STAIRS.get());
-        dropSelf(RuBlocks.PINK_PAINTED_STAIRS.get());
-        dropSelf(RuBlocks.BROWN_PAINTED_STAIRS.get());
-        dropSelf(RuBlocks.WHITE_PAINTED_STAIRS.get());
-        dropSelf(RuBlocks.LIGHT_GRAY_PAINTED_STAIRS.get());
-        dropSelf(RuBlocks.GRAY_PAINTED_STAIRS.get());
-        dropSelf(RuBlocks.BLACK_PAINTED_STAIRS.get());
-        //SLABS
-        add(RuBlocks.RED_PAINTED_SLAB.get(), (block) -> createSlabItemTable(block));
-        add(RuBlocks.ORANGE_PAINTED_SLAB.get(), (block) -> createSlabItemTable(block));
-        add(RuBlocks.YELLOW_PAINTED_SLAB.get(), (block) -> createSlabItemTable(block));
-        add(RuBlocks.LIME_PAINTED_SLAB.get(), (block) -> createSlabItemTable(block));
-        add(RuBlocks.GREEN_PAINTED_SLAB.get(), (block) -> createSlabItemTable(block));
-        add(RuBlocks.CYAN_PAINTED_SLAB.get(), (block) -> createSlabItemTable(block));
-        add(RuBlocks.LIGHT_BLUE_PAINTED_SLAB.get(), (block) -> createSlabItemTable(block));
-        add(RuBlocks.BLUE_PAINTED_SLAB.get(), (block) -> createSlabItemTable(block));
-        add(RuBlocks.PURPLE_PAINTED_SLAB.get(), (block) -> createSlabItemTable(block));
-        add(RuBlocks.MAGENTA_PAINTED_SLAB.get(), (block) -> createSlabItemTable(block));
-        add(RuBlocks.PINK_PAINTED_SLAB.get(), (block) -> createSlabItemTable(block));
-        add(RuBlocks.BROWN_PAINTED_SLAB.get(), (block) -> createSlabItemTable(block));
-        add(RuBlocks.WHITE_PAINTED_SLAB.get(), (block) -> createSlabItemTable(block));
-        add(RuBlocks.LIGHT_GRAY_PAINTED_SLAB.get(), (block) -> createSlabItemTable(block));
-        add(RuBlocks.GRAY_PAINTED_SLAB.get(), (block) -> createSlabItemTable(block));
-        add(RuBlocks.BLACK_PAINTED_SLAB.get(), (block) -> createSlabItemTable(block));
+        for (Block block : RuBlocks.PAINTED_PLANKS.getAll()) {
+            dropSelf(block);
+        }
+        for (Block block : RuBlocks.PAINTED_STAIRS.getAll()) {
+            dropSelf(block);
+        }
+        for (Block block : RuBlocks.PAINTED_SLABS.getAll()) {
+            add(block, this::createSlabItemTable);
+        }
 
         /*-----------------NETHER_BLOCKS-----------------*/
         //NETHER_STONES

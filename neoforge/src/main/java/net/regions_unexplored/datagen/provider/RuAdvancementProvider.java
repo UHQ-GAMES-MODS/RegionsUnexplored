@@ -214,7 +214,7 @@ public class RuAdvancementProvider extends AdvancementProvider {
             AdvancementHolder EVERY_BIT_OF_THE_RAINBOW = Advancement.Builder.advancement()
                     .parent(PIONEER)
                     .display(
-                            RuBlocks.WHITE_SNOWBELLE.get(),
+                            RuBlocks.SNOWBELLES.getWhite().get(),
                             Component.translatable("advancements.regions_unexplored.every_bit_of_the_rainbow.title"),
                             Component.translatable("advancements.regions_unexplored.every_bit_of_the_rainbow.description"),
                             Constants.id("textures/gui/advancements/backgrounds/argillite.png"),
@@ -223,22 +223,22 @@ public class RuAdvancementProvider extends AdvancementProvider {
                             true,
                             false
                     )
-                    .addCriterion("white_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.WHITE_SNOWBELLE.get().asItem()))
-                    .addCriterion("black_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.BLACK_SNOWBELLE.get().asItem()))
-                    .addCriterion("blue_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.BLUE_SNOWBELLE.get().asItem()))
-                    .addCriterion("green_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.GREEN_SNOWBELLE.get().asItem()))
-                    .addCriterion("pink_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.PINK_SNOWBELLE.get().asItem()))
-                    .addCriterion("brown_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.BROWN_SNOWBELLE.get().asItem()))
-                    .addCriterion("cyan_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.CYAN_SNOWBELLE.get().asItem()))
-                    .addCriterion("gray_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.GRAY_SNOWBELLE.get().asItem()))
-                    .addCriterion("magenta_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.MAGENTA_SNOWBELLE.get().asItem()))
-                    .addCriterion("red_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.RED_SNOWBELLE.get().asItem()))
-                    .addCriterion("orange_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.ORANGE_SNOWBELLE.get().asItem()))
-                    .addCriterion("yellow_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.YELLOW_SNOWBELLE.get().asItem()))
-                    .addCriterion("purple_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.PURPLE_SNOWBELLE.get().asItem()))
-                    .addCriterion("lime_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.LIME_SNOWBELLE.get().asItem()))
-                    .addCriterion("light_gray_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.LIGHT_GRAY_SNOWBELLE.get().asItem()))
-                    .addCriterion("light_blue_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.LIGHT_BLUE_SNOWBELLE.get().asItem()))
+                    .addCriterion("white_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getWhite().get().asItem()))
+                    .addCriterion("black_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getBlack().get().asItem()))
+                    .addCriterion("blue_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getBlue().get().asItem()))
+                    .addCriterion("green_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getGreen().get().asItem()))
+                    .addCriterion("pink_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getPink().get().asItem()))
+                    .addCriterion("brown_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getBrown().get().asItem()))
+                    .addCriterion("cyan_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getCyan().get().asItem()))
+                    .addCriterion("gray_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getGray().get().asItem()))
+                    .addCriterion("magenta_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getMagenta().get().asItem()))
+                    .addCriterion("red_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getRed().get().asItem()))
+                    .addCriterion("orange_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getOrange().get().asItem()))
+                    .addCriterion("yellow_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getYellow().get().asItem()))
+                    .addCriterion("purple_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getPurple().get().asItem()))
+                    .addCriterion("lime_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getLime().get().asItem()))
+                    .addCriterion("light_gray_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getLightGray().get().asItem()))
+                    .addCriterion("light_blue_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getLightBlue().get().asItem()))
                     .save(saver, getAdvancementName(Constants.MOD_ID, "every_bit_of_the_rainbow"));
 
 

@@ -94,7 +94,7 @@ public class WoodSet {
         WoodSet set = new WoodSet(false);
         set.log = BlockRegistry.registerDefaultBlock("alpha_log", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).strength(2.0F).ignitedByLava().sound(SoundType.WOOD)));
         set.planks = BlockRegistry.registerDefaultBlock("alpha_planks", () -> BlockRegistry.planks(MapColor.WOOD, SoundType.WOOD, false));
-        set.stairs = BlockRegistry.registerDefaultBlock("alpha_stairs", () -> BlockRegistry.woodStairs(MapColor.WOOD, SoundType.WOOD));
+        set.stairs = BlockRegistry.registerDefaultBlock("alpha_stairs", () -> BlockRegistry.stairs(MapColor.WOOD, SoundType.WOOD, false));
         set.slab = BlockRegistry.registerDefaultBlock("alpha_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(1.5F).sound(SoundType.STONE).requiresCorrectToolForDrops()));
         RuBlocks.WOOD_SETS.add(set);
         return set;

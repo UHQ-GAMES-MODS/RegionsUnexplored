@@ -1,6 +1,7 @@
 package net.regions_unexplored.block.compat;
 
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.regions_unexplored.block.RuBlocks;
 
 import java.util.HashMap;
@@ -208,22 +209,9 @@ public class CompostableBlocks {
         COMPOSTABLES.put(RuBlocks.CLOVER.get(), 0.2F);
 
         // Snowbelles (0.4F)
-        COMPOSTABLES.put(RuBlocks.RED_SNOWBELLE.get(), 0.4F);
-        COMPOSTABLES.put(RuBlocks.ORANGE_SNOWBELLE.get(), 0.4F);
-        COMPOSTABLES.put(RuBlocks.YELLOW_SNOWBELLE.get(), 0.4F);
-        COMPOSTABLES.put(RuBlocks.LIME_SNOWBELLE.get(), 0.4F);
-        COMPOSTABLES.put(RuBlocks.GREEN_SNOWBELLE.get(), 0.4F);
-        COMPOSTABLES.put(RuBlocks.CYAN_SNOWBELLE.get(), 0.4F);
-        COMPOSTABLES.put(RuBlocks.LIGHT_BLUE_SNOWBELLE.get(), 0.4F);
-        COMPOSTABLES.put(RuBlocks.BLUE_SNOWBELLE.get(), 0.4F);
-        COMPOSTABLES.put(RuBlocks.PURPLE_SNOWBELLE.get(), 0.4F);
-        COMPOSTABLES.put(RuBlocks.MAGENTA_SNOWBELLE.get(), 0.4F);
-        COMPOSTABLES.put(RuBlocks.PINK_SNOWBELLE.get(), 0.4F);
-        COMPOSTABLES.put(RuBlocks.BROWN_SNOWBELLE.get(), 0.4F);
-        COMPOSTABLES.put(RuBlocks.WHITE_SNOWBELLE.get(), 0.4F);
-        COMPOSTABLES.put(RuBlocks.LIGHT_GRAY_SNOWBELLE.get(), 0.4F);
-        COMPOSTABLES.put(RuBlocks.GRAY_SNOWBELLE.get(), 0.4F);
-        COMPOSTABLES.put(RuBlocks.BLACK_SNOWBELLE.get(), 0.4F);
+        for (Block snowbelle : RuBlocks.SNOWBELLES.getAll()) {
+            COMPOSTABLES.put(snowbelle, 0.4f);
+        }
 
         // Leaf piles (0.1F)
         COMPOSTABLES.put(RuBlocks.MAPLE_LEAF_PILE.get(), 0.1F);

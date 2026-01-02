@@ -8,6 +8,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.regions_unexplored.block.sapling.RuTreeGrowers;
 import net.regions_unexplored.block.set.BrimwoodWoodSet;
+import net.regions_unexplored.block.set.ColoredSet;
 import net.regions_unexplored.block.set.WoodSet;
 import net.regions_unexplored.data.block.RuWoodTypes;
 import net.regions_unexplored.data.worldgen.features.RuNetherFeatures;
@@ -110,22 +111,6 @@ public class RuBlocks {
     public static final Supplier<Block> PINK_MAGNOLIA_FLOWERS = BlockRegistry.registerDefaultBlock("pink_magnolia_flowers", () -> new GlowLichenBlock(BlockBehaviour.Properties.ofFullCopy(BLUE_MAGNOLIA_FLOWERS.get())));
     public static final Supplier<Block> WHITE_MAGNOLIA_FLOWERS = BlockRegistry.registerDefaultBlock("white_magnolia_flowers", () -> new GlowLichenBlock(BlockBehaviour.Properties.ofFullCopy(BLUE_MAGNOLIA_FLOWERS.get())));
     //SNOWBELLE
-    public static final Supplier<Block> RED_SNOWBELLE = BlockRegistry.registerDefaultBlock("red_snowbelle", () -> new RuFlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 10, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION)));
-    public static final Supplier<Block> ORANGE_SNOWBELLE = BlockRegistry.registerDefaultBlock("orange_snowbelle", () -> new RuFlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 10, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION)));
-    public static final Supplier<Block> YELLOW_SNOWBELLE = BlockRegistry.registerDefaultBlock("yellow_snowbelle", () -> new RuFlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 10, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION)));
-    public static final Supplier<Block> LIME_SNOWBELLE = BlockRegistry.registerDefaultBlock("lime_snowbelle", () -> new RuFlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 10, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION)));
-    public static final Supplier<Block> GREEN_SNOWBELLE = BlockRegistry.registerDefaultBlock("green_snowbelle", () -> new RuFlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 10, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION)));
-    public static final Supplier<Block> CYAN_SNOWBELLE = BlockRegistry.registerDefaultBlock("cyan_snowbelle", () -> new RuFlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 10, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION)));
-    public static final Supplier<Block> LIGHT_BLUE_SNOWBELLE = BlockRegistry.registerDefaultBlock("light_blue_snowbelle", () -> new RuFlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 10, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION)));
-    public static final Supplier<Block> BLUE_SNOWBELLE = BlockRegistry.registerDefaultBlock("blue_snowbelle", () -> new RuFlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 10, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION)));
-    public static final Supplier<Block> PURPLE_SNOWBELLE = BlockRegistry.registerDefaultBlock("purple_snowbelle", () -> new RuFlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 10, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION)));
-    public static final Supplier<Block> MAGENTA_SNOWBELLE = BlockRegistry.registerDefaultBlock("magenta_snowbelle", () -> new RuFlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 10, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION)));
-    public static final Supplier<Block> PINK_SNOWBELLE = BlockRegistry.registerDefaultBlock("pink_snowbelle", () -> new RuFlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 10, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION)));
-    public static final Supplier<Block> BROWN_SNOWBELLE = BlockRegistry.registerDefaultBlock("brown_snowbelle", () -> new RuFlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 10, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION)));
-    public static final Supplier<Block> WHITE_SNOWBELLE = BlockRegistry.registerDefaultBlock("white_snowbelle", () -> new RuFlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 10, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION)));
-    public static final Supplier<Block> LIGHT_GRAY_SNOWBELLE = BlockRegistry.registerDefaultBlock("light_gray_snowbelle", () -> new RuFlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 10, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION)));
-    public static final Supplier<Block> GRAY_SNOWBELLE = BlockRegistry.registerDefaultBlock("gray_snowbelle", () -> new RuFlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 10, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION)));
-    public static final Supplier<Block> BLACK_SNOWBELLE = BlockRegistry.registerDefaultBlock("black_snowbelle", () -> new RuFlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 10, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION)));
 
     public static final Supplier<Block> MAPLE_LEAF_PILE = BlockRegistry.registerDefaultBlock("maple_leaf_pile", () -> new GroundCoverBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA_LEAVES)));
     public static final Supplier<Block> RED_MAPLE_LEAF_PILE = BlockRegistry.registerDefaultBlock("red_maple_leaf_pile", () -> new GroundCoverBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA_LEAVES)));
@@ -401,56 +386,9 @@ public class RuBlocks {
 
     /*-----------------PAINTED PLANKS-----------------*/
     //PLANKS
-    public static final Supplier<Block> RED_PAINTED_PLANKS = BlockRegistry.registerDefaultBlock("red_painted_planks", () -> BlockRegistry.planks(MapColor.COLOR_RED, SoundType.WOOD, false));
-    public static final Supplier<Block> ORANGE_PAINTED_PLANKS = BlockRegistry.registerDefaultBlock("orange_painted_planks", () -> BlockRegistry.planks(MapColor.COLOR_ORANGE, SoundType.WOOD, false));
-    public static final Supplier<Block> YELLOW_PAINTED_PLANKS = BlockRegistry.registerDefaultBlock("yellow_painted_planks", () -> BlockRegistry.planks(MapColor.COLOR_YELLOW, SoundType.WOOD, false));
-    public static final Supplier<Block> LIME_PAINTED_PLANKS = BlockRegistry.registerDefaultBlock("lime_painted_planks", () -> BlockRegistry.planks(MapColor.COLOR_LIGHT_GREEN, SoundType.WOOD, false));
-    public static final Supplier<Block> GREEN_PAINTED_PLANKS = BlockRegistry.registerDefaultBlock("green_painted_planks", () -> BlockRegistry.planks(MapColor.COLOR_GREEN, SoundType.WOOD, false));
-    public static final Supplier<Block> CYAN_PAINTED_PLANKS = BlockRegistry.registerDefaultBlock("cyan_painted_planks", () -> BlockRegistry.planks(MapColor.COLOR_CYAN, SoundType.WOOD, false));
-    public static final Supplier<Block> LIGHT_BLUE_PAINTED_PLANKS = BlockRegistry.registerDefaultBlock("light_blue_painted_planks", () -> BlockRegistry.planks(MapColor.COLOR_LIGHT_BLUE, SoundType.WOOD, false));
-    public static final Supplier<Block> BLUE_PAINTED_PLANKS = BlockRegistry.registerDefaultBlock("blue_painted_planks", () -> BlockRegistry.planks(MapColor.COLOR_BLUE, SoundType.WOOD, false));
-    public static final Supplier<Block> PURPLE_PAINTED_PLANKS = BlockRegistry.registerDefaultBlock("purple_painted_planks", () -> BlockRegistry.planks(MapColor.COLOR_PURPLE, SoundType.WOOD, false));
-    public static final Supplier<Block> MAGENTA_PAINTED_PLANKS = BlockRegistry.registerDefaultBlock("magenta_painted_planks", () -> BlockRegistry.planks(MapColor.COLOR_MAGENTA, SoundType.WOOD, false));
-    public static final Supplier<Block> PINK_PAINTED_PLANKS = BlockRegistry.registerDefaultBlock("pink_painted_planks", () -> BlockRegistry.planks(MapColor.COLOR_PINK, SoundType.WOOD, false));
-    public static final Supplier<Block> BROWN_PAINTED_PLANKS = BlockRegistry.registerDefaultBlock("brown_painted_planks", () -> BlockRegistry.planks(MapColor.COLOR_BROWN, SoundType.WOOD, false));
-    public static final Supplier<Block> WHITE_PAINTED_PLANKS = BlockRegistry.registerDefaultBlock("white_painted_planks", () -> BlockRegistry.planks(MapColor.SNOW, SoundType.WOOD, false));
-    public static final Supplier<Block> LIGHT_GRAY_PAINTED_PLANKS = BlockRegistry.registerDefaultBlock("light_gray_painted_planks", () -> BlockRegistry.planks(MapColor.COLOR_LIGHT_GRAY, SoundType.WOOD, false));
-    public static final Supplier<Block> GRAY_PAINTED_PLANKS = BlockRegistry.registerDefaultBlock("gray_painted_planks", () -> BlockRegistry.planks(MapColor.COLOR_GRAY, SoundType.WOOD, false));
-    public static final Supplier<Block> BLACK_PAINTED_PLANKS = BlockRegistry.registerDefaultBlock("black_painted_planks", () -> BlockRegistry.planks(MapColor.COLOR_BLACK, SoundType.WOOD, false));
-    //STAIRS
-    public static final Supplier<Block> RED_PAINTED_STAIRS = BlockRegistry.registerDefaultBlock("red_painted_stairs", () -> BlockRegistry.woodStairs(MapColor.COLOR_RED, SoundType.WOOD));
-    public static final Supplier<Block> ORANGE_PAINTED_STAIRS = BlockRegistry.registerDefaultBlock("orange_painted_stairs", () -> BlockRegistry.woodStairs(MapColor.COLOR_ORANGE, SoundType.WOOD));
-    public static final Supplier<Block> YELLOW_PAINTED_STAIRS = BlockRegistry.registerDefaultBlock("yellow_painted_stairs", () -> BlockRegistry.woodStairs(MapColor.COLOR_YELLOW, SoundType.WOOD));
-    public static final Supplier<Block> LIME_PAINTED_STAIRS = BlockRegistry.registerDefaultBlock("lime_painted_stairs", () -> BlockRegistry.woodStairs(MapColor.COLOR_LIGHT_GREEN, SoundType.WOOD));
-    public static final Supplier<Block> GREEN_PAINTED_STAIRS = BlockRegistry.registerDefaultBlock("green_painted_stairs", () -> BlockRegistry.woodStairs(MapColor.COLOR_GREEN, SoundType.WOOD));
-    public static final Supplier<Block> CYAN_PAINTED_STAIRS = BlockRegistry.registerDefaultBlock("cyan_painted_stairs", () -> BlockRegistry.woodStairs(MapColor.COLOR_CYAN, SoundType.WOOD));
-    public static final Supplier<Block> LIGHT_BLUE_PAINTED_STAIRS = BlockRegistry.registerDefaultBlock("light_blue_painted_stairs", () -> BlockRegistry.woodStairs(MapColor.COLOR_LIGHT_BLUE, SoundType.WOOD));
-    public static final Supplier<Block> BLUE_PAINTED_STAIRS = BlockRegistry.registerDefaultBlock("blue_painted_stairs", () -> BlockRegistry.woodStairs(MapColor.COLOR_BLUE, SoundType.WOOD));
-    public static final Supplier<Block> PURPLE_PAINTED_STAIRS = BlockRegistry.registerDefaultBlock("purple_painted_stairs", () -> BlockRegistry.woodStairs(MapColor.COLOR_PURPLE, SoundType.WOOD));
-    public static final Supplier<Block> MAGENTA_PAINTED_STAIRS = BlockRegistry.registerDefaultBlock("magenta_painted_stairs", () -> BlockRegistry.woodStairs(MapColor.COLOR_MAGENTA, SoundType.WOOD));
-    public static final Supplier<Block> PINK_PAINTED_STAIRS = BlockRegistry.registerDefaultBlock("pink_painted_stairs", () -> BlockRegistry.woodStairs(MapColor.COLOR_PINK, SoundType.WOOD));
-    public static final Supplier<Block> BROWN_PAINTED_STAIRS = BlockRegistry.registerDefaultBlock("brown_painted_stairs", () -> BlockRegistry.woodStairs(MapColor.COLOR_BROWN, SoundType.WOOD));
-    public static final Supplier<Block> WHITE_PAINTED_STAIRS = BlockRegistry.registerDefaultBlock("white_painted_stairs", () -> BlockRegistry.woodStairs(MapColor.SNOW, SoundType.WOOD));
-    public static final Supplier<Block> LIGHT_GRAY_PAINTED_STAIRS = BlockRegistry.registerDefaultBlock("light_gray_painted_stairs", () -> BlockRegistry.woodStairs(MapColor.COLOR_LIGHT_GRAY, SoundType.WOOD));
-    public static final Supplier<Block> GRAY_PAINTED_STAIRS = BlockRegistry.registerDefaultBlock("gray_painted_stairs", () -> BlockRegistry.woodStairs(MapColor.COLOR_GRAY, SoundType.WOOD));
-    public static final Supplier<Block> BLACK_PAINTED_STAIRS = BlockRegistry.registerDefaultBlock("black_painted_stairs", () -> BlockRegistry.woodStairs(MapColor.COLOR_BLACK, SoundType.WOOD));
-    //SLABS
-    public static final Supplier<Block> RED_PAINTED_SLAB = BlockRegistry.registerDefaultBlock("red_painted_slab", () -> BlockRegistry.woodSlab(MapColor.COLOR_RED, SoundType.WOOD));
-    public static final Supplier<Block> ORANGE_PAINTED_SLAB = BlockRegistry.registerDefaultBlock("orange_painted_slab", () -> BlockRegistry.woodSlab(MapColor.COLOR_ORANGE, SoundType.WOOD));
-    public static final Supplier<Block> YELLOW_PAINTED_SLAB = BlockRegistry.registerDefaultBlock("yellow_painted_slab", () -> BlockRegistry.woodSlab(MapColor.COLOR_YELLOW, SoundType.WOOD));
-    public static final Supplier<Block> LIME_PAINTED_SLAB = BlockRegistry.registerDefaultBlock("lime_painted_slab", () -> BlockRegistry.woodSlab(MapColor.COLOR_LIGHT_GREEN, SoundType.WOOD));
-    public static final Supplier<Block> GREEN_PAINTED_SLAB = BlockRegistry.registerDefaultBlock("green_painted_slab", () -> BlockRegistry.woodSlab(MapColor.COLOR_GREEN, SoundType.WOOD));
-    public static final Supplier<Block> CYAN_PAINTED_SLAB = BlockRegistry.registerDefaultBlock("cyan_painted_slab", () -> BlockRegistry.woodSlab(MapColor.COLOR_CYAN, SoundType.WOOD));
-    public static final Supplier<Block> LIGHT_BLUE_PAINTED_SLAB = BlockRegistry.registerDefaultBlock("light_blue_painted_slab", () -> BlockRegistry.woodSlab(MapColor.COLOR_LIGHT_BLUE, SoundType.WOOD));
-    public static final Supplier<Block> BLUE_PAINTED_SLAB = BlockRegistry.registerDefaultBlock("blue_painted_slab", () -> BlockRegistry.woodSlab(MapColor.COLOR_BLUE, SoundType.WOOD));
-    public static final Supplier<Block> PURPLE_PAINTED_SLAB = BlockRegistry.registerDefaultBlock("purple_painted_slab", () -> BlockRegistry.woodSlab(MapColor.COLOR_PURPLE, SoundType.WOOD));
-    public static final Supplier<Block> MAGENTA_PAINTED_SLAB = BlockRegistry.registerDefaultBlock("magenta_painted_slab", () -> BlockRegistry.woodSlab(MapColor.COLOR_MAGENTA, SoundType.WOOD));
-    public static final Supplier<Block> PINK_PAINTED_SLAB = BlockRegistry.registerDefaultBlock("pink_painted_slab", () -> BlockRegistry.woodSlab(MapColor.COLOR_PINK, SoundType.WOOD));
-    public static final Supplier<Block> BROWN_PAINTED_SLAB = BlockRegistry.registerDefaultBlock("brown_painted_slab", () -> BlockRegistry.woodSlab(MapColor.COLOR_BROWN, SoundType.WOOD));
-    public static final Supplier<Block> WHITE_PAINTED_SLAB = BlockRegistry.registerDefaultBlock("white_painted_slab", () -> BlockRegistry.woodSlab(MapColor.SNOW, SoundType.WOOD));
-    public static final Supplier<Block> LIGHT_GRAY_PAINTED_SLAB = BlockRegistry.registerDefaultBlock("light_gray_painted_slab", () -> BlockRegistry.woodSlab(MapColor.COLOR_LIGHT_GRAY, SoundType.WOOD));
-    public static final Supplier<Block> GRAY_PAINTED_SLAB = BlockRegistry.registerDefaultBlock("gray_painted_slab", () -> BlockRegistry.woodSlab(MapColor.COLOR_GRAY, SoundType.WOOD));
-    public static final Supplier<Block> BLACK_PAINTED_SLAB = BlockRegistry.registerDefaultBlock("black_painted_slab", () -> BlockRegistry.woodSlab(MapColor.COLOR_BLACK, SoundType.WOOD));
+    public static final ColoredSet PAINTED_PLANKS = new ColoredSet(color -> BlockRegistry.registerDefaultBlock(color.getName() + "_painted_planks", () -> BlockRegistry.planks(color.getMapColor(), SoundType.WOOD, false)));
+    public static final ColoredSet PAINTED_STAIRS = new ColoredSet(color -> BlockRegistry.registerDefaultBlock(color.getName() + "_painted_stairs", () -> BlockRegistry.stairs(color.getMapColor(), SoundType.WOOD, false)));
+    public static final ColoredSet PAINTED_SLABS = new ColoredSet(color -> BlockRegistry.registerDefaultBlock(color.getName() + "_painted_slab", () -> BlockRegistry.slab(color.getMapColor(), SoundType.WOOD, false)));
 
     /*-----------------NETHER_BLOCKS-----------------*/
     //NETHER_STONES
@@ -565,23 +503,9 @@ public class RuBlocks {
     //OTHER_POTTED_PLANTS
     public static final Supplier<Block> POTTED_BARREL_CACTUS = BlockRegistry.registerDefaultBlockNoItem("potted_barrel_cactus", () -> new FlowerPotBlock(BARREL_CACTUS.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_CACTUS)));
     public static final Supplier<Block> POTTED_CAVE_HYSSOP = BlockRegistry.registerDefaultBlockNoItem("potted_cave_hyssop", () -> new FlowerPotBlock(CAVE_HYSSOP.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
-    //POTTED_SNOWBELLE
-    public static final Supplier<Block> POTTED_RED_SNOWBELLE = BlockRegistry.registerDefaultBlockNoItem("potted_red_snowbelle", () -> new FlowerPotBlock(RED_SNOWBELLE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
-    public static final Supplier<Block> POTTED_ORANGE_SNOWBELLE = BlockRegistry.registerDefaultBlockNoItem("potted_orange_snowbelle", () -> new FlowerPotBlock(ORANGE_SNOWBELLE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
-    public static final Supplier<Block> POTTED_YELLOW_SNOWBELLE = BlockRegistry.registerDefaultBlockNoItem("potted_yellow_snowbelle", () -> new FlowerPotBlock(YELLOW_SNOWBELLE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
-    public static final Supplier<Block> POTTED_LIME_SNOWBELLE = BlockRegistry.registerDefaultBlockNoItem("potted_lime_snowbelle", () -> new FlowerPotBlock(LIME_SNOWBELLE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
-    public static final Supplier<Block> POTTED_GREEN_SNOWBELLE = BlockRegistry.registerDefaultBlockNoItem("potted_green_snowbelle", () -> new FlowerPotBlock(GREEN_SNOWBELLE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
-    public static final Supplier<Block> POTTED_CYAN_SNOWBELLE = BlockRegistry.registerDefaultBlockNoItem("potted_cyan_snowbelle", () -> new FlowerPotBlock(CYAN_SNOWBELLE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
-    public static final Supplier<Block> POTTED_LIGHT_BLUE_SNOWBELLE = BlockRegistry.registerDefaultBlockNoItem("potted_light_blue_snowbelle", () -> new FlowerPotBlock(LIGHT_BLUE_SNOWBELLE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
-    public static final Supplier<Block> POTTED_BLUE_SNOWBELLE = BlockRegistry.registerDefaultBlockNoItem("potted_blue_snowbelle", () -> new FlowerPotBlock(BLUE_SNOWBELLE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
-    public static final Supplier<Block> POTTED_PURPLE_SNOWBELLE = BlockRegistry.registerDefaultBlockNoItem("potted_purple_snowbelle", () -> new FlowerPotBlock(PURPLE_SNOWBELLE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
-    public static final Supplier<Block> POTTED_MAGENTA_SNOWBELLE = BlockRegistry.registerDefaultBlockNoItem("potted_magenta_snowbelle", () -> new FlowerPotBlock(MAGENTA_SNOWBELLE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
-    public static final Supplier<Block> POTTED_PINK_SNOWBELLE = BlockRegistry.registerDefaultBlockNoItem("potted_pink_snowbelle", () -> new FlowerPotBlock(PINK_SNOWBELLE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
-    public static final Supplier<Block> POTTED_BROWN_SNOWBELLE = BlockRegistry.registerDefaultBlockNoItem("potted_brown_snowbelle", () -> new FlowerPotBlock(BROWN_SNOWBELLE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
-    public static final Supplier<Block> POTTED_WHITE_SNOWBELLE = BlockRegistry.registerDefaultBlockNoItem("potted_white_snowbelle", () -> new FlowerPotBlock(WHITE_SNOWBELLE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
-    public static final Supplier<Block> POTTED_LIGHT_GRAY_SNOWBELLE = BlockRegistry.registerDefaultBlockNoItem("potted_light_gray_snowbelle", () -> new FlowerPotBlock(LIGHT_GRAY_SNOWBELLE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
-    public static final Supplier<Block> POTTED_GRAY_SNOWBELLE = BlockRegistry.registerDefaultBlockNoItem("potted_gray_snowbelle", () -> new FlowerPotBlock(GRAY_SNOWBELLE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
-    public static final Supplier<Block> POTTED_BLACK_SNOWBELLE = BlockRegistry.registerDefaultBlockNoItem("potted_black_snowbelle", () -> new FlowerPotBlock(BLACK_SNOWBELLE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
+    //SNOWBELLES
+    public static final ColoredSet SNOWBELLES = new ColoredSet(color -> BlockRegistry.registerDefaultBlock(color.getName() + "_snowbelle", () -> new RuFlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 10, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION))));
+    public static final ColoredSet POTTED_SNOWBELLES = new ColoredSet(color -> BlockRegistry.registerDefaultBlockNoItem("potted_" + color.getName() + "_snowbelle", () -> new FlowerPotBlock(SNOWBELLES.getMap().get(color), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM))));
 
     public static void addBlocks() {
     }

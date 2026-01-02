@@ -1,5 +1,6 @@
 package net.regions_unexplored.block.compat;
 
+import net.minecraft.world.level.block.Block;
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.block.set.WoodSet;
 
@@ -63,22 +64,9 @@ public class FlammableBlocks {
         registerFlammableBlock(RuBlocks.PINK_MAGNOLIA_FLOWERS.get(), 60, 100);
         registerFlammableBlock(RuBlocks.WHITE_MAGNOLIA_FLOWERS.get(), 60, 100);
         //SNOWBELLE
-        registerFlammableBlock(RuBlocks.RED_SNOWBELLE.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.ORANGE_SNOWBELLE.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.YELLOW_SNOWBELLE.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.LIME_SNOWBELLE.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.GREEN_SNOWBELLE.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.CYAN_SNOWBELLE.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.LIGHT_BLUE_SNOWBELLE.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.BLUE_SNOWBELLE.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.PURPLE_SNOWBELLE.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.MAGENTA_SNOWBELLE.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.PINK_SNOWBELLE.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.BROWN_SNOWBELLE.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.WHITE_SNOWBELLE.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.LIGHT_GRAY_SNOWBELLE.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.GRAY_SNOWBELLE.get(), 60, 100);
-        registerFlammableBlock(RuBlocks.BLACK_SNOWBELLE.get(), 60, 100);
+        for (Block snowbelle : RuBlocks.SNOWBELLES.getAll()) {
+            registerFlammableBlock(snowbelle, 60, 100);
+        }
 
         registerFlammableBlock(RuBlocks.MAPLE_LEAF_PILE.get(), 60, 100);
         registerFlammableBlock(RuBlocks.RED_MAPLE_LEAF_PILE.get(), 60, 100);
@@ -269,56 +257,14 @@ public class FlammableBlocks {
         }
 
         /*-----------------PAINTED PLANKS-----------------*/
-        //PLANKS
-        registerFlammableBlock(RuBlocks.RED_PAINTED_PLANKS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.ORANGE_PAINTED_PLANKS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.YELLOW_PAINTED_PLANKS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.LIME_PAINTED_PLANKS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.GREEN_PAINTED_PLANKS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.CYAN_PAINTED_PLANKS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.LIGHT_BLUE_PAINTED_PLANKS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.BLUE_PAINTED_PLANKS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.PURPLE_PAINTED_PLANKS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.MAGENTA_PAINTED_PLANKS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.PINK_PAINTED_PLANKS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.BROWN_PAINTED_PLANKS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.WHITE_PAINTED_PLANKS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.LIGHT_GRAY_PAINTED_PLANKS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.GRAY_PAINTED_PLANKS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.BLACK_PAINTED_PLANKS.get(), 5, 20);
-        //STAIRS
-        registerFlammableBlock(RuBlocks.RED_PAINTED_STAIRS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.ORANGE_PAINTED_STAIRS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.YELLOW_PAINTED_STAIRS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.LIME_PAINTED_STAIRS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.GREEN_PAINTED_STAIRS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.CYAN_PAINTED_STAIRS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.LIGHT_BLUE_PAINTED_STAIRS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.BLUE_PAINTED_STAIRS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.PURPLE_PAINTED_STAIRS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.MAGENTA_PAINTED_STAIRS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.PINK_PAINTED_STAIRS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.BROWN_PAINTED_STAIRS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.WHITE_PAINTED_STAIRS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.LIGHT_GRAY_PAINTED_STAIRS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.GRAY_PAINTED_STAIRS.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.BLACK_PAINTED_STAIRS.get(), 5, 20);
-        //SLABS
-        registerFlammableBlock(RuBlocks.RED_PAINTED_SLAB.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.ORANGE_PAINTED_SLAB.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.YELLOW_PAINTED_SLAB.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.LIME_PAINTED_SLAB.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.GREEN_PAINTED_SLAB.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.CYAN_PAINTED_SLAB.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.LIGHT_BLUE_PAINTED_SLAB.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.BLUE_PAINTED_SLAB.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.PURPLE_PAINTED_SLAB.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.MAGENTA_PAINTED_SLAB.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.PINK_PAINTED_SLAB.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.BROWN_PAINTED_SLAB.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.WHITE_PAINTED_SLAB.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.LIGHT_GRAY_PAINTED_SLAB.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.GRAY_PAINTED_SLAB.get(), 5, 20);
-        registerFlammableBlock(RuBlocks.BLACK_PAINTED_SLAB.get(), 5, 20);
+        for (Block block : RuBlocks.PAINTED_PLANKS.getAll()) {
+            registerFlammableBlock(block, 5, 20);
+        }
+        for (Block block : RuBlocks.PAINTED_STAIRS.getAll()) {
+            registerFlammableBlock(block, 5, 20);
+        }
+        for (Block block : RuBlocks.PAINTED_SLABS.getAll()) {
+            registerFlammableBlock(block, 5, 20);
+        }
     }
 }

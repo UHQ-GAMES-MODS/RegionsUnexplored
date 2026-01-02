@@ -79,23 +79,6 @@ public class RuBlockCropCutouts {
                 RuBlocks.BLUE_MAGNOLIA_FLOWERS.get(),
                 RuBlocks.PINK_MAGNOLIA_FLOWERS.get(),
                 RuBlocks.WHITE_MAGNOLIA_FLOWERS.get(),
-                //SNOWBELLE
-                RuBlocks.RED_SNOWBELLE.get(),
-                RuBlocks.ORANGE_SNOWBELLE.get(),
-                RuBlocks.YELLOW_SNOWBELLE.get(),
-                RuBlocks.LIME_SNOWBELLE.get(),
-                RuBlocks.GREEN_SNOWBELLE.get(),
-                RuBlocks.CYAN_SNOWBELLE.get(),
-                RuBlocks.LIGHT_BLUE_SNOWBELLE.get(),
-                RuBlocks.BLUE_SNOWBELLE.get(),
-                RuBlocks.PURPLE_SNOWBELLE.get(),
-                RuBlocks.MAGENTA_SNOWBELLE.get(),
-                RuBlocks.PINK_SNOWBELLE.get(),
-                RuBlocks.BROWN_SNOWBELLE.get(),
-                RuBlocks.WHITE_SNOWBELLE.get(),
-                RuBlocks.LIGHT_GRAY_SNOWBELLE.get(),
-                RuBlocks.GRAY_SNOWBELLE.get(),
-                RuBlocks.BLACK_SNOWBELLE.get(),
 
                 RuBlocks.MAPLE_LEAF_PILE.get(),
                 RuBlocks.RED_MAPLE_LEAF_PILE.get(),
@@ -285,23 +268,6 @@ public class RuBlockCropCutouts {
                 //OTHER_POTTED_PLANTS
                 RuBlocks.POTTED_BARREL_CACTUS.get(),
                 RuBlocks.POTTED_CAVE_HYSSOP.get(),
-                //POTTED_SNOWBELLE
-                RuBlocks.POTTED_RED_SNOWBELLE.get(),
-                RuBlocks.POTTED_ORANGE_SNOWBELLE.get(),
-                RuBlocks.POTTED_YELLOW_SNOWBELLE.get(),
-                RuBlocks.POTTED_LIME_SNOWBELLE.get(),
-                RuBlocks.POTTED_GREEN_SNOWBELLE.get(),
-                RuBlocks.POTTED_CYAN_SNOWBELLE.get(),
-                RuBlocks.POTTED_LIGHT_BLUE_SNOWBELLE.get(),
-                RuBlocks.POTTED_BLUE_SNOWBELLE.get(),
-                RuBlocks.POTTED_PURPLE_SNOWBELLE.get(),
-                RuBlocks.POTTED_MAGENTA_SNOWBELLE.get(),
-                RuBlocks.POTTED_PINK_SNOWBELLE.get(),
-                RuBlocks.POTTED_BROWN_SNOWBELLE.get(),
-                RuBlocks.POTTED_WHITE_SNOWBELLE.get(),
-                RuBlocks.POTTED_LIGHT_GRAY_SNOWBELLE.get(),
-                RuBlocks.POTTED_GRAY_SNOWBELLE.get(),
-                RuBlocks.POTTED_BLACK_SNOWBELLE.get(),
                 RuBlocks.POTTED_GLISTERING_BLOOM.get(),
                 /*-----------------PLANT_BLOCKS-----------------*/
                 //MUSHROOMS
@@ -432,6 +398,12 @@ public class RuBlockCropCutouts {
         );
         for (WoodSet set : RuBlocks.WOOD_SETS) {
             RenderUtil.putBlocks(Services.RENDER_HELPER, RenderType.cutout(), set.getDoor(), set.getTrapdoor());
+        }
+        for (Block snowbelle : RuBlocks.SNOWBELLES.getAll()) {
+            RenderUtil.putBlocks(Services.RENDER_HELPER, RenderType.cutout(), snowbelle);
+        }
+        for (Block pottedSnowbelle : RuBlocks.POTTED_SNOWBELLES.getAll()) {
+            RenderUtil.putBlocks(Services.RENDER_HELPER, RenderType.cutout(), pottedSnowbelle);
         }
     }
 }
