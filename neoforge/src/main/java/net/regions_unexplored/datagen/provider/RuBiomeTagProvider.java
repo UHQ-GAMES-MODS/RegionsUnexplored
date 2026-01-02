@@ -7,6 +7,7 @@ import net.minecraft.data.tags.BiomeTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.biome.Biomes;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.regions_unexplored.data.tags.RuTags;
 import net.regions_unexplored.data.worldgen.biome.RuBiomes;
@@ -363,9 +364,11 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
         //        .addTag(RuTags.HAS_ASHEN_WOLF)
         //;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "has_wolf_variant/ashen")))
+                .add(Biomes.SNOWY_TAIGA)
                 .addTag(RuTags.HAS_ASHEN_WOLF)
         ;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("minecraft", "has_wolf_variant/ashen")))
+                .add(Biomes.SNOWY_TAIGA)
                 .addTag(RuTags.HAS_ASHEN_WOLF)
         ;
 
@@ -374,9 +377,11 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
         //        .addTag(RuTags.HAS_BLACK_WOLF)
         //;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "has_wolf_variant/black")))
+                .add(Biomes.OLD_GROWTH_PINE_TAIGA)
                 .addTag(RuTags.HAS_ASHEN_WOLF)
         ;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("minecraft", "has_wolf_variant/black")))
+                .add(Biomes.OLD_GROWTH_PINE_TAIGA)
                 .addTag(RuTags.HAS_BLACK_WOLF)
         ;
 
@@ -385,9 +390,11 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
         //        .addTag(RuTags.HAS_CHESTNUT_WOLF)
         //;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "has_wolf_variant/chestnut")))
+                .add(Biomes.OLD_GROWTH_SPRUCE_TAIGA)
                 .addTag(RuTags.HAS_CHESTNUT_WOLF)
         ;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("minecraft", "has_wolf_variant/chestnut")))
+                .add(Biomes.OLD_GROWTH_SPRUCE_TAIGA)
                 .addTag(RuTags.HAS_CHESTNUT_WOLF)
         ;
 
@@ -396,9 +403,11 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
         //        .addTag(RuTags.HAS_PALE_WOLF)
         //;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "has_wolf_variant/pale")))
+                .add(Biomes.TAIGA)
                 .addTag(RuTags.HAS_PALE_WOLF)
         ;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("minecraft", "has_wolf_variant/pale")))
+                .add(Biomes.TAIGA)
                 .addTag(RuTags.HAS_PALE_WOLF)
         ;
 
@@ -407,9 +416,11 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
         //        .addTag(RuTags.HAS_RUSTY_WOLF)
         //;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "has_wolf_variant/rusty")))
+                .addTag(BiomeTags.IS_JUNGLE)
                 .addTag(RuTags.HAS_RUSTY_WOLF)
         ;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("minecraft", "has_wolf_variant/rusty")))
+                .addTag(BiomeTags.IS_JUNGLE)
                 .addTag(RuTags.HAS_RUSTY_WOLF)
         ;
 
@@ -418,9 +429,11 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
         //        .addTag(RuTags.HAS_SNOWY_WOLF)
         //;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "has_wolf_variant/snowy")))
+                .add(Biomes.GROVE)
                 .addTag(RuTags.HAS_SNOWY_WOLF)
         ;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("minecraft", "has_wolf_variant/snowy")))
+                .add(Biomes.GROVE)
                 .addTag(RuTags.HAS_SNOWY_WOLF)
         ;
 
@@ -429,9 +442,11 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
         //        .addTag(RuTags.HAS_SPOTTED_WOLF)
         //;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "has_wolf_variant/spotted")))
+                .addTag(BiomeTags.IS_SAVANNA)
                 .addTag(RuTags.HAS_SPOTTED_WOLF)
         ;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("minecraft", "has_wolf_variant/spotted")))
+                .addTag(BiomeTags.IS_SAVANNA)
                 .addTag(RuTags.HAS_SPOTTED_WOLF)
         ;
 
@@ -440,9 +455,11 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
         //        .addTag(RuTags.HAS_STRIPED_WOLF)
         //;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "has_wolf_variant/striped")))
+                .addTag(BiomeTags.IS_BADLANDS)
                 .addTag(RuTags.HAS_STRIPED_WOLF)
         ;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("minecraft", "has_wolf_variant/striped")))
+                .addTag(BiomeTags.IS_BADLANDS)
                 .addTag(RuTags.HAS_STRIPED_WOLF)
         ;
 
@@ -451,9 +468,11 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
         //        .addTag(RuTags.HAS_WOODS_WOLF)
         //;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "has_wolf_variant/woods")))
+                .add(Biomes.FOREST)
                 .addTag(RuTags.HAS_WOODS_WOLF)
         ;
         this.tag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("minecraft", "has_wolf_variant/woods")))
+                .add(Biomes.FOREST)
                 .addTag(RuTags.HAS_WOODS_WOLF)
         ;
 
