@@ -29,7 +29,7 @@ public class RuItemTagProvider extends ItemTagsProvider {
     @Override
     @SuppressWarnings(value = "all")
     public void addTags(HolderLookup.Provider provider) {
-        addCommonTags(provider);
+        /*addCommonTags(provider);
         //addForgeTags(provider);
 
         //this.tag(ItemTags.ACACIA_LOGS);
@@ -2552,6 +2552,6 @@ public class RuItemTagProvider extends ItemTagsProvider {
                 .add(RuBlocks.STRIPPED_YELLOW_BIOSHROOM_HYPHAE.get().asItem())
         ;
         //this.tag(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "storage_blocks")));
-        //this.tag(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "tools")));
+        //this.tag(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("forge", "tools")));*/
     }
 }
