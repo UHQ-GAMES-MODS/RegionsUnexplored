@@ -8,10 +8,6 @@ import net.regions_unexplored.internal.config.ConfigManager;
 
 import java.util.Map;
 
-/**
- * Selection screen when you have multiple config files.
- * Automatically generates buttons for all registered configs.
- */
 public class ConfigSelectionScreen extends Screen {
     private final Screen parent;
 
@@ -40,8 +36,8 @@ public class ConfigSelectionScreen extends Screen {
             String configName = entry.getKey();
             ConfigManager manager = entry.getValue();
 
-            // Create display name from config name
-            String displayName = formatConfigName(configName);
+            // Use the manager's display name
+            String displayName = manager.getDisplayName();
 
             this.addRenderableWidget(Button.builder(
                     Component.literal(displayName),
@@ -56,28 +52,6 @@ public class ConfigSelectionScreen extends Screen {
                 Component.literal("Done"),
                 button -> this.minecraft.setScreen(parent)
         ).bounds(this.width / 2 - buttonWidth / 2, this.height - 30, buttonWidth, buttonHeight).build());
-    }
-
-    /**
-     * Formats a config name for display.
-     * Examples:
-     * - "example/example" -> "Example Configuration"
-     * - "gameplay" -> "Gameplay Configuration"
-     * - "example/test" -> "Test Configuration"
-     */
-    private String formatConfigName(String configName) {
-        // Remove path prefix if present
-        String name = configName;
-        if (name.contains("/")) {
-            name = name.substring(name.lastIndexOf("/") + 1);
-        }
-
-        // Capitalize first letter and add "Configuration"
-        if (!name.isEmpty()) {
-            name = name.substring(0, 1).toUpperCase() + name.substring(1);
-        }
-
-        return name + " Configuration";
     }
 
     @Override
@@ -97,6 +71,9 @@ public class ConfigSelectionScreen extends Screen {
 
         super.render(graphics, mouseX, mouseY, partialTick);
     }
+
+    @Override
+    protected void renderBlurredBackground(float $$0) {}
 
     @Override
     public void onClose() {

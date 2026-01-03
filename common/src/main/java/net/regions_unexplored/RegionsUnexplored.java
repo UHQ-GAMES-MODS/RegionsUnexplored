@@ -40,8 +40,8 @@ public class RegionsUnexplored {
 
         Constants.LOG.info("Initializing Regions Unexplored from %s entrypoint.".formatted(initializedFrom));
 
-        registerConfig("regions unexplored/regions_unexplored-client", RuClientConfig.class);
-        registerConfig("regions unexplored/regions_unexplored-common", RuCommonConfigNew.class);
+        registerConfig("regions unexplored/regions_unexplored-client", "client", RuClientConfig.class);
+        registerConfig("regions unexplored/regions_unexplored-common", "common", RuCommonConfigNew.class);
 
         FeatureRegistry.addFeatures();
         RuParticleTypes.addParticles();
@@ -63,12 +63,13 @@ public class RegionsUnexplored {
      * Helper method to register a config with both the config system and GUI registry.
      * This is the ONLY place you need to add new configs!
      *
-     * @param filePath The config path's name (without .toml extension)
+     * @param filePath The config file path (without .toml extension)
      * @param configClass The config class
+     * @param displayName Custom display name for the GUI
      */
-    private static void registerConfig(String filePath, Class<? extends Config> configClass) {
+    private static void registerConfig(String filePath, String displayName, Class<? extends Config> configClass) {
         ConfigManager manager = ConfigManager.of(filePath, configClass);
-        ConfigScreenRegistry.register(filePath, manager);
-        Constants.LOG.debug("Registered config '{}' with GUI system", filePath);
+        ConfigScreenRegistry.register(filePath, manager, displayName);
+        Constants.LOG.debug("Registered config '{}' with GUI system as '{}'", filePath, displayName);
     }
 }

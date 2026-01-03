@@ -8,12 +8,11 @@ import net.regions_unexplored.Constants;
 import net.regions_unexplored.internal.config.Config;
 import net.regions_unexplored.internal.config.ConfigManager;
 import net.regions_unexplored.internal.config.ConfigValue;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
-/**
- * Custom configuration GUI screen built with native Minecraft components.
- */
+
 public class ConfigScreen extends Screen {
     private final Screen parent;
     private final ConfigManager configManager;
@@ -23,7 +22,7 @@ public class ConfigScreen extends Screen {
     private boolean hasUnsavedChanges = false;
 
     public ConfigScreen(Screen parent, ConfigManager configManager) {
-        super(Component.literal(configManager.getFileName() + " Configuration"));
+        super(Component.literal(configManager.getDisplayName()));
         this.parent = parent;
         this.configManager = configManager;
     }
@@ -115,21 +114,11 @@ public class ConfigScreen extends Screen {
         this.minecraft.setScreen(parent);
     }
 
-    /**
-     * Override to completely disable the blur effect.
-     * We just draw a simple dark transparent overlay instead.
-     */
     @Override
-    public void renderBackground(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-        if (this.minecraft.level == null) {
-            this.renderPanorama(pGuiGraphics, pPartialTick);
-        }
-
-        this.renderMenuBackground(pGuiGraphics);
-    }
+    protected void renderBlurredBackground(float $$0) {}
 
     @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
+    public void render(@NotNull GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
         this.renderBackground(graphics, mouseX, mouseY, partialTick);
         this.entryList.render(graphics, mouseX, mouseY, partialTick);
 
@@ -152,6 +141,7 @@ public class ConfigScreen extends Screen {
 
     @Override
     public void onClose() {
+        assert this.minecraft != null;
         this.minecraft.setScreen(parent);
     }
 

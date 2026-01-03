@@ -8,10 +8,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Manages configuration files with annotation support.
@@ -20,6 +17,7 @@ import java.util.Map;
 @SuppressWarnings("unused")
 public class ConfigManager {
     private String fileName;
+    private String displayName;
     private Config configFile;
     private CommentedFileConfig config;
 
@@ -156,7 +154,7 @@ public class ConfigManager {
             config.clear();
 
             // Group values by category
-            Map<String, List<ConfigValue<?>>> categorizedValues = new HashMap<>();
+            Map<String, List<ConfigValue<?>>> categorizedValues = new LinkedHashMap<>();
 
             for (ConfigValue<?> configValue : configFile.getConfigValues()) {
                 String category = configValue.getCategory();
@@ -351,5 +349,42 @@ public class ConfigManager {
 
     public String getFileName() {
         return fileName;
+    }
+
+    public String getDisplayName() {
+        if (displayName != null && !displayName.isEmpty()) {
+            return displayName;
+        }
+        return formatDisplayName(fileName);
+    }
+
+
+    public ConfigManager setDisplayName(String displayName) {
+        this.displayName = displayName;
+        return this;
+    }
+
+    private static String formatDisplayName(String filePath) {
+        String name = filePath;
+
+        if (name.contains("/")) {
+            name = name.substring(name.lastIndexOf("/") + 1);
+        }
+
+        name = name.replace("_", " ").replace("-", " ");
+
+        String[] words = name.split("\\s+");
+        StringBuilder result = new StringBuilder();
+        for (String word : words) {
+            if (!word.isEmpty()) {
+                if (!result.isEmpty()) {
+                    result.append(" ");
+                }
+                result.append(word.substring(0, 1).toUpperCase())
+                        .append(word.substring(1).toLowerCase());
+            }
+        }
+
+        return result.toString();
     }
 }

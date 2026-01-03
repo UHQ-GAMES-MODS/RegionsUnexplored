@@ -7,21 +7,31 @@ import net.regions_unexplored.internal.config.ConfigManager;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * Helper class to manage and open config GUI screens.
- * Automatically tracks all registered configs for easy GUI access.
- */
+
 public class ConfigScreenRegistry {
     private static final Map<String, ConfigManager> registeredConfigs = new LinkedHashMap<>();
 
     /**
      * Registers a config manager for GUI access.
      * Configs are automatically available in ModMenu and selection screens.
+     * The display name will be auto-generated from the config name.
      *
      * @param configName The name/identifier for this config
      * @param manager The config manager
      */
     public static void register(String configName, ConfigManager manager) {
+        registeredConfigs.put(configName, manager);
+    }
+
+    /**
+     * Registers a config manager with a custom display name for GUI access.
+     *
+     * @param configName The name/identifier for this config
+     * @param manager The config manager
+     * @param displayName Custom display name to show in the GUI
+     */
+    public static void register(String configName, ConfigManager manager, String displayName) {
+        manager.setDisplayName(displayName);
         registeredConfigs.put(configName, manager);
     }
 
