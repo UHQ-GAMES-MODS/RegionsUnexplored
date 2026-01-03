@@ -8,7 +8,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.regions_unexplored.client.particle.RuParticleTypes;
-import net.regions_unexplored.config.RuCommonConfig;
+import net.regions_unexplored.config.RuClientConfig;
 
 public class BlueMagnoliaLeavesBlock extends LeavesBlock {
    public BlueMagnoliaLeavesBlock(Properties p_273704_) {
@@ -21,7 +21,7 @@ public class BlueMagnoliaLeavesBlock extends LeavesBlock {
          BlockPos blockpos = blockPos.below();
          BlockState blockstate = level.getBlockState(blockpos);
          if (!isFaceFull(blockstate.getCollisionShape(level, blockpos), Direction.UP)) {
-            if(RuCommonConfig.TOGGLE_BLUE_MAGNOLIA_LEAVES_PARTICLE.get()) {
+            if(RuClientConfig.TOGGLE_BLUE_MAGNOLIA_LEAVES_PARTICLE.get()) {
             spawnParticleBelow(level, blockPos, randomSource, RuParticleTypes.BLUE_MAGNOLIA_LEAVES);
             }
          }

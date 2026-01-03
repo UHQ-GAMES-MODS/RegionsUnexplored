@@ -8,7 +8,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.regions_unexplored.client.particle.RuParticleTypes;
-import net.regions_unexplored.config.RuCommonConfig;
+import net.regions_unexplored.config.RuClientConfig;
 
 public class EnchantedBirchLeavesBlock extends LeavesBlock {
    public EnchantedBirchLeavesBlock(Properties p_273704_) {
@@ -21,7 +21,7 @@ public class EnchantedBirchLeavesBlock extends LeavesBlock {
          BlockPos blockpos = blockPos.below();
          BlockState blockstate = level.getBlockState(blockpos);
          if (!isFaceFull(blockstate.getCollisionShape(level, blockpos), Direction.UP)) {
-            if(RuCommonConfig.TOGGLE_ENCHANTED_BIRCH_LEAVES_PARTICLE.get()) {
+            if(RuClientConfig.TOGGLE_ENCHANTED_BIRCH_LEAVES_PARTICLE.get()) {
                spawnParticleBelow(level, blockPos, randomSource, RuParticleTypes.ENCHANTED_BIRCH_LEAVES);
             }
          }
