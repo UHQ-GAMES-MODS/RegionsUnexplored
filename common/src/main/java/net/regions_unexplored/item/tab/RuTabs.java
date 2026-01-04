@@ -183,7 +183,7 @@ public class RuTabs {
         output.accept(RuBlocks.SPANISH_MOSS.get().asItem());
         output.accept(RuBlocks.GLISTERING_IVY.get().asItem());
         //FOOD_PLANT_BLOCKS
-        RuItems.SALMONBERRY.get().asItem();
+        output.accept(RuItems.SALMONBERRY.get().asItem());
         output.accept(RuBlocks.HANGING_EARLIGHT.get().asItem());
         /*-----------------PLANT_BLOCKS-----------------*/
         //MUSHROOMS
