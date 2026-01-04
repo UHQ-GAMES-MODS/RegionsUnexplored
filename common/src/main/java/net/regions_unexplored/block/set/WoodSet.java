@@ -1,6 +1,9 @@
 package net.regions_unexplored.block.set;
 
+import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SignItem;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -9,7 +12,11 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.entity.custom.RuBoat;
+import net.regions_unexplored.item.RuItems;
+import net.regions_unexplored.item.items.RuBoatItem;
 import net.regions_unexplored.registry.BlockRegistry;
+import net.regions_unexplored.registry.ItemRegistry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +42,11 @@ public class WoodSet {
     protected Supplier<Block> wallSign;
     protected Supplier<Block> hangingSign;
     protected Supplier<Block> wallHangingSign;
+
+    protected Supplier<Item> itemSign;
+    protected Supplier<Item> itemHangingSign;
+    protected Supplier<Item> itemBoat;
+    protected Supplier<Item> itemChestBoat;
 
     public WoodSet(boolean fireproof) {
         this.fireproof = fireproof;
@@ -63,6 +75,13 @@ public class WoodSet {
         set.wallSign = BlockRegistry.registerDefaultBlockNoItem(name + "_wall_sign", () -> BlockRegistry.wallSign(sound, set.sign.get(), woodType, fireproof));
         set.hangingSign = BlockRegistry.registerDefaultBlockNoItem(name + "_hanging_sign", () -> BlockRegistry.hangingSign(plankColour, sound, woodType, fireproof));
         set.wallHangingSign = BlockRegistry.registerDefaultBlockNoItem(name + "_wall_hanging_sign", () -> BlockRegistry.wallHangingSign(plankColour, sound, set.hangingSign.get(), woodType, fireproof));
+
+        set.itemSign = ItemRegistry.registerItem(name + "_sign", () -> new SignItem(new Item.Properties().stacksTo(16), set.sign.get(), set.wallSign.get()));
+        set.itemHangingSign = ItemRegistry.registerItem(name + "_hanging_sign", () -> new HangingSignItem(set.hangingSign.get(), set.wallHangingSign.get(), new Item.Properties().stacksTo(16)));
+        if (!name.equals("cobalt")) {
+            set.itemBoat = ItemRegistry.registerItem(name + "_boat", () -> new RuBoatItem(false, RuBoat.ModelType.byName(name), new Item.Properties().stacksTo(1)));
+            set.itemChestBoat = ItemRegistry.registerItem(name + "_chest_boat", () -> new RuBoatItem(true, RuBoat.ModelType.byName(name), new Item.Properties().stacksTo(1)));
+        }
         RuBlocks.WOOD_SETS.add(set);
         return set;
     }
@@ -86,6 +105,9 @@ public class WoodSet {
         set.wallSign = BlockRegistry.registerDefaultBlockNoItem(name + "_wall_sign", () -> BlockRegistry.wallSign(sound, set.sign.get(), woodType, fireproof));
         set.hangingSign = BlockRegistry.registerDefaultBlockNoItem(name + "_hanging_sign", () -> BlockRegistry.hangingSign(colour, sound, woodType, fireproof));
         set.wallHangingSign = BlockRegistry.registerDefaultBlockNoItem(name + "_wall_hanging_sign", () -> BlockRegistry.wallHangingSign(colour, sound, set.hangingSign.get(), woodType, fireproof));
+
+        set.itemSign = ItemRegistry.registerItem(name + "_sign", () -> new SignItem(new Item.Properties().stacksTo(16), set.sign.get(), set.wallSign.get()));
+        set.itemHangingSign = ItemRegistry.registerItem(name + "_hanging_sign", () -> new HangingSignItem(set.hangingSign.get(), set.wallHangingSign.get(), new Item.Properties().stacksTo(16)));
         RuBlocks.WOOD_SETS.add(set);
         return set;
     }
@@ -135,6 +157,10 @@ public class WoodSet {
         set.wallSign = BlockRegistry.registerDefaultBlockNoItem(name + "_wall_sign", () -> BlockRegistry.wallSign(sound, set.sign.get(), woodType, fireproof));
         set.hangingSign = BlockRegistry.registerDefaultBlockNoItem(name + "_hanging_sign", () -> BlockRegistry.hangingSign(colour, sound, woodType, fireproof));
         set.wallHangingSign = BlockRegistry.registerDefaultBlockNoItem(name + "_wall_hanging_sign", () -> BlockRegistry.wallHangingSign(colour, sound, set.hangingSign.get(), woodType, fireproof));
+        set.itemSign = ItemRegistry.registerItem(name + "_sign", () -> new SignItem(new Item.Properties().stacksTo(16), set.sign.get(), set.wallSign.get()));
+        set.itemHangingSign = ItemRegistry.registerItem(name + "_hanging_sign", () -> new HangingSignItem(set.hangingSign.get(), set.wallHangingSign.get(), new Item.Properties().stacksTo(16)));
+        set.itemBoat = ItemRegistry.registerItem(name + "_boat", () -> new RuBoatItem(false, RuBoat.ModelType.byName(name), new Item.Properties().stacksTo(1)));
+        set.itemChestBoat = ItemRegistry.registerItem(name + "_chest_boat", () -> new RuBoatItem(true, RuBoat.ModelType.byName(name), new Item.Properties().stacksTo(1)));
         RuBlocks.WOOD_SETS.add(set);
         return set;
     }
@@ -207,6 +233,14 @@ public class WoodSet {
         return wallHangingSign != null ? wallHangingSign.get() : null;
     }
 
+    public Item getBoat() {
+        return itemBoat != null ? itemBoat.get() : null;
+    }
+
+    public Item getChestBoat() {
+        return itemChestBoat != null ? itemChestBoat.get() : null;
+    }
+
     public List<Item> getBuildingBlocksTabItems() {
         ArrayList<Item> items = new ArrayList<>();
         addCreativeModeTabItem(WoodSet::getLog, items);
@@ -232,7 +266,15 @@ public class WoodSet {
         return items;
     }
 
-    protected <T extends WoodSet> void addCreativeModeTabItem(Function<T, Block> getter, ArrayList<Item> items) {
+    public List<Item> getToolsAndUtilitiesTabItems() {
+        ArrayList<Item> items = new ArrayList<>();
+        addCreativeModeTabItem(WoodSet::getBoat, items);
+        addCreativeModeTabItem(WoodSet::getChestBoat, items);
+        return items;
+
+    }
+
+    protected <T extends WoodSet> void addCreativeModeTabItem(Function<T, ItemLike> getter, ArrayList<Item> items) {
         if (getter.apply((T) this) != null) {
             items.add(getter.apply((T) this).asItem());
         }

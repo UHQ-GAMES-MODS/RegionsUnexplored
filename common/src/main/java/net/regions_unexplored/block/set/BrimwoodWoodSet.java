@@ -1,12 +1,18 @@
 package net.regions_unexplored.block.set;
 
+import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.entity.custom.RuBoat;
+import net.regions_unexplored.item.RuItems;
+import net.regions_unexplored.item.items.RuBoatItem;
 import net.regions_unexplored.registry.BlockRegistry;
+import net.regions_unexplored.registry.ItemRegistry;
 import net.regions_unexplored.world.level.block.wood.MagmaLogBlock;
 
 import java.util.ArrayList;
@@ -40,6 +46,9 @@ public class BrimwoodWoodSet extends WoodSet {
         set.wallSign = BlockRegistry.registerDefaultBlockNoItem(name + "_wall_sign", () -> BlockRegistry.wallSign(sound, set.sign.get(), woodType, fireproof));
         set.hangingSign = BlockRegistry.registerDefaultBlockNoItem(name + "_hanging_sign", () -> BlockRegistry.hangingSign(plankColour, sound, woodType, fireproof));
         set.wallHangingSign = BlockRegistry.registerDefaultBlockNoItem(name + "_wall_hanging_sign", () -> BlockRegistry.wallHangingSign(plankColour, sound, set.hangingSign.get(), woodType, fireproof));
+
+        set.itemSign = ItemRegistry.registerItem(name + "_sign", () -> new SignItem(new Item.Properties().stacksTo(16), set.sign.get(), set.wallSign.get()));
+        set.itemHangingSign = ItemRegistry.registerItem(name + "_hanging_sign", () -> new HangingSignItem(set.hangingSign.get(), set.wallHangingSign.get(), new Item.Properties().stacksTo(16)));
         RuBlocks.WOOD_SETS.add(set);
         return set;
     }

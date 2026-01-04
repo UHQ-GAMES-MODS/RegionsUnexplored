@@ -37,7 +37,7 @@ public class RuAdvancementProvider extends AdvancementProvider {
 
             AdvancementHolder PARENT = Advancement.Builder.advancement()
                     .display(
-                            RuBlocks.EUCALYPTUS_SAPLING.get(),
+                            RuBlocks.EUCALYPTUS_NATURAL_SET.getSapling(),
                             Component.translatable("advancements.regions_unexplored.title"),
                             Component.translatable("advancements.regions_unexplored.description"),
                             Constants.id("textures/gui/advancements/backgrounds/argillite.png"),
@@ -276,7 +276,7 @@ public class RuAdvancementProvider extends AdvancementProvider {
             AdvancementHolder ETERNAL_EXPEDITION = Advancement.Builder.advancement()
                     .parent(PARENT)
                     .display(
-                            RuBlocks.BRIMWOOD_SAPLING.get(),
+                            RuBlocks.BRIMWOOD_NATURAL_SET.getSapling(),
                             Component.translatable("advancements.regions_unexplored.eternal_expedition.title"),
                             Component.translatable("advancements.regions_unexplored.eternal_expedition.description"),
                             Constants.id("textures/gui/advancements/backgrounds/argillite.png"),

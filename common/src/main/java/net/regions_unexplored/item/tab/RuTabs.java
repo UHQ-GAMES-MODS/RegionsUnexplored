@@ -239,6 +239,9 @@ public class RuTabs {
             for (Item item : set.getFunctionalBlocksTabItems()) {
                 output.accept(item);
             }
+            for (Item item : set.getToolsAndUtilitiesTabItems()) {
+                output.accept(item);
+            }
         }
         //BAMBOO
         output.accept(RuBlocks.BAMBOO_LOG.get().asItem());
@@ -246,54 +249,6 @@ public class RuTabs {
         //OAK
         output.accept(RuBlocks.SMALL_OAK_LOG.get().asItem());
         output.accept(RuBlocks.STRIPPED_SMALL_OAK_LOG.get().asItem());
-        //BAOBAB_BLOCKS
-        output.accept(RuItems.BAOBAB_BOAT.get().asItem());
-        output.accept(RuItems.BAOBAB_CHEST_BOAT.get().asItem());
-        //BLACKWOOD_BLOCKS
-        output.accept(RuItems.BLACKWOOD_BOAT.get().asItem());
-        output.accept(RuItems.BLACKWOOD_CHEST_BOAT.get().asItem());
-        //CYPRESS_BLOCKS
-        output.accept(RuItems.CYPRESS_BOAT.get().asItem());
-        output.accept(RuItems.CYPRESS_CHEST_BOAT.get().asItem());
-        //DEAD_BLOCKS
-        output.accept(RuItems.DEAD_BOAT.get().asItem());
-        output.accept(RuItems.DEAD_CHEST_BOAT.get().asItem());
-        //EUCALYPTUS_BLOCKS
-        output.accept(RuItems.EUCALYPTUS_BOAT.get().asItem());
-        output.accept(RuItems.EUCALYPTUS_CHEST_BOAT.get().asItem());
-        //JOSHUA_BLOCKS
-        output.accept(RuItems.JOSHUA_BOAT.get().asItem());
-        output.accept(RuItems.JOSHUA_CHEST_BOAT.get().asItem());
-        //KAPOK_BLOCKS
-        output.accept(RuItems.KAPOK_BOAT.get().asItem());
-        output.accept(RuItems.KAPOK_CHEST_BOAT.get().asItem());
-        //LARCH_BLOCKS
-        output.accept(RuItems.LARCH_BOAT.get().asItem());
-        output.accept(RuItems.LARCH_CHEST_BOAT.get().asItem());
-        //MAGNOLIA_BLOCKS
-        output.accept(RuItems.MAGNOLIA_BOAT.get().asItem());
-        output.accept(RuItems.MAGNOLIA_CHEST_BOAT.get().asItem());
-        //MAPLE_BLOCKS
-        output.accept(RuItems.MAPLE_BOAT.get().asItem());
-        output.accept(RuItems.MAPLE_CHEST_BOAT.get().asItem());
-        //MAUVE_BLOCKS
-        output.accept(RuItems.MAUVE_BOAT.get().asItem());
-        output.accept(RuItems.MAUVE_CHEST_BOAT.get().asItem());
-        //PALM_BLOCKS
-        output.accept(RuItems.PALM_BOAT.get().asItem());
-        output.accept(RuItems.PALM_CHEST_BOAT.get().asItem());
-        //PINE_BLOCKS
-        output.accept(RuItems.PINE_BOAT.get().asItem());
-        output.accept(RuItems.PINE_CHEST_BOAT.get().asItem());
-
-        output.accept(RuItems.REDWOOD_BOAT.get().asItem());
-        output.accept(RuItems.REDWOOD_CHEST_BOAT.get().asItem());
-        //SOCOTRA_BLOCKS
-        output.accept(RuItems.SOCOTRA_BOAT.get().asItem());
-        output.accept(RuItems.SOCOTRA_CHEST_BOAT.get().asItem());
-        //WILLOW_BLOCKS
-        output.accept(RuItems.WILLOW_BOAT.get().asItem());
-        output.accept(RuItems.WILLOW_CHEST_BOAT.get().asItem());
 
         /*-----------------PAINTED PLANKS-----------------*/
         //PLANKS
@@ -309,7 +264,7 @@ public class RuTabs {
     };
 
 
-    public static final Supplier<CreativeModeTab> TAB = registerTab("main", () -> RuItems.BAOBAB_BOAT.get().getDefaultInstance(), TAB_ORDER);
+    public static final Supplier<CreativeModeTab> TAB = registerTab("main", () -> RuBlocks.PRISMAGLASS.get().asItem().getDefaultInstance(), TAB_ORDER);
             //comment out Corgi's solution for future use
             //() -> BuiltInRegistries.ITEM.stream().filter(item -> BuiltInRegistries.ITEM.getKey(item).getNamespace().equals(Constants.MOD_ID)).map(item -> Suppliers.memoize(() -> item)).collect(Collectors.toUnmodifiableList()));
 
