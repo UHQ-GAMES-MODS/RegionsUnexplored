@@ -1,6 +1,5 @@
 package net.regions_unexplored.block.compat;
 
-import com.google.common.collect.ImmutableList;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.regions_unexplored.block.RuBlocks;
@@ -13,358 +12,41 @@ import java.util.Objects;
 
 
 public class FurnaceBurnTimes {
-    public static final ImmutableList<Item> BURN_TIME_300 = ImmutableList.of(
-            /*RuBlocks.SILVER_BIRCH.getLog().asItem(),
-            RuBlocks.SILVER_BIRCH_WOOD.get().asItem(),
-
-            RuBlocks.ALPHA.getLog().asItem(),
-            RuBlocks.ALPHA_PLANKS.get().asItem(),
-            RuBlocks.ALPHA_STAIRS.get().asItem(),
-
-            RuBlocks.BAOBAB.getLog().asItem(),
-            RuBlocks.STRIPPED_BAOBAB.getLog().asItem(),
-            RuBlocks.BAOBAB_WOOD.get().asItem(),
-            RuBlocks.STRIPPED_BAOBAB_WOOD.get().asItem(),
-            RuBlocks.BAOBAB_PLANKS.get().asItem(),
-            RuBlocks.BAOBAB_STAIRS.get().asItem(),
-            RuBlocks.BAOBAB_FENCE.get().asItem(),
-            RuBlocks.BAOBAB_FENCE_GATE.get().asItem(),
-            RuBlocks.BAOBAB_TRAPDOOR.get().asItem(),
-            RuBlocks.BAOBAB_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.BLACKWOOD.getLog().asItem(),
-            RuBlocks.STRIPPED_BLACKWOOD.getLog().asItem(),
-            RuBlocks.BLACKWOOD_WOOD.get().asItem(),
-            RuBlocks.STRIPPED_BLACKWOOD_WOOD.get().asItem(),
-            RuBlocks.BLACKWOOD_PLANKS.get().asItem(),
-            RuBlocks.BLACKWOOD_STAIRS.get().asItem(),
-            RuBlocks.BLACKWOOD_FENCE.get().asItem(),
-            RuBlocks.BLACKWOOD_FENCE_GATE.get().asItem(),
-            RuBlocks.BLACKWOOD_TRAPDOOR.get().asItem(),
-            RuBlocks.BLACKWOOD_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.BLUE_BIOSHROOM_STEM.get().asItem(),
-            RuBlocks.STRIPPED_BLUE_BIOSHROOM_STEM.get().asItem(),
-            RuBlocks.BLUE_BIOSHROOM_HYPHAE.get().asItem(),
-            RuBlocks.STRIPPED_BLUE_BIOSHROOM_HYPHAE.get().asItem(),
-            RuBlocks.BLUE_BIOSHROOM_PLANKS.get().asItem(),
-            RuBlocks.BLUE_BIOSHROOM_STAIRS.get().asItem(),
-            RuBlocks.BLUE_BIOSHROOM_FENCE.get().asItem(),
-            RuBlocks.BLUE_BIOSHROOM_FENCE_GATE.get().asItem(),
-            RuBlocks.BLUE_BIOSHROOM_TRAPDOOR.get().asItem(),
-            RuBlocks.BLUE_BIOSHROOM_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.BRIMWOOD.getLog().asItem(),
-            RuBlocks.BRIMWOOD.getLogMagma().get().asItem(),
-            RuBlocks.STRIPPED_BRIMWOOD.getLog().asItem(),
-            RuBlocks.BRIMWOOD_WOOD.get().asItem(),
-            RuBlocks.STRIPPED_BRIMWOOD_WOOD.get().asItem(),
-            RuBlocks.BRIMWOOD_PLANKS.get().asItem(),
-            RuBlocks.BRIMWOOD_STAIRS.get().asItem(),
-            RuBlocks.BRIMWOOD_FENCE.get().asItem(),
-            RuBlocks.BRIMWOOD_FENCE_GATE.get().asItem(),
-            RuBlocks.BRIMWOOD_TRAPDOOR.get().asItem(),
-            RuBlocks.BRIMWOOD_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.COBALT.getLog().asItem(),
-            RuBlocks.STRIPPED_COBALT.getLog().asItem(),
-            RuBlocks.COBALT_WOOD.get().asItem(),
-            RuBlocks.STRIPPED_COBALT_WOOD.get().asItem(),
-            RuBlocks.COBALT_PLANKS.get().asItem(),
-            RuBlocks.COBALT_STAIRS.get().asItem(),
-            RuBlocks.COBALT_FENCE.get().asItem(),
-            RuBlocks.COBALT_FENCE_GATE.get().asItem(),
-            RuBlocks.COBALT_TRAPDOOR.get().asItem(),
-            RuBlocks.COBALT_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.CYPRESS.getLog().asItem(),
-            RuBlocks.STRIPPED_CYPRESS.getLog().asItem(),
-            RuBlocks.CYPRESS_WOOD.get().asItem(),
-            RuBlocks.STRIPPED_CYPRESS_WOOD.get().asItem(),
-            RuBlocks.CYPRESS_PLANKS.get().asItem(),
-            RuBlocks.CYPRESS_STAIRS.get().asItem(),
-            RuBlocks.CYPRESS_FENCE.get().asItem(),
-            RuBlocks.CYPRESS_FENCE_GATE.get().asItem(),
-            RuBlocks.CYPRESS_TRAPDOOR.get().asItem(),
-            RuBlocks.CYPRESS_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.DEAD.getLog().asItem(),
-            RuBlocks.STRIPPED_DEAD.getLog().asItem(),
-            RuBlocks.DEAD_WOOD.get().asItem(),
-            RuBlocks.STRIPPED_DEAD_WOOD.get().asItem(),
-            RuBlocks.DEAD_PLANKS.get().asItem(),
-            RuBlocks.DEAD_STAIRS.get().asItem(),
-            RuBlocks.DEAD_FENCE.get().asItem(),
-            RuBlocks.DEAD_FENCE_GATE.get().asItem(),
-            RuBlocks.DEAD_TRAPDOOR.get().asItem(),
-            RuBlocks.DEAD_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.EUCALYPTUS.getLog().asItem(),
-            RuBlocks.STRIPPED_EUCALYPTUS.getLog().asItem(),
-            RuBlocks.EUCALYPTUS_WOOD.get().asItem(),
-            RuBlocks.STRIPPED_EUCALYPTUS_WOOD.get().asItem(),
-            RuBlocks.EUCALYPTUS_PLANKS.get().asItem(),
-            RuBlocks.EUCALYPTUS_STAIRS.get().asItem(),
-            RuBlocks.EUCALYPTUS_FENCE.get().asItem(),
-            RuBlocks.EUCALYPTUS_FENCE_GATE.get().asItem(),
-            RuBlocks.EUCALYPTUS_TRAPDOOR.get().asItem(),
-            RuBlocks.EUCALYPTUS_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.GREEN_BIOSHROOM_STEM.get().asItem(),
-            RuBlocks.STRIPPED_GREEN_BIOSHROOM_STEM.get().asItem(),
-            RuBlocks.GREEN_BIOSHROOM_HYPHAE.get().asItem(),
-            RuBlocks.STRIPPED_GREEN_BIOSHROOM_HYPHAE.get().asItem(),
-            RuBlocks.GREEN_BIOSHROOM_PLANKS.get().asItem(),
-            RuBlocks.GREEN_BIOSHROOM_STAIRS.get().asItem(),
-            RuBlocks.GREEN_BIOSHROOM_FENCE.get().asItem(),
-            RuBlocks.GREEN_BIOSHROOM_FENCE_GATE.get().asItem(),
-            RuBlocks.GREEN_BIOSHROOM_TRAPDOOR.get().asItem(),
-            RuBlocks.GREEN_BIOSHROOM_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.JOSHUA.getLog().asItem(),
-            RuBlocks.STRIPPED_JOSHUA.getLog().asItem(),
-            RuBlocks.JOSHUA_WOOD.get().asItem(),
-            RuBlocks.STRIPPED_JOSHUA_WOOD.get().asItem(),
-            RuBlocks.JOSHUA_PLANKS.get().asItem(),
-            RuBlocks.JOSHUA_STAIRS.get().asItem(),
-            RuBlocks.JOSHUA_FENCE.get().asItem(),
-            RuBlocks.JOSHUA_FENCE_GATE.get().asItem(),
-            RuBlocks.JOSHUA_TRAPDOOR.get().asItem(),
-            RuBlocks.JOSHUA_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.KAPOK.getLog().asItem(),
-            RuBlocks.STRIPPED_KAPOK.getLog().asItem(),
-            RuBlocks.KAPOK_WOOD.get().asItem(),
-            RuBlocks.STRIPPED_KAPOK_WOOD.get().asItem(),
-            RuBlocks.KAPOK_PLANKS.get().asItem(),
-            RuBlocks.KAPOK_STAIRS.get().asItem(),
-            RuBlocks.KAPOK_FENCE.get().asItem(),
-            RuBlocks.KAPOK_FENCE_GATE.get().asItem(),
-            RuBlocks.KAPOK_TRAPDOOR.get().asItem(),
-            RuBlocks.KAPOK_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.LARCH.getLog().asItem(),
-            RuBlocks.STRIPPED_LARCH.getLog().asItem(),
-            RuBlocks.LARCH_WOOD.get().asItem(),
-            RuBlocks.STRIPPED_LARCH_WOOD.get().asItem(),
-            RuBlocks.LARCH_PLANKS.get().asItem(),
-            RuBlocks.LARCH_STAIRS.get().asItem(),
-            RuBlocks.LARCH_FENCE.get().asItem(),
-            RuBlocks.LARCH_FENCE_GATE.get().asItem(),
-            RuBlocks.LARCH_TRAPDOOR.get().asItem(),
-            RuBlocks.LARCH_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.MAGNOLIA.getLog().asItem(),
-            RuBlocks.STRIPPED_MAGNOLIA.getLog().asItem(),
-            RuBlocks.MAGNOLIA_WOOD.get().asItem(),
-            RuBlocks.STRIPPED_MAGNOLIA_WOOD.get().asItem(),
-            RuBlocks.MAGNOLIA_PLANKS.get().asItem(),
-            RuBlocks.MAGNOLIA_STAIRS.get().asItem(),
-            RuBlocks.MAGNOLIA_FENCE.get().asItem(),
-            RuBlocks.MAGNOLIA_FENCE_GATE.get().asItem(),
-            RuBlocks.MAGNOLIA_TRAPDOOR.get().asItem(),
-            RuBlocks.MAGNOLIA_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.MAPLE.getLog().asItem(),
-            RuBlocks.STRIPPED_MAPLE.getLog().asItem(),
-            RuBlocks.MAPLE_WOOD.get().asItem(),
-            RuBlocks.STRIPPED_MAPLE_WOOD.get().asItem(),
-            RuBlocks.MAPLE_PLANKS.get().asItem(),
-            RuBlocks.MAPLE_STAIRS.get().asItem(),
-            RuBlocks.MAPLE_FENCE.get().asItem(),
-            RuBlocks.MAPLE_FENCE_GATE.get().asItem(),
-            RuBlocks.MAPLE_TRAPDOOR.get().asItem(),
-            RuBlocks.MAPLE_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.MAUVE.getLog().asItem(),
-            RuBlocks.STRIPPED_MAUVE.getLog().asItem(),
-            RuBlocks.MAUVE_WOOD.get().asItem(),
-            RuBlocks.STRIPPED_MAUVE_WOOD.get().asItem(),
-            RuBlocks.MAUVE_PLANKS.get().asItem(),
-            RuBlocks.MAUVE_STAIRS.get().asItem(),
-            RuBlocks.MAUVE_FENCE.get().asItem(),
-            RuBlocks.MAUVE_FENCE_GATE.get().asItem(),
-            RuBlocks.MAUVE_TRAPDOOR.get().asItem(),
-            RuBlocks.MAUVE_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.PALM.getLog().asItem(),
-            RuBlocks.STRIPPED_PALM.getLog().asItem(),
-            RuBlocks.PALM_WOOD.get().asItem(),
-            RuBlocks.STRIPPED_PALM_WOOD.get().asItem(),
-            RuBlocks.PALM_PLANKS.get().asItem(),
-            RuBlocks.PALM_STAIRS.get().asItem(),
-            RuBlocks.PALM_FENCE.get().asItem(),
-            RuBlocks.PALM_FENCE_GATE.get().asItem(),
-            RuBlocks.PALM_TRAPDOOR.get().asItem(),
-            RuBlocks.PALM_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.PINE.getLog().asItem(),
-            RuBlocks.STRIPPED_PINE.getLog().asItem(),
-            RuBlocks.PINE_WOOD.get().asItem(),
-            RuBlocks.STRIPPED_PINE_WOOD.get().asItem(),
-            RuBlocks.PINE_PLANKS.get().asItem(),
-            RuBlocks.PINE_STAIRS.get().asItem(),
-            RuBlocks.PINE_FENCE.get().asItem(),
-            RuBlocks.PINE_FENCE_GATE.get().asItem(),
-            RuBlocks.PINE_TRAPDOOR.get().asItem(),
-            RuBlocks.PINE_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.PINK_BIOSHROOM_STEM.get().asItem(),
-            RuBlocks.STRIPPED_PINK_BIOSHROOM_STEM.get().asItem(),
-            RuBlocks.PINK_BIOSHROOM_HYPHAE.get().asItem(),
-            RuBlocks.STRIPPED_PINK_BIOSHROOM_HYPHAE.get().asItem(),
-            RuBlocks.PINK_BIOSHROOM_PLANKS.get().asItem(),
-            RuBlocks.PINK_BIOSHROOM_STAIRS.get().asItem(),
-            RuBlocks.PINK_BIOSHROOM_FENCE.get().asItem(),
-            RuBlocks.PINK_BIOSHROOM_FENCE_GATE.get().asItem(),
-            RuBlocks.PINK_BIOSHROOM_TRAPDOOR.get().asItem(),
-            RuBlocks.PINK_BIOSHROOM_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.REDWOOD.getLog().asItem(),
-            RuBlocks.STRIPPED_REDWOOD.getLog().asItem(),
-            RuBlocks.REDWOOD_WOOD.get().asItem(),
-            RuBlocks.STRIPPED_REDWOOD_WOOD.get().asItem(),
-            RuBlocks.REDWOOD_PLANKS.get().asItem(),
-            RuBlocks.REDWOOD_STAIRS.get().asItem(),
-            RuBlocks.REDWOOD_FENCE.get().asItem(),
-            RuBlocks.REDWOOD_FENCE_GATE.get().asItem(),
-            RuBlocks.REDWOOD_TRAPDOOR.get().asItem(),
-            RuBlocks.REDWOOD_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.SOCOTRA.getLog().asItem(),
-            RuBlocks.STRIPPED_SOCOTRA.getLog().asItem(),
-            RuBlocks.SOCOTRA_WOOD.get().asItem(),
-            RuBlocks.STRIPPED_SOCOTRA_WOOD.get().asItem(),
-            RuBlocks.SOCOTRA_PLANKS.get().asItem(),
-            RuBlocks.SOCOTRA_STAIRS.get().asItem(),
-            RuBlocks.SOCOTRA_FENCE.get().asItem(),
-            RuBlocks.SOCOTRA_FENCE_GATE.get().asItem(),
-            RuBlocks.SOCOTRA_TRAPDOOR.get().asItem(),
-            RuBlocks.SOCOTRA_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.WILLOW.getLog().asItem(),
-            RuBlocks.STRIPPED_WILLOW.getLog().asItem(),
-            RuBlocks.WILLOW_WOOD.get().asItem(),
-            RuBlocks.STRIPPED_WILLOW_WOOD.get().asItem(),
-            RuBlocks.WILLOW_PLANKS.get().asItem(),
-            RuBlocks.WILLOW_STAIRS.get().asItem(),
-            RuBlocks.WILLOW_FENCE.get().asItem(),
-            RuBlocks.WILLOW_FENCE_GATE.get().asItem(),
-            RuBlocks.WILLOW_TRAPDOOR.get().asItem(),
-            RuBlocks.WILLOW_PRESSURE_PLATE.get().asItem(),
-
-            RuBlocks.YELLOW_BIOSHROOM_STEM.get().asItem(),
-            RuBlocks.STRIPPED_YELLOW_BIOSHROOM_STEM.get().asItem(),
-            RuBlocks.YELLOW_BIOSHROOM_HYPHAE.get().asItem(),
-            RuBlocks.STRIPPED_YELLOW_BIOSHROOM_HYPHAE.get().asItem(),
-            RuBlocks.YELLOW_BIOSHROOM_PLANKS.get().asItem(),
-            RuBlocks.YELLOW_BIOSHROOM_STAIRS.get().asItem(),
-            RuBlocks.YELLOW_BIOSHROOM_FENCE.get().asItem(),
-            RuBlocks.YELLOW_BIOSHROOM_FENCE_GATE.get().asItem(),
-            RuBlocks.YELLOW_BIOSHROOM_TRAPDOOR.get().asItem(),
-            RuBlocks.YELLOW_BIOSHROOM_PRESSURE_PLATE.get().asItem(),*/
-
-            /*-----------------PAINTED PLANKS-----------------*/
-            //PLANKS
-            /*RuBlocks.RED_PAINTED_PLANKS.get().asItem(),
-            RuBlocks.ORANGE_PAINTED_PLANKS.get().asItem(),
-            RuBlocks.YELLOW_PAINTED_PLANKS.get().asItem(),
-            RuBlocks.LIME_PAINTED_PLANKS.get().asItem(),
-            RuBlocks.GREEN_PAINTED_PLANKS.get().asItem(),
-            RuBlocks.CYAN_PAINTED_PLANKS.get().asItem(),
-            RuBlocks.LIGHT_BLUE_PAINTED_PLANKS.get().asItem(),
-            RuBlocks.BLUE_PAINTED_PLANKS.get().asItem(),
-            RuBlocks.PURPLE_PAINTED_PLANKS.get().asItem(),
-            RuBlocks.MAGENTA_PAINTED_PLANKS.get().asItem(),
-            RuBlocks.PINK_PAINTED_PLANKS.get().asItem(),
-            RuBlocks.BROWN_PAINTED_PLANKS.get().asItem(),
-            RuBlocks.WHITE_PAINTED_PLANKS.get().asItem(),
-            RuBlocks.LIGHT_GRAY_PAINTED_PLANKS.get().asItem(),
-            RuBlocks.GRAY_PAINTED_PLANKS.get().asItem(),
-            RuBlocks.BLACK_PAINTED_PLANKS.get().asItem(),
-            //STAIRS
-            RuBlocks.RED_PAINTED_STAIRS.get().asItem(),
-            RuBlocks.ORANGE_PAINTED_STAIRS.get().asItem(),
-            RuBlocks.YELLOW_PAINTED_STAIRS.get().asItem(),
-            RuBlocks.LIME_PAINTED_STAIRS.get().asItem(),
-            RuBlocks.GREEN_PAINTED_STAIRS.get().asItem(),
-            RuBlocks.CYAN_PAINTED_STAIRS.get().asItem(),
-            RuBlocks.LIGHT_BLUE_PAINTED_STAIRS.get().asItem(),
-            RuBlocks.BLUE_PAINTED_STAIRS.get().asItem(),
-            RuBlocks.PURPLE_PAINTED_STAIRS.get().asItem(),
-            RuBlocks.MAGENTA_PAINTED_STAIRS.get().asItem(),
-            RuBlocks.PINK_PAINTED_STAIRS.get().asItem(),
-            RuBlocks.BROWN_PAINTED_STAIRS.get().asItem(),
-            RuBlocks.WHITE_PAINTED_STAIRS.get().asItem(),
-            RuBlocks.LIGHT_GRAY_PAINTED_STAIRS.get().asItem(),
-            RuBlocks.GRAY_PAINTED_STAIRS.get().asItem(),
-            RuBlocks.BLACK_PAINTED_STAIRS.get().asItem(),
-            //SLABS
-            RuBlocks.RED_PAINTED_SLAB.get().asItem(),
-            RuBlocks.ORANGE_PAINTED_SLAB.get().asItem(),
-            RuBlocks.YELLOW_PAINTED_SLAB.get().asItem(),
-            RuBlocks.LIME_PAINTED_SLAB.get().asItem(),
-            RuBlocks.GREEN_PAINTED_SLAB.get().asItem(),
-            RuBlocks.CYAN_PAINTED_SLAB.get().asItem(),
-            RuBlocks.LIGHT_BLUE_PAINTED_SLAB.get().asItem(),
-            RuBlocks.BLUE_PAINTED_SLAB.get().asItem(),
-            RuBlocks.PURPLE_PAINTED_SLAB.get().asItem(),
-            RuBlocks.MAGENTA_PAINTED_SLAB.get().asItem(),
-            RuBlocks.PINK_PAINTED_SLAB.get().asItem(),
-            RuBlocks.BROWN_PAINTED_SLAB.get().asItem(),
-            RuBlocks.WHITE_PAINTED_SLAB.get().asItem(),
-            RuBlocks.LIGHT_GRAY_PAINTED_SLAB.get().asItem(),
-            RuBlocks.GRAY_PAINTED_SLAB.get().asItem(),
-            RuBlocks.BLACK_PAINTED_SLAB.get().asItem()*/
-    );
-
+    public static final List<Item> BURN_TIME_300 = new ArrayList<>();
     public static final List<Item> BURN_TIME_200 = RuBlocks.WOOD_SETS.stream().map(WoodSet::getDoor).filter(Objects::nonNull).map(Block::asItem).toList();
-
-    public static final ImmutableList<Item> BURN_TIME_150 = ImmutableList.of(
-            /*RuBlocks.BAOBAB_SLAB.get().asItem(),
-            RuBlocks.BLACKWOOD_SLAB.get().asItem(),
-            RuBlocks.BLUE_BIOSHROOM_SLAB.get().asItem(),
-            RuBlocks.BRIMWOOD_SLAB.get().asItem(),
-            RuBlocks.COBALT_SLAB.get().asItem(),
-            RuBlocks.CYPRESS_SLAB.get().asItem(),
-            RuBlocks.DEAD_SLAB.get().asItem(),
-            RuBlocks.EUCALYPTUS_SLAB.get().asItem(),
-            RuBlocks.GREEN_BIOSHROOM_SLAB.get().asItem(),
-            RuBlocks.JOSHUA_SLAB.get().asItem(),
-            RuBlocks.KAPOK_SLAB.get().asItem(),
-            RuBlocks.LARCH_SLAB.get().asItem(),
-            RuBlocks.MAGNOLIA_SLAB.get().asItem(),
-            RuBlocks.MAPLE_SLAB.get().asItem(),
-            RuBlocks.MAUVE_SLAB.get().asItem(),
-            RuBlocks.PALM_SLAB.get().asItem(),
-            RuBlocks.PINE_SLAB.get().asItem(),
-            RuBlocks.PINK_BIOSHROOM_SLAB.get().asItem(),
-            RuBlocks.REDWOOD_SLAB.get().asItem(),
-            RuBlocks.SOCOTRA_SLAB.get().asItem(),
-            RuBlocks.WILLOW_SLAB.get().asItem(),
-            RuBlocks.YELLOW_BIOSHROOM_SLAB.get().asItem(),*/
-            /*RuBlocks.RED_PAINTED_SLAB.get().asItem(),
-            RuBlocks.ORANGE_PAINTED_SLAB.get().asItem(),
-            RuBlocks.YELLOW_PAINTED_SLAB.get().asItem(),
-            RuBlocks.LIME_PAINTED_SLAB.get().asItem(),
-            RuBlocks.GREEN_PAINTED_SLAB.get().asItem(),
-            RuBlocks.CYAN_PAINTED_SLAB.get().asItem(),
-            RuBlocks.LIGHT_BLUE_PAINTED_SLAB.get().asItem(),
-            RuBlocks.BLUE_PAINTED_SLAB.get().asItem(),
-            RuBlocks.PURPLE_PAINTED_SLAB.get().asItem(),
-            RuBlocks.MAGENTA_PAINTED_SLAB.get().asItem(),
-            RuBlocks.PINK_PAINTED_SLAB.get().asItem(),
-            RuBlocks.BROWN_PAINTED_SLAB.get().asItem(),
-            RuBlocks.WHITE_PAINTED_SLAB.get().asItem(),
-            RuBlocks.LIGHT_GRAY_PAINTED_SLAB.get().asItem(),
-            RuBlocks.GRAY_PAINTED_SLAB.get().asItem(),
-            RuBlocks.BLACK_PAINTED_SLAB.get().asItem()*/
-    );
-
+    public static final List<Item> BURN_TIME_150 = new ArrayList<>();
     public static final List<Item> BURN_TIME_100 = new ArrayList<>();
 
     static {
+        // 300
+        for (WoodSet set : RuBlocks.WOOD_SETS) {
+            if (set.fireproof) continue;
+            if (set.getLog() != null) BURN_TIME_300.add(set.getLog().asItem());
+            if (set.getStrippedLog() != null) BURN_TIME_300.add(set.getStrippedLog().asItem());
+            if (set.getWood() != null) BURN_TIME_300.add(set.getWood().asItem());
+            if (set.getStrippedWood() != null) BURN_TIME_300.add(set.getStrippedWood().asItem());
+            if (set.getPlanks() != null) BURN_TIME_300.add(set.getPlanks().asItem());
+            if (set.getStairs() != null) BURN_TIME_300.add(set.getStairs().asItem());
+            if (set.getFence() != null) BURN_TIME_300.add(set.getFence().asItem());
+            if (set.getFenceGate() != null) BURN_TIME_300.add(set.getFenceGate().asItem());
+            if (set.getTrapdoor() != null) BURN_TIME_300.add(set.getTrapdoor().asItem());
+            if (set.getPressurePlate() != null) BURN_TIME_300.add(set.getPressurePlate().asItem());
+        }
+
+        // 150
+        for (WoodSet set : RuBlocks.WOOD_SETS) {
+            if (set.fireproof) continue;
+            if (set.getSlab() != null) {
+                BURN_TIME_150.add(set.getSlab().asItem());
+            }
+        }
+        for (Block block : RuBlocks.PAINTED_SLABS.getAll()) {
+            BURN_TIME_150.add(block.asItem());
+        }
+
+        // 100
         for (NaturalSet set : RuBlocks.NATURAL_SETS) {
+            if (set.fireproof) continue;
             if (set.getShrub() != null) {
                 BURN_TIME_100.add(set.getShrub().asItem());
             }
@@ -373,6 +55,7 @@ public class FurnaceBurnTimes {
             }
         }
         for (WoodSet set : RuBlocks.WOOD_SETS) {
+            if (set.fireproof) continue;
             if (set.getButton() != null) {
                 BURN_TIME_100.add(set.getButton().asItem());
             }
