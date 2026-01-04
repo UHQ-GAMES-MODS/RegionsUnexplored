@@ -157,7 +157,7 @@ public class CobaltShrubFeature extends Feature<NoneFeatureConfiguration> {
             return;
         }
         if(level.getBlockState(pos).canBeReplaced()) {
-            level.setBlock(pos, RuBlocks.COBALT_WEBBING.get().defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), 2);
+            level.setBlock(pos, RuBlocks.COBALT_NATURAL_SET.getLeaves().defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), 2);
         }
     }
 

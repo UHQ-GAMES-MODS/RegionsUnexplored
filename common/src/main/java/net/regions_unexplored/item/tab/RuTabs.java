@@ -125,46 +125,10 @@ public class RuTabs {
             if (set.getSapling() == null) continue;
             output.accept(set.getSapling());
         }
-        output.accept(RuBlocks.ASHEN_SAPLING.get().asItem());
-        output.accept(RuBlocks.CACTUS_FLOWER.get().asItem());
-        output.accept(RuBlocks.COBALT_SAPLING.get().asItem());
-        //SHRUBS
-        output.accept(RuBlocks.ACACIA_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.ASHEN_SHRUB.get().asItem());
-        output.accept(RuBlocks.BAOBAB_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.BIRCH_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.BLACKWOOD_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.BRIMWOOD_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.CHERRY_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.CYPRESS_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.DARK_OAK_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.DEAD_PINE_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.DEAD_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.EUCALYPTUS_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.FLOWERING_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.JOSHUA_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.JUNGLE_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.KAPOK_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.LARCH_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.GOLDEN_LARCH_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.MAGNOLIA_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.BLUE_MAGNOLIA_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.PINK_MAGNOLIA_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.WHITE_MAGNOLIA_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.MANGROVE_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.MAPLE_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.ORANGE_MAPLE_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.RED_MAPLE_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.MAUVE_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.OAK_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.PALM_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.PINE_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.REDWOOD_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.SILVER_BIRCH_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.ENCHANTED_BIRCH_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.SOCOTRA_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.SPRUCE_NATURAL_SET.getShrub().asItem());
-        output.accept(RuBlocks.WILLOW_NATURAL_SET.getShrub().asItem());
+        for (NaturalSet set : RuBlocks.NATURAL_SETS) {
+            if (set.getShrub() == null) continue;
+            output.accept(set.getShrub());
+        }
         //MUSHROOMS
         output.accept(RuBlocks.BLUE_BIOSHROOM.get().asItem());
         output.accept(RuBlocks.GREEN_BIOSHROOM.get().asItem());
@@ -199,66 +163,16 @@ public class RuTabs {
         output.accept(RuBlocks.SAGUARO_CACTUS.get().asItem());
 
         /*-----------------LEAVES-----------------*/
-        output.accept(RuBlocks.ALPHA_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.APPLE_OAK_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.ASHEN_LEAVES.get().asItem());
-        output.accept(RuBlocks.BAMBOO_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.BAOBAB_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.BLACKWOOD_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.BRIMWOOD_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.COBALT_WEBBING.get().asItem());
-        output.accept(RuBlocks.CYPRESS_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.DEAD_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.DEAD_PINE_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.EUCALYPTUS_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.FLOWERING_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.JOSHUA_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.KAPOK_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.LARCH_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.GOLDEN_LARCH_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.MAGNOLIA_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.BLUE_MAGNOLIA_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.PINK_MAGNOLIA_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.WHITE_MAGNOLIA_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.MAPLE_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.ORANGE_MAPLE_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.RED_MAPLE_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.MAUVE_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.PALM_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.PINE_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.REDWOOD_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.SILVER_BIRCH_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.ENCHANTED_BIRCH_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.SMALL_OAK_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.SOCOTRA_NATURAL_SET.getLeaves().asItem());
-        output.accept(RuBlocks.WILLOW_NATURAL_SET.getLeaves().asItem());
+        for (NaturalSet set : RuBlocks.NATURAL_SETS) {
+            if (set.getLeaves() == null) continue;
+            output.accept(set.getLeaves());
+        }
 
         /*-----------------BRANCHES-----------------*/
-        output.accept(RuBlocks.ACACIA_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.BAOBAB_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.BIRCH_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.BLACKWOOD_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.CHERRY_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.CYPRESS_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.DARK_OAK_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.DEAD_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.EUCALYPTUS_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.JOSHUA_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.JUNGLE_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.KAPOK_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.LARCH_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.MAGNOLIA_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.MANGROVE_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.MAPLE_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.MAUVE_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.OAK_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.PALM_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.PINE_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.REDWOOD_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.SILVER_BIRCH_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.SOCOTRA_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.SPRUCE_NATURAL_SET.getBranch().asItem());
-        output.accept(RuBlocks.WILLOW_NATURAL_SET.getBranch().asItem());
+        for (NaturalSet set : RuBlocks.NATURAL_SETS) {
+            if (set.getBranch() == null) continue;
+            output.accept(set.getBranch());
+        }
 
         /*-----------------DIRT_BLOCKS-----------------*/
         //OTHER_DIRT_BLOCKS

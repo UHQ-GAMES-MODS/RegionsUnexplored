@@ -86,7 +86,6 @@ public class FlammableBlocks {
             if (set.fireproof || set.getSapling() == null) continue;
             registerFlammableBlock(set.getSapling(), 60, 100);
         }
-        registerFlammableBlock(RuBlocks.CACTUS_FLOWER.get(), 60, 100);
         //SHRUBS
         for (NaturalSet set : RuBlocks.NATURAL_SETS) {
             if (set.fireproof || set.getShrub() == null) continue;

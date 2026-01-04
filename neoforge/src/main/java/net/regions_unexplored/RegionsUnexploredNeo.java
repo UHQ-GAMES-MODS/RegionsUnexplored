@@ -9,6 +9,7 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.block.set.WoodSet;
 import net.regions_unexplored.client.RegionsUnexploredClient;

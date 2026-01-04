@@ -319,7 +319,7 @@ public class RuVegetationFeatures {
         register(context, DUCKWEED, Feature.RANDOM_PATCH, new RandomPatchConfiguration(10, 7, 3, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RuBlocks.DUCKWEED.get())))));
 
         //SHRUBS
-        register(context, ASHEN_SHRUB, FeatureRegistry.SHRUB.get(), new ShrubConfiguration(BlockStateProvider.simple(RuBlocks.ASHEN_SHRUB.get().defaultBlockState())));
+        register(context, ASHEN_SHRUB, FeatureRegistry.SHRUB.get(), new ShrubConfiguration(BlockStateProvider.simple(RuBlocks.ASHEN_NATURAL_SET.getShrub().defaultBlockState())));
         register(context, ACACIA_SHRUB, FeatureRegistry.SHRUB.get(), new ShrubConfiguration(BlockStateProvider.simple(RuBlocks.ACACIA_NATURAL_SET.getShrub().defaultBlockState())));
         register(context, BAOBAB_SHRUB, FeatureRegistry.SHRUB.get(), new ShrubConfiguration(BlockStateProvider.simple(RuBlocks.BAOBAB_NATURAL_SET.getShrub().defaultBlockState())));
         register(context, BIRCH_SHRUB, FeatureRegistry.SHRUB.get(), new ShrubConfiguration(BlockStateProvider.simple(RuBlocks.BIRCH_NATURAL_SET.getShrub().defaultBlockState())));

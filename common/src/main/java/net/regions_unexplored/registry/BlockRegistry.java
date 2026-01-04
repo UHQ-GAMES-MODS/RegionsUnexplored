@@ -152,13 +152,6 @@ public class BlockRegistry {
         return factory.apply(properties);
     }
 
-    public static LeavesBlock fireproofLeaves(MapColor colour) {
-        return new LeavesBlock(BlockBehaviour.Properties.of().mapColor(colour).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(BlockRegistry::ocelotOrParrot).isSuffocating(BlockRegistry::never).isViewBlocking(BlockRegistry::never).pushReaction(PushReaction.DESTROY).isRedstoneConductor(BlockRegistry::never));
-    }
-    public static LeavesBlock appleLeaves(MapColor colour) {
-        return new AppleLeavesBlock(BlockBehaviour.Properties.of().mapColor(colour).ignitedByLava().strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(BlockRegistry::ocelotOrParrot).isSuffocating(BlockRegistry::never).isViewBlocking(BlockRegistry::never).pushReaction(PushReaction.DESTROY).isRedstoneConductor(BlockRegistry::never));
-    }
-
 
     //Boolean states
     public static Boolean always(BlockState state, BlockGetter getter, BlockPos pos, EntityType<?> type) {

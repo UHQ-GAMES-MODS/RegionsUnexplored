@@ -143,11 +143,14 @@ public class RuBlocks {
     /* MODDED */
     public static final NaturalSet ALPHA_NATURAL_SET = NaturalSet.leavesAndSaplings("alpha", LeavesBlock::new, RuTreeGrowers.ALPHA_OAK);
     public static final NaturalSet APPLE_OAK_NATURAL_SET = NaturalSet.leavesAndSaplings("apple_oak", AppleLeavesBlock::new, RuTreeGrowers.APPLE_OAK);
+    public static final NaturalSet ASHEN_NATURAL_SET = NaturalSet.ashen();
     public static final NaturalSet BAMBOO_NATURAL_SET = NaturalSet.leavesAndSaplings("bamboo", LeavesBlock::new, RuTreeGrowers.BAMBOO);
     public static final NaturalSet BAOBAB_NATURAL_SET = NaturalSet.full("baobab", MapColor.PLANT, BranchType.BRANCH, false, properties -> new RuUltraFromMegaSaplingBlock(RuTreeGrowers.BAOBAB, properties));
     public static final NaturalSet BLACKWOOD_NATURAL_SET = NaturalSet.full("blackwood", MapColor.TERRACOTTA_GREEN, BranchType.BRANCH, false, RuTreeGrowers.BLACKWOOD);
     public static final NaturalSet BLUE_MAGNOLIA_NATURAL_SET = NaturalSet.fullWithoutBranch("blue_magnolia", false, () -> BlockRegistry.leaves(MapColor.COLOR_LIGHT_BLUE, false, BlueMagnoliaLeavesBlock::new), properties -> new SaplingBlock(RuTreeGrowers.BLUE_MAGNOLIA, properties));
     public static final NaturalSet BRIMWOOD_NATURAL_SET = NaturalSet.fullWithoutBranch("brimwood", false, () -> BlockRegistry.leaves(MapColor.COLOR_BROWN, false, p -> new BrimwoodLeavesBlock()), properties -> new RuBrimSaplingBlock(RuTreeGrowers.BRIMWOOD, properties));
+    public static final NaturalSet CACTUS_NATURAL_SET = NaturalSet.onlySapling("cactus_flower", () -> new RuCactusSaplingBlock(RuTreeGrowers.SAGUARO_CACTUS, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+    public static final NaturalSet COBALT_NATURAL_SET = NaturalSet.cobalt();
     public static final NaturalSet CYPRESS_NATURAL_SET = NaturalSet.full("cypress", RuTreeGrowers.CYPRESS);
     public static final NaturalSet DEAD_PINE_NATURAL_SET = NaturalSet.fullWithoutBranch("dead_pine", MapColor.TERRACOTTA_GRAY, true, RuTreeGrowers.DEAD_PINE);
     public static final NaturalSet DEAD_NATURAL_SET = NaturalSet.full("dead", MapColor.TERRACOTTA_GRAY, BranchType.BRANCH, true, RuTreeGrowers.DEAD);
@@ -172,16 +175,6 @@ public class RuBlocks {
     public static final NaturalSet SOCOTRA_NATURAL_SET = NaturalSet.full("socotra", RuTreeGrowers.SOCOTRA);
     public static final NaturalSet WHITE_MAGNOLIA_NATURAL_SET = NaturalSet.fullWithoutBranch("white_magnolia", false, () -> BlockRegistry.leaves(MapColor.TERRACOTTA_WHITE, false, WhiteMagnoliaLeavesBlock::new), properties -> new SaplingBlock(RuTreeGrowers.WHITE_MAGNOLIA, properties));
     public static final NaturalSet WILLOW_NATURAL_SET = NaturalSet.full("willow", RuTreeGrowers.WILLOW);
-    /*-----------------SAPLINGS-----------------*/
-    public static final Supplier<Block> ASHEN_SAPLING = BlockRegistry.registerDefaultBlock("ashen_sapling", () -> new SaplingBlock(RuTreeGrowers.ASHEN, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).randomTicks()));
-    public static final Supplier<Block> CACTUS_FLOWER = BlockRegistry.registerDefaultBlock("cactus_flower", () -> new RuCactusSaplingBlock(RuTreeGrowers.SAGUARO_CACTUS, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final Supplier<Block> COBALT_SAPLING = BlockRegistry.registerDefaultBlock("cobalt_sapling", () -> new RuNetherSaplingBlock(RuTreeGrowers.COBALT, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).randomTicks()));
-    /*-----------------LEAVES-----------------*/
-    public static final Supplier<Block> COBALT_WEBBING = BlockRegistry.registerDefaultBlock("cobalt_webbing", () -> BlockRegistry.fireproofLeaves(MapColor.COLOR_BLUE));
-    /*-----------------POTTED SAPLINGS-----------------*/
-    public static final Supplier<Block> POTTED_ASHEN_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_ashen_sapling", () -> new FlowerPotBlock(ASHEN_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_CACTUS_FLOWER = BlockRegistry.registerDefaultBlockNoItem("potted_cactus_flower", () -> new FlowerPotBlock(CACTUS_FLOWER.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> POTTED_COBALT_SAPLING = BlockRegistry.registerDefaultBlockNoItem("potted_cobalt_sapling", () -> new FlowerPotBlock(COBALT_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
 
     //MUSHROOMS
     public static final Supplier<Block> BLUE_BIOSHROOM = BlockRegistry.registerDefaultBlock("blue_bioshroom", () -> new BioshroomBlock(RuTreeGrowers.BLUE_BIOSHROOM, MobEffects.POISON, 10, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).lightLevel(s -> 10)));
@@ -271,8 +264,6 @@ public class RuBlocks {
     public static final Supplier<Block> TALL_HYACINTH_STOCK = BlockRegistry.registerDefaultBlock("tall_hyacinth_stock", () -> new TallHyacinthStockBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.WET_GRASS).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).lightLevel(s -> 12)));
     //SMOULDERING_WOODLAND_BLOCKS
     public static final Supplier<Block> ASHEN_DIRT = BlockRegistry.registerDefaultBlock("ashen_dirt", () -> new AshenDirtBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).strength(0.5F).sound(SoundType.GRAVEL).randomTicks().lightLevel((bs) -> AshenDirtBlock.isSmouldering(bs) ? 7 : 0)));
-    public static final Supplier<Block> ASHEN_SHRUB = BlockRegistry.registerDefaultBlock("ashen_shrub", () -> new AshenShrubBlock(BlockBehaviour.Properties.of().replaceable().noCollission().instabreak().sound(SoundType.ROOTED_DIRT).offsetType(BlockBehaviour.OffsetType.XZ).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true)));
-    public static final Supplier<Block> ASHEN_LEAVES = BlockRegistry.registerDefaultBlock("ashen_leaves", () -> BlockRegistry.leaves(MapColor.COLOR_LIGHT_GRAY));
     public static final Supplier<Block> ASHEN_GRASS = BlockRegistry.registerDefaultBlock("ashen_grass", () -> new AshenGrassBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ).hasPostProcess((bs, br, bp) -> AshenGrassBlock.isSmouldering(bs)).emissiveRendering((bs, br, bp) -> AshenGrassBlock.isSmouldering(bs)).lightLevel((bs) -> AshenGrassBlock.isSmouldering(bs) ? 5 : 0)));
 
     /*-----------------OTHER_BLOCKS-----------------*/

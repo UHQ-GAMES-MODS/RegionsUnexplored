@@ -194,7 +194,7 @@ public class RuTreeFeatures {
         register(context, GIANT_BROWN_MUSHROOM, Feature.HUGE_BROWN_MUSHROOM, new HugeMushroomFeatureConfiguration(BlockStateProvider.simple(Blocks.BROWN_MUSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.UP, Boolean.valueOf(true)).setValue(HugeMushroomBlock.DOWN, Boolean.valueOf(false))), BlockStateProvider.simple(Blocks.MUSHROOM_STEM.defaultBlockState().setValue(HugeMushroomBlock.UP, Boolean.valueOf(false)).setValue(HugeMushroomBlock.DOWN, Boolean.valueOf(false))), 3));
         register(context, GIANT_RED_MUSHROOM, Feature.HUGE_RED_MUSHROOM, new HugeMushroomFeatureConfiguration(BlockStateProvider.simple(Blocks.RED_MUSHROOM_BLOCK.defaultBlockState().setValue(HugeMushroomBlock.DOWN, Boolean.valueOf(false))), BlockStateProvider.simple(Blocks.MUSHROOM_STEM.defaultBlockState().setValue(HugeMushroomBlock.UP, Boolean.valueOf(false)).setValue(HugeMushroomBlock.DOWN, Boolean.valueOf(false))), 2));
 
-        register(context, ASHEN_TREE, FeatureRegistry.ASHEN_TREE.get(), new RuTreeConfiguration(BlockStateProvider.simple(RuBlocks.ASHEN_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RuBlocks.ASHEN_LEAVES.get().defaultBlockState()), BlockStateProvider.simple(RuBlocks.DEAD_NATURAL_SET.getBranch().defaultBlockState()), 12, 5));
+        register(context, ASHEN_TREE, FeatureRegistry.ASHEN_TREE.get(), new RuTreeConfiguration(BlockStateProvider.simple(RuBlocks.ASHEN_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RuBlocks.ASHEN_NATURAL_SET.getLeaves().defaultBlockState()), BlockStateProvider.simple(RuBlocks.DEAD_NATURAL_SET.getBranch().defaultBlockState()), 12, 5));
         register(context, ASHEN_PINE_TREE, FeatureRegistry.ASHEN_TREE.get(), new RuTreeConfiguration(BlockStateProvider.simple(RuBlocks.ASHEN_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RuBlocks.PINE_NATURAL_SET.getLeaves().defaultBlockState()), BlockStateProvider.simple(RuBlocks.DEAD_NATURAL_SET.getBranch().defaultBlockState()), 12, 7));
 
         register(context, BRIM_WILLOW_TREE, FeatureRegistry.BRIM_WILLOW.get(), FeatureConfiguration.NONE);
@@ -302,7 +302,7 @@ public class RuTreeFeatures {
 
         register(context, LUSH_PINE_TREE, FeatureRegistry.LUSH_PINE_TREE.get(), new RuTreeConfiguration(BlockStateProvider.simple(RuBlocks.PINE_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RuBlocks.PINE_NATURAL_SET.getLeaves().defaultBlockState()), BlockStateProvider.simple(RuBlocks.PINE_NATURAL_SET.getBranch().defaultBlockState()), 19, 4));
 
-        register(context, SAGUARO_CACTUS, FeatureRegistry.SAGUARO_CACTUS.get(), new RuTreeConfiguration(BlockStateProvider.simple(RuBlocks.SAGUARO_CACTUS.get().defaultBlockState()), BlockStateProvider.simple(RuBlocks.CACTUS_FLOWER.get().defaultBlockState()), BlockStateProvider.simple(RuBlocks.REDWOOD_NATURAL_SET.getBranch().defaultBlockState()), 7, 2));
+        register(context, SAGUARO_CACTUS, FeatureRegistry.SAGUARO_CACTUS.get(), new RuTreeConfiguration(BlockStateProvider.simple(RuBlocks.SAGUARO_CACTUS.get().defaultBlockState()), BlockStateProvider.simple(RuBlocks.CACTUS_NATURAL_SET.getSapling().defaultBlockState()), BlockStateProvider.simple(RuBlocks.REDWOOD_NATURAL_SET.getBranch().defaultBlockState()), 7, 2));
 
         register(context, ICE_SPIRE, FeatureRegistry.SPIRE.get(), new RuTreeConfiguration(BlockStateProvider.simple(Blocks.PACKED_ICE.defaultBlockState()), BlockStateProvider.simple(Blocks.ICE.defaultBlockState()), BlockStateProvider.simple(Blocks.BLUE_ICE), 14, 9));
 

@@ -17,17 +17,12 @@ public class CompostableBlocks {
             if (block == null) continue;
             COMPOSTABLES.put(block, 0.3f);
         }
-        COMPOSTABLES.put(RuBlocks.ASHEN_SAPLING.get(), 0.3F);
-        COMPOSTABLES.put(RuBlocks.COBALT_SAPLING.get(), 0.3F);
-        COMPOSTABLES.put(RuBlocks.CACTUS_FLOWER.get(), 0.3F);
 
         // Leaves (0.3F)
         for (Block block : RuBlocks.NATURAL_SETS.stream().map(NaturalSet::getLeaves).toList()) {
             if (block == null) continue;
             COMPOSTABLES.put(block, 0.3f);
         }
-        COMPOSTABLES.put(RuBlocks.ASHEN_LEAVES.get(), 0.3F);
-        COMPOSTABLES.put(RuBlocks.COBALT_WEBBING.get(), 0.3F);
 
         // Branches (0.3F)
         for (Block block : RuBlocks.NATURAL_SETS.stream().map(NaturalSet::getBranch).toList()) {

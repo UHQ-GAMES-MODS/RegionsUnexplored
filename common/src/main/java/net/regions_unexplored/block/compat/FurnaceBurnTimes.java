@@ -4,8 +4,10 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.block.set.NaturalSet;
 import net.regions_unexplored.block.set.WoodSet;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -359,96 +361,21 @@ public class FurnaceBurnTimes {
             RuBlocks.BLACK_PAINTED_SLAB.get().asItem()*/
     );
 
-    public static final ImmutableList<Item> BURN_TIME_100 = ImmutableList.of(
-            /*RuBlocks.ALPHA_SAPLING.get().asItem(),
-            RuBlocks.APPLE_OAK_SAPLING.get().asItem(),
-            RuBlocks.BAMBOO_SAPLING.get().asItem(),
-            RuBlocks.BAOBAB_SAPLING.get().asItem(),
-            RuBlocks.BLACKWOOD_SAPLING.get().asItem(),
-            RuBlocks.CACTUS_FLOWER.get().asItem(),
-            RuBlocks.CYPRESS_SAPLING.get().asItem(),
-            RuBlocks.DEAD_PINE_SAPLING.get().asItem(),
-            RuBlocks.DEAD_SAPLING.get().asItem(),
-            RuBlocks.EUCALYPTUS_SAPLING.get().asItem(),
-            RuBlocks.FLOWERING_SAPLING.get().asItem(),
-            RuBlocks.GOLDEN_LARCH_SAPLING.get().asItem(),
-            RuBlocks.JOSHUA_SAPLING.get().asItem(),
-            RuBlocks.KAPOK_SAPLING.get().asItem(),
-            RuBlocks.LARCH_SAPLING.get().asItem(),
-            RuBlocks.MAGNOLIA_SAPLING.get().asItem(),
-            RuBlocks.MAPLE_SAPLING.get().asItem(),
-            RuBlocks.MAUVE_SAPLING.get().asItem(),
-            RuBlocks.ORANGE_MAPLE_SAPLING.get().asItem(),
-            RuBlocks.PALM_SAPLING.get().asItem(),
-            RuBlocks.PINE_SAPLING.get().asItem(),
-            RuBlocks.BLUE_MAGNOLIA_SAPLING.get().asItem(),
-            RuBlocks.PINK_MAGNOLIA_SAPLING.get().asItem(),
-            RuBlocks.REDWOOD_SAPLING.get().asItem(),
-            RuBlocks.RED_MAPLE_SAPLING.get().asItem(),
-            RuBlocks.ENCHANTED_BIRCH_SAPLING.get().asItem(),
-            RuBlocks.SILVER_BIRCH_SAPLING.get().asItem(),
-            RuBlocks.SMALL_OAK_SAPLING.get().asItem(),
-            RuBlocks.SOCOTRA_SAPLING.get().asItem(),
-            RuBlocks.WHITE_MAGNOLIA_SAPLING.get().asItem(),
-            RuBlocks.WILLOW_SAPLING.get().asItem(),
+    public static final List<Item> BURN_TIME_100 = new ArrayList<>();
 
-            RuBlocks.ACACIA_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.BAOBAB_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.BIRCH_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.BLACKWOOD_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.BRIMWOOD_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.CHERRY_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.CYPRESS_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.DARK_OAK_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.DEAD_PINE_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.DEAD_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.EUCALYPTUS_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.FLOWERING_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.GOLDEN_LARCH_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.JOSHUA_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.JUNGLE_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.KAPOK_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.LARCH_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.MAGNOLIA_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.MANGROVE_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.MAPLE_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.MAUVE_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.OAK_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.ORANGE_MAPLE_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.PALM_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.PINE_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.BLUE_MAGNOLIA_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.PINK_MAGNOLIA_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.REDWOOD_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.RED_MAPLE_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.ENCHANTED_BIRCH_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.SILVER_BIRCH_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.SOCOTRA_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.SPRUCE_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.WHITE_MAGNOLIA_NATURAL_SET.getShrub().asItem(),
-            RuBlocks.WILLOW_NATURAL_SET.getShrub().asItem()/*,
-
-            RuBlocks.BAOBAB_BUTTON.get().asItem(),
-            RuBlocks.BLACKWOOD_BUTTON.get().asItem(),
-            RuBlocks.BLUE_BIOSHROOM_BUTTON.get().asItem(),
-            RuBlocks.BRIMWOOD_BUTTON.get().asItem(),
-            RuBlocks.COBALT_BUTTON.get().asItem(),
-            RuBlocks.CYPRESS_BUTTON.get().asItem(),
-            RuBlocks.DEAD_BUTTON.get().asItem(),
-            RuBlocks.EUCALYPTUS_BUTTON.get().asItem(),
-            RuBlocks.GREEN_BIOSHROOM_BUTTON.get().asItem(),
-            RuBlocks.JOSHUA_BUTTON.get().asItem(),
-            RuBlocks.KAPOK_BUTTON.get().asItem(),
-            RuBlocks.LARCH_BUTTON.get().asItem(),
-            RuBlocks.MAGNOLIA_BUTTON.get().asItem(),
-            RuBlocks.MAPLE_BUTTON.get().asItem(),
-            RuBlocks.MAUVE_BUTTON.get().asItem(),
-            RuBlocks.PALM_BUTTON.get().asItem(),
-            RuBlocks.PINE_BUTTON.get().asItem(),
-            RuBlocks.PINK_BIOSHROOM_BUTTON.get().asItem(),
-            RuBlocks.REDWOOD_BUTTON.get().asItem(),
-            RuBlocks.SOCOTRA_BUTTON.get().asItem(),
-            RuBlocks.WILLOW_BUTTON.get().asItem(),
-            RuBlocks.YELLOW_BIOSHROOM_BUTTON.get().asItem()*/
-    );
+    static {
+        for (NaturalSet set : RuBlocks.NATURAL_SETS) {
+            if (set.getShrub() != null) {
+                BURN_TIME_100.add(set.getShrub().asItem());
+            }
+            if (set.getSapling() != null) {
+                BURN_TIME_100.add(set.getSapling().asItem());
+            }
+        }
+        for (WoodSet set : RuBlocks.WOOD_SETS) {
+            if (set.getButton() != null) {
+                BURN_TIME_100.add(set.getButton().asItem());
+            }
+        }
+    }
 }

@@ -8,14 +8,15 @@ import net.minecraft.world.level.material.PushReaction;
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.block.sapling.RuTreeGrowers;
 import net.regions_unexplored.registry.BlockRegistry;
-import net.regions_unexplored.world.level.block.leaves.JoshuaLeavesBlock;
 import net.regions_unexplored.world.level.block.plant.branch.BranchBlock;
+import net.regions_unexplored.world.level.block.plant.sapling.RuNetherSaplingBlock;
+import net.regions_unexplored.world.level.block.plant.tall.AshenShrubBlock;
 import net.regions_unexplored.world.level.block.plant.tall.ShrubBlock;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-public final class NaturalSet {
+public class NaturalSet {
     private static final BlockBehaviour.Properties BRANCH_PROPERTIES = BlockBehaviour.Properties.of().noOcclusion().sound(SoundType.MANGROVE_ROOTS).strength(1.0F, 1.5F).dynamicShape();
     private static final BlockBehaviour.Properties SHRUB_PROPERTIES = BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.AZALEA).offsetType(BlockBehaviour.OffsetType.XZ);
     public final boolean fireproof;
@@ -83,6 +84,34 @@ public final class NaturalSet {
         set.leaves = BlockRegistry.registerDefaultBlock(name + "_leaves", () -> BlockRegistry.leaves(MapColor.PLANT, false, leavesFactory));
         set.sapling = BlockRegistry.registerDefaultBlock(name + "_sapling", () -> new SaplingBlock(grower, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
         set.pottedSapling = BlockRegistry.registerDefaultBlockNoItem("potted_" + name + "_sapling", () -> new FlowerPotBlock(set.sapling.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
+        RuBlocks.NATURAL_SETS.add(set);
+        return set;
+    }
+
+    public static NaturalSet onlySapling(String name, Supplier<Block> saplingFactory) {
+        NaturalSet set = new NaturalSet(false);
+        set.sapling = BlockRegistry.registerDefaultBlock(name, saplingFactory);
+        set.pottedSapling = BlockRegistry.registerDefaultBlockNoItem("potted_" + name, () -> new FlowerPotBlock(set.sapling.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
+        RuBlocks.NATURAL_SETS.add(set);
+        return set;
+    }
+
+    public static NaturalSet ashen() {
+        NaturalSet set = new NaturalSet(false);
+        set.shrub = BlockRegistry.registerDefaultBlock("ashen_shrub", () -> new AshenShrubBlock(BlockBehaviour.Properties.of().replaceable().noCollission().instabreak().sound(SoundType.ROOTED_DIRT).offsetType(BlockBehaviour.OffsetType.XZ).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true)));
+        set.leaves = BlockRegistry.registerDefaultBlock("ashen_leaves", () -> BlockRegistry.leaves(MapColor.COLOR_LIGHT_GRAY));
+        set.sapling = BlockRegistry.registerDefaultBlock("ashen_sapling", () -> new SaplingBlock(RuTreeGrowers.ASHEN, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).randomTicks()));
+        set.pottedSapling = BlockRegistry.registerDefaultBlockNoItem("potted_ashen_sapling", () -> new FlowerPotBlock(set.sapling.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
+        RuBlocks.NATURAL_SETS.add(set);
+        return set;
+    }
+
+    public static NaturalSet cobalt() {
+        NaturalSet set = new NaturalSet(false);
+        set.sapling = BlockRegistry.registerDefaultBlock("cobalt_sapling", () -> new RuNetherSaplingBlock(RuTreeGrowers.COBALT, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).randomTicks()));
+        set.leaves = BlockRegistry.registerDefaultBlock("cobalt_webbing", () -> BlockRegistry.leaves(MapColor.COLOR_BLUE, true, LeavesBlock::new));
+        set.pottedSapling = BlockRegistry.registerDefaultBlockNoItem("potted_cobalt_sapling", () -> new FlowerPotBlock(set.sapling.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
+
         RuBlocks.NATURAL_SETS.add(set);
         return set;
     }
