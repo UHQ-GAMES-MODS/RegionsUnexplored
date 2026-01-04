@@ -264,7 +264,7 @@ public class RuTabs {
     };
 
 
-    public static final Supplier<CreativeModeTab> TAB = registerTab("main", () -> RuBlocks.PRISMAGLASS.get().asItem().getDefaultInstance(), TAB_ORDER);
+    public static final Supplier<CreativeModeTab> TAB = registerTab("main", () -> RuBlocks.BAOBAB_WOOD_SET.getBoat().getDefaultInstance(), TAB_ORDER);
             //comment out Corgi's solution for future use
             //() -> BuiltInRegistries.ITEM.stream().filter(item -> BuiltInRegistries.ITEM.getKey(item).getNamespace().equals(Constants.MOD_ID)).map(item -> Suppliers.memoize(() -> item)).collect(Collectors.toUnmodifiableList()));
 
