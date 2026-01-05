@@ -1166,74 +1166,26 @@ public class RuBlockTagProvider extends BlockTagsProvider {
     }
 
     public void addCommonTags(HolderLookup.Provider provider) {
-        this.tag(TagKey.create(Registries.BLOCK, cId("storage_blocks/bone_meal"))).add(RuBlocks.OVERGROWN_BONE_BLOCK.get());
+        this.tag(Tags.Blocks.STORAGE_BLOCKS_BONE_MEAL).add(RuBlocks.OVERGROWN_BONE_BLOCK.get());
 
-        var fenceGates = this.tag(TagKey.create(Registries.BLOCK, cId("fence_gates/wooden")));
-        var fences = this.tag(TagKey.create(Registries.BLOCK, cId("fences/wooden")));
+        var fenceGates = this.tag(Tags.Blocks.FENCE_GATES_WOODEN);
+        var fences = this.tag(Tags.Blocks.FENCES_WOODEN);
         for (WoodSet set : RuBlocks.WOOD_SETS) {
             if (set.getFenceGate() != null) fenceGates.add(set.getFenceGate());
             if (set.getFence() != null) fences.add(set.getFence());
         }
-        var flowers = this.tag(TagKey.create(Registries.BLOCK, cId("flowers")))
-                .add(RuBlocks.TASSEL.get())
-                .add(RuBlocks.DAY_LILY.get())
-                .add(RuBlocks.ALPHA_DANDELION.get())
-                .add(RuBlocks.ALPHA_ROSE.get())
-                .add(RuBlocks.ASTER.get())
-                .add(RuBlocks.BLEEDING_HEART.get())
-                .add(RuBlocks.BLUE_LUPINE.get())
-                .add(RuBlocks.DAISY.get())
-                .add(RuBlocks.DORCEL.get())
-                .add(RuBlocks.FELICIA_DAISY.get())
-                .add(RuBlocks.FIREWEED.get())
-                .add(RuBlocks.HIBISCUS.get())
-                .add(RuBlocks.MALLOW.get())
-                .add(RuBlocks.HYSSOP.get())
-                .add(RuBlocks.PINK_LUPINE.get())
-                .add(RuBlocks.POPPY_BUSH.get())
-                .add(RuBlocks.SALMON_POPPY_BUSH.get())
-                .add(RuBlocks.PURPLE_LUPINE.get())
-                .add(RuBlocks.RED_LUPINE.get())
-                .add(RuBlocks.WARATAH.get())
-                .add(RuBlocks.TSUBAKI.get())
-                .add(RuBlocks.WHITE_TRILLIUM.get())
-                .add(RuBlocks.WILTING_TRILLIUM.get())
-                .add(RuBlocks.YELLOW_LUPINE.get())
-                .add(RuBlocks.HYACINTH_FLOWERS.get())
-                .add(RuBlocks.ORANGE_CONEFLOWER.get())
-                .add(RuBlocks.PURPLE_CONEFLOWER.get())
-                .add(RuBlocks.BLUE_MAGNOLIA_FLOWERS.get())
-                .add(RuBlocks.PINK_MAGNOLIA_FLOWERS.get())
-                .add(RuBlocks.WHITE_MAGNOLIA_FLOWERS.get());
-        for (Block block : RuBlocks.SNOWBELLES.getAll()) {
-            flowers.add(block);
-        }
-        this.tag(TagKey.create(Registries.BLOCK, cId("gems")))
-            .addTag(RuTags.PRISMARITE_CRYSTALS);
-        this.tag(TagKey.create(Registries.BLOCK, cId("glass_blocks")))
+        this.tag(Tags.Blocks.GLASS_BLOCKS)
                 .add(RuBlocks.PRISMAGLASS.get());
-        this.tag(TagKey.create(Registries.BLOCK, cId("glass_blocks")))
-                .add(RuBlocks.PRISMAGLASS.get());
-        this.tag(TagKey.create(Registries.BLOCK, cId("mushrooms")))
-                .add(RuBlocks.BLUE_BIOSHROOM.get())
-                .add(RuBlocks.TALL_BLUE_BIOSHROOM.get())
-                .add(RuBlocks.GREEN_BIOSHROOM.get())
-                .add(RuBlocks.TALL_GREEN_BIOSHROOM.get())
-                .add(RuBlocks.PINK_BIOSHROOM.get())
-                .add(RuBlocks.TALL_PINK_BIOSHROOM.get())
-                .add(RuBlocks.YELLOW_BIOSHROOM.get())
-                .add(RuBlocks.TALL_YELLOW_BIOSHROOM.get())
-                .add(RuBlocks.MYCOTOXIC_MUSHROOMS.get());
-        this.tag(TagKey.create(Registries.BLOCK, cId("stones")))
+        this.tag(Tags.Blocks.STONES)
                 .add(RuBlocks.MOSSY_STONE.get())
                 .add(RuBlocks.ARGILLITE.get())
                 .add(RuBlocks.CHALK.get());
-        this.tag(TagKey.create(Registries.BLOCK, cId("gravels")))
+        this.tag(Tags.Blocks.GRAVELS)
                 .add(RuBlocks.ASH.get())
                 .add(RuBlocks.VOLCANIC_ASH.get());
-        this.tag(TagKey.create(Registries.BLOCK, cId("obsidians/crying")))
+        this.tag(Tags.Blocks.OBSIDIANS_CRYING)
                 .add(RuBlocks.COBALT_OBSIDIAN.get());
-        this.tag(TagKey.create(Registries.BLOCK, cId("stripped_logs")))
+        this.tag(Tags.Blocks.STRIPPED_LOGS)
                 .add(RuBlocks.BAOBAB_WOOD_SET.getStrippedLog())
                 .add(RuBlocks.BLACKWOOD_WOOD_SET.getStrippedLog())
                 .add(RuBlocks.BLUE_BIOSHROOM_WOOD_SET.getStrippedLog())
@@ -1257,7 +1209,7 @@ public class RuBlockTagProvider extends BlockTagsProvider {
                 .add(RuBlocks.WILLOW_WOOD_SET.getStrippedLog())
                 .add(RuBlocks.YELLOW_BIOSHROOM_WOOD_SET.getStrippedLog())
         ;
-        this.tag(TagKey.create(Registries.BLOCK, cId("stripped_woods")))
+        this.tag(Tags.Blocks.STRIPPED_WOODS)
                 .add(RuBlocks.BAOBAB_WOOD_SET.getStrippedWood())
                 .add(RuBlocks.BLACKWOOD_WOOD_SET.getStrippedWood())
                 .add(RuBlocks.BLUE_BIOSHROOM_WOOD_SET.getStrippedWood())
@@ -1280,9 +1232,5 @@ public class RuBlockTagProvider extends BlockTagsProvider {
                 .add(RuBlocks.SOCOTRA_WOOD_SET.getStrippedWood())
                 .add(RuBlocks.WILLOW_WOOD_SET.getStrippedWood())
                 .add(RuBlocks.YELLOW_BIOSHROOM_WOOD_SET.getStrippedWood());
-    }
-
-    private static ResourceLocation cId(String name) {
-        return ResourceLocation.fromNamespaceAndPath("c", name);
     }
 }
