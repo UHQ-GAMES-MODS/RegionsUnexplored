@@ -1,12 +1,6 @@
 {
   "values": [
-    {
-      "id": "regions_unexplored:blackwood_taiga",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:redwoods",
-      "required": false
-    }
+    "regions_unexplored:blackwood_taiga",
+    "regions_unexplored:redwoods"
   ]
 }

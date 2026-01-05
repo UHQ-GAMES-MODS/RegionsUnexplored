@@ -35,6 +35,8 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.neoforged.neoforge.common.Tags;
 import net.regions_unexplored.Constants;
 import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.block.set.WoodSet;
+import net.regions_unexplored.data.tags.RuTags;
 import net.regions_unexplored.item.RuItems;
 import net.regions_unexplored.world.level.block.plant.food.SalmonBerryBushBlock;
 
@@ -68,9 +70,9 @@ public class RuBlockLootTables extends BlockLootSubProvider {
         add(RuBlocks.DEEPSLATE_PRISMOSS.get(), (block) -> createSingleItemTableWithSilkTouch(block, Blocks.COBBLED_DEEPSLATE));
         dropSelf(RuBlocks.HANGING_PRISMARITE.get());
         add(RuBlocks.LARGE_PRISMARITE_CLUSTER.get(), (block) -> createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
-        add(RuBlocks.PRISMAGLASS.get(), (block) -> createSilkTouchOnlyTable(block));
+        add(RuBlocks.PRISMAGLASS.get(), this::createSilkTouchOnlyTable);
         dropSelf(RuBlocks.PRISMARITE_CLUSTER.get());
-        add(RuBlocks.PRISMOSS_SPROUT.get(), (block) -> createShearsOnlyDrop(block));
+        add(RuBlocks.PRISMOSS_SPROUT.get(), RuBlockLootTables::createShearsOnlyDrop);
         //REDSTONE_BLOCKS
         dropSelf(RuBlocks.POINTED_REDSTONE.get());
         dropSelf(RuBlocks.RAW_REDSTONE_BLOCK.get());
@@ -84,7 +86,7 @@ public class RuBlockLootTables extends BlockLootSubProvider {
         add(RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get(), (block) -> createSingleItemTableWithSilkTouch(block, Blocks.COBBLED_DEEPSLATE));
 
         add(RuBlocks.CORPSE_FLOWER.get(), (block) -> createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
-        add(RuBlocks.BLADED_GRASS.get(), (block) -> createGrassDrops(block));
+        add(RuBlocks.BLADED_GRASS.get(), this::createGrassDrops);
         add(RuBlocks.BLADED_TALL_GRASS.get(), (block) -> createDoublePlantWithSeedDrops(block, RuBlocks.BLADED_GRASS.get()));
         add(RuBlocks.DROPLEAF.get(), (block) -> createSilkTouchOrShearsDispatchTable(block, LootItem.lootTableItem(block).when(BonusLevelTableCondition.bonusLevelFlatChance(registries.holderOrThrow(Enchantments.FORTUNE), 0.33F, 0.55F, 0.77F, 1.0F))));
         add(RuBlocks.DROPLEAF_PLANT.get(), (block) -> createSilkTouchOrShearsDispatchTable(block, LootItem.lootTableItem(block).when(BonusLevelTableCondition.bonusLevelFlatChance(registries.holderOrThrow(Enchantments.FORTUNE), 0.33F, 0.55F, 0.77F, 1.0F))));
@@ -93,19 +95,19 @@ public class RuBlockLootTables extends BlockLootSubProvider {
         /*-----------------PLANTS-----------------*/
         //GRASS_BLOCKS
         dropSelf(RuBlocks.DEAD_STEPPE_SHRUB.get());
-        add(RuBlocks.ASHEN_GRASS.get(), (block) -> createGrassDrops(block));
-        add(RuBlocks.FROZEN_GRASS.get(), (block) -> createGrassDrops(block));
-        add(RuBlocks.MEDIUM_GRASS.get(), (block) -> createGrassDrops(block));
-        add(RuBlocks.SANDY_GRASS.get(), (block) -> createGrassDrops(block));
-        add(RuBlocks.SMALL_DESERT_SHRUB.get(), (block) -> createShearsOnlyDrop(block));
-        add(RuBlocks.STEPPE_GRASS.get(), (block) -> createGrassDrops(block));
-        add(RuBlocks.STEPPE_SHRUB.get(), (block) -> createGrassDrops(block));
-        add(RuBlocks.STONE_BUD.get(), (block) -> createGrassDrops(block));
+        add(RuBlocks.ASHEN_GRASS.get(), this::createGrassDrops);
+        add(RuBlocks.FROZEN_GRASS.get(), this::createGrassDrops);
+        add(RuBlocks.MEDIUM_GRASS.get(), this::createGrassDrops);
+        add(RuBlocks.SANDY_GRASS.get(), this::createGrassDrops);
+        add(RuBlocks.SMALL_DESERT_SHRUB.get(), RuBlockLootTables::createShearsOnlyDrop);
+        add(RuBlocks.STEPPE_GRASS.get(), this::createGrassDrops);
+        add(RuBlocks.STEPPE_SHRUB.get(), this::createGrassDrops);
+        add(RuBlocks.STONE_BUD.get(), this::createGrassDrops);
         //TALL_GRASS_BLOCKS
         add(RuBlocks.ELEPHANT_EAR.get(), (block) -> createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
         add(RuBlocks.SANDY_TALL_GRASS.get(), (block) -> createDoublePlantWithSeedDrops(block, RuBlocks.SANDY_GRASS.get()));
         add(RuBlocks.STEPPE_TALL_GRASS.get(), (block) -> createDoublePlantWithSeedDrops(block, RuBlocks.STEPPE_GRASS.get()));
-        add(RuBlocks.WINDSWEPT_GRASS.get(), (block) -> createDoublePlantWithSeedDropsNoGrass(block));
+        add(RuBlocks.WINDSWEPT_GRASS.get(), this::createDoublePlantWithSeedDropsNoGrass);
         //FLOWERS
         dropSelf(RuBlocks.ALPHA_DANDELION.get());
         dropSelf(RuBlocks.ALPHA_ROSE.get());
@@ -130,9 +132,9 @@ public class RuBlockLootTables extends BlockLootSubProvider {
         dropSelf(RuBlocks.WILTING_TRILLIUM.get());
         dropSelf(RuBlocks.YELLOW_LUPINE.get());
 
-        add(RuBlocks.ORANGE_CONEFLOWER.get(), (block) -> createPetalsDrops(block));
-        add(RuBlocks.PURPLE_CONEFLOWER.get(), (block) -> createPetalsDrops(block));
-        add(RuBlocks.CLOVER.get(), (block) -> createPetalsDrops(block));
+        add(RuBlocks.ORANGE_CONEFLOWER.get(), this::createPetalsDrops);
+        add(RuBlocks.PURPLE_CONEFLOWER.get(), this::createPetalsDrops);
+        add(RuBlocks.CLOVER.get(), this::createPetalsDrops);
 
         add(RuBlocks.BLUE_MAGNOLIA_FLOWERS.get(), (block) -> createMultifaceBlockDrops(block, HAS_SHEARS));
         add(RuBlocks.PINK_MAGNOLIA_FLOWERS.get(), (block) -> createMultifaceBlockDrops(block, HAS_SHEARS));
@@ -142,11 +144,11 @@ public class RuBlockLootTables extends BlockLootSubProvider {
             dropSelf(snowbelle);
         }
 
-        add(RuBlocks.MAPLE_LEAF_PILE.get(), (block) -> createPetalsDrops(block));
-        add(RuBlocks.RED_MAPLE_LEAF_PILE.get(), (block) -> createPetalsDrops(block));
-        add(RuBlocks.ORANGE_MAPLE_LEAF_PILE.get(), (block) -> createPetalsDrops(block));
-        add(RuBlocks.SILVER_BIRCH_LEAF_PILE.get(), (block) -> createPetalsDrops(block));
-        add(RuBlocks.ENCHANTED_BIRCH_LEAF_PILE.get(), (block) -> createPetalsDrops(block));
+        add(RuBlocks.MAPLE_LEAF_PILE.get(), this::createPetalsDrops);
+        add(RuBlocks.RED_MAPLE_LEAF_PILE.get(), this::createPetalsDrops);
+        add(RuBlocks.ORANGE_MAPLE_LEAF_PILE.get(), this::createPetalsDrops);
+        add(RuBlocks.SILVER_BIRCH_LEAF_PILE.get(), this::createPetalsDrops);
+        add(RuBlocks.ENCHANTED_BIRCH_LEAF_PILE.get(), this::createPetalsDrops);
         //TALL_PLANTS
         add(RuBlocks.MEADOW_SAGE.get(), (block) -> createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
         add(RuBlocks.BARLEY.get(), (block) -> createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
@@ -235,14 +237,14 @@ public class RuBlockLootTables extends BlockLootSubProvider {
         add(RuBlocks.TALL_PINK_BIOSHROOM.get(), (block) -> createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
         add(RuBlocks.TALL_YELLOW_BIOSHROOM.get(), (block) -> createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
         //OTHER_PLANT_BLOCKS
-        add(RuBlocks.ICICLE.get(), (block) -> createSilkTouchOnlyTable(block));
+        add(RuBlocks.ICICLE.get(), this::createSilkTouchOnlyTable);
         dropSelf(RuBlocks.BARREL_CACTUS.get());
         dropSelf(RuBlocks.CAVE_HYSSOP.get());
         dropSelf(RuBlocks.DUCKWEED.get());
-        add(RuBlocks.SPANISH_MOSS.get(), (block) -> createShearsOnlyDrop(block));
-        add(RuBlocks.SPANISH_MOSS_PLANT.get(), (block) -> createShearsOnlyDrop(block));
-        add(RuBlocks.KAPOK_VINES.get(), (block) -> createShearsOnlyDrop(block));
-        add(RuBlocks.KAPOK_VINES_PLANT.get(), (block) -> createShearsOnlyDrop(block));
+        add(RuBlocks.SPANISH_MOSS.get(), RuBlockLootTables::createShearsOnlyDrop);
+        add(RuBlocks.SPANISH_MOSS_PLANT.get(), RuBlockLootTables::createShearsOnlyDrop);
+        add(RuBlocks.KAPOK_VINES.get(), RuBlockLootTables::createShearsOnlyDrop);
+        add(RuBlocks.KAPOK_VINES_PLANT.get(), RuBlockLootTables::createShearsOnlyDrop);
         dropSelf(RuBlocks.FLOWERING_LILY_PAD.get());
         add(RuBlocks.GIANT_LILY_PAD.get(), (block) -> createSingleItemTable(RuBlocks.FLOWERING_LILY_PAD.get()));
         //FOOD_PLANT_BLOCKS
@@ -437,13 +439,13 @@ public class RuBlockLootTables extends BlockLootSubProvider {
         dropSelf(RuBlocks.CHALK.get());
         add(RuBlocks.CHALK_GRASS_BLOCK.get(), (block) -> createSingleItemTableWithSilkTouch(block, RuBlocks.CHALK.get()));
         dropSelf(RuBlocks.CHALK_BRICKS.get());
-        add(RuBlocks.CHALK_BRICK_SLAB.get(), (block) -> createSlabItemTable(block));
+        add(RuBlocks.CHALK_BRICK_SLAB.get(), this::createSlabItemTable);
         dropSelf(RuBlocks.CHALK_BRICK_STAIRS.get());
         dropSelf(RuBlocks.CHALK_PILLAR.get());
-        add(RuBlocks.CHALK_SLAB.get(), (block) -> createSlabItemTable(block));
+        add(RuBlocks.CHALK_SLAB.get(), this::createSlabItemTable);
         dropSelf(RuBlocks.CHALK_STAIRS.get());
         dropSelf(RuBlocks.POLISHED_CHALK.get());
-        add(RuBlocks.POLISHED_CHALK_SLAB.get(), (block) -> createSlabItemTable(block));
+        add(RuBlocks.POLISHED_CHALK_SLAB.get(), this::createSlabItemTable);
         dropSelf(RuBlocks.POLISHED_CHALK_STAIRS.get());
         //STONES
         dropSelf(RuBlocks.ARGILLITE.get());
@@ -462,414 +464,26 @@ public class RuBlockLootTables extends BlockLootSubProvider {
         dropSelf(RuBlocks.ASH_VENT.get());
 
         /*-----------------WOOD_TYPES-----------------*/
-        //ASHEN_BLOCKS
-        /*dropSelf(RuBlocks.ASHEN.getLog());
-        dropSelf(RuBlocks.ASHEN_WOOD.get());
-        //SILVER_BIRCH_BLOCKS
-        dropSelf(RuBlocks.SILVER_BIRCH.getLog());
-        dropSelf(RuBlocks.SILVER_BIRCH_WOOD.get());
-        //ALPHA_BLOCKS
-        dropSelf(RuBlocks.ALPHA.getLog());
-        dropSelf(RuBlocks.ALPHA_PLANKS.get());
-        dropSelf(RuBlocks.ALPHA_STAIRS.get());
-        add(RuBlocks.ALPHA_SLAB.get(), (block) -> createSlabItemTable(block));
-        //BAOBAB_BLOCKS
-        dropSelf(RuBlocks.BAOBAB.getLog());
-        dropSelf(RuBlocks.STRIPPED_BAOBAB.getLog());
-        dropSelf(RuBlocks.BAOBAB_WOOD.get());
-        dropSelf(RuBlocks.STRIPPED_BAOBAB_WOOD.get());
-        dropSelf(RuBlocks.BAOBAB_PLANKS.get());
-        dropSelf(RuBlocks.BAOBAB_STAIRS.get());
-        add(RuBlocks.BAOBAB_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.BAOBAB_FENCE.get());
-        add(RuBlocks.BAOBAB_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.BAOBAB_FENCE_GATE.get());
-        dropSelf(RuBlocks.BAOBAB_TRAPDOOR.get());
-        dropSelf(RuBlocks.BAOBAB_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.BAOBAB_BUTTON.get());
-        dropSelf(RuBlocks.BAOBAB_SIGN.get());
-        add(RuBlocks.BAOBAB_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.BAOBAB_SIGN.get()));
-        dropSelf(RuBlocks.BAOBAB_HANGING_SIGN.get());
-        add(RuBlocks.BAOBAB_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.BAOBAB_HANGING_SIGN.get()));
-        //BLACKWOOD_BLOCKS
-        dropSelf(RuBlocks.BLACKWOOD.getLog());
-        dropSelf(RuBlocks.STRIPPED_BLACKWOOD.getLog());
-        dropSelf(RuBlocks.BLACKWOOD_WOOD.get());
-        dropSelf(RuBlocks.STRIPPED_BLACKWOOD_WOOD.get());
-        dropSelf(RuBlocks.BLACKWOOD_PLANKS.get());
-        dropSelf(RuBlocks.BLACKWOOD_STAIRS.get());
-        add(RuBlocks.BLACKWOOD_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.BLACKWOOD_FENCE.get());
-        add(RuBlocks.BLACKWOOD_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.BLACKWOOD_FENCE_GATE.get());
-        dropSelf(RuBlocks.BLACKWOOD_TRAPDOOR.get());
-        dropSelf(RuBlocks.BLACKWOOD_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.BLACKWOOD_BUTTON.get());
-        dropSelf(RuBlocks.BLACKWOOD_SIGN.get());
-        add(RuBlocks.BLACKWOOD_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.BLACKWOOD_SIGN.get()));
-        dropSelf(RuBlocks.BLACKWOOD_HANGING_SIGN.get());
-        add(RuBlocks.BLACKWOOD_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.BLACKWOOD_HANGING_SIGN.get()));
-        //BLUE_BIOSHROOM_BLOCKS
-        dropSelf(RuBlocks.BLUE_BIOSHROOM_STEM.get());
-        dropSelf(RuBlocks.STRIPPED_BLUE_BIOSHROOM_STEM.get());
-        dropSelf(RuBlocks.BLUE_BIOSHROOM_HYPHAE.get());
-        dropSelf(RuBlocks.STRIPPED_BLUE_BIOSHROOM_HYPHAE.get());
-        dropSelf(RuBlocks.BLUE_BIOSHROOM_PLANKS.get());
-        dropSelf(RuBlocks.BLUE_BIOSHROOM_STAIRS.get());
-        add(RuBlocks.BLUE_BIOSHROOM_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.BLUE_BIOSHROOM_FENCE.get());
-        add(RuBlocks.BLUE_BIOSHROOM_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.BLUE_BIOSHROOM_FENCE_GATE.get());
-        dropSelf(RuBlocks.BLUE_BIOSHROOM_TRAPDOOR.get());
-        dropSelf(RuBlocks.BLUE_BIOSHROOM_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.BLUE_BIOSHROOM_BUTTON.get());
-        dropSelf(RuBlocks.BLUE_BIOSHROOM_SIGN.get());
-        add(RuBlocks.BLUE_BIOSHROOM_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.BLUE_BIOSHROOM_SIGN.get()));
-        dropSelf(RuBlocks.BLUE_BIOSHROOM_HANGING_SIGN.get());
-        add(RuBlocks.BLUE_BIOSHROOM_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.BLUE_BIOSHROOM_HANGING_SIGN.get()));
-        //BRIMWOOD_BLOCKS
-        dropSelf(RuBlocks.BRIMWOOD.getLog());
-        add(RuBlocks.BRIMWOOD.getLogMagma().get(), (block) -> createSingleItemTableWithSilkTouch(block, RuBlocks.BRIMWOOD.getLog()));
-        dropSelf(RuBlocks.STRIPPED_BRIMWOOD.getLog());
-        dropSelf(RuBlocks.BRIMWOOD_WOOD.get());
-        dropSelf(RuBlocks.STRIPPED_BRIMWOOD_WOOD.get());
-        dropSelf(RuBlocks.BRIMWOOD_PLANKS.get());
-        dropSelf(RuBlocks.BRIMWOOD_STAIRS.get());
-        add(RuBlocks.BRIMWOOD_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.BRIMWOOD_FENCE.get());
-        add(RuBlocks.BRIMWOOD_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.BRIMWOOD_FENCE_GATE.get());
-        dropSelf(RuBlocks.BRIMWOOD_TRAPDOOR.get());
-        dropSelf(RuBlocks.BRIMWOOD_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.BRIMWOOD_BUTTON.get());
-        dropSelf(RuBlocks.BRIMWOOD_SIGN.get());
-        add(RuBlocks.BRIMWOOD_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.BRIMWOOD_SIGN.get()));
-        dropSelf(RuBlocks.BRIMWOOD_HANGING_SIGN.get());
-        add(RuBlocks.BRIMWOOD_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.BRIMWOOD_HANGING_SIGN.get()));
-        //COBALT_BLOCKS
-        dropSelf(RuBlocks.COBALT.getLog());
-        dropSelf(RuBlocks.STRIPPED_COBALT.getLog());
-        dropSelf(RuBlocks.COBALT_WOOD.get());
-        dropSelf(RuBlocks.STRIPPED_COBALT_WOOD.get());
-        dropSelf(RuBlocks.COBALT_PLANKS.get());
-        dropSelf(RuBlocks.COBALT_STAIRS.get());
-        add(RuBlocks.COBALT_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.COBALT_FENCE.get());
-        add(RuBlocks.COBALT_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.COBALT_FENCE_GATE.get());
-        dropSelf(RuBlocks.COBALT_TRAPDOOR.get());
-        dropSelf(RuBlocks.COBALT_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.COBALT_BUTTON.get());
-        dropSelf(RuBlocks.COBALT_SIGN.get());
-        add(RuBlocks.COBALT_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.COBALT_SIGN.get()));
-        dropSelf(RuBlocks.COBALT_HANGING_SIGN.get());
-        add(RuBlocks.COBALT_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.COBALT_HANGING_SIGN.get()));
-        //CYPRESS_BLOCKS
-        dropSelf(RuBlocks.CYPRESS.getLog());
-        dropSelf(RuBlocks.STRIPPED_CYPRESS.getLog());
-        dropSelf(RuBlocks.CYPRESS_WOOD.get());
-        dropSelf(RuBlocks.STRIPPED_CYPRESS_WOOD.get());
-        dropSelf(RuBlocks.CYPRESS_PLANKS.get());
-        dropSelf(RuBlocks.CYPRESS_STAIRS.get());
-        add(RuBlocks.CYPRESS_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.CYPRESS_FENCE.get());
-        add(RuBlocks.CYPRESS_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.CYPRESS_FENCE_GATE.get());
-        dropSelf(RuBlocks.CYPRESS_TRAPDOOR.get());
-        dropSelf(RuBlocks.CYPRESS_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.CYPRESS_BUTTON.get());
-        dropSelf(RuBlocks.CYPRESS_SIGN.get());
-        add(RuBlocks.CYPRESS_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.CYPRESS_SIGN.get()));
-        dropSelf(RuBlocks.CYPRESS_HANGING_SIGN.get());
-        add(RuBlocks.CYPRESS_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.CYPRESS_HANGING_SIGN.get()));
-        //DEAD_BLOCKS
-        dropSelf(RuBlocks.DEAD.getLog());
-        dropSelf(RuBlocks.STRIPPED_DEAD.getLog());
-        dropSelf(RuBlocks.DEAD_WOOD.get());
-        dropSelf(RuBlocks.STRIPPED_DEAD_WOOD.get());
-        dropSelf(RuBlocks.DEAD_PLANKS.get());
-        dropSelf(RuBlocks.DEAD_STAIRS.get());
-        add(RuBlocks.DEAD_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.DEAD_FENCE.get());
-        add(RuBlocks.DEAD_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.DEAD_FENCE_GATE.get());
-        dropSelf(RuBlocks.DEAD_TRAPDOOR.get());
-        dropSelf(RuBlocks.DEAD_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.DEAD_BUTTON.get());
-        dropSelf(RuBlocks.DEAD_SIGN.get());
-        add(RuBlocks.DEAD_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.DEAD_SIGN.get()));
-        dropSelf(RuBlocks.DEAD_HANGING_SIGN.get());
-        add(RuBlocks.DEAD_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.DEAD_HANGING_SIGN.get()));
-        //EUCALYPTUS_BLOCKS
-        dropSelf(RuBlocks.EUCALYPTUS.getLog());
-        dropSelf(RuBlocks.STRIPPED_EUCALYPTUS.getLog());
-        dropSelf(RuBlocks.EUCALYPTUS_WOOD.get());
-        dropSelf(RuBlocks.STRIPPED_EUCALYPTUS_WOOD.get());
-        dropSelf(RuBlocks.EUCALYPTUS_PLANKS.get());
-        dropSelf(RuBlocks.EUCALYPTUS_STAIRS.get());
-        add(RuBlocks.EUCALYPTUS_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.EUCALYPTUS_FENCE.get());
-        add(RuBlocks.EUCALYPTUS_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.EUCALYPTUS_FENCE_GATE.get());
-        dropSelf(RuBlocks.EUCALYPTUS_TRAPDOOR.get());
-        dropSelf(RuBlocks.EUCALYPTUS_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.EUCALYPTUS_BUTTON.get());
-        dropSelf(RuBlocks.EUCALYPTUS_SIGN.get());
-        add(RuBlocks.EUCALYPTUS_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.EUCALYPTUS_SIGN.get()));
-        dropSelf(RuBlocks.EUCALYPTUS_HANGING_SIGN.get());
-        add(RuBlocks.EUCALYPTUS_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.EUCALYPTUS_HANGING_SIGN.get()));
-        //GREEN_BIOSHROOM_BLOCKS
-        dropSelf(RuBlocks.GREEN_BIOSHROOM_STEM.get());
-        dropSelf(RuBlocks.STRIPPED_GREEN_BIOSHROOM_STEM.get());
-        dropSelf(RuBlocks.GREEN_BIOSHROOM_HYPHAE.get());
-        dropSelf(RuBlocks.STRIPPED_GREEN_BIOSHROOM_HYPHAE.get());
-        dropSelf(RuBlocks.GREEN_BIOSHROOM_PLANKS.get());
-        dropSelf(RuBlocks.GREEN_BIOSHROOM_STAIRS.get());
-        add(RuBlocks.GREEN_BIOSHROOM_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.GREEN_BIOSHROOM_FENCE.get());
-        add(RuBlocks.GREEN_BIOSHROOM_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.GREEN_BIOSHROOM_FENCE_GATE.get());
-        dropSelf(RuBlocks.GREEN_BIOSHROOM_TRAPDOOR.get());
-        dropSelf(RuBlocks.GREEN_BIOSHROOM_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.GREEN_BIOSHROOM_BUTTON.get());
-        dropSelf(RuBlocks.GREEN_BIOSHROOM_SIGN.get());
-        add(RuBlocks.GREEN_BIOSHROOM_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.GREEN_BIOSHROOM_SIGN.get()));
-        dropSelf(RuBlocks.GREEN_BIOSHROOM_HANGING_SIGN.get());
-        add(RuBlocks.GREEN_BIOSHROOM_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.GREEN_BIOSHROOM_HANGING_SIGN.get()));
-        //JOSHUA_BLOCKS
-        dropSelf(RuBlocks.JOSHUA.getLog());
-        dropSelf(RuBlocks.STRIPPED_JOSHUA.getLog());
-        dropSelf(RuBlocks.JOSHUA_WOOD.get());
-        dropSelf(RuBlocks.STRIPPED_JOSHUA_WOOD.get());
-        dropSelf(RuBlocks.JOSHUA_PLANKS.get());
-        dropSelf(RuBlocks.JOSHUA_STAIRS.get());
-        add(RuBlocks.JOSHUA_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.JOSHUA_FENCE.get());
-        add(RuBlocks.JOSHUA_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.JOSHUA_FENCE_GATE.get());
-        dropSelf(RuBlocks.JOSHUA_TRAPDOOR.get());
-        dropSelf(RuBlocks.JOSHUA_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.JOSHUA_BUTTON.get());
-        dropSelf(RuBlocks.JOSHUA_SIGN.get());
-        add(RuBlocks.JOSHUA_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.JOSHUA_SIGN.get()));
-        dropSelf(RuBlocks.JOSHUA_HANGING_SIGN.get());
-        add(RuBlocks.JOSHUA_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.JOSHUA_HANGING_SIGN.get()));
-        //KAPOK_BLOCKS
-        dropSelf(RuBlocks.KAPOK.getLog());
-        dropSelf(RuBlocks.STRIPPED_KAPOK.getLog());
-        dropSelf(RuBlocks.KAPOK_WOOD.get());
-        dropSelf(RuBlocks.STRIPPED_KAPOK_WOOD.get());
-        dropSelf(RuBlocks.KAPOK_PLANKS.get());
-        dropSelf(RuBlocks.KAPOK_STAIRS.get());
-        add(RuBlocks.KAPOK_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.KAPOK_FENCE.get());
-        add(RuBlocks.KAPOK_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.KAPOK_FENCE_GATE.get());
-        dropSelf(RuBlocks.KAPOK_TRAPDOOR.get());
-        dropSelf(RuBlocks.KAPOK_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.KAPOK_BUTTON.get());
-        dropSelf(RuBlocks.KAPOK_SIGN.get());
-        add(RuBlocks.KAPOK_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.KAPOK_SIGN.get()));
-        dropSelf(RuBlocks.KAPOK_HANGING_SIGN.get());
-        add(RuBlocks.KAPOK_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.KAPOK_HANGING_SIGN.get()));
-        //LARCH_BLOCKS
-        dropSelf(RuBlocks.LARCH.getLog());
-        dropSelf(RuBlocks.STRIPPED_LARCH.getLog());
-        dropSelf(RuBlocks.LARCH_WOOD.get());
-        dropSelf(RuBlocks.STRIPPED_LARCH_WOOD.get());
-        dropSelf(RuBlocks.LARCH_PLANKS.get());
-        dropSelf(RuBlocks.LARCH_STAIRS.get());
-        add(RuBlocks.LARCH_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.LARCH_FENCE.get());
-        add(RuBlocks.LARCH_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.LARCH_FENCE_GATE.get());
-        dropSelf(RuBlocks.LARCH_TRAPDOOR.get());
-        dropSelf(RuBlocks.LARCH_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.LARCH_BUTTON.get());
-        dropSelf(RuBlocks.LARCH_SIGN.get());
-        add(RuBlocks.LARCH_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.LARCH_SIGN.get()));
-        dropSelf(RuBlocks.LARCH_HANGING_SIGN.get());
-        add(RuBlocks.LARCH_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.LARCH_HANGING_SIGN.get()));
-        //MAGNOLIA_BLOCKS
-        dropSelf(RuBlocks.MAGNOLIA.getLog());
-        dropSelf(RuBlocks.STRIPPED_MAGNOLIA.getLog());
-        dropSelf(RuBlocks.MAGNOLIA_WOOD.get());
-        dropSelf(RuBlocks.STRIPPED_MAGNOLIA_WOOD.get());
-        dropSelf(RuBlocks.MAGNOLIA_PLANKS.get());
-        dropSelf(RuBlocks.MAGNOLIA_STAIRS.get());
-        add(RuBlocks.MAGNOLIA_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.MAGNOLIA_FENCE.get());
-        add(RuBlocks.MAGNOLIA_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.MAGNOLIA_FENCE_GATE.get());
-        dropSelf(RuBlocks.MAGNOLIA_TRAPDOOR.get());
-        dropSelf(RuBlocks.MAGNOLIA_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.MAGNOLIA_BUTTON.get());
-        dropSelf(RuBlocks.MAGNOLIA_SIGN.get());
-        add(RuBlocks.MAGNOLIA_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.MAGNOLIA_SIGN.get()));
-        dropSelf(RuBlocks.MAGNOLIA_HANGING_SIGN.get());
-        add(RuBlocks.MAGNOLIA_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.MAGNOLIA_HANGING_SIGN.get()));
-        //MAPLE_BLOCKS
-        dropSelf(RuBlocks.MAPLE.getLog());
-        dropSelf(RuBlocks.STRIPPED_MAPLE.getLog());
-        dropSelf(RuBlocks.MAPLE_WOOD.get());
-        dropSelf(RuBlocks.STRIPPED_MAPLE_WOOD.get());
-        dropSelf(RuBlocks.MAPLE_PLANKS.get());
-        dropSelf(RuBlocks.MAPLE_STAIRS.get());
-        add(RuBlocks.MAPLE_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.MAPLE_FENCE.get());
-        add(RuBlocks.MAPLE_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.MAPLE_FENCE_GATE.get());
-        dropSelf(RuBlocks.MAPLE_TRAPDOOR.get());
-        dropSelf(RuBlocks.MAPLE_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.MAPLE_BUTTON.get());
-        dropSelf(RuBlocks.MAPLE_SIGN.get());
-        add(RuBlocks.MAPLE_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.MAPLE_SIGN.get()));
-        dropSelf(RuBlocks.MAPLE_HANGING_SIGN.get());
-        add(RuBlocks.MAPLE_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.MAPLE_HANGING_SIGN.get()));
-        //MAUVE_BLOCKS
-        dropSelf(RuBlocks.MAUVE.getLog());
-        dropSelf(RuBlocks.STRIPPED_MAUVE.getLog());
-        dropSelf(RuBlocks.MAUVE_WOOD.get());
-        dropSelf(RuBlocks.STRIPPED_MAUVE_WOOD.get());
-        dropSelf(RuBlocks.MAUVE_PLANKS.get());
-        dropSelf(RuBlocks.MAUVE_STAIRS.get());
-        add(RuBlocks.MAUVE_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.MAUVE_FENCE.get());
-        add(RuBlocks.MAUVE_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.MAUVE_FENCE_GATE.get());
-        dropSelf(RuBlocks.MAUVE_TRAPDOOR.get());
-        dropSelf(RuBlocks.MAUVE_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.MAUVE_BUTTON.get());
-        dropSelf(RuBlocks.MAUVE_SIGN.get());
-        add(RuBlocks.MAUVE_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.MAUVE_SIGN.get()));
-        dropSelf(RuBlocks.MAUVE_HANGING_SIGN.get());
-        add(RuBlocks.MAUVE_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.MAUVE_HANGING_SIGN.get()));
-        //PALM_BLOCKS
-        dropSelf(RuBlocks.PALM.getLog());
-        dropSelf(RuBlocks.STRIPPED_PALM.getLog());
-        dropSelf(RuBlocks.PALM_WOOD.get());
-        dropSelf(RuBlocks.STRIPPED_PALM_WOOD.get());
-        dropSelf(RuBlocks.PALM_PLANKS.get());
-        dropSelf(RuBlocks.PALM_STAIRS.get());
-        add(RuBlocks.PALM_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.PALM_FENCE.get());
-        add(RuBlocks.PALM_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.PALM_FENCE_GATE.get());
-        dropSelf(RuBlocks.PALM_TRAPDOOR.get());
-        dropSelf(RuBlocks.PALM_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.PALM_BUTTON.get());
-        dropSelf(RuBlocks.PALM_SIGN.get());
-        add(RuBlocks.PALM_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.PALM_SIGN.get()));
-        dropSelf(RuBlocks.PALM_HANGING_SIGN.get());
-        add(RuBlocks.PALM_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.PALM_HANGING_SIGN.get()));
-        //PINE_BLOCKS
-        dropSelf(RuBlocks.PINE.getLog());
-        dropSelf(RuBlocks.STRIPPED_PINE.getLog());
-        dropSelf(RuBlocks.PINE_WOOD.get());
-        dropSelf(RuBlocks.STRIPPED_PINE_WOOD.get());
-        dropSelf(RuBlocks.PINE_PLANKS.get());
-        dropSelf(RuBlocks.PINE_STAIRS.get());
-        add(RuBlocks.PINE_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.PINE_FENCE.get());
-        add(RuBlocks.PINE_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.PINE_FENCE_GATE.get());
-        dropSelf(RuBlocks.PINE_TRAPDOOR.get());
-        dropSelf(RuBlocks.PINE_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.PINE_BUTTON.get());
-        dropSelf(RuBlocks.PINE_SIGN.get());
-        add(RuBlocks.PINE_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.PINE_SIGN.get()));
-        dropSelf(RuBlocks.PINE_HANGING_SIGN.get());
-        add(RuBlocks.PINE_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.PINE_HANGING_SIGN.get()));
-        //PINK_BIOSHROOM_BLOCKS
-        dropSelf(RuBlocks.PINK_BIOSHROOM_STEM.get());
-        dropSelf(RuBlocks.STRIPPED_PINK_BIOSHROOM_STEM.get());
-        dropSelf(RuBlocks.PINK_BIOSHROOM_HYPHAE.get());
-        dropSelf(RuBlocks.STRIPPED_PINK_BIOSHROOM_HYPHAE.get());
-        dropSelf(RuBlocks.PINK_BIOSHROOM_PLANKS.get());
-        dropSelf(RuBlocks.PINK_BIOSHROOM_STAIRS.get());
-        add(RuBlocks.PINK_BIOSHROOM_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.PINK_BIOSHROOM_FENCE.get());
-        add(RuBlocks.PINK_BIOSHROOM_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.PINK_BIOSHROOM_FENCE_GATE.get());
-        dropSelf(RuBlocks.PINK_BIOSHROOM_TRAPDOOR.get());
-        dropSelf(RuBlocks.PINK_BIOSHROOM_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.PINK_BIOSHROOM_BUTTON.get());
-        dropSelf(RuBlocks.PINK_BIOSHROOM_SIGN.get());
-        add(RuBlocks.PINK_BIOSHROOM_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.PINK_BIOSHROOM_SIGN.get()));
-        dropSelf(RuBlocks.PINK_BIOSHROOM_HANGING_SIGN.get());
-        add(RuBlocks.PINK_BIOSHROOM_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.PINK_BIOSHROOM_HANGING_SIGN.get()));
-        //REDWOOD_BLOCKS
-        dropSelf(RuBlocks.REDWOOD.getLog());
-        dropSelf(RuBlocks.STRIPPED_REDWOOD.getLog());
-        dropSelf(RuBlocks.REDWOOD_WOOD.get());
-        dropSelf(RuBlocks.STRIPPED_REDWOOD_WOOD.get());
-        dropSelf(RuBlocks.REDWOOD_PLANKS.get());
-        dropSelf(RuBlocks.REDWOOD_STAIRS.get());
-        add(RuBlocks.REDWOOD_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.REDWOOD_FENCE.get());
-        add(RuBlocks.REDWOOD_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.REDWOOD_FENCE_GATE.get());
-        dropSelf(RuBlocks.REDWOOD_TRAPDOOR.get());
-        dropSelf(RuBlocks.REDWOOD_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.REDWOOD_BUTTON.get());
-        dropSelf(RuBlocks.REDWOOD_SIGN.get());
-        add(RuBlocks.REDWOOD_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.REDWOOD_SIGN.get()));
-        dropSelf(RuBlocks.REDWOOD_HANGING_SIGN.get());
-        add(RuBlocks.REDWOOD_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.REDWOOD_HANGING_SIGN.get()));
-        //SOCOTRA_BLOCKS
-        dropSelf(RuBlocks.SOCOTRA.getLog());
-        dropSelf(RuBlocks.STRIPPED_SOCOTRA.getLog());
-        dropSelf(RuBlocks.SOCOTRA_WOOD.get());
-        dropSelf(RuBlocks.STRIPPED_SOCOTRA_WOOD.get());
-        dropSelf(RuBlocks.SOCOTRA_PLANKS.get());
-        dropSelf(RuBlocks.SOCOTRA_STAIRS.get());
-        add(RuBlocks.SOCOTRA_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.SOCOTRA_FENCE.get());
-        add(RuBlocks.SOCOTRA_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.SOCOTRA_FENCE_GATE.get());
-        dropSelf(RuBlocks.SOCOTRA_TRAPDOOR.get());
-        dropSelf(RuBlocks.SOCOTRA_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.SOCOTRA_BUTTON.get());
-        dropSelf(RuBlocks.SOCOTRA_SIGN.get());
-        add(RuBlocks.SOCOTRA_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.SOCOTRA_SIGN.get()));
-        dropSelf(RuBlocks.SOCOTRA_HANGING_SIGN.get());
-        add(RuBlocks.SOCOTRA_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.SOCOTRA_HANGING_SIGN.get()));
-        //WILLOW_BLOCKS
-        dropSelf(RuBlocks.WILLOW.getLog());
-        dropSelf(RuBlocks.STRIPPED_WILLOW.getLog());
-        dropSelf(RuBlocks.WILLOW_WOOD.get());
-        dropSelf(RuBlocks.STRIPPED_WILLOW_WOOD.get());
-        dropSelf(RuBlocks.WILLOW_PLANKS.get());
-        dropSelf(RuBlocks.WILLOW_STAIRS.get());
-        add(RuBlocks.WILLOW_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.WILLOW_FENCE.get());
-        add(RuBlocks.WILLOW_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.WILLOW_FENCE_GATE.get());
-        dropSelf(RuBlocks.WILLOW_TRAPDOOR.get());
-        dropSelf(RuBlocks.WILLOW_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.WILLOW_BUTTON.get());
-        dropSelf(RuBlocks.WILLOW_SIGN.get());
-        add(RuBlocks.WILLOW_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.WILLOW_SIGN.get()));
-        dropSelf(RuBlocks.WILLOW_HANGING_SIGN.get());
-        add(RuBlocks.WILLOW_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.WILLOW_HANGING_SIGN.get()));
-        //YELLOW_BIOSHROOM_BLOCKS
-        dropSelf(RuBlocks.YELLOW_BIOSHROOM_STEM.get());
-        dropSelf(RuBlocks.STRIPPED_YELLOW_BIOSHROOM_STEM.get());
-        dropSelf(RuBlocks.YELLOW_BIOSHROOM_HYPHAE.get());
-        dropSelf(RuBlocks.STRIPPED_YELLOW_BIOSHROOM_HYPHAE.get());
-        dropSelf(RuBlocks.YELLOW_BIOSHROOM_PLANKS.get());
-        dropSelf(RuBlocks.YELLOW_BIOSHROOM_STAIRS.get());
-        add(RuBlocks.YELLOW_BIOSHROOM_SLAB.get(), (block) -> createSlabItemTable(block));
-        dropSelf(RuBlocks.YELLOW_BIOSHROOM_FENCE.get());
-        add(RuBlocks.YELLOW_BIOSHROOM_DOOR.get(), (block) -> createDoorTable(block));
-        dropSelf(RuBlocks.YELLOW_BIOSHROOM_FENCE_GATE.get());
-        dropSelf(RuBlocks.YELLOW_BIOSHROOM_TRAPDOOR.get());
-        dropSelf(RuBlocks.YELLOW_BIOSHROOM_PRESSURE_PLATE.get());
-        dropSelf(RuBlocks.YELLOW_BIOSHROOM_BUTTON.get());
-        dropSelf(RuBlocks.YELLOW_BIOSHROOM_SIGN.get());
-        add(RuBlocks.YELLOW_BIOSHROOM_WALL_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.YELLOW_BIOSHROOM_SIGN.get()));
-        dropSelf(RuBlocks.YELLOW_BIOSHROOM_HANGING_SIGN.get());
-        add(RuBlocks.YELLOW_BIOSHROOM_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(RuBlocks.YELLOW_BIOSHROOM_HANGING_SIGN.get()));
+        for (WoodSet set : RuBlocks.WOOD_SETS) {
+            if (set.getLog() != null) dropSelf(set.getLog());
+            if (set.getStrippedLog() != null) dropSelf(set.getStrippedLog());
+            if (set.getWood() != null) dropSelf(set.getWood());
+            if (set.getStrippedWood() != null) dropSelf(set.getStrippedWood());
+            if (set.getPlanks() != null) dropSelf(set.getPlanks());
+            if (set.getStairs() != null) dropSelf(set.getStairs());
+            if (set.getSlab() != null) add(set.getSlab(), createSlabItemTable(set.getSlab()));
+            if (set.getFence() != null) dropSelf(set.getFence());
+            if (set.getDoor() != null) add(set.getDoor(), createDoorTable(set.getDoor()));
+            if (set.getFenceGate() != null) dropSelf(set.getFenceGate());
+            if (set.getTrapdoor() != null) dropSelf(set.getTrapdoor());
+            if (set.getPressurePlate() != null) dropSelf(set.getPressurePlate());
+            if (set.getButton() != null) dropSelf(set.getButton());
+            if (set.getSign() != null) dropSelf(set.getSign());
+            if (set.getWallSign() != null) add(set.getWallSign(), createSingleItemTable(set.getSign()));
+            if (set.getHangingSign() != null) dropSelf(set.getHangingSign());
+            if (set.getWallHangingSign() != null) add(set.getWallHangingSign(), createSingleItemTable(set.getHangingSign()));
+        }
+        add(RuBlocks.BRIMWOOD_WOOD_SET.getLogMagma(), (block) -> createSingleItemTableWithSilkTouch(block, RuBlocks.BRIMWOOD_WOOD_SET.getLog()));
 
         /*-----------------PAINTED PLANKS-----------------*/
         for (Block block : RuBlocks.PAINTED_PLANKS.getAll()) {
@@ -908,7 +522,7 @@ public class RuBlockLootTables extends BlockLootSubProvider {
         add(RuBlocks.GLISTER_BULB.get(), (block) -> createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
         add(RuBlocks.GLISTER_SPIRE.get(), (block) -> createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
         //MYCOTOXIC_BLOCKS
-        add(RuBlocks.MYCOTOXIC_MUSHROOMS.get(), (block) -> createPetalsDrops(block));
+        add(RuBlocks.MYCOTOXIC_MUSHROOMS.get(), this::createPetalsDrops);
         add(RuBlocks.MYCOTOXIC_DAISY.get(), (block) -> createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
         dropSelf(RuBlocks.MYCOTOXIC_GRASS.get());
         add(RuBlocks.MYCOTOXIC_NYLIUM.get(), (block) -> createSingleItemTableWithSilkTouch(block, Blocks.NETHERRACK));

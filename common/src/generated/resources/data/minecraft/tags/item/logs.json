@@ -1,9 +1,9 @@
 {
   "values": [
-    "#regions_unexplored:brimwood_logs",
-    "#regions_unexplored:cobalt_logs",
-    "#regions_unexplored:dead_logs",
-    "#regions_unexplored:yellow_bioshroom_logs",
-    "regions_unexplored:alpha_log"
+    "regions_unexplored:ashen_log",
+    "regions_unexplored:brimwood_log",
+    "regions_unexplored:cobalt_log",
+    "regions_unexplored:dead_log",
+    "regions_unexplored:yellow_bioshroom_stem"
   ]
 }

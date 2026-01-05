@@ -8,9 +8,6 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.regions_unexplored.block.RuBlocks;
-import net.regions_unexplored.entity.custom.RuBoat;
-import net.regions_unexplored.item.RuItems;
-import net.regions_unexplored.item.items.RuBoatItem;
 import net.regions_unexplored.registry.BlockRegistry;
 import net.regions_unexplored.registry.ItemRegistry;
 import net.regions_unexplored.world.level.block.wood.MagmaLogBlock;
@@ -59,20 +56,20 @@ public class BrimwoodWoodSet extends WoodSet {
 
     public List<Item> getBuildingBlocksTabItems() {
         ArrayList<Item> items = new ArrayList<>();
-        addCreativeModeTabItem(WoodSet::getLog, items);
-        addCreativeModeTabItem(BrimwoodWoodSet::getLogMagma, items);
-        addCreativeModeTabItem(WoodSet::getWood, items);
-        addCreativeModeTabItem(WoodSet::getStrippedLog, items);
-        addCreativeModeTabItem(WoodSet::getStrippedWood, items);
-        addCreativeModeTabItem(WoodSet::getPlanks, items);
-        addCreativeModeTabItem(WoodSet::getStairs, items);
-        addCreativeModeTabItem(WoodSet::getSlab, items);
-        addCreativeModeTabItem(WoodSet::getFence, items);
-        addCreativeModeTabItem(WoodSet::getFenceGate, items);
-        addCreativeModeTabItem(WoodSet::getDoor, items);
-        addCreativeModeTabItem(WoodSet::getTrapdoor, items);
-        addCreativeModeTabItem(WoodSet::getPressurePlate, items);
-        addCreativeModeTabItem(WoodSet::getButton, items);
+        addItemToList(WoodSet::getLog, items);
+        addItemToList(BrimwoodWoodSet::getLogMagma, items);
+        addItemToList(WoodSet::getWood, items);
+        addItemToList(WoodSet::getStrippedLog, items);
+        addItemToList(WoodSet::getStrippedWood, items);
+        addItemToList(WoodSet::getPlanks, items);
+        addItemToList(WoodSet::getStairs, items);
+        addItemToList(WoodSet::getSlab, items);
+        addItemToList(WoodSet::getFence, items);
+        addItemToList(WoodSet::getFenceGate, items);
+        addItemToList(WoodSet::getDoor, items);
+        addItemToList(WoodSet::getTrapdoor, items);
+        addItemToList(WoodSet::getPressurePlate, items);
+        addItemToList(WoodSet::getButton, items);
         return items;
     }
 }

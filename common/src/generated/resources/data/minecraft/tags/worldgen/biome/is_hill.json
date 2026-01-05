@@ -1,12 +1,7 @@
 {
   "values": [
-    {
-      "id": "regions_unexplored:towering_cliffs",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:icy_heights",
-      "required": false
-    }
+    "regions_unexplored:mauve_hills",
+    "regions_unexplored:towering_cliffs",
+    "regions_unexplored:icy_heights"
   ]
 }

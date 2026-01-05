@@ -1,12 +1,6 @@
 {
   "values": [
-    {
-      "id": "regions_unexplored:frozen_tundra",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:cold_boreal_taiga",
-      "required": false
-    }
+    "regions_unexplored:frozen_tundra",
+    "regions_unexplored:cold_boreal_taiga"
   ]
 }

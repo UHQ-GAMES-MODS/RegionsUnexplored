@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.entity.custom.RuBoat;
-import net.regions_unexplored.item.RuItems;
 import net.regions_unexplored.item.items.RuBoatItem;
 import net.regions_unexplored.registry.BlockRegistry;
 import net.regions_unexplored.registry.ItemRegistry;
@@ -241,40 +240,60 @@ public class WoodSet {
         return itemChestBoat != null ? itemChestBoat.get() : null;
     }
 
+    public List<Item> getAllBlocks() {
+        ArrayList<Item> items = new ArrayList<>();
+        addItemToList(WoodSet::getLog, items);
+        addItemToList(WoodSet::getWood, items);
+        addItemToList(WoodSet::getStrippedLog, items);
+        addItemToList(WoodSet::getStrippedWood, items);
+        addItemToList(WoodSet::getPlanks, items);
+        addItemToList(WoodSet::getStairs, items);
+        addItemToList(WoodSet::getSlab, items);
+        addItemToList(WoodSet::getFence, items);
+        addItemToList(WoodSet::getFenceGate, items);
+        addItemToList(WoodSet::getDoor, items);
+        addItemToList(WoodSet::getTrapdoor, items);
+        addItemToList(WoodSet::getPressurePlate, items);
+        addItemToList(WoodSet::getButton, items);
+        addItemToList(WoodSet::getSign, items);
+        addItemToList(WoodSet::getHangingSign, items);
+        return items;
+    }
+
     public List<Item> getBuildingBlocksTabItems() {
         ArrayList<Item> items = new ArrayList<>();
-        addCreativeModeTabItem(WoodSet::getLog, items);
-        addCreativeModeTabItem(WoodSet::getWood, items);
-        addCreativeModeTabItem(WoodSet::getStrippedLog, items);
-        addCreativeModeTabItem(WoodSet::getStrippedWood, items);
-        addCreativeModeTabItem(WoodSet::getPlanks, items);
-        addCreativeModeTabItem(WoodSet::getStairs, items);
-        addCreativeModeTabItem(WoodSet::getSlab, items);
-        addCreativeModeTabItem(WoodSet::getFence, items);
-        addCreativeModeTabItem(WoodSet::getFenceGate, items);
-        addCreativeModeTabItem(WoodSet::getDoor, items);
-        addCreativeModeTabItem(WoodSet::getTrapdoor, items);
-        addCreativeModeTabItem(WoodSet::getPressurePlate, items);
-        addCreativeModeTabItem(WoodSet::getButton, items);
+        addItemToList(WoodSet::getLog, items);
+        addItemToList(WoodSet::getWood, items);
+        addItemToList(WoodSet::getStrippedLog, items);
+        addItemToList(WoodSet::getStrippedWood, items);
+        addItemToList(WoodSet::getPlanks, items);
+        addItemToList(WoodSet::getStairs, items);
+        addItemToList(WoodSet::getSlab, items);
+        addItemToList(WoodSet::getFence, items);
+        addItemToList(WoodSet::getFenceGate, items);
+        addItemToList(WoodSet::getDoor, items);
+        addItemToList(WoodSet::getTrapdoor, items);
+        addItemToList(WoodSet::getPressurePlate, items);
+        addItemToList(WoodSet::getButton, items);
         return items;
     }
 
     public List<Item> getFunctionalBlocksTabItems() {
         ArrayList<Item> items = new ArrayList<>();
-        addCreativeModeTabItem(WoodSet::getSign, items);
-        addCreativeModeTabItem(WoodSet::getHangingSign, items);
+        addItemToList(WoodSet::getSign, items);
+        addItemToList(WoodSet::getHangingSign, items);
         return items;
     }
 
     public List<Item> getToolsAndUtilitiesTabItems() {
         ArrayList<Item> items = new ArrayList<>();
-        addCreativeModeTabItem(WoodSet::getBoat, items);
-        addCreativeModeTabItem(WoodSet::getChestBoat, items);
+        addItemToList(WoodSet::getBoat, items);
+        addItemToList(WoodSet::getChestBoat, items);
         return items;
 
     }
 
-    protected <T extends WoodSet> void addCreativeModeTabItem(Function<T, ItemLike> getter, ArrayList<Item> items) {
+    protected <T extends WoodSet> void addItemToList(Function<T, ItemLike> getter, ArrayList<Item> items) {
         if (getter.apply((T) this) != null) {
             items.add(getter.apply((T) this).asItem());
         }

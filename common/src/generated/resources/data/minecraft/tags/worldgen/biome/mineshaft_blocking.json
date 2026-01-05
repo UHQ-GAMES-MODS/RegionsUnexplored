@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "regions_unexplored:scorching_caves",
-      "required": false
-    }
+    "regions_unexplored:scorching_caves"
   ]
 }

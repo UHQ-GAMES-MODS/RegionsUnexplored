@@ -1,52 +1,16 @@
 {
   "values": [
-    {
-      "id": "regions_unexplored:bayou",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:fen",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:fungal_fen",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:marsh",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:old_growth_bayou",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:redwoods",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:sparse_redwoods",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:bamboo_forest",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:rainforest",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:sparse_rainforest",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:eucalyptus_forest",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:rocky_reef",
-      "required": false
-    }
+    "regions_unexplored:bayou",
+    "regions_unexplored:fen",
+    "regions_unexplored:fungal_fen",
+    "regions_unexplored:marsh",
+    "regions_unexplored:old_growth_bayou",
+    "regions_unexplored:redwoods",
+    "regions_unexplored:sparse_redwoods",
+    "regions_unexplored:bamboo_forest",
+    "regions_unexplored:rainforest",
+    "regions_unexplored:sparse_rainforest",
+    "regions_unexplored:eucalyptus_forest",
+    "regions_unexplored:rocky_reef"
   ]
 }
