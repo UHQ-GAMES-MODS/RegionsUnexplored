@@ -133,7 +133,7 @@ public class CobaltShrubFeature extends Feature<NoneFeatureConfiguration> {
             level.setBlock(pos, Blocks.BLACKSTONE.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos)) {
-                level.setBlock(pos, RuBlocks.COBALT_LOG.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
+                level.setBlock(pos, RuBlocks.COBALT_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
         }
         else{
             return;
@@ -147,7 +147,7 @@ public class CobaltShrubFeature extends Feature<NoneFeatureConfiguration> {
             level.setBlock(pos.below(), Blocks.BLACKSTONE.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos.below())) {
-            level.setBlock(pos.below(), RuBlocks.COBALT_LOG.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
+            level.setBlock(pos.below(), RuBlocks.COBALT_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
         }
     }
 
@@ -157,7 +157,7 @@ public class CobaltShrubFeature extends Feature<NoneFeatureConfiguration> {
             return;
         }
         if(level.getBlockState(pos).canBeReplaced()) {
-            level.setBlock(pos, RuBlocks.COBALT_WEBBING.get().defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), 2);
+            level.setBlock(pos, RuBlocks.COBALT_NATURAL_SET.getLeaves().defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), 2);
         }
     }
 

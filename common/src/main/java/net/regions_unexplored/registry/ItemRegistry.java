@@ -10,6 +10,9 @@ import net.regions_unexplored.platform.Services;
 import java.util.function.Supplier;
 
 public class ItemRegistry {
+    public static Supplier<Item> registerItem(String path, Supplier<Item> item) {
+        return Services.REGISTAR.register(BuiltInRegistries.ITEM, path, item);
+    }
 
     public static Supplier<Item> registerDefaultBlockItem(String name, Supplier<Block> block) {
         return Services.REGISTAR.register(BuiltInRegistries.ITEM, name, () -> new BlockItem(block.get(), new Item.Properties()));

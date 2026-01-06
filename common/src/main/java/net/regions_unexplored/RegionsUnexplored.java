@@ -5,7 +5,6 @@ import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.block.compat.BlockToolCompat;
 import net.regions_unexplored.block.compat.CompostableBlocks;
 import net.regions_unexplored.block.compat.FlammableBlocks;
-import net.regions_unexplored.block.entity.RuBlockEntities;
 import net.regions_unexplored.client.particle.RuParticleTypes;
 import net.regions_unexplored.entity.RuEntities;
 import net.regions_unexplored.item.RuItems;
@@ -43,7 +42,6 @@ public class RegionsUnexplored {
         RuBlocks.addBlocks();
         RuItems.addItems();
         RuTabs.init();
-        RuBlockEntities.addBlockEntities();
         RuEntities.addEntities();
     }
 

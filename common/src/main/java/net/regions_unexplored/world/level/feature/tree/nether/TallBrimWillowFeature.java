@@ -31,28 +31,28 @@ public class TallBrimWillowFeature extends Feature<NoneFeatureConfiguration> {
         WorldGenLevel level = context.level();
         int height = context.random().nextInt(3)+13;
 
-        if(level.getBlockState(pos.north()).getBlock() == RuBlocks.BRIMWOOD_LOG_MAGMA){
+        if(level.getBlockState(pos.north()).getBlock() == RuBlocks.BRIMWOOD_WOOD_SET.getLogMagma()){
             return false;
         }
-        if(level.getBlockState(pos.west()).getBlock() == RuBlocks.BRIMWOOD_LOG_MAGMA){
+        if(level.getBlockState(pos.west()).getBlock() == RuBlocks.BRIMWOOD_WOOD_SET.getLogMagma()){
             return false;
         }
-        if(level.getBlockState(pos.east()).getBlock() == RuBlocks.BRIMWOOD_LOG_MAGMA){
+        if(level.getBlockState(pos.east()).getBlock() == RuBlocks.BRIMWOOD_WOOD_SET.getLogMagma()){
             return false;
         }
-        if(level.getBlockState(pos.south()).getBlock() == RuBlocks.BRIMWOOD_LOG_MAGMA){
+        if(level.getBlockState(pos.south()).getBlock() == RuBlocks.BRIMWOOD_WOOD_SET.getLogMagma()){
             return false;
         }
-        if(level.getBlockState(pos.south().west()).getBlock() == RuBlocks.BRIMWOOD_LOG_MAGMA){
+        if(level.getBlockState(pos.south().west()).getBlock() == RuBlocks.BRIMWOOD_WOOD_SET.getLogMagma()){
             return false;
         }
-        if(level.getBlockState(pos.south().east()).getBlock() == RuBlocks.BRIMWOOD_LOG_MAGMA){
+        if(level.getBlockState(pos.south().east()).getBlock() == RuBlocks.BRIMWOOD_WOOD_SET.getLogMagma()){
             return false;
         }
-        if(level.getBlockState(pos.north().west()).getBlock() == RuBlocks.BRIMWOOD_LOG_MAGMA){
+        if(level.getBlockState(pos.north().west()).getBlock() == RuBlocks.BRIMWOOD_WOOD_SET.getLogMagma()){
             return false;
         }
-        if(level.getBlockState(pos.north().east()).getBlock() == RuBlocks.BRIMWOOD_LOG_MAGMA){
+        if(level.getBlockState(pos.north().east()).getBlock() == RuBlocks.BRIMWOOD_WOOD_SET.getLogMagma()){
             return false;
         }
         if(level.getBlockState(pos.below()).getBlock()== RuBlocks.BRIMSPROUT_NYLIUM||level.getBlockState(pos.below()).getBlock()== Blocks.SCULK||level.getBlockState(pos.below()).is(BlockTags.NYLIUM)||level.getBlockState(pos.below()).is(BlockTags.DIRT)){
@@ -79,13 +79,13 @@ public class TallBrimWillowFeature extends Feature<NoneFeatureConfiguration> {
                         break;
                     }
                     if(i==3){
-                        level.setBlock(placePos, RuBlocks.BRIMWOOD_LOG_MAGMA.get().defaultBlockState().setValue(MagmaLogBlock.TRANSITION_BLOCK, true), 2);
+                        level.setBlock(placePos, RuBlocks.BRIMWOOD_WOOD_SET.getLogMagma().defaultBlockState().setValue(MagmaLogBlock.TRANSITION_BLOCK, true), 2);
                     }
                     else if(i<3){
-                        level.setBlock(placePos, RuBlocks.BRIMWOOD_LOG_MAGMA.get().defaultBlockState().setValue(MagmaLogBlock.TRANSITION_BLOCK, false), 2);
+                        level.setBlock(placePos, RuBlocks.BRIMWOOD_WOOD_SET.getLogMagma().defaultBlockState().setValue(MagmaLogBlock.TRANSITION_BLOCK, false), 2);
                     }
                     else if(i>3){
-                        level.setBlock(placePos, RuBlocks.BRIMWOOD_LOG.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.Y), 2);
+                        level.setBlock(placePos, RuBlocks.BRIMWOOD_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.Y), 2);
                     }
                 }
                 if(i==height){
@@ -105,7 +105,7 @@ public class TallBrimWillowFeature extends Feature<NoneFeatureConfiguration> {
             return;
         }
         if (isReplaceable(level, pos)) {
-            level.setBlock(pos, RuBlocks.BRIMWOOD_LOG.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
+            level.setBlock(pos, RuBlocks.BRIMWOOD_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
         }
     }
 
@@ -114,7 +114,7 @@ public class TallBrimWillowFeature extends Feature<NoneFeatureConfiguration> {
             return;
         }
         if (isReplaceable(level, pos)) {
-            level.setBlock(pos, RuBlocks.BRIMWOOD_LEAVES.get().defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
+            level.setBlock(pos, RuBlocks.BRIMWOOD_NATURAL_SET.getLeaves().defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2);
         }
     }
 

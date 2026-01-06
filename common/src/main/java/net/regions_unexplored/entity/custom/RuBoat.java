@@ -2,9 +2,6 @@ package net.regions_unexplored.entity.custom;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
-import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
@@ -15,6 +12,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.Vec3;
 import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.block.set.WoodSet;
 import net.regions_unexplored.entity.RuEntities;
 import net.regions_unexplored.item.RuItems;
 import org.jetbrains.annotations.NotNull;
@@ -34,24 +32,7 @@ public class RuBoat extends Boat {
 
     @Override
     public Item getDropItem() {
-        return switch (getModel()) {
-            case BAOBAB -> RuItems.BAOBAB_BOAT.get();
-            case BLACKWOOD -> RuItems.BLACKWOOD_BOAT.get();
-            case CYPRESS -> RuItems.CYPRESS_BOAT.get();
-            case DEAD -> RuItems.DEAD_BOAT.get();
-            case EUCALYPTUS -> RuItems.EUCALYPTUS_BOAT.get();
-            case JOSHUA -> RuItems.JOSHUA_BOAT.get();
-            case KAPOK -> RuItems.KAPOK_BOAT.get();
-            case LARCH -> RuItems.LARCH_BOAT.get();
-            case MAGNOLIA -> RuItems.MAGNOLIA_BOAT.get();
-            case MAPLE -> RuItems.MAPLE_BOAT.get();
-            case MAUVE -> RuItems.MAUVE_BOAT.get();
-            case PALM -> RuItems.PALM_BOAT.get();
-            case PINE -> RuItems.PINE_BOAT.get();
-            case REDWOOD -> RuItems.REDWOOD_BOAT.get();
-            case SOCOTRA -> RuItems.SOCOTRA_BOAT.get();
-            case WILLOW -> RuItems.WILLOW_BOAT.get();
-        };
+        return this.getModel().woodSet.getBoat();
     }
 
     @Override
@@ -94,37 +75,37 @@ public class RuBoat extends Boat {
     }
 
     public enum ModelType {
-        BAOBAB("baobab", RuBlocks.BAOBAB_PLANKS.get()),
-        BLACKWOOD("blackwood", RuBlocks.BLACKWOOD_PLANKS.get()),
-        CYPRESS("cypress", RuBlocks.CYPRESS_PLANKS.get()),
-        DEAD("dead", RuBlocks.DEAD_PLANKS.get()),
-        EUCALYPTUS("eucalyptus", RuBlocks.EUCALYPTUS_PLANKS.get()),
-        JOSHUA("joshua", RuBlocks.JOSHUA_PLANKS.get()),
-        KAPOK("kapok", RuBlocks.KAPOK_PLANKS.get()),
-        LARCH("larch", RuBlocks.LARCH_PLANKS.get()),
-        MAGNOLIA("magnolia", RuBlocks.MAGNOLIA_PLANKS.get()),
-        MAPLE("maple", RuBlocks.MAPLE_PLANKS.get()),
-        MAUVE("mauve", RuBlocks.MAUVE_PLANKS.get()),
-        PALM("palm", RuBlocks.PALM_PLANKS.get()),
-        PINE("pine", RuBlocks.PINE_PLANKS.get()),
-        REDWOOD("redwood", RuBlocks.REDWOOD_PLANKS.get()),
-        SOCOTRA("socotra", RuBlocks.SOCOTRA_PLANKS.get()),
-        WILLOW("willow", RuBlocks.WILLOW_PLANKS.get());
+        BAOBAB("baobab", RuBlocks.BAOBAB_WOOD_SET),
+        BLACKWOOD("blackwood", RuBlocks.BLACKWOOD_WOOD_SET),
+        CYPRESS("cypress", RuBlocks.CYPRESS_WOOD_SET),
+        DEAD("dead", RuBlocks.DEAD_WOOD_SET),
+        EUCALYPTUS("eucalyptus", RuBlocks.EUCALYPTUS_WOOD_SET),
+        JOSHUA("joshua", RuBlocks.JOSHUA_WOOD_SET),
+        KAPOK("kapok", RuBlocks.KAPOK_WOOD_SET),
+        LARCH("larch", RuBlocks.LARCH_WOOD_SET),
+        MAGNOLIA("magnolia", RuBlocks.MAGNOLIA_WOOD_SET),
+        MAPLE("maple", RuBlocks.MAPLE_WOOD_SET),
+        MAUVE("mauve", RuBlocks.MAUVE_WOOD_SET),
+        PALM("palm", RuBlocks.PALM_WOOD_SET),
+        PINE("pine", RuBlocks.PINE_WOOD_SET),
+        REDWOOD("redwood", RuBlocks.REDWOOD_WOOD_SET),
+        SOCOTRA("socotra", RuBlocks.SOCOTRA_WOOD_SET),
+        WILLOW("willow", RuBlocks.WILLOW_WOOD_SET);
 
         private final String name;
-        private final Block planks;
+        private final WoodSet woodSet;
 
-        ModelType(String name, Block planks) {
+        ModelType(String name, WoodSet woodSet) {
             this.name = name;
-            this.planks = planks;
+            this.woodSet = woodSet;
         }
 
         public String getName() {
             return this.name;
         }
 
-        public Block getPlanks() {
-            return this.planks;
+        public WoodSet getWoodSet() {
+            return this.woodSet;
         }
 
         public String toString() {

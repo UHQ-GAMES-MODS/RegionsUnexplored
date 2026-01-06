@@ -35,26 +35,9 @@ public class RuChestBoat extends ChestBoat
     }
 
     @Override
-    public Item getDropItem()
-    {
-        return switch (RuBoat.ModelType.byId(this.entityData.get(DATA_ID_TYPE))) {
-            case BAOBAB -> RuItems.BAOBAB_CHEST_BOAT.get();
-            case BLACKWOOD -> RuItems.BLACKWOOD_CHEST_BOAT.get();
-            case CYPRESS -> RuItems.CYPRESS_CHEST_BOAT.get();
-            case DEAD -> RuItems.DEAD_CHEST_BOAT.get();
-            case EUCALYPTUS -> RuItems.EUCALYPTUS_CHEST_BOAT.get();
-            case JOSHUA -> RuItems.JOSHUA_CHEST_BOAT.get();
-            case KAPOK -> RuItems.KAPOK_CHEST_BOAT.get();
-            case LARCH -> RuItems.LARCH_CHEST_BOAT.get();
-            case MAGNOLIA -> RuItems.MAGNOLIA_CHEST_BOAT.get();
-            case MAPLE -> RuItems.MAPLE_CHEST_BOAT.get();
-            case MAUVE -> RuItems.MAUVE_CHEST_BOAT.get();
-            case PALM -> RuItems.PALM_CHEST_BOAT.get();
-            case PINE -> RuItems.PINE_CHEST_BOAT.get();
-            case REDWOOD -> RuItems.REDWOOD_CHEST_BOAT.get();
-            case SOCOTRA -> RuItems.SOCOTRA_CHEST_BOAT.get();
-            case WILLOW -> RuItems.WILLOW_CHEST_BOAT.get();
-        };
+    public Item getDropItem() {
+        RuBoat.ModelType modelType = RuBoat.ModelType.byId(this.entityData.get(DATA_ID_TYPE));
+        return modelType.getWoodSet().getChestBoat();
     }
 
     @Override

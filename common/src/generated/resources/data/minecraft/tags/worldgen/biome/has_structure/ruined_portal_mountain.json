@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "regions_unexplored:chalk_cliffs",
-      "required": false
-    }
+    "regions_unexplored:chalk_cliffs"
   ]
 }

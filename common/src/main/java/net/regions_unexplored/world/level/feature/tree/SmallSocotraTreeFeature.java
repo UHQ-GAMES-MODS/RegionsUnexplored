@@ -112,7 +112,7 @@ public class SmallSocotraTreeFeature extends Feature<NoneFeatureConfiguration> {
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos)) {
-            level.setBlock(pos, RuBlocks.SOCOTRA_LOG.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
+            level.setBlock(pos, RuBlocks.SOCOTRA_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
         }
         else{
             return;
@@ -138,7 +138,7 @@ public class SmallSocotraTreeFeature extends Feature<NoneFeatureConfiguration> {
             return;
         }
         if(level.getBlockState(pos).canBeReplaced()) {
-            level.setBlock(pos, RuBlocks.SOCOTRA_LEAVES.get().defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), 2);
+            level.setBlock(pos, RuBlocks.SOCOTRA_NATURAL_SET.getLeaves().defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), 2);
         }
     }
 

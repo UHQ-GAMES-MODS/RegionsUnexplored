@@ -1,24 +1,9 @@
 {
   "values": [
-    {
-      "id": "regions_unexplored:towering_cliffs",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:icy_heights",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:highland_fields",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:mountains",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:arid_mountains",
-      "required": false
-    }
+    "regions_unexplored:towering_cliffs",
+    "regions_unexplored:icy_heights",
+    "regions_unexplored:highland_fields",
+    "regions_unexplored:mountains",
+    "regions_unexplored:arid_mountains"
   ]
 }
