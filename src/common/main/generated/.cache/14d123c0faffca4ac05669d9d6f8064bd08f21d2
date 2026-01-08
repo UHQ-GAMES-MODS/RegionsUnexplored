@@ -1,4 +1,4 @@
-// 1.21.1	2026-01-08T15:41:20.8374453	Tags for minecraft:block mod id regions_unexplored
+// 1.21.1	2026-01-08T16:34:21.0038604	Tags for minecraft:block mod id regions_unexplored
 47322f6e871d59e5581ad5e9b47c6737a5af3480 data/c/tags/block/fences/wooden.json
 543d30a38bbd7deef12bbc96a461b70e01314374 data/c/tags/block/fence_gates/wooden.json
 fbd3b5574bd57030107ab08e4b239ea1520ad7e1 data/c/tags/block/glass_blocks.json
@@ -28,7 +28,7 @@ e51fdb21f599ddfcb4554f202adfc06fbdc4034a data/minecraft/tags/block/dirt.json
 c4fbcda450fc6b25cdcf57b1ced175e4589d611e data/minecraft/tags/block/fall_damage_resetting.json
 543d30a38bbd7deef12bbc96a461b70e01314374 data/minecraft/tags/block/fence_gates.json
 ba2ed8f9c587f6b188097391ad42b971d1671107 data/minecraft/tags/block/flowers.json
-40155df55aebb887ef6825f9f17e81d0738ec2d2 data/minecraft/tags/block/flower_pots.json
+af1e3944d046f59c3254df21b07a56b801bc93d6 data/minecraft/tags/block/flower_pots.json
 2db4f617b91120432280c0dfaa4a7dc6ca6de062 data/minecraft/tags/block/foxes_spawnable_on.json
 1a5e527e1c00f11e85222c0730b05c98b2475018 data/minecraft/tags/block/frogs_spawnable_on.json
 3f32cd200f8ba7f80aa2d2bbd0741477ed4ec0e4 data/minecraft/tags/block/frog_prefer_jump_to.json
@@ -56,14 +56,14 @@ e525dce519521ffa483578397a6c13a57c5e24d1 data/minecraft/tags/block/oak_logs.json
 4b0f72febafc16da901b0f0c2e9718cfdfb6ebb1 data/minecraft/tags/block/overworld_carver_replaceables.json
 0bc7bcd7d07ddb4ce92817a8767fa308245ab4a9 data/minecraft/tags/block/overworld_natural_logs.json
 3ba09d5092fa23740d80147a98cbf90b5a3e2928 data/minecraft/tags/block/parrots_spawnable_on.json
-4e8c3b68243bc5a42fd26ca4f55952c71a8d468c data/minecraft/tags/block/planks.json
+e34eebe339ed90e6e56ae1767c26477ce69b4781 data/minecraft/tags/block/planks.json
 f61622d9599936d67e5a29c34b207da1173145f7 data/minecraft/tags/block/rabbits_spawnable_on.json
 d01e32f051639230f3d48f4b2b6d1aa19406f348 data/minecraft/tags/block/replaceable.json
 73f407203137e03ff7a02e18d4669515964bd2f8 data/minecraft/tags/block/replaceable_by_trees.json
 025dced40f69690ced844d74bab97a08d9318c18 data/minecraft/tags/block/saplings.json
 8ec272c54edc1df8941d6e1e627a2c3f2bce813d data/minecraft/tags/block/slabs.json
 7a4dec34e932546179edd4bac8a97db6f52f9b07 data/minecraft/tags/block/small_dripleaf_placeable.json
-34862bfc9fb916140780947f182d4c1c2001d395 data/minecraft/tags/block/small_flowers.json
+1c86fe39400cbf1598145303db01b8111f357d96 data/minecraft/tags/block/small_flowers.json
 e66784e2aab07f25408ee5347aa6acaf325e458c data/minecraft/tags/block/snaps_goat_horn.json
 4c1b39d965ae9ecb8ab1302c12fe3f9069d7ac09 data/minecraft/tags/block/snow_layer_can_survive_on.json
 af2dfa084f3d25041f6b875fce7a4f4fd1d0316a data/minecraft/tags/block/stairs.json
@@ -80,8 +80,8 @@ e2602eb1b24fa328ae67c640413eb021f69e0cb3 data/minecraft/tags/block/wooden_button
 f270912f31f6045ab37db5880dead59ab2bd2a8c data/minecraft/tags/block/wooden_doors.json
 47322f6e871d59e5581ad5e9b47c6737a5af3480 data/minecraft/tags/block/wooden_fences.json
 9b9c6f129c92b3c2afb817af212c8b5937450783 data/minecraft/tags/block/wooden_pressure_plates.json
-5b32702bee52020b72a6714dad9a61e5e1af8d91 data/minecraft/tags/block/wooden_slabs.json
-606ace5fb26c8d1efdd692fb33f5a5eb9d818ec0 data/minecraft/tags/block/wooden_stairs.json
+63ac8447229c757c3c4a71058c3ae47a33cc2964 data/minecraft/tags/block/wooden_slabs.json
+5be05ca87ae16266717810db19078eb565f309ed data/minecraft/tags/block/wooden_stairs.json
 78d610a0e980585799870d39663c73122e3b98e6 data/minecraft/tags/block/wooden_trapdoors.json
 7a4dec34e932546179edd4bac8a97db6f52f9b07 data/regions_unexplored/tags/block/ash.json
 90f09119f93ff3ce271235f78d540f91522828a5 data/regions_unexplored/tags/block/bamboo_logs.json

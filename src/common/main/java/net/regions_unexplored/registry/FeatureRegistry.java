@@ -1,103 +1,171 @@
 package net.regions_unexplored.registry;
 
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.*;
-import net.regions_unexplored.platform.Services;
-import net.regions_unexplored.world.level.feature.*;
-import net.regions_unexplored.world.level.feature.bioshroom.*;
-import net.regions_unexplored.world.level.feature.configuration.*;
-import net.regions_unexplored.world.level.feature.tree.*;
-import net.regions_unexplored.world.level.feature.tree.nether.*;
-
 import java.util.function.Supplier;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.MultifaceGrowthConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfiguration;
+import net.regions_unexplored.platform.Registar;
+import net.regions_unexplored.world.level.feature.AirMultifaceGrowthFeature;
+import net.regions_unexplored.world.level.feature.AshVentFeature;
+import net.regions_unexplored.world.level.feature.BasaltBlobFeature;
+import net.regions_unexplored.world.level.feature.FallenBlobTreeFeature;
+import net.regions_unexplored.world.level.feature.FallenSnowTreeFeature;
+import net.regions_unexplored.world.level.feature.FenCattailFeature;
+import net.regions_unexplored.world.level.feature.FloorIcicleFeature;
+import net.regions_unexplored.world.level.feature.GiantLilyPadFeature;
+import net.regions_unexplored.world.level.feature.GlisteringIvyFeature;
+import net.regions_unexplored.world.level.feature.HangingEarlightFeature;
+import net.regions_unexplored.world.level.feature.HangingPrismariteFeature;
+import net.regions_unexplored.world.level.feature.HyacinthPlantsFeature;
+import net.regions_unexplored.world.level.feature.HyacinthStockFeature;
+import net.regions_unexplored.world.level.feature.LargePointedRedstoneFeature;
+import net.regions_unexplored.world.level.feature.LavaDeltaFeature;
+import net.regions_unexplored.world.level.feature.LavaFallFeature;
+import net.regions_unexplored.world.level.feature.MarshFeature;
+import net.regions_unexplored.world.level.feature.MeadowRockFeature;
+import net.regions_unexplored.world.level.feature.NetherRockFeature;
+import net.regions_unexplored.world.level.feature.ObsidianSpireFeature;
+import net.regions_unexplored.world.level.feature.PointedRedstoneClusterFeature;
+import net.regions_unexplored.world.level.feature.PointedRedstoneFeature;
+import net.regions_unexplored.world.level.feature.RockFeature;
+import net.regions_unexplored.world.level.feature.RockPillarFeature;
+import net.regions_unexplored.world.level.feature.SeaRockFeature;
+import net.regions_unexplored.world.level.feature.ShrubFeature;
+import net.regions_unexplored.world.level.feature.SmoulderingDirtFeature;
+import net.regions_unexplored.world.level.feature.WaterCattailFeature;
+import net.regions_unexplored.world.level.feature.WaterEdgeFeature;
+import net.regions_unexplored.world.level.feature.bioshroom.GiantBlueBioshroomFeature;
+import net.regions_unexplored.world.level.feature.bioshroom.GiantGreenBioshroomFeature;
+import net.regions_unexplored.world.level.feature.bioshroom.GiantPinkBioshroomFeature;
+import net.regions_unexplored.world.level.feature.bioshroom.GiantYellowBioshroomFeature;
+import net.regions_unexplored.world.level.feature.configuration.FallenTreeConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.GiantBioshroomConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.HyacinthStockConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.LargePointedRedstoneConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.PointedRedstoneClusterConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.PointedRedstoneConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.RuTreeConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.SeaRockConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.ShrubConfiguration;
+import net.regions_unexplored.world.level.feature.tree.AshenTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.AspenTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.BambooTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.BlackwoodTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.CobaltShrubFeature;
+import net.regions_unexplored.world.level.feature.tree.CypressTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.DeadTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.EucalyptusTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.GiantCypressTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.IceSpireFeature;
+import net.regions_unexplored.world.level.feature.tree.KapokTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.LarchTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.LargeJoshuaTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.LargeSocotraTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.LushPineTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.MapleTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.MediumJoshuaTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.MegaBaobabTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.PalmTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.PineTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.RedwoodTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.SaguaroCactusFeature;
+import net.regions_unexplored.world.level.feature.tree.SakuraTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.SmallEucalyptusTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.SmallJoshuaTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.SmallOakTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.SmallSocotraTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.StrippedPineTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.SuperRedwoodTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.TreeShrubFeature;
+import net.regions_unexplored.world.level.feature.tree.UltraBaobabTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.UltraRedwoodTreeFeature;
+import net.regions_unexplored.world.level.feature.tree.YellowBioshroomShrubFeature;
+import net.regions_unexplored.world.level.feature.tree.nether.BrimWillowFeature;
+import net.regions_unexplored.world.level.feature.tree.nether.TallBrimWillowFeature;
 
 public class FeatureRegistry {
-    //BIOSHROOMS
-    public static Supplier<Feature> GIANT_BLUE_BIOSHROOM;
-    public static Supplier<Feature> GIANT_GREEN_BIOSHROOM;
-    public static Supplier<Feature> GIANT_PINK_BIOSHROOM;
-    public static Supplier<Feature> GIANT_YELLOW_BIOSHROOM;
-    public static Supplier<Feature> SMALL_YELLOW_BIOSHROOM;
-    //TREES
-    public static Supplier<Feature> ASHEN_TREE;
-    public static Supplier<Feature> ASPEN_TREE;
-    public static Supplier<Feature> BAMBOO_TREE;
-    public static Supplier<Feature> MEGA_BAOBAB_TREE;
-    public static Supplier<Feature> ULTRA_BAOBAB_TREE;
-    public static Supplier<Feature> BLACKWOOD_TREE;
-    public static Supplier<Feature> COBALT_TREE;
-    public static Supplier<Feature> CYPRESS_TREE;
-    public static Supplier<Feature> DEAD_TREE;
-    public static Supplier<Feature> SMALL_EUCALYPTUS_TREE;
-    public static Supplier<Feature> EUCALYPTUS_TREE;
-    public static Supplier<Feature> GIANT_CYPRESS_TREE;
-    public static Supplier<Feature> LARCH_TREE;
-    public static Supplier<Feature> LARGE_JOSHUA_TREE;
-    public static Supplier<Feature> KAPOK_TREE;
-    public static Supplier<Feature> MAPLE_TREE;
-    public static Supplier<Feature> MEDIUM_JOSHUA_TREE;
-    public static Supplier<Feature> PALM_TREE;
-    public static Supplier<Feature> LUSH_PINE_TREE;
-    public static Supplier<Feature> PINE_TREE;
-    public static Supplier<Feature> SMALL_JOSHUA_TREE;
-    public static Supplier<Feature> SMALL_OAK_TREE;
-    public static Supplier<Feature> STRIPPED_PINE_TREE;
-    public static Supplier<Feature> REDWOOD_TREE;
-    public static Supplier<Feature> SAGUARO_CACTUS;
-    public static Supplier<Feature> SAKURA_TREE;
-    public static Supplier<Feature> LARGE_SOCOTRA_TREE;
-    public static Supplier<Feature> SMALL_SOCOTRA_TREE;
-    public static Supplier<Feature> SUPER_REDWOOD_TREE;
-    public static Supplier<Feature> ULTRA_REDWOOD_TREE;
-    //CAVE
-    public static Supplier<Feature> POINTED_REDSTONE;
-    public static Supplier<Feature> LARGE_POINTED_REDSTONE;
-    public static Supplier<Feature> POINTED_REDSTONE_CLUSTER;
-    public static Supplier<Feature> HANGING_PRISMARITE;
-    public static Supplier<Feature> DROPLEAF;
-    public static Supplier<Feature> BASALT_BLOB;
-    public static Supplier<Feature> ASH_VENT;
-    public static Supplier<Feature> LAVA_FALL;
-    public static Supplier<Feature> OVERWORLD_LAVA_DELTA;
-    //NETHER
-    public static Supplier<Feature> BRIM_WILLOW;
-    public static Supplier<Feature> TALL_BRIM_WILLOW;
-    //VEGETATION
-    public static Supplier<Feature> SHRUB;
-    public static Supplier<Feature> TREE_SHRUB;
-    public static Supplier<Feature> GIANT_LILY;
-    //DECORATION
-    public static Supplier<Feature> ICICLE_UP;
-    public static Supplier<Feature> AIR_MULTIFACE_GROWTH;
-    public static Supplier<Feature> FALLEN_BLOB_TREE;
-    public static Supplier<Feature> FALLEN_SNOW_TREE;
-    public static Supplier<Feature> SMOULDERING_DIRT;
-    public static Supplier<Feature> MEADOW_ROCK;
-    public static Supplier<Feature> ROCK;
-    public static Supplier<Feature> SPIRE;
-    //AQUATIC
-    public static Supplier<Feature> MARSH;
-    public static Supplier<Feature> WATER_EDGE;
-    public static Supplier<Feature> FEN_CATTAIL;
-    public static Supplier<Feature> WATER_CATTAIL;
-    public static Supplier<Feature> ROCK_PILLAR;
-    public static Supplier<Feature> TALL_HYACINTH_STOCK;
-    public static Supplier<Feature> HYACINTH_PLANTS;
-    public static Supplier<Feature> OCEAN_ROCK;
-    //NETHER
-    public static Supplier<Feature> NETHER_ROCK;
-    public static Supplier<Feature> GLISTERING_IVY;
-    public static Supplier<Feature> HANGING_EARLIGHT;
-    public static Supplier<Feature> OBSIDIAN_SPIRE;
+    public static Supplier<Feature<GiantBioshroomConfiguration>> GIANT_BLUE_BIOSHROOM;
+    public static Supplier<Feature<GiantBioshroomConfiguration>> GIANT_GREEN_BIOSHROOM;
+    public static Supplier<Feature<GiantBioshroomConfiguration>> GIANT_PINK_BIOSHROOM;
+    public static Supplier<Feature<GiantBioshroomConfiguration>> GIANT_YELLOW_BIOSHROOM;
+    public static Supplier<Feature<NoneFeatureConfiguration>> SMALL_YELLOW_BIOSHROOM;
+    public static Supplier<Feature<RuTreeConfiguration>> ASHEN_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> ASPEN_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> BAMBOO_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> MEGA_BAOBAB_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> ULTRA_BAOBAB_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> BLACKWOOD_TREE;
+    public static Supplier<Feature<NoneFeatureConfiguration>> COBALT_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> CYPRESS_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> DEAD_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> SMALL_EUCALYPTUS_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> EUCALYPTUS_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> GIANT_CYPRESS_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> LARCH_TREE;
+    public static Supplier<Feature<NoneFeatureConfiguration>> LARGE_JOSHUA_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> KAPOK_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> MAPLE_TREE;
+    public static Supplier<Feature<NoneFeatureConfiguration>> MEDIUM_JOSHUA_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> PALM_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> LUSH_PINE_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> PINE_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> SMALL_JOSHUA_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> SMALL_OAK_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> STRIPPED_PINE_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> REDWOOD_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> SAGUARO_CACTUS;
+    public static Supplier<Feature<RuTreeConfiguration>> SAKURA_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> LARGE_SOCOTRA_TREE;
+    public static Supplier<Feature<NoneFeatureConfiguration>> SMALL_SOCOTRA_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> SUPER_REDWOOD_TREE;
+    public static Supplier<Feature<RuTreeConfiguration>> ULTRA_REDWOOD_TREE;
+    public static Supplier<Feature<PointedRedstoneConfiguration>> POINTED_REDSTONE;
+    public static Supplier<Feature<LargePointedRedstoneConfiguration>> LARGE_POINTED_REDSTONE;
+    public static Supplier<Feature<PointedRedstoneClusterConfiguration>> POINTED_REDSTONE_CLUSTER;
+    public static Supplier<Feature<NoneFeatureConfiguration>> HANGING_PRISMARITE;
+    public static Supplier<Feature<ColumnFeatureConfiguration>> BASALT_BLOB;
+    public static Supplier<Feature<NoneFeatureConfiguration>> ASH_VENT;
+    public static Supplier<Feature<NoneFeatureConfiguration>> LAVA_FALL;
+    public static Supplier<Feature<VegetationPatchConfiguration>> OVERWORLD_LAVA_DELTA;
+    public static Supplier<Feature<NoneFeatureConfiguration>> BRIM_WILLOW;
+    public static Supplier<Feature<NoneFeatureConfiguration>> TALL_BRIM_WILLOW;
+    public static Supplier<Feature<ShrubConfiguration>> SHRUB;
+    public static Supplier<Feature<RuTreeConfiguration>> TREE_SHRUB;
+    public static Supplier<Feature<NoneFeatureConfiguration>> GIANT_LILY;
+    public static Supplier<Feature<NoneFeatureConfiguration>> ICICLE_UP;
+    public static Supplier<Feature<MultifaceGrowthConfiguration>> AIR_MULTIFACE_GROWTH;
+    public static Supplier<Feature<FallenTreeConfiguration>> FALLEN_BLOB_TREE;
+    public static Supplier<Feature<FallenTreeConfiguration>> FALLEN_SNOW_TREE;
+    public static Supplier<Feature<NoneFeatureConfiguration>> SMOULDERING_DIRT;
+    public static Supplier<Feature<NoneFeatureConfiguration>> MEADOW_ROCK;
+    public static Supplier<Feature<NoneFeatureConfiguration>> ROCK;
+    public static Supplier<Feature<RuTreeConfiguration>> SPIRE;
+    public static Supplier<Feature<NoneFeatureConfiguration>> MARSH;
+    public static Supplier<Feature<NoneFeatureConfiguration>> WATER_EDGE;
+    public static Supplier<Feature<NoneFeatureConfiguration>> FEN_CATTAIL;
+    public static Supplier<Feature<NoneFeatureConfiguration>> WATER_CATTAIL;
+    public static Supplier<Feature<NoneFeatureConfiguration>> ROCK_PILLAR;
+    public static Supplier<Feature<HyacinthStockConfiguration>> TALL_HYACINTH_STOCK;
+    public static Supplier<Feature<ProbabilityFeatureConfiguration>> HYACINTH_PLANTS;
+    public static Supplier<Feature<SeaRockConfiguration>> OCEAN_ROCK;
+    public static Supplier<Feature<NoneFeatureConfiguration>> NETHER_ROCK;
+    public static Supplier<Feature<NoneFeatureConfiguration>> GLISTERING_IVY;
+    public static Supplier<Feature<NoneFeatureConfiguration>> HANGING_EARLIGHT;
+    public static Supplier<Feature<NoneFeatureConfiguration>> OBSIDIAN_SPIRE;
+
+    public FeatureRegistry() {
+    }
 
     public static void addFeatures() {
-        //BIOSHROOMS
         GIANT_BLUE_BIOSHROOM = register("giant_blue_bioshroom", () -> new GiantBlueBioshroomFeature(GiantBioshroomConfiguration.CODEC));
         GIANT_GREEN_BIOSHROOM = register("giant_green_bioshroom", () -> new GiantGreenBioshroomFeature(GiantBioshroomConfiguration.CODEC));
         GIANT_PINK_BIOSHROOM = register("giant_pink_bioshroom", () -> new GiantPinkBioshroomFeature(GiantBioshroomConfiguration.CODEC));
         GIANT_YELLOW_BIOSHROOM = register("giant_yellow_bioshroom", () -> new GiantYellowBioshroomFeature(GiantBioshroomConfiguration.CODEC));
         SMALL_YELLOW_BIOSHROOM = register("small_yellow_bioshroom", () -> new YellowBioshroomShrubFeature(NoneFeatureConfiguration.CODEC));
-        //TREES
         ASHEN_TREE = register("ashen_tree", () -> new AshenTreeFeature(RuTreeConfiguration.CODEC));
         ASPEN_TREE = register("aspen_tree", () -> new AspenTreeFeature(RuTreeConfiguration.CODEC));
         BAMBOO_TREE = register("bamboo_tree", () -> new BambooTreeFeature(RuTreeConfiguration.CODEC));
@@ -128,24 +196,19 @@ public class FeatureRegistry {
         ULTRA_REDWOOD_TREE = register("ultra_redwood_tree", () -> new UltraRedwoodTreeFeature(RuTreeConfiguration.CODEC));
         MEGA_BAOBAB_TREE = register("mega_baobab_tree", () -> new MegaBaobabTreeFeature(RuTreeConfiguration.CODEC));
         ULTRA_BAOBAB_TREE = register("ultra_baobab_tree", () -> new UltraBaobabTreeFeature(RuTreeConfiguration.CODEC));
-        //CAVE
         POINTED_REDSTONE = register("pointed_redstone", () -> new PointedRedstoneFeature(PointedRedstoneConfiguration.CODEC));
         LARGE_POINTED_REDSTONE = register("large_pointed_redstone", () -> new LargePointedRedstoneFeature(LargePointedRedstoneConfiguration.CODEC));
         POINTED_REDSTONE_CLUSTER = register("pointed_redstone_cluster", () -> new PointedRedstoneClusterFeature(PointedRedstoneClusterConfiguration.CODEC));
         HANGING_PRISMARITE = register("hanging_prismarite", () -> new HangingPrismariteFeature(NoneFeatureConfiguration.CODEC));
-        DROPLEAF = register("dropleaf", () -> new DropleafFeature(NoneFeatureConfiguration.CODEC));
         BASALT_BLOB = register("basalt_blob", () -> new BasaltBlobFeature(ColumnFeatureConfiguration.CODEC));
         ASH_VENT = register("scorch_vent", () -> new AshVentFeature(NoneFeatureConfiguration.CODEC));
         LAVA_FALL = register("lava_fall", () -> new LavaFallFeature(NoneFeatureConfiguration.CODEC));
         OVERWORLD_LAVA_DELTA = register("overworld_lava_delta", () -> new LavaDeltaFeature(VegetationPatchConfiguration.CODEC));
-        //NETHER
         BRIM_WILLOW = register("brim_willow", () -> new BrimWillowFeature(NoneFeatureConfiguration.CODEC));
         TALL_BRIM_WILLOW = register("tall_brim_willow", () -> new TallBrimWillowFeature(NoneFeatureConfiguration.CODEC));
-        //VEGETATION
         SHRUB = register("shrub", () -> new ShrubFeature(ShrubConfiguration.CODEC));
         TREE_SHRUB = register("tree_shrub", () -> new TreeShrubFeature(RuTreeConfiguration.CODEC));
         GIANT_LILY = register("giant_lily", () -> new GiantLilyPadFeature(NoneFeatureConfiguration.CODEC));
-        //DECORATION
         ICICLE_UP = register("icicle_up", () -> new FloorIcicleFeature(NoneFeatureConfiguration.CODEC));
         AIR_MULTIFACE_GROWTH = register("air_multiface_growth", () -> new AirMultifaceGrowthFeature(MultifaceGrowthConfiguration.CODEC));
         FALLEN_BLOB_TREE = register("fallen_blob_tree", () -> new FallenBlobTreeFeature(FallenTreeConfiguration.CODEC));
@@ -154,7 +217,6 @@ public class FeatureRegistry {
         MEADOW_ROCK = register("meadow_rock", () -> new MeadowRockFeature(NoneFeatureConfiguration.CODEC));
         ROCK = register("rock", () -> new RockFeature(NoneFeatureConfiguration.CODEC));
         SPIRE = register("spire", () -> new IceSpireFeature(RuTreeConfiguration.CODEC));
-        //AQUATIC
         MARSH = register("marsh", () -> new MarshFeature(NoneFeatureConfiguration.CODEC));
         WATER_EDGE = register("water_edge", () -> new WaterEdgeFeature(NoneFeatureConfiguration.CODEC));
         FEN_CATTAIL = register("fen_cattail", () -> new FenCattailFeature(NoneFeatureConfiguration.CODEC));
@@ -163,15 +225,13 @@ public class FeatureRegistry {
         TALL_HYACINTH_STOCK = register("tall_hyacinth_stock", () -> new HyacinthStockFeature(HyacinthStockConfiguration.CODEC));
         HYACINTH_PLANTS = register("hyacinth_plants", () -> new HyacinthPlantsFeature(ProbabilityFeatureConfiguration.CODEC));
         OCEAN_ROCK = register("ocean_rock", () -> new SeaRockFeature(SeaRockConfiguration.CODEC));
-        //NETHER
         NETHER_ROCK = register("nether_rock", () -> new NetherRockFeature(NoneFeatureConfiguration.CODEC));
         GLISTERING_IVY = register("glistering_ivy", () -> new GlisteringIvyFeature(NoneFeatureConfiguration.CODEC));
         HANGING_EARLIGHT = register("hanging_earlight", () -> new HangingEarlightFeature(NoneFeatureConfiguration.CODEC));
         OBSIDIAN_SPIRE = register("obsidian_spire", () -> new ObsidianSpireFeature(NoneFeatureConfiguration.CODEC));
     }
 
-
-    private static <FC extends FeatureConfiguration> Supplier<Feature> register(String path, Supplier<Feature> feature) {
-       return Services.REGISTAR.registerFeature(path, feature);
+    private static <FC extends FeatureConfiguration> Supplier<Feature<FC>> register(String path, Supplier<Feature<FC>> feature) {
+        return Registar.registerFeature(path, feature);
     }
 }
