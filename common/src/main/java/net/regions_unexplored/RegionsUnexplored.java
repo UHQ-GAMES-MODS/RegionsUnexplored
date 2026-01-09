@@ -6,7 +6,7 @@ import net.regions_unexplored.block.compat.BlockToolCompat;
 import net.regions_unexplored.block.compat.FlammableBlocks;
 import net.regions_unexplored.client.particle.RuParticleTypes;
 import net.regions_unexplored.config.RuClientConfig;
-import net.regions_unexplored.config.RuCommonConfigNew;
+import net.regions_unexplored.config.RuCommonConfig;
 import net.regions_unexplored.entity.RuEntities;
 import net.regions_unexplored.internal.config.Config;
 import net.regions_unexplored.internal.config.ConfigManager;
@@ -40,7 +40,7 @@ public class RegionsUnexplored {
         Constants.LOG.info("Initializing Regions Unexplored from %s entrypoint.".formatted(initializedFrom));
 
         registerConfig("regions unexplored/regions_unexplored-client", "Client", RuClientConfig.class);
-        registerConfig("regions unexplored/regions_unexplored-common", "Common", RuCommonConfigNew.class);
+        registerConfig("regions unexplored/regions_unexplored-common", "Common", RuCommonConfig.class);
 
         FeatureRegistry.addFeatures();
         RuParticleTypes.addParticles();

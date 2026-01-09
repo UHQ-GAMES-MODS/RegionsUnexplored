@@ -9,7 +9,6 @@ import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.regions_unexplored.client.particle.RuParticleTypes;
 import net.regions_unexplored.config.RuClientConfig;
-import net.regions_unexplored.config.RuCommonConfig;
 
 public class OrangeMapleLeavesBlock extends LeavesBlock {
    public OrangeMapleLeavesBlock(Properties p_273704_) {

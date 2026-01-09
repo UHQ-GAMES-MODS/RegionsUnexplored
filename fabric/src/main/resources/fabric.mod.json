@@ -41,8 +41,7 @@
         "fabric-api": "*",
         "minecraft": ">=${minecraft_version}",
         "java": ">=${java_version}",
-        "terrablender": ">=${terrablender_version}",
-        "forgeconfigapiport": ">=21"
+        "terrablender": ">=${terrablender_version}"
     }
 }
   
