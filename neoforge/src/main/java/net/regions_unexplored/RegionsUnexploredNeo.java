@@ -5,6 +5,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
@@ -12,6 +13,8 @@ import net.regions_unexplored.client.RegionsUnexploredClient;
 import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.block.set.WoodSet;
+import net.regions_unexplored.config.RuPrimaryRegionConfig;
+import net.regions_unexplored.config.RuSecondaryRegionConfig;
 import net.regions_unexplored.internal.config.gui.ConfigSelectionScreen;
 import net.regions_unexplored.platform.NeoForgeRegistar;
 import net.regions_unexplored.registry.BiomeRegistry;
@@ -28,6 +31,8 @@ public class RegionsUnexploredNeo {
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
         bus.addListener(this::setupBlockEntities);
+
+        registerConfig(container);
 
         RegionsUnexplored.init("Forge Mod Initializer");
 
@@ -71,5 +76,11 @@ public class RegionsUnexploredNeo {
             //PottedPlants.setup();
             RegionsUnexplored.afterRegistriesFreeze();
         });
+    }
+
+    private void registerConfig(ModContainer container){
+//        container.registerConfig(ModConfig.Type.COMMON, RuCommonConfig.SPEC, "regions_unexplored/regions_unexplored-common.toml");
+        container.registerConfig(ModConfig.Type.COMMON, RuPrimaryRegionConfig.SPEC, "regions_unexplored/regions_unexplored-primary-region.toml");
+        container.registerConfig(ModConfig.Type.COMMON, RuSecondaryRegionConfig.SPEC, "regions_unexplored/regions_unexplored-secondary-region.toml");
     }
 }
