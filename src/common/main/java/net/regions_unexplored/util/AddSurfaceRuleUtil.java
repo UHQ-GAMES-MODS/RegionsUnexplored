@@ -23,6 +23,7 @@ import net.regions_unexplored.mixin.access.NoiseGeneratorSettingsAccess;
  */
 public class AddSurfaceRuleUtil {
     public static void appendSurfaceRule(RegistryAccess registryAccess, ResourceKey<LevelStem> levelStemKey, SurfaceRules.RuleSource ruleSource) {
+        /*
         LevelStem levelStem = registryAccess.registryOrThrow(Registries.LEVEL_STEM).get(levelStemKey);
         if (levelStem == null) {
             RegionsUnexplored.LOGGER.info("Error, LevelStem is somehow empty. Fix this!! >:(");
@@ -46,5 +47,6 @@ public class AddSurfaceRuleUtil {
 
         MapCodec<? extends BiomeSource> biomeSourceCodec = ((BiomeSourceAccess) chunkGenerator.getBiomeSource()).regions_unexplored$invokeCodec();
         RegionsUnexplored.LOGGER.info(String.format("Loading dimension \"%s\" with biome source: \"%s\".", levelStemKey.location(), BuiltInRegistries.BIOME_SOURCE.getKey(biomeSourceCodec).toString()));
+        */
     }
 }

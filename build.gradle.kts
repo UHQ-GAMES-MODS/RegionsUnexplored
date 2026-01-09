@@ -56,7 +56,7 @@ cloche {
 
         dependencies {
             compileOnly("org.spongepowered:mixin:0.8.5")
-            compileOnly("com.github.glitchfiend:TerraBlender-common:1.21.1-4.1.0.8")
+            modCompileOnly("com.terraformersmc:biolith-neoforge:3.0.10")
             api("fuzs.forgeconfigapiport:forgeconfigapiport-common-neoforgeapi:21.1.6")
         }
 
@@ -65,7 +65,7 @@ cloche {
         metadata {
             dependencies {
                 dependency {
-                    modId = "terrablender"
+                    modId = "biolith"
                 }
             }
         }
@@ -79,8 +79,9 @@ cloche {
 
         dependencies {
             fabricApi("0.116.1")
-            modImplementation("com.github.glitchfiend:TerraBlender-fabric:1.21.1-4.1.0.8")
+            modApi("com.terraformersmc:biolith-fabric:3.0.10")
             modApi("fuzs.forgeconfigapiport:forgeconfigapiport-fabric:21.1.6")
+            modImplementation("maven.modrinth:world-preview:qc0AtV3T")
             modImplementation("maven.modrinth:lithostitched:1.5.2-fabric-1.21.1")
 
             modImplementation("com.terraformersmc:modmenu:11.0.3")
@@ -100,9 +101,6 @@ cloche {
             entrypoint("main") {
                 value = "net.regions_unexplored.RegionsUnexploredFabric"
             }
-            entrypoint("terrablender") {
-                value = "net.regions_unexplored.RegionsUnexploredFabric"
-            }
             entrypoint("client") {
                 value = "net.regions_unexplored.client.RegionsUnexploredFabricClient"
             }
@@ -114,7 +112,7 @@ cloche {
         minecraftVersion = "1.21.1"
 
         dependencies {
-            modImplementation("com.github.glitchfiend:TerraBlender-neoforge:1.21.1-4.1.0.8")
+            modApi("com.terraformersmc:biolith-neoforge:3.0.10")
             modImplementation("maven.modrinth:lithostitched:1.5.2-neoforge-1.21.1")
         }
 

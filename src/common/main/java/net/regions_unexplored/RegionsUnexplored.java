@@ -11,10 +11,10 @@ import net.regions_unexplored.item.RuItems;
 import net.regions_unexplored.item.tab.RuTabs;
 import net.regions_unexplored.registry.BiomeRegistry;
 import net.regions_unexplored.registry.FeatureRegistry;
+import net.regions_unexplored.world.RuBiolith;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import terrablender.api.SurfaceRuleManager;
 
 public class RegionsUnexplored {
 	public static final String MOD_ID = "regions_unexplored";
@@ -22,12 +22,6 @@ public class RegionsUnexplored {
 
 	@Nullable
 	private static String initializedFrom = null;
-
-
-	public static SurfaceRules.RuleSource getSurfaceRules(SurfaceRules.RuleSource fallBack) {
-		return SurfaceRuleManager.getNamespacedRules(SurfaceRuleManager.RuleCategory.NETHER, fallBack);
-	}
-
 
 	// We do this because terrablender might load before us or after us, so this catches both cases.
 	public static void init(String from) {
@@ -53,6 +47,8 @@ public class RegionsUnexplored {
 		BlockToolCompat.setup();
 		//CompostableBlocks.setup();
 		FlammableBlocks.setup();
+
+		RuBiolith.init();
 	}
 
 	public static ResourceLocation id(String path) {

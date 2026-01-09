@@ -70,11 +70,7 @@ public class RegionsUnexploredNeo {
     //set up non-client side features
     @SubscribeEvent
     private void commonSetup(FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-            BiomeRegistry.setupTerrablender();
-            //PottedPlants.setup();
-            RegionsUnexplored.afterRegistriesFreeze();
-        });
+        event.enqueueWork(RegionsUnexplored::afterRegistriesFreeze);
     }
 
     private void registerConfig(ModContainer container){

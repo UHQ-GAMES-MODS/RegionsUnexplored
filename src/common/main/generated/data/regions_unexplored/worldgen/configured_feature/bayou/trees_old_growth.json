@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "regions_unexplored:giant_cypress_tree",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.4,
+        "feature": {
+          "feature": "regions_unexplored:cypress_tree",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

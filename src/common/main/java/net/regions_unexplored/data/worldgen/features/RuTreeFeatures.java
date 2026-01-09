@@ -1,8 +1,7 @@
 package net.regions_unexplored.data.worldgen.features;
 
 import com.google.common.collect.ImmutableList;
-import net.minecraft.core.HolderGetter;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
@@ -10,14 +9,15 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.util.valueproviders.WeightedListInt;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.HugeMushroomBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.HugeMushroomFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.ThreeLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
@@ -27,6 +27,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStatePr
 import net.minecraft.world.level.levelgen.feature.treedecorators.BeehiveDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.LeaveVineDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.*;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.registry.ConfiguredFeatureRegistry;
 import net.regions_unexplored.registry.FeatureRegistry;
@@ -41,6 +42,8 @@ import net.regions_unexplored.world.level.feature.configuration.RuTreeConfigurat
 
 import java.util.List;
 import java.util.OptionalInt;
+
+import static net.regions_unexplored.registry.ConfiguredFeatureRegistry.createKey;
 
 public class RuTreeFeatures {
     //-----------------------KEYS-----------------------//
@@ -185,8 +188,10 @@ public class RuTreeFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BIG_WILLOW_TREE = ConfiguredFeatureRegistry.createKey("big_willow_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_TREE_VINES = ConfiguredFeatureRegistry.createKey("willow_tree_vines");
 
+    public static final ResourceKey<ConfiguredFeature<?,?>> TREES_OLD_GROWTH_BAYOU = createKey("bayou/trees_old_growth");
+
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
-        HolderGetter<Block> holderGetter = context.lookup(Registries.BLOCK);
+
         register(context, GIANT_BLUE_BIOSHROOM, FeatureRegistry.GIANT_BLUE_BIOSHROOM.get(), new GiantBioshroomConfiguration(BlockStateProvider.simple(RuBlocks.BLUE_BIOSHROOM_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RuBlocks.BLUE_BIOSHROOM_BLOCK.get().defaultBlockState()), BlockStateProvider.simple(RuBlocks.GLOWING_BLUE_BIOSHROOM_BLOCK.get().defaultBlockState()), 7, 7));
         register(context, GIANT_GREEN_BIOSHROOM, FeatureRegistry.GIANT_GREEN_BIOSHROOM.get(), new GiantBioshroomConfiguration(BlockStateProvider.simple(RuBlocks.GREEN_BIOSHROOM_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RuBlocks.GREEN_BIOSHROOM_BLOCK.get().defaultBlockState()), BlockStateProvider.simple(RuBlocks.GLOWING_GREEN_BIOSHROOM_BLOCK.get().defaultBlockState()), 8, 5));
         register(context, GIANT_PINK_BIOSHROOM, FeatureRegistry.GIANT_PINK_BIOSHROOM.get(), new GiantBioshroomConfiguration(BlockStateProvider.simple(RuBlocks.PINK_BIOSHROOM_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RuBlocks.PINK_BIOSHROOM_BLOCK.get().defaultBlockState()), BlockStateProvider.simple(RuBlocks.GLOWING_PINK_BIOSHROOM_BLOCK.get().defaultBlockState()), 7, 8));
@@ -234,8 +239,14 @@ public class RuTreeFeatures {
         register(context, BIG_PINK_MAGNOLIA_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(RuBlocks.MAGNOLIA_WOOD_SET.getLog().defaultBlockState()),new FancyTrunkPlacer(8, 11, 0),BlockStateProvider.simple(RuBlocks.PINK_MAGNOLIA_NATURAL_SET.getLeaves().defaultBlockState()),new SakuraFoliagePlacer(ConstantInt.of(4), ConstantInt.of(0), ConstantInt.of(5), 0.25F), new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(4))).ignoreVines().build());
         register(context, BIG_WHITE_MAGNOLIA_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(RuBlocks.MAGNOLIA_WOOD_SET.getLog().defaultBlockState()),new FancyTrunkPlacer(8, 11, 0),BlockStateProvider.simple(RuBlocks.WHITE_MAGNOLIA_NATURAL_SET.getLeaves().defaultBlockState()),new SakuraFoliagePlacer(ConstantInt.of(4), ConstantInt.of(0), ConstantInt.of(5), 0.25F), new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(4))).ignoreVines().build());
 
-        register(context, CYPRESS_TREE, FeatureRegistry.CYPRESS_TREE.get(), new RuTreeConfiguration(BlockStateProvider.simple(RuBlocks.CYPRESS_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RuBlocks.CYPRESS_NATURAL_SET.getLeaves().defaultBlockState()), BlockStateProvider.simple(RuBlocks.CYPRESS_NATURAL_SET.getBranch().defaultBlockState()), 17, 4));
-        register(context, GIANT_CYPRESS_TREE, FeatureRegistry.GIANT_CYPRESS_TREE.get(), new RuTreeConfiguration(BlockStateProvider.simple(RuBlocks.CYPRESS_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RuBlocks.CYPRESS_NATURAL_SET.getLeaves().defaultBlockState()), BlockStateProvider.simple(RuBlocks.CYPRESS_NATURAL_SET.getBranch().defaultBlockState()), 25, 5));
+        var cypress = register(context, CYPRESS_TREE, FeatureRegistry.CYPRESS_TREE.get(), new RuTreeConfiguration(BlockStateProvider.simple(RuBlocks.CYPRESS_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RuBlocks.CYPRESS_NATURAL_SET.getLeaves().defaultBlockState()), BlockStateProvider.simple(RuBlocks.CYPRESS_NATURAL_SET.getBranch().defaultBlockState()), 17, 4));
+        var giantCypress = register(context, GIANT_CYPRESS_TREE, FeatureRegistry.GIANT_CYPRESS_TREE.get(), new RuTreeConfiguration(BlockStateProvider.simple(RuBlocks.CYPRESS_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RuBlocks.CYPRESS_NATURAL_SET.getLeaves().defaultBlockState()), BlockStateProvider.simple(RuBlocks.CYPRESS_NATURAL_SET.getBranch().defaultBlockState()), 25, 5));
+        register(context, TREES_OLD_GROWTH_BAYOU, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(
+            List.of(
+                new WeightedPlacedFeature(Holder.direct(new PlacedFeature(cypress, List.of())), 0.4f)
+            ),
+            Holder.direct(new PlacedFeature(giantCypress, List.of()))
+        ));
 
         register(context, CHERRY_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(Blocks.CHERRY_LOG), new CherryTrunkPlacer(7, 1, 0, new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder().add(ConstantInt.of(1), 1).add(ConstantInt.of(2), 1).add(ConstantInt.of(3), 1).build()), UniformInt.of(2, 4), UniformInt.of(-4, -3), UniformInt.of(-1, 0)), BlockStateProvider.simple(Blocks.CHERRY_LEAVES), new CherryFoliagePlacer(ConstantInt.of(4), ConstantInt.of(0), ConstantInt.of(5), 0.25F, 0.5F, 0.16666667F, 0.33333334F), new TwoLayersFeatureSize(1, 0, 2)).ignoreVines().build());
 
@@ -331,7 +342,7 @@ public class RuTreeFeatures {
 
     }
 
-    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC config) {
-        context.register(key, new ConfiguredFeature<>(feature, config));
+    private static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder.Reference<ConfiguredFeature<?, ?>> register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC config) {
+        return context.register(key, new ConfiguredFeature<>(feature, config));
     }
 }

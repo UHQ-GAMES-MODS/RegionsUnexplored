@@ -12,6 +12,5 @@ public class RegionsUnexploredFabricClient implements ClientModInitializer {
         RuParticles.init();
         RuColors.tintBlocks();
         RuColors.tintItems();
-        RegionsUnexploredFabric.afterRegistriesFreeze();
     }
 }

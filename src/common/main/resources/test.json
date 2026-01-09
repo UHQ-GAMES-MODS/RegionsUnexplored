@@ -1,0 +1,14 @@
+{
+  "biome_placements": [
+    {
+      "biome": "regions_unexplored:mycotoxic_undergrowth",
+      "replaces": "minecraft:nether_wastes",
+      "percentage": 0.4
+    },
+    {
+      "biome": "regions_unexplored:glistering_meadow",
+      "replaces": "minecraft:crimson_forest",
+      "percentage": 0.4
+    }
+  ]
+}
