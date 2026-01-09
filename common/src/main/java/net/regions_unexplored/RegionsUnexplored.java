@@ -8,8 +8,6 @@ import net.regions_unexplored.block.entity.RuBlockEntities;
 import net.regions_unexplored.client.particle.RuParticleTypes;
 import net.regions_unexplored.config.RuClientConfig;
 import net.regions_unexplored.config.RuCommonConfigNew;
-import net.regions_unexplored.config.RuPrimaryRegionConfigNew;
-import net.regions_unexplored.config.RuSecondaryRegionConfigNew;
 import net.regions_unexplored.entity.RuEntities;
 import net.regions_unexplored.internal.config.Config;
 import net.regions_unexplored.internal.config.ConfigManager;
@@ -44,11 +42,6 @@ public class RegionsUnexplored {
 
         registerConfig("regions unexplored/regions_unexplored-client", "Client", RuClientConfig.class);
         registerConfig("regions unexplored/regions_unexplored-common", "Common", RuCommonConfigNew.class);
-
-        if (RuCommonConfigNew.TOGGLE_CUSTOM_REGIONS.get()) {
-            registerConfig("regions unexplored/custom/regions_unexplored-primary-region", "Primary region", RuPrimaryRegionConfigNew.class);
-            registerConfig("regions unexplored/custom/regions_unexplored-secondary-region", "Secondary region", RuSecondaryRegionConfigNew.class);
-        }
 
         FeatureRegistry.addFeatures();
         RuParticleTypes.addParticles();
