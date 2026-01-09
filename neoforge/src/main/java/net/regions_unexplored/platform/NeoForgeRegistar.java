@@ -47,15 +47,8 @@ public class NeoForgeRegistar implements IRegistar {
 
     @SuppressWarnings("unchecked")
     @Override
-    public <FC extends FeatureConfiguration> Supplier<Feature> registerFeature(String name, Supplier<Feature> value) {
+    public Supplier<Feature> registerFeature(String name, Supplier<Feature> value) {
         return CACHE.computeIfAbsent(BuiltInRegistries.FEATURE.key(), resourceKey -> DeferredRegister.create(BuiltInRegistries.FEATURE, Constants.MOD_ID)).register(name, value);
-
-    }
-
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T extends BlockEntity> Supplier<BlockEntityType> registerBlockEntity(String path, Supplier<BlockEntityType> type) {
-        return CACHE.computeIfAbsent(BuiltInRegistries.BLOCK_ENTITY_TYPE.key(), resourceKey -> DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Constants.MOD_ID)).register(path, type);
     }
 
     @SuppressWarnings("unchecked")
@@ -66,16 +59,14 @@ public class NeoForgeRegistar implements IRegistar {
 
     @SuppressWarnings("unchecked")
     @Override
-    public Supplier<CreativeModeTab> registerCreativeModeTab(String path, Supplier<ItemStack> icon, Supplier<List<Item>> items) {
+    public Supplier<CreativeModeTab> registerCreativeModeTab(String path, Supplier<ItemStack> icon, Supplier<CreativeModeTab.DisplayItemsGenerator> items) {
         return CACHE.computeIfAbsent(BuiltInRegistries.CREATIVE_MODE_TAB.key(), resourceKey -> DeferredRegister.create(BuiltInRegistries.CREATIVE_MODE_TAB, Constants.MOD_ID)).register(path, () -> CreativeModeTab.builder()
                 .title(Component.translatable("itemGroup." + Constants.MOD_ID + "." + path))
                 .hideTitle()
                 .backgroundTexture(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "textures/gui/container/creative_inventory/tab_regions_unexplored_search.png"))
                 .withSearchBar(58)
                 .icon(icon)
-                .displayItems((context, entries) -> {
-                        items.get().forEach(entries::accept);
-                })
+                .displayItems(items.get())
                 .withSearchBar()
                 .build()
         );

@@ -1,86 +1,34 @@
 package net.regions_unexplored.block.compat;
 
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.block.set.WoodSet;
 
 import static net.regions_unexplored.util.BlockCompatUtil.*;
 
 public class BlockToolCompat {
     public static void setup() {
-        //StripBlocks
+        // TODO: For 26.1 port, replace with `strippables` data map on Neo
+        for (WoodSet set : RuBlocks.WOOD_SETS) {
+            Block log = set.getLog();
+            Block strippedLog = set.getStrippedLog();
+            if (log != null && strippedLog != null) {
+                registerStrippableBlock(log, strippedLog);
+            }
 
-        registerStrippableBlock(RuBlocks.ASHEN_LOG.get(), RuBlocks.STRIPPED_DEAD_LOG.get());
-        registerStrippableBlock(RuBlocks.ASHEN_WOOD.get(), RuBlocks.STRIPPED_DEAD_WOOD.get());
-
-        registerStrippableBlock(RuBlocks.SILVER_BIRCH_LOG.get(), Blocks.STRIPPED_BIRCH_LOG);
-        registerStrippableBlock(RuBlocks.SILVER_BIRCH_WOOD.get(), Blocks.STRIPPED_BIRCH_WOOD);
-
-        registerStrippableBlock(RuBlocks.BAOBAB_LOG.get(), RuBlocks.STRIPPED_BAOBAB_LOG.get());
-        registerStrippableBlock(RuBlocks.BAOBAB_WOOD.get(), RuBlocks.STRIPPED_BAOBAB_WOOD.get());
-
-        registerStrippableBlock(RuBlocks.BLACKWOOD_LOG.get(), RuBlocks.STRIPPED_BLACKWOOD_LOG.get());
-        registerStrippableBlock(RuBlocks.BLACKWOOD_WOOD.get(), RuBlocks.STRIPPED_BLACKWOOD_WOOD.get());
-
-        registerStrippableBlock(RuBlocks.BLUE_BIOSHROOM_STEM.get(), RuBlocks.STRIPPED_BLUE_BIOSHROOM_STEM.get());
-        registerStrippableBlock(RuBlocks.BLUE_BIOSHROOM_HYPHAE.get(), RuBlocks.STRIPPED_BLUE_BIOSHROOM_HYPHAE.get());
-
-        registerStrippableBlock(RuBlocks.BRIMWOOD_LOG.get(), RuBlocks.STRIPPED_BRIMWOOD_LOG.get());
-        registerStrippableBlock(RuBlocks.BRIMWOOD_LOG_MAGMA.get(), RuBlocks.STRIPPED_BRIMWOOD_LOG.get());
-        registerStrippableBlock(RuBlocks.BRIMWOOD_WOOD.get(), RuBlocks.STRIPPED_BRIMWOOD_WOOD.get());
-
-        registerStrippableBlock(RuBlocks.COBALT_LOG.get(), RuBlocks.STRIPPED_COBALT_LOG.get());
-        registerStrippableBlock(RuBlocks.COBALT_WOOD.get(), RuBlocks.STRIPPED_COBALT_WOOD.get());
-
-        registerStrippableBlock(RuBlocks.CYPRESS_LOG.get(), RuBlocks.STRIPPED_CYPRESS_LOG.get());
-        registerStrippableBlock(RuBlocks.CYPRESS_WOOD.get(), RuBlocks.STRIPPED_CYPRESS_WOOD.get());
-
-        registerStrippableBlock(RuBlocks.DEAD_LOG.get(), RuBlocks.STRIPPED_DEAD_LOG.get());
-        registerStrippableBlock(RuBlocks.DEAD_WOOD.get(), RuBlocks.STRIPPED_DEAD_WOOD.get());
-
-        registerStrippableBlock(RuBlocks.EUCALYPTUS_LOG.get(), RuBlocks.STRIPPED_EUCALYPTUS_LOG.get());
-        registerStrippableBlock(RuBlocks.EUCALYPTUS_WOOD.get(), RuBlocks.STRIPPED_EUCALYPTUS_WOOD.get());
-
-        registerStrippableBlock(RuBlocks.GREEN_BIOSHROOM_STEM.get(), RuBlocks.STRIPPED_GREEN_BIOSHROOM_STEM.get());
-        registerStrippableBlock(RuBlocks.GREEN_BIOSHROOM_HYPHAE.get(), RuBlocks.STRIPPED_GREEN_BIOSHROOM_HYPHAE.get());
-
-        registerStrippableBlock(RuBlocks.JOSHUA_LOG.get(), RuBlocks.STRIPPED_JOSHUA_LOG.get());
-        registerStrippableBlock(RuBlocks.JOSHUA_WOOD.get(), RuBlocks.STRIPPED_JOSHUA_WOOD.get());
-
-        registerStrippableBlock(RuBlocks.KAPOK_LOG.get(), RuBlocks.STRIPPED_KAPOK_LOG.get());
-        registerStrippableBlock(RuBlocks.KAPOK_WOOD.get(), RuBlocks.STRIPPED_KAPOK_WOOD.get());
-
-        registerStrippableBlock(RuBlocks.LARCH_LOG.get(), RuBlocks.STRIPPED_LARCH_LOG.get());
-        registerStrippableBlock(RuBlocks.LARCH_WOOD.get(), RuBlocks.STRIPPED_LARCH_WOOD.get());
-
-        registerStrippableBlock(RuBlocks.MAPLE_LOG.get(), RuBlocks.STRIPPED_MAPLE_LOG.get());
-        registerStrippableBlock(RuBlocks.MAPLE_WOOD.get(), RuBlocks.STRIPPED_MAPLE_WOOD.get());
-
-        registerStrippableBlock(RuBlocks.MAGNOLIA_LOG.get(), RuBlocks.STRIPPED_MAGNOLIA_LOG.get());
-        registerStrippableBlock(RuBlocks.MAGNOLIA_WOOD.get(), RuBlocks.STRIPPED_MAGNOLIA_WOOD.get());
-
-        registerStrippableBlock(RuBlocks.MAUVE_LOG.get(), RuBlocks.STRIPPED_MAUVE_LOG.get());
-        registerStrippableBlock(RuBlocks.MAUVE_WOOD.get(), RuBlocks.STRIPPED_MAUVE_WOOD.get());
-
-        registerStrippableBlock(RuBlocks.PALM_LOG.get(), RuBlocks.STRIPPED_PALM_LOG.get());
-        registerStrippableBlock(RuBlocks.PALM_WOOD.get(), RuBlocks.STRIPPED_PALM_WOOD.get());
-
-        registerStrippableBlock(RuBlocks.PINE_LOG.get(), RuBlocks.STRIPPED_PINE_LOG.get());
-        registerStrippableBlock(RuBlocks.PINE_WOOD.get(), RuBlocks.STRIPPED_PINE_WOOD.get());
-
-        registerStrippableBlock(RuBlocks.PINK_BIOSHROOM_STEM.get(), RuBlocks.STRIPPED_PINK_BIOSHROOM_STEM.get());
-        registerStrippableBlock(RuBlocks.PINK_BIOSHROOM_HYPHAE.get(), RuBlocks.STRIPPED_PINK_BIOSHROOM_HYPHAE.get());
-
-        registerStrippableBlock(RuBlocks.REDWOOD_LOG.get(), RuBlocks.STRIPPED_REDWOOD_LOG.get());
-        registerStrippableBlock(RuBlocks.REDWOOD_WOOD.get(), RuBlocks.STRIPPED_REDWOOD_WOOD.get());
-
-        registerStrippableBlock(RuBlocks.SOCOTRA_LOG.get(), RuBlocks.STRIPPED_SOCOTRA_LOG.get());
-        registerStrippableBlock(RuBlocks.SOCOTRA_WOOD.get(), RuBlocks.STRIPPED_SOCOTRA_WOOD.get());
-
-        registerStrippableBlock(RuBlocks.WILLOW_LOG.get(), RuBlocks.STRIPPED_WILLOW_LOG.get());
-        registerStrippableBlock(RuBlocks.WILLOW_WOOD.get(), RuBlocks.STRIPPED_WILLOW_WOOD.get());
-
-        registerStrippableBlock(RuBlocks.YELLOW_BIOSHROOM_STEM.get(), RuBlocks.STRIPPED_YELLOW_BIOSHROOM_STEM.get());
-        registerStrippableBlock(RuBlocks.YELLOW_BIOSHROOM_HYPHAE.get(), RuBlocks.STRIPPED_YELLOW_BIOSHROOM_HYPHAE.get());
+            Block wood = set.getWood();
+            Block strippedWood = set.getStrippedWood();
+            if (wood != null && strippedWood != null) {
+                registerStrippableBlock(wood, strippedWood);
+            }
+        }
+        // Special cases
+        registerStrippableBlock(RuBlocks.ASHEN_WOOD_SET.getLog(), RuBlocks.DEAD_WOOD_SET.getStrippedLog());
+        registerStrippableBlock(RuBlocks.ASHEN_WOOD_SET.getWood(), RuBlocks.DEAD_WOOD_SET.getStrippedWood());
+        registerStrippableBlock(RuBlocks.SILVER_BIRCH_WOOD_SET.getLog(), Blocks.STRIPPED_BIRCH_LOG);
+        registerStrippableBlock(RuBlocks.SILVER_BIRCH_WOOD_SET.getWood(), Blocks.STRIPPED_BIRCH_WOOD);
+        registerStrippableBlock(RuBlocks.BRIMWOOD_WOOD_SET.getLogMagma(), RuBlocks.BRIMWOOD_WOOD_SET.getStrippedLog());
 
         //ShovelBlocks
         registerShovelled(RuBlocks.PEAT_PODZOL.get(), RuBlocks.PEAT_DIRT_PATH.get().defaultBlockState());

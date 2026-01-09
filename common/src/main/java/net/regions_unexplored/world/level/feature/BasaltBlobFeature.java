@@ -62,7 +62,7 @@ public class BasaltBlobFeature extends Feature<ColumnFeatureConfiguration> {
             Blocks.NETHER_WART,
             Blocks.CHEST,
             RuBlocks.ASH_VENT.get(),
-            RuBlocks.DEAD_LEAVES.get())
+            RuBlocks.DEAD_NATURAL_SET.getLeaves())
     );
 
     public BasaltBlobFeature(Codec<ColumnFeatureConfiguration> codec) {

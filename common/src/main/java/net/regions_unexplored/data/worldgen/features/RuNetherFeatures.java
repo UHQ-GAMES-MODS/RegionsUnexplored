@@ -92,7 +92,7 @@ public class RuNetherFeatures {
         register(context, PATCH_BRIMSPROUT, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RuBlocks.BRIMSPROUT.get().defaultBlockState()), 32));
         register(context, PATCH_BRIM_FLAMES, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(Blocks.FIRE.defaultBlockState()), 12));
         register(context, DORCEL, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RuBlocks.DORCEL.get())));
-        register(context, BRIMWOOD_SHRUB, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RuBlocks.BRIMWOOD_SHRUB.get())));
+        register(context, BRIMWOOD_SHRUB, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RuBlocks.BRIMWOOD_NATURAL_SET.getShrub())));
 
         register(context, NETHER_ROCK, FeatureRegistry.NETHER_ROCK.get(), FeatureConfiguration.NONE);
         register(context, PATCH_GLISTERING_IVY, FeatureRegistry.GLISTERING_IVY.get(), FeatureConfiguration.NONE);

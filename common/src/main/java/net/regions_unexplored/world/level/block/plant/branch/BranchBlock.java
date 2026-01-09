@@ -5,6 +5,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
@@ -14,7 +15,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.data.tags.RuTags;
 
 import java.util.Objects;
@@ -22,12 +22,10 @@ import java.util.Objects;
 public class BranchBlock extends BushBlock {
 
     private static MapCodec<? extends BranchBlock> createCodec() {
-        return RecordCodecBuilder.mapCodec(instance ->
-                instance.group(
-                        Properties.CODEC.fieldOf("properties").forGetter(BranchBlock::properties),
-                        Codec.STRING.xmap(BranchType::byName, BranchType::getBranchType).fieldOf("type").forGetter(BranchBlock::getBranchType)
-                ).apply(instance, BranchBlock::new)
-        );
+        return RecordCodecBuilder.mapCodec(instance -> instance.group(
+            Properties.CODEC.fieldOf("properties").forGetter(BranchBlock::properties),
+            BranchType.CODEC.fieldOf("type").forGetter(BranchBlock::getBranchType)
+        ).apply(instance, BranchBlock::new));
     }
 
     public static final MapCodec<? extends BranchBlock> CODEC = createCodec();
@@ -103,27 +101,32 @@ public class BranchBlock extends BushBlock {
         return this.type;
     }
 
-    public enum BranchType {
+    public enum BranchType implements StringRepresentable {
         BRANCH("branch"),
-        BEARD("beard"),
-        ;
-        private final String branchType;
+        BEARD("beard");
+        public static final Codec<BranchType> CODEC = StringRepresentable.fromValues(BranchType::values);
+        private final String name;
 
         BranchType(String type) {
-            this.branchType = type;
+            this.name = type;
         }
 
-        public String getBranchType() {
-            return branchType;
+        public String getName() {
+            return name;
         }
 
         public static BranchType byName(String name) {
             for (BranchType value : values()) {
-                if (value.branchType.equals(name)) {
+                if (value.name.equals(name)) {
                     return value;
                 }
             }
             throw new IllegalArgumentException("Unknown BranchType: " + name);
+        }
+
+        @Override
+        public String getSerializedName() {
+            return this.name;
         }
     }
 }

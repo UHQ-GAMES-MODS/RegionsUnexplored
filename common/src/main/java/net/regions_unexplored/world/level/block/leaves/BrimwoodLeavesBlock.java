@@ -11,8 +11,8 @@ import net.minecraft.world.level.material.PushReaction;
 import net.regions_unexplored.registry.BlockRegistry;
 
 public class BrimwoodLeavesBlock extends LeavesBlock {
-    public BrimwoodLeavesBlock(MapColor colour) {
-        super(Properties.of().mapColor(colour).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(BrimwoodLeavesBlock::ocelotOrParrot).isSuffocating(BrimwoodLeavesBlock::never).isViewBlocking(BrimwoodLeavesBlock::never).pushReaction(PushReaction.DESTROY).isRedstoneConductor(BlockRegistry::never));
+    public BrimwoodLeavesBlock() {
+        super(Properties.of().mapColor(MapColor.COLOR_BROWN).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(BrimwoodLeavesBlock::ocelotOrParrot).isSuffocating(BrimwoodLeavesBlock::never).isViewBlocking(BrimwoodLeavesBlock::never).pushReaction(PushReaction.DESTROY).isRedstoneConductor(BlockRegistry::never));
     }
 
     @Override

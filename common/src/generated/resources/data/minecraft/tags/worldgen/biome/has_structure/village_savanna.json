@@ -1,16 +1,7 @@
 {
   "values": [
-    {
-      "id": "regions_unexplored:outback",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:steppe",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:dry_bushland",
-      "required": false
-    }
+    "regions_unexplored:outback",
+    "regions_unexplored:steppe",
+    "regions_unexplored:dry_bushland"
   ]
 }

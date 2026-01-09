@@ -1,5 +1,6 @@
 {
   "values": [
+    "#minecraft:is_jungle",
     "#regions_unexplored:has_wolf_variant/rusty"
   ]
 }

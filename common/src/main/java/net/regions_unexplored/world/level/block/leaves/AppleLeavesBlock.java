@@ -65,9 +65,8 @@ public class AppleLeavesBlock extends LeavesBlock implements BonemealableBlock{
         if (!flag && player.getItemInHand(interactionHand).is(Items.BONE_MEAL)) {
             return ItemInteractionResult.SUCCESS;
         } else if (i > 3) {
-            int j = 1 + level.random.nextInt(1);
             popResourceFromFace(level, blockPos, blockHitResult.getDirection(), new ItemStack(Items.APPLE, 1));
-            level.playSound((Player)null, blockPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
+            level.playSound(null, blockPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
             BlockState blockstate = blockState.setValue(AGE, Integer.valueOf(0));
             level.setBlock(blockPos, blockstate, 2);
             level.gameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Context.of(player, blockstate));

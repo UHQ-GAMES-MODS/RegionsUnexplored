@@ -5,7 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.neoforged.fml.config.ModConfig;
-import net.regions_unexplored.block.compat.CompostableBlocksFabric;
+import net.regions_unexplored.block.RuBlockEntitiesFabric;
 import net.regions_unexplored.block.compat.FurnaceBurnTimesFabric;
 import net.regions_unexplored.config.RuCommonConfig;
 import net.regions_unexplored.config.RuPrimaryRegionConfig;
@@ -38,6 +38,7 @@ public class RegionsUnexploredFabric implements ModInitializer, TerraBlenderApi 
     @Override
     public void onInitialize() {
         RegionsUnexplored.init("Fabric Mod Initializer");
+        RuBlockEntitiesFabric.addBlockEntities();
     }
 
     @Override
@@ -49,6 +50,5 @@ public class RegionsUnexploredFabric implements ModInitializer, TerraBlenderApi 
     public static void afterRegistriesFreeze() {
         RegionsUnexplored.afterRegistriesFreeze();
         FurnaceBurnTimesFabric.setup();
-        CompostableBlocksFabric.setup();
     }
 }

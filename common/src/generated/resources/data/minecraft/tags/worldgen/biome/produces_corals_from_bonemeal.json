@@ -1,12 +1,6 @@
 {
   "values": [
-    {
-      "id": "regions_unexplored:tropics",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:rocky_reef",
-      "required": false
-    }
+    "regions_unexplored:tropics",
+    "regions_unexplored:rocky_reef"
   ]
 }
