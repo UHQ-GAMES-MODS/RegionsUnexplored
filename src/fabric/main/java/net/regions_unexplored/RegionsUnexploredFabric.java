@@ -15,6 +15,7 @@ import net.regions_unexplored.mixin.invoke.TreeDecoratorTypeInvoker;
 import net.regions_unexplored.world.features.foliageplacers.SakuraFoliagePlacer;
 import net.regions_unexplored.world.features.foliageplacers.WillowFoliagePlacer;
 import net.regions_unexplored.world.features.treedecorators.BlackwoodBioshroom;
+import net.regions_unexplored.world.features.treedecorators.BranchDecorator;
 import net.regions_unexplored.world.features.treedecorators.ChanceWillowTrunkDecorator;
 import net.regions_unexplored.world.features.treedecorators.WillowTrunkDecorator;
 
@@ -25,6 +26,7 @@ public class RegionsUnexploredFabric implements ModInitializer {
     public static final TreeDecoratorType<BlackwoodBioshroom> BLACKWOOD_BIOSHROOM = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:blackwood_bioshrooms", BlackwoodBioshroom.CODEC);
     public static final TreeDecoratorType<ChanceWillowTrunkDecorator> CHANCE_WILLOW_TRUNK_DECORATOR = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:chance_willow_trunk_decorator", ChanceWillowTrunkDecorator.CODEC);
     public static final TreeDecoratorType<WillowTrunkDecorator> WILLOW_TRUNK_DECORATOR = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:willow_trunk_decorator", WillowTrunkDecorator.CODEC);
+    public static final TreeDecoratorType<BranchDecorator> BRANCH_DECORATOR = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:branch", BranchDecorator.CODEC);
 
     static {
         RegionsUnexplored.LOGGER.info("[Regions Unexplored] generating and loading config");

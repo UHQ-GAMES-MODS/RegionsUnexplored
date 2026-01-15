@@ -1,6 +1,8 @@
 package net.regions_unexplored.data.worldgen.biome.surface;
 
 import com.google.common.collect.ImmutableList;
+import dev.worldgen.lithostitched.worldgen.surface.condition.SlopeCondition;
+import net.minecraft.util.InclusiveRange;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Noises;
@@ -199,11 +201,19 @@ public class RuSurfaceRuleData {
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(RuBiomes.BAOBAB_SAVANNA),
                         SurfaceRules.ifTrue(surfaceNoiseAbove(1.9D), TERRACOTTA)),
 
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(RuBiomes.JOSHUA_DESERT), SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.SWAMP, 0.0D), sandWithSandstoneOverhang)),
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(RuBiomes.JOSHUA_DESERT), SurfaceRules.ifTrue(shieldNoise(0.0D), sandWithSandstoneOverhang)),
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(RuBiomes.SAGUARO_DESERT), sandWithSandstoneOverhang),
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(RuBiomes.OUTBACK), SurfaceRules.sequence(SurfaceRules.ifTrue(
-                                SurfaceRules.noiseCondition(RuNoises.WEIGHTED, RuleWeight.getPercent(20)), TERRACOTTA),
-                        SurfaceRules.ifTrue(SurfaceRules.noiseCondition(RuNoises.WEIGHTED, RuleWeight.getPercent(60)), redSandWithSandstoneOverhang))),
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(RuBiomes.OUTBACK), SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(
+                        shieldNoise(-0.2d, 0.2d), TERRACOTTA
+                    ),
+                    SurfaceRules.ifTrue(
+                        shieldNoise(-0.5d, 0.5d), SurfaceRules.ifTrue(SurfaceRules.noiseCondition(RuNoises.WEIGHTED, RuleWeight.getPercent(50)), TERRACOTTA)
+                    ),
+                    SurfaceRules.ifTrue(
+                        shieldNoise(0.2d), redSandWithSandstoneOverhang
+                    )
+                )),
 
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(RuBiomes.ALPHA_GROVE),
                         SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.yStartCheck(VerticalAnchor.absolute(66), 0)), gravelWithStoneOverhang), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, AlphaGrassSurface), DIRT)),
@@ -310,7 +320,7 @@ public class RuSurfaceRuleData {
 
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(RuBiomes.REDWOODS), PODZOL),
 
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(RuBiomes.CHALK_CLIFFS), ChalkSurface),
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(RuBiomes.CHALK_CLIFFS), SurfaceRules.ifTrue(SurfaceRules.not(new SlopeCondition(new InclusiveRange<>(3, Integer.MAX_VALUE))), ChalkSurface)),
                 SurfaceRules.ifTrue(isPeatBiome, PeatGrassSurface),
                 SurfaceRules.ifTrue(isSiltBiome, SiltGrassSurface),
                 SurfaceRules.ifTrue(isGrassBiome, GrassSurface)
@@ -421,8 +431,12 @@ public class RuSurfaceRuleData {
         return AIR;
     }
 
-    private static SurfaceRules.ConditionSource surfaceNoiseAbove(double p_194809_) {
-        return SurfaceRules.noiseCondition(Noises.SURFACE, p_194809_ / 8.25D, Double.MAX_VALUE);
+    private static SurfaceRules.ConditionSource surfaceNoiseAbove(double noise) {
+        return SurfaceRules.noiseCondition(Noises.SURFACE, noise / 8.25D, Double.MAX_VALUE);
+    }
+
+    private static SurfaceRules.ConditionSource shieldNoise(double min, double max) {
+        return SurfaceRules.noiseCondition(RuNoises.SHIELD, min / 8.25D, max / 8.25D);
     }
 
     private static SurfaceRules.ConditionSource shieldNoise(double noise) {

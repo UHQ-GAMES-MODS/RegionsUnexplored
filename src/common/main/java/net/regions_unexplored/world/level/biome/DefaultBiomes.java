@@ -182,8 +182,6 @@ public class DefaultBiomes {
 
     public static ResourceKey<Biome>   SECONDARY_SHATTERED_CLIFF_BIOME =                    RuBiomes.TOWERING_CLIFFS;
 
-    public static ResourceKey<Biome>[] SECONDARY_CAVE_BIOMES = new ResourceKey[]         {Biomes.LUSH_CAVES, Biomes.DRIPSTONE_CAVES, Biomes.DEEP_DARK, RuBiomes.BIOSHROOM_CAVES, RuBiomes.ANCIENT_DELTA, RuBiomes.PRISMACHASM, RuBiomes.REDSTONE_CAVES, RuBiomes.SCORCHING_CAVES};
-
     public static ResourceKey<Biome>[] SECONDARY_PEAK_BIOMES = new ResourceKey[]         {Biomes.FROZEN_PEAKS, Biomes.JAGGED_PEAKS, RuBiomes.MOUNTAINS, Biomes.STONY_PEAKS, RuBiomes.ARID_MOUNTAINS};
 
     public static ResourceKey<Biome>[] SECONDARY_PEAK_BIOMES_VARIANT = new ResourceKey[] {Biomes.JAGGED_PEAKS, RuBiomes.MOUNTAINS, RuBiomes.MOUNTAINS, Biomes.STONY_PEAKS, RuBiomes.ARID_MOUNTAINS};
@@ -927,6 +925,17 @@ public class DefaultBiomes {
             return SECONDARY_SHATTERED_CLIFF_BIOME;
         }
     }
+    public static ResourceKey<Biome>[] SECONDARY_CAVE_BIOMES = new ResourceKey[]{
+        Biomes.LUSH_CAVES, // Low H, Negative W
+        Biomes.DRIPSTONE_CAVES, // Low C, Negative W
+        Biomes.DEEP_DARK, // Normal deep dark position
+        RuBiomes.BIOSHROOM_CAVES, // High H, Negative W
+        RuBiomes.ANCIENT_DELTA, // Low/High H, Positive W
+        RuBiomes.PRISMACHASM, // High C, Negative W
+        RuBiomes.REDSTONE_CAVES, // Low/High C, Positive W
+        RuBiomes.SCORCHING_CAVES // Deep dark but higher E
+    };
+
     public static ResourceKey<Biome> getSecondaryCaveBiome(int type){
         if(type==1){
             if(RuCommonConfig.TOGGLE_CUSTOM_REGIONS.get()){
