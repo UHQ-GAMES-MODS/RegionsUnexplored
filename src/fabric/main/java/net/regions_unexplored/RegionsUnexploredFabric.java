@@ -7,7 +7,6 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorTy
 import net.neoforged.fml.config.ModConfig;
 import net.regions_unexplored.block.RuBlockEntitiesFabric;
 import net.regions_unexplored.block.compat.FurnaceBurnTimesFabric;
-import net.regions_unexplored.config.RuCommonConfig;
 import net.regions_unexplored.config.RuPrimaryRegionConfig;
 import net.regions_unexplored.config.RuSecondaryRegionConfig;
 import net.regions_unexplored.mixin.invoke.FoliagePlacerTypeInvoker;
@@ -30,7 +29,7 @@ public class RegionsUnexploredFabric implements ModInitializer, TerraBlenderApi 
 
     static {
         RegionsUnexplored.LOGGER.info("[Regions Unexplored] generating and loading config");
-        NeoForgeConfigRegistry.INSTANCE.register(RegionsUnexplored.MOD_ID, ModConfig.Type.COMMON, RuCommonConfig.SPEC, "regions_unexplored/regions_unexplored-common.toml");
+//        NeoForgeConfigRegistry.INSTANCE.register(RegionsUnexplored.MOD_ID, ModConfig.Type.COMMON, RuCommonConfig.SPEC, "regions_unexplored/regions_unexplored-common.toml");
         NeoForgeConfigRegistry.INSTANCE.register(RegionsUnexplored.MOD_ID, ModConfig.Type.COMMON, RuPrimaryRegionConfig.SPEC, "regions_unexplored/regions_unexplored-primary-region.toml");
         NeoForgeConfigRegistry.INSTANCE.register(RegionsUnexplored.MOD_ID, ModConfig.Type.COMMON, RuSecondaryRegionConfig.SPEC, "regions_unexplored/regions_unexplored-secondary-region.toml");
     }

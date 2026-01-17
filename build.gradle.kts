@@ -106,6 +106,9 @@ cloche {
             entrypoint("client") {
                 value = "net.regions_unexplored.client.RegionsUnexploredFabricClient"
             }
+            entrypoint("modmenu") {
+                value = "net.regions_unexplored.compat.ModMenuIntegration"
+            }
         }
     }
     neoforge {
