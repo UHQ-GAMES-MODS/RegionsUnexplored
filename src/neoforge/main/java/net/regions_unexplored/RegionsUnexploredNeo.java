@@ -1,5 +1,6 @@
 package net.regions_unexplored;
 
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
@@ -41,6 +42,11 @@ public class RegionsUnexploredNeo {
 
         REGISTER_CACHE.values().forEach(deferredRegister -> deferredRegister.register(bus));
         RegionsUnexploredNeoClient.regionsUnexploredNeoClient(bus);
+
+        var blockRegistry = DeferredRegister.create(Registries.BLOCK, RegionsUnexplored.MOD_ID);
+        for (var entry : RuBlocks.BLOCK_ALIASES.entrySet()) {
+            blockRegistry.addAlias(entry.getKey(), entry.getValue());
+        }
     }
 
     private void setupBlockEntities(BlockEntityTypeAddBlocksEvent event) {

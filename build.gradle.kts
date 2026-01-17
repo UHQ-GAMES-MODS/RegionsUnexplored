@@ -74,15 +74,15 @@ cloche {
     fabric {
         mixins.from(file("src/fabric/main/regions_unexplored.fabric.mixins.json"))
 
-        loaderVersion = "0.17.3"
+        loaderVersion = "0.18.3"
         minecraftVersion = "1.21.1"
 
         dependencies {
-            fabricApi("0.116.1")
+            fabricApi("0.116.7")
             modApi("com.terraformersmc:biolith-fabric:3.0.10")
             modApi("fuzs.forgeconfigapiport:forgeconfigapiport-fabric:21.1.6")
             modImplementation("maven.modrinth:world-preview:qc0AtV3T")
-            modImplementation("maven.modrinth:lithostitched:1.5.2-fabric-1.21.1")
+            modImplementation("maven.modrinth:lithostitched:1.5.7-fabric-1.21.1")
 
             modImplementation("com.terraformersmc:modmenu:11.0.3")
         }
@@ -113,7 +113,7 @@ cloche {
 
         dependencies {
             modApi("com.terraformersmc:biolith-neoforge:3.0.10")
-            modImplementation("maven.modrinth:lithostitched:1.5.2-neoforge-1.21.1")
+            modImplementation("maven.modrinth:lithostitched:1.5.7-neoforge-1.21.1")
         }
 
         data()

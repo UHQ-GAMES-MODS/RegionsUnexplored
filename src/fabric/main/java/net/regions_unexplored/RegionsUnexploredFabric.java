@@ -2,10 +2,13 @@ package net.regions_unexplored;
 
 import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.NeoForgeConfigRegistry;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.registry.FabricRegistry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.neoforged.fml.config.ModConfig;
 import net.regions_unexplored.block.RuBlockEntitiesFabric;
+import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.block.compat.FurnaceBurnTimesFabric;
 import net.regions_unexplored.config.RuCommonConfig;
 import net.regions_unexplored.config.RuPrimaryRegionConfig;
@@ -40,6 +43,9 @@ public class RegionsUnexploredFabric implements ModInitializer {
         RegionsUnexplored.init("Fabric Mod Initializer");
         RuBlockEntitiesFabric.addBlockEntities();
         RegionsUnexploredFabric.afterRegistriesFreeze();
+        for (var entry : RuBlocks.BLOCK_ALIASES.entrySet()) {
+            ((FabricRegistry)Registries.BLOCK).addAlias(entry.getKey(), entry.getValue());
+        }
     }
 
     public static void afterRegistriesFreeze() {
