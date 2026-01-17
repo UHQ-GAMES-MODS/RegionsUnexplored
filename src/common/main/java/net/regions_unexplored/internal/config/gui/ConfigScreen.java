@@ -4,7 +4,6 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.regions_unexplored.Constants;
 import net.regions_unexplored.internal.config.Config;
 import net.regions_unexplored.internal.config.ConfigManager;
 import net.regions_unexplored.internal.config.ConfigValue;
@@ -110,7 +109,6 @@ public class ConfigScreen extends Screen {
 
     private void saveAndClose() {
         configManager.save();
-        Constants.LOG.info("Configuration saved from GUI");
         this.minecraft.setScreen(parent);
     }
 

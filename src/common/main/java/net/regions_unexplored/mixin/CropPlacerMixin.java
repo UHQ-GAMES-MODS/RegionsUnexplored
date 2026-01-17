@@ -2,9 +2,7 @@ package net.regions_unexplored.mixin;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
-import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.regions_unexplored.data.tags.RuTags;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,6 +1,6 @@
 package net.regions_unexplored.internal.config;
 
-import net.regions_unexplored.Constants;
+import net.regions_unexplored.RegionsUnexplored;
 
 import java.util.Arrays;
 import java.util.List;
@@ -83,7 +83,7 @@ public class ConfigValue<T> {
      */
     public void setValue(T value) {
         if (!isValid(value)) {
-            Constants.LOG.warn("Invalid value for config key '{}': {}. Using previous value: {}",
+            RegionsUnexplored.LOGGER.warn("Invalid value for config key '{}': {}. Using previous value: {}",
                     key, value, this.value);
             return;
         }
@@ -109,11 +109,11 @@ public class ConfigValue<T> {
         if (value instanceof Number && (minValue != null || maxValue != null)) {
             double numValue = ((Number) value).doubleValue();
             if (minValue != null && numValue < minValue) {
-                Constants.LOG.debug("Value {} is below minimum {} for key '{}'", numValue, minValue, key);
+                RegionsUnexplored.LOGGER.debug("Value {} is below minimum {} for key '{}'", numValue, minValue, key);
                 return false;
             }
             if (maxValue != null && numValue > maxValue) {
-                Constants.LOG.debug("Value {} is above maximum {} for key '{}'", numValue, maxValue, key);
+                RegionsUnexplored.LOGGER.debug("Value {} is above maximum {} for key '{}'", numValue, maxValue, key);
                 return false;
             }
         }
@@ -121,7 +121,7 @@ public class ConfigValue<T> {
         // Allowed values for strings
         if (value instanceof String && allowedValues != null && !allowedValues.isEmpty()) {
             if (!allowedValues.contains(value)) {
-                Constants.LOG.debug("Value '{}' is not in allowed values {} for key '{}'",
+                RegionsUnexplored.LOGGER.debug("Value '{}' is not in allowed values {} for key '{}'",
                         value, allowedValues, key);
                 return false;
             }
