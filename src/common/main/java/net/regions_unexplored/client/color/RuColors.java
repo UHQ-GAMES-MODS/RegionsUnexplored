@@ -7,7 +7,7 @@ import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
 import net.regions_unexplored.block.RuBlocks;
-import net.regions_unexplored.config.RuCommonConfig;
+import net.regions_unexplored.config.RuClientConfig;
 import net.regions_unexplored.platform.TintHelper;
 import org.jetbrains.annotations.NotNull;
 
@@ -147,9 +147,9 @@ public class RuColors {
 
     private static int getRainbowEucalyptusColor(BlockAndTintGetter world, @NotNull BlockPos pos) {
         Color rainbow = Color.getHSBColor(((float)pos.getX() + (float)pos.getY() + (float)pos.getZ()) /
-                        RuCommonConfig.EUCALYPTUS_TRANSITION_SIZE.get().floatValue(),
-                RuCommonConfig.EUCALYPTUS_SATURATION.get().floatValue(),
-                RuCommonConfig.EUCALYPTUS_BRIGHTNESS.get().floatValue());
+                        RuClientConfig.EUCALYPTUS_TRANSITION_SIZE.get(),
+                RuClientConfig.EUCALYPTUS_SATURATION.get(),
+                RuClientConfig.EUCALYPTUS_BRIGHTNESS.get());
         return rainbow.getRGB();
     }
 
