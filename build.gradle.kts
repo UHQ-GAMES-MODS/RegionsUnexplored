@@ -56,8 +56,9 @@ cloche {
 
         dependencies {
             compileOnly("org.spongepowered:mixin:0.8.5")
+            implementation("com.electronwill.night-config:core:3.8.3")
+            implementation("com.electronwill.night-config:toml:3.8.3")
             modCompileOnly("com.terraformersmc:biolith-neoforge:3.0.10")
-            api("fuzs.forgeconfigapiport:forgeconfigapiport-common-neoforgeapi:21.1.6")
         }
 
         data()
@@ -80,7 +81,6 @@ cloche {
         dependencies {
             fabricApi("0.116.7")
             modApi("com.terraformersmc:biolith-fabric:3.0.10")
-            modApi("fuzs.forgeconfigapiport:forgeconfigapiport-fabric:21.1.6")
             modImplementation("maven.modrinth:world-preview:qc0AtV3T")
             modImplementation("maven.modrinth:lithostitched:1.5.7-fabric-1.21.1")
 
@@ -109,6 +109,7 @@ cloche {
             }
         }
     }
+
     neoforge {
         mixins.from(file("src/neoforge/main/regions_unexplored.neoforge.mixins.json"))
         loaderVersion = "21.1.209"

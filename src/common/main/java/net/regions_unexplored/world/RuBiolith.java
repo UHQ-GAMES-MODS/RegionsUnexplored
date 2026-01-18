@@ -9,11 +9,11 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.Climate;
 import net.minecraft.world.level.biome.Climate.Parameter;
-import net.neoforged.neoforge.common.ModConfigSpec;
 import net.regions_unexplored.RegionsUnexplored;
 import net.regions_unexplored.config.RuCommonConfig;
 import net.regions_unexplored.data.worldgen.biome.RuBiomes;
 import net.regions_unexplored.data.worldgen.biome.surface.RuSurfaceRuleData;
+import net.regions_unexplored.internal.config.ConfigValue;
 
 public class RuBiolith {
     public static void init() {
@@ -379,7 +379,7 @@ public class RuBiolith {
         SurfaceGeneration.addNetherSurfaceRules(RegionsUnexplored.id("rules/nether"), RuSurfaceRuleData.nether());
     }
 
-    private static void nether(ModConfigSpec.ConfigValue<Boolean> config, ResourceKey<Biome> replacedBiome, ResourceKey<Biome> biome) {
+    private static void nether(ConfigValue<Boolean> config, ResourceKey<Biome> replacedBiome, ResourceKey<Biome> biome) {
         if (config.get()) {
             BiomePlacement.replaceNether(replacedBiome, biome, 0.4);
         }
