@@ -21,7 +21,7 @@ repositories {
 }
 
 group = "net.regions_unexplored"
-version = "0.5.8"
+version = "0.6+indev"
 
 cloche {
     targets.all {
