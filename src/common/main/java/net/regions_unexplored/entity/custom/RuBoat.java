@@ -9,15 +9,14 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.Vec3;
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.block.set.WoodSet;
 import net.regions_unexplored.entity.RuEntities;
-import net.regions_unexplored.item.RuItems;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
+import java.util.function.Supplier;
 
 public class RuBoat extends Boat {
     public RuBoat(EntityType<? extends RuBoat> type, Level level) {
@@ -32,7 +31,7 @@ public class RuBoat extends Boat {
 
     @Override
     public Item getDropItem() {
-        return this.getModel().woodSet.getBoat();
+        return this.getModel().getWoodSet().getBoat();
     }
 
     @Override
@@ -75,27 +74,27 @@ public class RuBoat extends Boat {
     }
 
     public enum ModelType {
-        BAOBAB("baobab", RuBlocks.BAOBAB_WOOD_SET),
-        BLACKWOOD("blackwood", RuBlocks.BLACKWOOD_WOOD_SET),
-        CYPRESS("cypress", RuBlocks.CYPRESS_WOOD_SET),
-        DEAD("dead", RuBlocks.DEAD_WOOD_SET),
-        EUCALYPTUS("eucalyptus", RuBlocks.EUCALYPTUS_WOOD_SET),
-        JOSHUA("joshua", RuBlocks.JOSHUA_WOOD_SET),
-        KAPOK("kapok", RuBlocks.KAPOK_WOOD_SET),
-        LARCH("larch", RuBlocks.LARCH_WOOD_SET),
-        MAGNOLIA("magnolia", RuBlocks.MAGNOLIA_WOOD_SET),
-        MAPLE("maple", RuBlocks.MAPLE_WOOD_SET),
-        MAUVE("mauve", RuBlocks.MAUVE_WOOD_SET),
-        PALM("palm", RuBlocks.PALM_WOOD_SET),
-        PINE("pine", RuBlocks.PINE_WOOD_SET),
-        REDWOOD("redwood", RuBlocks.REDWOOD_WOOD_SET),
-        SOCOTRA("socotra", RuBlocks.SOCOTRA_WOOD_SET),
-        WILLOW("willow", RuBlocks.WILLOW_WOOD_SET);
+        BAOBAB("baobab", () -> RuBlocks.BAOBAB_WOOD_SET),
+        BLACKWOOD("blackwood", () -> RuBlocks.BLACKWOOD_WOOD_SET),
+        CYPRESS("cypress", () -> RuBlocks.CYPRESS_WOOD_SET),
+        DEAD("dead", () -> RuBlocks.DEAD_WOOD_SET),
+        EUCALYPTUS("eucalyptus", () -> RuBlocks.EUCALYPTUS_WOOD_SET),
+        JOSHUA("joshua", () -> RuBlocks.JOSHUA_WOOD_SET),
+        KAPOK("kapok", () -> RuBlocks.KAPOK_WOOD_SET),
+        LARCH("larch", () -> RuBlocks.LARCH_WOOD_SET),
+        MAGNOLIA("magnolia", () -> RuBlocks.MAGNOLIA_WOOD_SET),
+        MAPLE("maple", () -> RuBlocks.MAPLE_WOOD_SET),
+        MAUVE("mauve", () -> RuBlocks.MAUVE_WOOD_SET),
+        PALM("palm", () -> RuBlocks.PALM_WOOD_SET),
+        PINE("pine", () -> RuBlocks.PINE_WOOD_SET),
+        REDWOOD("redwood", () -> RuBlocks.REDWOOD_WOOD_SET),
+        SOCOTRA("socotra", () -> RuBlocks.SOCOTRA_WOOD_SET),
+        WILLOW("willow", () -> RuBlocks.WILLOW_WOOD_SET);
 
         private final String name;
-        private final WoodSet woodSet;
+        private final Supplier<WoodSet> woodSet;
 
-        ModelType(String name, WoodSet woodSet) {
+        ModelType(String name, Supplier<WoodSet> woodSet) {
             this.name = name;
             this.woodSet = woodSet;
         }
@@ -105,7 +104,7 @@ public class RuBoat extends Boat {
         }
 
         public WoodSet getWoodSet() {
-            return this.woodSet;
+            return this.woodSet.get();
         }
 
         public String toString() {

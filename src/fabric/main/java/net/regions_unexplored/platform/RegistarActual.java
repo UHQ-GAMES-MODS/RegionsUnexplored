@@ -25,7 +25,8 @@ public class RegistarActual {
 
     @Actual
     public static <T extends Entity> Supplier<EntityType<T>> registerEntity(String name, Supplier<EntityType<T>> type) {
-        return () -> Registry.register(BuiltInRegistries.ENTITY_TYPE, RegionsUnexplored.id(name), type.get());
+        EntityType <T> registered = Registry.register(BuiltInRegistries.ENTITY_TYPE, RegionsUnexplored.id(name), type.get());
+        return () -> registered;
     }
 
     @Actual
