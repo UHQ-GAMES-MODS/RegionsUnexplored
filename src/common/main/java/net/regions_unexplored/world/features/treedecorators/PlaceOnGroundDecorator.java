@@ -47,7 +47,7 @@ public class PlaceOnGroundDecorator extends TreeDecorator {
         this.blockStateProvider = blockStateProvider;
     }
 
-    public static PlaceOnGroundDecorator leafLitter(Block block) {
+    public static PlaceOnGroundDecorator leafLitter(Block block, int tries) {
         if (block instanceof RULeafLitterBlock) {
             BlockState state = block.defaultBlockState();
             SimpleWeightedRandomList.Builder<BlockState> stateList = SimpleWeightedRandomList.builder();
@@ -56,7 +56,7 @@ public class PlaceOnGroundDecorator extends TreeDecorator {
                     stateList.add(state.setValue(RULeafLitterBlock.FACING, direction).setValue(RULeafLitterBlock.AMOUNT, i));
                 }
             }
-            return new PlaceOnGroundDecorator(96, 4, 2, new WeightedStateProvider(stateList.build()));
+            return new PlaceOnGroundDecorator(tries, 4, 2, new WeightedStateProvider(stateList.build()));
         }
         throw new IllegalStateException("Block must be instance of RULeafLitterBlock, got " + block.getClass().getName());
     }

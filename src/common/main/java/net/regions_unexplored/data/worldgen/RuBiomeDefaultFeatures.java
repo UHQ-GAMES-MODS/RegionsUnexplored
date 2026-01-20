@@ -114,9 +114,7 @@ public class RuBiomeDefaultFeatures {
     public static void addOrangeCornflower(BiomeGenerationSettings.Builder biomeBuilder) {
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.ORANGE_CONEFLOWER);
     }
-    public static void autumnalTrees(BiomeGenerationSettings.Builder biomeBuilder) {
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.TREES_AUTUMNAL_MAPLE_FOREST);
-    }
+
     public static void addPurpleCornflower(BiomeGenerationSettings.Builder biomeBuilder) {
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.PURPLE_CONEFLOWER);
     }

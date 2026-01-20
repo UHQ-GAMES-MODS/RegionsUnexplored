@@ -306,7 +306,7 @@ public class WetBiomes {
         BiomeGenerationSettings.Builder biomeBuilder = baseSwampGeneration(featureGetter, carverGetter, false, true);
 
         //add RU features
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.TREES_OLD_GROWTH_BAYOU);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.TREE_GROUP_OLD_GROWTH_BAYOU);
         //biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.GIANT_CYPRESS_TREE);
         //biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.GIANT_CYPRESS_TREE_DEEP);
         //biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.OAK_BUSH_SPARSE);
