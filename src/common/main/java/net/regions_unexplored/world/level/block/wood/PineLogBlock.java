@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
 
 public class PineLogBlock extends Block {
@@ -50,7 +50,7 @@ public class PineLogBlock extends Block {
       boolean isTransition = false;
       if(!state.getValue(IS_STRIPPED)){
          if(state.getValue(AXIS)==Direction.Axis.Y){
-            if(level.getBlockState(pos.below())== RuBlocks.PINE_WOOD_SET.getStrippedLog().defaultBlockState()||level.getBlockState(pos.below())==RuBlocks.PINE_WOOD_SET.getLog().defaultBlockState().setValue(PineLogBlock.IS_STRIPPED, true)){
+            if(level.getBlockState(pos.below())== RUBlocks.PINE_WOOD_SET.getStrippedLog().defaultBlockState()||level.getBlockState(pos.below())== RUBlocks.PINE_WOOD_SET.getLog().defaultBlockState().setValue(PineLogBlock.IS_STRIPPED, true)){
                isTransition = true;
             }
          }
@@ -68,7 +68,7 @@ public class PineLogBlock extends Block {
 
       if(!this.defaultBlockState().getValue(IS_STRIPPED)){
          if(this.defaultBlockState().getValue(AXIS)==Direction.Axis.Y){
-            if(context.getLevel().getBlockState(context.getClickedPos().below())==RuBlocks.PINE_WOOD_SET.getStrippedLog().defaultBlockState()||context.getLevel().getBlockState(context.getClickedPos().below())==RuBlocks.PINE_WOOD_SET.getLog().defaultBlockState().setValue(PineLogBlock.IS_STRIPPED, true)){
+            if(context.getLevel().getBlockState(context.getClickedPos().below())== RUBlocks.PINE_WOOD_SET.getStrippedLog().defaultBlockState()||context.getLevel().getBlockState(context.getClickedPos().below())== RUBlocks.PINE_WOOD_SET.getLog().defaultBlockState().setValue(PineLogBlock.IS_STRIPPED, true)){
                isTransition = true;
             }
          }

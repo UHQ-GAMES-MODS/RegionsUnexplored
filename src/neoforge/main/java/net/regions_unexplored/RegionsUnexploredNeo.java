@@ -13,7 +13,7 @@ import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.regions_unexplored.client.RegionsUnexploredClient;
 import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.block.set.WoodSet;
 import net.regions_unexplored.internal.config.gui.ConfigSelectionScreen;
 import org.apache.logging.log4j.LogManager;
@@ -40,7 +40,7 @@ public class RegionsUnexploredNeo {
         RegionsUnexploredNeoClient.regionsUnexploredNeoClient(bus);
 
         var blockRegistry = DeferredRegister.create(Registries.BLOCK, RegionsUnexplored.MOD_ID);
-        for (var entry : RuBlocks.BLOCK_ALIASES.entrySet()) {
+        for (var entry : RUBlocks.BLOCK_ALIASES.entrySet()) {
             blockRegistry.addAlias(entry.getKey(), entry.getValue());
         }
         container.registerExtensionPoint(
@@ -50,7 +50,7 @@ public class RegionsUnexploredNeo {
     }
 
     private void setupBlockEntities(BlockEntityTypeAddBlocksEvent event) {
-        for (WoodSet set : RuBlocks.WOOD_SETS) {
+        for (WoodSet set : RUBlocks.WOOD_SETS) {
             if (set.getSign() != null) {
                 event.modify(BlockEntityType.SIGN, set.getSign());
             }

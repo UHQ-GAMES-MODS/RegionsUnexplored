@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm") version "2.1.21"
-    id("earth.terrarium.cloche") version "0.17.1"
+    id("earth.terrarium.cloche") version "0.17.7"
 }
 
 repositories {
@@ -112,7 +112,7 @@ cloche {
 
     neoforge {
         mixins.from(file("src/neoforge/main/regions_unexplored.neoforge.mixins.json"))
-        loaderVersion = "21.1.209"
+        loaderVersion = "21.1.218"
         minecraftVersion = "1.21.1"
 
         dependencies {

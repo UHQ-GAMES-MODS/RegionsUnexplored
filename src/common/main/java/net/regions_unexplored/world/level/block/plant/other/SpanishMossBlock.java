@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.NetherVines;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 public class SpanishMossBlock extends GrowingPlantHeadBlock {
     public static final MapCodec<? extends SpanishMossBlock> CODEC = simpleCodec(SpanishMossBlock::new);
@@ -31,7 +31,7 @@ public class SpanishMossBlock extends GrowingPlantHeadBlock {
     }
 
     protected Block getBodyBlock() {
-        return RuBlocks.SPANISH_MOSS_PLANT.get();
+        return RUBlocks.SPANISH_MOSS_PLANT.get();
     }
 
     @Override

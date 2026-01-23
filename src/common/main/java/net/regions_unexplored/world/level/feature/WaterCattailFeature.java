@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.data.tags.RuTags;
 import net.regions_unexplored.world.level.block.plant.tall.CattailBlock;
 
@@ -65,12 +65,12 @@ public class WaterCattailFeature extends Feature<NoneFeatureConfiguration> {
 
     public boolean placeCattail(LevelAccessor level, BlockPos pos) {
         if (level.getBlockState(pos.below()).is(RuTags.CATTAIL_CAN_SURVIVE_ON)&&level.isWaterAt(pos)&&level.isEmptyBlock(pos.above())) {
-            level.setBlock(pos, RuBlocks.CATTAIL.get().defaultBlockState().setValue(CattailBlock.HALF, DoubleBlockHalf.LOWER).setValue(CattailBlock.WATERLOGGED, true), 2);
-            level.setBlock(pos.above(), RuBlocks.CATTAIL.get().defaultBlockState().setValue(CattailBlock.HALF, DoubleBlockHalf.UPPER).setValue(CattailBlock.WATERLOGGED, false), 2);
+            level.setBlock(pos, RUBlocks.CATTAIL.get().defaultBlockState().setValue(CattailBlock.HALF, DoubleBlockHalf.LOWER).setValue(CattailBlock.WATERLOGGED, true), 2);
+            level.setBlock(pos.above(), RUBlocks.CATTAIL.get().defaultBlockState().setValue(CattailBlock.HALF, DoubleBlockHalf.UPPER).setValue(CattailBlock.WATERLOGGED, false), 2);
         }
         else if (level.getBlockState(pos.below()).is(RuTags.CATTAIL_CAN_SURVIVE_ON)&&level.isEmptyBlock(pos)&&level.isEmptyBlock(pos.above())) {
-            level.setBlock(pos, RuBlocks.CATTAIL.get().defaultBlockState().setValue(CattailBlock.HALF, DoubleBlockHalf.LOWER).setValue(CattailBlock.WATERLOGGED, false), 2);
-            level.setBlock(pos.above(), RuBlocks.CATTAIL.get().defaultBlockState().setValue(CattailBlock.HALF, DoubleBlockHalf.UPPER).setValue(CattailBlock.WATERLOGGED, false), 2);
+            level.setBlock(pos, RUBlocks.CATTAIL.get().defaultBlockState().setValue(CattailBlock.HALF, DoubleBlockHalf.LOWER).setValue(CattailBlock.WATERLOGGED, false), 2);
+            level.setBlock(pos.above(), RUBlocks.CATTAIL.get().defaultBlockState().setValue(CattailBlock.HALF, DoubleBlockHalf.UPPER).setValue(CattailBlock.WATERLOGGED, false), 2);
         }
         return true;
     }

@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 import java.util.Random;
 import java.util.function.Supplier;
@@ -59,8 +59,8 @@ public class AshVentFeature extends Feature<NoneFeatureConfiguration> {
             Blocks.NETHER_BRICK_STAIRS,
             Blocks.NETHER_WART,
             Blocks.CHEST,
-            RuBlocks.ASH_VENT.get(),
-            RuBlocks.DEAD_NATURAL_SET.getLeaves())
+            RUBlocks.ASH_VENT.get(),
+            RUBlocks.DEAD_NATURAL_SET.getLeaves())
     );
 
     public AshVentFeature(Codec<NoneFeatureConfiguration> codec) {
@@ -117,12 +117,12 @@ public class AshVentFeature extends Feature<NoneFeatureConfiguration> {
         int size = random.nextInt(6);
         if (level.isEmptyBlock(pos) ) {
             if(level.getBlockState(pos.below()).isFaceSturdy(level, pos.below(), Direction.DOWN)
-                    ||!level.getBlockState(pos.below()).is(RuBlocks.ASH_VENT.get())) {
+                    ||!level.getBlockState(pos.below()).is(RUBlocks.ASH_VENT.get())) {
 
                 BlockPos.MutableBlockPos placePos = pos.mutable();
                 int count = 0;
                 while (level.isEmptyBlock(placePos)) {
-                    if(level.getBlockState(placePos.below()).is(RuBlocks.ASH_VENT.get())) {
+                    if(level.getBlockState(placePos.below()).is(RUBlocks.ASH_VENT.get())) {
                         return true;
                     }
                     if(count==size){
@@ -133,7 +133,7 @@ public class AshVentFeature extends Feature<NoneFeatureConfiguration> {
                     }
                     if(count==size-1){
                         if(random.nextInt(6)==0){
-                            level.setBlock(placePos, RuBlocks.ASH_VENT.get().defaultBlockState(), 2);
+                            level.setBlock(placePos, RUBlocks.ASH_VENT.get().defaultBlockState(), 2);
                         }
                         else{
                             level.setBlock(placePos, Blocks.BASALT.defaultBlockState(), 2);

@@ -28,10 +28,9 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 import javax.annotation.Nullable;
-import java.util.Objects;
 
 public class TillableDirtBlock extends Block {
     protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
@@ -75,13 +74,13 @@ public class TillableDirtBlock extends Block {
                 level.addParticle(ParticleTypes.SPLASH, (double) pos.getX() + level.random.nextDouble(), pos.getY() + 1, (double) pos.getZ() + level.random.nextDouble(), level.random.nextFloat() / 2.0F, 5.0E-5D, level.random.nextFloat() / 2.0F);
             }
             level.playSound((Player) null, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
-            if(level.getBlockState(pos)== RuBlocks.PEAT_DIRT.get().defaultBlockState()||level.getBlockState(pos)== RuBlocks.PEAT_COARSE_DIRT.get().defaultBlockState()){
-                level.setBlock(pos, RuBlocks.PEAT_MUD.get().defaultBlockState(), 2);
-                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, RuBlocks.PEAT_MUD.get().defaultBlockState()));
+            if(level.getBlockState(pos)== RUBlocks.PEAT_DIRT.get().defaultBlockState()||level.getBlockState(pos)== RUBlocks.PEAT_COARSE_DIRT.get().defaultBlockState()){
+                level.setBlock(pos, RUBlocks.PEAT_MUD.get().defaultBlockState(), 2);
+                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, RUBlocks.PEAT_MUD.get().defaultBlockState()));
             }
-            else if(level.getBlockState(pos)== RuBlocks.SILT_DIRT.get().defaultBlockState()||level.getBlockState(pos)== RuBlocks.SILT_COARSE_DIRT.get().defaultBlockState()){
-                level.setBlock(pos, RuBlocks.SILT_MUD.get().defaultBlockState(), 2);
-                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, RuBlocks.SILT_MUD.get().defaultBlockState()));
+            else if(level.getBlockState(pos)== RUBlocks.SILT_DIRT.get().defaultBlockState()||level.getBlockState(pos)== RUBlocks.SILT_COARSE_DIRT.get().defaultBlockState()){
+                level.setBlock(pos, RUBlocks.SILT_MUD.get().defaultBlockState(), 2);
+                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, RUBlocks.SILT_MUD.get().defaultBlockState()));
             }
             else{
                 level.setBlock(pos, Blocks.MUD.defaultBlockState(), 2);
@@ -106,18 +105,18 @@ public class TillableDirtBlock extends Block {
 
     private BlockState evaluateFlattenedState(Level level, BlockPos pos, @Nullable Player player, BlockState state) {
         BlockState flattenedState = Blocks.DIRT_PATH.defaultBlockState();
-        if(state.is(RuBlocks.SILT_COARSE_DIRT.get())||state.is(RuBlocks.SILT_DIRT.get())) flattenedState = RuBlocks.SILT_DIRT_PATH.get().defaultBlockState();
-        if(state.is(RuBlocks.PEAT_COARSE_DIRT.get())||state.is(RuBlocks.PEAT_DIRT.get())) flattenedState = RuBlocks.PEAT_DIRT_PATH.get().defaultBlockState();
+        if(state.is(RUBlocks.SILT_COARSE_DIRT.get())||state.is(RUBlocks.SILT_DIRT.get())) flattenedState = RUBlocks.SILT_DIRT_PATH.get().defaultBlockState();
+        if(state.is(RUBlocks.PEAT_COARSE_DIRT.get())||state.is(RUBlocks.PEAT_DIRT.get())) flattenedState = RUBlocks.PEAT_DIRT_PATH.get().defaultBlockState();
         level.playSound(player, pos, SoundEvents.SHOVEL_FLATTEN, SoundSource.BLOCKS, 1.0F, 1.0F);
         return flattenedState;
     }
 
     private BlockState evaluateTilledState(Level level, BlockPos pos, @Nullable Player player, BlockState state) {
         BlockState tilledState = Blocks.FARMLAND.defaultBlockState();
-        if(state.is(RuBlocks.SILT_COARSE_DIRT.get())) tilledState = RuBlocks.SILT_DIRT.get().defaultBlockState();
-        if(state.is(RuBlocks.PEAT_COARSE_DIRT.get())) tilledState = RuBlocks.PEAT_DIRT.get().defaultBlockState();
-        if(state.is(RuBlocks.SILT_DIRT.get())) tilledState = RuBlocks.SILT_FARMLAND.get().defaultBlockState();
-        if(state.is(RuBlocks.PEAT_DIRT.get())) tilledState = RuBlocks.PEAT_FARMLAND.get().defaultBlockState();
+        if(state.is(RUBlocks.SILT_COARSE_DIRT.get())) tilledState = RUBlocks.SILT_DIRT.get().defaultBlockState();
+        if(state.is(RUBlocks.PEAT_COARSE_DIRT.get())) tilledState = RUBlocks.PEAT_DIRT.get().defaultBlockState();
+        if(state.is(RUBlocks.SILT_DIRT.get())) tilledState = RUBlocks.SILT_FARMLAND.get().defaultBlockState();
+        if(state.is(RUBlocks.PEAT_DIRT.get())) tilledState = RUBlocks.PEAT_FARMLAND.get().defaultBlockState();
         level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
         return tilledState;
     }

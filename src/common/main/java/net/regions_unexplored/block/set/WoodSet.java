@@ -5,16 +5,17 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.block.BlockFactory;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.entity.custom.RuBoat;
 import net.regions_unexplored.item.items.RuBoatItem;
-import net.regions_unexplored.registry.BlockRegistry;
+import net.regions_unexplored.block.RUBlockUtils;
 import net.regions_unexplored.registry.ItemRegistry;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class WoodSet {
+    public final String name;
     public final boolean fireproof;
     protected Supplier<Block> log;
     protected Supplier<Block> wood;
@@ -47,121 +49,78 @@ public class WoodSet {
     protected Supplier<Item> itemBoat;
     protected Supplier<Item> itemChestBoat;
 
-    public WoodSet(boolean fireproof) {
+    public WoodSet(String name, boolean fireproof) {
+        this.name = name;
         this.fireproof = fireproof;
     }
 
-    public static WoodSet simple(String name, WoodType woodType, SoundType sound, MapColor colour, boolean fireproof) {
-        return simple(name, woodType, sound, colour, colour, fireproof);
+    public static WoodSet simple(String name, WoodType woodType, SoundType sound, MapColor plankColour, MapColor logColour, boolean fireproof) {
+        return simple(name, woodType, sound, plankColour, logColour, fireproof, RotatedPillarBlock::new, true);
     }
 
-    public static WoodSet simple(String name, WoodType woodType, SoundType sound, MapColor plankColour, MapColor logColour, boolean fireproof) {
-        WoodSet set = new WoodSet(fireproof);
-        set.log = BlockRegistry.registerDefaultBlock(name + "_log", () -> BlockRegistry.log(plankColour, logColour, sound, fireproof));
-        set.wood = BlockRegistry.registerDefaultBlock(name + "_wood", () -> BlockRegistry.log(plankColour, logColour, sound, fireproof));
-        set.strippedLog = BlockRegistry.registerDefaultBlock("stripped_" + name + "_log", () -> BlockRegistry.wood(plankColour, sound, fireproof));
-        set.strippedWood = BlockRegistry.registerDefaultBlock("stripped_" + name + "_wood", () -> BlockRegistry.wood(plankColour, sound, fireproof));
-        set.planks = BlockRegistry.registerDefaultBlock(name + "_planks", () -> BlockRegistry.planks(plankColour, sound, fireproof));
-        set.stairs = BlockRegistry.registerDefaultBlock(name + "_stairs", () -> BlockRegistry.stairs(plankColour, sound, fireproof));
-        set.slab = BlockRegistry.registerDefaultBlock(name + "_slab", () -> BlockRegistry.slab(plankColour, sound, fireproof));
-        set.fence = BlockRegistry.registerDefaultBlock(name + "_fence", () -> BlockRegistry.fence(plankColour, sound, fireproof));
-        set.fenceGate = BlockRegistry.registerDefaultBlock(name + "_fence_gate", () -> BlockRegistry.fenceGate(plankColour, woodType, sound, fireproof));
-        set.door = BlockRegistry.registerDefaultBlock(name + "_door", () -> BlockRegistry.door(plankColour, sound, woodType.setType(), fireproof));
-        set.trapdoor = BlockRegistry.registerDefaultBlock(name + "_trapdoor", () -> BlockRegistry.trapdoor(plankColour, sound, woodType.setType(), fireproof));
-        set.pressurePlate = BlockRegistry.registerDefaultBlock(name + "_pressure_plate", () -> BlockRegistry.pressurePlate(plankColour, sound, woodType.setType(), fireproof));
-        set.button = BlockRegistry.registerDefaultBlock(name + "_button", () -> BlockRegistry.button(sound, woodType.setType()));
-        set.sign = BlockRegistry.registerDefaultBlockNoItem(name + "_sign", () -> BlockRegistry.sign(sound, woodType, fireproof));
-        set.wallSign = BlockRegistry.registerDefaultBlockNoItem(name + "_wall_sign", () -> BlockRegistry.wallSign(sound, set.sign.get(), woodType, fireproof));
-        set.hangingSign = BlockRegistry.registerDefaultBlockNoItem(name + "_hanging_sign", () -> BlockRegistry.hangingSign(plankColour, sound, woodType, fireproof));
-        set.wallHangingSign = BlockRegistry.registerDefaultBlockNoItem(name + "_wall_hanging_sign", () -> BlockRegistry.wallHangingSign(plankColour, sound, set.hangingSign.get(), woodType, fireproof));
-
-        set.itemSign = ItemRegistry.registerItem(name + "_sign", () -> new SignItem(new Item.Properties().stacksTo(16), set.sign.get(), set.wallSign.get()));
-        set.itemHangingSign = ItemRegistry.registerItem(name + "_hanging_sign", () -> new HangingSignItem(set.hangingSign.get(), set.wallHangingSign.get(), new Item.Properties().stacksTo(16)));
-        if (!name.equals("cobalt")) {
-            set.itemBoat = ItemRegistry.registerItem(name + "_boat", () -> new RuBoatItem(false, RuBoat.ModelType.byName(name), new Item.Properties().stacksTo(1)));
-            set.itemChestBoat = ItemRegistry.registerItem(name + "_chest_boat", () -> new RuBoatItem(true, RuBoat.ModelType.byName(name), new Item.Properties().stacksTo(1)));
-        }
-        RuBlocks.WOOD_SETS.add(set);
+    public static WoodSet simple(String name, WoodType woodType, SoundType sound, MapColor plankColour, MapColor logColour, boolean fireproof, BlockFactory logFactory, boolean boat) {
+        WoodSet set = new WoodSet(name, fireproof);
+        set.addLogs(name, "log", "wood", sound, plankColour, logColour, fireproof, logFactory, true);
+        set.addCommonWoodBlocks(name, woodType, plankColour, sound, fireproof);
+        if (boat) set.addBoats(name);
+        RUBlocks.WOOD_SETS.add(set);
         return set;
     }
 
     public static WoodSet bioshroom(String name, WoodType woodType, SoundType sound, MapColor colour, boolean fireproof) {
-        WoodSet set = new WoodSet(fireproof);
-        set.log = BlockRegistry.registerDefaultBlock(name + "_stem", () -> BlockRegistry.log(colour, colour, sound, fireproof));
-        set.wood = BlockRegistry.registerDefaultBlock(name + "_hyphae", () -> BlockRegistry.log(colour, colour, sound, fireproof));
-        set.strippedLog = BlockRegistry.registerDefaultBlock("stripped_" + name + "_stem", () -> BlockRegistry.wood(colour, sound, fireproof));
-        set.strippedWood = BlockRegistry.registerDefaultBlock("stripped_" + name + "_hyphae", () -> BlockRegistry.wood(colour, sound, fireproof));
-        set.planks = BlockRegistry.registerDefaultBlock(name + "_planks", () -> BlockRegistry.planks(colour, sound, fireproof));
-        set.stairs = BlockRegistry.registerDefaultBlock(name + "_stairs", () -> BlockRegistry.stairs(colour, sound, fireproof));
-        set.slab = BlockRegistry.registerDefaultBlock(name + "_slab", () -> BlockRegistry.slab(colour, sound, fireproof));
-        set.fence = BlockRegistry.registerDefaultBlock(name + "_fence", () -> BlockRegistry.fence(colour, sound, fireproof));
-        set.fenceGate = BlockRegistry.registerDefaultBlock(name + "_fence_gate", () -> BlockRegistry.fenceGate(colour, woodType, sound, fireproof));
-        set.door = BlockRegistry.registerDefaultBlock(name + "_door", () -> BlockRegistry.door(colour, sound, woodType.setType(), fireproof));
-        set.trapdoor = BlockRegistry.registerDefaultBlock(name + "_trapdoor", () -> BlockRegistry.trapdoor(colour, sound, woodType.setType(), fireproof));
-        set.pressurePlate = BlockRegistry.registerDefaultBlock(name + "_pressure_plate", () -> BlockRegistry.pressurePlate(colour, sound, woodType.setType(), fireproof));
-        set.button = BlockRegistry.registerDefaultBlock(name + "_button", () -> BlockRegistry.button(sound, woodType.setType()));
-        set.sign = BlockRegistry.registerDefaultBlockNoItem(name + "_sign", () -> BlockRegistry.sign(sound, woodType, fireproof));
-        set.wallSign = BlockRegistry.registerDefaultBlockNoItem(name + "_wall_sign", () -> BlockRegistry.wallSign(sound, set.sign.get(), woodType, fireproof));
-        set.hangingSign = BlockRegistry.registerDefaultBlockNoItem(name + "_hanging_sign", () -> BlockRegistry.hangingSign(colour, sound, woodType, fireproof));
-        set.wallHangingSign = BlockRegistry.registerDefaultBlockNoItem(name + "_wall_hanging_sign", () -> BlockRegistry.wallHangingSign(colour, sound, set.hangingSign.get(), woodType, fireproof));
-
-        set.itemSign = ItemRegistry.registerItem(name + "_sign", () -> new SignItem(new Item.Properties().stacksTo(16), set.sign.get(), set.wallSign.get()));
-        set.itemHangingSign = ItemRegistry.registerItem(name + "_hanging_sign", () -> new HangingSignItem(set.hangingSign.get(), set.wallHangingSign.get(), new Item.Properties().stacksTo(16)));
-        RuBlocks.WOOD_SETS.add(set);
+        WoodSet set = new WoodSet(name, fireproof);
+        set.addLogs(name, "stem", "hyphae", sound, colour, colour, fireproof, RotatedPillarBlock::new, true);
+        set.addCommonWoodBlocks(name, woodType, colour, sound, fireproof);
+        RUBlocks.WOOD_SETS.add(set);
         return set;
     }
 
     public static WoodSet alpha() {
-        WoodSet set = new WoodSet(false);
-        set.log = BlockRegistry.registerDefaultBlock("alpha_log", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).strength(2.0F).ignitedByLava().sound(SoundType.WOOD)));
-        set.planks = BlockRegistry.registerDefaultBlock("alpha_planks", () -> BlockRegistry.planks(MapColor.WOOD, SoundType.WOOD, false));
-        set.stairs = BlockRegistry.registerDefaultBlock("alpha_stairs", () -> BlockRegistry.stairs(MapColor.WOOD, SoundType.WOOD, false));
-        set.slab = BlockRegistry.registerDefaultBlock("alpha_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(1.5F).sound(SoundType.STONE).requiresCorrectToolForDrops()));
-        RuBlocks.WOOD_SETS.add(set);
+        WoodSet set = new WoodSet("alpha", false);
+        set.log = RUBlockUtils.register("alpha_log", p -> new Block(p.mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).strength(2.0F).ignitedByLava().sound(SoundType.WOOD)));
+        set.planks = RUBlockUtils.register("alpha_planks", p -> RUBlockUtils.planks(p, MapColor.WOOD, SoundType.WOOD, false));
+        set.stairs = RUBlockUtils.register("alpha_stairs", p -> RUBlockUtils.stairs(p, MapColor.WOOD, SoundType.WOOD, false));
+        set.slab = RUBlockUtils.register("alpha_slab", p -> new SlabBlock(p.mapColor(MapColor.WOOD).strength(1.5F).sound(SoundType.STONE).requiresCorrectToolForDrops()));
+        RUBlocks.WOOD_SETS.add(set);
         return set;
     }
 
-    public static WoodSet silverBirch() {
-        WoodSet set = new WoodSet(false);
-        set.log = BlockRegistry.registerDefaultBlock("silver_birch_log", () -> BlockRegistry.aspenLogBlock(MapColor.SAND, MapColor.QUARTZ, SoundType.BAMBOO_WOOD));
-        set.wood = BlockRegistry.registerDefaultBlock("silver_birch_wood", () -> BlockRegistry.log(MapColor.QUARTZ, MapColor.QUARTZ, SoundType.BAMBOO_WOOD, false));
-        RuBlocks.WOOD_SETS.add(set);
+    public static WoodSet onlyLogs(String name, SoundType sound, MapColor plankColor, MapColor logColor, boolean fireproof, BlockFactory logFactory) {
+        WoodSet set = new WoodSet(name, false);
+        set.addLogs(name, "log", "wood", sound, plankColor, logColor, fireproof, logFactory, false);
+        RUBlocks.WOOD_SETS.add(set);
         return set;
     }
 
-    public static WoodSet ashen() {
-        WoodSet set = new WoodSet(true);
-        set.log = BlockRegistry.registerDefaultBlock("ashen_log", () -> BlockRegistry.log(MapColor.COLOR_LIGHT_GRAY, MapColor.COLOR_GRAY, SoundType.NETHER_WOOD, true));
-        set.wood = BlockRegistry.registerDefaultBlock("ashen_wood", () -> BlockRegistry.log(MapColor.COLOR_LIGHT_GRAY, MapColor.COLOR_LIGHT_GRAY, SoundType.NETHER_WOOD, true));
-        RuBlocks.WOOD_SETS.add(set);
-        return set;
+    protected void addLogs(String typeName, String logName, String woodName, SoundType sound, MapColor plankColour, MapColor logColour, boolean fireproof, BlockFactory logFactory, boolean generateStripped) {
+        this.log = RUBlockUtils.register(typeName + "_" + logName, p -> RUBlockUtils.log(p, logFactory, plankColour, logColour, sound, fireproof));
+        this.wood = RUBlockUtils.register(typeName + "_" + woodName, p -> RUBlockUtils.log(p, RotatedPillarBlock::new, plankColour, logColour, sound, fireproof));
+        if (!generateStripped) return;
+        this.strippedLog = RUBlockUtils.register("stripped_" + typeName + "_" + logName, p -> RUBlockUtils.wood(p, plankColour, sound, fireproof));
+        this.strippedWood = RUBlockUtils.register("stripped_" + typeName + "_" + woodName, p -> RUBlockUtils.wood(p, plankColour, sound, fireproof));
     }
 
-    public static WoodSet pine(String name, WoodType woodType, SoundType sound, MapColor colour, boolean fireproof) {
-        WoodSet set = new WoodSet(fireproof);
-        set.log = BlockRegistry.registerDefaultBlock(name + "_log", () -> BlockRegistry.pineLog(colour, colour, sound));
-        set.wood = BlockRegistry.registerDefaultBlock(name + "_wood", () -> BlockRegistry.log(colour, colour, sound, fireproof));
-        set.strippedLog = BlockRegistry.registerDefaultBlock("stripped_" + name + "_log", () -> BlockRegistry.wood(colour, sound, fireproof));
-        set.strippedWood = BlockRegistry.registerDefaultBlock("stripped_" + name + "_wood", () -> BlockRegistry.wood(colour, sound, fireproof));
-        set.planks = BlockRegistry.registerDefaultBlock(name + "_planks", () -> BlockRegistry.planks(colour, sound, fireproof));
-        set.stairs = BlockRegistry.registerDefaultBlock(name + "_stairs", () -> BlockRegistry.stairs(colour, sound, fireproof));
-        set.slab = BlockRegistry.registerDefaultBlock(name + "_slab", () -> BlockRegistry.slab(colour, sound, fireproof));
-        set.fence = BlockRegistry.registerDefaultBlock(name + "_fence", () -> BlockRegistry.fence(colour, sound, fireproof));
-        set.fenceGate = BlockRegistry.registerDefaultBlock(name + "_fence_gate", () -> BlockRegistry.fenceGate(colour, woodType, sound, fireproof));
-        set.door = BlockRegistry.registerDefaultBlock(name + "_door", () -> BlockRegistry.door(colour, sound, woodType.setType(), fireproof));
-        set.trapdoor = BlockRegistry.registerDefaultBlock(name + "_trapdoor", () -> BlockRegistry.trapdoor(colour, sound, woodType.setType(), fireproof));
-        set.pressurePlate = BlockRegistry.registerDefaultBlock(name + "_pressure_plate", () -> BlockRegistry.pressurePlate(colour, sound, woodType.setType(), fireproof));
-        set.button = BlockRegistry.registerDefaultBlock(name + "_button", () -> BlockRegistry.button(sound, woodType.setType()));
-        set.sign = BlockRegistry.registerDefaultBlockNoItem(name + "_sign", () -> BlockRegistry.sign(sound, woodType, fireproof));
-        set.wallSign = BlockRegistry.registerDefaultBlockNoItem(name + "_wall_sign", () -> BlockRegistry.wallSign(sound, set.sign.get(), woodType, fireproof));
-        set.hangingSign = BlockRegistry.registerDefaultBlockNoItem(name + "_hanging_sign", () -> BlockRegistry.hangingSign(colour, sound, woodType, fireproof));
-        set.wallHangingSign = BlockRegistry.registerDefaultBlockNoItem(name + "_wall_hanging_sign", () -> BlockRegistry.wallHangingSign(colour, sound, set.hangingSign.get(), woodType, fireproof));
-        set.itemSign = ItemRegistry.registerItem(name + "_sign", () -> new SignItem(new Item.Properties().stacksTo(16), set.sign.get(), set.wallSign.get()));
-        set.itemHangingSign = ItemRegistry.registerItem(name + "_hanging_sign", () -> new HangingSignItem(set.hangingSign.get(), set.wallHangingSign.get(), new Item.Properties().stacksTo(16)));
-        set.itemBoat = ItemRegistry.registerItem(name + "_boat", () -> new RuBoatItem(false, RuBoat.ModelType.byName(name), new Item.Properties().stacksTo(1)));
-        set.itemChestBoat = ItemRegistry.registerItem(name + "_chest_boat", () -> new RuBoatItem(true, RuBoat.ModelType.byName(name), new Item.Properties().stacksTo(1)));
-        RuBlocks.WOOD_SETS.add(set);
-        return set;
+    protected void addCommonWoodBlocks(String name, WoodType woodType, MapColor colour, SoundType sound, boolean fireproof) {
+        this.planks = RUBlockUtils.register(name + "_planks", p -> RUBlockUtils.planks(p, colour, sound, fireproof));
+        this.stairs = RUBlockUtils.register(name + "_stairs", p -> RUBlockUtils.stairs(p, colour, sound, fireproof));
+        this.slab = RUBlockUtils.register(name + "_slab", p -> RUBlockUtils.slab(p, colour, sound, fireproof));
+        this.fence = RUBlockUtils.register(name + "_fence", p -> RUBlockUtils.fence(p, colour, sound, fireproof));
+        this.fenceGate = RUBlockUtils.register(name + "_fence_gate", p -> RUBlockUtils.fenceGate(p, colour, woodType, sound, fireproof));
+        this.door = RUBlockUtils.register(name + "_door", p -> RUBlockUtils.door(p, colour, sound, woodType.setType(), fireproof));
+        this.trapdoor = RUBlockUtils.register(name + "_trapdoor", p -> RUBlockUtils.trapdoor(p, colour, sound, woodType.setType(), fireproof));
+        this.pressurePlate = RUBlockUtils.register(name + "_pressure_plate", p -> RUBlockUtils.pressurePlate(p, colour, sound, woodType.setType(), fireproof));
+        this.button = RUBlockUtils.register(name + "_button", p -> RUBlockUtils.button(p, sound, woodType.setType()));
+        this.sign = RUBlockUtils.registerNoItem(name + "_sign", p -> RUBlockUtils.sign(p, sound, woodType, fireproof));
+        this.wallSign = RUBlockUtils.registerNoItem(name + "_wall_sign", p -> RUBlockUtils.wallSign(p, sound, this.sign.get(), woodType, fireproof));
+        this.hangingSign = RUBlockUtils.registerNoItem(name + "_hanging_sign", p -> RUBlockUtils.hangingSign(p, colour, sound, woodType, fireproof));
+        this.wallHangingSign = RUBlockUtils.registerNoItem(name + "_wall_hanging_sign", p -> RUBlockUtils.wallHangingSign(p, colour, sound, this.hangingSign.get(), woodType, fireproof));
+        this.itemSign = ItemRegistry.registerItem(name + "_sign", () -> new SignItem(new Item.Properties().stacksTo(16), this.sign.get(), this.wallSign.get()));
+        this.itemHangingSign = ItemRegistry.registerItem(name + "_hanging_sign", () -> new HangingSignItem(this.hangingSign.get(), this.wallHangingSign.get(), new Item.Properties().stacksTo(16)));
+    }
+
+    protected void addBoats(String name) {
+        this.itemBoat = ItemRegistry.registerItem(name + "_boat", () -> new RuBoatItem(false, RuBoat.ModelType.byName(name), new Item.Properties().stacksTo(1)));
+        this.itemChestBoat = ItemRegistry.registerItem(name + "_chest_boat", () -> new RuBoatItem(true, RuBoat.ModelType.byName(name), new Item.Properties().stacksTo(1)));
     }
 
     public Block getLog() {

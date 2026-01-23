@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -25,9 +26,8 @@ public class StrippedBambooLogBlock extends Block implements SimpleWaterloggedBl
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.AXIS;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    public StrippedBambooLogBlock() {
-        super(Properties.of().mapColor(MapColor.SAND).instrument(NoteBlockInstrument.BASS).sound(SoundType.BAMBOO).strength(2f, 3f).noOcclusion()
-                .isRedstoneConductor((bs, br, bp) -> false));
+    public StrippedBambooLogBlock(BlockBehaviour.Properties properties) {
+        super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Direction.Axis.Y).setValue(WATERLOGGED, Boolean.valueOf(false)));
     }
 

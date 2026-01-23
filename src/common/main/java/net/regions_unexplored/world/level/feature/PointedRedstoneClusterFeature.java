@@ -16,7 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Column;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.world.level.feature.configuration.PointedRedstoneClusterConfiguration;
 import net.regions_unexplored.world.level.feature.configuration.PointedRedstoneUtils;
 
@@ -147,7 +147,7 @@ public class PointedRedstoneClusterFeature extends Feature<PointedRedstoneCluste
 
     private boolean canPlacePool(WorldGenLevel level, BlockPos pos) {
         BlockState blockstate = level.getBlockState(pos);
-        if (!blockstate.is(Blocks.RED_TERRACOTTA) && !blockstate.is(RuBlocks.RAW_REDSTONE_BLOCK.get()) && !blockstate.is(RuBlocks.POINTED_REDSTONE.get())) {
+        if (!blockstate.is(Blocks.RED_TERRACOTTA) && !blockstate.is(RUBlocks.RAW_REDSTONE_BLOCK.get()) && !blockstate.is(RUBlocks.POINTED_REDSTONE.get())) {
             if (level.getBlockState(pos.above()).getFluidState().is(FluidTags.WATER)) {
                 return false;
             } else {

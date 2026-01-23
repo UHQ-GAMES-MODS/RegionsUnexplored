@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 import java.util.List;
 import java.util.Optional;
@@ -33,7 +33,7 @@ public class ArgilliteGrassBlock extends ArgilliteDirtBlock implements Bonemeala
 
    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
       BlockPos blockPos = pos.above();
-      BlockState blockState = RuBlocks.BLADED_GRASS.get().defaultBlockState();
+      BlockState blockState = RUBlocks.BLADED_GRASS.get().defaultBlockState();
       Optional<Holder.Reference<PlacedFeature>> optional = level.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(VegetationPlacements.GRASS_BONEMEAL);
 
       label46:

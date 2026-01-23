@@ -8,7 +8,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.world.level.block.cave.HangingPrismariteBlock;
 import net.regions_unexplored.world.level.block.state.properties.HangingPrismariteShape;
 
@@ -67,7 +67,7 @@ public class HangingPrismariteFeature extends Feature<NoneFeatureConfiguration> 
         int size = random.nextInt(5)+1;
         if (level.isEmptyBlock(pos) ) {
             if(level.getBlockState(pos.above()).isFaceSturdy(level, pos.above(), Direction.DOWN)
-                    ||level.getBlockState(pos.above()).is(RuBlocks.HANGING_PRISMARITE.get())) {
+                    ||level.getBlockState(pos.above()).is(RUBlocks.HANGING_PRISMARITE.get())) {
 
                 BlockPos.MutableBlockPos placePos = pos.mutable();
                 int count = 0;
@@ -78,13 +78,13 @@ public class HangingPrismariteFeature extends Feature<NoneFeatureConfiguration> 
                     if (level.isOutsideBuildHeight(placePos)) {
                         return true;
                     }
-                    if(level.getBlockState(placePos.above()).is(RuBlocks.HANGING_PRISMARITE.get())){
-                        level.setBlock(placePos.above(), RuBlocks.HANGING_PRISMARITE.get().defaultBlockState().setValue(HangingPrismariteBlock.SHAPE, HangingPrismariteShape.FRUSTUM), 2);
+                    if(level.getBlockState(placePos.above()).is(RUBlocks.HANGING_PRISMARITE.get())){
+                        level.setBlock(placePos.above(), RUBlocks.HANGING_PRISMARITE.get().defaultBlockState().setValue(HangingPrismariteBlock.SHAPE, HangingPrismariteShape.FRUSTUM), 2);
                     }
-                    if(level.getBlockState(placePos.above().above()).is(RuBlocks.HANGING_PRISMARITE.get())){
-                        level.setBlock(placePos.above().above(), RuBlocks.HANGING_PRISMARITE.get().defaultBlockState().setValue(HangingPrismariteBlock.SHAPE, HangingPrismariteShape.COLUMN), 2);
+                    if(level.getBlockState(placePos.above().above()).is(RUBlocks.HANGING_PRISMARITE.get())){
+                        level.setBlock(placePos.above().above(), RUBlocks.HANGING_PRISMARITE.get().defaultBlockState().setValue(HangingPrismariteBlock.SHAPE, HangingPrismariteShape.COLUMN), 2);
                     }
-                    level.setBlock(placePos, RuBlocks.HANGING_PRISMARITE.get().defaultBlockState(), 2);
+                    level.setBlock(placePos, RUBlocks.HANGING_PRISMARITE.get().defaultBlockState(), 2);
                     placePos.move(Direction.DOWN);
                     count=count+1;
                 }

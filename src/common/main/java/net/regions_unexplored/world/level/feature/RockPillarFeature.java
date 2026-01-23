@@ -13,7 +13,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.material.Fluids;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.data.tags.RuTags;
 
 import java.util.Random;
@@ -411,7 +411,7 @@ public class RockPillarFeature extends Feature<NoneFeatureConfiguration> {
 
                 for(BlockPos blockpos1 : BlockPos.betweenClosed(pos.offset(-i, -j, -k), pos.offset(i, j, k))) {
                     if (blockpos1.distSqr(pos) <= (double)(f * f)) {
-                        if(level.getBlockState(blockpos1.below()).getBlock()== RuBlocks.STONE_GRASS_BLOCK){
+                        if(level.getBlockState(blockpos1.below()).getBlock()== RUBlocks.STONE_GRASS_BLOCK){
                             level.setBlock(blockpos1.below(), Blocks.STONE.defaultBlockState(), 4);
                         }
                         level.setBlock(blockpos1, Blocks.STONE.defaultBlockState(), 4);
@@ -430,7 +430,7 @@ public class RockPillarFeature extends Feature<NoneFeatureConfiguration> {
                     if (pos1.distSqr(pos) <= (double)(f * f)) {
                         if(level.isEmptyBlock(pos1.above())||level.getBlockState(pos1.above()).is(Blocks.SHORT_GRASS)) {
                             if(level.getBlockState(pos1.below()).is(Blocks.STONE)){
-                                level.setBlock(pos1, RuBlocks.STONE_GRASS_BLOCK.get().defaultBlockState(), 4);
+                                level.setBlock(pos1, RUBlocks.STONE_GRASS_BLOCK.get().defaultBlockState(), 4);
                                 if(random.nextInt(4)==0) {
                                     level.setBlock(pos1.above(), Blocks.SHORT_GRASS.defaultBlockState(), 4);
                                 }
@@ -449,7 +449,7 @@ public class RockPillarFeature extends Feature<NoneFeatureConfiguration> {
 
 
     private static boolean isRockState(BlockState p_159886_) {
-        return p_159886_.is(Blocks.STONE) || p_159886_.is(RuBlocks.STONE_GRASS_BLOCK.get()) || p_159886_.is(Blocks.MOSS_BLOCK);
+        return p_159886_.is(Blocks.STONE) || p_159886_.is(RUBlocks.STONE_GRASS_BLOCK.get()) || p_159886_.is(Blocks.MOSS_BLOCK);
     }
 
     private boolean belowIsAir(BlockGetter p_66046_, BlockPos p_66047_) {

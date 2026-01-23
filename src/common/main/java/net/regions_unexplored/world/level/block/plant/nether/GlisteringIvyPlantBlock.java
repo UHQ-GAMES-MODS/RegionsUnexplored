@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.GrowingPlantBodyBlock;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 public class GlisteringIvyPlantBlock extends GrowingPlantBodyBlock {
     public static final MapCodec<? extends GlisteringIvyPlantBlock> CODEC = simpleCodec(GlisteringIvyPlantBlock::new);
@@ -17,7 +17,7 @@ public class GlisteringIvyPlantBlock extends GrowingPlantBodyBlock {
     }
 
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) RuBlocks.GLISTERING_IVY.get();
+        return (GrowingPlantHeadBlock) RUBlocks.GLISTERING_IVY.get();
     }
 
     @Override

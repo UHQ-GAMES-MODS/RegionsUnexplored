@@ -3,7 +3,7 @@ package net.regions_unexplored;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.block.compat.BlockToolCompat;
 import net.regions_unexplored.block.compat.FlammableBlocks;
 import net.regions_unexplored.client.particle.RuParticleTypes;
@@ -33,7 +33,7 @@ public class RegionsUnexplored {
 		FeatureRegistry.addFeatures();
 		RuParticleTypes.addParticles();
 		BiomeRegistry.addBiomes();
-		RuBlocks.addBlocks();
+		RUBlocks.init();
 		RuItems.addItems();
 		RuTabs.init();
 		RuEntities.addEntities();

@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 public class ElephantEarBlock extends DoublePlantBlock {
     protected static final float AABB_OFFSET = 6.0F;
@@ -21,10 +21,10 @@ public class ElephantEarBlock extends DoublePlantBlock {
     }
 
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-        if(state== RuBlocks.ELEPHANT_EAR.get().defaultBlockState().setValue(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)){
+        if(state== RUBlocks.ELEPHANT_EAR.get().defaultBlockState().setValue(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)){
             return SHAPE_LOWER;
         }
-        else if(state== RuBlocks.ELEPHANT_EAR.get().defaultBlockState().setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)){
+        else if(state== RUBlocks.ELEPHANT_EAR.get().defaultBlockState().setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)){
             return SHAPE_UPPER;
         }
         return SHAPE_LOWER;

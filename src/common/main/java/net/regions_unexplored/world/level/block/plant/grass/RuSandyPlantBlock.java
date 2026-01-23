@@ -20,7 +20,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.data.tags.RuTags;
 import net.regions_unexplored.world.level.block.plant.tall.RuSandyDoublePlantBlock;
 import net.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
@@ -95,8 +95,8 @@ public class RuSandyPlantBlock extends BushBlock implements BonemealableBlock {
 
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
         boolean isRed = state.getValue(IS_RED);
-        if(state.is(RuBlocks.SANDY_GRASS.get())){
-            Block sandyTallGrassBlock = RuBlocks.SANDY_TALL_GRASS.get();
+        if(state.is(RUBlocks.SANDY_GRASS.get())){
+            Block sandyTallGrassBlock = RUBlocks.SANDY_TALL_GRASS.get();
             if (sandyTallGrassBlock instanceof DoublePlantBlock sandyTallGrass) {
                 if (sandyTallGrass.defaultBlockState().canSurvive(level, pos) && level.isEmptyBlock(pos.above())) {
                     placeAt(level, sandyTallGrass.defaultBlockState().setValue(IS_RED, isRed), pos, 2);

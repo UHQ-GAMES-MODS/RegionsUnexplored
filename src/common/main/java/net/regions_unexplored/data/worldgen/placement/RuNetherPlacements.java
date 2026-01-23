@@ -10,7 +10,7 @@ import net.minecraft.util.valueproviders.ClampedNormalInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.data.worldgen.features.RuNetherFeatures;
 import net.regions_unexplored.data.worldgen.features.RuVegetationFeatures;
 import net.regions_unexplored.registry.PlacedFeatureRegistry;
@@ -80,18 +80,18 @@ public class RuNetherPlacements {
         final Holder<ConfiguredFeature<?, ?>> LARGE_POINTED_REDSTONE_NETHER = featureGetter.getOrThrow(RuNetherFeatures.LARGE_POINTED_REDSTONE_NETHER);
         final Holder<ConfiguredFeature<?, ?>> POINTED_REDSTONE_CLUSTER_NETHER = featureGetter.getOrThrow(RuNetherFeatures.POINTED_REDSTONE_CLUSTER_NETHER);
 
-        register(context, RuNetherPlacements.SMALL_YELLOW_BIOSHROOM, SMALL_YELLOW_BIOSHROOM, List.of(CountOnEveryLayerPlacement.of(1), PlacementUtils.filteredByBlockSurvival(RuBlocks.MYCOTOXIC_GRASS.get()), BiomeFilter.biome()));
+        register(context, RuNetherPlacements.SMALL_YELLOW_BIOSHROOM, SMALL_YELLOW_BIOSHROOM, List.of(CountOnEveryLayerPlacement.of(1), PlacementUtils.filteredByBlockSurvival(RUBlocks.MYCOTOXIC_GRASS.get()), BiomeFilter.biome()));
         register(context, RuNetherPlacements.MYCOTOXIC_MUSHROOMS, MYCOTOXIC_MUSHROOMS, List.of(CountOnEveryLayerPlacement.of(1),  NoiseThresholdCountPlacement.of(-0.8D, 5, 12), BiomeFilter.biome()));
         register(context, RuNetherPlacements.MYCOTOXIC_GRASS, MYCOTOXIC_GRASS, List.of(CountOnEveryLayerPlacement.of(30), BiomeFilter.biome()));
         register(context, RuNetherPlacements.MYCOTOXIC_DAISY, MYCOTOXIC_DAISY, List.of(CountOnEveryLayerPlacement.of(5), BiomeFilter.biome()));
-        register(context, RuNetherPlacements.MYCOTOXIC_BIOSHROOM, MYCOTOXIC_BIOSHROOM, List.of(CountOnEveryLayerPlacement.of(7), PlacementUtils.filteredByBlockSurvival(RuBlocks.STONE_BUD.get()), BiomeFilter.biome()));
+        register(context, RuNetherPlacements.MYCOTOXIC_BIOSHROOM, MYCOTOXIC_BIOSHROOM, List.of(CountOnEveryLayerPlacement.of(7), PlacementUtils.filteredByBlockSurvival(RUBlocks.STONE_BUD.get()), BiomeFilter.biome()));
 
                 register(context, RuNetherPlacements.BRIMSPROUT, BRIMSPROUT, List.of(CountOnEveryLayerPlacement.of(30), BiomeFilter.biome()));
-        register(context, RuNetherPlacements.BRIM_FLAMES, BRIM_FLAMES, List.of(CountOnEveryLayerPlacement.of(5), PlacementUtils.filteredByBlockSurvival(RuBlocks.BRIMSPROUT.get()), BiomeFilter.biome()));
-        register(context, RuNetherPlacements.DORCEL, DORCEL, List.of(CountOnEveryLayerPlacement.of(2), PlacementUtils.filteredByBlockSurvival(RuBlocks.BRIMSPROUT.get()), BiomeFilter.biome()));
-        register(context, RuNetherPlacements.BRIMWOOD_SHRUB, BRIMWOOD_SHRUB, List.of(CountOnEveryLayerPlacement.of(1), PlacementUtils.filteredByBlockSurvival(RuBlocks.BRIMSPROUT.get()), BiomeFilter.biome()));
+        register(context, RuNetherPlacements.BRIM_FLAMES, BRIM_FLAMES, List.of(CountOnEveryLayerPlacement.of(5), PlacementUtils.filteredByBlockSurvival(RUBlocks.BRIMSPROUT.get()), BiomeFilter.biome()));
+        register(context, RuNetherPlacements.DORCEL, DORCEL, List.of(CountOnEveryLayerPlacement.of(2), PlacementUtils.filteredByBlockSurvival(RUBlocks.BRIMSPROUT.get()), BiomeFilter.biome()));
+        register(context, RuNetherPlacements.BRIMWOOD_SHRUB, BRIMWOOD_SHRUB, List.of(CountOnEveryLayerPlacement.of(1), PlacementUtils.filteredByBlockSurvival(RUBlocks.BRIMSPROUT.get()), BiomeFilter.biome()));
 
-        register(context, RuNetherPlacements.GLISTERING_MEADOW_ROCK, GLISTERING_MEADOW_ROCK, CountOnEveryLayerPlacement.of(1), PlacementUtils.filteredByBlockSurvival(RuBlocks.GLISTERING_NYLIUM.get()), BiomeFilter.biome());
+        register(context, RuNetherPlacements.GLISTERING_MEADOW_ROCK, GLISTERING_MEADOW_ROCK, CountOnEveryLayerPlacement.of(1), PlacementUtils.filteredByBlockSurvival(RUBlocks.GLISTERING_NYLIUM.get()), BiomeFilter.biome());
         register(context, RuNetherPlacements.GLISTERING_IVY, GLISTERING_IVY, CountPlacement.of(155), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
         register(context, RuNetherPlacements.GLISTERING_SPROUT, GLISTERING_SPROUT, List.of(CountOnEveryLayerPlacement.of(30), BiomeFilter.biome()));
         register(context, RuNetherPlacements.GLISTERING_FERN, GLISTERING_FERN, List.of(CountOnEveryLayerPlacement.of(15), BiomeFilter.biome()));
@@ -101,7 +101,7 @@ public class RuNetherPlacements {
 
         register(context, RuNetherPlacements.HANGING_EARLIGHT, HANGING_EARLIGHT, CountPlacement.of(225), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
         register(context, RuNetherPlacements.COBALT_ROOTS, COBALT_ROOTS, List.of(CountOnEveryLayerPlacement.of(8), BiomeFilter.biome()));
-        register(context, RuNetherPlacements.BLACKSTONE_CLUSTER, BLACKSTONE_CLUSTER, List.of(CountOnEveryLayerPlacement.of(4), PlacementUtils.filteredByBlockSurvival(RuBlocks.STONE_BUD.get()), BiomeFilter.biome()));
+        register(context, RuNetherPlacements.BLACKSTONE_CLUSTER, BLACKSTONE_CLUSTER, List.of(CountOnEveryLayerPlacement.of(4), PlacementUtils.filteredByBlockSurvival(RUBlocks.STONE_BUD.get()), BiomeFilter.biome()));
         register(context, RuNetherPlacements.COBALT_EARLIGHT, COBALT_EARLIGHT, List.of(CountOnEveryLayerPlacement.of(3), BiomeFilter.biome()));
         register(context, RuNetherPlacements.TALL_COBALT_EARLIGHT, TALL_COBALT_EARLIGHT, List.of(CountOnEveryLayerPlacement.of(3), BiomeFilter.biome()));
         register(context, RuNetherPlacements.OBSIDIAN_SPIRE, OBSIDIAN_SPIRE, CountPlacement.of(155), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());

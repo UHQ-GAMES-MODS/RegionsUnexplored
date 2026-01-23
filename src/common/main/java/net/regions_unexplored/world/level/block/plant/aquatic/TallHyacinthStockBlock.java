@@ -19,7 +19,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
 import net.regions_unexplored.world.level.block.state.properties.TallHyacinthStockShape;
 import org.jetbrains.annotations.Nullable;
@@ -54,12 +54,12 @@ public class TallHyacinthStockBlock extends Block implements LiquidBlockContaine
     }
 
     public boolean mayPlaceOn(BlockState state, BlockGetter getter, BlockPos pos) {
-        return state.isFaceSturdy(getter, pos, Direction.UP) || state.is(RuBlocks.TALL_HYACINTH_STOCK.get());
+        return state.isFaceSturdy(getter, pos, Direction.UP) || state.is(RUBlocks.TALL_HYACINTH_STOCK.get());
     }
 
 
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        if(!context.getLevel().getBlockState(context.getClickedPos().below()).is(RuBlocks.TALL_HYACINTH_STOCK.get())){
+        if(!context.getLevel().getBlockState(context.getClickedPos().below()).is(RUBlocks.TALL_HYACINTH_STOCK.get())){
             return this.defaultBlockState().setValue(SHAPE, TallHyacinthStockShape.BASE_TIP);
         }
         else{
@@ -70,11 +70,11 @@ public class TallHyacinthStockBlock extends Block implements LiquidBlockContaine
     @Override
     public BlockState updateShape(BlockState state, Direction facing, BlockState state1, LevelAccessor level, BlockPos pos, BlockPos pos1) {
         TallHyacinthStockShape shape = state.getValue(SHAPE);
-        if(!level.getBlockState(pos.below()).is(RuBlocks.TALL_HYACINTH_STOCK.get())) {
-            if(!level.getBlockState(pos.above()).is(RuBlocks.TALL_HYACINTH_STOCK.get())) {
+        if(!level.getBlockState(pos.below()).is(RUBlocks.TALL_HYACINTH_STOCK.get())) {
+            if(!level.getBlockState(pos.above()).is(RUBlocks.TALL_HYACINTH_STOCK.get())) {
                 shape = TallHyacinthStockShape.BASE_TIP;
             }
-            else if(level.getBlockState(pos.above()) == RuBlocks.TALL_HYACINTH_STOCK.get().defaultBlockState().setValue(SHAPE, TallHyacinthStockShape.TIP)) {
+            else if(level.getBlockState(pos.above()) == RUBlocks.TALL_HYACINTH_STOCK.get().defaultBlockState().setValue(SHAPE, TallHyacinthStockShape.TIP)) {
                 shape = TallHyacinthStockShape.BASE_FRUSTUM;
             }
             else{
@@ -82,13 +82,13 @@ public class TallHyacinthStockBlock extends Block implements LiquidBlockContaine
             }
         }
         else{
-            if(!level.getBlockState(pos.above()).is(RuBlocks.TALL_HYACINTH_STOCK.get())) {
+            if(!level.getBlockState(pos.above()).is(RUBlocks.TALL_HYACINTH_STOCK.get())) {
                 shape = TallHyacinthStockShape.TIP;
             }
-            else if(level.getBlockState(pos.above()) == RuBlocks.TALL_HYACINTH_STOCK.get().defaultBlockState().setValue(SHAPE, TallHyacinthStockShape.TIP)) {
+            else if(level.getBlockState(pos.above()) == RUBlocks.TALL_HYACINTH_STOCK.get().defaultBlockState().setValue(SHAPE, TallHyacinthStockShape.TIP)) {
                 shape = TallHyacinthStockShape.FRUSTUM;
             }
-            else if(level.getBlockState(pos.above()) == RuBlocks.TALL_HYACINTH_STOCK.get().defaultBlockState().setValue(SHAPE, TallHyacinthStockShape.FRUSTUM)) {
+            else if(level.getBlockState(pos.above()) == RUBlocks.TALL_HYACINTH_STOCK.get().defaultBlockState().setValue(SHAPE, TallHyacinthStockShape.FRUSTUM)) {
                 shape = TallHyacinthStockShape.MIDDLE;
             }
         }

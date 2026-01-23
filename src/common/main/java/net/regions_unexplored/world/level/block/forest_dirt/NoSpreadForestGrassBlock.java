@@ -16,7 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 import java.util.List;
 import java.util.Optional;
@@ -81,15 +81,15 @@ public class NoSpreadForestGrassBlock extends SpreadingForestDirtBlock implement
    @Override
    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
       if (!canBeGrass(state, level, pos)) {
-         level.setBlockAndUpdate(pos, RuBlocks.PEAT_DIRT.get().defaultBlockState());
+         level.setBlockAndUpdate(pos, RUBlocks.PEAT_DIRT.get().defaultBlockState());
       } else {
          if (level.getMaxLocalRawBrightness(pos.above()) >= 9) {
             BlockState blockstate = this.defaultBlockState();
 
             for(int i = 0; i < 4; ++i) {
                BlockPos blockpos = pos.offset(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
-               if (level.getBlockState(blockpos).is(RuBlocks.PEAT_DIRT.get()) && canPropagate(blockstate, level, blockpos)) {
-                  level.setBlockAndUpdate(blockpos, RuBlocks.PEAT_GRASS_BLOCK.get().defaultBlockState().setValue(SNOWY, Boolean.valueOf(level.getBlockState(blockpos.above()).is(Blocks.SNOW))));
+               if (level.getBlockState(blockpos).is(RUBlocks.PEAT_DIRT.get()) && canPropagate(blockstate, level, blockpos)) {
+                  level.setBlockAndUpdate(blockpos, RUBlocks.PEAT_GRASS_BLOCK.get().defaultBlockState().setValue(SNOWY, Boolean.valueOf(level.getBlockState(blockpos.above()).is(Blocks.SNOW))));
                }
             }
          }
@@ -99,7 +99,7 @@ public class NoSpreadForestGrassBlock extends SpreadingForestDirtBlock implement
 
    @Override
    public BlockState updateShape(BlockState p_56644_, Direction p_56645_, BlockState p_56646_, LevelAccessor p_56647_, BlockPos p_56648_, BlockPos p_56649_) {
-      return RuBlocks.PEAT_GRASS_BLOCK.get().defaultBlockState();
+      return RUBlocks.PEAT_GRASS_BLOCK.get().defaultBlockState();
    }
 
 }

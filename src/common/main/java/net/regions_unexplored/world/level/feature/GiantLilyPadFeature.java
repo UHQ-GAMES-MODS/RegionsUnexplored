@@ -8,7 +8,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.material.Fluids;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.world.level.block.plant.aquatic.GiantLilyBlock;
 
 public class GiantLilyPadFeature extends Feature<NoneFeatureConfiguration> {
@@ -24,10 +24,10 @@ public class GiantLilyPadFeature extends Feature<NoneFeatureConfiguration> {
             if(level.getFluidState(pos.below().south()).is(Fluids.WATER)&&level.getBlockState(pos.south()).isAir()){
                 if(level.getFluidState(pos.below().south().west()).is(Fluids.WATER)&&level.getBlockState(pos.south().west()).isAir()){
                     if(level.getFluidState(pos.below().west()).is(Fluids.WATER)&&level.getBlockState(pos.west()).isAir()){
-                        level.setBlock(pos, RuBlocks.GIANT_LILY_PAD.get().defaultBlockState().setValue(GiantLilyBlock.FACING, Direction.NORTH), 2);
-                        level.setBlock(pos.south(), RuBlocks.GIANT_LILY_PAD.get().defaultBlockState().setValue(GiantLilyBlock.FACING, Direction.EAST), 2);
-                        level.setBlock(pos.south().west(), RuBlocks.GIANT_LILY_PAD.get().defaultBlockState().setValue(GiantLilyBlock.FACING, Direction.SOUTH), 2);
-                        level.setBlock(pos.west(), RuBlocks.GIANT_LILY_PAD.get().defaultBlockState().setValue(GiantLilyBlock.FACING, Direction.WEST), 2);
+                        level.setBlock(pos, RUBlocks.GIANT_LILY_PAD.get().defaultBlockState().setValue(GiantLilyBlock.FACING, Direction.NORTH), 2);
+                        level.setBlock(pos.south(), RUBlocks.GIANT_LILY_PAD.get().defaultBlockState().setValue(GiantLilyBlock.FACING, Direction.EAST), 2);
+                        level.setBlock(pos.south().west(), RUBlocks.GIANT_LILY_PAD.get().defaultBlockState().setValue(GiantLilyBlock.FACING, Direction.SOUTH), 2);
+                        level.setBlock(pos.west(), RUBlocks.GIANT_LILY_PAD.get().defaultBlockState().setValue(GiantLilyBlock.FACING, Direction.WEST), 2);
                     }
                 }
             }

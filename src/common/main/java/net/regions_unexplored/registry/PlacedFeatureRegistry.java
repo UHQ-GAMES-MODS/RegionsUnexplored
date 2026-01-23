@@ -8,7 +8,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.regions_unexplored.RegionsUnexplored;
-import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.data.worldgen.placement.*;
 
 public class PlacedFeatureRegistry {
@@ -25,8 +24,8 @@ public class PlacedFeatureRegistry {
     }
 
     // TODO: Convert these into tags
-    public static BlockPredicate onDirtPredicate = BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL, Blocks.COARSE_DIRT, Blocks.DIRT, RuBlocks.PEAT_DIRT.get(), RuBlocks.SILT_DIRT.get(), RuBlocks.PEAT_COARSE_DIRT.get(), RuBlocks.SILT_COARSE_DIRT.get(), RuBlocks.PEAT_PODZOL.get(), RuBlocks.SILT_PODZOL.get());
-    public static BlockPredicate onGrassBlockPredicate = BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.GRASS_BLOCK, RuBlocks.PEAT_GRASS_BLOCK.get(), RuBlocks.SILT_GRASS_BLOCK.get(), RuBlocks.STONE_GRASS_BLOCK.get(), RuBlocks.DEEPSLATE_GRASS_BLOCK.get());
-    public static BlockPredicate onViridescentNyliumPredicate = BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), RuBlocks.VIRIDESCENT_NYLIUM.get(), RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get());
-    public static BlockPredicate onSnowPredicate = BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.SNOW_BLOCK, Blocks.GRASS_BLOCK, RuBlocks.PEAT_GRASS_BLOCK.get(), RuBlocks.SILT_GRASS_BLOCK.get());
+    public static BlockPredicate onDirtPredicate = BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL, Blocks.COARSE_DIRT, Blocks.DIRT, RUBlocks.PEAT_DIRT.get(), RUBlocks.SILT_DIRT.get(), RUBlocks.PEAT_COARSE_DIRT.get(), RUBlocks.SILT_COARSE_DIRT.get(), RUBlocks.PEAT_PODZOL.get(), RUBlocks.SILT_PODZOL.get());
+    public static BlockPredicate onGrassBlockPredicate = BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.GRASS_BLOCK, RUBlocks.PEAT_GRASS_BLOCK.get(), RUBlocks.SILT_GRASS_BLOCK.get(), RUBlocks.STONE_GRASS_BLOCK.get(), RUBlocks.DEEPSLATE_GRASS_BLOCK.get());
+    public static BlockPredicate onViridescentNyliumPredicate = BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), RUBlocks.VIRIDESCENT_NYLIUM.get(), RUBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get());
+    public static BlockPredicate onSnowPredicate = BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.SNOW_BLOCK, Blocks.GRASS_BLOCK, RUBlocks.PEAT_GRASS_BLOCK.get(), RUBlocks.SILT_GRASS_BLOCK.get());
 }

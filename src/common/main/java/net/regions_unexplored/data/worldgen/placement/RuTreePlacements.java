@@ -12,11 +12,9 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.block.set.NaturalSet;
-import net.regions_unexplored.data.worldgen.RuBiomeDefaultFeatures;
 import net.regions_unexplored.data.worldgen.features.RuTreeFeatures;
-import net.regions_unexplored.data.worldgen.features.RuVegetationFeatures;
 import net.regions_unexplored.registry.PlacedFeatureRegistry;
 
 import java.util.List;
@@ -350,7 +348,7 @@ public class RuTreePlacements {
         register(context, RuTreePlacements.GIANT_CYPRESS_TREE, GIANT_CYPRESS_TREE, List.of(CountPlacement.of(4), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(1), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.GIANT_CYPRESS_TREE_DEEP, GIANT_CYPRESS_TREE,   List.of(CountPlacement.of(3), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(2), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING), BiomeFilter.biome()));
 
-        register(context, RuTreePlacements.COBALT_TREE, COBALT_TREE, CountOnEveryLayerPlacement.of(1), PlacementUtils.filteredByBlockSurvival(RuBlocks.COBALT_EARLIGHT.get()),  BiomeFilter.biome());
+        register(context, RuTreePlacements.COBALT_TREE, COBALT_TREE, CountOnEveryLayerPlacement.of(1), PlacementUtils.filteredByBlockSurvival(RUBlocks.COBALT_EARLIGHT.get()),  BiomeFilter.biome());
 
         register(context, RuTreePlacements.CHERRY_TREE, CHERRY_TREE, List.of(CountPlacement.of(1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(3), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
 
@@ -366,9 +364,9 @@ public class RuTreePlacements {
         register(context, RuTreePlacements.SMALL_EUCALYPTUS_TREE, SMALL_EUCALYPTUS_TREE, List.of(CountPlacement.of(9), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.EUCALYPTUS_TREE, EUCALYPTUS_TREE, List.of(CountPlacement.of(9), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
 
-        register(context, RuTreePlacements.LARGE_JOSHUA_TREE, LARGE_JOSHUA_TREE, List.of(PlacementUtils.countExtra(0, 0.1F, 3), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(RuBlocks.SMALL_DESERT_SHRUB.get()), BiomeFilter.biome()));
-        register(context, RuTreePlacements.MEDIUM_JOSHUA_TREE, MEDIUM_JOSHUA_TREE, List.of(CountPlacement.of(1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(RuBlocks.SMALL_DESERT_SHRUB.get()), BiomeFilter.biome()));
-        register(context, RuTreePlacements.JOSHUA_TREE_SHRUB, JOSHUA_TREE_SHRUB, List.of(CountPlacement.of(1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(RuBlocks.SMALL_DESERT_SHRUB.get()), BiomeFilter.biome()));
+        register(context, RuTreePlacements.LARGE_JOSHUA_TREE, LARGE_JOSHUA_TREE, List.of(PlacementUtils.countExtra(0, 0.1F, 3), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(RUBlocks.SMALL_DESERT_SHRUB.get()), BiomeFilter.biome()));
+        register(context, RuTreePlacements.MEDIUM_JOSHUA_TREE, MEDIUM_JOSHUA_TREE, List.of(CountPlacement.of(1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(RUBlocks.SMALL_DESERT_SHRUB.get()), BiomeFilter.biome()));
+        register(context, RuTreePlacements.JOSHUA_TREE_SHRUB, JOSHUA_TREE_SHRUB, List.of(CountPlacement.of(1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(RUBlocks.SMALL_DESERT_SHRUB.get()), BiomeFilter.biome()));
 
         register(context, RuTreePlacements.JUNGLE_TREE_SPARSE, JUNGLE_TREE, List.of(NoiseBasedCountPlacement.of(2, 55.0D, 0.0D), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.BIG_JUNGLE_TREE_SPARSE, BIG_JUNGLE_TREE, List.of(NoiseBasedCountPlacement.of(2, 50.0D, 0.0D), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
@@ -389,7 +387,7 @@ public class RuTreePlacements {
             SurfaceWaterDepthFilter.forMaxDepth(0),
             PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
             BlockPredicateFilter.forPredicate(BlockPredicate.allOf(
-                saplingWouldSurvive(RuBlocks.MAPLE_NATURAL_SET),
+                saplingWouldSurvive(RUBlocks.MAPLE_NATURAL_SET),
                 PlacedFeatureRegistry.onGrassBlockPredicate
             )),
             BiomeFilter.biome()
@@ -400,7 +398,7 @@ public class RuTreePlacements {
             SurfaceWaterDepthFilter.forMaxDepth(0),
             PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
             BlockPredicateFilter.forPredicate(BlockPredicate.allOf(
-                saplingWouldSurvive(RuBlocks.MAPLE_NATURAL_SET),
+                saplingWouldSurvive(RUBlocks.MAPLE_NATURAL_SET),
                 BlockPredicate.anyOf(
                     PlacedFeatureRegistry.onGrassBlockPredicate,
                     new RandomChancePredicate(0.02f)
@@ -425,7 +423,7 @@ public class RuTreePlacements {
         register(context, RuTreePlacements.SMALL_OAK_TREE, SMALL_OAK_TREE, List.of(CountPlacement.of(4), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.OAK_TREE_WITH_BRANCH, OAK_TREE_WITH_BRANCH, List.of(CountPlacement.of(1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.OAK_TREE_ON_DIRT, OAK_TREE, List.of(CountPlacement.of(3), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(PlacedFeatureRegistry.onDirtPredicate), BiomeFilter.biome()));
-        register(context, RuTreePlacements.OAK_TREE_SHRUB_ON_STONE, OAK_TREE_SHRUB, List.of(CountPlacement.of(1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(RuBlocks.STONE_BUD.get()), BiomeFilter.biome()));
+        register(context, RuTreePlacements.OAK_TREE_SHRUB_ON_STONE, OAK_TREE_SHRUB, List.of(CountPlacement.of(1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(RUBlocks.STONE_BUD.get()), BiomeFilter.biome()));
         register(context, RuTreePlacements.OAK_TREE_SHRUB_SPARSE, OAK_TREE_SHRUB, List.of(CountPlacement.of(1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.OAK_TREE_SHRUB_DENSE, OAK_TREE_SHRUB, List.of(CountPlacement.of(3), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.OAK_BUSH_SINGLE, OAK_BUSH, List.of(CountPlacement.of(1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
@@ -434,7 +432,7 @@ public class RuTreePlacements {
         register(context, RuTreePlacements.OAK_BUSH_WITH_FLOWERS_SPARSE, OAK_BUSH_WITH_FLOWERS, List.of(CountPlacement.of(3), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.OAK_BUSH_WITH_FLOWERS_DENSE, OAK_BUSH_WITH_FLOWERS, List.of(CountPlacement.of(7), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
 
-        register(context, RuTreePlacements.PALM_TREE_ON_SAND, PALM_TREE, List.of(CountPlacement.of(1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(RuBlocks.SANDY_GRASS.get()), BiomeFilter.biome()));
+        register(context, RuTreePlacements.PALM_TREE_ON_SAND, PALM_TREE, List.of(CountPlacement.of(1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(RUBlocks.SANDY_GRASS.get()), BiomeFilter.biome()));
         register(context, RuTreePlacements.PALM_TREE_SPARSE, PALM_TREE, List.of(CountPlacement.of(2), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.PALM_TREE_DENSE, PALM_TREE, List.of(CountPlacement.of(4), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.PALM_TREE_DENSE_TALL, PALM_TREE_TALL, List.of(CountPlacement.of(4), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
@@ -468,7 +466,7 @@ public class RuTreePlacements {
         register(context, RuTreePlacements.BIG_PINK_MAGNOLIA_TREE, PINK_BIG_MAGNOLIA_TREE, List.of(CountPlacement.of(1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.BIG_WHITE_MAGNOLIA_TREE, WHITE_BIG_MAGNOLIA_TREE, List.of(CountPlacement.of(1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
 
-        register(context, RuTreePlacements.SAGUARO_CACTUS, SAGUARO_CACTUS, List.of(NoiseBasedCountPlacement.of(1, 75.0D, 0.0D), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(RuBlocks.SANDY_GRASS.get()), BiomeFilter.biome()));
+        register(context, RuTreePlacements.SAGUARO_CACTUS, SAGUARO_CACTUS, List.of(NoiseBasedCountPlacement.of(1, 75.0D, 0.0D), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(RUBlocks.SANDY_GRASS.get()), BiomeFilter.biome()));
 
         register(context, RuTreePlacements.SPRUCE_TREE_TALL_SPARSE, SPRUCE_TREE_TALL, List.of(PlacementUtils.countExtra(0, 0.05F, 1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.SPRUCE_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.SPRUCE_TREE_TALL_DENSE, SPRUCE_TREE_TALL, List.of(CountPlacement.of(4), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));

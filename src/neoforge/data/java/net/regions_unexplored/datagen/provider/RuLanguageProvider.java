@@ -8,7 +8,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.regions_unexplored.RegionsUnexplored;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.data.worldgen.biome.RuBiomes;
 import net.regions_unexplored.entity.RuEntities;
 import org.jetbrains.annotations.NotNull;
@@ -80,9 +80,9 @@ public class RuLanguageProvider extends LanguageProvider {
             }
         });
         //Misc block translations
-        this.add(RuBlocks.DUSKMELON.get(), "Duskmelon Slice");
-        this.add(RuBlocks.SALMONBERRY_BUSH.get(), "Salmonberry");
-        this.add(RuBlocks.HANGING_EARLIGHT.get(), "Hanging Earlight Fruit");
+        this.add(RUBlocks.DUSKMELON.get(), "Duskmelon Slice");
+        this.add(RUBlocks.SALMONBERRY_BUSH.get(), "Salmonberry");
+        this.add(RUBlocks.HANGING_EARLIGHT.get(), "Hanging Earlight Fruit");
 
         //Entity translations
         this.add(RuEntities.BOAT.get(), "Boat");

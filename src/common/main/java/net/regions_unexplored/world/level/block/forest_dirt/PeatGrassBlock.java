@@ -28,7 +28,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.phys.BlockHitResult;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -123,13 +123,13 @@ public class PeatGrassBlock extends SpreadingForestDirtBlock implements Bonemeal
    }
 
    private BlockState evaluateFlattenedState(Level level, BlockPos pos, @Nullable Player player, BlockState state) {
-      BlockState flattenedState = RuBlocks.PEAT_DIRT_PATH.get().defaultBlockState();
+      BlockState flattenedState = RUBlocks.PEAT_DIRT_PATH.get().defaultBlockState();
       level.playSound(player, pos, SoundEvents.SHOVEL_FLATTEN, SoundSource.BLOCKS, 1.0F, 1.0F);
       return flattenedState;
    }
 
    private BlockState evaluateTilledState(Level level, BlockPos pos, @Nullable Player player, BlockState state) {
-      BlockState tilledState = RuBlocks.PEAT_FARMLAND.get().defaultBlockState();
+      BlockState tilledState = RUBlocks.PEAT_FARMLAND.get().defaultBlockState();
       level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
       return tilledState;
    }

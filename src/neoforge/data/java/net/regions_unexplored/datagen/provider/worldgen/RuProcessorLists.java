@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 import net.regions_unexplored.RegionsUnexplored;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.block.set.WoodSet;
 
 import java.util.List;
@@ -26,34 +26,34 @@ public class RuProcessorLists {
     public static final ResourceKey<StructureProcessorList> SHIPWRECK_DEAD_AND_SPRUCE = shipwreck("dead", "spruce");
 
     public static void bootstrap(BootstrapContext<StructureProcessorList> context) {
-        context.register(SHIPWRECK_DARK_OAK_AND_BAOBAB, darkOakAndModded(RuBlocks.BAOBAB_WOOD_SET));
-        context.register(SHIPWRECK_DARK_OAK_AND_DEAD, darkOakAndModded(RuBlocks.DEAD_WOOD_SET));
-        context.register(SHIPWRECK_DARK_OAK_AND_EUCALYPTUS, darkOakAndModded(RuBlocks.EUCALYPTUS_WOOD_SET));
-        context.register(SHIPWRECK_DARK_OAK_AND_JOSHUA, darkOakAndModded(RuBlocks.JOSHUA_WOOD_SET));
-        context.register(SHIPWRECK_DARK_OAK_AND_KAPOK, darkOakAndModded(RuBlocks.KAPOK_WOOD_SET));
-        context.register(SHIPWRECK_DARK_OAK_AND_LARCH, darkOakAndModded(RuBlocks.LARCH_WOOD_SET));
+        context.register(SHIPWRECK_DARK_OAK_AND_BAOBAB, darkOakAndModded(RUBlocks.BAOBAB_WOOD_SET));
+        context.register(SHIPWRECK_DARK_OAK_AND_DEAD, darkOakAndModded(RUBlocks.DEAD_WOOD_SET));
+        context.register(SHIPWRECK_DARK_OAK_AND_EUCALYPTUS, darkOakAndModded(RUBlocks.EUCALYPTUS_WOOD_SET));
+        context.register(SHIPWRECK_DARK_OAK_AND_JOSHUA, darkOakAndModded(RUBlocks.JOSHUA_WOOD_SET));
+        context.register(SHIPWRECK_DARK_OAK_AND_KAPOK, darkOakAndModded(RUBlocks.KAPOK_WOOD_SET));
+        context.register(SHIPWRECK_DARK_OAK_AND_LARCH, darkOakAndModded(RUBlocks.LARCH_WOOD_SET));
         context.register(SHIPWRECK_DEAD_AND_DARK_OAK, create(
-            RuBlocks.DEAD_WOOD_SET.getLog(),
-            RuBlocks.DEAD_WOOD_SET.getPlanks(),
-            RuBlocks.DEAD_WOOD_SET.getStairs(),
-            RuBlocks.DEAD_WOOD_SET.getSlab(),
-            RuBlocks.DEAD_WOOD_SET.getFence(),
-            RuBlocks.DEAD_WOOD_SET.getDoor(),
-            RuBlocks.DEAD_WOOD_SET.getTrapdoor(),
+            RUBlocks.DEAD_WOOD_SET.getLog(),
+            RUBlocks.DEAD_WOOD_SET.getPlanks(),
+            RUBlocks.DEAD_WOOD_SET.getStairs(),
+            RUBlocks.DEAD_WOOD_SET.getSlab(),
+            RUBlocks.DEAD_WOOD_SET.getFence(),
+            RUBlocks.DEAD_WOOD_SET.getDoor(),
+            RUBlocks.DEAD_WOOD_SET.getTrapdoor(),
             Blocks.DARK_OAK_PLANKS,
             Blocks.DARK_OAK_STAIRS,
             Blocks.DARK_OAK_SLAB,
             Blocks.DARK_OAK_FENCE
         ));
-        context.register(SHIPWRECK_DEAD_AND_LARCH, moddedAndModded(RuBlocks.DEAD_WOOD_SET, RuBlocks.LARCH_WOOD_SET));
+        context.register(SHIPWRECK_DEAD_AND_LARCH, moddedAndModded(RUBlocks.DEAD_WOOD_SET, RUBlocks.LARCH_WOOD_SET));
         context.register(SHIPWRECK_DEAD_AND_SPRUCE, create(
-            RuBlocks.DEAD_WOOD_SET.getLog(),
-            RuBlocks.DEAD_WOOD_SET.getPlanks(),
-            RuBlocks.DEAD_WOOD_SET.getStairs(),
-            RuBlocks.DEAD_WOOD_SET.getSlab(),
-            RuBlocks.DEAD_WOOD_SET.getFence(),
-            RuBlocks.DEAD_WOOD_SET.getDoor(),
-            RuBlocks.DEAD_WOOD_SET.getTrapdoor(),
+            RUBlocks.DEAD_WOOD_SET.getLog(),
+            RUBlocks.DEAD_WOOD_SET.getPlanks(),
+            RUBlocks.DEAD_WOOD_SET.getStairs(),
+            RUBlocks.DEAD_WOOD_SET.getSlab(),
+            RUBlocks.DEAD_WOOD_SET.getFence(),
+            RUBlocks.DEAD_WOOD_SET.getDoor(),
+            RUBlocks.DEAD_WOOD_SET.getTrapdoor(),
             Blocks.SPRUCE_PLANKS,
             Blocks.SPRUCE_STAIRS,
             Blocks.SPRUCE_SLAB,

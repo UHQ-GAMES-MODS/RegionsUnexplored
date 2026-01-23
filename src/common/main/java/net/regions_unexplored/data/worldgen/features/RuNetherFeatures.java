@@ -23,7 +23,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.placement.EnvironmentScanPlacement;
 import net.minecraft.world.level.levelgen.placement.RandomOffsetPlacement;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.registry.ConfiguredFeatureRegistry;
 import net.regions_unexplored.registry.FeatureRegistry;
 import net.regions_unexplored.world.level.block.plant.flower.GroundCoverBlock;
@@ -70,13 +70,13 @@ public class RuNetherFeatures {
         HolderGetter<ConfiguredFeature<?, ?>> holderGetter = context.lookup(Registries.CONFIGURED_FEATURE);
 
         SimpleWeightedRandomList.Builder<BlockState> mycotoxicMushroomsBuilder = SimpleWeightedRandomList.builder();
-        SimpleWeightedRandomList.Builder mycotoxicBoneMealBlocks = SimpleWeightedRandomList.builder().add(RuBlocks.MYCOTOXIC_GRASS.get().defaultBlockState(), 100).add(RuBlocks.YELLOW_BIOSHROOM.get().defaultBlockState(), 7);
-        SimpleWeightedRandomList.Builder glisteringBoneMealBlocks = SimpleWeightedRandomList.builder().add(RuBlocks.GLISTERING_SPROUT.get().defaultBlockState(), 140).add(RuBlocks.GLISTERING_BLOOM.get().defaultBlockState(), 30).add(RuBlocks.GLISTERING_BLOOM.get().defaultBlockState(), 10);
-        SimpleWeightedRandomList.Builder cobaltBoneMealBlocks = SimpleWeightedRandomList.builder().add(RuBlocks.COBALT_ROOTS.get().defaultBlockState(), 100).add(RuBlocks.COBALT_EARLIGHT.get().defaultBlockState(), 2);
-        SimpleWeightedRandomList.Builder brimsproutBoneMealBlocks = SimpleWeightedRandomList.builder().add(RuBlocks.BRIMSPROUT.get().defaultBlockState(), 140).add(RuBlocks.DORCEL.get().defaultBlockState(), 1);
+        SimpleWeightedRandomList.Builder mycotoxicBoneMealBlocks = SimpleWeightedRandomList.builder().add(RUBlocks.MYCOTOXIC_GRASS.get().defaultBlockState(), 100).add(RUBlocks.YELLOW_BIOSHROOM.get().defaultBlockState(), 7);
+        SimpleWeightedRandomList.Builder glisteringBoneMealBlocks = SimpleWeightedRandomList.builder().add(RUBlocks.GLISTERING_SPROUT.get().defaultBlockState(), 140).add(RUBlocks.GLISTERING_BLOOM.get().defaultBlockState(), 30).add(RUBlocks.GLISTERING_BLOOM.get().defaultBlockState(), 10);
+        SimpleWeightedRandomList.Builder cobaltBoneMealBlocks = SimpleWeightedRandomList.builder().add(RUBlocks.COBALT_ROOTS.get().defaultBlockState(), 100).add(RUBlocks.COBALT_EARLIGHT.get().defaultBlockState(), 2);
+        SimpleWeightedRandomList.Builder brimsproutBoneMealBlocks = SimpleWeightedRandomList.builder().add(RUBlocks.BRIMSPROUT.get().defaultBlockState(), 140).add(RUBlocks.DORCEL.get().defaultBlockState(), 1);
         for(int i = 1; i <= 4; ++i) {
             for(Direction direction : Direction.Plane.HORIZONTAL) {
-                mycotoxicMushroomsBuilder.add(RuBlocks.MYCOTOXIC_MUSHROOMS.get().defaultBlockState().setValue(GroundCoverBlock.AMOUNT, Integer.valueOf(i)).setValue(GroundCoverBlock.FACING, direction), 1);
+                mycotoxicMushroomsBuilder.add(RUBlocks.MYCOTOXIC_MUSHROOMS.get().defaultBlockState().setValue(GroundCoverBlock.AMOUNT, Integer.valueOf(i)).setValue(GroundCoverBlock.FACING, direction), 1);
             }
         }
         WeightedStateProvider mycotoxicWeights = new WeightedStateProvider(mycotoxicBoneMealBlocks);
@@ -86,27 +86,27 @@ public class RuNetherFeatures {
 
         register(context, SMALL_YELLOW_BIOSHROOM, FeatureRegistry.SMALL_YELLOW_BIOSHROOM.get(), FeatureConfiguration.NONE);
         register(context, PATCH_MYCOTOXIC_MUSHROOMS, Feature.RANDOM_PATCH, new RandomPatchConfiguration(16, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(mycotoxicMushroomsBuilder)))));
-        register(context, PATCH_MYCOTOXIC_GRASS, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RuBlocks.MYCOTOXIC_GRASS.get().defaultBlockState()), 32));
-        register(context, PATCH_MYCOTOXIC_DAISY, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RuBlocks.MYCOTOXIC_DAISY.get().defaultBlockState()), 16));
+        register(context, PATCH_MYCOTOXIC_GRASS, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RUBlocks.MYCOTOXIC_GRASS.get().defaultBlockState()), 32));
+        register(context, PATCH_MYCOTOXIC_DAISY, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RUBlocks.MYCOTOXIC_DAISY.get().defaultBlockState()), 16));
 
-        register(context, PATCH_BRIMSPROUT, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RuBlocks.BRIMSPROUT.get().defaultBlockState()), 32));
+        register(context, PATCH_BRIMSPROUT, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RUBlocks.BRIMSPROUT.get().defaultBlockState()), 32));
         register(context, PATCH_BRIM_FLAMES, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(Blocks.FIRE.defaultBlockState()), 12));
-        register(context, DORCEL, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RuBlocks.DORCEL.get())));
-        register(context, BRIMWOOD_SHRUB, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RuBlocks.BRIMWOOD_NATURAL_SET.getShrub())));
+        register(context, DORCEL, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RUBlocks.DORCEL.get())));
+        register(context, BRIMWOOD_SHRUB, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RUBlocks.BRIMWOOD_NATURAL_SET.getShrub())));
 
         register(context, NETHER_ROCK, FeatureRegistry.NETHER_ROCK.get(), FeatureConfiguration.NONE);
         register(context, PATCH_GLISTERING_IVY, FeatureRegistry.GLISTERING_IVY.get(), FeatureConfiguration.NONE);
-        register(context, PATCH_GLISTERING_SPROUT, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RuBlocks.GLISTERING_SPROUT.get().defaultBlockState()), 32));
-        register(context, PATCH_GLISTERING_FERN, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RuBlocks.GLISTERING_FERN.get().defaultBlockState())));
-        register(context, PATCH_GLISTERING_BLOOM, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RuBlocks.GLISTERING_BLOOM.get().defaultBlockState())));
-        register(context, PATCH_GLISTER_SPIRE, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RuBlocks.GLISTER_SPIRE.get().defaultBlockState()), 16));
-        register(context, PATCH_GLISTER_BULB, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RuBlocks.GLISTER_BULB.get().defaultBlockState())));
+        register(context, PATCH_GLISTERING_SPROUT, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RUBlocks.GLISTERING_SPROUT.get().defaultBlockState()), 32));
+        register(context, PATCH_GLISTERING_FERN, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RUBlocks.GLISTERING_FERN.get().defaultBlockState())));
+        register(context, PATCH_GLISTERING_BLOOM, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RUBlocks.GLISTERING_BLOOM.get().defaultBlockState())));
+        register(context, PATCH_GLISTER_SPIRE, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RUBlocks.GLISTER_SPIRE.get().defaultBlockState()), 16));
+        register(context, PATCH_GLISTER_BULB, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RUBlocks.GLISTER_BULB.get().defaultBlockState())));
 
         register(context, PATCH_HANGING_EARLIGHT, FeatureRegistry.HANGING_EARLIGHT.get(), FeatureConfiguration.NONE);
-        register(context, PATCH_BLACKSTONE_CLUSTER, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RuBlocks.BLACKSTONE_CLUSTER.get().defaultBlockState()), 16));
-        register(context, PATCH_COBALT_EARLIGHT, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RuBlocks.COBALT_EARLIGHT.get().defaultBlockState()), 6));
-        register(context, TALL_COBALT_EARLIGHT, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RuBlocks.TALL_COBALT_EARLIGHT.get().defaultBlockState())));
-        register(context, PATCH_COBALT_ROOTS, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RuBlocks.COBALT_ROOTS.get().defaultBlockState()), 32));
+        register(context, PATCH_BLACKSTONE_CLUSTER, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RUBlocks.BLACKSTONE_CLUSTER.get().defaultBlockState()), 16));
+        register(context, PATCH_COBALT_EARLIGHT, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RUBlocks.COBALT_EARLIGHT.get().defaultBlockState()), 6));
+        register(context, TALL_COBALT_EARLIGHT, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RUBlocks.TALL_COBALT_EARLIGHT.get().defaultBlockState())));
+        register(context, PATCH_COBALT_ROOTS, Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RUBlocks.COBALT_ROOTS.get().defaultBlockState()), 32));
         register(context, OBSIDIAN_SPIRE, FeatureRegistry.OBSIDIAN_SPIRE.get(), FeatureConfiguration.NONE);
 
         register(context, POINTED_REDSTONE_NETHER, Feature.SIMPLE_RANDOM_SELECTOR, new SimpleRandomFeatureConfiguration(HolderSet.direct(PlacementUtils.inlinePlaced(FeatureRegistry.POINTED_REDSTONE.get(), new PointedRedstoneConfiguration(0.5F, 0.7F, 0.5F, 0.5F), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1))), PlacementUtils.inlinePlaced(FeatureRegistry.POINTED_REDSTONE.get(), new PointedRedstoneConfiguration(0.5F, 0.7F, 0.5F, 0.5F), EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(-1))))));

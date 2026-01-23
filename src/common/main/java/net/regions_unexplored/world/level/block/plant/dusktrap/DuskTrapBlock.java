@@ -56,7 +56,7 @@ public class DuskTrapBlock extends BaseDuskTrapBlock {
         stateBuilder.add(POWERED).add(HALF);
     }
 
-    public static enum Sensitivity {
+    public enum Sensitivity {
         EVERYTHING,
         MOBS;
     }

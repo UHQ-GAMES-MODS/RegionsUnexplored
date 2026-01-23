@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.SnowLayerBlock;
 import net.minecraft.world.level.block.SnowyDirtBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.lighting.LightEngine;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 public abstract class SpreadingForestDirtBlock extends SnowyDirtBlock {
    protected SpreadingForestDirtBlock(Properties properties) {
@@ -38,14 +38,14 @@ public abstract class SpreadingForestDirtBlock extends SnowyDirtBlock {
 
    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
       if (!canBeGrass(state, level, pos)) {
-         level.setBlockAndUpdate(pos, RuBlocks.PEAT_DIRT.get().defaultBlockState());
+         level.setBlockAndUpdate(pos, RUBlocks.PEAT_DIRT.get().defaultBlockState());
       } else {
          if (level.getMaxLocalRawBrightness(pos.above()) >= 9) {
             BlockState blockstate = this.defaultBlockState();
 
             for(int i = 0; i < 4; ++i) {
                BlockPos blockpos = pos.offset(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
-               if (level.getBlockState(blockpos).is(RuBlocks.PEAT_DIRT.get()) && canPropagate(blockstate, level, blockpos)) {
+               if (level.getBlockState(blockpos).is(RUBlocks.PEAT_DIRT.get()) && canPropagate(blockstate, level, blockpos)) {
                   level.setBlockAndUpdate(blockpos, blockstate.setValue(SNOWY, Boolean.valueOf(level.getBlockState(blockpos.above()).is(Blocks.SNOW))));
                }
             }

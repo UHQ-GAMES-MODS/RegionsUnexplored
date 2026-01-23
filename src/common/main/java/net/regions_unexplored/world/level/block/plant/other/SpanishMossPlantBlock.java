@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.GrowingPlantBodyBlock;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 public class SpanishMossPlantBlock extends GrowingPlantBodyBlock {
     public static final MapCodec<? extends SpanishMossPlantBlock> CODEC = simpleCodec(SpanishMossPlantBlock::new);
@@ -21,7 +21,7 @@ public class SpanishMossPlantBlock extends GrowingPlantBodyBlock {
     }
 
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) RuBlocks.SPANISH_MOSS.get();
+        return (GrowingPlantHeadBlock) RUBlocks.SPANISH_MOSS.get();
     }
 
     @Override

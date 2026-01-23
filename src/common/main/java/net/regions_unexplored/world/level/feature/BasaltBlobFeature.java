@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureConfiguration;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.data.tags.RuTags;
 
 import java.util.function.Supplier;
@@ -61,8 +61,8 @@ public class BasaltBlobFeature extends Feature<ColumnFeatureConfiguration> {
             Blocks.NETHER_BRICK_STAIRS,
             Blocks.NETHER_WART,
             Blocks.CHEST,
-            RuBlocks.ASH_VENT.get(),
-            RuBlocks.DEAD_NATURAL_SET.getLeaves())
+            RUBlocks.ASH_VENT.get(),
+            RUBlocks.DEAD_NATURAL_SET.getLeaves())
     );
 
     public BasaltBlobFeature(Codec<ColumnFeatureConfiguration> codec) {

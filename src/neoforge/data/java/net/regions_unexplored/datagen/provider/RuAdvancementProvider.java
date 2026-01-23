@@ -16,7 +16,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.neoforged.neoforge.common.data.AdvancementProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.regions_unexplored.RegionsUnexplored;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.data.worldgen.biome.RuBiomes;
 import net.regions_unexplored.item.RuItems;
 
@@ -37,7 +37,7 @@ public class RuAdvancementProvider extends AdvancementProvider {
 
             AdvancementHolder PARENT = Advancement.Builder.advancement()
                     .display(
-                            RuBlocks.EUCALYPTUS_NATURAL_SET.getSapling(),
+                            RUBlocks.EUCALYPTUS_NATURAL_SET.getSapling(),
                             Component.translatable("advancements.regions_unexplored.title"),
                             Component.translatable("advancements.regions_unexplored.description"),
                             RegionsUnexplored.id("textures/gui/advancements/backgrounds/argillite.png"),
@@ -53,7 +53,7 @@ public class RuAdvancementProvider extends AdvancementProvider {
             AdvancementHolder PIONEER = Advancement.Builder.advancement()
                     .parent(PARENT)
                     .display(
-                            RuBlocks.HIBISCUS.get(),
+                            RUBlocks.HIBISCUS.get(),
                             Component.translatable("advancements.regions_unexplored.pioneer.title"),
                             Component.translatable("advancements.regions_unexplored.pioneer.description"),
                             RegionsUnexplored.id("textures/gui/advancements/backgrounds/argillite.png"),
@@ -213,7 +213,7 @@ public class RuAdvancementProvider extends AdvancementProvider {
             AdvancementHolder EVERY_BIT_OF_THE_RAINBOW = Advancement.Builder.advancement()
                     .parent(PIONEER)
                     .display(
-                            RuBlocks.SNOWBELLES.getWhite().get(),
+                            RUBlocks.SNOWBELLES.getWhite().get(),
                             Component.translatable("advancements.regions_unexplored.every_bit_of_the_rainbow.title"),
                             Component.translatable("advancements.regions_unexplored.every_bit_of_the_rainbow.description"),
                             RegionsUnexplored.id("textures/gui/advancements/backgrounds/argillite.png"),
@@ -222,29 +222,29 @@ public class RuAdvancementProvider extends AdvancementProvider {
                             true,
                             false
                     )
-                    .addCriterion("white_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getWhite().get().asItem()))
-                    .addCriterion("black_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getBlack().get().asItem()))
-                    .addCriterion("blue_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getBlue().get().asItem()))
-                    .addCriterion("green_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getGreen().get().asItem()))
-                    .addCriterion("pink_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getPink().get().asItem()))
-                    .addCriterion("brown_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getBrown().get().asItem()))
-                    .addCriterion("cyan_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getCyan().get().asItem()))
-                    .addCriterion("gray_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getGray().get().asItem()))
-                    .addCriterion("magenta_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getMagenta().get().asItem()))
-                    .addCriterion("red_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getRed().get().asItem()))
-                    .addCriterion("orange_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getOrange().get().asItem()))
-                    .addCriterion("yellow_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getYellow().get().asItem()))
-                    .addCriterion("purple_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getPurple().get().asItem()))
-                    .addCriterion("lime_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getLime().get().asItem()))
-                    .addCriterion("light_gray_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getLightGray().get().asItem()))
-                    .addCriterion("light_blue_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SNOWBELLES.getLightBlue().get().asItem()))
+                    .addCriterion("white_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SNOWBELLES.getWhite().get().asItem()))
+                    .addCriterion("black_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SNOWBELLES.getBlack().get().asItem()))
+                    .addCriterion("blue_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SNOWBELLES.getBlue().get().asItem()))
+                    .addCriterion("green_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SNOWBELLES.getGreen().get().asItem()))
+                    .addCriterion("pink_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SNOWBELLES.getPink().get().asItem()))
+                    .addCriterion("brown_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SNOWBELLES.getBrown().get().asItem()))
+                    .addCriterion("cyan_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SNOWBELLES.getCyan().get().asItem()))
+                    .addCriterion("gray_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SNOWBELLES.getGray().get().asItem()))
+                    .addCriterion("magenta_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SNOWBELLES.getMagenta().get().asItem()))
+                    .addCriterion("red_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SNOWBELLES.getRed().get().asItem()))
+                    .addCriterion("orange_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SNOWBELLES.getOrange().get().asItem()))
+                    .addCriterion("yellow_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SNOWBELLES.getYellow().get().asItem()))
+                    .addCriterion("purple_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SNOWBELLES.getPurple().get().asItem()))
+                    .addCriterion("lime_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SNOWBELLES.getLime().get().asItem()))
+                    .addCriterion("light_gray_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SNOWBELLES.getLightGray().get().asItem()))
+                    .addCriterion("light_blue_snowbelle", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SNOWBELLES.getLightBlue().get().asItem()))
                     .save(saver, getAdvancementName(RegionsUnexplored.MOD_ID, "every_bit_of_the_rainbow"));
 
 
             AdvancementHolder FROM_THE_TREE_TOPS = Advancement.Builder.advancement()
                     .parent(PIONEER)
                     .display(
-                            RuBlocks.KAPOK_VINES.get(),
+                            RUBlocks.KAPOK_VINES.get(),
                             Component.translatable("advancements.regions_unexplored.from_the_tree_tops.title"),
                             Component.translatable("advancements.regions_unexplored.from_the_tree_tops.description"),
                             RegionsUnexplored.id("textures/gui/advancements/backgrounds/argillite.png"),
@@ -253,14 +253,14 @@ public class RuAdvancementProvider extends AdvancementProvider {
                             true,
                             false
                     )
-                    .addCriterion("kapok_vines", EnterBlockTrigger.TriggerInstance.entersBlock(RuBlocks.KAPOK_VINES_PLANT.get()))
+                    .addCriterion("kapok_vines", EnterBlockTrigger.TriggerInstance.entersBlock(RUBlocks.KAPOK_VINES_PLANT.get()))
                     .save(saver, getAdvancementName(RegionsUnexplored.MOD_ID, "from_the_tree_tops"));
 
 
             AdvancementHolder LIGHT_AS_A_FROG = Advancement.Builder.advancement()
                     .parent(PIONEER)
                     .display(
-                            RuBlocks.FLOWERING_LILY_PAD.get(),
+                            RUBlocks.FLOWERING_LILY_PAD.get(),
                             Component.translatable("advancements.regions_unexplored.light_as_a_frog.title"),
                             Component.translatable("advancements.regions_unexplored.light_as_a_frog.description"),
                             RegionsUnexplored.id("textures/gui/advancements/backgrounds/argillite.png"),
@@ -269,14 +269,14 @@ public class RuAdvancementProvider extends AdvancementProvider {
                             true,
                             false
                     )
-                    .addCriterion("lily_pad", EnterBlockTrigger.TriggerInstance.entersBlock(RuBlocks.GIANT_LILY_PAD.get()))
+                    .addCriterion("lily_pad", EnterBlockTrigger.TriggerInstance.entersBlock(RUBlocks.GIANT_LILY_PAD.get()))
                     .save(saver, getAdvancementName(RegionsUnexplored.MOD_ID, "light_as_a_frog"));
 
             //NETHER
             AdvancementHolder ETERNAL_EXPEDITION = Advancement.Builder.advancement()
                     .parent(PARENT)
                     .display(
-                            RuBlocks.BRIMWOOD_NATURAL_SET.getSapling(),
+                            RUBlocks.BRIMWOOD_NATURAL_SET.getSapling(),
                             Component.translatable("advancements.regions_unexplored.eternal_expedition.title"),
                             Component.translatable("advancements.regions_unexplored.eternal_expedition.description"),
                             RegionsUnexplored.id("textures/gui/advancements/backgrounds/argillite.png"),
@@ -295,7 +295,7 @@ public class RuAdvancementProvider extends AdvancementProvider {
             AdvancementHolder DOWNER = Advancement.Builder.advancement()
                     .parent(ETERNAL_EXPEDITION)
                     .display(
-                            RuBlocks.DORCEL.get(),
+                            RUBlocks.DORCEL.get(),
                             Component.translatable("advancements.regions_unexplored.downer.title"),
                             Component.translatable("advancements.regions_unexplored.downer.description"),
                             RegionsUnexplored.id("textures/gui/advancements/backgrounds/argillite.png"),
@@ -304,13 +304,13 @@ public class RuAdvancementProvider extends AdvancementProvider {
                             true,
                             false
                     )
-                    .addCriterion("dorcel", EnterBlockTrigger.TriggerInstance.entersBlock(RuBlocks.DORCEL.get()))
+                    .addCriterion("dorcel", EnterBlockTrigger.TriggerInstance.entersBlock(RUBlocks.DORCEL.get()))
                     .save(saver, getAdvancementName(RegionsUnexplored.MOD_ID, "downer"));
 
             AdvancementHolder LIGHT_SNACK = Advancement.Builder.advancement()
                     .parent(ETERNAL_EXPEDITION)
                     .display(
-                            RuBlocks.HANGING_EARLIGHT.get(),
+                            RUBlocks.HANGING_EARLIGHT.get(),
                             Component.translatable("advancements.regions_unexplored.light_snack.title"),
                             Component.translatable("advancements.regions_unexplored.light_snack.description"),
                             RegionsUnexplored.id("textures/gui/advancements/backgrounds/argillite.png"),
@@ -326,7 +326,7 @@ public class RuAdvancementProvider extends AdvancementProvider {
             AdvancementHolder SPELUNKER = Advancement.Builder.advancement()
                     .parent(PARENT)
                     .display(
-                            RuBlocks.DROPLEAF.get(),
+                            RUBlocks.DROPLEAF.get(),
                             Component.translatable("advancements.regions_unexplored.spelunker.title"),
                             Component.translatable("advancements.regions_unexplored.spelunker.description"),
                             RegionsUnexplored.id("textures/gui/advancements/backgrounds/argillite.png"),
@@ -345,7 +345,7 @@ public class RuAdvancementProvider extends AdvancementProvider {
             AdvancementHolder BLIND_AS_A_BAT = Advancement.Builder.advancement()
                     .parent(SPELUNKER)
                     .display(
-                            RuBlocks.DUSKMELON.get(),
+                            RUBlocks.DUSKMELON.get(),
                             Component.translatable("advancements.regions_unexplored.blind_as_a_bat.title"),
                             Component.translatable("advancements.regions_unexplored.blind_as_a_bat.description"),
                             RegionsUnexplored.id("textures/gui/advancements/backgrounds/argillite.png"),
@@ -360,7 +360,7 @@ public class RuAdvancementProvider extends AdvancementProvider {
             AdvancementHolder THIS_TREE_BLEEDS_RED = Advancement.Builder.advancement()
                     .parent(PARENT)
                     .display(
-                            RuBlocks.SOCOTRA_WOOD_SET.getLog(),
+                            RUBlocks.SOCOTRA_WOOD_SET.getLog(),
                             Component.translatable("advancements.regions_unexplored.this_tree_bleeds_red.title"),
                             Component.translatable("advancements.regions_unexplored.this_tree_bleeds_red.description"),
                             RegionsUnexplored.id("textures/gui/advancements/backgrounds/argillite.png"),
@@ -369,13 +369,13 @@ public class RuAdvancementProvider extends AdvancementProvider {
                             true,
                             false
                     )
-                    .addCriterion("socotra_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SOCOTRA_WOOD_SET.getLog()))
+                    .addCriterion("socotra_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SOCOTRA_WOOD_SET.getLog()))
                     .save(saver, getAdvancementName(RegionsUnexplored.MOD_ID, "this_tree_bleeds_red"));
 
             AdvancementHolder GOT_WOOD = Advancement.Builder.advancement()
                     .parent(THIS_TREE_BLEEDS_RED)
                     .display(
-                            RuBlocks.REDWOOD_WOOD_SET.getLog(),
+                            RUBlocks.REDWOOD_WOOD_SET.getLog(),
                             Component.translatable("advancements.regions_unexplored.got_wood.title"),
                             Component.translatable("advancements.regions_unexplored.got_wood.description"),
                             RegionsUnexplored.id("textures/gui/advancements/backgrounds/argillite.png"),
@@ -384,40 +384,40 @@ public class RuAdvancementProvider extends AdvancementProvider {
                             true,
                             false
                     )
-                    .addCriterion("bamboo_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.BAMBOO_LOG.get().asItem()))
-                    .addCriterion("small_oak_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SMALL_OAK_LOG.get().asItem()))
-                    .addCriterion("ashen_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.ASHEN_WOOD_SET.getLog().asItem()))
-                    .addCriterion("silver_birch_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SILVER_BIRCH_WOOD_SET.getLog().asItem()))
-                    .addCriterion("alpha_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.ALPHA_WOOD_SET.getLog().asItem()))
-                    .addCriterion("baobab_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.BAOBAB_WOOD_SET.getLog().asItem()))
-                    .addCriterion("blackwood_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.BLACKWOOD_WOOD_SET.getLog().asItem()))
-                    .addCriterion("brimwood_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.BRIMWOOD_WOOD_SET.getLog().asItem()))
-                    .addCriterion("cobalt_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.COBALT_WOOD_SET.getLog().asItem()))
-                    .addCriterion("cypress_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.CYPRESS_WOOD_SET.getLog().asItem()))
-                    .addCriterion("dead_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.DEAD_WOOD_SET.getLog().asItem()))
-                    .addCriterion("eucalyptus_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.EUCALYPTUS_WOOD_SET.getLog().asItem()))
-                    .addCriterion("joshua_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.JOSHUA_WOOD_SET.getLog().asItem()))
-                    .addCriterion("kapok_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.KAPOK_WOOD_SET.getLog().asItem()))
-                    .addCriterion("larch_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.LARCH_WOOD_SET.getLog().asItem()))
-                    .addCriterion("magnolia_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.MAGNOLIA_WOOD_SET.getLog().asItem()))
-                    .addCriterion("maple_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.MAPLE_WOOD_SET.getLog().asItem()))
-                    .addCriterion("mauve_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.MAUVE_WOOD_SET.getLog().asItem()))
-                    .addCriterion("palm_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.PALM_WOOD_SET.getLog().asItem()))
-                    .addCriterion("pine_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.PINE_WOOD_SET.getLog().asItem()))
-                    .addCriterion("redwood_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.REDWOOD_WOOD_SET.getLog().asItem()))
-                    .addCriterion("socotra_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.SOCOTRA_WOOD_SET.getLog().asItem()))
-                    .addCriterion("willow_log", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.WILLOW_WOOD_SET.getLog().asItem()))
-                    .addCriterion("blue_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.BLUE_BIOSHROOM_WOOD_SET.getLog().asItem()))
-                    .addCriterion("green_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.GREEN_BIOSHROOM_WOOD_SET.getLog().asItem()))
-                    .addCriterion("pink_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.PINK_BIOSHROOM_WOOD_SET.getLog().asItem()))
-                    .addCriterion("yellow_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.YELLOW_BIOSHROOM_WOOD_SET.getLog().asItem()))
+                    .addCriterion("bamboo_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.BAMBOO_LOG.get().asItem()))
+                    .addCriterion("small_oak_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SMALL_OAK_LOG.get().asItem()))
+                    .addCriterion("ashen_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.ASHEN_WOOD_SET.getLog().asItem()))
+                    .addCriterion("silver_birch_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SILVER_BIRCH_WOOD_SET.getLog().asItem()))
+                    .addCriterion("alpha_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.ALPHA_WOOD_SET.getLog().asItem()))
+                    .addCriterion("baobab_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.BAOBAB_WOOD_SET.getLog().asItem()))
+                    .addCriterion("blackwood_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.BLACKWOOD_WOOD_SET.getLog().asItem()))
+                    .addCriterion("brimwood_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.BRIMWOOD_WOOD_SET.getLog().asItem()))
+                    .addCriterion("cobalt_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.COBALT_WOOD_SET.getLog().asItem()))
+                    .addCriterion("cypress_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.CYPRESS_WOOD_SET.getLog().asItem()))
+                    .addCriterion("dead_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.DEAD_WOOD_SET.getLog().asItem()))
+                    .addCriterion("eucalyptus_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.EUCALYPTUS_WOOD_SET.getLog().asItem()))
+                    .addCriterion("joshua_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.JOSHUA_WOOD_SET.getLog().asItem()))
+                    .addCriterion("kapok_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.KAPOK_WOOD_SET.getLog().asItem()))
+                    .addCriterion("larch_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.LARCH_WOOD_SET.getLog().asItem()))
+                    .addCriterion("magnolia_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.MAGNOLIA_WOOD_SET.getLog().asItem()))
+                    .addCriterion("maple_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.MAPLE_WOOD_SET.getLog().asItem()))
+                    .addCriterion("mauve_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.MAUVE_WOOD_SET.getLog().asItem()))
+                    .addCriterion("palm_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.PALM_WOOD_SET.getLog().asItem()))
+                    .addCriterion("pine_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.PINE_WOOD_SET.getLog().asItem()))
+                    .addCriterion("redwood_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.REDWOOD_WOOD_SET.getLog().asItem()))
+                    .addCriterion("socotra_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.SOCOTRA_WOOD_SET.getLog().asItem()))
+                    .addCriterion("willow_log", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.WILLOW_WOOD_SET.getLog().asItem()))
+                    .addCriterion("blue_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.BLUE_BIOSHROOM_WOOD_SET.getLog().asItem()))
+                    .addCriterion("green_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.GREEN_BIOSHROOM_WOOD_SET.getLog().asItem()))
+                    .addCriterion("pink_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.PINK_BIOSHROOM_WOOD_SET.getLog().asItem()))
+                    .addCriterion("yellow_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.YELLOW_BIOSHROOM_WOOD_SET.getLog().asItem()))
 
                     .save(saver, getAdvancementName(RegionsUnexplored.MOD_ID, "got_wood"));
 
             AdvancementHolder MYCOLOGIST = Advancement.Builder.advancement()
                     .parent(PARENT)
                     .display(
-                            RuBlocks.BLUE_BIOSHROOM.get(),
+                            RUBlocks.BLUE_BIOSHROOM.get(),
                             Component.translatable("advancements.regions_unexplored.mycologist.title"),
                             Component.translatable("advancements.regions_unexplored.mycologist.description"),
                             RegionsUnexplored.id("textures/gui/advancements/backgrounds/argillite.png"),
@@ -426,16 +426,16 @@ public class RuAdvancementProvider extends AdvancementProvider {
                             true,
                             false
                     )
-                    .addCriterion("blue_bioshroom", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.BLUE_BIOSHROOM.get().asItem()))
-                    .addCriterion("pink_bioshroom", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.PINK_BIOSHROOM.get().asItem()))
-                    .addCriterion("yellow_bioshroom", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.YELLOW_BIOSHROOM.get().asItem()))
-                    .addCriterion("green_bioshroom", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.GREEN_BIOSHROOM.get().asItem()))
+                    .addCriterion("blue_bioshroom", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.BLUE_BIOSHROOM.get().asItem()))
+                    .addCriterion("pink_bioshroom", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.PINK_BIOSHROOM.get().asItem()))
+                    .addCriterion("yellow_bioshroom", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.YELLOW_BIOSHROOM.get().asItem()))
+                    .addCriterion("green_bioshroom", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.GREEN_BIOSHROOM.get().asItem()))
                     .save(saver, getAdvancementName(RegionsUnexplored.MOD_ID, "mycologist"));
 
             AdvancementHolder ANCIENT_SPECIMENS = Advancement.Builder.advancement()
                     .parent(MYCOLOGIST)
                     .display(
-                            RuBlocks.BLUE_BIOSHROOM_WOOD_SET.getLog(),
+                            RUBlocks.BLUE_BIOSHROOM_WOOD_SET.getLog(),
                             Component.translatable("advancements.regions_unexplored.ancient_specimens.title"),
                             Component.translatable("advancements.regions_unexplored.ancient_specimens.description"),
                             RegionsUnexplored.id("textures/gui/advancements/backgrounds/argillite.png"),
@@ -444,10 +444,10 @@ public class RuAdvancementProvider extends AdvancementProvider {
                             true,
                             false
                     )
-                    .addCriterion("blue_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.BLUE_BIOSHROOM_WOOD_SET.getLog().asItem()))
-                    .addCriterion("pink_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.PINK_BIOSHROOM_WOOD_SET.getLog().asItem()))
-                    .addCriterion("yellow_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.YELLOW_BIOSHROOM_WOOD_SET.getLog().asItem()))
-                    .addCriterion("green_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RuBlocks.GREEN_BIOSHROOM_WOOD_SET.getLog().asItem()))
+                    .addCriterion("blue_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.BLUE_BIOSHROOM_WOOD_SET.getLog().asItem()))
+                    .addCriterion("pink_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.PINK_BIOSHROOM_WOOD_SET.getLog().asItem()))
+                    .addCriterion("yellow_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.YELLOW_BIOSHROOM_WOOD_SET.getLog().asItem()))
+                    .addCriterion("green_bioshroom_stem", InventoryChangeTrigger.TriggerInstance.hasItems(RUBlocks.GREEN_BIOSHROOM_WOOD_SET.getLog().asItem()))
                     .save(saver, getAdvancementName(RegionsUnexplored.MOD_ID, "ancient_specimens"));
         }
 

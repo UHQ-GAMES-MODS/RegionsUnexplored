@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.world.level.block.leaves.JoshuaLeavesBlock;
 import net.regions_unexplored.world.level.block.plant.branch.BranchBlock;
 
@@ -47,7 +47,7 @@ public class MediumJoshuaTreeFeature extends Feature<NoneFeatureConfiguration> {
         int checkHeight = 0;
         while (checkHeight <= height) {
             if (level.getBlockState(placePos).canBeReplaced()) {
-                level.setBlock(placePos, RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+                level.setBlock(placePos, RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
                 if (checkHeight==height){
                     placeLeaves(level, placePos);
                     placeBranch(level, placePos.below().below().below());
@@ -63,22 +63,22 @@ public class MediumJoshuaTreeFeature extends Feature<NoneFeatureConfiguration> {
 
     public boolean placeLeaves(LevelAccessor level, BlockPos pos) {
         if(level.getBlockState(pos.north()).canBeReplaced()&&!level.isOutsideBuildHeight(pos.north())){
-            level.setBlock(pos.north(), RuBlocks.JOSHUA_NATURAL_SET.getBranch().defaultBlockState().setValue(BranchBlock.FACING, Direction.NORTH), 2);
+            level.setBlock(pos.north(), RUBlocks.JOSHUA_NATURAL_SET.getBranch().defaultBlockState().setValue(BranchBlock.FACING, Direction.NORTH), 2);
         }
         if(level.getBlockState(pos.south()).canBeReplaced()&&!level.isOutsideBuildHeight(pos.south())){
-            level.setBlock(pos.south(), RuBlocks.JOSHUA_NATURAL_SET.getBranch().defaultBlockState().setValue(BranchBlock.FACING, Direction.SOUTH), 2);
+            level.setBlock(pos.south(), RUBlocks.JOSHUA_NATURAL_SET.getBranch().defaultBlockState().setValue(BranchBlock.FACING, Direction.SOUTH), 2);
         }
         if(level.getBlockState(pos.east()).canBeReplaced()&&!level.isOutsideBuildHeight(pos.east())){
-            level.setBlock(pos.east(), RuBlocks.JOSHUA_NATURAL_SET.getBranch().defaultBlockState().setValue(BranchBlock.FACING, Direction.EAST), 2);
+            level.setBlock(pos.east(), RUBlocks.JOSHUA_NATURAL_SET.getBranch().defaultBlockState().setValue(BranchBlock.FACING, Direction.EAST), 2);
         }
         if(level.getBlockState(pos.west()).canBeReplaced()&&!level.isOutsideBuildHeight(pos.west())){
-            level.setBlock(pos.west(), RuBlocks.JOSHUA_NATURAL_SET.getBranch().defaultBlockState().setValue(BranchBlock.FACING, Direction.WEST), 2);
+            level.setBlock(pos.west(), RUBlocks.JOSHUA_NATURAL_SET.getBranch().defaultBlockState().setValue(BranchBlock.FACING, Direction.WEST), 2);
         }
         if(level.getBlockState(pos.above()).canBeReplaced()&&!level.isOutsideBuildHeight(pos.above())){
-            level.setBlock(pos.above(), RuBlocks.JOSHUA_NATURAL_SET.getLeaves().defaultBlockState().setValue(JoshuaLeavesBlock.NATURAL, true).setValue(JoshuaLeavesBlock.HALF, DoubleBlockHalf.LOWER), 2);
+            level.setBlock(pos.above(), RUBlocks.JOSHUA_NATURAL_SET.getLeaves().defaultBlockState().setValue(JoshuaLeavesBlock.NATURAL, true).setValue(JoshuaLeavesBlock.HALF, DoubleBlockHalf.LOWER), 2);
         }
         if(level.getBlockState(pos.above().above()).canBeReplaced()&&!level.isOutsideBuildHeight(pos.above().above())){
-            level.setBlock(pos.above().above(), RuBlocks.JOSHUA_NATURAL_SET.getLeaves().defaultBlockState().setValue(JoshuaLeavesBlock.NATURAL, true).setValue(JoshuaLeavesBlock.HALF, DoubleBlockHalf.UPPER), 2);
+            level.setBlock(pos.above().above(), RUBlocks.JOSHUA_NATURAL_SET.getLeaves().defaultBlockState().setValue(JoshuaLeavesBlock.NATURAL, true).setValue(JoshuaLeavesBlock.HALF, DoubleBlockHalf.UPPER), 2);
         }
 
         return true;
@@ -92,46 +92,46 @@ public class MediumJoshuaTreeFeature extends Feature<NoneFeatureConfiguration> {
         BlockPos west = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
 
         if(level.getBlockState(north.north()).canBeReplaced()&&!level.isOutsideBuildHeight(north.north())){
-            level.setBlock(north.north(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z), 2);
+            level.setBlock(north.north(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z), 2);
         }
         if(level.getBlockState(north.north().north().above()).canBeReplaced()&&!level.isOutsideBuildHeight(north.north().north().above())){
-            level.setBlock(north.north().north().above(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(north.north().north().above(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
         }
         if(level.getBlockState(north.north().north().above().above()).canBeReplaced()&&!level.isOutsideBuildHeight(north.north().north().above().above())){
-            level.setBlock(north.north().north().above().above(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(north.north().north().above().above(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
             placeLeaves(level, north.north().north().above().above());
         }
 
         if(level.getBlockState(south.south()).canBeReplaced()&&!level.isOutsideBuildHeight(south.south())){
-            level.setBlock(south.south(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z), 2);
+            level.setBlock(south.south(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z), 2);
         }
         if(level.getBlockState(south.south().south().above()).canBeReplaced()&&!level.isOutsideBuildHeight(south.south().south().above())){
-            level.setBlock(south.south().south().above(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(south.south().south().above(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
         }
         if(level.getBlockState(south.south().south().above().above()).canBeReplaced()&&!level.isOutsideBuildHeight(south.south().south().above().above())){
-            level.setBlock(south.south().south().above().above(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(south.south().south().above().above(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
             placeLeaves(level, south.south().south().above().above());
         }
 
         if(level.getBlockState(east.east()).canBeReplaced()&&!level.isOutsideBuildHeight(east.east())){
-            level.setBlock(east.east(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.X), 2);
+            level.setBlock(east.east(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.X), 2);
         }
         if(level.getBlockState(east.east().east().above()).canBeReplaced()&&!level.isOutsideBuildHeight(east.east().east().above())){
-            level.setBlock(east.east().east().above(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(east.east().east().above(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
         }
         if(level.getBlockState(east.east().east().above().above()).canBeReplaced()&&!level.isOutsideBuildHeight(east.east().east().above().above())){
-            level.setBlock(east.east().east().above().above(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(east.east().east().above().above(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
             placeLeaves(level, east.east().east().above().above());
         }
 
         if(level.getBlockState(west.west()).canBeReplaced()&&!level.isOutsideBuildHeight(west.west())){
-            level.setBlock(west.west(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.X), 2);
+            level.setBlock(west.west(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.X), 2);
         }
         if(level.getBlockState(west.west().west().above()).canBeReplaced()&&!level.isOutsideBuildHeight(west.west().west().above())){
-            level.setBlock(west.west().west().above(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(west.west().west().above(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
         }
         if(level.getBlockState(west.west().west().above().above()).canBeReplaced()&&!level.isOutsideBuildHeight(west.west().west().above().above())){
-            level.setBlock(west.west().west().above().above(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(west.west().west().above().above(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
             placeLeaves(level, west.west().west().above().above());
         }
 
@@ -150,46 +150,46 @@ public class MediumJoshuaTreeFeature extends Feature<NoneFeatureConfiguration> {
         BlockPos west = new BlockPos(pos.getX(), pos.getY()+w, pos.getZ());
 
         if(level.getBlockState(north.north().west()).canBeReplaced()&&!level.isOutsideBuildHeight(north.north().west())){
-            level.setBlock(north.north().west(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(north.north().west(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
         }
         if(level.getBlockState(north.north().west().north().west().above()).canBeReplaced()&&!level.isOutsideBuildHeight(north.north().west().north().west().above())){
-            level.setBlock(north.north().west().north().west().above(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(north.north().west().north().west().above(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
         }
         if(level.getBlockState(north.north().west().north().west().above().above()).canBeReplaced()&&!level.isOutsideBuildHeight(north.north().west().north().west().above().above())){
-            level.setBlock(north.north().west().north().west().above().above(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(north.north().west().north().west().above().above(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
             placeLeaves(level, north.north().west().north().west().above().above());
         }
 
         if(level.getBlockState(north.north().east()).canBeReplaced()&&!level.isOutsideBuildHeight(north.north().east())){
-            level.setBlock(north.north().east(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(north.north().east(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
         }
         if(level.getBlockState(north.north().east().north().east().above()).canBeReplaced()&&!level.isOutsideBuildHeight(north.north().east().north().east().above())){
-            level.setBlock(north.north().east().north().east().above(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(north.north().east().north().east().above(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
         }
         if(level.getBlockState(north.north().east().north().east().above().above()).canBeReplaced()&&!level.isOutsideBuildHeight(north.north().east().north().east().above().above())){
-            level.setBlock(north.north().east().north().east().above().above(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(north.north().east().north().east().above().above(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
             placeLeaves(level, north.north().east().north().east().above().above());
         }
 
         if(level.getBlockState(south.south().west()).canBeReplaced()&&!level.isOutsideBuildHeight(south.south().west())){
-            level.setBlock(south.south().west(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(south.south().west(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
         }
         if(level.getBlockState(south.south().west().south().west().above()).canBeReplaced()&&!level.isOutsideBuildHeight(south.south().west().south().west().above())){
-            level.setBlock(south.south().west().south().west().above(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(south.south().west().south().west().above(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
         }
         if(level.getBlockState(south.south().west().south().west().above().above()).canBeReplaced()&&!level.isOutsideBuildHeight(south.south().west().south().west().above().above())){
-            level.setBlock(south.south().west().south().west().above().above(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(south.south().west().south().west().above().above(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
             placeLeaves(level, south.south().west().south().west().above().above());
         }
 
         if(level.getBlockState(south.south().east()).canBeReplaced()&&!level.isOutsideBuildHeight(south.south().east())){
-            level.setBlock(south.south().east(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(south.south().east(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
         }
         if(level.getBlockState(south.south().east().south().east().above()).canBeReplaced()&&!level.isOutsideBuildHeight(south.south().east().south().east().above())){
-            level.setBlock(south.south().east().south().east().above(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(south.south().east().south().east().above(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
         }
         if(level.getBlockState(south.south().east().south().east().above().above()).canBeReplaced()&&!level.isOutsideBuildHeight(south.south().east().south().east().above().above())){
-            level.setBlock(south.south().east().south().east().above().above(), RuBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
+            level.setBlock(south.south().east().south().east().above().above(), RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState(), 2);
             placeLeaves(level, south.south().east().south().east().above().above());
         }
 

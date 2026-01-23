@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 import static net.minecraft.world.level.block.DoublePlantBlock.copyWaterloggedFrom;
 
@@ -32,7 +32,7 @@ public class RuPlantBlock extends BushBlock implements BonemealableBlock {
     }
 
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-        if(state==RuBlocks.MEDIUM_GRASS.get().defaultBlockState()){
+        if(state== RUBlocks.MEDIUM_GRASS.get().defaultBlockState()){
             return SHAPE_MEDIUM_GRASS;
         }
         else{
@@ -53,14 +53,14 @@ public class RuPlantBlock extends BushBlock implements BonemealableBlock {
     }
 
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
-        if(state.is(RuBlocks.MEDIUM_GRASS.get())){
+        if(state.is(RUBlocks.MEDIUM_GRASS.get())){
             TallGrassBlock grass = (TallGrassBlock) Blocks.SHORT_GRASS;
             if (grass.defaultBlockState().canSurvive(level, pos)) {
                 placeAt(level, grass.defaultBlockState(), pos, 2);
             }
         }
-        else if(state.is(RuBlocks.STEPPE_GRASS.get())||state.is(RuBlocks.STEPPE_SHRUB.get())){
-            Block steppe_tall_grass = RuBlocks.STEPPE_TALL_GRASS.get();
+        else if(state.is(RUBlocks.STEPPE_GRASS.get())||state.is(RUBlocks.STEPPE_SHRUB.get())){
+            Block steppe_tall_grass = RUBlocks.STEPPE_TALL_GRASS.get();
             if (steppe_tall_grass instanceof DoublePlantBlock tallSteppeGrass) {
                 if (tallSteppeGrass.defaultBlockState().canSurvive(level, pos) && level.isEmptyBlock(pos.above())) {
                     DoublePlantBlock.placeAt(level, tallSteppeGrass.defaultBlockState(), pos, 2);

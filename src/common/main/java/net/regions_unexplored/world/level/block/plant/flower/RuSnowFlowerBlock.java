@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.data.tags.RuTags;
 
 public class RuSnowFlowerBlock extends FlowerBlock {
@@ -29,25 +29,25 @@ public class RuSnowFlowerBlock extends FlowerBlock {
 
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
         Vec3 vec3 = state.getOffset(getter, pos);
-        if(state== RuBlocks.POPPY_BUSH.get().defaultBlockState()
-                ||state== RuBlocks.SALMON_POPPY_BUSH.get().defaultBlockState()
-                ||state== RuBlocks.BLUE_LUPINE.get().defaultBlockState()
-                ||state== RuBlocks.PINK_LUPINE.get().defaultBlockState()
-                ||state== RuBlocks.PURPLE_LUPINE.get().defaultBlockState()
-                ||state== RuBlocks.YELLOW_LUPINE.get().defaultBlockState()
-                ||state== RuBlocks.RED_LUPINE.get().defaultBlockState()
-                ||state== RuBlocks.HYSSOP.get().defaultBlockState()
+        if(state== RUBlocks.POPPY_BUSH.get().defaultBlockState()
+                ||state== RUBlocks.SALMON_POPPY_BUSH.get().defaultBlockState()
+                ||state== RUBlocks.BLUE_LUPINE.get().defaultBlockState()
+                ||state== RUBlocks.PINK_LUPINE.get().defaultBlockState()
+                ||state== RUBlocks.PURPLE_LUPINE.get().defaultBlockState()
+                ||state== RUBlocks.YELLOW_LUPINE.get().defaultBlockState()
+                ||state== RUBlocks.RED_LUPINE.get().defaultBlockState()
+                ||state== RUBlocks.HYSSOP.get().defaultBlockState()
                 ||state.is(RuTags.SNOWBELLE)){
             return SHAPE_BUSH.move(vec3.x, vec3.y, vec3.z);
         }
-        if(state== RuBlocks.FIREWEED.get().defaultBlockState()
-                ||state== RuBlocks.WILTING_TRILLIUM.get().defaultBlockState()
-                ||state== RuBlocks.WHITE_TRILLIUM.get().defaultBlockState()
-                ||state== RuBlocks.WARATAH.get().defaultBlockState()){
+        if(state== RUBlocks.FIREWEED.get().defaultBlockState()
+                ||state== RUBlocks.WILTING_TRILLIUM.get().defaultBlockState()
+                ||state== RUBlocks.WHITE_TRILLIUM.get().defaultBlockState()
+                ||state== RUBlocks.WARATAH.get().defaultBlockState()){
             return SHAPE_TALL.move(vec3.x, vec3.y, vec3.z);
         }
-        if(state== RuBlocks.DAISY.get().defaultBlockState()
-                ||state== RuBlocks.FELICIA_DAISY.get().defaultBlockState()){
+        if(state== RUBlocks.DAISY.get().defaultBlockState()
+                ||state== RUBlocks.FELICIA_DAISY.get().defaultBlockState()){
             return SHAPE_DAISY.move(vec3.x, vec3.y, vec3.z);
         }
         else{

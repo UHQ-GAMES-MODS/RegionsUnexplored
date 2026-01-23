@@ -8,7 +8,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.world.level.block.plant.other.DropleafBlock;
 
 import java.util.Random;
@@ -80,8 +80,8 @@ public class DropleafFeature extends Feature<NoneFeatureConfiguration> {
         }
         size=(size/2)+random.nextInt(size/2);
             if(level.getBlockState(pos.above()).isFaceSturdy(level, pos.above(), Direction.DOWN)
-                    ||level.getBlockState(pos.above()).is(RuBlocks.DROPLEAF.get())
-                    ||level.getBlockState(pos.above()).is(RuBlocks.DROPLEAF_PLANT.get())) {
+                    ||level.getBlockState(pos.above()).is(RUBlocks.DROPLEAF.get())
+                    ||level.getBlockState(pos.above()).is(RUBlocks.DROPLEAF_PLANT.get())) {
                 BlockPos.MutableBlockPos placePos = pos.mutable();
                 int count = 0;
                 while (level.isEmptyBlock(placePos)) {
@@ -92,10 +92,10 @@ public class DropleafFeature extends Feature<NoneFeatureConfiguration> {
                         return true;
                     }
 
-                    if(level.getBlockState(placePos.above()).is(RuBlocks.DROPLEAF.get())){
-                        level.setBlock(placePos.above(), RuBlocks.DROPLEAF_PLANT.get().defaultBlockState(), 2);
+                    if(level.getBlockState(placePos.above()).is(RUBlocks.DROPLEAF.get())){
+                        level.setBlock(placePos.above(), RUBlocks.DROPLEAF_PLANT.get().defaultBlockState(), 2);
                     }
-                    level.setBlock(placePos, RuBlocks.DROPLEAF.get().defaultBlockState().setValue(DropleafBlock.AGE, 23+random.nextInt(2)), 2);
+                    level.setBlock(placePos, RUBlocks.DROPLEAF.get().defaultBlockState().setValue(DropleafBlock.AGE, 23+random.nextInt(2)), 2);
                     placePos.move(Direction.DOWN);
                     count=count+1;
                 }
