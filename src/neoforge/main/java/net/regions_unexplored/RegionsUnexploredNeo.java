@@ -24,7 +24,6 @@ import java.util.Map;
 
 @Mod(value = RegionsUnexplored.MOD_ID)
 public class RegionsUnexploredNeo {
-    public static final Logger LOGGER = LogManager.getLogger(RegionsUnexploredNeo.class);
     public static final Map<ResourceKey, DeferredRegister> REGISTER_CACHE = new HashMap<>();
 
     public RegionsUnexploredNeo(ModContainer container) {
@@ -40,12 +39,15 @@ public class RegionsUnexploredNeo {
         RegionsUnexploredNeoClient.regionsUnexploredNeoClient(bus);
 
         var blockRegistry = DeferredRegister.create(Registries.BLOCK, RegionsUnexplored.MOD_ID);
+        var itemRegistry = DeferredRegister.create(Registries.ITEM, RegionsUnexplored.MOD_ID);
         for (var entry : RUBlocks.BLOCK_ALIASES.entrySet()) {
             blockRegistry.addAlias(entry.getKey(), entry.getValue());
+            itemRegistry.addAlias(entry.getKey(), entry.getValue());
         }
+
         container.registerExtensionPoint(
-                IConfigScreenFactory.class,
-                (minecraft, parent) -> new ConfigSelectionScreen(parent)
+            IConfigScreenFactory.class,
+            (minecraft, parent) -> new ConfigSelectionScreen(parent)
         );
     }
 

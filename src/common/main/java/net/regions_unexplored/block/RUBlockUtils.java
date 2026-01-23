@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.regions_unexplored.platform.Registar;
-import net.regions_unexplored.registry.ItemRegistry;
+import net.regions_unexplored.item.RUItemUtils;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.BiConsumer;
@@ -109,11 +109,11 @@ public class RUBlockUtils {
     }
 
     public static Supplier<Block> register(String name, BlockFactory factory) {
-        return register(name, factory, ItemRegistry::registerDefaultBlockItem, null);
+        return register(name, factory, RUItemUtils::registerBlock, null);
     }
 
     public static Supplier<Block> register(String name, BlockFactory factory, Block copiedBlock) {
-        return register(name, factory, ItemRegistry::registerDefaultBlockItem, copiedBlock);
+        return register(name, factory, RUItemUtils::registerBlock, copiedBlock);
     }
 
     public static Supplier<Block> registerNoItem(String name, BlockFactory factory) {

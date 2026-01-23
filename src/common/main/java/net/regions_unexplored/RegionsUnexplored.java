@@ -13,7 +13,7 @@ import net.regions_unexplored.entity.RuEntities;
 import net.regions_unexplored.internal.config.Config;
 import net.regions_unexplored.internal.config.ConfigManager;
 import net.regions_unexplored.internal.config.gui.ConfigScreenRegistry;
-import net.regions_unexplored.item.RuItems;
+import net.regions_unexplored.registry.RUItems;
 import net.regions_unexplored.item.tab.RuTabs;
 import net.regions_unexplored.registry.BiomeRegistry;
 import net.regions_unexplored.registry.FeatureRegistry;
@@ -34,7 +34,7 @@ public class RegionsUnexplored {
 		RuParticleTypes.addParticles();
 		BiomeRegistry.addBiomes();
 		RUBlocks.init();
-		RuItems.addItems();
+		RUItems.init();
 		RuTabs.init();
 		RuEntities.addEntities();
 	}

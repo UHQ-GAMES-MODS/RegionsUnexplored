@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.Block;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.block.set.NaturalSet;
 import net.regions_unexplored.block.set.WoodSet;
-import net.regions_unexplored.item.RuItems;
+import net.regions_unexplored.registry.RUItems;
 import net.regions_unexplored.platform.Registar;
 
 import java.util.function.Supplier;
@@ -147,7 +147,7 @@ public class RuTabs {
         output.accept(RUBlocks.SPANISH_MOSS.get().asItem());
         output.accept(RUBlocks.GLISTERING_IVY.get().asItem());
         //FOOD_PLANT_BLOCKS
-        output.accept(RuItems.SALMONBERRY.get().asItem());
+        output.accept(RUItems.SALMONBERRY.get().asItem());
         output.accept(RUBlocks.HANGING_EARLIGHT.get().asItem());
         /*-----------------PLANT_BLOCKS-----------------*/
         //MUSHROOMS

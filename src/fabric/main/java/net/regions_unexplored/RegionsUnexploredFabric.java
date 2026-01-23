@@ -30,6 +30,7 @@ public class RegionsUnexploredFabric implements ModInitializer {
         RuBlockEntitiesFabric.addBlockEntities();
         RegionsUnexploredFabric.afterRegistriesFreeze();
         for (var entry : RUBlocks.BLOCK_ALIASES.entrySet()) {
+            ((FabricRegistry) BuiltInRegistries.ITEM).addAlias(entry.getKey(), entry.getValue());
             ((FabricRegistry) BuiltInRegistries.BLOCK).addAlias(entry.getKey(), entry.getValue());
         }
     }

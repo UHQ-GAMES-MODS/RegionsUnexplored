@@ -14,7 +14,7 @@ import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.block.set.NaturalSet;
 import net.regions_unexplored.block.set.WoodSet;
 import net.regions_unexplored.data.tags.RuTags;
-import net.regions_unexplored.item.RuItems;
+import net.regions_unexplored.registry.RUItems;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -127,7 +127,7 @@ public class RuItemTagProvider extends ItemTagsProvider {
             .add(RUBlocks.BLUE_MAGNOLIA_FLOWERS.get().asItem())
             .add(RUBlocks.PINK_MAGNOLIA_FLOWERS.get().asItem())
             .add(RUBlocks.WHITE_MAGNOLIA_FLOWERS.get().asItem());
-        this.tag(ItemTags.FOX_FOOD).add(RuItems.SALMONBERRY.get().asItem());
+        this.tag(ItemTags.FOX_FOOD).add(RUItems.SALMONBERRY.get().asItem());
         this.tag(ItemTags.OAK_LOGS).add(RUBlocks.SMALL_OAK_LOG.get().asItem()).add(RUBlocks.STRIPPED_SMALL_OAK_LOG.get().asItem());
         this.tag(ItemTags.REDSTONE_ORES).add(RUBlocks.RAW_REDSTONE_BLOCK.get().asItem());
         var smallFlowers = this.tag(ItemTags.SMALL_FLOWERS)
@@ -423,8 +423,8 @@ public class RuItemTagProvider extends ItemTagsProvider {
             if (set.getFence() != null) fences.add(set.getFence().asItem());
         }
         this.tag(Tags.Items.FOODS_FRUIT)
-            .add(RuItems.SALMONBERRY.get())
-            .add(RuItems.HANGING_EARLIGHT_FRUIT.get());
+            .add(RUItems.SALMONBERRY.get())
+            .add(RUItems.HANGING_EARLIGHT_FRUIT.get());
         this.tag(Tags.Items.GEMS)
             .addTag(RuTags.PRISMARITE_CRYSTALS_ITEM);
         this.tag(Tags.Items.GLASS_BLOCKS)

@@ -16,7 +16,7 @@ import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.entity.custom.RuBoat;
 import net.regions_unexplored.item.items.RuBoatItem;
 import net.regions_unexplored.block.RUBlockUtils;
-import net.regions_unexplored.registry.ItemRegistry;
+import net.regions_unexplored.item.RUItemUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -114,13 +114,13 @@ public class WoodSet {
         this.wallSign = RUBlockUtils.registerNoItem(name + "_wall_sign", p -> RUBlockUtils.wallSign(p, sound, this.sign.get(), woodType, fireproof));
         this.hangingSign = RUBlockUtils.registerNoItem(name + "_hanging_sign", p -> RUBlockUtils.hangingSign(p, colour, sound, woodType, fireproof));
         this.wallHangingSign = RUBlockUtils.registerNoItem(name + "_wall_hanging_sign", p -> RUBlockUtils.wallHangingSign(p, colour, sound, this.hangingSign.get(), woodType, fireproof));
-        this.itemSign = ItemRegistry.registerItem(name + "_sign", () -> new SignItem(new Item.Properties().stacksTo(16), this.sign.get(), this.wallSign.get()));
-        this.itemHangingSign = ItemRegistry.registerItem(name + "_hanging_sign", () -> new HangingSignItem(this.hangingSign.get(), this.wallHangingSign.get(), new Item.Properties().stacksTo(16)));
+        this.itemSign = RUItemUtils.register(name + "_sign", p -> new SignItem(p.stacksTo(16), this.sign.get(), this.wallSign.get()));
+        this.itemHangingSign = RUItemUtils.register(name + "_hanging_sign", p -> new HangingSignItem(this.hangingSign.get(), this.wallHangingSign.get(), p.stacksTo(16)));
     }
 
     protected void addBoats(String name) {
-        this.itemBoat = ItemRegistry.registerItem(name + "_boat", () -> new RuBoatItem(false, RuBoat.ModelType.byName(name), new Item.Properties().stacksTo(1)));
-        this.itemChestBoat = ItemRegistry.registerItem(name + "_chest_boat", () -> new RuBoatItem(true, RuBoat.ModelType.byName(name), new Item.Properties().stacksTo(1)));
+        this.itemBoat = RUItemUtils.register(name + "_boat", p -> new RuBoatItem(false, RuBoat.ModelType.byName(name), p.stacksTo(1)));
+        this.itemChestBoat = RUItemUtils.register(name + "_chest_boat", p -> new RuBoatItem(true, RuBoat.ModelType.byName(name), p.stacksTo(1)));
     }
 
     public Block getLog() {

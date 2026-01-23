@@ -18,7 +18,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.regions_unexplored.RegionsUnexplored;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.data.worldgen.biome.RuBiomes;
-import net.regions_unexplored.item.RuItems;
+import net.regions_unexplored.registry.RUItems;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -319,7 +319,7 @@ public class RuAdvancementProvider extends AdvancementProvider {
                             true,
                             false
                     )
-                    .addCriterion("earlight", ConsumeItemTrigger.TriggerInstance.usedItem(RuItems.HANGING_EARLIGHT_FRUIT.get()))
+                    .addCriterion("earlight", ConsumeItemTrigger.TriggerInstance.usedItem(RUItems.HANGING_EARLIGHT_FRUIT.get()))
                     .save(saver, getAdvancementName(RegionsUnexplored.MOD_ID, "light_snack"));
 
             //CAVE
@@ -354,7 +354,7 @@ public class RuAdvancementProvider extends AdvancementProvider {
                             true,
                             false
                     )
-                    .addCriterion("duskmelon", ConsumeItemTrigger.TriggerInstance.usedItem(RuItems.DUSKMELON_SLICE.get()))
+                    .addCriterion("duskmelon", ConsumeItemTrigger.TriggerInstance.usedItem(RUItems.DUSKMELON_SLICE.get()))
                     .save(saver, getAdvancementName(RegionsUnexplored.MOD_ID, "blind_as_a_bat"));
 
             AdvancementHolder THIS_TREE_BLEEDS_RED = Advancement.Builder.advancement()
