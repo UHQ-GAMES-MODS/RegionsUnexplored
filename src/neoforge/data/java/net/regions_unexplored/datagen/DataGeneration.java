@@ -24,7 +24,7 @@ import net.regions_unexplored.datagen.provider.tag.RuItemTagProvider;
 import net.regions_unexplored.datagen.provider.tag.RuProcessorListTagProvider;
 import net.regions_unexplored.datagen.provider.worldgen.RuProcessorLists;
 import net.regions_unexplored.entity.RuDamageTypes;
-import net.regions_unexplored.registry.BiomeRegistry;
+import net.regions_unexplored.data.worldgen.biome.BiomeRegistry;
 import net.regions_unexplored.registry.ConfiguredFeatureRegistry;
 import net.regions_unexplored.registry.PlacedFeatureRegistry;
 

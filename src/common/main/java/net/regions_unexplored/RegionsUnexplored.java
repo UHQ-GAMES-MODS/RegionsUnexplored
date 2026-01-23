@@ -15,8 +15,9 @@ import net.regions_unexplored.internal.config.ConfigManager;
 import net.regions_unexplored.internal.config.gui.ConfigScreenRegistry;
 import net.regions_unexplored.registry.RUItems;
 import net.regions_unexplored.item.tab.RuTabs;
-import net.regions_unexplored.registry.BiomeRegistry;
+import net.regions_unexplored.data.worldgen.biome.BiomeRegistry;
 import net.regions_unexplored.registry.FeatureRegistry;
+import net.regions_unexplored.registry.data.RUBiomes;
 import net.regions_unexplored.world.RuBiolith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,11 +31,13 @@ public class RegionsUnexplored {
 		registerConfig("regions unexplored/regions_unexplored-client", "Client", RuClientConfig.class);
 		registerConfig("regions unexplored/regions_unexplored-common", "Common", RuCommonConfig.class);
 
+		RUBiomes.init();
+		RUBlocks.init();
+		RUItems.init();
+
 		FeatureRegistry.addFeatures();
 		RuParticleTypes.addParticles();
 		BiomeRegistry.addBiomes();
-		RUBlocks.init();
-		RUItems.init();
 		RuTabs.init();
 		RuEntities.addEntities();
 	}
