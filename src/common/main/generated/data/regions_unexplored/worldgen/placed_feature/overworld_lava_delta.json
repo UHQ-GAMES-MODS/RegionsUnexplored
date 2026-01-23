@@ -39,6 +39,16 @@
     },
     {
       "type": "minecraft:biome"
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:not",
+        "predicate": {
+          "type": "lithostitched:in_structure",
+          "search_range": 4
+        }
+      }
     }
   ]
 }

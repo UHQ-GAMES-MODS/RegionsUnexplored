@@ -1,12 +1,12 @@
 package net.regions_unexplored;
 
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
@@ -15,10 +15,7 @@ import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.block.set.WoodSet;
-import net.regions_unexplored.config.RuPrimaryRegionConfig;
-import net.regions_unexplored.config.RuSecondaryRegionConfig;
 import net.regions_unexplored.internal.config.gui.ConfigSelectionScreen;
-import net.regions_unexplored.registry.BiomeRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -37,13 +34,15 @@ public class RegionsUnexploredNeo {
         bus.addListener(this::clientSetup);
         bus.addListener(this::setupBlockEntities);
 
-        registerConfig(container);
-
-        RegionsUnexplored.init("Forge Mod Initializer");
+        RegionsUnexplored.init();
 
         REGISTER_CACHE.values().forEach(deferredRegister -> deferredRegister.register(bus));
         RegionsUnexploredNeoClient.regionsUnexploredNeoClient(bus);
 
+        var blockRegistry = DeferredRegister.create(Registries.BLOCK, RegionsUnexplored.MOD_ID);
+        for (var entry : RuBlocks.BLOCK_ALIASES.entrySet()) {
+            blockRegistry.addAlias(entry.getKey(), entry.getValue());
+        }
         container.registerExtensionPoint(
                 IConfigScreenFactory.class,
                 (minecraft, parent) -> new ConfigSelectionScreen(parent)
@@ -76,16 +75,6 @@ public class RegionsUnexploredNeo {
     //set up non-client side features
     @SubscribeEvent
     private void commonSetup(FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-            BiomeRegistry.setupTerrablender();
-            //PottedPlants.setup();
-            RegionsUnexplored.afterRegistriesFreeze();
-        });
-    }
-
-    private void registerConfig(ModContainer container){
-//        container.registerConfig(ModConfig.Type.COMMON, RuCommonConfig.SPEC, "regions_unexplored/regions_unexplored-common.toml");
-        container.registerConfig(ModConfig.Type.COMMON, RuPrimaryRegionConfig.SPEC, "regions_unexplored/regions_unexplored-primary-region.toml");
-        container.registerConfig(ModConfig.Type.COMMON, RuSecondaryRegionConfig.SPEC, "regions_unexplored/regions_unexplored-secondary-region.toml");
+        event.enqueueWork(RegionsUnexplored::afterRegistriesFreeze);
     }
 }

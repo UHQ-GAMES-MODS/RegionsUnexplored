@@ -1,0 +1,57 @@
+{
+  "feature": "regions_unexplored:tree/group/autumnal_maple",
+  "placement": [
+    {
+      "type": "minecraft:noise_threshold_count",
+      "above_noise": 8,
+      "below_noise": 5,
+      "noise_level": 0.0
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:surface_water_depth_filter",
+      "max_water_depth": 0
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "OCEAN_FLOOR"
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:all_of",
+        "predicates": [
+          {
+            "type": "minecraft:would_survive",
+            "state": {
+              "Name": "regions_unexplored:maple_sapling",
+              "Properties": {
+                "stage": "0"
+              }
+            }
+          },
+          {
+            "type": "minecraft:matching_blocks",
+            "blocks": [
+              "minecraft:grass_block",
+              "regions_unexplored:peat_grass_block",
+              "regions_unexplored:silt_grass_block",
+              "regions_unexplored:stone_grass_block",
+              "regions_unexplored:deepslate_grass_block"
+            ],
+            "offset": [
+              0,
+              -1,
+              0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

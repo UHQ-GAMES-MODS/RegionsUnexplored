@@ -12,7 +12,7 @@
                 "data": {
                   "Name": "minecraft:pumpkin"
                 },
-                "weight": 4
+                "weight": 96
               },
               {
                 "data": {
@@ -49,12 +49,6 @@
                   }
                 },
                 "weight": 1
-              },
-              {
-                "data": {
-                  "Name": "minecraft:air"
-                },
-                "weight": 75
               }
             ]
           }
@@ -87,7 +81,7 @@
         }
       ]
     },
-    "tries": 125,
+    "tries": 16,
     "xz_spread": 7,
     "y_spread": 3
   }

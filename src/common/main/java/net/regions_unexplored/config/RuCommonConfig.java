@@ -3,30 +3,8 @@ package net.regions_unexplored.config;
 import net.regions_unexplored.internal.config.Config;
 import net.regions_unexplored.internal.config.ConfigValue;
 import net.regions_unexplored.internal.config.annotation.ConfigOption;
-import net.regions_unexplored.internal.config.annotation.Range;
-import net.regions_unexplored.internal.config.annotation.RequiresRestart;
 
 public class RuCommonConfig extends Config {
-    @RequiresRestart(RequiresRestart.RestartType.GAME)
-    @ConfigOption(comment = "Enable this before changing the other region config files. If disabled, RU will use builtin biome placement.")
-    public static final ConfigValue<Boolean> TOGGLE_CUSTOM_REGIONS = bool(false);
-    @Range(min = 0, max = 2147483646)
-    @RequiresRestart(RequiresRestart.RestartType.GAME)
-    @ConfigOption(comment = "Sets Terrablender region weight for the primary region.")
-    public static final ConfigValue<Integer> REGION_PRIMARY_WEIGHT = integer(11);
-    @Range(min = 0, max = 2147483646)
-    @RequiresRestart(RequiresRestart.RestartType.GAME)
-    @ConfigOption(comment = "Sets Terrablender region weight for the secondary region.")
-    public static final ConfigValue<Integer> REGION_SECONDARY_WEIGHT = integer(8);
-    @Range(min = 0, max = 2147483646)
-    @RequiresRestart(RequiresRestart.RestartType.GAME)
-    @ConfigOption(comment = "Sets Terrablender region weight for the rare region.")
-    public static final ConfigValue<Integer> REGION_RARE_WEIGHT = integer(1);
-    @Range(min = 0, max = 2147483646)
-    @RequiresRestart(RequiresRestart.RestartType.GAME)
-    @ConfigOption(comment = "Sets Terrablender region weight for Nether region.")
-    public static final ConfigValue<Integer> REGION_NETHER_WEIGHT = integer(14);
-
     @ConfigOption(category = "overworld_biome_toggles")
     public static final ConfigValue<Boolean> TOGGLE_ALPHA_GROVE = bool(true);
     @ConfigOption(category = "overworld_biome_toggles")

@@ -7,9 +7,7 @@ import net.neoforged.neoforge.registries.RegisterEvent;
 import net.regions_unexplored.RegionsUnexplored;
 import net.regions_unexplored.world.features.foliageplacers.SakuraFoliagePlacer;
 import net.regions_unexplored.world.features.foliageplacers.WillowFoliagePlacer;
-import net.regions_unexplored.world.features.treedecorators.BlackwoodBioshroom;
-import net.regions_unexplored.world.features.treedecorators.ChanceWillowTrunkDecorator;
-import net.regions_unexplored.world.features.treedecorators.WillowTrunkDecorator;
+import net.regions_unexplored.world.features.treedecorators.*;
 
 @EventBusSubscriber(modid = RegionsUnexplored.MOD_ID)
 public class PlacerTypeRegistry {
@@ -24,5 +22,7 @@ public class PlacerTypeRegistry {
         event.register(Registries.TREE_DECORATOR_TYPE, RegionsUnexplored.id("blackwood_bioshrooms"), () -> BlackwoodBioshroom.BLACKWOOD_BIOSHROOM);
         event.register(Registries.TREE_DECORATOR_TYPE, RegionsUnexplored.id("chance_willow_trunk_decorator"), () -> ChanceWillowTrunkDecorator.CHANCE_WILLOW_TRUNK_DECORATOR);
         event.register(Registries.TREE_DECORATOR_TYPE, RegionsUnexplored.id("willow_trunk_decorator"), () -> WillowTrunkDecorator.WILLOW_TRUNK_DECORATOR);
+        event.register(Registries.TREE_DECORATOR_TYPE, RegionsUnexplored.id("branch"), () -> BranchDecorator.TYPE);
+        event.register(Registries.TREE_DECORATOR_TYPE, RegionsUnexplored.id("place_on_ground"), () -> PlaceOnGroundDecorator.TYPE);
     }
 }

@@ -1,11 +1,13 @@
 package net.regions_unexplored.block;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
+import net.regions_unexplored.RegionsUnexplored;
 import net.regions_unexplored.block.sapling.RuTreeGrowers;
 import net.regions_unexplored.block.set.BrimwoodWoodSet;
 import net.regions_unexplored.block.set.ColoredSet;
@@ -37,7 +39,10 @@ import net.regions_unexplored.world.level.block.plant.dusktrap.DuskTrapBlock;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
+
+import static net.regions_unexplored.RegionsUnexplored.id;
 
 
 public class RuBlocks {
@@ -115,11 +120,11 @@ public class RuBlocks {
     public static final Supplier<Block> WHITE_MAGNOLIA_FLOWERS = BlockRegistry.registerDefaultBlock("white_magnolia_flowers", () -> new GlowLichenBlock(BlockBehaviour.Properties.ofFullCopy(BLUE_MAGNOLIA_FLOWERS.get())));
     //SNOWBELLE
 
-    public static final Supplier<Block> MAPLE_LEAF_PILE = BlockRegistry.registerDefaultBlock("maple_leaf_pile", () -> new GroundCoverBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
-    public static final Supplier<Block> RED_MAPLE_LEAF_PILE = BlockRegistry.registerDefaultBlock("red_maple_leaf_pile", () -> new GroundCoverBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
-    public static final Supplier<Block> ORANGE_MAPLE_LEAF_PILE = BlockRegistry.registerDefaultBlock("orange_maple_leaf_pile", () -> new GroundCoverBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
-    public static final Supplier<Block> SILVER_BIRCH_LEAF_PILE = BlockRegistry.registerDefaultBlock("silver_birch_leaf_pile", () -> new GroundCoverBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
-    public static final Supplier<Block> ENCHANTED_BIRCH_LEAF_PILE = BlockRegistry.registerDefaultBlock("enchanted_birch_leaf_pile", () -> new GroundCoverBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
+    public static final Supplier<Block> MAPLE_LEAF_PILE = BlockRegistry.registerDefaultBlock("maple_leaf_pile", () -> new RULeafLitterBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
+    public static final Supplier<Block> RED_MAPLE_LEAF_PILE = BlockRegistry.registerDefaultBlock("red_maple_leaf_pile", () -> new RULeafLitterBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
+    public static final Supplier<Block> ORANGE_MAPLE_LEAF_PILE = BlockRegistry.registerDefaultBlock("orange_maple_leaf_pile", () -> new RULeafLitterBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
+    public static final Supplier<Block> SILVER_BIRCH_LEAF_PILE = BlockRegistry.registerDefaultBlock("silver_birch_leaf_pile", () -> new RULeafLitterBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
+    public static final Supplier<Block> ENCHANTED_BIRCH_LEAF_PILE = BlockRegistry.registerDefaultBlock("enchanted_birch_leaf_pile", () -> new RULeafLitterBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
     //TALL_PLANTS
     public static final Supplier<Block> MEADOW_SAGE = BlockRegistry.registerDefaultBlockNoItem("meadow_sage", () -> new RuDoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ROSE_BUSH)));
     public static final Supplier<Block> BARLEY = BlockRegistry.registerDefaultBlock("barley", () -> new RuDoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SUNFLOWER)));
@@ -389,6 +394,17 @@ public class RuBlocks {
     //SNOWBELLES
     public static final ColoredSet SNOWBELLES = new ColoredSet(color -> BlockRegistry.registerDefaultBlock(color.getName() + "_snowbelle", () -> new RuFlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 10, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION))));
     public static final ColoredSet POTTED_SNOWBELLES = new ColoredSet(color -> BlockRegistry.registerDefaultBlockNoItem("potted_" + color.getName() + "_snowbelle", () -> new FlowerPotBlock(SNOWBELLES.getMap().get(color), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM))));
+
+    // TODO: Enable this
+    public static final Map<ResourceLocation, ResourceLocation> BLOCK_ALIASES = Map.of(
+        //id("maple_leaf_pile"), id("maple_leaf_litter"),
+        //id("red_maple_leaf_pile"), id("red_maple_leaf_litter"),
+        //id("orange_maple_leaf_pile"), id("orange_maple_leaf_litter"),
+        //id("silver_birch_leaf_pile"), id("silver_birch_leaf_litter"),
+        //id("enchanted_birch_leaf_pile"), id("enchanted_birch_leaf_litter"),
+        //id("cactus_flower"), id("saguaro_cactus_flower"),
+        //id("potted_cactus_flower"), id("potted_saguaro_cactus_flower")
+    );
 
     public static void addBlocks() {
     }

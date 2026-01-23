@@ -21,7 +21,7 @@ repositories {
 }
 
 group = "net.regions_unexplored"
-version = "0.5.8"
+version = "0.6+indev"
 
 cloche {
     targets.all {
@@ -56,8 +56,9 @@ cloche {
 
         dependencies {
             compileOnly("org.spongepowered:mixin:0.8.5")
-            compileOnly("com.github.glitchfiend:TerraBlender-common:1.21.1-4.1.0.8")
-            api("fuzs.forgeconfigapiport:forgeconfigapiport-common-neoforgeapi:21.1.6")
+            implementation("com.electronwill.night-config:core:3.8.3")
+            implementation("com.electronwill.night-config:toml:3.8.3")
+            modCompileOnly("com.terraformersmc:biolith-neoforge:3.0.10")
         }
 
         data()
@@ -65,7 +66,7 @@ cloche {
         metadata {
             dependencies {
                 dependency {
-                    modId = "terrablender"
+                    modId = "biolith"
                 }
             }
         }
@@ -74,14 +75,14 @@ cloche {
     fabric {
         mixins.from(file("src/fabric/main/regions_unexplored.fabric.mixins.json"))
 
-        loaderVersion = "0.17.3"
+        loaderVersion = "0.18.3"
         minecraftVersion = "1.21.1"
 
         dependencies {
-            fabricApi("0.116.1")
-            modImplementation("com.github.glitchfiend:TerraBlender-fabric:1.21.1-4.1.0.8")
-            modApi("fuzs.forgeconfigapiport:forgeconfigapiport-fabric:21.1.6")
-            modImplementation("maven.modrinth:lithostitched:1.5.2-fabric-1.21.1")
+            fabricApi("0.116.7")
+            modApi("com.terraformersmc:biolith-fabric:3.0.10")
+            modImplementation("maven.modrinth:world-preview:qc0AtV3T")
+            modImplementation("maven.modrinth:lithostitched:1.5.7-fabric-1.21.1")
 
             modImplementation("com.terraformersmc:modmenu:11.0.3")
         }
@@ -100,9 +101,6 @@ cloche {
             entrypoint("main") {
                 value = "net.regions_unexplored.RegionsUnexploredFabric"
             }
-            entrypoint("terrablender") {
-                value = "net.regions_unexplored.RegionsUnexploredFabric"
-            }
             entrypoint("client") {
                 value = "net.regions_unexplored.client.RegionsUnexploredFabricClient"
             }
@@ -111,14 +109,15 @@ cloche {
             }
         }
     }
+
     neoforge {
         mixins.from(file("src/neoforge/main/regions_unexplored.neoforge.mixins.json"))
         loaderVersion = "21.1.209"
         minecraftVersion = "1.21.1"
 
         dependencies {
-            modImplementation("com.github.glitchfiend:TerraBlender-neoforge:1.21.1-4.1.0.8")
-            modImplementation("maven.modrinth:lithostitched:1.5.2-neoforge-1.21.1")
+            modApi("com.terraformersmc:biolith-neoforge:3.0.10")
+            modImplementation("maven.modrinth:lithostitched:1.5.7-neoforge-1.21.1")
         }
 
         data()

@@ -78,6 +78,8 @@ public class RuBiomes {
     public static ResourceKey<Biome> TROPICS = createKey("tropics");
     public static ResourceKey<Biome> WILLOW_FOREST = createKey("willow_forest");
 
+    public static ResourceKey<Biome> PLACEHOLDER_RIVER = createKey("placeholder_river");
+
     public static ResourceKey<Biome> createKey(String name) {
         return ResourceKey.create(Registries.BIOME, RegionsUnexplored.id(name));
     }

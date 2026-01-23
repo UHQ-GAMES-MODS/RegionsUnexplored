@@ -10,6 +10,179 @@
         }
       }
     },
+    "decorators": [
+      {
+        "type": "regions_unexplored:place_on_ground",
+        "block_state_provider": {
+          "type": "minecraft:weighted_state_provider",
+          "entries": [
+            {
+              "data": {
+                "Name": "regions_unexplored:enchanted_birch_leaf_pile",
+                "Properties": {
+                  "facing": "north",
+                  "flower_amount": "1"
+                }
+              },
+              "weight": 1
+            },
+            {
+              "data": {
+                "Name": "regions_unexplored:enchanted_birch_leaf_pile",
+                "Properties": {
+                  "facing": "east",
+                  "flower_amount": "1"
+                }
+              },
+              "weight": 1
+            },
+            {
+              "data": {
+                "Name": "regions_unexplored:enchanted_birch_leaf_pile",
+                "Properties": {
+                  "facing": "south",
+                  "flower_amount": "1"
+                }
+              },
+              "weight": 1
+            },
+            {
+              "data": {
+                "Name": "regions_unexplored:enchanted_birch_leaf_pile",
+                "Properties": {
+                  "facing": "west",
+                  "flower_amount": "1"
+                }
+              },
+              "weight": 1
+            },
+            {
+              "data": {
+                "Name": "regions_unexplored:enchanted_birch_leaf_pile",
+                "Properties": {
+                  "facing": "north",
+                  "flower_amount": "2"
+                }
+              },
+              "weight": 1
+            },
+            {
+              "data": {
+                "Name": "regions_unexplored:enchanted_birch_leaf_pile",
+                "Properties": {
+                  "facing": "east",
+                  "flower_amount": "2"
+                }
+              },
+              "weight": 1
+            },
+            {
+              "data": {
+                "Name": "regions_unexplored:enchanted_birch_leaf_pile",
+                "Properties": {
+                  "facing": "south",
+                  "flower_amount": "2"
+                }
+              },
+              "weight": 1
+            },
+            {
+              "data": {
+                "Name": "regions_unexplored:enchanted_birch_leaf_pile",
+                "Properties": {
+                  "facing": "west",
+                  "flower_amount": "2"
+                }
+              },
+              "weight": 1
+            },
+            {
+              "data": {
+                "Name": "regions_unexplored:enchanted_birch_leaf_pile",
+                "Properties": {
+                  "facing": "north",
+                  "flower_amount": "3"
+                }
+              },
+              "weight": 1
+            },
+            {
+              "data": {
+                "Name": "regions_unexplored:enchanted_birch_leaf_pile",
+                "Properties": {
+                  "facing": "east",
+                  "flower_amount": "3"
+                }
+              },
+              "weight": 1
+            },
+            {
+              "data": {
+                "Name": "regions_unexplored:enchanted_birch_leaf_pile",
+                "Properties": {
+                  "facing": "south",
+                  "flower_amount": "3"
+                }
+              },
+              "weight": 1
+            },
+            {
+              "data": {
+                "Name": "regions_unexplored:enchanted_birch_leaf_pile",
+                "Properties": {
+                  "facing": "west",
+                  "flower_amount": "3"
+                }
+              },
+              "weight": 1
+            },
+            {
+              "data": {
+                "Name": "regions_unexplored:enchanted_birch_leaf_pile",
+                "Properties": {
+                  "facing": "north",
+                  "flower_amount": "4"
+                }
+              },
+              "weight": 1
+            },
+            {
+              "data": {
+                "Name": "regions_unexplored:enchanted_birch_leaf_pile",
+                "Properties": {
+                  "facing": "east",
+                  "flower_amount": "4"
+                }
+              },
+              "weight": 1
+            },
+            {
+              "data": {
+                "Name": "regions_unexplored:enchanted_birch_leaf_pile",
+                "Properties": {
+                  "facing": "south",
+                  "flower_amount": "4"
+                }
+              },
+              "weight": 1
+            },
+            {
+              "data": {
+                "Name": "regions_unexplored:enchanted_birch_leaf_pile",
+                "Properties": {
+                  "facing": "west",
+                  "flower_amount": "4"
+                }
+              },
+              "weight": 1
+            }
+          ]
+        },
+        "height": 2,
+        "radius": 4,
+        "tries": 96
+      }
+    ],
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
