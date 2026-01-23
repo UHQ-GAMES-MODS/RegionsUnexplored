@@ -5,7 +5,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.animal.WolfVariant;
@@ -475,7 +475,7 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
     }
 
     private static TagKey<Biome> hasWolfVariant(ResourceKey<WolfVariant> key) {
-        return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", "has_wolf_variant/" + key.location().getPath()));
+        return TagKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath("c", "has_wolf_variant/" + key.identifier().getPath()));
     }
 
     public void addStructureTags() {
@@ -750,7 +750,7 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
                 .add(RuBiomes.FROZEN_TUNDRA)
                 .add(RuBiomes.SPIRES)
         ;
-        this.tag(TagKey.create(Registries.BIOME, ResourceLocation.parse("c:is_dark_forest")))
+        this.tag(TagKey.create(Registries.BIOME, Identifier.parse("c:is_dark_forest")))
                 .add(RuBiomes.BLACKWOOD_TAIGA)
         ;
         this.tag(Tags.Biomes.IS_DRY_OVERWORLD)

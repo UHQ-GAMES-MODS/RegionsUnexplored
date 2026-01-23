@@ -1,7 +1,7 @@
 package net.regions_unexplored.data.tags;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
@@ -102,21 +102,21 @@ public final class RuTags {
    private static TagKey<Block> createBlock(String key) {
       return TagKey.create(Registries.BLOCK, RegionsUnexplored.id(key));
    }
-   public static TagKey<Block> createBlock(ResourceLocation name) {
+   public static TagKey<Block> createBlock(Identifier name) {
       return TagKey.create(Registries.BLOCK, name);
    }
 
    private static TagKey<Item> createItem(String key) {
       return TagKey.create(Registries.ITEM, RegionsUnexplored.id(key));
    }
-   public static TagKey<Item> createItem(ResourceLocation name) {
+   public static TagKey<Item> createItem(Identifier name) {
       return TagKey.create(Registries.ITEM, name);
    }
 
    private static TagKey<Biome> createBiome(String key) {
       return TagKey.create(Registries.BIOME, RegionsUnexplored.id(key));
    }
-   public static TagKey<Biome> createBiome(ResourceLocation name) {
+   public static TagKey<Biome> createBiome(Identifier name) {
       return TagKey.create(Registries.BIOME, name);
    }
 }

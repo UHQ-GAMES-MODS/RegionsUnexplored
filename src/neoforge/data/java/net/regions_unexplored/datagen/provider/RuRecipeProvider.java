@@ -9,7 +9,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.DyeColor;
@@ -50,7 +50,7 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.DEEPSLATE_PRISMOSS.get(), 1).define('#', Blocks.DEEPSLATE).define('X', RuBlocks.PRISMOSS_SPROUT.get()).pattern("X").pattern("#").group("prismoss").unlockedBy("has_deepslate", has(Blocks.DEEPSLATE)).save(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, RuBlocks.HANGING_PRISMARITE.get(), 1).define('#', RuBlocks.PRISMARITE_CLUSTER.get()).pattern("#").pattern("#").pattern("#").group("prismarite").unlockedBy("has_prismarite", has(RuBlocks.PRISMARITE_CLUSTER.get())).save(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, RuBlocks.LARGE_PRISMARITE_CLUSTER.get(), 1).define('#', RuBlocks.PRISMARITE_CLUSTER.get()).pattern("#").pattern("#").group("prismarite").unlockedBy("has_prismarite", has(RuBlocks.PRISMARITE_CLUSTER.get())).save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.PRISMAGLASS.get(), 2).define('#', TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "glass"))).define('X', RuTags.PRISMARITE_CRYSTALS_ITEM).pattern(" X ").pattern("X#X").pattern(" X ").group("stained_glass").unlockedBy("has_glass", has(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "glass")))).save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.PRISMAGLASS.get(), 2).define('#', TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "glass"))).define('X', RuTags.PRISMARITE_CRYSTALS_ITEM).pattern(" X ").pattern("X#X").pattern(" X ").group("stained_glass").unlockedBy("has_glass", has(TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "glass")))).save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, RuBlocks.RAW_REDSTONE_BLOCK.get(), 1).define('#', Items.REDSTONE).pattern("##").pattern("##").group("redstone").unlockedBy("has_redstone", has(Items.REDSTONE)).save(consumer);
         oreSmelting(consumer, REDSTONE_SMELTABLES.get(), RecipeCategory.REDSTONE, Items.REDSTONE, 0.7F, 200, "redstone");
@@ -59,8 +59,8 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.STONE_GRASS_BLOCK.get(), 1).define('#', Blocks.STONE).define('X', RuTags.GRASS_ITEM).pattern("X").pattern("#").group("stone_grass").unlockedBy("has_stone", has(Blocks.STONE)).save(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.DEEPSLATE_GRASS_BLOCK.get(), 1).define('#', Blocks.DEEPSLATE).define('X', RuTags.GRASS_ITEM).pattern("X").pattern("#").group("stone_grass").unlockedBy("has_deepslate", has(Blocks.DEEPSLATE)).save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.VIRIDESCENT_NYLIUM.get(), 1).define('#', Blocks.STONE).define('X', TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "mushrooms"))).pattern("X").pattern("#").group("viridescent_nylium").unlockedBy("has_stone", has(Blocks.STONE)).unlockedBy("has_mushroom", has(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "mushrooms")))).save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get(), 1).define('#', Blocks.DEEPSLATE).define('X', TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "mushrooms"))).pattern("X").pattern("#").group("viridescent_nylium").unlockedBy("has_deepslate", has(Blocks.DEEPSLATE)).unlockedBy("has_mushroom", has(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "mushrooms")))).save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.VIRIDESCENT_NYLIUM.get(), 1).define('#', Blocks.STONE).define('X', TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "mushrooms"))).pattern("X").pattern("#").group("viridescent_nylium").unlockedBy("has_stone", has(Blocks.STONE)).unlockedBy("has_mushroom", has(TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "mushrooms")))).save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get(), 1).define('#', Blocks.DEEPSLATE).define('X', TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "mushrooms"))).pattern("X").pattern("#").group("viridescent_nylium").unlockedBy("has_deepslate", has(Blocks.DEEPSLATE)).unlockedBy("has_mushroom", has(TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "mushrooms")))).save(consumer);
 
         /*-----------------PLANTS-----------------*/
         oneToOneConversionRecipe(consumer, Items.BROWN_DYE, RuBlocks.DEAD_STEPPE_SHRUB.get(), "brown_dye");
@@ -374,7 +374,7 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         for (WoodSet set : RuBlocks.WOOD_SETS) {
             if (set.getWood() != null && set.getLog() != null) woodFromLogs(consumer, set.getWood(), set.getLog());
             if (set.getStrippedWood() != null && set.getStrippedLog() != null) woodFromLogs(consumer, set.getStrippedWood(), set.getStrippedLog());
-            if (set.getPlanks() != null) planksFromLogs(consumer, set.getPlanks(), RuTags.createItem(RegionsUnexplored.id(set.getPlanks().builtInRegistryHolder().key().location().getPath().replace("_planks", "_logs"))), 4);
+            if (set.getPlanks() != null) planksFromLogs(consumer, set.getPlanks(), RuTags.createItem(RegionsUnexplored.id(set.getPlanks().builtInRegistryHolder().key().identifier().getPath().replace("_planks", "_logs"))), 4);
             woodenStairs(consumer, set.getStairs(), set.getPlanks());
             woodenSlab(consumer, set.getSlab(), set.getPlanks());
             woodenFence(consumer, set.getFence(), set.getPlanks());
@@ -408,8 +408,8 @@ public class RuRecipeProvider extends RecipeProvider implements IConditionBuilde
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.BONE_MEAL, 9).requires(RuBlocks.OVERGROWN_BONE_BLOCK.get()).group("bone_meal").unlockedBy("has_overgrown_bone_block", has(RuBlocks.OVERGROWN_BONE_BLOCK.get())).save(consumer , RegionsUnexplored.id(getConversionRecipeName(Items.BONE_MEAL, RuBlocks.OVERGROWN_BONE_BLOCK.get())));
     }
 
-    private static ResourceLocation cId(String name) {
-        return ResourceLocation.fromNamespaceAndPath("c", name);
+    private static Identifier cId(String name) {
+        return Identifier.fromNamespaceAndPath("c", name);
     }
 
     public static Criterion<EnterBlockTrigger.TriggerInstance> insideOf(Block p_125980_) {

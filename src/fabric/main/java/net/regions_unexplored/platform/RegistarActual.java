@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.CreativeModeTab;
@@ -40,7 +40,7 @@ public class RegistarActual {
         CreativeModeTab registered = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, RegionsUnexplored.id(name), FabricItemGroup.builder()
                 .title(Component.translatable("itemGroup." + RegionsUnexplored.MOD_ID + "." + name))
                 .hideTitle()
-                .backgroundTexture(ResourceLocation.fromNamespaceAndPath(RegionsUnexplored.MOD_ID, "textures/gui/container/creative_inventory/tab_regions_unexplored.png"))
+                .backgroundTexture(Identifier.fromNamespaceAndPath(RegionsUnexplored.MOD_ID, "textures/gui/container/creative_inventory/tab_regions_unexplored.png"))
                 .icon(icon)
                 .displayItems(items.get())
                 .build());

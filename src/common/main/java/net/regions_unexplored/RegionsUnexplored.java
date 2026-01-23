@@ -2,7 +2,7 @@ package net.regions_unexplored;
 
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.regions_unexplored.block.RuBlocks;
 import net.regions_unexplored.block.compat.BlockToolCompat;
 import net.regions_unexplored.block.compat.FlammableBlocks;
@@ -47,8 +47,8 @@ public class RegionsUnexplored {
 		RuBiolith.init();
 	}
 
-	public static ResourceLocation id(String path) {
-		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+	public static Identifier id(String path) {
+		return Identifier.fromNamespaceAndPath(MOD_ID, path);
 	}
 
 	public static <T> ResourceKey<T> key(ResourceKey<? extends Registry<T>> key, String name) {

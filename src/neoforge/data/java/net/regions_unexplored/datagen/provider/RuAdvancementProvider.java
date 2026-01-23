@@ -9,7 +9,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
@@ -131,7 +131,7 @@ public class RuAdvancementProvider extends AdvancementProvider {
                             Items.LEATHER_BOOTS,
                             Component.translatable("advancements.regions_unexplored.regions_explored.title"),
                             Component.translatable("advancements.regions_unexplored.regions_explored.description"),
-                            ResourceLocation.tryBuild(RegionsUnexplored.MOD_ID, "textures/gui/advancements/backgrounds/argillite.png"),
+                            Identifier.tryBuild(RegionsUnexplored.MOD_ID, "textures/gui/advancements/backgrounds/argillite.png"),
                             AdvancementType.CHALLENGE,
                             true,
                             true,

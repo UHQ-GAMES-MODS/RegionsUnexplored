@@ -529,7 +529,7 @@ public class RuBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
-        return BuiltInRegistries.BLOCK.entrySet().stream().filter(entry -> entry.getKey().location().getNamespace().contains(RegionsUnexplored.MOD_ID)).map(Map.Entry::getValue).toList();
+        return BuiltInRegistries.BLOCK.entrySet().stream().filter(entry -> entry.getKey().identifier().getNamespace().contains(RegionsUnexplored.MOD_ID)).map(Map.Entry::getValue).toList();
     }
 
     @Override

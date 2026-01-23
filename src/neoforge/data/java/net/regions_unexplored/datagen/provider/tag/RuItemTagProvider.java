@@ -5,7 +5,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
@@ -190,8 +190,8 @@ public class RuItemTagProvider extends ItemTagsProvider {
                 .add(RuBlocks.STEPPE_GRASS.get().asItem())
                 .add(RuBlocks.STEPPE_SHRUB.get().asItem())
                 .add(RuBlocks.STONE_BUD.get().asItem())
-                .add(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("minecraft", "short_grass")))
-                .add(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("minecraft", "fern")))
+                .add(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("minecraft", "short_grass")))
+                .add(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("minecraft", "fern")))
         ;
         this.tag(RuTags.ASH_ITEM)
                 .add(RuBlocks.ASH.get().asItem())

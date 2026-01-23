@@ -236,13 +236,13 @@ public class RuLanguageProvider extends LanguageProvider {
 
 
     private static String filterBiomeLang(ResourceKey<Biome> key) {
-        return key.location().toLanguageKey()
+        return key.identifier().toLanguageKey()
                 .replace("regions_unexplored.", "")
                 .replace("_", " ");
     }
 
     // used to create a biome translation string
     private void add(ResourceKey<Biome> key, String translation) {
-        this.add("biome." + key.location().toLanguageKey(), translation);
+        this.add("biome." + key.identifier().toLanguageKey(), translation);
     }
 }

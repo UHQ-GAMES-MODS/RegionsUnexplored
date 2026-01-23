@@ -1,13 +1,12 @@
 package net.regions_unexplored.block;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
-import net.regions_unexplored.RegionsUnexplored;
 import net.regions_unexplored.block.sapling.RuTreeGrowers;
 import net.regions_unexplored.block.set.BrimwoodWoodSet;
 import net.regions_unexplored.block.set.ColoredSet;
@@ -34,15 +33,12 @@ import net.regions_unexplored.world.level.block.plant.other.*;
 import net.regions_unexplored.world.level.block.plant.sapling.*;
 import net.regions_unexplored.world.level.block.plant.tall.*;
 import net.regions_unexplored.world.level.block.wood.*;
-import net.regions_unexplored.world.level.block.plant.branch.BranchBlock;
 import net.regions_unexplored.world.level.block.plant.dusktrap.DuskTrapBlock;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
-
-import static net.regions_unexplored.RegionsUnexplored.id;
 
 
 public class RuBlocks {
@@ -396,7 +392,7 @@ public class RuBlocks {
     public static final ColoredSet POTTED_SNOWBELLES = new ColoredSet(color -> BlockRegistry.registerDefaultBlockNoItem("potted_" + color.getName() + "_snowbelle", () -> new FlowerPotBlock(SNOWBELLES.getMap().get(color), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM))));
 
     // TODO: Enable this
-    public static final Map<ResourceLocation, ResourceLocation> BLOCK_ALIASES = Map.of(
+    public static final Map<Identifier, Identifier> BLOCK_ALIASES = Map.of(
         //id("maple_leaf_pile"), id("maple_leaf_litter"),
         //id("red_maple_leaf_pile"), id("red_maple_leaf_litter"),
         //id("orange_maple_leaf_pile"), id("orange_maple_leaf_litter"),

@@ -4,7 +4,7 @@ import com.mojang.serialization.MapCodec;
 
 import java.util.function.BiFunction;
 
-import net.minecraft.Util;
+import net.minecraft.util.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;

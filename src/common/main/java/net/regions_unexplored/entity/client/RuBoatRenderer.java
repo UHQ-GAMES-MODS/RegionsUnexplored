@@ -16,7 +16,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.regions_unexplored.RegionsUnexplored;
@@ -29,7 +29,7 @@ import java.util.stream.Stream;
 
 public class RuBoatRenderer extends BoatRenderer
 {
-    private final Map<RuBoat.ModelType, Pair<ResourceLocation, ListModel<Boat>>> boatResources;
+    private final Map<RuBoat.ModelType, Pair<Identifier, ListModel<Boat>>> boatResources;
 
     public RuBoatRenderer(EntityRendererProvider.Context context, boolean chest) {
         super(context, false);
@@ -39,7 +39,7 @@ public class RuBoatRenderer extends BoatRenderer
 
     @Override
     public void render(Boat entity, float entityYaw, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int packedLight) {
-        Pair<ResourceLocation, ListModel<Boat>> pair = null;
+        Pair<Identifier, ListModel<Boat>> pair = null;
         if(entity instanceof RuBoat entity1){
             pair = this.boatResources.get(entity1.getModel());
         }else if (entity instanceof RuChestBoat entity2){
@@ -62,12 +62,12 @@ public class RuBoatRenderer extends BoatRenderer
         if (!Mth.equal(h, 0.0F)) {
             matrixStack.mulPose((new Quaternionf()).setAngleAxis(entity.getBubbleAngle(partialTicks) * 0.017453292F, 1.0F, 0.0F, 1.0F));
         }
-        ResourceLocation ResourceLocation = pair.getFirst();
+        Identifier Identifier = pair.getFirst();
         ListModel<Boat> listModel = pair.getSecond();
         matrixStack.scale(-1.0F, -1.0F, 1.0F);
         matrixStack.mulPose(Axis.YP.rotationDegrees(90.0F));
         listModel.setupAnim(entity, partialTicks, 0.0F, -0.1F, 0.0F, 0.0F);
-        VertexConsumer vertexConsumer = buffer.getBuffer(listModel.renderType(ResourceLocation));
+        VertexConsumer vertexConsumer = buffer.getBuffer(listModel.renderType(Identifier));
         listModel.renderToBuffer(matrixStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY);
         if (!entity.isUnderWater()) {
             VertexConsumer vertexConsumer2 = buffer.getBuffer(RenderType.waterMask());
