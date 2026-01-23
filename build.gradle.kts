@@ -28,9 +28,9 @@ cloche {
         mappings {
             official()
             // TODO: Re-enable when Terrablender is removed
-            //custom(minecraftVersion.map {
-            //    project.dependencies.create(files("mappings/$it.tiny"))
-            //})
+            custom(minecraftVersion.map {
+                project.dependencies.create(files("mappings/$it.tiny"))
+            })
         }
     }
 
@@ -58,7 +58,7 @@ cloche {
             compileOnly("org.spongepowered:mixin:0.8.5")
             implementation("com.electronwill.night-config:core:3.8.3")
             implementation("com.electronwill.night-config:toml:3.8.3")
-            modCompileOnly("com.terraformersmc:biolith-neoforge:3.0.10")
+            modImplementation("com.terraformersmc:biolith-neoforge:3.0.10")
         }
 
         data()
