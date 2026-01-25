@@ -31,13 +31,12 @@ public class RegionsUnexplored {
 		RUBiomes.init();
 		RUBlocks.init();
 		RUCreativeModeTabs.init();
+		RUFeatureTypes.init();
 		RUFoliagePlacerTypes.init();
 		RUItems.init();
 		RUTreeDecoratorTypes.init();
-
-		FeatureRegistry.addFeatures();
 		RuParticleTypes.addParticles();
-		BiomeRegistry.addBiomes();
+
 		RuEntities.addEntities();
 	}
 

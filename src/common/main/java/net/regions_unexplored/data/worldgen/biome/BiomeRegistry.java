@@ -12,11 +12,6 @@ import net.regions_unexplored.registry.data.RUBiomes;
 import net.regions_unexplored.data.worldgen.biome.builder.*;
 
 public class BiomeRegistry {
-
-    public static void addBiomes() {
-        registerVillagerTypes();
-    }
-
     public static void bootstrap(BootstrapContext<Biome> context) {
         HolderGetter<ConfiguredWorldCarver<?>> carversGetter = context.lookup(Registries.CONFIGURED_CARVER);
         HolderGetter<PlacedFeature> featuresGetter = context.lookup(Registries.PLACED_FEATURE);
@@ -106,97 +101,7 @@ public class BiomeRegistry {
 
     }
 
-    private static void registerVillagerTypes() {
-        //FOREST
-        registerVillagers(RUBiomes.AUTUMNAL_MAPLE_FOREST, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.BAMBOO_FOREST, VillagerType.JUNGLE);
-        registerVillagers(RUBiomes.MAGNOLIA_WOODLAND, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.DECIDUOUS_FOREST, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.MAPLE_FOREST, VillagerType.TAIGA);
-        registerVillagers(RUBiomes.MAUVE_HILLS, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.ORCHARD, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.SILVER_BIRCH_FOREST, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.TEMPERATE_GROVE, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.WILLOW_FOREST, VillagerType.PLAINS);
-        //TAIGA
-        registerVillagers(RUBiomes.BLACKWOOD_TAIGA, VillagerType.TAIGA);
-        registerVillagers(RUBiomes.BOREAL_TAIGA, VillagerType.TAIGA);
-        registerVillagers(RUBiomes.GOLDEN_BOREAL_TAIGA, VillagerType.TAIGA);
-        registerVillagers(RUBiomes.PINE_TAIGA, VillagerType.TAIGA);
-        registerVillagers(RUBiomes.REDWOODS, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.SPARSE_REDWOODS, VillagerType.PLAINS);
-        //PLAINS
-        registerVillagers(RUBiomes.BARLEY_FIELDS, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.FLOWER_FIELDS, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.GRASSLAND, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.CLOVER_PLAINS, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.ROCKY_MEADOW, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.POPPY_FIELDS, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.PRAIRIE, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.PUMPKIN_FIELDS, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.SHRUBLAND, VillagerType.TAIGA);
-        //WET
-        registerVillagers(RUBiomes.BAYOU, VillagerType.SWAMP);
-        registerVillagers(RUBiomes.EUCALYPTUS_FOREST, VillagerType.JUNGLE);
-        registerVillagers(RUBiomes.FEN, VillagerType.SWAMP);
-        registerVillagers(RUBiomes.MARSH, VillagerType.SWAMP);
-        registerVillagers(RUBiomes.FUNGAL_FEN, VillagerType.SWAMP);
-        registerVillagers(RUBiomes.OLD_GROWTH_BAYOU, VillagerType.SWAMP);
-        registerVillagers(RUBiomes.SPARSE_RAINFOREST, VillagerType.JUNGLE);
-        registerVillagers(RUBiomes.RAINFOREST, VillagerType.JUNGLE);
-        //ARID
-        registerVillagers(RUBiomes.BAOBAB_SAVANNA, VillagerType.SAVANNA);
-        registerVillagers(RUBiomes.DRY_BUSHLAND, VillagerType.SAVANNA);
-        registerVillagers(RUBiomes.JOSHUA_DESERT, VillagerType.DESERT);
-        registerVillagers(RUBiomes.OUTBACK, VillagerType.SAVANNA);
-        registerVillagers(RUBiomes.SAGUARO_DESERT, VillagerType.DESERT);
-        registerVillagers(RUBiomes.STEPPE, VillagerType.PLAINS);
-        //MOUNTAIN
-        registerVillagers(RUBiomes.ARID_MOUNTAINS, VillagerType.SAVANNA);
-        registerVillagers(RUBiomes.HIGHLAND_FIELDS, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.MOUNTAINS, VillagerType.TAIGA);
-        registerVillagers(RUBiomes.PINE_SLOPES, VillagerType.TAIGA);
-        registerVillagers(RUBiomes.TOWERING_CLIFFS, VillagerType.TAIGA);
-        //COASTAL
-        registerVillagers(RUBiomes.CHALK_CLIFFS, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.GRASSY_BEACH, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.GRAVEL_BEACH, VillagerType.TAIGA);
-        //AQUATIC
-        registerVillagers(RUBiomes.ALPHA_GROVE, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.COLD_RIVER, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.HYACINTH_DEEPS, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.MUDDY_RIVER, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.ROCKY_REEF, VillagerType.JUNGLE);
-        registerVillagers(RUBiomes.ASHEN_WOODLAND, VillagerType.TAIGA);
-        registerVillagers(RUBiomes.TROPICAL_RIVER, VillagerType.JUNGLE);
-        registerVillagers(RUBiomes.TROPICS, VillagerType.JUNGLE);
-        //FROZEN
-        registerVillagers(RUBiomes.COLD_BOREAL_TAIGA, VillagerType.SNOW);
-        registerVillagers(RUBiomes.COLD_DECIDUOUS_FOREST, VillagerType.SNOW);
-        registerVillagers(RUBiomes.FROZEN_PINE_TAIGA, VillagerType.SNOW);
-        registerVillagers(RUBiomes.FROZEN_TUNDRA, VillagerType.SNOW);
-        registerVillagers(RUBiomes.ICY_HEIGHTS, VillagerType.SNOW);
-        registerVillagers(RUBiomes.SPIRES, VillagerType.SNOW);
-        //CAVE
-        registerVillagers(RUBiomes.BIOSHROOM_CAVES, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.ANCIENT_DELTA, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.PRISMACHASM, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.REDSTONE_CAVES, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.SCORCHING_CAVES, VillagerType.PLAINS);
-        //NETHER
-        registerVillagers(RUBiomes.BLACKSTONE_BASIN, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.INFERNAL_HOLT, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.GLISTERING_MEADOW, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.MYCOTOXIC_UNDERGROWTH, VillagerType.PLAINS);
-        registerVillagers(RUBiomes.REDSTONE_ABYSS, VillagerType.PLAINS);
-    }
-
     private static void register(BootstrapContext<Biome> context, ResourceKey<Biome> key, Biome biome) {
         context.register(key, biome);
-
-    }
-
-    private static void registerVillagers(ResourceKey<Biome> key, VillagerType type) {
-        VillagerType.BY_BIOME.put(key, type);
     }
 }
