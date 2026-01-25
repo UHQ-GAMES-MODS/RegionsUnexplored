@@ -10,7 +10,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.MultifaceGrowth
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfiguration;
-import net.regions_unexplored.platform.Registar;
+import net.regions_unexplored.platform.Registrar;
 import net.regions_unexplored.world.level.feature.AirMultifaceGrowthFeature;
 import net.regions_unexplored.world.level.feature.AshVentFeature;
 import net.regions_unexplored.world.level.feature.BasaltBlobFeature;
@@ -160,7 +160,7 @@ public interface RUFeatureTypes {
     Supplier<Feature<NoneFeatureConfiguration>> OBSIDIAN_SPIRE = register("obsidian_spire", new ObsidianSpireFeature(NoneFeatureConfiguration.CODEC));
 
     private static <FC extends FeatureConfiguration> Supplier<Feature<FC>> register(String name, Feature<FC> feature) {
-        Registar.register(BuiltInRegistries.FEATURE, name, () -> feature);
+        Registrar.register(BuiltInRegistries.FEATURE, name, () -> feature);
         return () -> feature;
     }
 

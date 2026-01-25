@@ -4,7 +4,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
@@ -12,13 +11,13 @@ import net.msrandom.multiplatform.annotations.Expect;
 import net.regions_unexplored.RegionsUnexplored;
 import net.regions_unexplored.block.set.NaturalSet;
 import net.regions_unexplored.block.set.WoodSet;
-import net.regions_unexplored.platform.Registar;
+import net.regions_unexplored.platform.Registrar;
 
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 public interface RUCreativeModeTabs {
-    Supplier<CreativeModeTab> MAIN = Registar.register(BuiltInRegistries.CREATIVE_MODE_TAB, "main", () ->
+    Supplier<CreativeModeTab> MAIN = Registrar.register(BuiltInRegistries.CREATIVE_MODE_TAB, "main", () ->
         builder()
         .title(Component.translatable("item_group.regions_unexplored.main"))
         .hideTitle()

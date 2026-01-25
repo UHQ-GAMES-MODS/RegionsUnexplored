@@ -6,15 +6,14 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PlaceOnWaterBlockItem;
 import net.minecraft.world.level.block.Block;
-import net.regions_unexplored.platform.Registar;
+import net.regions_unexplored.platform.Registrar;
 
-import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
 public class RUItemUtils {
     public static Supplier<Item> register(String name, ItemFactory factory) {
-        return Registar.register(BuiltInRegistries.ITEM, name, () -> factory.apply(new Item.Properties()));
+        return Registrar.register(BuiltInRegistries.ITEM, name, () -> factory.apply(new Item.Properties()));
     }
 
     public static Supplier<Item> registerBlock(String name, Supplier<Block> block) {

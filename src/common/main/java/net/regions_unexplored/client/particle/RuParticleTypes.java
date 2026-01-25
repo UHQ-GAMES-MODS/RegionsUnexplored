@@ -3,7 +3,7 @@ package net.regions_unexplored.client.particle;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.regions_unexplored.platform.Registar;
+import net.regions_unexplored.platform.Registrar;
 
 public class RuParticleTypes {
     public static final SimpleParticleType MAUVE_LEAVES = simple(true);
@@ -29,7 +29,7 @@ public class RuParticleTypes {
     }
 
     private static void register(String name, ParticleType<?> particleType) {
-        Registar.register(BuiltInRegistries.PARTICLE_TYPE, name, () -> particleType);
+        Registrar.register(BuiltInRegistries.PARTICLE_TYPE, name, () -> particleType);
     }
 
     public static SimpleParticleType simple(boolean alwaysSpawn) {

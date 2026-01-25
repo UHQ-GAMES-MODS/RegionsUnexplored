@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
-import net.regions_unexplored.platform.Registar;
+import net.regions_unexplored.platform.Registrar;
 import net.regions_unexplored.item.RUItemUtils;
 import org.jetbrains.annotations.Nullable;
 
@@ -126,7 +126,7 @@ public class RUBlockUtils {
 
     public static Supplier<Block> register(String name, BlockFactory factory, BiConsumer<String, Supplier<Block>> itemCreator, @Nullable Block copiedBlock) {
         BlockBehaviour.Properties properties = copiedBlock != null ? BlockBehaviour.Properties.ofFullCopy(copiedBlock) : BlockBehaviour.Properties.of();
-        Supplier<Block> block = Registar.registerBlock(name, () -> factory.apply(properties));
+        Supplier<Block> block = Registrar.registerBlock(name, () -> factory.apply(properties));
         itemCreator.accept(name, block);
         return block;
     }

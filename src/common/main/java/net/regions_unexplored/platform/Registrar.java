@@ -13,7 +13,7 @@ import net.msrandom.multiplatform.annotations.Expect;
 
 import java.util.function.Supplier;
 
-public class Registar {
+public class Registrar {
     @Expect
     public static <T> Supplier<T> register(Registry<T> registry, String name, Supplier<T> value);
 

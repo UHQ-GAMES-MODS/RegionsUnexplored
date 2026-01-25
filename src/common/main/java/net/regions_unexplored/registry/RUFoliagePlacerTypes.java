@@ -3,7 +3,7 @@ package net.regions_unexplored.registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
-import net.regions_unexplored.platform.Registar;
+import net.regions_unexplored.platform.Registrar;
 import net.regions_unexplored.world.features.foliageplacers.SakuraFoliagePlacer;
 import net.regions_unexplored.world.features.foliageplacers.WillowFoliagePlacer;
 
@@ -14,7 +14,7 @@ public interface RUFoliagePlacerTypes {
     Supplier<FoliagePlacerType<WillowFoliagePlacer>> WILLOW = register("willow", WillowFoliagePlacer.TYPE);
 
     static <T extends FoliagePlacer> Supplier<FoliagePlacerType<T>> register(String name, FoliagePlacerType<T> type) {
-        Registar.register(BuiltInRegistries.FOLIAGE_PLACER_TYPE, name, () -> type);
+        Registrar.register(BuiltInRegistries.FOLIAGE_PLACER_TYPE, name, () -> type);
         return () -> type;
     }
 
