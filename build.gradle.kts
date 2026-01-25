@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm") version "2.1.21"
-    id("earth.terrarium.cloche") version "0.17.7"
+    id("earth.terrarium.cloche") version "0.17.8+beta-2"
 }
 
 repositories {
@@ -27,7 +27,6 @@ cloche {
     targets.all {
         mappings {
             official()
-            // TODO: Re-enable when Terrablender is removed
             custom(minecraftVersion.map {
                 project.dependencies.create(files("mappings/$it.tiny"))
             })
