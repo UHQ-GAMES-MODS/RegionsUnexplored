@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.regions_unexplored.data.tags.RuTags;
-import net.regions_unexplored.entity.RuDamageTypes;
+import net.regions_unexplored.registry.data.RUDamageTypes;
 
 public class DorcelPlantBlock extends FlowerBlock {
     protected static final float AABB_OFFSET = 6.0F;
@@ -35,7 +35,7 @@ public class DorcelPlantBlock extends FlowerBlock {
 
     @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-            entity.hurt(level.damageSources().source(RuDamageTypes.DORCEL), 1.0F);
+            entity.hurt(level.damageSources().source(RUDamageTypes.DORCEL), 1.0F);
     }
 
     @Override

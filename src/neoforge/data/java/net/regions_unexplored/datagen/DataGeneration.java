@@ -23,8 +23,8 @@ import net.regions_unexplored.datagen.provider.tag.RuBlockTagProvider;
 import net.regions_unexplored.datagen.provider.tag.RuItemTagProvider;
 import net.regions_unexplored.datagen.provider.tag.RuProcessorListTagProvider;
 import net.regions_unexplored.datagen.provider.worldgen.RuProcessorLists;
-import net.regions_unexplored.entity.RuDamageTypes;
 import net.regions_unexplored.data.worldgen.biome.BiomeRegistry;
+import net.regions_unexplored.registry.data.RUDamageTypes;
 import net.regions_unexplored.registry.ConfiguredFeatureRegistry;
 import net.regions_unexplored.registry.PlacedFeatureRegistry;
 
@@ -39,7 +39,7 @@ public class DataGeneration {
         .add(Registries.PLACED_FEATURE, PlacedFeatureRegistry::bootstrap)
         .add(Registries.BIOME, BiomeRegistry::bootstrap)
         .add(Registries.NOISE, RuNoises::bootstrap)
-        .add(Registries.DAMAGE_TYPE, RuDamageTypes::bootstrap)
+        .add(Registries.DAMAGE_TYPE, RUDamageTypes::bootstrap)
         .add(Registries.PROCESSOR_LIST, RuProcessorLists::bootstrap)
     ;
 

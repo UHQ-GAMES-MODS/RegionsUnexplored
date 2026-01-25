@@ -82,7 +82,7 @@ public interface RUBiomes {
     ResourceKey<Biome> PLACEHOLDER_RIVER = key("placeholder_river");
 
     private static ResourceKey<Biome> key(String name) {
-        return ResourceKey.create(Registries.BIOME, RegionsUnexplored.id(name));
+        return RegionsUnexplored.key(Registries.BIOME, name);
     }
 
     private static void putVillagerBiome(ResourceKey<Biome> key, VillagerType type) {
