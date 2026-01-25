@@ -7,14 +7,8 @@
   "mixins": [
     "CropPlacerMixin",
     "EatBlockGoalMixin",
-    "MinecraftServerMixin",
     "NetherrackBlockMixin",
-    "TrunkPlacerDirtMixin",
-    "access.BiomeSourceAccess",
-    "access.NoiseBasedChunkGeneratorAccess",
-    "access.NoiseGeneratorSettingsAccess",
-    "invoke.FoliagePlacerTypeInvoker",
-    "invoke.TreeDecoratorTypeInvoker"
+    "TrunkPlacerDirtMixin"
   ],
   "client": [],
   "server": [],

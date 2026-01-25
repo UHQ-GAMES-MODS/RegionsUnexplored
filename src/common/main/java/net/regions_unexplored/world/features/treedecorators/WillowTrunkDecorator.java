@@ -1,5 +1,6 @@
 package net.regions_unexplored.world.features.treedecorators;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -15,18 +16,33 @@ import net.regions_unexplored.data.tags.RuTags;
 import java.util.Random;
 
 public class WillowTrunkDecorator extends TreeDecorator {
-	public static final WillowTrunkDecorator INSTANCE = new WillowTrunkDecorator();
-	public static final MapCodec<WillowTrunkDecorator> CODEC = MapCodec.unit(WillowTrunkDecorator::new);
-	public static TreeDecoratorType<?> WILLOW_TRUNK_DECORATOR = new TreeDecoratorType<>(CODEC);
+	public static final MapCodec<WillowTrunkDecorator> CODEC = Codec.floatRange(0f, 1f).fieldOf("chance").xmap(WillowTrunkDecorator::new, WillowTrunkDecorator::chance);
+	public static TreeDecoratorType<WillowTrunkDecorator> TYPE = new TreeDecoratorType<>(CODEC);
+
+	private final float chance;
+
+	public WillowTrunkDecorator(float chance) {
+		this.chance = chance;
+	}
+
+	public static WillowTrunkDecorator of(float chance) {
+		return new WillowTrunkDecorator(chance);
+	}
+
+	public float chance() {
+		return this.chance;
+	}
 
 	@Override
 	protected TreeDecoratorType<?> type() {
-		return WILLOW_TRUNK_DECORATOR;
+		return TYPE;
 	}
 
 	@Override
 	public void place(Context context) {
-		BlockPos newpos = context.logs().get(0);
+		if (context.random().nextFloat() > this.chance) return;
+
+		BlockPos newpos = context.logs().getFirst();
 		if(context.level().isStateAtPosition(newpos, WillowTrunkDecorator::isGrass)){
 			newpos=newpos.above();
 		}

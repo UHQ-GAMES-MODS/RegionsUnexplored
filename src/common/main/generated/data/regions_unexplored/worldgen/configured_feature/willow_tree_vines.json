@@ -7,7 +7,8 @@
         "probability": 0.25
       },
       {
-        "type": "regions_unexplored:willow_trunk_decorator"
+        "type": "regions_unexplored:willow",
+        "chance": 1
       }
     ],
     "dirt_provider": {

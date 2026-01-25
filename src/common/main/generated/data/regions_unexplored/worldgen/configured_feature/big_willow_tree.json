@@ -3,7 +3,8 @@
   "config": {
     "decorators": [
       {
-        "type": "regions_unexplored:chance_willow_trunk_decorator"
+        "type": "regions_unexplored:willow",
+        "chance": 0.5
       }
     ],
     "dirt_provider": {
@@ -13,7 +14,7 @@
       }
     },
     "foliage_placer": {
-      "type": "regions_unexplored:willow_foliage_placer",
+      "type": "regions_unexplored:willow",
       "flower_decoration_chance": 0.25,
       "height": 5,
       "offset": 0,

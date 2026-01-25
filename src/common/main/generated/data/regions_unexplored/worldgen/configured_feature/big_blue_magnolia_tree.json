@@ -9,7 +9,7 @@
       }
     },
     "foliage_placer": {
-      "type": "regions_unexplored:sakura_foliage_placer",
+      "type": "regions_unexplored:sakura",
       "flower_decoration_chance": 0.25,
       "height": 5,
       "offset": 0,

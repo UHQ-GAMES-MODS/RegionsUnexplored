@@ -13,11 +13,11 @@ import net.regions_unexplored.data.tags.RuTags;
 public class BlackwoodBioshroom extends TreeDecorator {
 	public static BlackwoodBioshroom INSTANCE = new BlackwoodBioshroom();
 	public static MapCodec<BlackwoodBioshroom> CODEC = MapCodec.unit(BlackwoodBioshroom::new);
-	public static TreeDecoratorType<?> BLACKWOOD_BIOSHROOM = new TreeDecoratorType<>(CODEC);
+	public static TreeDecoratorType<BlackwoodBioshroom> TYPE = new TreeDecoratorType<>(CODEC);
 
 	@Override
 	protected TreeDecoratorType<?> type() {
-		return BLACKWOOD_BIOSHROOM;
+		return TYPE;
 	}
 
 	@Override

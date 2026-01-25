@@ -3,10 +3,7 @@ package net.regions_unexplored;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.regions_unexplored.block.set.WoodSet;
-import net.regions_unexplored.registry.RUBlocks;
+import net.regions_unexplored.registry.*;
 import net.regions_unexplored.block.compat.BlockToolCompat;
 import net.regions_unexplored.block.compat.FlammableBlocks;
 import net.regions_unexplored.client.particle.RuParticleTypes;
@@ -16,16 +13,11 @@ import net.regions_unexplored.entity.RuEntities;
 import net.regions_unexplored.internal.config.Config;
 import net.regions_unexplored.internal.config.ConfigManager;
 import net.regions_unexplored.internal.config.gui.ConfigScreenRegistry;
-import net.regions_unexplored.registry.RUCreativeModeTabs;
-import net.regions_unexplored.registry.RUItems;
 import net.regions_unexplored.data.worldgen.biome.BiomeRegistry;
-import net.regions_unexplored.registry.FeatureRegistry;
 import net.regions_unexplored.registry.data.RUBiomes;
 import net.regions_unexplored.world.RuBiolith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.function.BiConsumer;
 
 public class RegionsUnexplored {
 	public static final String MOD_ID = "regions_unexplored";
@@ -39,7 +31,9 @@ public class RegionsUnexplored {
 		RUBiomes.init();
 		RUBlocks.init();
 		RUCreativeModeTabs.init();
+		RUFoliagePlacerTypes.init();
 		RUItems.init();
+		RUTreeDecoratorTypes.init();
 
 		FeatureRegistry.addFeatures();
 		RuParticleTypes.addParticles();

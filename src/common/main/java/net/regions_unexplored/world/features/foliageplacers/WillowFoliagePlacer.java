@@ -25,10 +25,10 @@ public class WillowFoliagePlacer extends FoliagePlacer {
         )
         .apply(placer, WillowFoliagePlacer::new)
     );
-    public static FoliagePlacerType<?> WILLOW_FOLIAGE_PLACER = new FoliagePlacerType<>(CODEC);
+    public static FoliagePlacerType<WillowFoliagePlacer> TYPE = new FoliagePlacerType<>(CODEC);
 
     protected FoliagePlacerType<?> type() {
-        return WILLOW_FOLIAGE_PLACER;
+        return TYPE;
     }
 
     private final IntProvider height;

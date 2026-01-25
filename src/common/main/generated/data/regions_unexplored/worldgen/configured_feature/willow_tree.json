@@ -3,7 +3,8 @@
   "config": {
     "decorators": [
       {
-        "type": "regions_unexplored:chance_willow_trunk_decorator"
+        "type": "regions_unexplored:willow",
+        "chance": 0.5
       }
     ],
     "dirt_provider": {
