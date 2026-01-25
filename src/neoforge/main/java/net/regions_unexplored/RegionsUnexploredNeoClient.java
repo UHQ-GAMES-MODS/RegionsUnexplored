@@ -3,6 +3,7 @@ package net.regions_unexplored;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.regions_unexplored.client.ParticleRegistration;
 import net.regions_unexplored.client.TintRegistration;
 

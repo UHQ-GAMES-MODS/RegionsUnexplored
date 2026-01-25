@@ -2,8 +2,11 @@ package net.regions_unexplored;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.registry.FabricRegistry;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.regions_unexplored.block.RuBlockEntitiesFabric;
@@ -11,6 +14,7 @@ import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.block.compat.FurnaceBurnTimesFabric;
 import net.regions_unexplored.mixin.invoke.FoliagePlacerTypeInvoker;
 import net.regions_unexplored.mixin.invoke.TreeDecoratorTypeInvoker;
+import net.regions_unexplored.registry.RUCreativeModeTabs;
 import net.regions_unexplored.world.features.foliageplacers.SakuraFoliagePlacer;
 import net.regions_unexplored.world.features.foliageplacers.WillowFoliagePlacer;
 import net.regions_unexplored.world.features.treedecorators.*;
@@ -38,5 +42,20 @@ public class RegionsUnexploredFabric implements ModInitializer {
     public static void afterRegistriesFreeze() {
         RegionsUnexplored.afterRegistriesFreeze();
         FurnaceBurnTimesFabric.setup();
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> {
+            RUCreativeModeTabs.addToBuildingBlocks(entries::addAfter);
+        });
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COLORED_BLOCKS).register(entries -> {
+            RUCreativeModeTabs.addToColoredBlocks(entries::addAfter);
+        });
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
+            RUCreativeModeTabs.addToFunctionalBlocks(entries::addAfter);
+        });
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> {
+            RUCreativeModeTabs.addToToolsAndUtilities(entries::addAfter);
+        });
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(entries -> {
+            RUCreativeModeTabs.addToFoodAndDrinks(entries::addAfter);
+        });
     }
 }

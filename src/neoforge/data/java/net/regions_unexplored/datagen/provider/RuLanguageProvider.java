@@ -20,7 +20,7 @@ public class RuLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        this.add("itemGroup.regions_unexplored.main", "Regions Unexplored");
+        this.add("item_group.regions_unexplored.main", "Regions Unexplored");
         // Advancement translations
         this.add("advancements.regions_unexplored.title", "Regions Unexplored");
         this.add("advancements.regions_unexplored.description", "Discover the many biomes and explore the world!");
