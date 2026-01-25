@@ -13,7 +13,7 @@ import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
 public class RUItemUtils {
-    public static Supplier<Item> register(String name, Function<Item.Properties, Item> factory) {
+    public static Supplier<Item> register(String name, ItemFactory factory) {
         return Registar.register(BuiltInRegistries.ITEM, name, () -> factory.apply(new Item.Properties()));
     }
 
