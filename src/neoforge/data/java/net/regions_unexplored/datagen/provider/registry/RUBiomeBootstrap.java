@@ -1,17 +1,16 @@
-package net.regions_unexplored.data.worldgen.biome;
+package net.regions_unexplored.datagen.provider.registry;
 
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.entity.npc.VillagerType;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.regions_unexplored.datagen.provider.registry.biome.*;
 import net.regions_unexplored.registry.data.RUBiomes;
-import net.regions_unexplored.data.worldgen.biome.builder.*;
 
-public class BiomeRegistry {
+public class RUBiomeBootstrap {
     public static void bootstrap(BootstrapContext<Biome> context) {
         HolderGetter<ConfiguredWorldCarver<?>> carversGetter = context.lookup(Registries.CONFIGURED_CARVER);
         HolderGetter<PlacedFeature> featuresGetter = context.lookup(Registries.PLACED_FEATURE);

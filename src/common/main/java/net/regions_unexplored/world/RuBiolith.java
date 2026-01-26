@@ -12,7 +12,7 @@ import net.minecraft.world.level.biome.Climate.Parameter;
 import net.regions_unexplored.RegionsUnexplored;
 import net.regions_unexplored.config.RuCommonConfig;
 import net.regions_unexplored.registry.data.RUBiomes;
-import net.regions_unexplored.data.worldgen.biome.surface.RuSurfaceRuleData;
+import net.regions_unexplored.world.surface.RUSurfaceRuleBuilder;
 import net.regions_unexplored.internal.config.ConfigValue;
 
 public class RuBiolith {
@@ -375,8 +375,8 @@ public class RuBiolith {
         nether(RuCommonConfig.TOGGLE_INFERNAL_HOLT, Biomes.BASALT_DELTAS, RUBiomes.INFERNAL_HOLT);
         nether(RuCommonConfig.TOGGLE_REDSTONE_ABYSS, Biomes.WARPED_FOREST, RUBiomes.REDSTONE_ABYSS);
 
-        SurfaceGeneration.addOverworldSurfaceRules(RegionsUnexplored.id("rules/overworld"), RuSurfaceRuleData.overworld());
-        SurfaceGeneration.addNetherSurfaceRules(RegionsUnexplored.id("rules/nether"), RuSurfaceRuleData.nether());
+        SurfaceGeneration.addOverworldSurfaceRules(RegionsUnexplored.id("rules/overworld"), RUSurfaceRuleBuilder.overworld());
+        SurfaceGeneration.addNetherSurfaceRules(RegionsUnexplored.id("rules/nether"), RUSurfaceRuleBuilder.nether());
     }
 
     private static void nether(ConfigValue<Boolean> config, ResourceKey<Biome> replacedBiome, ResourceKey<Biome> biome) {

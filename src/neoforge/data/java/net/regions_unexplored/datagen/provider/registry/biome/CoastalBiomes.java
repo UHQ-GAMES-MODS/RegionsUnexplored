@@ -1,4 +1,4 @@
-package net.regions_unexplored.data.worldgen.biome.builder;
+package net.regions_unexplored.datagen.provider.registry.biome;
 
 import net.minecraft.core.HolderGetter;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;

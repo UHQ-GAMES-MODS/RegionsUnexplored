@@ -1,4 +1,4 @@
-package net.regions_unexplored.data.worldgen.biome.surface;
+package net.regions_unexplored.world.surface;
 
 import com.google.common.collect.ImmutableList;
 import dev.worldgen.lithostitched.worldgen.surface.condition.SlopeCondition;
@@ -11,10 +11,9 @@ import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.config.RuCommonConfig;
 import net.regions_unexplored.registry.data.RUNoises;
-import net.regions_unexplored.data.noise.RuleWeight;
 import net.regions_unexplored.registry.data.RUBiomes;
 
-public class RuSurfaceRuleData {
+public class RUSurfaceRuleBuilder {
     //FILL_BLOCKS
     private static final SurfaceRules.RuleSource AIR = makeStateRule(Blocks.CAVE_AIR);
     private static final SurfaceRules.RuleSource WATER = makeStateRule(Blocks.WATER);

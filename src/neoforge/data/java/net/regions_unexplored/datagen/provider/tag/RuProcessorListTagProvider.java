@@ -9,10 +9,11 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.regions_unexplored.RegionsUnexplored;
-import net.regions_unexplored.datagen.provider.worldgen.RuProcessorLists;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
+
+import static net.regions_unexplored.registry.data.RUProcessorLists.*;
 
 public class RuProcessorListTagProvider extends TagsProvider<StructureProcessorList> {
     public static final TagKey<StructureProcessorList> SHIPWRECK_PALETTES = TagKey.create(Registries.PROCESSOR_LIST, Lithostitched.id("shipwreck_palettes"));
@@ -25,14 +26,14 @@ public class RuProcessorListTagProvider extends TagsProvider<StructureProcessorL
     @SuppressWarnings(value = "all")
     public void addTags(HolderLookup.Provider provider) {
         this.tag(SHIPWRECK_PALETTES)
-            .add(RuProcessorLists.SHIPWRECK_DARK_OAK_AND_BAOBAB)
-            .add(RuProcessorLists.SHIPWRECK_DARK_OAK_AND_DEAD)
-            .add(RuProcessorLists.SHIPWRECK_DARK_OAK_AND_EUCALYPTUS)
-            .add(RuProcessorLists.SHIPWRECK_DARK_OAK_AND_JOSHUA)
-            .add(RuProcessorLists.SHIPWRECK_DARK_OAK_AND_KAPOK)
-            .add(RuProcessorLists.SHIPWRECK_DARK_OAK_AND_LARCH)
-            .add(RuProcessorLists.SHIPWRECK_DEAD_AND_DARK_OAK)
-            .add(RuProcessorLists.SHIPWRECK_DEAD_AND_LARCH)
-            .add(RuProcessorLists.SHIPWRECK_DEAD_AND_SPRUCE);
+            .add(SHIPWRECK_DARK_OAK_AND_BAOBAB)
+            .add(SHIPWRECK_DARK_OAK_AND_DEAD)
+            .add(SHIPWRECK_DARK_OAK_AND_EUCALYPTUS)
+            .add(SHIPWRECK_DARK_OAK_AND_JOSHUA)
+            .add(SHIPWRECK_DARK_OAK_AND_KAPOK)
+            .add(SHIPWRECK_DARK_OAK_AND_LARCH)
+            .add(SHIPWRECK_DEAD_AND_DARK_OAK)
+            .add(SHIPWRECK_DEAD_AND_LARCH)
+            .add(SHIPWRECK_DEAD_AND_SPRUCE);
     }
 }

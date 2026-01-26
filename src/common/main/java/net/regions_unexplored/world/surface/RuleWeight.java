@@ -1,4 +1,4 @@
-package net.regions_unexplored.data.noise;
+package net.regions_unexplored.world.surface;
 
 public class RuleWeight {
     private static final double[] doubleArray = {

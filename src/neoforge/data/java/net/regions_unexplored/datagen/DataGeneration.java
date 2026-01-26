@@ -16,15 +16,15 @@ import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.regions_unexplored.RegionsUnexplored;
-import net.regions_unexplored.registry.data.RUNoises;
+import net.regions_unexplored.datagen.provider.registry.RUDamageTypeBootstrap;
+import net.regions_unexplored.datagen.provider.registry.RUNoiseBootstrap;
 import net.regions_unexplored.datagen.provider.*;
 import net.regions_unexplored.datagen.provider.tag.RuBiomeTagProvider;
 import net.regions_unexplored.datagen.provider.tag.RuBlockTagProvider;
 import net.regions_unexplored.datagen.provider.tag.RuItemTagProvider;
 import net.regions_unexplored.datagen.provider.tag.RuProcessorListTagProvider;
-import net.regions_unexplored.datagen.provider.worldgen.RuProcessorLists;
-import net.regions_unexplored.data.worldgen.biome.BiomeRegistry;
-import net.regions_unexplored.registry.data.RUDamageTypes;
+import net.regions_unexplored.datagen.provider.registry.RUProcessorListBootstrap;
+import net.regions_unexplored.datagen.provider.registry.RUBiomeBootstrap;
 import net.regions_unexplored.registry.ConfiguredFeatureRegistry;
 import net.regions_unexplored.registry.PlacedFeatureRegistry;
 
@@ -37,10 +37,10 @@ public class DataGeneration {
     private static final RegistrySetBuilder BOOTSTRAPS = new RegistrySetBuilder()
         .add(Registries.CONFIGURED_FEATURE, ConfiguredFeatureRegistry::bootstrap)
         .add(Registries.PLACED_FEATURE, PlacedFeatureRegistry::bootstrap)
-        .add(Registries.BIOME, BiomeRegistry::bootstrap)
-        .add(Registries.NOISE, RUNoises::bootstrap)
-        .add(Registries.DAMAGE_TYPE, RUDamageTypes::bootstrap)
-        .add(Registries.PROCESSOR_LIST, RuProcessorLists::bootstrap)
+        .add(Registries.BIOME, RUBiomeBootstrap::bootstrap)
+        .add(Registries.NOISE, RUNoiseBootstrap::bootstrap)
+        .add(Registries.DAMAGE_TYPE, RUDamageTypeBootstrap::bootstrap)
+        .add(Registries.PROCESSOR_LIST, RUProcessorListBootstrap::bootstrap)
     ;
 
     @SubscribeEvent
