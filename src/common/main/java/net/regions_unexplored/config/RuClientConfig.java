@@ -7,6 +7,8 @@ import net.regions_unexplored.internal.config.annotation.Range;
 
 public class RuClientConfig extends Config {
     @ConfigOption(category = "client_options")
+    public static final ConfigValue<Boolean> CUSTOM_ITEMS_IN_VANILLA_CREATIVE_TABS = bool(true);
+    @ConfigOption(category = "client_options")
     public static final ConfigValue<Boolean> TOGGLE_MAUVE_LEAVES_PARTICLE = bool(true);
     @ConfigOption(category = "client_options")
     public static final ConfigValue<Boolean> TOGGLE_BLUE_MAGNOLIA_LEAVES_PARTICLE = bool(true);

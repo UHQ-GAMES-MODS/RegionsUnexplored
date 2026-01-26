@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.regions_unexplored.block.RuBlockEntitiesFabric;
+import net.regions_unexplored.config.RuClientConfig;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.block.compat.FurnaceBurnTimesFabric;
 import net.regions_unexplored.registry.RUCreativeModeTabs;
@@ -25,20 +26,22 @@ public class RegionsUnexploredFabric implements ModInitializer {
     public static void afterRegistriesFreeze() {
         RegionsUnexplored.afterRegistriesFreeze();
         FurnaceBurnTimesFabric.setup();
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> {
-            RUCreativeModeTabs.addToBuildingBlocks(entries::addAfter);
-        });
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COLORED_BLOCKS).register(entries -> {
-            RUCreativeModeTabs.addToColoredBlocks(entries::addAfter);
-        });
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
-            RUCreativeModeTabs.addToFunctionalBlocks(entries::addAfter);
-        });
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> {
-            RUCreativeModeTabs.addToToolsAndUtilities(entries::addAfter);
-        });
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(entries -> {
-            RUCreativeModeTabs.addToFoodAndDrinks(entries::addAfter);
-        });
+        if (RuClientConfig.CUSTOM_ITEMS_IN_VANILLA_CREATIVE_TABS.get()) {
+            ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> {
+                RUCreativeModeTabs.addToBuildingBlocks(entries::addAfter);
+            });
+            ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COLORED_BLOCKS).register(entries -> {
+                RUCreativeModeTabs.addToColoredBlocks(entries::addAfter);
+            });
+            ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
+                RUCreativeModeTabs.addToFunctionalBlocks(entries::addAfter);
+            });
+            ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> {
+                RUCreativeModeTabs.addToToolsAndUtilities(entries::addAfter);
+            });
+            ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(entries -> {
+                RUCreativeModeTabs.addToFoodAndDrinks(entries::addAfter);
+            });
+        }
     }
 }
