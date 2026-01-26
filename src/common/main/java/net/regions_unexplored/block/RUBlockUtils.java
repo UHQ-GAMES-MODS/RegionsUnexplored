@@ -2,6 +2,7 @@ package net.regions_unexplored.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
@@ -133,7 +134,7 @@ public class RUBlockUtils {
     }
 
     public static Supplier<Block> register(String name, BlockFactory factory, BiConsumer<String, Supplier<Block>> itemCreator, @Nullable Supplier<Block> copiedBlock) {
-        Supplier<Block> block = Registrar.registerBlock(name, () -> factory.apply(createProperties(copiedBlock)));
+        Supplier<Block> block = Registrar.register(BuiltInRegistries.BLOCK, name, () -> factory.apply(createProperties(copiedBlock)));
         itemCreator.accept(name, block);
         return block;
     }

@@ -30,13 +30,12 @@ public class RegionsUnexplored {
 		RUBiomes.init();
 		RUBlocks.init();
 		RUCreativeModeTabs.init();
+		RUEntityTypes.init();
 		RUFeatureTypes.init();
 		RUFoliagePlacerTypes.init();
 		RUItems.init();
 		RUParticleTypes.init();
 		RUTreeDecoratorTypes.init();
-
-		RUEntityTypes.init();
 	}
 
 	public static void afterRegistriesFreeze(){
