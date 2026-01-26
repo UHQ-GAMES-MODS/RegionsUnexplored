@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 
 public class RuStonePlantBlock extends BushBlock implements BonemealableBlock {
     public static final MapCodec<? extends RuStonePlantBlock> CODEC = simpleCodec(RuStonePlantBlock::new);
@@ -49,7 +49,7 @@ public class RuStonePlantBlock extends BushBlock implements BonemealableBlock {
 
     @Override
     public boolean mayPlaceOn(BlockState state, BlockGetter getter, BlockPos pos) {
-        return state.is(RuTags.STONE_PLANT_CAN_SURVIVE_ON);
+        return state.is(RUBlockTags.STONE_PLANT_CAN_SURVIVE_ON);
     }
 
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {

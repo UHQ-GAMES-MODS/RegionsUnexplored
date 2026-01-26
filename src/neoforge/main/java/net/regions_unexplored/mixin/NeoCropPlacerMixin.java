@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -17,7 +17,7 @@ public class NeoCropPlacerMixin {
     @Inject(at = @At("HEAD"), method = "getGrowthSpeed", cancellable = true)
     private static void regions_unexplored$getGrowthSpeed(BlockState blockState, BlockGetter p_52274_, BlockPos p_52275_, CallbackInfoReturnable<Float> cir) {
         Block block = blockState.getBlock();
-        if(p_52274_.getBlockState(p_52275_.below()).is(RuTags.CROP_PLANTABLE_BLOCKS)){
+        if(p_52274_.getBlockState(p_52275_.below()).is(RUBlockTags.CROP_PLANTABLE_BLOCKS)){
             float f1 = 1.0F;
             BlockPos blockPos1 = p_52275_.below();
 
@@ -25,7 +25,7 @@ public class NeoCropPlacerMixin {
                 for(int j1 = -1; j1 <= 1; ++j1) {
                     float g1 = 0.0F;
                     BlockState blockState1 = p_52274_.getBlockState(blockPos1.offset(i1, 0, j1));
-                    if (blockState1.is(RuTags.CROP_PLANTABLE_BLOCKS)) {
+                    if (blockState1.is(RUBlockTags.CROP_PLANTABLE_BLOCKS)) {
                         g1 = 1.0F;
                         if (blockState1.getValue(FarmBlock.MOISTURE) > 0) {
                             g1 = 3.0F;

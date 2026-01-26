@@ -11,7 +11,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.regions_unexplored.registry.RUBlocks;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 
 public class RuFlowerBlock extends FlowerBlock {
     protected static final float AABB_OFFSET = 6.0F;
@@ -34,7 +34,7 @@ public class RuFlowerBlock extends FlowerBlock {
                 ||state== RUBlocks.YELLOW_LUPINE.get().defaultBlockState()
                 ||state== RUBlocks.RED_LUPINE.get().defaultBlockState()
                 ||state== RUBlocks.HYSSOP.get().defaultBlockState()
-                ||state.is(RuTags.SNOWBELLE)){
+                ||state.is(RUBlockTags.SNOWBELLE)){
             return SHAPE_BUSH.move(vec3.x, vec3.y, vec3.z);
         }
         if(state== RUBlocks.FIREWEED.get().defaultBlockState()

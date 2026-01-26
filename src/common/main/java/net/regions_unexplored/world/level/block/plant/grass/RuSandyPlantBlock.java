@@ -21,7 +21,7 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.regions_unexplored.registry.RUBlocks;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 import net.regions_unexplored.world.level.block.plant.tall.RuSandyDoublePlantBlock;
 import net.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
 
@@ -89,7 +89,7 @@ public class RuSandyPlantBlock extends BushBlock implements BonemealableBlock {
 
     @Override
     public boolean mayPlaceOn(BlockState state, BlockGetter getter, BlockPos pos) {
-        return state.is(RuTags.SANDY_PLANT_CAN_SURVIVE_ON);
+        return state.is(RUBlockTags.SANDY_PLANT_CAN_SURVIVE_ON);
     }
 
 

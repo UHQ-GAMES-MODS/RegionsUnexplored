@@ -15,7 +15,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.block.set.NaturalSet;
 import net.regions_unexplored.block.set.WoodSet;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -126,7 +126,7 @@ public class RuBlockTagProvider extends BlockTagsProvider {
                 .add(RUBlocks.DUSKMELON.get())
                 .add(RUBlocks.FLOWERING_LILY_PAD.get())
                 .add(RUBlocks.GIANT_LILY_PAD.get())
-                .addTags(RuTags.SHRUBS)
+                .addTags(RUBlockTags.SHRUBS)
         ;
         this.tag(BlockTags.MINEABLE_WITH_HOE)
                 .add(RUBlocks.ALPHA_NATURAL_SET.getLeaves())
@@ -291,7 +291,7 @@ public class RuBlockTagProvider extends BlockTagsProvider {
                 .add(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("minecraft", "coarse_dirt")))
         ;
         this.tag(BlockTags.BAMBOO_BLOCKS)
-                .addTags(RuTags.BAMBOO_LOGS)
+                .addTags(RUBlockTags.BAMBOO_LOGS)
         ;
         this.tag(BlockTags.BASE_STONE_NETHER)
                 .add(RUBlocks.OVERGROWN_BONE_BLOCK.get())
@@ -508,32 +508,32 @@ public class RuBlockTagProvider extends BlockTagsProvider {
         //this.tag(BlockTags.LAPIS_ORES);
         //this.tag(BlockTags.LAVA_POOL_STONE_CANNOT_REPLACE);
         this.tag(BlockTags.LOGS)
-                .addTags(RuTags.BRIMWOOD_LOGS)
-                .addTags(RuTags.COBALT_LOGS)
-                .addTags(RuTags.DEAD_LOGS)
-                .addTags(RuTags.YELLOW_BIOSHROOM_LOGS)
+                .addTags(RUBlockTags.BRIMWOOD_LOGS)
+                .addTags(RUBlockTags.COBALT_LOGS)
+                .addTags(RUBlockTags.DEAD_LOGS)
+                .addTags(RUBlockTags.YELLOW_BIOSHROOM_LOGS)
         ;
         this.tag(BlockTags.LOGS_THAT_BURN)
-                .addTags(RuTags.BRANCHES)
-                .addTags(RuTags.BAMBOO_LOGS)
-                .addTags(RuTags.BAOBAB_LOGS)
-                .addTags(RuTags.BLACKWOOD_LOGS)
-                .addTags(RuTags.BLUE_BIOSHROOM_LOGS)
-                .addTags(RuTags.CYPRESS_LOGS)
-                .addTags(RuTags.EUCALYPTUS_LOGS)
-                .addTags(RuTags.GREEN_BIOSHROOM_LOGS)
-                .addTags(RuTags.JOSHUA_LOGS)
-                .addTags(RuTags.KAPOK_LOGS)
-                .addTags(RuTags.LARCH_LOGS)
-                .addTags(RuTags.MAGNOLIA_LOGS)
-                .addTags(RuTags.MAPLE_LOGS)
-                .addTags(RuTags.MAUVE_LOGS)
-                .addTags(RuTags.PALM_LOGS)
-                .addTags(RuTags.PINE_LOGS)
-                .addTags(RuTags.PINK_BIOSHROOM_LOGS)
-                .addTags(RuTags.REDWOOD_LOGS)
-                .addTags(RuTags.SOCOTRA_LOGS)
-                .addTags(RuTags.WILLOW_LOGS)
+                .addTags(RUBlockTags.BRANCHES)
+                .addTags(RUBlockTags.BAMBOO_LOGS)
+                .addTags(RUBlockTags.BAOBAB_LOGS)
+                .addTags(RUBlockTags.BLACKWOOD_LOGS)
+                .addTags(RUBlockTags.BLUE_BIOSHROOM_LOGS)
+                .addTags(RUBlockTags.CYPRESS_LOGS)
+                .addTags(RUBlockTags.EUCALYPTUS_LOGS)
+                .addTags(RUBlockTags.GREEN_BIOSHROOM_LOGS)
+                .addTags(RUBlockTags.JOSHUA_LOGS)
+                .addTags(RUBlockTags.KAPOK_LOGS)
+                .addTags(RUBlockTags.LARCH_LOGS)
+                .addTags(RUBlockTags.MAGNOLIA_LOGS)
+                .addTags(RUBlockTags.MAPLE_LOGS)
+                .addTags(RUBlockTags.MAUVE_LOGS)
+                .addTags(RUBlockTags.PALM_LOGS)
+                .addTags(RUBlockTags.PINE_LOGS)
+                .addTags(RUBlockTags.PINK_BIOSHROOM_LOGS)
+                .addTags(RUBlockTags.REDWOOD_LOGS)
+                .addTags(RUBlockTags.SOCOTRA_LOGS)
+                .addTags(RUBlockTags.WILLOW_LOGS)
                 .add(RUBlocks.ALPHA_WOOD_SET.getLog())
         ;
         this.tag(BlockTags.MANGROVE_LOGS_CAN_GROW_THROUGH)
@@ -581,7 +581,7 @@ public class RuBlockTagProvider extends BlockTagsProvider {
         ;
         //this.tag(BlockTags.OCCLUDES_VIBRATION_SIGNALS);
         this.tag(BlockTags.OVERWORLD_CARVER_REPLACEABLES)
-                .addTags(RuTags.ASH)
+                .addTags(RUBlockTags.ASH)
                 .add(RUBlocks.MOSSY_STONE.get())
                 .add(RUBlocks.ARGILLITE.get())
         ;
@@ -743,7 +743,7 @@ public class RuBlockTagProvider extends BlockTagsProvider {
         ;
         this.tag(BlockTags.STRIDER_WARM_BLOCKS)
                 .add(RUBlocks.BRIMWOOD_WOOD_SET.getPlanks())
-                .addTags(RuTags.BRIMWOOD_LOGS)
+                .addTags(RUBlockTags.BRIMWOOD_LOGS)
         ;
         this.tag(BlockTags.TALL_FLOWERS)
                 .add(RUBlocks.TASSEL.get())
@@ -785,25 +785,25 @@ public class RuBlockTagProvider extends BlockTagsProvider {
                 .add(RUBlocks.SILT_PODZOL.get())
         ;
 
-        this.tag(RuTags.CROP_PLANTABLE_BLOCKS)
+        this.tag(RUBlockTags.CROP_PLANTABLE_BLOCKS)
                 .add(RUBlocks.PEAT_FARMLAND.get())
                 .add(RUBlocks.SILT_FARMLAND.get())
         ;
-        this.tag(RuTags.HYACINTH_BLOOMS)
+        this.tag(RUBlockTags.HYACINTH_BLOOMS)
                 .add(RUBlocks.HYACINTH_BLOOM.get())
                 .add(RUBlocks.TALL_HYACINTH_STOCK.get())
         ;
-        this.tag(RuTags.GREEN_BIOSHROOM_LOGS)
+        this.tag(RUBlockTags.GREEN_BIOSHROOM_LOGS)
                 .add(RUBlocks.GREEN_BIOSHROOM_WOOD_SET.getLog())
                 .add(RUBlocks.GREEN_BIOSHROOM_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.GREEN_BIOSHROOM_WOOD_SET.getWood())
                 .add(RUBlocks.GREEN_BIOSHROOM_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.ASH)
+        this.tag(RUBlockTags.ASH)
                 .add(RUBlocks.ASH.get())
                 .add(RUBlocks.VOLCANIC_ASH.get())
         ;
-        this.tag(RuTags.BRANCHES)
+        this.tag(RUBlockTags.BRANCHES)
                 .add(RUBlocks.ACACIA_NATURAL_SET.getBranch())
                 .add(RUBlocks.BAOBAB_NATURAL_SET.getBranch())
                 .add(RUBlocks.BIRCH_NATURAL_SET.getBranch())
@@ -830,7 +830,7 @@ public class RuBlockTagProvider extends BlockTagsProvider {
                 .add(RUBlocks.SPRUCE_NATURAL_SET.getBranch())
                 .add(RUBlocks.WILLOW_NATURAL_SET.getBranch())
         ;
-        this.tag(RuTags.SHRUBS)
+        this.tag(RUBlockTags.SHRUBS)
                 .add(RUBlocks.ACACIA_NATURAL_SET.getShrub())
                 .add(RUBlocks.BAOBAB_NATURAL_SET.getShrub())
                 .add(RUBlocks.BIRCH_NATURAL_SET.getShrub())
@@ -867,48 +867,48 @@ public class RuBlockTagProvider extends BlockTagsProvider {
                 .add(RUBlocks.SPRUCE_NATURAL_SET.getShrub())
                 .add(RUBlocks.WILLOW_NATURAL_SET.getShrub())
         ;
-        this.tag(RuTags.BAMBOO_LOGS)
+        this.tag(RUBlockTags.BAMBOO_LOGS)
                 .add(RUBlocks.BAMBOO_LOG.get())
                 .add(RUBlocks.STRIPPED_BAMBOO_LOG.get())
         ;
-        this.tag(RuTags.BAOBAB_LOGS)
+        this.tag(RUBlockTags.BAOBAB_LOGS)
                 .add(RUBlocks.BAOBAB_WOOD_SET.getLog())
                 .add(RUBlocks.BAOBAB_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.BAOBAB_WOOD_SET.getWood())
                 .add(RUBlocks.BAOBAB_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.BLACKWOOD_LOGS)
+        this.tag(RUBlockTags.BLACKWOOD_LOGS)
                 .add(RUBlocks.BLACKWOOD_WOOD_SET.getLog())
                 .add(RUBlocks.BLACKWOOD_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.BLACKWOOD_WOOD_SET.getWood())
                 .add(RUBlocks.BLACKWOOD_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.BLUE_BIOSHROOM_LOGS)
+        this.tag(RUBlockTags.BLUE_BIOSHROOM_LOGS)
                 .add(RUBlocks.BLUE_BIOSHROOM_WOOD_SET.getLog())
                 .add(RUBlocks.BLUE_BIOSHROOM_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.BLUE_BIOSHROOM_WOOD_SET.getWood())
                 .add(RUBlocks.BLUE_BIOSHROOM_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.BRIMWOOD_LOGS)
+        this.tag(RUBlockTags.BRIMWOOD_LOGS)
                 .add(RUBlocks.BRIMWOOD_WOOD_SET.getLog())
                 .add(RUBlocks.BRIMWOOD_WOOD_SET.getLogMagma())
                 .add(RUBlocks.BRIMWOOD_WOOD_SET.getWood())
                 .add(RUBlocks.BRIMWOOD_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.BRIMWOOD_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.COBALT_LOGS)
+        this.tag(RUBlockTags.COBALT_LOGS)
                 .add(RUBlocks.COBALT_WOOD_SET.getLog())
                 .add(RUBlocks.COBALT_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.COBALT_WOOD_SET.getWood())
                 .add(RUBlocks.COBALT_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.CYPRESS_LOGS)
+        this.tag(RUBlockTags.CYPRESS_LOGS)
                 .add(RUBlocks.CYPRESS_WOOD_SET.getLog())
                 .add(RUBlocks.CYPRESS_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.CYPRESS_WOOD_SET.getWood())
                 .add(RUBlocks.CYPRESS_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.DEAD_LOGS)
+        this.tag(RUBlockTags.DEAD_LOGS)
                 .add(RUBlocks.ASHEN_WOOD_SET.getLog())
                 .add(RUBlocks.DEAD_WOOD_SET.getLog())
                 .add(RUBlocks.DEAD_WOOD_SET.getStrippedLog())
@@ -916,110 +916,110 @@ public class RuBlockTagProvider extends BlockTagsProvider {
                 .add(RUBlocks.DEAD_WOOD_SET.getWood())
                 .add(RUBlocks.DEAD_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.EUCALYPTUS_LOGS)
+        this.tag(RUBlockTags.EUCALYPTUS_LOGS)
                 .add(RUBlocks.EUCALYPTUS_WOOD_SET.getLog())
                 .add(RUBlocks.EUCALYPTUS_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.EUCALYPTUS_WOOD_SET.getWood())
                 .add(RUBlocks.EUCALYPTUS_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.GREEN_BIOSHROOM_LOGS)
+        this.tag(RUBlockTags.GREEN_BIOSHROOM_LOGS)
                 .add(RUBlocks.GREEN_BIOSHROOM_WOOD_SET.getLog())
                 .add(RUBlocks.GREEN_BIOSHROOM_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.GREEN_BIOSHROOM_WOOD_SET.getWood())
                 .add(RUBlocks.GREEN_BIOSHROOM_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.JOSHUA_LOGS)
+        this.tag(RUBlockTags.JOSHUA_LOGS)
                 .add(RUBlocks.JOSHUA_WOOD_SET.getLog())
                 .add(RUBlocks.JOSHUA_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.JOSHUA_WOOD_SET.getWood())
                 .add(RUBlocks.JOSHUA_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.KAPOK_LOGS)
+        this.tag(RUBlockTags.KAPOK_LOGS)
                 .add(RUBlocks.KAPOK_WOOD_SET.getLog())
                 .add(RUBlocks.KAPOK_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.KAPOK_WOOD_SET.getWood())
                 .add(RUBlocks.KAPOK_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.LARCH_LOGS)
+        this.tag(RUBlockTags.LARCH_LOGS)
                 .add(RUBlocks.LARCH_WOOD_SET.getLog())
                 .add(RUBlocks.LARCH_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.LARCH_WOOD_SET.getWood())
                 .add(RUBlocks.LARCH_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.MAGNOLIA_LOGS)
+        this.tag(RUBlockTags.MAGNOLIA_LOGS)
                 .add(RUBlocks.MAGNOLIA_WOOD_SET.getLog())
                 .add(RUBlocks.MAGNOLIA_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.MAGNOLIA_WOOD_SET.getWood())
                 .add(RUBlocks.MAGNOLIA_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.MAPLE_LOGS)
+        this.tag(RUBlockTags.MAPLE_LOGS)
                 .add(RUBlocks.MAPLE_WOOD_SET.getLog())
                 .add(RUBlocks.MAPLE_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.MAPLE_WOOD_SET.getWood())
                 .add(RUBlocks.MAPLE_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.MAUVE_LOGS)
+        this.tag(RUBlockTags.MAUVE_LOGS)
                 .add(RUBlocks.MAUVE_WOOD_SET.getLog())
                 .add(RUBlocks.MAUVE_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.MAUVE_WOOD_SET.getWood())
                 .add(RUBlocks.MAUVE_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.PALM_LOGS)
+        this.tag(RUBlockTags.PALM_LOGS)
                 .add(RUBlocks.PALM_WOOD_SET.getLog())
                 .add(RUBlocks.PALM_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.PALM_WOOD_SET.getWood())
                 .add(RUBlocks.PALM_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.PINE_LOGS)
+        this.tag(RUBlockTags.PINE_LOGS)
                 .add(RUBlocks.PINE_WOOD_SET.getLog())
                 .add(RUBlocks.PINE_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.PINE_WOOD_SET.getWood())
                 .add(RUBlocks.PINE_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.PINK_BIOSHROOM_LOGS)
+        this.tag(RUBlockTags.PINK_BIOSHROOM_LOGS)
                 .add(RUBlocks.PINK_BIOSHROOM_WOOD_SET.getLog())
                 .add(RUBlocks.PINK_BIOSHROOM_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.PINK_BIOSHROOM_WOOD_SET.getWood())
                 .add(RUBlocks.PINK_BIOSHROOM_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.REDWOOD_LOGS)
+        this.tag(RUBlockTags.REDWOOD_LOGS)
                 .add(RUBlocks.REDWOOD_WOOD_SET.getLog())
                 .add(RUBlocks.REDWOOD_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.REDWOOD_WOOD_SET.getWood())
                 .add(RUBlocks.REDWOOD_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.SOCOTRA_LOGS)
+        this.tag(RUBlockTags.SOCOTRA_LOGS)
                 .add(RUBlocks.SOCOTRA_WOOD_SET.getLog())
                 .add(RUBlocks.SOCOTRA_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.SOCOTRA_WOOD_SET.getWood())
                 .add(RUBlocks.SOCOTRA_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.WILLOW_LOGS)
+        this.tag(RUBlockTags.WILLOW_LOGS)
                 .add(RUBlocks.WILLOW_WOOD_SET.getLog())
                 .add(RUBlocks.WILLOW_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.WILLOW_WOOD_SET.getWood())
                 .add(RUBlocks.WILLOW_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.YELLOW_BIOSHROOM_LOGS)
+        this.tag(RUBlockTags.YELLOW_BIOSHROOM_LOGS)
                 .add(RUBlocks.YELLOW_BIOSHROOM_WOOD_SET.getLog())
                 .add(RUBlocks.YELLOW_BIOSHROOM_WOOD_SET.getStrippedLog())
                 .add(RUBlocks.YELLOW_BIOSHROOM_WOOD_SET.getWood())
                 .add(RUBlocks.YELLOW_BIOSHROOM_WOOD_SET.getStrippedWood())
         ;
-        this.tag(RuTags.BRANCHES_CAN_SURVIVE_ON)
+        this.tag(RUBlockTags.BRANCHES_CAN_SURVIVE_ON)
                 .addTag(BlockTags.OVERWORLD_NATURAL_LOGS)
         ;
-        this.tag(RuTags.BRIM_PLANT_CAN_SURVIVE_ON)
+        this.tag(RUBlockTags.BRIM_PLANT_CAN_SURVIVE_ON)
                 .addTag(BlockTags.DIRT)
                 .addTag(BlockTags.NYLIUM)
         ;
-        this.tag(RuTags.CATTAIL_CAN_SURVIVE_ON)
+        this.tag(RUBlockTags.CATTAIL_CAN_SURVIVE_ON)
                 .addTag(BlockTags.DIRT)
                 .addTag(BlockTags.SAND)
                 .add(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("minecraft", "clay")))
                 .add(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("minecraft", "gravel")))
         ;
-        this.tag(RuTags.SANDY_PLANT_CAN_SURVIVE_ON)
+        this.tag(RUBlockTags.SANDY_PLANT_CAN_SURVIVE_ON)
                 .addTag(BlockTags.SAND)
                 .addOptionalTag(TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("c", "sandstone")))
                 .addOptionalTag(TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("c", "sand")))
@@ -1028,13 +1028,13 @@ public class RuBlockTagProvider extends BlockTagsProvider {
                 .addOptionalTag(TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("c", "red_sandstone")))
                 .addOptionalTag(TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("c", "sandstone/red")))
         ;
-        this.tag(RuTags.SHRUB_CAN_SURVIVE_ON)
+        this.tag(RUBlockTags.SHRUB_CAN_SURVIVE_ON)
                 .addTag(BlockTags.DIRT)
         ;
-        this.tag(RuTags.SNOW_PLANT_CAN_SURVIVE_ON)
+        this.tag(RUBlockTags.SNOW_PLANT_CAN_SURVIVE_ON)
                 .addTag(BlockTags.SNOW)
         ;
-        this.tag(RuTags.STONE_PLANT_CAN_SURVIVE_ON)
+        this.tag(RUBlockTags.STONE_PLANT_CAN_SURVIVE_ON)
                 .addTag(BlockTags.TERRACOTTA)
                 .addTag(BlockTags.BASE_STONE_OVERWORLD)
                 .addTag(BlockTags.BASE_STONE_NETHER)
@@ -1054,16 +1054,16 @@ public class RuBlockTagProvider extends BlockTagsProvider {
                 .add(RUBlocks.STONE_GRASS_BLOCK.get().builtInRegistryHolder().key())
                 .add(RUBlocks.ARGILLITE_GRASS_BLOCK.get().builtInRegistryHolder().key())
         ;
-        this.tag(RuTags.BIOSHROOM_GROW_BLOCK)
+        this.tag(RUBlockTags.BIOSHROOM_GROW_BLOCK)
                 .addTag(BlockTags.DIRT)
                 .addTag(BlockTags.NYLIUM)
         ;
-        this.tag(RuTags.PRISMARITE_CRYSTALS)
+        this.tag(RUBlockTags.PRISMARITE_CRYSTALS)
                 .add(RUBlocks.PRISMARITE_CLUSTER.get())
                 .add(RUBlocks.LARGE_PRISMARITE_CLUSTER.get())
                 .add(RUBlocks.HANGING_PRISMARITE.get())
         ;
-        this.tag(RuTags.GRASS)
+        this.tag(RUBlockTags.GRASS)
                 .add(RUBlocks.FROZEN_GRASS.get())
                 .add(RUBlocks.MEDIUM_GRASS.get())
                 .add(RUBlocks.BLADED_GRASS.get())
@@ -1074,7 +1074,7 @@ public class RuBlockTagProvider extends BlockTagsProvider {
                 .add(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("minecraft", "short_grass")))
                 .add(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("minecraft", "fern")))
         ;
-        this.tag(RuTags.REPLACEABLE_BLOCKS)
+        this.tag(RUBlockTags.REPLACEABLE_BLOCKS)
                 .add(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("minecraft", "air")))
                 .add(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("minecraft", "amethyst_cluster")))
                 .add(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("minecraft", "azalea")))
@@ -1158,8 +1158,8 @@ public class RuBlockTagProvider extends BlockTagsProvider {
                 .add(RUBlocks.GLISTER_BULB.get().builtInRegistryHolder().key())
                 .add(RUBlocks.GLISTER_SPIRE.get().builtInRegistryHolder().key())
                 .add(RUBlocks.MYCOTOXIC_GRASS.get().builtInRegistryHolder().key())
-                .addTags(RuTags.BRANCHES)
-                .addTags(RuTags.SHRUBS)
+                .addTags(RUBlockTags.BRANCHES)
+                .addTags(RUBlockTags.SHRUBS)
         ;
     }
 

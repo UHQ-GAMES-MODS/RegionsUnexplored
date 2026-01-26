@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.SnowLayerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 
 public class RuSnowyPlantBlock extends BushBlock {
     protected static final float AABB_OFFSET = 6.0F;
@@ -41,12 +41,12 @@ public class RuSnowyPlantBlock extends BushBlock {
     public boolean mayPlaceOn(BlockState state, BlockGetter getter, BlockPos pos) {
         if(state.is(Blocks.SNOW)){
             if (state.getValue(SnowLayerBlock.LAYERS) == 8){
-                return state.is(RuTags.SNOW_PLANT_CAN_SURVIVE_ON);
+                return state.is(RUBlockTags.SNOW_PLANT_CAN_SURVIVE_ON);
             }
             else{
                 return false;
             }
         }
-        return state.is(RuTags.SNOW_PLANT_CAN_SURVIVE_ON);
+        return state.is(RUBlockTags.SNOW_PLANT_CAN_SURVIVE_ON);
     }
 }

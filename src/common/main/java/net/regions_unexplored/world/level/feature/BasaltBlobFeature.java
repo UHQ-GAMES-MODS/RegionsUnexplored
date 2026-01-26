@@ -15,7 +15,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureConfiguration;
 import net.regions_unexplored.registry.RUBlocks;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 
 import java.util.function.Supplier;
 
@@ -166,6 +166,6 @@ public class BasaltBlobFeature extends Feature<ColumnFeatureConfiguration> {
 
     private static boolean isAirOrLavaOcean(LevelAccessor levelAccessor, int ylevel, BlockPos pos) {
         BlockState blockstate = levelAccessor.getBlockState(pos);
-        return blockstate.isAir() || blockstate.is(Blocks.LAVA) || blockstate.is(RuTags.REPLACEABLE_BLOCKS) || blockstate.is(Blocks.WATER) && pos.getY() <= ylevel;
+        return blockstate.isAir() || blockstate.is(Blocks.LAVA) || blockstate.is(RUBlockTags.REPLACEABLE_BLOCKS) || blockstate.is(Blocks.WATER) && pos.getY() <= ylevel;
     }
 }

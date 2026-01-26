@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 import net.regions_unexplored.registry.data.RUDamageTypes;
 
 public class DorcelPlantBlock extends FlowerBlock {
@@ -46,6 +46,6 @@ public class DorcelPlantBlock extends FlowerBlock {
     }
 
     protected boolean mayPlaceOn(BlockState state, BlockGetter getter, BlockPos pos) {
-        return state.is(RuTags.BRIM_PLANT_CAN_SURVIVE_ON);
+        return state.is(RUBlockTags.BRIM_PLANT_CAN_SURVIVE_ON);
     }
 }

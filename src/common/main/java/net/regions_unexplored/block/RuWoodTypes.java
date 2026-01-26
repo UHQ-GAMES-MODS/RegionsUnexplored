@@ -1,4 +1,4 @@
-package net.regions_unexplored.data.block;
+package net.regions_unexplored.block;
 
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;

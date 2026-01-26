@@ -18,7 +18,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 import org.jetbrains.annotations.Nullable;
 
 public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedBlock {
@@ -52,7 +52,7 @@ public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedB
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter getter, BlockPos pos) {
         if(!getter.getFluidState(pos.above().above()).is(Fluids.WATER)){
-            return state.is(RuTags.CATTAIL_CAN_SURVIVE_ON);
+            return state.is(RUBlockTags.CATTAIL_CAN_SURVIVE_ON);
         }
         else {
             return false;

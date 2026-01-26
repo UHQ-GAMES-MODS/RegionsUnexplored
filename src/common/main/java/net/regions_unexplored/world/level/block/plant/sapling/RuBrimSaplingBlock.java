@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 
 public class RuBrimSaplingBlock extends SaplingBlock implements BonemealableBlock {
 
@@ -24,7 +24,7 @@ public class RuBrimSaplingBlock extends SaplingBlock implements BonemealableBloc
 
     @Override
     public boolean mayPlaceOn(BlockState state, BlockGetter getter, BlockPos pos) {
-        return state.is(RuTags.BRIM_PLANT_CAN_SURVIVE_ON);
+        return state.is(RUBlockTags.BRIM_PLANT_CAN_SURVIVE_ON);
     }
 }
 

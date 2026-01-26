@@ -6,7 +6,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 
 public class ShrubBlock extends DoublePlantBlock {
 
@@ -28,7 +28,7 @@ public class ShrubBlock extends DoublePlantBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter getter, BlockPos pos) {
-        return state.is(RuTags.SHRUB_CAN_SURVIVE_ON);
+        return state.is(RUBlockTags.SHRUB_CAN_SURVIVE_ON);
     }
 }
 

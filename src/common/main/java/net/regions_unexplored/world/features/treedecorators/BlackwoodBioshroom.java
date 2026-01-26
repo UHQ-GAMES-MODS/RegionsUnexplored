@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.regions_unexplored.registry.RUBlocks;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 
 public class BlackwoodBioshroom extends TreeDecorator {
 	public static BlackwoodBioshroom INSTANCE = new BlackwoodBioshroom();
@@ -201,7 +201,7 @@ public class BlackwoodBioshroom extends TreeDecorator {
 		}
 
 		public static boolean isReplaceablePlant(BlockState blockState) {
-			return blockState.is(RuTags.REPLACEABLE_BLOCKS);
+			return blockState.is(RUBlockTags.REPLACEABLE_BLOCKS);
 		}
 
 		public static boolean isReplaceable(LevelSimulatedReader levelSimulatedReader, BlockPos blockPos) {

@@ -14,7 +14,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.tag.RUBiomeTags;
 import net.regions_unexplored.registry.data.RUBiomes;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -357,43 +357,43 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
     public void addWolfTags() {
         this.tag(hasWolfVariant(WolfVariants.ASHEN))
                 .add(Biomes.SNOWY_TAIGA)
-                .addTag(RuTags.HAS_ASHEN_WOLF)
+                .addTag(RUBiomeTags.HAS_ASHEN_WOLF)
         ;
         this.tag(hasWolfVariant(WolfVariants.BLACK))
                 .add(Biomes.OLD_GROWTH_PINE_TAIGA)
-                .addTag(RuTags.HAS_ASHEN_WOLF)
+                .addTag(RUBiomeTags.HAS_ASHEN_WOLF)
         ;
         this.tag(hasWolfVariant(WolfVariants.CHESTNUT))
                 .add(Biomes.OLD_GROWTH_SPRUCE_TAIGA)
-                .addTag(RuTags.HAS_CHESTNUT_WOLF)
+                .addTag(RUBiomeTags.HAS_CHESTNUT_WOLF)
         ;
         this.tag(hasWolfVariant(WolfVariants.PALE))
                 .add(Biomes.TAIGA)
-                .addTag(RuTags.HAS_PALE_WOLF)
+                .addTag(RUBiomeTags.HAS_PALE_WOLF)
         ;
         this.tag(hasWolfVariant(WolfVariants.RUSTY))
                 .addTag(BiomeTags.IS_JUNGLE)
-                .addTag(RuTags.HAS_RUSTY_WOLF)
+                .addTag(RUBiomeTags.HAS_RUSTY_WOLF)
         ;
         this.tag(hasWolfVariant(WolfVariants.SNOWY))
                 .add(Biomes.GROVE)
-                .addTag(RuTags.HAS_SNOWY_WOLF)
+                .addTag(RUBiomeTags.HAS_SNOWY_WOLF)
         ;
         this.tag(hasWolfVariant(WolfVariants.SPOTTED))
                 .addTag(BiomeTags.IS_SAVANNA)
-                .addTag(RuTags.HAS_SPOTTED_WOLF)
+                .addTag(RUBiomeTags.HAS_SPOTTED_WOLF)
         ;
         this.tag(hasWolfVariant(WolfVariants.STRIPED))
                 .addTag(BiomeTags.IS_BADLANDS)
-                .addTag(RuTags.HAS_STRIPED_WOLF)
+                .addTag(RUBiomeTags.HAS_STRIPED_WOLF)
         ;
         this.tag(hasWolfVariant(WolfVariants.WOODS))
                 .add(Biomes.FOREST)
-                .addTag(RuTags.HAS_WOODS_WOLF)
+                .addTag(RUBiomeTags.HAS_WOODS_WOLF)
         ;
 
         //local wolf tags
-        this.tag(RuTags.HAS_ASHEN_WOLF)
+        this.tag(RUBiomeTags.HAS_ASHEN_WOLF)
                 .add(RUBiomes.CHALK_CLIFFS)
                 .add(RUBiomes.COLD_BOREAL_TAIGA)
                 .add(RUBiomes.FROZEN_PINE_TAIGA)
@@ -406,7 +406,7 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
                 .add(RUBiomes.SHRUBLAND)
                 .add(RUBiomes.SPIRES)
         ;
-        this.tag(RuTags.HAS_BLACK_WOLF)
+        this.tag(RUBiomeTags.HAS_BLACK_WOLF)
                 .add(RUBiomes.ASHEN_WOODLAND)
                 .add(RUBiomes.BLACKWOOD_TAIGA)
                 .add(RUBiomes.MAGNOLIA_WOODLAND)
@@ -414,7 +414,7 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
                 .add(RUBiomes.SCORCHING_CAVES)
                 .add(RUBiomes.TROPICS)
         ;
-        this.tag(RuTags.HAS_CHESTNUT_WOLF)
+        this.tag(RUBiomeTags.HAS_CHESTNUT_WOLF)
                 .add(RUBiomes.BARLEY_FIELDS)
                 .add(RUBiomes.CLOVER_PLAINS)
                 .add(RUBiomes.HIGHLAND_FIELDS)
@@ -422,7 +422,7 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
                 .add(RUBiomes.PRAIRIE)
                 .add(RUBiomes.WILLOW_FOREST)
         ;
-        this.tag(RuTags.HAS_PALE_WOLF)
+        this.tag(RUBiomeTags.HAS_PALE_WOLF)
                 .add(RUBiomes.ALPHA_GROVE)
                 .add(RUBiomes.BOREAL_TAIGA)
                 .add(RUBiomes.FLOWER_FIELDS)
@@ -431,7 +431,7 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
                 .add(RUBiomes.ROCKY_MEADOW)
                 .add(RUBiomes.TEMPERATE_GROVE)
         ;
-        this.tag(RuTags.HAS_RUSTY_WOLF)
+        this.tag(RUBiomeTags.HAS_RUSTY_WOLF)
                 .add(RUBiomes.ANCIENT_DELTA)
                 .add(RUBiomes.AUTUMNAL_MAPLE_FOREST)
                 .add(RUBiomes.BAMBOO_FOREST)
@@ -441,9 +441,9 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
                 .add(RUBiomes.REDWOODS)
                 .add(RUBiomes.SPARSE_REDWOODS)
         ;
-        this.tag(RuTags.HAS_SNOWY_WOLF)
+        this.tag(RUBiomeTags.HAS_SNOWY_WOLF)
         ;
-        this.tag(RuTags.HAS_SPOTTED_WOLF)
+        this.tag(RUBiomeTags.HAS_SPOTTED_WOLF)
                 .add(RUBiomes.BAOBAB_SAVANNA)
                 .add(RUBiomes.FUNGAL_FEN)
                 .add(RUBiomes.JOSHUA_DESERT)
@@ -452,7 +452,7 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
                 .add(RUBiomes.REDSTONE_CAVES)
                 .add(RUBiomes.SAGUARO_DESERT)
         ;
-        this.tag(RuTags.HAS_STRIPED_WOLF)
+        this.tag(RUBiomeTags.HAS_STRIPED_WOLF)
                 .add(RUBiomes.ARID_MOUNTAINS)
                 .add(RUBiomes.DRY_BUSHLAND)
                 .add(RUBiomes.OUTBACK)
@@ -461,7 +461,7 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
                 .add(RUBiomes.SPARSE_RAINFOREST)
                 .add(RUBiomes.STEPPE)
         ;
-        this.tag(RuTags.HAS_WOODS_WOLF)
+        this.tag(RUBiomeTags.HAS_WOODS_WOLF)
                 .add(RUBiomes.BAYOU)
                 .add(RUBiomes.DECIDUOUS_FOREST)
                 .add(RUBiomes.FEN)
