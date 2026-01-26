@@ -22,7 +22,7 @@ public class OrangeMapleLeavesBlock extends LeavesBlock {
          BlockState blockstate = level.getBlockState(blockpos);
          if (!isFaceFull(blockstate.getCollisionShape(level, blockpos), Direction.UP)) {
             if(RuClientConfig.TOGGLE_ORANGE_MAPLE_LEAVES_PARTICLE.get()) {
-               spawnParticleBelow(level, blockPos, randomSource, RUParticleTypes.ORANGE_MAPLE_LEAVES);
+               spawnParticleBelow(level, blockPos, randomSource, RUParticleTypes.ORANGE_MAPLE_LEAVES.get());
             }
          }
       }

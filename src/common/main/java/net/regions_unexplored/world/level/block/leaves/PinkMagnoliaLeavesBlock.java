@@ -22,7 +22,7 @@ public class PinkMagnoliaLeavesBlock extends LeavesBlock {
          BlockState blockstate = level.getBlockState(blockpos);
          if (!isFaceFull(blockstate.getCollisionShape(level, blockpos), Direction.UP)) {
             if(RuClientConfig.TOGGLE_PINK_MAGNOLIA_LEAVES_PARTICLE.get()) {
-            spawnParticleBelow(level, blockPos, randomSource, RUParticleTypes.PINK_MAGNOLIA_LEAVES);
+            spawnParticleBelow(level, blockPos, randomSource, RUParticleTypes.PINK_MAGNOLIA_LEAVES.get());
             }
          }
       }

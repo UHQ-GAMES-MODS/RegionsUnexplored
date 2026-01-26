@@ -22,7 +22,7 @@ public class SilverBirchLeavesBlock extends LeavesBlock {
          BlockState blockstate = level.getBlockState(blockpos);
          if (!isFaceFull(blockstate.getCollisionShape(level, blockpos), Direction.UP)) {
             if(RuClientConfig.TOGGLE_SILVER_BIRCH_LEAVES_PARTICLE.get()) {
-               spawnParticleBelow(level, blockPos, randomSource, RUParticleTypes.SILVER_BIRCH_LEAVES);
+               spawnParticleBelow(level, blockPos, randomSource, RUParticleTypes.SILVER_BIRCH_LEAVES.get());
             }
          }
       }

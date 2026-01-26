@@ -22,7 +22,7 @@ public class RedMapleLeavesBlock extends LeavesBlock {
          BlockState blockstate = level.getBlockState(blockpos);
          if (!isFaceFull(blockstate.getCollisionShape(level, blockpos), Direction.UP)) {
             if(RuClientConfig.TOGGLE_RED_MAPLE_LEAVES_PARTICLE.get()){
-               spawnParticleBelow(level, blockPos, randomSource, RUParticleTypes.RED_MAPLE_LEAVES);
+               spawnParticleBelow(level, blockPos, randomSource, RUParticleTypes.RED_MAPLE_LEAVES.get());
             }
          }
       }

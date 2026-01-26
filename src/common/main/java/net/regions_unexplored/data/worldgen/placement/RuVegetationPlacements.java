@@ -18,6 +18,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.regions_unexplored.data.worldgen.features.RuVegetationFeatures;
 import net.regions_unexplored.registry.PlacedFeatureRegistry;
+import net.regions_unexplored.registry.data.RUPlacedFeatures;
 
 import java.util.List;
 
@@ -322,7 +323,7 @@ public class RuVegetationPlacements {
         register(context, RuVegetationPlacements.PINK_FLOWERS, PINK_FLOWERS, RarityFilter.onAverageOnceEvery(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, RuVegetationPlacements.FROZEN_FLOWERS, FROZEN_FLOWERS, RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, RuVegetationPlacements.BLACKWOOD_MUSHROOMS, BLACKWOOD_MUSHROOMS, List.of(CountPlacement.of(2), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
-        register(context, RuVegetationPlacements.BLACKWOOD_DECORATION, BLACKWOOD_DECORATION, List.of(CountPlacement.of(8), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
+        register(context, RuVegetationPlacements.BLACKWOOD_DECORATION, List.of(CountPlacement.of(8), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuVegetationPlacements.LUPINE_VEGETATION, LUPINE_VEGETATION, CountPlacement.of(16), RarityFilter.onAverageOnceEvery(10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, RuVegetationPlacements.MEADOW_VEGETATION, MEADOW_VEGETATION, NoiseThresholdCountPlacement.of(-0.8D, 5, 8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         //GRASS
@@ -478,8 +479,16 @@ public class RuVegetationPlacements {
         register(context, RuVegetationPlacements.BLADED_GRASS_BONEMEAL, BLADED_GRASS_BONEMEAL, PlacementUtils.isEmpty());
     }
 
+    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, PlacementModifier... placement) {
+        register(context, key, context.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(RUPlacedFeatures.toConfigured(key)), List.of(placement));
+    }
+
     protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> feature, PlacementModifier... placement) {
         register(context, key, feature, List.of(placement));
+    }
+
+    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, List<PlacementModifier> placement) {
+        context.register(key, new PlacedFeature(context.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(RUPlacedFeatures.toConfigured(key)), placement));
     }
 
     protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> feature, List<PlacementModifier> placement) {

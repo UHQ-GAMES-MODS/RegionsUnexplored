@@ -22,7 +22,7 @@ public class EnchantedBirchLeavesBlock extends LeavesBlock {
          BlockState blockstate = level.getBlockState(blockpos);
          if (!isFaceFull(blockstate.getCollisionShape(level, blockpos), Direction.UP)) {
             if(RuClientConfig.TOGGLE_ENCHANTED_BIRCH_LEAVES_PARTICLE.get()) {
-               spawnParticleBelow(level, blockPos, randomSource, RUParticleTypes.ENCHANTED_BIRCH_LEAVES);
+               spawnParticleBelow(level, blockPos, randomSource, RUParticleTypes.ENCHANTED_BIRCH_LEAVES.get());
             }
          }
       }

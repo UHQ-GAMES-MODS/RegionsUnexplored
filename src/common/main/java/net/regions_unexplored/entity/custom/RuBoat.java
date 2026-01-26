@@ -12,7 +12,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.block.set.WoodSet;
-import net.regions_unexplored.entity.RuEntities;
+import net.regions_unexplored.registry.RUEntityTypes;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
@@ -25,7 +25,7 @@ public class RuBoat extends Boat {
     }
 
     public RuBoat(Level level, double x, double y, double z) {
-        this(RuEntities.BOAT.get(), level);
+        this(RUEntityTypes.BOAT.get(), level);
         this.setPos(x, y, z); this.xo = x; this.yo = y; this.zo = z;
     }
 

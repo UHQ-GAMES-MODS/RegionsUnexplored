@@ -10,7 +10,7 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.regions_unexplored.RegionsUnexplored;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.registry.data.RUBiomes;
-import net.regions_unexplored.entity.RuEntities;
+import net.regions_unexplored.registry.RUEntityTypes;
 import org.jetbrains.annotations.NotNull;
 
 public class RuLanguageProvider extends LanguageProvider {
@@ -85,8 +85,8 @@ public class RuLanguageProvider extends LanguageProvider {
         this.add(RUBlocks.HANGING_EARLIGHT.get(), "Hanging Earlight Fruit");
 
         //Entity translations
-        this.add(RuEntities.BOAT.get(), "Boat");
-        this.add(RuEntities.CHEST_BOAT.get(), "Boat With Chest");
+        this.add(RUEntityTypes.BOAT.get(), "Boat");
+        this.add(RUEntityTypes.CHEST_BOAT.get(), "Boat With Chest");
 
         this.add("death.attack.dorcel", "%s was dragged underground by Dorcel");
         this.add("death.attack.dorcel.player", "%s was dragged underground by Dorcel");

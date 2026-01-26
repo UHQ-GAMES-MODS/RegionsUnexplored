@@ -9,7 +9,7 @@ import net.regions_unexplored.block.compat.FlammableBlocks;
 import net.regions_unexplored.registry.RUParticleTypes;
 import net.regions_unexplored.config.RuClientConfig;
 import net.regions_unexplored.config.RuCommonConfig;
-import net.regions_unexplored.entity.RuEntities;
+import net.regions_unexplored.registry.RUEntityTypes;
 import net.regions_unexplored.internal.config.Config;
 import net.regions_unexplored.internal.config.ConfigManager;
 import net.regions_unexplored.internal.config.gui.ConfigScreenRegistry;
@@ -36,7 +36,7 @@ public class RegionsUnexplored {
 		RUParticleTypes.init();
 		RUTreeDecoratorTypes.init();
 
-		RuEntities.addEntities();
+		RUEntityTypes.init();
 	}
 
 	public static void afterRegistriesFreeze(){

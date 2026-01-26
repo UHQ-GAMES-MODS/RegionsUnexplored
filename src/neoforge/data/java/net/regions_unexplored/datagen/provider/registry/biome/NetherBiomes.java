@@ -193,7 +193,7 @@ public class NetherBiomes {
                 .waterFogColor(10717988)
                 .foliageColorOverride(10717988)
                 .grassColorOverride(10717988)
-                .ambientParticle(new AmbientParticleSettings((RUParticleTypes.MYCOTOXIC_SPORE), 0.01f))
+                .ambientParticle(new AmbientParticleSettings((RUParticleTypes.MYCOTOXIC_SPORE.get()), 0.01f))
                 .ambientLoopSound(SoundEvents.AMBIENT_WARPED_FOREST_LOOP)
                 .ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_WARPED_FOREST_MOOD, 6000, 8, 2.0D))
                 .ambientAdditionsSound(new AmbientAdditionsSettings(SoundEvents.AMBIENT_WARPED_FOREST_ADDITIONS, 0.0111D))
