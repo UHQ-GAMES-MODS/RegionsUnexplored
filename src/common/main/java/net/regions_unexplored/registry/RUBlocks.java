@@ -80,7 +80,7 @@ public interface RUBlocks {
     Supplier<Block> SANDY_GRASS = register("sandy_grass", RuSandyPlantBlock::new, Blocks.SHORT_GRASS);
     Supplier<Block> SMALL_DESERT_SHRUB = register("small_desert_shrub", DeadShrubBlock::new, Blocks.DEAD_BUSH);
     Supplier<Block> STEPPE_GRASS = register("steppe_grass", p -> new RuPlantBlock(p.pushReaction(PushReaction.DESTROY).ignitedByLava().replaceable().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
-    Supplier<Block> STEPPE_SHRUB = register("steppe_shrub", RuPlantBlock::new, STEPPE_GRASS.get());
+    Supplier<Block> STEPPE_SHRUB = register("steppe_shrub", RuPlantBlock::new, STEPPE_GRASS);
     Supplier<Block> STONE_BUD = register("stone_bud", RuStonePlantBlock::new, Blocks.SHORT_GRASS);
     //TALL_GRASS_BLOCKS
     Supplier<Block> ELEPHANT_EAR = register("elephant_ear", ElephantEarBlock::new, Blocks.TALL_GRASS);
@@ -102,7 +102,7 @@ public interface RUBlocks {
     Supplier<Block> MALLOW = register("mallow", p -> new RuFlowerBlock(MobEffects.DIG_SLOWDOWN, 4, p), Blocks.DANDELION);
     Supplier<Block> PINK_LUPINE = register("pink_lupine", p -> new RuFlowerBlock(MobEffects.SATURATION, 4, p), Blocks.DANDELION);
     Supplier<Block> POPPY_BUSH = register("poppy_bush", p -> new RuFlowerBlock(MobEffects.WEAKNESS, 3, p.mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ).ignitedByLava().pushReaction(PushReaction.DESTROY)), Blocks.DANDELION);
-    Supplier<Block> SALMON_POPPY_BUSH = register("salmon_poppy_bush", p -> new RuFlowerBlock(MobEffects.WEAKNESS, 3, p), POPPY_BUSH.get());
+    Supplier<Block> SALMON_POPPY_BUSH = register("salmon_poppy_bush", p -> new RuFlowerBlock(MobEffects.WEAKNESS, 3, p), POPPY_BUSH);
     Supplier<Block> PURPLE_LUPINE = register("purple_lupine", p -> new RuFlowerBlock(MobEffects.SATURATION, 4, p), Blocks.DANDELION);
     Supplier<Block> RED_LUPINE = register("red_lupine", p -> new RuFlowerBlock(MobEffects.SATURATION, 4, p), Blocks.DANDELION);
     Supplier<Block> WARATAH = register("waratah", p -> new RuFlowerBlock(MobEffects.JUMP, 5, p), Blocks.DANDELION);
@@ -116,8 +116,8 @@ public interface RUBlocks {
     Supplier<Block> CLOVER = register("clover", p -> new GroundCoverBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.PINK_PETALS)));
 
     Supplier<Block> BLUE_MAGNOLIA_FLOWERS = register("blue_magnolia_flowers", p -> new GlowLichenBlock(p.pushReaction(PushReaction.DESTROY).ignitedByLava().replaceable().noCollission().strength(0.1F).sound(SoundType.GLOW_LICHEN)));
-    Supplier<Block> PINK_MAGNOLIA_FLOWERS = register("pink_magnolia_flowers", GlowLichenBlock::new, BLUE_MAGNOLIA_FLOWERS.get());
-    Supplier<Block> WHITE_MAGNOLIA_FLOWERS = register("white_magnolia_flowers", GlowLichenBlock::new, BLUE_MAGNOLIA_FLOWERS.get());
+    Supplier<Block> PINK_MAGNOLIA_FLOWERS = register("pink_magnolia_flowers", GlowLichenBlock::new, BLUE_MAGNOLIA_FLOWERS);
+    Supplier<Block> WHITE_MAGNOLIA_FLOWERS = register("white_magnolia_flowers", GlowLichenBlock::new, BLUE_MAGNOLIA_FLOWERS);
     //SNOWBELLE
 
     Supplier<Block> MAPLE_LEAF_PILE = register("maple_leaf_pile", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
@@ -183,38 +183,38 @@ public interface RUBlocks {
 
     //MUSHROOMS
     Supplier<Block> BLUE_BIOSHROOM = register("blue_bioshroom", p -> new BioshroomBlock(RuTreeGrowers.BLUE_BIOSHROOM, MobEffects.POISON, 10, p.mapColor(MapColor.COLOR_LIGHT_BLUE).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).lightLevel(s -> 10)));
-    Supplier<Block> GREEN_BIOSHROOM = register("green_bioshroom", p -> new BioshroomBlock(RuTreeGrowers.GREEN_BIOSHROOM, MobEffects.POISON, 10, p.mapColor(MapColor.COLOR_LIGHT_GREEN)), BLUE_BIOSHROOM.get());
-    Supplier<Block> PINK_BIOSHROOM = register("pink_bioshroom", p -> new BioshroomBlock(RuTreeGrowers.PINK_BIOSHROOM, MobEffects.POISON, 10, p.mapColor(MapColor.COLOR_PINK)), BLUE_BIOSHROOM.get());
-    Supplier<Block> YELLOW_BIOSHROOM = register("yellow_bioshroom", p -> new BioshroomBlock(RuTreeGrowers.YELLOW_BIOSHROOM, MobEffects.POISON, 10, p.mapColor(MapColor.COLOR_YELLOW)), BLUE_BIOSHROOM.get());
+    Supplier<Block> GREEN_BIOSHROOM = register("green_bioshroom", p -> new BioshroomBlock(RuTreeGrowers.GREEN_BIOSHROOM, MobEffects.POISON, 10, p.mapColor(MapColor.COLOR_LIGHT_GREEN)), BLUE_BIOSHROOM);
+    Supplier<Block> PINK_BIOSHROOM = register("pink_bioshroom", p -> new BioshroomBlock(RuTreeGrowers.PINK_BIOSHROOM, MobEffects.POISON, 10, p.mapColor(MapColor.COLOR_PINK)), BLUE_BIOSHROOM);
+    Supplier<Block> YELLOW_BIOSHROOM = register("yellow_bioshroom", p -> new BioshroomBlock(RuTreeGrowers.YELLOW_BIOSHROOM, MobEffects.POISON, 10, p.mapColor(MapColor.COLOR_YELLOW)), BLUE_BIOSHROOM);
     Supplier<Block> TALL_BLUE_BIOSHROOM = register("tall_blue_bioshroom", p -> new DoubleBioshroomBlock(p.pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).lightLevel(s -> 10)));
-    Supplier<Block> TALL_GREEN_BIOSHROOM = register("tall_green_bioshroom", DoubleBioshroomBlock::new, TALL_BLUE_BIOSHROOM.get());
-    Supplier<Block> TALL_PINK_BIOSHROOM = register("tall_pink_bioshroom", DoubleBioshroomBlock::new, TALL_BLUE_BIOSHROOM.get());
-    Supplier<Block> TALL_YELLOW_BIOSHROOM = register("tall_yellow_bioshroom", DoubleBioshroomBlock::new, TALL_BLUE_BIOSHROOM.get());
+    Supplier<Block> TALL_GREEN_BIOSHROOM = register("tall_green_bioshroom", DoubleBioshroomBlock::new, TALL_BLUE_BIOSHROOM);
+    Supplier<Block> TALL_PINK_BIOSHROOM = register("tall_pink_bioshroom", DoubleBioshroomBlock::new, TALL_BLUE_BIOSHROOM);
+    Supplier<Block> TALL_YELLOW_BIOSHROOM = register("tall_yellow_bioshroom", DoubleBioshroomBlock::new, TALL_BLUE_BIOSHROOM);
     //OTHER_PLANT_BLOCKS
     Supplier<Block> ICICLE = register("icicle", p -> new IcicleBlock(p.mapColor(MapColor.COLOR_LIGHT_BLUE).noOcclusion().sound(SoundType.GLASS).strength(1F, 0.6F).dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ)));
     Supplier<Block> BARREL_CACTUS = register("barrel_cactus", p -> new BarrelCactusBlock(p.pushReaction(PushReaction.DESTROY).ignitedByLava().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
     Supplier<Block> CAVE_HYSSOP = register("cave_hyssop", p -> new CaveFlowerBlock(MobEffects.LUCK, 10, p.pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
     Supplier<Block> DUCKWEED = register("duckweed", p -> new DuckweedBlock(p.sound(SoundType.CORAL_BLOCK).instabreak().noCollission().noOcclusion().pushReaction(PushReaction.DESTROY).ignitedByLava().isRedstoneConductor((bs, br, bp) -> false)), RUItemUtils::registerPlaceOnWaterBlock, null);
     Supplier<Block> SPANISH_MOSS = register("spanish_moss", p -> new SpanishMossBlock(p.pushReaction(PushReaction.DESTROY).ignitedByLava().randomTicks().noCollission().instabreak().sound(SoundType.LILY_PAD)));
-    Supplier<Block> SPANISH_MOSS_PLANT = RUBlockUtils.registerNoItem("spanish_moss_plant", SpanishMossPlantBlock::new, SPANISH_MOSS.get());
+    Supplier<Block> SPANISH_MOSS_PLANT = RUBlockUtils.registerNoItem("spanish_moss_plant", SpanishMossPlantBlock::new, SPANISH_MOSS);
     Supplier<Block> KAPOK_VINES = register("kapok_vines", p -> new KapokVinesBlock(p.pushReaction(PushReaction.DESTROY).ignitedByLava().randomTicks().noCollission().instabreak().sound(SoundType.LILY_PAD)));
-    Supplier<Block> KAPOK_VINES_PLANT = RUBlockUtils.registerNoItem("kapok_vines_plant", KapokVinesPlantBlock::new, KAPOK_VINES.get());
+    Supplier<Block> KAPOK_VINES_PLANT = RUBlockUtils.registerNoItem("kapok_vines_plant", KapokVinesPlantBlock::new, KAPOK_VINES);
 
-    Supplier<Block> FLOWERING_LILY_PAD = register("flowering_lily_pad", FloweringLilyBlock::new, RUItemUtils::registerPlaceOnWaterBlock, Blocks.LILY_PAD);
-    Supplier<Block> GIANT_LILY_PAD = RUBlockUtils.registerNoItem("giant_lily_pad", GiantLilyBlock::new, FLOWERING_LILY_PAD.get());
+    Supplier<Block> FLOWERING_LILY_PAD = register("flowering_lily_pad", FloweringLilyBlock::new, RUItemUtils::registerPlaceOnWaterBlock, () -> Blocks.LILY_PAD);
+    Supplier<Block> GIANT_LILY_PAD = RUBlockUtils.registerNoItem("giant_lily_pad", GiantLilyBlock::new, FLOWERING_LILY_PAD);
 
     //FOOD_PLANT_BLOCKS
     Supplier<Block> SALMONBERRY_BUSH = RUBlockUtils.registerNoItem("salmonberry_bush", p -> new SalmonBerryBushBlock(p.pushReaction(PushReaction.BLOCK).ignitedByLava().randomTicks().noCollission().sound(SoundType.SWEET_BERRY_BUSH)));
     /*-----------------PLANT_BLOCKS-----------------*/
     //MUSHROOMS
     Supplier<Block> BLUE_BIOSHROOM_BLOCK = register("blue_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.BASS).sound(SoundType.WART_BLOCK).strength(0.6f)));
-    Supplier<Block> GREEN_BIOSHROOM_BLOCK = register("green_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_GREEN)), BLUE_BIOSHROOM_BLOCK.get());
-    Supplier<Block> PINK_BIOSHROOM_BLOCK = register("pink_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_PINK)), BLUE_BIOSHROOM_BLOCK.get());
-    Supplier<Block> YELLOW_BIOSHROOM_BLOCK = register("yellow_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_YELLOW)), BLUE_BIOSHROOM_BLOCK.get());
+    Supplier<Block> GREEN_BIOSHROOM_BLOCK = register("green_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_GREEN)), BLUE_BIOSHROOM_BLOCK);
+    Supplier<Block> PINK_BIOSHROOM_BLOCK = register("pink_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_PINK)), BLUE_BIOSHROOM_BLOCK);
+    Supplier<Block> YELLOW_BIOSHROOM_BLOCK = register("yellow_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_YELLOW)), BLUE_BIOSHROOM_BLOCK);
     Supplier<Block> GLOWING_BLUE_BIOSHROOM_BLOCK = register("glowing_blue_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_BLUE).sound(SoundType.WART_BLOCK).instrument(NoteBlockInstrument.BASS).strength(0.6f).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).lightLevel(s -> 15)));
-    Supplier<Block> GLOWING_GREEN_BIOSHROOM_BLOCK = register("glowing_green_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_GREEN)), GLOWING_BLUE_BIOSHROOM_BLOCK.get());
-    Supplier<Block> GLOWING_PINK_BIOSHROOM_BLOCK = register("glowing_pink_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_PINK)), GLOWING_BLUE_BIOSHROOM_BLOCK.get());
-    Supplier<Block> GLOWING_YELLOW_BIOSHROOM_BLOCK = register("glowing_yellow_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_YELLOW)), GLOWING_BLUE_BIOSHROOM_BLOCK.get());
+    Supplier<Block> GLOWING_GREEN_BIOSHROOM_BLOCK = register("glowing_green_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_GREEN)), GLOWING_BLUE_BIOSHROOM_BLOCK);
+    Supplier<Block> GLOWING_PINK_BIOSHROOM_BLOCK = register("glowing_pink_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_PINK)), GLOWING_BLUE_BIOSHROOM_BLOCK);
+    Supplier<Block> GLOWING_YELLOW_BIOSHROOM_BLOCK = register("glowing_yellow_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_YELLOW)), GLOWING_BLUE_BIOSHROOM_BLOCK);
     //BAMBOO
     Supplier<Block> BAMBOO_LOG = register("bamboo_log", p -> new BambooLogBlock(p.mapColor(MapColor.COLOR_LIGHT_GREEN).instrument(NoteBlockInstrument.BASS).sound(SoundType.BAMBOO).strength(2f, 3f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
     Supplier<Block> STRIPPED_BAMBOO_LOG = register("stripped_bamboo_log", p -> new StrippedBambooLogBlock(p.mapColor(MapColor.SAND).instrument(NoteBlockInstrument.BASS).sound(SoundType.BAMBOO).strength(2f, 3f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
@@ -250,13 +250,13 @@ public interface RUBlocks {
     Supplier<Block> CHALK_GRASS_BLOCK = register("chalk_grass_block", p -> new ChalkGrassBlock(p.mapColor(MapColor.GRASS).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.TUFF).randomTicks().strength(0.6f).requiresCorrectToolForDrops()));
     Supplier<Block> CHALK_BRICKS = register("chalk_bricks", p -> new Block(p.mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.TUFF).strength(0.6f).requiresCorrectToolForDrops()));
     Supplier<Block> CHALK_BRICK_SLAB = register("chalk_brick_slab", p -> new SlabBlock(p.mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.TUFF).strength(0.6f).requiresCorrectToolForDrops()));
-    Supplier<Block> CHALK_BRICK_STAIRS = register("chalk_brick_stairs", p -> new StairBlock(CHALK.get().defaultBlockState(), p), CHALK_BRICKS.get());
+    Supplier<Block> CHALK_BRICK_STAIRS = register("chalk_brick_stairs", p -> new StairBlock(CHALK.get().defaultBlockState(), p), CHALK_BRICKS);
     Supplier<Block> CHALK_PILLAR = register("chalk_pillar", p -> new RotatedPillarBlock(p.mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.TUFF).strength(0.6f).requiresCorrectToolForDrops()));
     Supplier<Block> CHALK_SLAB = register("chalk_slab", p -> new SlabBlock(p.mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.TUFF).strength(0.5f).requiresCorrectToolForDrops()));
-    Supplier<Block> CHALK_STAIRS = register("chalk_stairs", p -> new StairBlock(CHALK.get().defaultBlockState(), p), CHALK.get());
+    Supplier<Block> CHALK_STAIRS = register("chalk_stairs", p -> new StairBlock(CHALK.get().defaultBlockState(), p), CHALK);
     Supplier<Block> POLISHED_CHALK = register("polished_chalk", p -> new Block(p.mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.TUFF).strength(0.5f).requiresCorrectToolForDrops()));
     Supplier<Block> POLISHED_CHALK_SLAB = register("polished_chalk_slab", p -> new SlabBlock(p.mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.TUFF).strength(0.5f).requiresCorrectToolForDrops()));
-    Supplier<Block> POLISHED_CHALK_STAIRS = register("polished_chalk_stairs", p -> new StairBlock(CHALK.get().defaultBlockState(), p), POLISHED_CHALK.get());
+    Supplier<Block> POLISHED_CHALK_STAIRS = register("polished_chalk_stairs", p -> new StairBlock(CHALK.get().defaultBlockState(), p), POLISHED_CHALK);
     //STONES
     Supplier<Block> ARGILLITE = register("argillite", p -> new Block(p.mapColor(MapColor.TERRACOTTA_ORANGE).sound(SoundType.CALCITE)), Blocks.STONE);
     Supplier<Block> MOSSY_STONE = register("mossy_stone", Block::new, Blocks.STONE);
@@ -333,8 +333,8 @@ public interface RUBlocks {
     Supplier<Block> GLISTERING_IVY_PLANT = RUBlockUtils.registerNoItem("glistering_ivy_plant", p -> new GlisteringIvyPlantBlock(p.mapColor(MapColor.COLOR_LIGHT_BLUE).noCollission().instabreak().sound(SoundType.WEEPING_VINES)));
     Supplier<Block> GLISTERING_NYLIUM = register("glistering_nylium", p -> new RuNyliumBlock(p.mapColor(MapColor.COLOR_PINK).requiresCorrectToolForDrops().strength(0.4F).sound(SoundType.NYLIUM), RuNetherFeatures.GLISTERING_NYLIUM_BONEMEAL));
     Supplier<Block> GLISTERING_SPROUT = register("glistering_sprout", p -> new RuNetherPlantBlock(p.replaceable().noCollission().instabreak().sound(SoundType.TWISTING_VINES).offsetType(BlockBehaviour.OffsetType.XZ)));
-    Supplier<Block> GLISTERING_FERN = register("glistering_fern", RuNetherPlantBlock::new, GLISTERING_SPROUT.get());
-    Supplier<Block> GLISTERING_BLOOM = register("glistering_bloom", RuNetherPlantBlock::new, GLISTERING_SPROUT.get());
+    Supplier<Block> GLISTERING_FERN = register("glistering_fern", RuNetherPlantBlock::new, GLISTERING_SPROUT);
+    Supplier<Block> GLISTERING_BLOOM = register("glistering_bloom", RuNetherPlantBlock::new, GLISTERING_SPROUT);
     Supplier<Block> GLISTERING_WART = register("glistering_wart", p -> new Block(p.mapColor(MapColor.COLOR_PINK).requiresCorrectToolForDrops().strength(0.4F).sound(SoundType.NYLIUM)));
     Supplier<Block> GLISTER_BULB = register("glister_bulb", p -> new RuNetherDoublePlantBlock(p.replaceable().noCollission().instabreak().sound(SoundType.NETHER_WART).offsetType(BlockBehaviour.OffsetType.XZ).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).lightLevel(s -> 13)));
     Supplier<Block> GLISTER_SPIRE = register("glister_spire", p -> new RuNetherDoublePlantBlock(p.replaceable().noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).offsetType(BlockBehaviour.OffsetType.XZ).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).lightLevel(s -> 5)));

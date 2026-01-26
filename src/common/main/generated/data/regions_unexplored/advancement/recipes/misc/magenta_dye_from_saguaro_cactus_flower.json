@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cactus_flower": {
+    "has_saguaro_cactus_flower": {
       "conditions": {
         "items": [
           {
-            "items": "regions_unexplored:cactus_flower"
+            "items": "regions_unexplored:saguaro_cactus_flower"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "regions_unexplored:magenta_dye_from_cactus_flower"
+        "recipe": "regions_unexplored:magenta_dye_from_saguaro_cactus_flower"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_cactus_flower"
+      "has_saguaro_cactus_flower"
     ]
   ],
   "rewards": {
     "recipes": [
-      "regions_unexplored:magenta_dye_from_cactus_flower"
+      "regions_unexplored:magenta_dye_from_saguaro_cactus_flower"
     ]
   }
 }

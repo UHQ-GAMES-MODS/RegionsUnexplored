@@ -1,4 +1,4 @@
-// 1.21.1	2026-01-08T18:58:47.2484295	Tags for minecraft:item mod id regions_unexplored
+// 1.21.1	2026-01-25T20:57:03.6137453	Tags for minecraft:item mod id regions_unexplored
 47322f6e871d59e5581ad5e9b47c6737a5af3480 data/c/tags/item/fences/wooden.json
 543d30a38bbd7deef12bbc96a461b70e01314374 data/c/tags/item/fence_gates/wooden.json
 e76db328747695a5123be2071120c7457aea0d6e data/c/tags/item/foods/fruit.json
@@ -21,13 +21,13 @@ ef1636bcd026e93e76e76d31be2a612e3d5a9d7e data/minecraft/tags/item/dirt.json
 ee8f3bcae046cef41ea1e6c6a42314d291c303b2 data/minecraft/tags/item/fox_food.json
 e3d802435533c14d6d842c50c0f1d69142e807e2 data/minecraft/tags/item/hanging_signs.json
 a3d69c7cf1ea154863599c0fd66c191d1ee159fc data/minecraft/tags/item/leaves.json
-a742024210756868928fa83677acb42c9034cbe4 data/minecraft/tags/item/logs.json
-89a41eaee6c4e4915322a5c68684731deebae204 data/minecraft/tags/item/logs_that_burn.json
-0f3ba7baa47b82a91e73faad6f5f36a4ac8a149a data/minecraft/tags/item/non_flammable_wood.json
+e8254763a1aef01ac636aaa39d3a4eab4eab089e data/minecraft/tags/item/logs.json
+0db32f086157203b519fa24f4895c5d29c54f3f3 data/minecraft/tags/item/logs_that_burn.json
+ac75bcb3c36654e5a78983f85ce09ead6356f04e data/minecraft/tags/item/non_flammable_wood.json
 e525dce519521ffa483578397a6c13a57c5e24d1 data/minecraft/tags/item/oak_logs.json
 e34eebe339ed90e6e56ae1767c26477ce69b4781 data/minecraft/tags/item/planks.json
 c9f114915ec301720bd5feb125f561fafcb0ec79 data/minecraft/tags/item/redstone_ores.json
-025dced40f69690ced844d74bab97a08d9318c18 data/minecraft/tags/item/saplings.json
+ce29f8517f5c267a49d12aa2c5a51a982d86c790 data/minecraft/tags/item/saplings.json
 7e08244b6e94cb84889720c2c6876d2865b8ae44 data/minecraft/tags/item/signs.json
 8ec272c54edc1df8941d6e1e627a2c3f2bce813d data/minecraft/tags/item/slabs.json
 66e044acc5599d1b54b531810a6755e9c56c9a38 data/minecraft/tags/item/small_flowers.json

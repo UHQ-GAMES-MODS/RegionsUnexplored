@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "regions_unexplored:cactus_flower"
+          "name": "regions_unexplored:saguaro_cactus_flower"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "regions_unexplored:blocks/cactus_flower"
+  "random_sequence": "regions_unexplored:blocks/saguaro_cactus_flower"
 }

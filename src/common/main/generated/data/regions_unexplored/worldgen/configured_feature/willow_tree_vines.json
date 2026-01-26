@@ -8,7 +8,7 @@
       },
       {
         "type": "regions_unexplored:willow",
-        "chance": 1
+        "chance": 1.0
       }
     ],
     "dirt_provider": {

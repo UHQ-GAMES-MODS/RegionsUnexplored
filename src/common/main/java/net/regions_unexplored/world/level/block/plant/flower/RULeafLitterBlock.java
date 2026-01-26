@@ -4,7 +4,6 @@ import com.mojang.serialization.MapCodec;
 
 import java.util.function.BiFunction;
 
-import net.minecraft.util.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -23,12 +22,13 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.regions_unexplored.util.RUUtils;
 
 public class RULeafLitterBlock extends BushBlock {
     public static final MapCodec<RULeafLitterBlock> CODEC = RULeafLitterBlock.simpleCodec(RULeafLitterBlock::new);
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final IntegerProperty AMOUNT = BlockStateProperties.FLOWER_AMOUNT;
-    private static final BiFunction<Direction, Integer, VoxelShape> SHAPE_BY_PROPERTIES = Util.memoize((direction, amount) -> {
+    private static final BiFunction<Direction, Integer, VoxelShape> SHAPE_BY_PROPERTIES = RUUtils.memoize((direction, amount) -> {
         VoxelShape[] shapes = new VoxelShape[]{
             Block.box(8.0F, 0.0F, 8.0F, 16.0F, 3.0F, 16.0F),
             Block.box(8.0F, 0.0F, 0.0F, 16.0F, 3.0F, 8.0F),

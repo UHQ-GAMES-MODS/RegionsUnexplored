@@ -113,6 +113,10 @@ public class RUBlockUtils {
     }
 
     public static Supplier<Block> register(String name, BlockFactory factory, Block copiedBlock) {
+        return register(name, factory, RUItemUtils::registerBlock, () -> copiedBlock);
+    }
+
+    public static Supplier<Block> register(String name, BlockFactory factory, Supplier<Block> copiedBlock) {
         return register(name, factory, RUItemUtils::registerBlock, copiedBlock);
     }
 
@@ -121,14 +125,21 @@ public class RUBlockUtils {
     }
 
     public static Supplier<Block> registerNoItem(String name, BlockFactory factory, Block copiedBlock) {
+        return register(name, factory, (a, b) -> {}, () -> copiedBlock);
+    }
+
+    public static Supplier<Block> registerNoItem(String name, BlockFactory factory, Supplier<Block> copiedBlock) {
         return register(name, factory, (a, b) -> {}, copiedBlock);
     }
 
-    public static Supplier<Block> register(String name, BlockFactory factory, BiConsumer<String, Supplier<Block>> itemCreator, @Nullable Block copiedBlock) {
-        BlockBehaviour.Properties properties = copiedBlock != null ? BlockBehaviour.Properties.ofFullCopy(copiedBlock) : BlockBehaviour.Properties.of();
-        Supplier<Block> block = Registrar.registerBlock(name, () -> factory.apply(properties));
+    public static Supplier<Block> register(String name, BlockFactory factory, BiConsumer<String, Supplier<Block>> itemCreator, @Nullable Supplier<Block> copiedBlock) {
+        Supplier<Block> block = Registrar.registerBlock(name, () -> factory.apply(createProperties(copiedBlock)));
         itemCreator.accept(name, block);
         return block;
+    }
+
+    private static BlockBehaviour.Properties createProperties(@Nullable Supplier<Block> copiedBlock) {
+        return copiedBlock != null ? BlockBehaviour.Properties.ofFullCopy(copiedBlock.get()) : BlockBehaviour.Properties.of();
     }
 
     //Configure leaves blocks

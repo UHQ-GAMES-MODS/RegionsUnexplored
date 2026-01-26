@@ -4,7 +4,6 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.util.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -12,6 +11,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
+import net.regions_unexplored.util.RUUtils;
 import net.regions_unexplored.world.level.block.plant.branch.BranchBlock;
 
 import java.util.List;
@@ -51,8 +51,8 @@ public class BranchDecorator extends TreeDecorator {
     @Override
     public void place(Context context) {
         RandomSource random = context.random();
-        for (BlockPos logsPos : Util.shuffledCopy(context.logs(), random)) {
-            Direction direction = Util.getRandom(HORIZONTAL_DIRECTIONS, random);
+        for (BlockPos logsPos : RUUtils.shuffledCopy(context.logs(), random)) {
+            Direction direction = RUUtils.getRandom(HORIZONTAL_DIRECTIONS, random);
             BlockPos placementPos = logsPos.relative(direction);
             if (!(random.nextFloat() <= this.probability) || !hasRequiredEmptyBlocks(context, placementPos)) continue;
             context.setBlock(placementPos, this.block.defaultBlockState().setValue(BranchBlock.FACING, direction));

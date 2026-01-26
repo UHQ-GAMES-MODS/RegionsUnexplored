@@ -126,9 +126,6 @@
     "regions_unexplored:brown_snowbelle": {
       "chance": 0.4
     },
-    "regions_unexplored:cactus_flower": {
-      "chance": 0.3
-    },
     "regions_unexplored:cattail": {
       "chance": 0.6
     },
@@ -545,6 +542,9 @@
     },
     "regions_unexplored:redwood_shrub": {
       "chance": 0.65
+    },
+    "regions_unexplored:saguaro_cactus_flower": {
+      "chance": 0.3
     },
     "regions_unexplored:salmon_poppy_bush": {
       "chance": 0.4
