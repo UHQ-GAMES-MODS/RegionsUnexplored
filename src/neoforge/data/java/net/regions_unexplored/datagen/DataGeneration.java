@@ -16,7 +16,7 @@ import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.regions_unexplored.RegionsUnexplored;
-import net.regions_unexplored.data.noise.RuNoises;
+import net.regions_unexplored.registry.data.RUNoises;
 import net.regions_unexplored.datagen.provider.*;
 import net.regions_unexplored.datagen.provider.tag.RuBiomeTagProvider;
 import net.regions_unexplored.datagen.provider.tag.RuBlockTagProvider;
@@ -38,7 +38,7 @@ public class DataGeneration {
         .add(Registries.CONFIGURED_FEATURE, ConfiguredFeatureRegistry::bootstrap)
         .add(Registries.PLACED_FEATURE, PlacedFeatureRegistry::bootstrap)
         .add(Registries.BIOME, BiomeRegistry::bootstrap)
-        .add(Registries.NOISE, RuNoises::bootstrap)
+        .add(Registries.NOISE, RUNoises::bootstrap)
         .add(Registries.DAMAGE_TYPE, RUDamageTypes::bootstrap)
         .add(Registries.PROCESSOR_LIST, RuProcessorLists::bootstrap)
     ;

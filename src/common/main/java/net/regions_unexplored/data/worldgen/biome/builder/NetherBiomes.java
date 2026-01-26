@@ -15,7 +15,7 @@ import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.regions_unexplored.client.particle.RuParticleTypes;
+import net.regions_unexplored.registry.RUParticleTypes;
 import net.regions_unexplored.data.worldgen.RuBiomeDefaultFeatures;
 import net.regions_unexplored.data.worldgen.placement.RuNetherPlacements;
 import net.regions_unexplored.data.worldgen.placement.RuTreePlacements;
@@ -193,7 +193,7 @@ public class NetherBiomes {
                 .waterFogColor(10717988)
                 .foliageColorOverride(10717988)
                 .grassColorOverride(10717988)
-                .ambientParticle(new AmbientParticleSettings((RuParticleTypes.MYCOTOXIC_SPORE), 0.01f))
+                .ambientParticle(new AmbientParticleSettings((RUParticleTypes.MYCOTOXIC_SPORE), 0.01f))
                 .ambientLoopSound(SoundEvents.AMBIENT_WARPED_FOREST_LOOP)
                 .ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_WARPED_FOREST_MOOD, 6000, 8, 2.0D))
                 .ambientAdditionsSound(new AmbientAdditionsSettings(SoundEvents.AMBIENT_WARPED_FOREST_ADDITIONS, 0.0111D))

@@ -7,7 +7,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.regions_unexplored.client.particle.RuParticleTypes;
+import net.regions_unexplored.registry.RUParticleTypes;
 import net.regions_unexplored.config.RuClientConfig;
 
 public class MauveLeavesBlock extends LeavesBlock {
@@ -22,7 +22,7 @@ public class MauveLeavesBlock extends LeavesBlock {
             BlockState blockstate = level.getBlockState(blockpos);
             if (!isFaceFull(blockstate.getCollisionShape(level, blockpos), Direction.UP)) {
                 if(RuClientConfig.TOGGLE_MAUVE_LEAVES_PARTICLE.get()) {
-                    spawnParticleBelow(level, blockPos, randomSource, RuParticleTypes.MAUVE_LEAVES);
+                    spawnParticleBelow(level, blockPos, randomSource, RUParticleTypes.MAUVE_LEAVES);
                 }
             }
         }

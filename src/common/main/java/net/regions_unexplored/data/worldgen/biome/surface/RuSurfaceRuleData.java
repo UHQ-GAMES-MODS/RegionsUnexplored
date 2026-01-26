@@ -10,7 +10,7 @@ import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.config.RuCommonConfig;
-import net.regions_unexplored.data.noise.RuNoises;
+import net.regions_unexplored.registry.data.RUNoises;
 import net.regions_unexplored.data.noise.RuleWeight;
 import net.regions_unexplored.registry.data.RUBiomes;
 
@@ -172,11 +172,11 @@ public class RuSurfaceRuleData {
 
         SurfaceRules.RuleSource CaveRules = SurfaceRules.sequence(
                 SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.sequence(
-                        SurfaceRules.ifTrue(SurfaceRules.isBiome(RUBiomes.REDSTONE_CAVES), SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.SWAMP, 0.0D), SurfaceRules.ifTrue(SurfaceRules.noiseCondition(RuNoises.WEIGHTED, RuleWeight.getPercent(40)), RAW_REDSTONE))),
+                        SurfaceRules.ifTrue(SurfaceRules.isBiome(RUBiomes.REDSTONE_CAVES), SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.SWAMP, 0.0D), SurfaceRules.ifTrue(SurfaceRules.noiseCondition(RUNoises.WEIGHTED, RuleWeight.getPercent(40)), RAW_REDSTONE))),
 
                         SurfaceRules.ifTrue(SurfaceRules.isBiome(RUBiomes.BIOSHROOM_CAVES), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.sequence(SurfaceRules.ifTrue(deepslateLevel, DeepslateViridescentSurface), ViridescentSurface))),
 
-                        SurfaceRules.ifTrue(SurfaceRules.isBiome(RUBiomes.ANCIENT_DELTA), SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(SurfaceRules.noiseCondition(RuNoises.SHIELD, -0.95D), ArgilliteSurface)), ARGILLITE)),
+                        SurfaceRules.ifTrue(SurfaceRules.isBiome(RUBiomes.ANCIENT_DELTA), SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(SurfaceRules.noiseCondition(RUNoises.SHIELD, -0.95D), ArgilliteSurface)), ARGILLITE)),
 
                         SurfaceRules.ifTrue(SurfaceRules.isBiome(RUBiomes.PRISMACHASM),
                                 SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.sequence(
@@ -208,7 +208,7 @@ public class RuSurfaceRuleData {
                         shieldNoise(-0.2d, 0.2d), TERRACOTTA
                     ),
                     SurfaceRules.ifTrue(
-                        shieldNoise(-0.5d, 0.5d), SurfaceRules.ifTrue(SurfaceRules.noiseCondition(RuNoises.WEIGHTED, RuleWeight.getPercent(50)), TERRACOTTA)
+                        shieldNoise(-0.5d, 0.5d), SurfaceRules.ifTrue(SurfaceRules.noiseCondition(RUNoises.WEIGHTED, RuleWeight.getPercent(50)), TERRACOTTA)
                     ),
                     SurfaceRules.ifTrue(
                         shieldNoise(0.2d), redSandWithSandstoneOverhang
@@ -288,7 +288,7 @@ public class RuSurfaceRuleData {
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(RUBiomes.PUMPKIN_FIELDS), SurfaceRules.ifTrue(surfaceNoiseAbove(-1.75D), SILT_PODZOL)),
 
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(RUBiomes.POPPY_FIELDS),
-                        SurfaceRules.ifTrue(SurfaceRules.noiseCondition(RuNoises.WEIGHTED, RuleWeight.getPercent(50)), SILT_COARSE_DIRT)),
+                        SurfaceRules.ifTrue(SurfaceRules.noiseCondition(RUNoises.WEIGHTED, RuleWeight.getPercent(50)), SILT_COARSE_DIRT)),
 
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(RUBiomes.DRY_BUSHLAND),
                         SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.SWAMP, RuleWeight.getPercent(30)), SILT_COARSE_DIRT)),
@@ -298,11 +298,11 @@ public class RuSurfaceRuleData {
 
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(RUBiomes.FUNGAL_FEN),
                         SurfaceRules.sequence(SurfaceRules.ifTrue(surfaceNoiseAbove(1.75D), MYCELIUM),
-                                SurfaceRules.ifTrue(surfaceNoiseAbove(-0.5D), SurfaceRules.ifTrue(SurfaceRules.noiseCondition(RuNoises.WEIGHTED, 0.1D), MYCELIUM)))),
+                                SurfaceRules.ifTrue(surfaceNoiseAbove(-0.5D), SurfaceRules.ifTrue(SurfaceRules.noiseCondition(RUNoises.WEIGHTED, 0.1D), MYCELIUM)))),
 
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(RUBiomes.ASHEN_WOODLAND),
                         SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.SWAMP, -0.25D), ASHEN_DIRT),
-                                SurfaceRules.ifTrue(SurfaceRules.noiseCondition(RuNoises.WEIGHTED, RuleWeight.getPercent(4)), ASH_VENT), ASH)),//BA
+                                SurfaceRules.ifTrue(SurfaceRules.noiseCondition(RUNoises.WEIGHTED, RuleWeight.getPercent(4)), ASH_VENT), ASH)),//BA
 
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(RUBiomes.BAYOU),
                         SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.yStartCheck(VerticalAnchor.absolute(64), 0)), SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.SWAMP, 0.0D), PEAT_MUD))),
@@ -331,7 +331,7 @@ public class RuSurfaceRuleData {
 
                         SurfaceRules.ifTrue(SurfaceRules.isBiome(RUBiomes.FEN),
                                 SurfaceRules.ifTrue(y62,
-                                        SurfaceRules.ifTrue(SurfaceRules.not(y63), SurfaceRules.ifTrue(SurfaceRules.noiseCondition(RuNoises.WEIGHTED, 0.0D), WATER))))
+                                        SurfaceRules.ifTrue(SurfaceRules.not(y63), SurfaceRules.ifTrue(SurfaceRules.noiseCondition(RUNoises.WEIGHTED, 0.0D), WATER))))
 
                 )),
 
@@ -436,11 +436,11 @@ public class RuSurfaceRuleData {
     }
 
     private static SurfaceRules.ConditionSource shieldNoise(double min, double max) {
-        return SurfaceRules.noiseCondition(RuNoises.SHIELD, min / 8.25D, max / 8.25D);
+        return SurfaceRules.noiseCondition(RUNoises.SHIELD, min / 8.25D, max / 8.25D);
     }
 
     private static SurfaceRules.ConditionSource shieldNoise(double noise) {
-        return SurfaceRules.noiseCondition(RuNoises.SHIELD, noise / 8.25D, Double.MAX_VALUE);
+        return SurfaceRules.noiseCondition(RUNoises.SHIELD, noise / 8.25D, Double.MAX_VALUE);
     }
 
 }

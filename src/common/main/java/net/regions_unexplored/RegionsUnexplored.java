@@ -6,14 +6,13 @@ import net.minecraft.resources.Identifier;
 import net.regions_unexplored.registry.*;
 import net.regions_unexplored.block.compat.BlockToolCompat;
 import net.regions_unexplored.block.compat.FlammableBlocks;
-import net.regions_unexplored.client.particle.RuParticleTypes;
+import net.regions_unexplored.registry.RUParticleTypes;
 import net.regions_unexplored.config.RuClientConfig;
 import net.regions_unexplored.config.RuCommonConfig;
 import net.regions_unexplored.entity.RuEntities;
 import net.regions_unexplored.internal.config.Config;
 import net.regions_unexplored.internal.config.ConfigManager;
 import net.regions_unexplored.internal.config.gui.ConfigScreenRegistry;
-import net.regions_unexplored.data.worldgen.biome.BiomeRegistry;
 import net.regions_unexplored.registry.data.RUBiomes;
 import net.regions_unexplored.world.RuBiolith;
 import org.slf4j.Logger;
@@ -34,8 +33,8 @@ public class RegionsUnexplored {
 		RUFeatureTypes.init();
 		RUFoliagePlacerTypes.init();
 		RUItems.init();
+		RUParticleTypes.init();
 		RUTreeDecoratorTypes.init();
-		RuParticleTypes.addParticles();
 
 		RuEntities.addEntities();
 	}
