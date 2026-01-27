@@ -18,6 +18,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.regions_unexplored.data.worldgen.features.RuVegetationFeatures;
 import net.regions_unexplored.registry.PlacedFeatureRegistry;
+import net.regions_unexplored.registry.data.RUConfiguredFeatures;
 import net.regions_unexplored.registry.data.RUPlacedFeatures;
 
 import java.util.List;
@@ -218,7 +219,7 @@ public class RuVegetationPlacements {
         final Holder<ConfiguredFeature<?, ?>> SMALL_FLOWERS = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_SMALL_FLOWERS);
         final Holder<ConfiguredFeature<?, ?>> TALL_FLOWERS = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_TALL_FLOWERS);
         final Holder<ConfiguredFeature<?, ?>> ALPHA_DANDELION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_ALPHA_DANDELION);
-        final Holder<ConfiguredFeature<?, ?>> ALPHA_ROSE = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_ALPHA_ROSE);
+        final Holder<ConfiguredFeature<?, ?>> PATCH_ALPHA_ROSE = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_ALPHA_ROSE);
         final Holder<ConfiguredFeature<?, ?>> WILTING_TRILLIUM = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_WILTING_TRILLIUM);
         final Holder<ConfiguredFeature<?, ?>> WHITE_TRILLIUM = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_WHITE_TRILLIUM);
         final Holder<ConfiguredFeature<?, ?>> AZURE_DAISY = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_AZURE_DAISY);
@@ -323,7 +324,7 @@ public class RuVegetationPlacements {
         register(context, RuVegetationPlacements.PINK_FLOWERS, PINK_FLOWERS, RarityFilter.onAverageOnceEvery(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, RuVegetationPlacements.FROZEN_FLOWERS, FROZEN_FLOWERS, RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, RuVegetationPlacements.BLACKWOOD_MUSHROOMS, BLACKWOOD_MUSHROOMS, List.of(CountPlacement.of(2), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
-        register(context, RuVegetationPlacements.BLACKWOOD_DECORATION, List.of(CountPlacement.of(8), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
+        register(context, RuVegetationPlacements.BLACKWOOD_DECORATION, BLACKWOOD_DECORATION, List.of(CountPlacement.of(8), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuVegetationPlacements.LUPINE_VEGETATION, LUPINE_VEGETATION, CountPlacement.of(16), RarityFilter.onAverageOnceEvery(10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, RuVegetationPlacements.MEADOW_VEGETATION, MEADOW_VEGETATION, NoiseThresholdCountPlacement.of(-0.8D, 5, 8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         //GRASS
@@ -363,7 +364,10 @@ public class RuVegetationPlacements {
         register(context, RuVegetationPlacements.SMALL_FLOWERS, SMALL_FLOWERS, NoiseThresholdCountPlacement.of(-0.8D, 5, 6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, RuVegetationPlacements.TALL_FLOWERS, TALL_FLOWERS, RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, RuVegetationPlacements.ALPHA_DANDELION, ALPHA_DANDELION, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
-        register(context, RuVegetationPlacements.ALPHA_ROSE, ALPHA_ROSE, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
+
+        PlacementModifier airCheck = BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(BlockTags.AIR));
+        register(context, RUPlacedFeatures.BONEMEAL_ALPHA_GRASS, featureGetter.getOrThrow(RUConfiguredFeatures.BONEMEAL_ALPHA_GRASS), RarityFilter.onAverageOnceEvery(25), airCheck);
+        register(context, RuVegetationPlacements.ALPHA_ROSE, PATCH_ALPHA_ROSE, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.WILTING_TRILLIUM, WILTING_TRILLIUM, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.WHITE_TRILLIUM, WHITE_TRILLIUM, List.of(RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.AZURE_DAISY, AZURE_DAISY, List.of(RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
@@ -479,16 +483,8 @@ public class RuVegetationPlacements {
         register(context, RuVegetationPlacements.BLADED_GRASS_BONEMEAL, BLADED_GRASS_BONEMEAL, PlacementUtils.isEmpty());
     }
 
-    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, PlacementModifier... placement) {
-        register(context, key, context.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(RUPlacedFeatures.toConfigured(key)), List.of(placement));
-    }
-
     protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> feature, PlacementModifier... placement) {
         register(context, key, feature, List.of(placement));
-    }
-
-    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, List<PlacementModifier> placement) {
-        context.register(key, new PlacedFeature(context.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(RUPlacedFeatures.toConfigured(key)), placement));
     }
 
     protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> feature, List<PlacementModifier> placement) {

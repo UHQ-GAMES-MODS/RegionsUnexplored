@@ -11,7 +11,7 @@ import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.regions_unexplored.data.worldgen.RuBiomeDefaultFeatures;
+import net.regions_unexplored.datagen.provider.registry.RUBiomeFeatures;
 import net.regions_unexplored.data.worldgen.placement.RuMiscOverworldPlacements;
 import net.regions_unexplored.data.worldgen.placement.RuTreePlacements;
 import net.regions_unexplored.data.worldgen.placement.RuVegetationPlacements;
@@ -51,29 +51,29 @@ public class MountainBiomes {
 
     private static BiomeGenerationSettings.Builder baseMountainGeneration(HolderGetter<PlacedFeature> featureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(featureGetter, carverGetter);
-        RuBiomeDefaultFeatures.globalOverworldGeneration(biomeBuilder);
+        RUBiomeFeatures.globalOverworldGeneration(biomeBuilder);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
-        RuBiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        RUBiomeFeatures.addDefaultSoftDisks(biomeBuilder);
         BiomeDefaultFeatures.addExtraEmeralds(biomeBuilder);
         BiomeDefaultFeatures.addInfestedStone(biomeBuilder);
         return biomeBuilder;
     }
     private static BiomeGenerationSettings.Builder baseSlopeGeneration(HolderGetter<PlacedFeature> featureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(featureGetter, carverGetter);
-        RuBiomeDefaultFeatures.globalOverworldGeneration(biomeBuilder);
-        RuBiomeDefaultFeatures.mediumGrass(biomeBuilder);
+        RUBiomeFeatures.globalOverworldGeneration(biomeBuilder);
+        RUBiomeFeatures.mediumGrass(biomeBuilder);
         BiomeDefaultFeatures.addPlainGrass(biomeBuilder);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
-        RuBiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        RUBiomeFeatures.addDefaultSoftDisks(biomeBuilder);
         BiomeDefaultFeatures.addExtraEmeralds(biomeBuilder);
         BiomeDefaultFeatures.addInfestedStone(biomeBuilder);
         return biomeBuilder;
     }
     private static BiomeGenerationSettings.Builder baseExtremeHillsGeneration(HolderGetter<PlacedFeature> featureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(featureGetter, carverGetter);
-        RuBiomeDefaultFeatures.globalOverworldGeneration(biomeBuilder);
+        RUBiomeFeatures.globalOverworldGeneration(biomeBuilder);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
-        RuBiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        RUBiomeFeatures.addDefaultSoftDisks(biomeBuilder);
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
         BiomeDefaultFeatures.addDefaultExtraVegetation(biomeBuilder);
         BiomeDefaultFeatures.addExtraEmeralds(biomeBuilder);
@@ -133,7 +133,7 @@ public class MountainBiomes {
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuMiscOverworldPlacements.NOISE_ROCKS);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuMiscOverworldPlacements.NOISE_BUSH);
 
-        RuBiomeDefaultFeatures.addDaisies(biomeBuilder);
+        RUBiomeFeatures.addDaisies(biomeBuilder);
 
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.GRASS);
 
@@ -208,7 +208,7 @@ public class MountainBiomes {
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.DEAD_SCOTTS_PINE_TREE_MOUNTAIN);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuMiscOverworldPlacements.FALLEN_PINE_TREE);
 
-        RuBiomeDefaultFeatures.addHyssop(biomeBuilder);
+        RUBiomeFeatures.addHyssop(biomeBuilder);
 
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.FERNS);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.PINE_DEAD_SHRUB_MIX);

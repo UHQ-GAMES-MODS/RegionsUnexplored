@@ -12,7 +12,7 @@ import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.regions_unexplored.data.worldgen.RuBiomeDefaultFeatures;
+import net.regions_unexplored.datagen.provider.registry.RUBiomeFeatures;
 import net.regions_unexplored.data.worldgen.placement.RuMiscOverworldPlacements;
 import net.regions_unexplored.data.worldgen.placement.RuTreePlacements;
 import net.regions_unexplored.data.worldgen.placement.RuVegetationPlacements;
@@ -38,11 +38,11 @@ public class TaigaBiomes {
 
     private static BiomeGenerationSettings.Builder baseTaigaGeneration(HolderGetter<PlacedFeature> featureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean hasSweetBerries) {
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(featureGetter, carverGetter);
-        RuBiomeDefaultFeatures.globalOverworldGeneration(biomeBuilder);
-        RuBiomeDefaultFeatures.mediumGrass(biomeBuilder);
+        RUBiomeFeatures.globalOverworldGeneration(biomeBuilder);
+        RUBiomeFeatures.mediumGrass(biomeBuilder);
         BiomeDefaultFeatures.addFerns(biomeBuilder);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
-        RuBiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        RUBiomeFeatures.addDefaultSoftDisks(biomeBuilder);
         BiomeDefaultFeatures.addDefaultExtraVegetation(biomeBuilder);
         if(hasSweetBerries) {
             BiomeDefaultFeatures.addCommonBerryBushes(biomeBuilder);
@@ -66,8 +66,8 @@ public class TaigaBiomes {
         BiomeGenerationSettings.Builder biomeBuilder = baseTaigaGeneration(featureGetter, carverGetter, true);
 
         //add RU features
-        RuBiomeDefaultFeatures.blackwoodTrees(biomeBuilder);
-        RuBiomeDefaultFeatures.addBlackwoodBioshrooms(biomeBuilder);
+        RUBiomeFeatures.blackwoodTrees(biomeBuilder);
+        RUBiomeFeatures.addBlackwoodBioshrooms(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.BLACKWOOD_VEGETATION);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.BLACKWOOD_DARK_OAK_SHRUB_MIX);
 
@@ -106,7 +106,7 @@ public class TaigaBiomes {
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.OAK_BUSH_SPARSE);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuMiscOverworldPlacements.FALLEN_LARCH_TREE);
 
-        RuBiomeDefaultFeatures.addTaigaFlowerPatch(biomeBuilder);
+        RUBiomeFeatures.addTaigaFlowerPatch(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.GRASS);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.LARCH_SHRUB);
 
@@ -146,7 +146,7 @@ public class TaigaBiomes {
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuMiscOverworldPlacements.FALLEN_LARCH_TREE);
 
 
-        RuBiomeDefaultFeatures.addTaigaFlowerPatch(biomeBuilder);
+        RUBiomeFeatures.addTaigaFlowerPatch(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.GRASS);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.GOLDEN_LARCH_SHRUB_MIX);
 
@@ -184,8 +184,8 @@ public class TaigaBiomes {
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.PINE_TREE_SHRUB_ON_GRASS);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuMiscOverworldPlacements.FALLEN_PINE_TREE_ON_DIRT);
 
-        RuBiomeDefaultFeatures.addTaigaFlowerPatch(biomeBuilder);
-        RuBiomeDefaultFeatures.addDirtSurfaceVegetation(biomeBuilder);
+        RUBiomeFeatures.addTaigaFlowerPatch(biomeBuilder);
+        RUBiomeFeatures.addDirtSurfaceVegetation(biomeBuilder);
 
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.PINE_SHRUB);
 
@@ -223,7 +223,7 @@ public class TaigaBiomes {
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.REDWOOD_TREE);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.OAK_BUSH_DENSE);
 
-        RuBiomeDefaultFeatures.redwoodDecoration(biomeBuilder);
+        RUBiomeFeatures.redwoodDecoration(biomeBuilder);
 
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.REDWOOD_SHRUB);
 
@@ -259,7 +259,7 @@ public class TaigaBiomes {
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.REDWOOD_TREE);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.OAK_BUSH_SPARSE);
 
-        RuBiomeDefaultFeatures.redwoodDecoration(biomeBuilder);
+        RUBiomeFeatures.redwoodDecoration(biomeBuilder);
 
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.REDWOOD_SHRUB);
 

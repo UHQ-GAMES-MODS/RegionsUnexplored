@@ -11,7 +11,7 @@ import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.regions_unexplored.data.worldgen.RuBiomeDefaultFeatures;
+import net.regions_unexplored.datagen.provider.registry.RUBiomeFeatures;
 import net.regions_unexplored.data.worldgen.placement.RuMiscOverworldPlacements;
 import net.regions_unexplored.data.worldgen.placement.RuTreePlacements;
 import net.regions_unexplored.data.worldgen.placement.RuVegetationPlacements;
@@ -36,10 +36,10 @@ public class PlainsBiomes {
 
     private static BiomeGenerationSettings.Builder basePlainsGeneration(HolderGetter<PlacedFeature> featureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(featureGetter, carverGetter);
-        RuBiomeDefaultFeatures.globalOverworldGeneration(biomeBuilder);
-        RuBiomeDefaultFeatures.mediumGrass(biomeBuilder);
+        RUBiomeFeatures.globalOverworldGeneration(biomeBuilder);
+        RUBiomeFeatures.mediumGrass(biomeBuilder);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
-        RuBiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        RUBiomeFeatures.addDefaultSoftDisks(biomeBuilder);
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
         BiomeDefaultFeatures.addDefaultExtraVegetation(biomeBuilder);
 
@@ -61,7 +61,7 @@ public class PlainsBiomes {
         BiomeGenerationSettings.Builder biomeBuilder = basePlainsGeneration(featureGetter, carverGetter);
 
         //add RU features
-        RuBiomeDefaultFeatures.addPrairieFlowers(biomeBuilder);
+        RUBiomeFeatures.addPrairieFlowers(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.GRASS);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.BARLEY_DENSE);
 
@@ -94,7 +94,7 @@ public class PlainsBiomes {
         BiomeGenerationSettings.Builder biomeBuilder = basePlainsGeneration(featureGetter, carverGetter);
 
         //add RU features
-        RuBiomeDefaultFeatures.flowerFieldsFlowers(biomeBuilder);
+        RUBiomeFeatures.flowerFieldsFlowers(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.ASTER);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.GRASS);
 
@@ -129,7 +129,7 @@ public class PlainsBiomes {
         //add RU features
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.OAK_TREE_SHRUB_SPARSE);
 
-        RuBiomeDefaultFeatures.addTulips(biomeBuilder);
+        RUBiomeFeatures.addTulips(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.GRASS);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.WINDSWEPT_GRASS);
 
@@ -162,7 +162,7 @@ public class PlainsBiomes {
         BiomeGenerationSettings.Builder biomeBuilder = basePlainsGeneration(featureGetter, carverGetter);
 
         //add RU features
-        RuBiomeDefaultFeatures.addLupineVegetation(biomeBuilder);
+        RUBiomeFeatures.addLupineVegetation(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.CLOVER);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.GRASS);
 
@@ -197,8 +197,8 @@ public class PlainsBiomes {
         //add RU features
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.MAUVE_TREE_MEADOW);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.MAUVE_TREE_SPARSE);
-        RuBiomeDefaultFeatures.addMeadowRocks(biomeBuilder);
-        RuBiomeDefaultFeatures.addMeadowVegetation(biomeBuilder);
+        RUBiomeFeatures.addMeadowRocks(biomeBuilder);
+        RUBiomeFeatures.addMeadowVegetation(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.GRASS);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.MEADOW_SAGE);
 
@@ -231,7 +231,7 @@ public class PlainsBiomes {
         BiomeGenerationSettings.Builder biomeBuilder = basePlainsGeneration(featureGetter, carverGetter);
 
         //add RU features
-        RuBiomeDefaultFeatures.addPoppies(biomeBuilder);
+        RUBiomeFeatures.addPoppies(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.GRASS);
 
 
@@ -264,7 +264,7 @@ public class PlainsBiomes {
 
         //add RU features
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.PRAIRIE_TREES);
-        RuBiomeDefaultFeatures.addPrairieFlowers(biomeBuilder);
+        RUBiomeFeatures.addPrairieFlowers(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.GRASS);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.TALL_GRASS);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.BARLEY_SPARSE);
@@ -337,7 +337,7 @@ public class PlainsBiomes {
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.OAK_BUSH_SINGLE);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.SPRUCE_TREE_SHRUB_DENSE);
 
-        RuBiomeDefaultFeatures.shrublandFlowers(biomeBuilder);
+        RUBiomeFeatures.shrublandFlowers(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.SHRUBLAND_VEGETATION);
 
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.SPRUCE_SHRUB);

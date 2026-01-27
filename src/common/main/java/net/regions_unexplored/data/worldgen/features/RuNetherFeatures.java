@@ -26,6 +26,7 @@ import net.minecraft.world.level.levelgen.placement.RandomOffsetPlacement;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.registry.ConfiguredFeatureRegistry;
 import net.regions_unexplored.registry.RUFeatureTypes;
+import net.regions_unexplored.registry.data.RUConfiguredFeatures;
 import net.regions_unexplored.world.level.block.plant.flower.GroundCoverBlock;
 import net.regions_unexplored.world.level.feature.configuration.LargePointedRedstoneConfiguration;
 import net.regions_unexplored.world.level.feature.configuration.PointedRedstoneClusterConfiguration;
@@ -61,22 +62,17 @@ public class RuNetherFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_POINTED_REDSTONE_NETHER = ConfiguredFeatureRegistry.createKey("large_pointed_redstone_nether");
     public static final ResourceKey<ConfiguredFeature<?, ?>> POINTED_REDSTONE_CLUSTER_NETHER = ConfiguredFeatureRegistry.createKey("pointed_redstone_cluster_nether");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> MYCOTOXIC_NYLIUM_BONEMEAL = ConfiguredFeatureRegistry.createKey("mycotoxic_nylium_bonemeal");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> GLISTERING_NYLIUM_BONEMEAL = ConfiguredFeatureRegistry.createKey("glistering_nylium_bonemeal");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> COBALT_NYLIUM_BONEMEAL = ConfiguredFeatureRegistry.createKey("cobalt_nylium_bonemeal");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> BRIMSPROUT_NYLIUM_BONEMEAL = ConfiguredFeatureRegistry.createKey("brimsprout_nylium_bonemeal");
-
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<ConfiguredFeature<?, ?>> holderGetter = context.lookup(Registries.CONFIGURED_FEATURE);
 
         SimpleWeightedRandomList.Builder<BlockState> mycotoxicMushroomsBuilder = SimpleWeightedRandomList.builder();
-        SimpleWeightedRandomList.Builder mycotoxicBoneMealBlocks = SimpleWeightedRandomList.builder().add(RUBlocks.MYCOTOXIC_GRASS.get().defaultBlockState(), 100).add(RUBlocks.YELLOW_BIOSHROOM.get().defaultBlockState(), 7);
-        SimpleWeightedRandomList.Builder glisteringBoneMealBlocks = SimpleWeightedRandomList.builder().add(RUBlocks.GLISTERING_SPROUT.get().defaultBlockState(), 140).add(RUBlocks.GLISTERING_BLOOM.get().defaultBlockState(), 30).add(RUBlocks.GLISTERING_BLOOM.get().defaultBlockState(), 10);
-        SimpleWeightedRandomList.Builder cobaltBoneMealBlocks = SimpleWeightedRandomList.builder().add(RUBlocks.COBALT_ROOTS.get().defaultBlockState(), 100).add(RUBlocks.COBALT_EARLIGHT.get().defaultBlockState(), 2);
-        SimpleWeightedRandomList.Builder brimsproutBoneMealBlocks = SimpleWeightedRandomList.builder().add(RUBlocks.BRIMSPROUT.get().defaultBlockState(), 140).add(RUBlocks.DORCEL.get().defaultBlockState(), 1);
+        SimpleWeightedRandomList.Builder<BlockState> mycotoxicBoneMealBlocks = SimpleWeightedRandomList.<BlockState>builder().add(RUBlocks.MYCOTOXIC_GRASS.get().defaultBlockState(), 100).add(RUBlocks.YELLOW_BIOSHROOM.get().defaultBlockState(), 7);
+        SimpleWeightedRandomList.Builder<BlockState> glisteringBoneMealBlocks = SimpleWeightedRandomList.<BlockState>builder().add(RUBlocks.GLISTERING_SPROUT.get().defaultBlockState(), 140).add(RUBlocks.GLISTERING_BLOOM.get().defaultBlockState(), 30).add(RUBlocks.GLISTERING_BLOOM.get().defaultBlockState(), 10);
+        SimpleWeightedRandomList.Builder<BlockState> cobaltBoneMealBlocks = SimpleWeightedRandomList.<BlockState>builder().add(RUBlocks.COBALT_ROOTS.get().defaultBlockState(), 100).add(RUBlocks.COBALT_EARLIGHT.get().defaultBlockState(), 2);
+        SimpleWeightedRandomList.Builder<BlockState> brimsproutBoneMealBlocks = SimpleWeightedRandomList.<BlockState>builder().add(RUBlocks.BRIMSPROUT.get().defaultBlockState(), 140).add(RUBlocks.DORCEL.get().defaultBlockState(), 1);
         for(int i = 1; i <= 4; ++i) {
             for(Direction direction : Direction.Plane.HORIZONTAL) {
-                mycotoxicMushroomsBuilder.add(RUBlocks.MYCOTOXIC_MUSHROOMS.get().defaultBlockState().setValue(GroundCoverBlock.AMOUNT, Integer.valueOf(i)).setValue(GroundCoverBlock.FACING, direction), 1);
+                mycotoxicMushroomsBuilder.add(RUBlocks.MYCOTOXIC_MUSHROOMS.get().defaultBlockState().setValue(GroundCoverBlock.AMOUNT, i).setValue(GroundCoverBlock.FACING, direction), 1);
             }
         }
         WeightedStateProvider mycotoxicWeights = new WeightedStateProvider(mycotoxicBoneMealBlocks);
@@ -115,10 +111,10 @@ public class RuNetherFeatures {
 
         //BONEMEALS
 
-        register(context, MYCOTOXIC_NYLIUM_BONEMEAL, Feature.NETHER_FOREST_VEGETATION, new NetherForestVegetationConfig(mycotoxicWeights, 3, 1));
-        register(context, GLISTERING_NYLIUM_BONEMEAL, Feature.NETHER_FOREST_VEGETATION, new NetherForestVegetationConfig(glisteringWeights, 3, 1));
-        register(context, COBALT_NYLIUM_BONEMEAL, Feature.NETHER_FOREST_VEGETATION, new NetherForestVegetationConfig(cobaltWeights, 3, 1));
-        register(context, BRIMSPROUT_NYLIUM_BONEMEAL, Feature.NETHER_FOREST_VEGETATION, new NetherForestVegetationConfig(brimsproutWeights, 3, 1));
+        register(context, RUConfiguredFeatures.BONEMEAL_MYCOTOXIC_NYLIUM, Feature.NETHER_FOREST_VEGETATION, new NetherForestVegetationConfig(mycotoxicWeights, 3, 1));
+        register(context, RUConfiguredFeatures.BONEMEAL_GLISTERING_NYLIUM, Feature.NETHER_FOREST_VEGETATION, new NetherForestVegetationConfig(glisteringWeights, 3, 1));
+        register(context, RUConfiguredFeatures.BONEMEAL_COBALT_NYLIUM, Feature.NETHER_FOREST_VEGETATION, new NetherForestVegetationConfig(cobaltWeights, 3, 1));
+        register(context, RUConfiguredFeatures.BONEMEAL_BRIMSPROUT_NYLIUM, Feature.NETHER_FOREST_VEGETATION, new NetherForestVegetationConfig(brimsproutWeights, 3, 1));
     }
 
     private static RandomPatchConfiguration grassPatch(BlockStateProvider stateProvider, int i) {

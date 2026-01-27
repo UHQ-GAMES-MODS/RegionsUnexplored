@@ -6,8 +6,10 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.ClampedNormalInt;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -20,6 +22,8 @@ import net.minecraft.world.level.material.Fluids;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.data.worldgen.features.RuMiscOverworldFeatures;
 import net.regions_unexplored.registry.PlacedFeatureRegistry;
+import net.regions_unexplored.registry.data.RUConfiguredFeatures;
+import net.regions_unexplored.registry.data.RUPlacedFeatures;
 
 import java.util.List;
 import java.util.Optional;
@@ -174,6 +178,15 @@ public class RuMiscOverworldPlacements {
         register(context, RuMiscOverworldPlacements.NOISE_PUMPKINS, NOISE_PUMPKINS, List.of(NoiseBasedCountPlacement.of(4, 40, 0.4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, RuMiscOverworldPlacements.NOISE_ROCKS, NOISE_ROCKS, List.of(CountPlacement.of(15), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, RuMiscOverworldPlacements.NOISE_BUSH, NOISE_BUSH, List.of(CountPlacement.of(15), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+
+        final Holder<ConfiguredFeature<?, ?>>  singlePieceOfGrass = featureGetter.getOrThrow(VegetationFeatures.SINGLE_PIECE_OF_GRASS);
+        PlacementModifier airCheck = BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(BlockTags.AIR));
+        register(context, RUPlacedFeatures.BONEMEAL_ARGILLITE_GRASS, singlePieceOfGrass, airCheck);
+        register(context, RUPlacedFeatures.BONEMEAL_CHALK_GRASS, singlePieceOfGrass, airCheck);
+        register(context, RUPlacedFeatures.BONEMEAL_DEEPSLATE_GRASS, singlePieceOfGrass, airCheck);
+        register(context, RUPlacedFeatures.BONEMEAL_PEAT_GRASS, singlePieceOfGrass, airCheck);
+        register(context, RUPlacedFeatures.BONEMEAL_SILT_GRASS, singlePieceOfGrass, airCheck);
+        register(context, RUPlacedFeatures.BONEMEAL_STONE_GRASS, singlePieceOfGrass, airCheck);
     }
     private static List<PlacementModifier> orePlacement(PlacementModifier placementModifier, PlacementModifier placementModifier1) {
         return List.of(placementModifier, InSquarePlacement.spread(), placementModifier1, BiomeFilter.biome());

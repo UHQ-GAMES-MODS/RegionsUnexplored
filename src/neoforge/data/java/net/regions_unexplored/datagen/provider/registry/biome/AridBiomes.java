@@ -12,7 +12,7 @@ import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.regions_unexplored.data.worldgen.RuBiomeDefaultFeatures;
+import net.regions_unexplored.datagen.provider.registry.RUBiomeFeatures;
 import net.regions_unexplored.data.worldgen.placement.RuTreePlacements;
 import net.regions_unexplored.data.worldgen.placement.RuVegetationPlacements;
 
@@ -49,12 +49,12 @@ public class AridBiomes {
 
     private static BiomeGenerationSettings.Builder baseSavannaGeneration(HolderGetter<PlacedFeature> featureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean addGrass) {
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(featureGetter, carverGetter);
-        RuBiomeDefaultFeatures.globalOverworldGeneration(biomeBuilder);
+        RUBiomeFeatures.globalOverworldGeneration(biomeBuilder);
         if (addGrass) {
             BiomeDefaultFeatures.addSavannaGrass(biomeBuilder);
         }
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
-        RuBiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        RUBiomeFeatures.addDefaultSoftDisks(biomeBuilder);
         //add default flowers
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
         BiomeDefaultFeatures.addDefaultExtraVegetation(biomeBuilder);
@@ -63,9 +63,9 @@ public class AridBiomes {
     private static BiomeGenerationSettings.Builder baseDesertGeneration(HolderGetter<PlacedFeature> featureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean denseCactus) {
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(featureGetter, carverGetter);
         BiomeDefaultFeatures.addFossilDecoration(biomeBuilder);
-        RuBiomeDefaultFeatures.globalOverworldGeneration(biomeBuilder);
+        RUBiomeFeatures.globalOverworldGeneration(biomeBuilder);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
-        RuBiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        RUBiomeFeatures.addDefaultSoftDisks(biomeBuilder);
         BiomeDefaultFeatures.addDesertVegetation(biomeBuilder);
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_SUGAR_CANE_DESERT);
@@ -137,7 +137,7 @@ public class AridBiomes {
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.ACACIA_TREE);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.OAK_TREE_SHRUB_SPARSE);
 
-        RuBiomeDefaultFeatures.addMallow(biomeBuilder);
+        RUBiomeFeatures.addMallow(biomeBuilder);
 
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.SOCOTRA_VEGETATION);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.SOCOTRA_SHRUB);
@@ -174,7 +174,7 @@ public class AridBiomes {
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.MEDIUM_JOSHUA_TREE);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.JOSHUA_TREE_SHRUB);
 
-        RuBiomeDefaultFeatures.addMallow(biomeBuilder);
+        RUBiomeFeatures.addMallow(biomeBuilder);
 
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.JOSHUA_VEGETATION);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.JOSHUA_SHRUB);
@@ -209,7 +209,7 @@ public class AridBiomes {
         //add RU features
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.ACACIA_TREE_SHRUB);
 
-        RuBiomeDefaultFeatures.addMallow(biomeBuilder);
+        RUBiomeFeatures.addMallow(biomeBuilder);
 
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.OUTBACK_VEGETATION);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.ACACIA_SHRUB);

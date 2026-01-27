@@ -16,7 +16,7 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.regions_unexplored.registry.RUParticleTypes;
-import net.regions_unexplored.data.worldgen.RuBiomeDefaultFeatures;
+import net.regions_unexplored.datagen.provider.registry.RUBiomeFeatures;
 import net.regions_unexplored.data.worldgen.placement.RuNetherPlacements;
 import net.regions_unexplored.data.worldgen.placement.RuTreePlacements;
 
@@ -262,7 +262,7 @@ public class NetherBiomes {
         BiomeDefaultFeatures.addNetherDefaultOres(biomeBuilder);
 
         //add RU features
-        RuBiomeDefaultFeatures.netherPointedRedstone(biomeBuilder);
+        RUBiomeFeatures.netherPointedRedstone(biomeBuilder);
 
 
         //add mob spawns

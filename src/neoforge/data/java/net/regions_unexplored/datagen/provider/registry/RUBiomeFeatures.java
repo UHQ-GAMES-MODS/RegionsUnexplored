@@ -1,11 +1,11 @@
-package net.regions_unexplored.data.worldgen;
+package net.regions_unexplored.datagen.provider.registry;
 
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.regions_unexplored.data.worldgen.placement.*;
 
-public class RuBiomeDefaultFeatures {
+public class RUBiomeFeatures {
 
     public static void addDefaultSoftDisks(BiomeGenerationSettings.Builder biomeBuilder) {
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, RuMiscOverworldPlacements.DISK_SAND);
