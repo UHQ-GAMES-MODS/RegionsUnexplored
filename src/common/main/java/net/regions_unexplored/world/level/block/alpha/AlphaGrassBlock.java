@@ -7,7 +7,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.regions_unexplored.data.worldgen.placement.RuVegetationPlacements;
 import net.regions_unexplored.registry.data.RUPlacedFeatures;
 import net.regions_unexplored.world.level.block.RUBlockActions;
 
