@@ -10,6 +10,7 @@ import net.regions_unexplored.config.RuClientConfig;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.block.compat.FurnaceBurnTimesFabric;
 import net.regions_unexplored.registry.RUCreativeModeTabs;
+import net.regions_unexplored.registry.RUItems;
 
 public class RegionsUnexploredFabric implements ModInitializer {
     @Override
@@ -17,10 +18,9 @@ public class RegionsUnexploredFabric implements ModInitializer {
         RegionsUnexplored.init();
         RuBlockEntitiesFabric.addBlockEntities();
         RegionsUnexploredFabric.afterRegistriesFreeze();
-        for (var entry : RUBlocks.BLOCK_ALIASES.entrySet()) {
-            ((FabricRegistry) BuiltInRegistries.ITEM).addAlias(entry.getKey(), entry.getValue());
-            ((FabricRegistry) BuiltInRegistries.BLOCK).addAlias(entry.getKey(), entry.getValue());
-        }
+
+        RUBlocks.applyAliases((a, b) -> ((FabricRegistry) BuiltInRegistries.BLOCK).addAlias(a, b));
+        RUItems.applyAliases((a, b) -> ((FabricRegistry) BuiltInRegistries.ITEM).addAlias(a, b));
     }
 
     public static void afterRegistriesFreeze() {

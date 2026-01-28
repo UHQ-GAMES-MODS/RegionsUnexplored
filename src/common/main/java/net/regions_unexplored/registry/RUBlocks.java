@@ -39,6 +39,7 @@ import net.regions_unexplored.world.level.block.plant.dusktrap.DuskTrapBlock;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 import static net.regions_unexplored.RegionsUnexplored.id;
@@ -395,15 +396,10 @@ public interface RUBlocks {
     ColoredSet SNOWBELLES = new ColoredSet(color -> register(color.getName() + "_snowbelle", p -> new RuFlowerBlock(MobEffects.MOVEMENT_SLOWDOWN, 10, p), Blocks.DANDELION));
     ColoredSet POTTED_SNOWBELLES = new ColoredSet(color -> RUBlockUtils.registerNoItem("potted_" + color.getName() + "_snowbelle", p -> new FlowerPotBlock(SNOWBELLES.getMap().get(color), p), Blocks.POTTED_ALLIUM));
 
-    Map<Identifier, Identifier> BLOCK_ALIASES = Map.of(
-        id("cactus_flower"), id("saguaro_cactus_flower"),
-        id("potted_cactus_flower"), id("potted_saguaro_cactus_flower")
-        //id("maple_leaf_pile"), id("maple_leaf_litter"),
-        //id("red_maple_leaf_pile"), id("red_maple_leaf_litter"),
-        //id("orange_maple_leaf_pile"), id("orange_maple_leaf_litter"),
-        //id("silver_birch_leaf_pile"), id("silver_birch_leaf_litter"),
-        //id("enchanted_birch_leaf_pile"), id("enchanted_birch_leaf_litter"),
-    );
+    static void applyAliases(BiConsumer<Identifier, Identifier> consumer) {
+        consumer.accept(id("cactus_flower"), id("saguaro_cactus_flower"));
+        consumer.accept(id("potted_cactus_flower"), id("potted_saguaro_cactus_flower"));
+    }
 
     static void init() {
     }

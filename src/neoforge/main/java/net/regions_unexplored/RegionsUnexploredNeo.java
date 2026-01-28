@@ -1,5 +1,6 @@
 package net.regions_unexplored;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -16,6 +17,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.block.set.WoodSet;
 import net.regions_unexplored.internal.config.gui.ConfigSelectionScreen;
+import net.regions_unexplored.registry.RUItems;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -40,10 +42,8 @@ public class RegionsUnexploredNeo {
 
         var blockRegistry = DeferredRegister.create(Registries.BLOCK, RegionsUnexplored.MOD_ID);
         var itemRegistry = DeferredRegister.create(Registries.ITEM, RegionsUnexplored.MOD_ID);
-        for (var entry : RUBlocks.BLOCK_ALIASES.entrySet()) {
-            blockRegistry.addAlias(entry.getKey(), entry.getValue());
-            itemRegistry.addAlias(entry.getKey(), entry.getValue());
-        }
+        RUBlocks.applyAliases(blockRegistry::addAlias);
+        RUItems.applyAliases(itemRegistry::addAlias);
 
         container.registerExtensionPoint(
             IConfigScreenFactory.class,
