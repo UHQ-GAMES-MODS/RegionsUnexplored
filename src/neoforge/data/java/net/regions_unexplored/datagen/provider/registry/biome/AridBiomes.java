@@ -13,8 +13,8 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.regions_unexplored.datagen.provider.registry.RUBiomeFeatures;
-import net.regions_unexplored.data.worldgen.placement.RuTreePlacements;
-import net.regions_unexplored.data.worldgen.placement.RuVegetationPlacements;
+import net.regions_unexplored.datagen.provider.registry.placed_feature.RuTreePlacements;
+import net.regions_unexplored.datagen.provider.registry.placed_feature.RuVegetationPlacements;
 
 public class AridBiomes {
     protected static final int NORMAL_WATER_COLOR = 4159204;

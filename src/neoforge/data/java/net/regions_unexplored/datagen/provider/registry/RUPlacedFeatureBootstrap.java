@@ -1,4 +1,4 @@
-package net.regions_unexplored.registry;
+package net.regions_unexplored.datagen.provider.registry;
 
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
@@ -8,9 +8,10 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.regions_unexplored.RegionsUnexplored;
-import net.regions_unexplored.data.worldgen.placement.*;
+import net.regions_unexplored.datagen.provider.registry.placed_feature.*;
+import net.regions_unexplored.registry.RUBlocks;
 
-public class PlacedFeatureRegistry {
+public class RUPlacedFeatureBootstrap {
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         RuAquaticPlacements.bootstrap(context);
         RuMiscOverworldPlacements.bootstrap(context);
@@ -19,8 +20,8 @@ public class PlacedFeatureRegistry {
         RuVegetationPlacements.bootstrap(context);
     }
 
-    public static ResourceKey<PlacedFeature> createKey(String name) {
-        return ResourceKey.create(Registries.PLACED_FEATURE, RegionsUnexplored.id(name));
+    public static ResourceKey<PlacedFeature> key(String name) {
+        return RegionsUnexplored.key(Registries.PLACED_FEATURE, name);
     }
 
     // TODO: Convert these into tags

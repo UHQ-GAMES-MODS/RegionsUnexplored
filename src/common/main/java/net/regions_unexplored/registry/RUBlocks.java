@@ -17,7 +17,6 @@ import net.regions_unexplored.block.RuWoodTypes;
 import net.regions_unexplored.data.worldgen.features.RuNetherFeatures;
 import net.regions_unexplored.item.RUItemUtils;
 import net.regions_unexplored.registry.data.RUConfiguredFeatures;
-import net.regions_unexplored.registry.data.RUPlacedFeatures;
 import net.regions_unexplored.world.level.block.alpha.*;
 import net.regions_unexplored.world.level.block.cave.*;
 import net.regions_unexplored.world.level.block.forest_dirt.*;

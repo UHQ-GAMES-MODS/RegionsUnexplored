@@ -1,4 +1,4 @@
-package net.regions_unexplored.data.worldgen.features;
+package net.regions_unexplored.datagen.provider.registry.configured_feature;
 
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderGetter;
@@ -32,7 +32,7 @@ import net.minecraft.world.level.levelgen.placement.RandomOffsetPlacement;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.regions_unexplored.registry.RUBlocks;
-import net.regions_unexplored.registry.ConfiguredFeatureRegistry;
+import net.regions_unexplored.datagen.provider.registry.RUConfiguredFeatureBootstrap;
 import net.regions_unexplored.registry.RUFeatureTypes;
 import net.regions_unexplored.registry.data.RUConfiguredFeatures;
 import net.regions_unexplored.world.level.block.other.AshBlock;
@@ -46,45 +46,45 @@ import java.util.List;
 
 public class RuMiscOverworldFeatures {
     //-----------------------KEYS-----------------------//
-    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_CLAY = ConfiguredFeatureRegistry.createKey("disk_clay");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_GRAVEL = ConfiguredFeatureRegistry.createKey("disk_gravel");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_SAND = ConfiguredFeatureRegistry.createKey("disk_sand");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_CLAY = RUConfiguredFeatureBootstrap.createKey("disk_clay");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_GRAVEL = RUConfiguredFeatureBootstrap.createKey("disk_gravel");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_SAND = RUConfiguredFeatureBootstrap.createKey("disk_sand");
     //ROCKS
-    public static final ResourceKey<ConfiguredFeature<?, ?>> REDWOODS_ROCK = ConfiguredFeatureRegistry.createKey("redwoods_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> REDWOODS_ROCK = RUConfiguredFeatureBootstrap.createKey("redwoods_rock");
     //FALLEN_TREES
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LARCH = ConfiguredFeatureRegistry.createKey("fallen_larch");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_MAPLE = ConfiguredFeatureRegistry.createKey("fallen_maple");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_OAK = ConfiguredFeatureRegistry.createKey("fallen_oak");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_OAK_WITH_BLOB = ConfiguredFeatureRegistry.createKey("fallen_oak_tree_with_blob");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_PINE = ConfiguredFeatureRegistry.createKey("fallen_pine");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_SNOW_PINE = ConfiguredFeatureRegistry.createKey("fallen_snow_pine");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_SILVER_BIRCH = ConfiguredFeatureRegistry.createKey("fallen_silver_birch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LARCH = RUConfiguredFeatureBootstrap.createKey("fallen_larch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_MAPLE = RUConfiguredFeatureBootstrap.createKey("fallen_maple");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_OAK = RUConfiguredFeatureBootstrap.createKey("fallen_oak");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_OAK_WITH_BLOB = RUConfiguredFeatureBootstrap.createKey("fallen_oak_tree_with_blob");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_PINE = RUConfiguredFeatureBootstrap.createKey("fallen_pine");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_SNOW_PINE = RUConfiguredFeatureBootstrap.createKey("fallen_snow_pine");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_SILVER_BIRCH = RUConfiguredFeatureBootstrap.createKey("fallen_silver_birch");
     //CAVE_FEATURES
-    public static final ResourceKey<ConfiguredFeature<?, ?>> POINTED_REDSTONE = ConfiguredFeatureRegistry.createKey("pointed_redstone");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_POINTED_REDSTONE = ConfiguredFeatureRegistry.createKey("large_pointed_redstone");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> POINTED_REDSTONE_CLUSTER = ConfiguredFeatureRegistry.createKey("pointed_redstone_cluster");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_REDSTONE_LARGE = ConfiguredFeatureRegistry.createKey("ore_redstone_large");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> POINTED_REDSTONE = RUConfiguredFeatureBootstrap.createKey("pointed_redstone");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_POINTED_REDSTONE = RUConfiguredFeatureBootstrap.createKey("large_pointed_redstone");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> POINTED_REDSTONE_CLUSTER = RUConfiguredFeatureBootstrap.createKey("pointed_redstone_cluster");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_REDSTONE_LARGE = RUConfiguredFeatureBootstrap.createKey("ore_redstone_large");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PRISMARITE_CLUSTERS = ConfiguredFeatureRegistry.createKey("prismarite_clusters");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> HANGING_PRISMARITE_CLUSTER = ConfiguredFeatureRegistry.createKey("hanging_prismarite_cluster");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PRISMARITE_CLUSTERS = RUConfiguredFeatureBootstrap.createKey("prismarite_clusters");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HANGING_PRISMARITE_CLUSTER = RUConfiguredFeatureBootstrap.createKey("hanging_prismarite_cluster");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> MINERAL_POOL = ConfiguredFeatureRegistry.createKey("mineral_pool");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MINERAL_POOL = RUConfiguredFeatureBootstrap.createKey("mineral_pool");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LAVA_FALL = ConfiguredFeatureRegistry.createKey("lava_fall");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_LAVA_DELTA = ConfiguredFeatureRegistry.createKey("overworld_lava_delta");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ASH_VENT = ConfiguredFeatureRegistry.createKey("ash_vent");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> BASALT_BLOB = ConfiguredFeatureRegistry.createKey("basalt_blob");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LAVA_FALL = RUConfiguredFeatureBootstrap.createKey("lava_fall");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_LAVA_DELTA = RUConfiguredFeatureBootstrap.createKey("overworld_lava_delta");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ASH_VENT = RUConfiguredFeatureBootstrap.createKey("ash_vent");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BASALT_BLOB = RUConfiguredFeatureBootstrap.createKey("basalt_blob");
     //OTHER_FEATURES
-    public static final ResourceKey<ConfiguredFeature<?, ?>> MOSS_PATCH_WITH_WATER = ConfiguredFeatureRegistry.createKey("moss_patch_with_water");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> MARSH = ConfiguredFeatureRegistry.createKey("marsh");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> WATER_EDGE = ConfiguredFeatureRegistry.createKey("water_edge");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ICICLE_UP = ConfiguredFeatureRegistry.createKey("icicle_up");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SMOULDERING_DIRT = ConfiguredFeatureRegistry.createKey("smouldering_dirt");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> MEADOW_ROCK = ConfiguredFeatureRegistry.createKey("meadow_rock");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ROCK = ConfiguredFeatureRegistry.createKey("rock");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NOISE_PUMPKINS = ConfiguredFeatureRegistry.createKey("patch_noise_pumpkins");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NOISE_ROCKS = ConfiguredFeatureRegistry.createKey("patch_noise_rocks");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NOISE_BUSH = ConfiguredFeatureRegistry.createKey("patch_noise_bush");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MOSS_PATCH_WITH_WATER = RUConfiguredFeatureBootstrap.createKey("moss_patch_with_water");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MARSH = RUConfiguredFeatureBootstrap.createKey("marsh");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WATER_EDGE = RUConfiguredFeatureBootstrap.createKey("water_edge");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ICICLE_UP = RUConfiguredFeatureBootstrap.createKey("icicle_up");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SMOULDERING_DIRT = RUConfiguredFeatureBootstrap.createKey("smouldering_dirt");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MEADOW_ROCK = RUConfiguredFeatureBootstrap.createKey("meadow_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ROCK = RUConfiguredFeatureBootstrap.createKey("rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NOISE_PUMPKINS = RUConfiguredFeatureBootstrap.createKey("patch_noise_pumpkins");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NOISE_ROCKS = RUConfiguredFeatureBootstrap.createKey("patch_noise_rocks");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NOISE_BUSH = RUConfiguredFeatureBootstrap.createKey("patch_noise_bush");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<ConfiguredFeature<?, ?>> holderGetter = context.lookup(Registries.CONFIGURED_FEATURE);

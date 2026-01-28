@@ -1,4 +1,4 @@
-package net.regions_unexplored.data.worldgen.features;
+package net.regions_unexplored.datagen.provider.registry.configured_feature;
 
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;

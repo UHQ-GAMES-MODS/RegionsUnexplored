@@ -1,4 +1,4 @@
-package net.regions_unexplored.data.worldgen.features;
+package net.regions_unexplored.datagen.provider.registry.configured_feature;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.*;
@@ -34,6 +34,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.registry.RUFeatureTypes;
+import net.regions_unexplored.registry.data.RUConfiguredFeatures;
 import net.regions_unexplored.world.features.treedecorators.BlackwoodBioshroom;
 import net.regions_unexplored.world.level.block.plant.flower.GroundCoverBlock;
 import net.regions_unexplored.world.level.block.plant.food.DuskmelonBlock;
@@ -43,7 +44,7 @@ import net.regions_unexplored.world.level.feature.configuration.ShrubConfigurati
 
 import java.util.List;
 
-import static net.regions_unexplored.registry.ConfiguredFeatureRegistry.createKey;
+import static net.regions_unexplored.datagen.provider.registry.RUConfiguredFeatureBootstrap.createKey;
 
 public class RuVegetationFeatures {
     //-----------------------KEYS-----------------------//
@@ -189,8 +190,8 @@ public class RuVegetationFeatures {
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<ConfiguredFeature<?, ?>> featureGetter = context.lookup(Registries.CONFIGURED_FEATURE);
-        Holder<ConfiguredFeature<?, ?>> OAK_TREE = featureGetter.getOrThrow(RuTreeFeatures.OAK);
-        Holder<ConfiguredFeature<?, ?>> BIG_OAK_TREE = featureGetter.getOrThrow(RuTreeFeatures.BIG_OAK);
+        Holder<ConfiguredFeature<?, ?>> OAK_TREE = featureGetter.getOrThrow(RUConfiguredFeatures.TREE_OAK);
+        Holder<ConfiguredFeature<?, ?>> BIG_OAK_TREE = featureGetter.getOrThrow(RUConfiguredFeatures.TREE_BIG_OAK);
         HolderGetter<PlacedFeature> placedGetter = context.lookup(Registries.PLACED_FEATURE);
         //GroundCover Builders
         SimpleWeightedRandomList.Builder<BlockState> mapleLeafPileBuilder = SimpleWeightedRandomList.builder();

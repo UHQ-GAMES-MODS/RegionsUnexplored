@@ -1,4 +1,4 @@
-package net.regions_unexplored.data.worldgen.features;
+package net.regions_unexplored.datagen.provider.registry.configured_feature;
 
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderGetter;
@@ -24,7 +24,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStatePr
 import net.minecraft.world.level.levelgen.placement.EnvironmentScanPlacement;
 import net.minecraft.world.level.levelgen.placement.RandomOffsetPlacement;
 import net.regions_unexplored.registry.RUBlocks;
-import net.regions_unexplored.registry.ConfiguredFeatureRegistry;
+import net.regions_unexplored.datagen.provider.registry.RUConfiguredFeatureBootstrap;
 import net.regions_unexplored.registry.RUFeatureTypes;
 import net.regions_unexplored.registry.data.RUConfiguredFeatures;
 import net.regions_unexplored.world.level.block.plant.flower.GroundCoverBlock;
@@ -33,34 +33,34 @@ import net.regions_unexplored.world.level.feature.configuration.PointedRedstoneC
 import net.regions_unexplored.world.level.feature.configuration.PointedRedstoneConfiguration;
 
 public class RuNetherFeatures {
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_YELLOW_BIOSHROOM = ConfiguredFeatureRegistry.createKey("small_yellow_bioshroom");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_MYCOTOXIC_MUSHROOMS = ConfiguredFeatureRegistry.createKey("patch_mycotoxic_mushrooms");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_MYCOTOXIC_GRASS = ConfiguredFeatureRegistry.createKey("patch_mycotoxic_grass");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_MYCOTOXIC_DAISY = ConfiguredFeatureRegistry.createKey("patch_mycotoxic_daisy");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_YELLOW_BIOSHROOM = RUConfiguredFeatureBootstrap.createKey("small_yellow_bioshroom");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_MYCOTOXIC_MUSHROOMS = RUConfiguredFeatureBootstrap.createKey("patch_mycotoxic_mushrooms");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_MYCOTOXIC_GRASS = RUConfiguredFeatureBootstrap.createKey("patch_mycotoxic_grass");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_MYCOTOXIC_DAISY = RUConfiguredFeatureBootstrap.createKey("patch_mycotoxic_daisy");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_BRIMSPROUT = ConfiguredFeatureRegistry.createKey("patch_brimsprout");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_BRIM_FLAMES = ConfiguredFeatureRegistry.createKey("patch_brim_flames");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> DORCEL = ConfiguredFeatureRegistry.createKey("dorcel");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> BRIMWOOD_SHRUB = ConfiguredFeatureRegistry.createKey("brimwood_shrub");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_BRIMSPROUT = RUConfiguredFeatureBootstrap.createKey("patch_brimsprout");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_BRIM_FLAMES = RUConfiguredFeatureBootstrap.createKey("patch_brim_flames");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DORCEL = RUConfiguredFeatureBootstrap.createKey("dorcel");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BRIMWOOD_SHRUB = RUConfiguredFeatureBootstrap.createKey("brimwood_shrub");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> NETHER_ROCK = ConfiguredFeatureRegistry.createKey("nether_rock");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_GLISTERING_IVY = ConfiguredFeatureRegistry.createKey("patch_glistering_ivy");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_GLISTERING_SPROUT = ConfiguredFeatureRegistry.createKey("patch_glistering_sprout");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_GLISTERING_FERN = ConfiguredFeatureRegistry.createKey("patch_glistering_fern");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_GLISTERING_BLOOM = ConfiguredFeatureRegistry.createKey("patch_glistering_bloom");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_GLISTER_SPIRE = ConfiguredFeatureRegistry.createKey("patch_glister_spire");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_GLISTER_BULB = ConfiguredFeatureRegistry.createKey("patch_glister_bulb");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> NETHER_ROCK = RUConfiguredFeatureBootstrap.createKey("nether_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_GLISTERING_IVY = RUConfiguredFeatureBootstrap.createKey("patch_glistering_ivy");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_GLISTERING_SPROUT = RUConfiguredFeatureBootstrap.createKey("patch_glistering_sprout");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_GLISTERING_FERN = RUConfiguredFeatureBootstrap.createKey("patch_glistering_fern");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_GLISTERING_BLOOM = RUConfiguredFeatureBootstrap.createKey("patch_glistering_bloom");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_GLISTER_SPIRE = RUConfiguredFeatureBootstrap.createKey("patch_glister_spire");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_GLISTER_BULB = RUConfiguredFeatureBootstrap.createKey("patch_glister_bulb");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_HANGING_EARLIGHT = ConfiguredFeatureRegistry.createKey("patch_hanging_earlight");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_COBALT_EARLIGHT = ConfiguredFeatureRegistry.createKey("patch_cobalt_earlight");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_COBALT_EARLIGHT = ConfiguredFeatureRegistry.createKey("tall_cobalt_earlight");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_BLACKSTONE_CLUSTER = ConfiguredFeatureRegistry.createKey("patch_blackstone_cluster");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_COBALT_ROOTS = ConfiguredFeatureRegistry.createKey("patch_cobalt_roots");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> OBSIDIAN_SPIRE = ConfiguredFeatureRegistry.createKey("obsidian_spire");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_HANGING_EARLIGHT = RUConfiguredFeatureBootstrap.createKey("patch_hanging_earlight");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_COBALT_EARLIGHT = RUConfiguredFeatureBootstrap.createKey("patch_cobalt_earlight");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_COBALT_EARLIGHT = RUConfiguredFeatureBootstrap.createKey("tall_cobalt_earlight");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_BLACKSTONE_CLUSTER = RUConfiguredFeatureBootstrap.createKey("patch_blackstone_cluster");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_COBALT_ROOTS = RUConfiguredFeatureBootstrap.createKey("patch_cobalt_roots");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> OBSIDIAN_SPIRE = RUConfiguredFeatureBootstrap.createKey("obsidian_spire");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> POINTED_REDSTONE_NETHER = ConfiguredFeatureRegistry.createKey("pointed_redstone_nether");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_POINTED_REDSTONE_NETHER = ConfiguredFeatureRegistry.createKey("large_pointed_redstone_nether");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> POINTED_REDSTONE_CLUSTER_NETHER = ConfiguredFeatureRegistry.createKey("pointed_redstone_cluster_nether");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> POINTED_REDSTONE_NETHER = RUConfiguredFeatureBootstrap.createKey("pointed_redstone_nether");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_POINTED_REDSTONE_NETHER = RUConfiguredFeatureBootstrap.createKey("large_pointed_redstone_nether");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> POINTED_REDSTONE_CLUSTER_NETHER = RUConfiguredFeatureBootstrap.createKey("pointed_redstone_cluster_nether");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<ConfiguredFeature<?, ?>> holderGetter = context.lookup(Registries.CONFIGURED_FEATURE);

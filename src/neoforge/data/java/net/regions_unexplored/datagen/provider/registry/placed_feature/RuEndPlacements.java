@@ -1,4 +1,4 @@
-package net.regions_unexplored.data.worldgen.placement;
+package net.regions_unexplored.datagen.provider.registry.placed_feature;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;

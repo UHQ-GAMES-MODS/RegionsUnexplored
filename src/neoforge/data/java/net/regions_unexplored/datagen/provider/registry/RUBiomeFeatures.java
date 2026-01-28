@@ -3,7 +3,10 @@ package net.regions_unexplored.datagen.provider.registry;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import net.regions_unexplored.data.worldgen.placement.*;
+import net.regions_unexplored.datagen.provider.registry.placed_feature.RuMiscOverworldPlacements;
+import net.regions_unexplored.datagen.provider.registry.placed_feature.RuNetherPlacements;
+import net.regions_unexplored.datagen.provider.registry.placed_feature.RuTreePlacements;
+import net.regions_unexplored.datagen.provider.registry.placed_feature.RuVegetationPlacements;
 
 public class RUBiomeFeatures {
 

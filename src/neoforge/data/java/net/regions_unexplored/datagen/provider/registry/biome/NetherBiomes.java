@@ -17,8 +17,8 @@ import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.regions_unexplored.registry.RUParticleTypes;
 import net.regions_unexplored.datagen.provider.registry.RUBiomeFeatures;
-import net.regions_unexplored.data.worldgen.placement.RuNetherPlacements;
-import net.regions_unexplored.data.worldgen.placement.RuTreePlacements;
+import net.regions_unexplored.datagen.provider.registry.placed_feature.RuNetherPlacements;
+import net.regions_unexplored.datagen.provider.registry.placed_feature.RuTreePlacements;
 
 public class NetherBiomes {
 

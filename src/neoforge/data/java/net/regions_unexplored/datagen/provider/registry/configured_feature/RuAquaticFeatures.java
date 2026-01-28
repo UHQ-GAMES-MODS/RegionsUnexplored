@@ -1,4 +1,4 @@
-package net.regions_unexplored.data.worldgen.features;
+package net.regions_unexplored.datagen.provider.registry.configured_feature;
 
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
@@ -15,7 +15,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.regions_unexplored.registry.RUBlocks;
-import net.regions_unexplored.registry.ConfiguredFeatureRegistry;
+import net.regions_unexplored.datagen.provider.registry.RUConfiguredFeatureBootstrap;
 import net.regions_unexplored.registry.RUFeatureTypes;
 import net.regions_unexplored.world.level.feature.configuration.HyacinthStockConfiguration;
 import net.regions_unexplored.world.level.feature.configuration.RuTreeConfiguration;
@@ -24,21 +24,21 @@ import net.regions_unexplored.world.level.feature.configuration.SeaRockConfigura
 import java.util.function.Supplier;
 
 public class RuAquaticFeatures {
-    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> FEN_CATTAIL = () -> ConfiguredFeatureRegistry.createKey("fen_cattail");
-    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> WATER_CATTAIL = () -> ConfiguredFeatureRegistry.createKey("water_cattail");
+    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> FEN_CATTAIL = () -> RUConfiguredFeatureBootstrap.createKey("fen_cattail");
+    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> WATER_CATTAIL = () -> RUConfiguredFeatureBootstrap.createKey("water_cattail");
 
-    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> TALL_HYACINTH_STOCK = () -> ConfiguredFeatureRegistry.createKey("tall_hyacinth_stock");
-    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> HYACINTH_PLANTS = () -> ConfiguredFeatureRegistry.createKey("hyacinth_plants");
-    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> HYACINTH_FLOWERS = () -> ConfiguredFeatureRegistry.createKey("hyacinth_flowers");
-    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> HYACINTH_ROCKS = () -> ConfiguredFeatureRegistry.createKey("hyacinth_rocks");
+    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> TALL_HYACINTH_STOCK = () -> RUConfiguredFeatureBootstrap.createKey("tall_hyacinth_stock");
+    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> HYACINTH_PLANTS = () -> RUConfiguredFeatureBootstrap.createKey("hyacinth_plants");
+    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> HYACINTH_FLOWERS = () -> RUConfiguredFeatureBootstrap.createKey("hyacinth_flowers");
+    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> HYACINTH_ROCKS = () -> RUConfiguredFeatureBootstrap.createKey("hyacinth_rocks");
 
-    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> MOSSY_SEA_ROCKS = () -> ConfiguredFeatureRegistry.createKey("mossy_sea_rocks");
-    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> BLUE_MAGNOLIA_FLOWERS_AQUATIC = () -> ConfiguredFeatureRegistry.createKey("red_magnolia_flowers_aquatic");
-    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> PINK_MAGNOLIA_FLOWERS_AQUATIC = () -> ConfiguredFeatureRegistry.createKey("pink_magnolia_flowers_aquatic");
-    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> WHITE_MAGNOLIA_FLOWERS_AQUATIC = () -> ConfiguredFeatureRegistry.createKey("white_magnolia_flowers_aquatic");
-    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> JUNGLE_AQUATIC = () -> ConfiguredFeatureRegistry.createKey("jungle_tree_aquatic");
-    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> PALM_AQUATIC = () -> ConfiguredFeatureRegistry.createKey("palm_tree_aquatic");
-    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> ELEPHANT_EAR_AQUATIC = () -> ConfiguredFeatureRegistry.createKey("elephant_ear_aquatic");
+    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> MOSSY_SEA_ROCKS = () -> RUConfiguredFeatureBootstrap.createKey("mossy_sea_rocks");
+    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> BLUE_MAGNOLIA_FLOWERS_AQUATIC = () -> RUConfiguredFeatureBootstrap.createKey("red_magnolia_flowers_aquatic");
+    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> PINK_MAGNOLIA_FLOWERS_AQUATIC = () -> RUConfiguredFeatureBootstrap.createKey("pink_magnolia_flowers_aquatic");
+    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> WHITE_MAGNOLIA_FLOWERS_AQUATIC = () -> RUConfiguredFeatureBootstrap.createKey("white_magnolia_flowers_aquatic");
+    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> JUNGLE_AQUATIC = () -> RUConfiguredFeatureBootstrap.createKey("jungle_tree_aquatic");
+    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> PALM_AQUATIC = () -> RUConfiguredFeatureBootstrap.createKey("palm_tree_aquatic");
+    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> ELEPHANT_EAR_AQUATIC = () -> RUConfiguredFeatureBootstrap.createKey("elephant_ear_aquatic");
     
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<ConfiguredFeature<?, ?>> holderGetter = context.lookup(Registries.CONFIGURED_FEATURE);
