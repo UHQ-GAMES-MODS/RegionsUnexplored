@@ -51,7 +51,7 @@ public class NetherBiomes {
 
         //add RU features
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, RuNetherPlacements.OBSIDIAN_SPIRE);
-        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, RuTreePlacements.COBALT_TREE);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, RuTreePlacements.COBALT);
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, RuNetherPlacements.COBALT_ROOTS);
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, RuNetherPlacements.COBALT_EARLIGHT);
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, RuNetherPlacements.TALL_COBALT_EARLIGHT);
@@ -103,8 +103,8 @@ public class NetherBiomes {
         BiomeDefaultFeatures.addNetherDefaultOres(biomeBuilder);
 
         //add RU features
-        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, RuTreePlacements.BRIM_WILLOW_TREE);
-        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, RuTreePlacements.TALL_BRIM_WILLOW_TREE);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, RuTreePlacements.BRIM_WILLOW);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, RuTreePlacements.TALL_BRIM_WILLOW);
 
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, RuNetherPlacements.BRIMSPROUT);
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, RuNetherPlacements.DORCEL);

@@ -4,49 +4,49 @@
     "features": [
       {
         "data": {
-          "feature": "regions_unexplored:big_maple_tree",
+          "feature": "regions_unexplored:tree/big_maple",
           "placement": []
         },
         "weight": 3
       },
       {
         "data": {
-          "feature": "regions_unexplored:big_red_maple_tree",
+          "feature": "regions_unexplored:tree/big_red_maple",
           "placement": []
         },
         "weight": 3
       },
       {
         "data": {
-          "feature": "regions_unexplored:big_orange_maple_tree",
+          "feature": "regions_unexplored:tree/big_orange_maple",
           "placement": []
         },
         "weight": 3
       },
       {
         "data": {
-          "feature": "regions_unexplored:maple_tree",
+          "feature": "regions_unexplored:tree/maple",
           "placement": []
         },
         "weight": 2
       },
       {
         "data": {
-          "feature": "regions_unexplored:red_maple_tree",
+          "feature": "regions_unexplored:tree/red_maple",
           "placement": []
         },
         "weight": 2
       },
       {
         "data": {
-          "feature": "regions_unexplored:orange_maple_tree",
+          "feature": "regions_unexplored:tree/orange_maple",
           "placement": []
         },
         "weight": 2
       },
       {
         "data": {
-          "feature": "regions_unexplored:silver_birch_tree",
+          "feature": "regions_unexplored:tree/silver_birch",
           "placement": []
         },
         "weight": 2

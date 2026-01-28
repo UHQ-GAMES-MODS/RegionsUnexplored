@@ -36,8 +36,8 @@ public class RuAquaticFeatures {
     public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> BLUE_MAGNOLIA_FLOWERS_AQUATIC = () -> ConfiguredFeatureRegistry.createKey("red_magnolia_flowers_aquatic");
     public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> PINK_MAGNOLIA_FLOWERS_AQUATIC = () -> ConfiguredFeatureRegistry.createKey("pink_magnolia_flowers_aquatic");
     public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> WHITE_MAGNOLIA_FLOWERS_AQUATIC = () -> ConfiguredFeatureRegistry.createKey("white_magnolia_flowers_aquatic");
-    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> JUNGLE_TREE_AQUATIC = () -> ConfiguredFeatureRegistry.createKey("jungle_tree_aquatic");
-    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> PALM_TREE_AQUATIC = () -> ConfiguredFeatureRegistry.createKey("palm_tree_aquatic");
+    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> JUNGLE_AQUATIC = () -> ConfiguredFeatureRegistry.createKey("jungle_tree_aquatic");
+    public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> PALM_AQUATIC = () -> ConfiguredFeatureRegistry.createKey("palm_tree_aquatic");
     public static final Supplier<ResourceKey<ConfiguredFeature<?, ?>>> ELEPHANT_EAR_AQUATIC = () -> ConfiguredFeatureRegistry.createKey("elephant_ear_aquatic");
     
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
@@ -54,9 +54,9 @@ public class RuAquaticFeatures {
         register(context, BLUE_MAGNOLIA_FLOWERS_AQUATIC.get(), RUFeatureTypes.AIR_MULTIFACE_GROWTH.get(), new MultifaceGrowthConfiguration((MultifaceBlock) RUBlocks.BLUE_MAGNOLIA_FLOWERS.get(), 20, true, true, true, 1.0F, HolderSet.direct(Block::builtInRegistryHolder, Blocks.STONE, RUBlocks.STONE_GRASS_BLOCK.get())));
         register(context, PINK_MAGNOLIA_FLOWERS_AQUATIC.get(), RUFeatureTypes.AIR_MULTIFACE_GROWTH.get(), new MultifaceGrowthConfiguration((MultifaceBlock) RUBlocks.PINK_MAGNOLIA_FLOWERS.get(), 20, true, true, true, 1.0F, HolderSet.direct(Block::builtInRegistryHolder, Blocks.STONE, RUBlocks.STONE_GRASS_BLOCK.get())));
         register(context, WHITE_MAGNOLIA_FLOWERS_AQUATIC.get(), RUFeatureTypes.AIR_MULTIFACE_GROWTH.get(), new MultifaceGrowthConfiguration((MultifaceBlock) RUBlocks.WHITE_MAGNOLIA_FLOWERS.get(), 20, true, true, true, 1.0F, HolderSet.direct(Block::builtInRegistryHolder, Blocks.STONE, RUBlocks.STONE_GRASS_BLOCK.get())));
-        register(context, JUNGLE_TREE_AQUATIC.get(), RUFeatureTypes.SAKURA_TREE.get(), new RuTreeConfiguration(BlockStateProvider.simple(Blocks.JUNGLE_LOG.defaultBlockState()), BlockStateProvider.simple(Blocks.JUNGLE_LEAVES.defaultBlockState()), BlockStateProvider.simple(RUBlocks.JUNGLE_NATURAL_SET.getBranch().defaultBlockState()), 1, 4));
+        register(context, JUNGLE_AQUATIC.get(), RUFeatureTypes.SAKURA_TREE.get(), new RuTreeConfiguration(BlockStateProvider.simple(Blocks.JUNGLE_LOG.defaultBlockState()), BlockStateProvider.simple(Blocks.JUNGLE_LEAVES.defaultBlockState()), BlockStateProvider.simple(RUBlocks.JUNGLE_NATURAL_SET.getBranch().defaultBlockState()), 1, 4));
 
-        register(context, PALM_TREE_AQUATIC.get(), RUFeatureTypes.PALM_TREE.get(), new RuTreeConfiguration(BlockStateProvider.simple(RUBlocks.PALM_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RUBlocks.PALM_NATURAL_SET.getLeaves().defaultBlockState()), BlockStateProvider.simple(RUBlocks.PALM_NATURAL_SET.getBranch().defaultBlockState()), 8, 4));
+        register(context, PALM_AQUATIC.get(), RUFeatureTypes.PALM_TREE.get(), new RuTreeConfiguration(BlockStateProvider.simple(RUBlocks.PALM_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RUBlocks.PALM_NATURAL_SET.getLeaves().defaultBlockState()), BlockStateProvider.simple(RUBlocks.PALM_NATURAL_SET.getBranch().defaultBlockState()), 8, 4));
         register(context, ELEPHANT_EAR_AQUATIC.get(), Feature.RANDOM_PATCH, grassPatch(BlockStateProvider.simple(RUBlocks.ELEPHANT_EAR.get().defaultBlockState()), 32));
     }
 

@@ -185,12 +185,12 @@ public class RuVegetationFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_CYPRESS_SHRUB_MIX = createKey("willow_cypress_shrub_mix");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WILLOW_MAGNOLIA_SHRUB_MIX = createKey("willow_magnolia_shrub_mix");
     //trees
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PRAIRIE_TREE_MIX = createKey("prairie_tree_mix");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PRAIRIE_MIX = createKey("prairie_tree_mix");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<ConfiguredFeature<?, ?>> featureGetter = context.lookup(Registries.CONFIGURED_FEATURE);
-        Holder<ConfiguredFeature<?, ?>> OAK_TREE = featureGetter.getOrThrow(RuTreeFeatures.OAK_TREE);
-        Holder<ConfiguredFeature<?, ?>> BIG_OAK_TREE = featureGetter.getOrThrow(RuTreeFeatures.BIG_OAK_TREE);
+        Holder<ConfiguredFeature<?, ?>> OAK_TREE = featureGetter.getOrThrow(RuTreeFeatures.OAK);
+        Holder<ConfiguredFeature<?, ?>> BIG_OAK_TREE = featureGetter.getOrThrow(RuTreeFeatures.BIG_OAK);
         HolderGetter<PlacedFeature> placedGetter = context.lookup(Registries.PLACED_FEATURE);
         //GroundCover Builders
         SimpleWeightedRandomList.Builder<BlockState> mapleLeafPileBuilder = SimpleWeightedRandomList.builder();
@@ -370,7 +370,7 @@ public class RuVegetationFeatures {
         register(context, WILLOW_CYPRESS_SHRUB_MIX, RUFeatureTypes.SHRUB.get(), new ShrubConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(RUBlocks.WILLOW_NATURAL_SET.getShrub().defaultBlockState(), 2).add(RUBlocks.CYPRESS_NATURAL_SET.getShrub().defaultBlockState(), 1))));
         register(context, WILLOW_MAGNOLIA_SHRUB_MIX, RUFeatureTypes.SHRUB.get(), new ShrubConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(RUBlocks.WILLOW_NATURAL_SET.getShrub().defaultBlockState(), 2).add(RUBlocks.BLUE_MAGNOLIA_NATURAL_SET.getShrub().defaultBlockState(), 1))));
 
-        register(context, PRAIRIE_TREE_MIX, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(PlacementUtils.inlinePlaced(BIG_OAK_TREE), 0.33333334F)), PlacementUtils.inlinePlaced(OAK_TREE)));
+        register(context, PRAIRIE_MIX, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(PlacementUtils.inlinePlaced(BIG_OAK_TREE), 0.33333334F)), PlacementUtils.inlinePlaced(OAK_TREE)));
 
     }
 

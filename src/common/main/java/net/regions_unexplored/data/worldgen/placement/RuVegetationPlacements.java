@@ -318,7 +318,7 @@ public class RuVegetationPlacements {
         final Holder<ConfiguredFeature<?, ?>> WILLOW_CYPRESS_SHRUB_MIX = featureGetter.getOrThrow(RuVegetationFeatures.WILLOW_CYPRESS_SHRUB_MIX);
         final Holder<ConfiguredFeature<?, ?>> WILLOW_MAGNOLIA_SHRUB_MIX = featureGetter.getOrThrow(RuVegetationFeatures.WILLOW_MAGNOLIA_SHRUB_MIX);
 
-        final Holder<ConfiguredFeature<?, ?>> PRAIRIE_TREE_MIX = featureGetter.getOrThrow(RuVegetationFeatures.PRAIRIE_TREE_MIX);
+        final Holder<ConfiguredFeature<?, ?>> PRAIRIE_MIX = featureGetter.getOrThrow(RuVegetationFeatures.PRAIRIE_MIX);
 
         //--------------------PLACEMENTS--------------------//
         register(context, RuVegetationPlacements.PINK_FLOWERS, PINK_FLOWERS, RarityFilter.onAverageOnceEvery(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
@@ -478,7 +478,7 @@ public class RuVegetationPlacements {
         register(context, RuVegetationPlacements.WILLOW_CYPRESS_SHRUB_MIX, WILLOW_CYPRESS_SHRUB_MIX, CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome());
         register(context, RuVegetationPlacements.WILLOW_MAGNOLIA_SHRUB_MIX, WILLOW_MAGNOLIA_SHRUB_MIX, CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome());
 
-        register(context, RuVegetationPlacements.PRAIRIE_TREES, PRAIRIE_TREE_MIX, NoiseBasedCountPlacement.of(60, 30.0D, -0.5D), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(PlacedFeatureRegistry.onGrassBlockPredicate), BiomeFilter.biome());
+        register(context, RuVegetationPlacements.PRAIRIE_TREES, PRAIRIE_MIX, NoiseBasedCountPlacement.of(60, 30.0D, -0.5D), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(PlacedFeatureRegistry.onGrassBlockPredicate), BiomeFilter.biome());
         //BONE MEALS
         register(context, RuVegetationPlacements.BLADED_GRASS_BONEMEAL, BLADED_GRASS_BONEMEAL, PlacementUtils.isEmpty());
     }

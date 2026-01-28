@@ -29,8 +29,8 @@ public class RuAquaticPlacements {
     public static final ResourceKey<PlacedFeature> BLUE_MAGNOLIA_FLOWERS_AQUATIC = PlacedFeatureRegistry.createKey("red_magnolia_flowers_aquatic");
     public static final ResourceKey<PlacedFeature> PINK_MAGNOLIA_FLOWERS_AQUATIC = PlacedFeatureRegistry.createKey("pink_magnolia_flowers_aquatic");
     public static final ResourceKey<PlacedFeature> WHITE_MAGNOLIA_FLOWERS_AQUATIC = PlacedFeatureRegistry.createKey("white_magnolia_flowers_aquatic");
-    public static final ResourceKey<PlacedFeature> JUNGLE_TREE_AQUATIC = PlacedFeatureRegistry.createKey("jungle_tree_aquatic");
-    public static final ResourceKey<PlacedFeature> PALM_TREE_AQUATIC = PlacedFeatureRegistry.createKey("palm_tree_aquatic");
+    public static final ResourceKey<PlacedFeature> JUNGLE_AQUATIC = PlacedFeatureRegistry.createKey("jungle_tree_aquatic");
+    public static final ResourceKey<PlacedFeature> PALM_AQUATIC = PlacedFeatureRegistry.createKey("palm_tree_aquatic");
     public static final ResourceKey<PlacedFeature> ELEPHANT_EAR_AQUATIC = PlacedFeatureRegistry.createKey("elephant_ear_aquatic");
     public static final ResourceKey<PlacedFeature> PALM_SAPLING_AQUATIC = PlacedFeatureRegistry.createKey("palm_sapling_aquatic");
 
@@ -49,8 +49,8 @@ public class RuAquaticPlacements {
         final Holder<ConfiguredFeature<?, ?>> BLUE_MAGNOLIA_FLOWERS_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.BLUE_MAGNOLIA_FLOWERS_AQUATIC.get());
         final Holder<ConfiguredFeature<?, ?>> PINK_MAGNOLIA_FLOWERS_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.PINK_MAGNOLIA_FLOWERS_AQUATIC.get());
         final Holder<ConfiguredFeature<?, ?>> WHITE_MAGNOLIA_FLOWERS_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.WHITE_MAGNOLIA_FLOWERS_AQUATIC.get());
-        final Holder<ConfiguredFeature<?, ?>> JUNGLE_TREE_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.JUNGLE_TREE_AQUATIC.get());
-        final Holder<ConfiguredFeature<?, ?>> PALM_TREE_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.PALM_TREE_AQUATIC.get());
+        final Holder<ConfiguredFeature<?, ?>> JUNGLE_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.JUNGLE_AQUATIC.get());
+        final Holder<ConfiguredFeature<?, ?>> PALM_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.PALM_AQUATIC.get());
         final Holder<ConfiguredFeature<?, ?>> ELEPHANT_EAR_AQUATIC = featureGetter.getOrThrow(RuAquaticFeatures.ELEPHANT_EAR_AQUATIC.get());
         final Holder<ConfiguredFeature<?, ?>> PALM_SAPLING_AQUATIC = featureGetter.getOrThrow(RuVegetationFeatures.PALM_SHRUB);
 
@@ -67,8 +67,8 @@ public class RuAquaticPlacements {
         register(context, RuAquaticPlacements.BLUE_MAGNOLIA_FLOWERS_AQUATIC, BLUE_MAGNOLIA_FLOWERS_AQUATIC, CountPlacement.of(35), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BiomeFilter.biome());
         register(context, RuAquaticPlacements.PINK_MAGNOLIA_FLOWERS_AQUATIC, PINK_MAGNOLIA_FLOWERS_AQUATIC, CountPlacement.of(35), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BiomeFilter.biome());
         register(context, RuAquaticPlacements.WHITE_MAGNOLIA_FLOWERS_AQUATIC, WHITE_MAGNOLIA_FLOWERS_AQUATIC, CountPlacement.of(35), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BiomeFilter.biome());
-        register(context, RuAquaticPlacements.JUNGLE_TREE_AQUATIC, JUNGLE_TREE_AQUATIC, List.of(CountPlacement.of(24), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
-        register(context, RuAquaticPlacements.PALM_TREE_AQUATIC, PALM_TREE_AQUATIC, List.of(CountPlacement.of(15), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
+        register(context, RuAquaticPlacements.JUNGLE_AQUATIC, JUNGLE_AQUATIC, List.of(CountPlacement.of(24), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
+        register(context, RuAquaticPlacements.PALM_AQUATIC, PALM_AQUATIC, List.of(CountPlacement.of(15), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuAquaticPlacements.PALM_SAPLING_AQUATIC, PALM_SAPLING_AQUATIC, List.of(CountPlacement.of(5), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuAquaticPlacements.ELEPHANT_EAR_AQUATIC, ELEPHANT_EAR_AQUATIC, List.of(CountPlacement.of(8), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
 

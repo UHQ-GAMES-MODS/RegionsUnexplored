@@ -87,9 +87,9 @@
       "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane",
       "minecraft:patch_pumpkin",
-      "regions_unexplored:scotts_pine_tree_mountain",
-      "regions_unexplored:dead_scotts_pine_tree_mountain",
-      "regions_unexplored:fallen_pine_tree",
+      "regions_unexplored:tree/scotts_pine_mountain",
+      "regions_unexplored:tree/dead_scotts_pine_mountain",
+      "regions_unexplored:fallen_pine",
       "regions_unexplored:hyssop",
       "regions_unexplored:ferns",
       "regions_unexplored:pine_dead_shrub_mix"

@@ -241,7 +241,7 @@ public class RuAdvancementProvider extends AdvancementProvider {
                     .save(saver, getAdvancementName(RegionsUnexplored.MOD_ID, "every_bit_of_the_rainbow"));
 
 
-            AdvancementHolder FROM_THE_TREE_TOPS = Advancement.Builder.advancement()
+            AdvancementHolder FROM_THE_TOPS = Advancement.Builder.advancement()
                     .parent(PIONEER)
                     .display(
                             RUBlocks.KAPOK_VINES.get(),
@@ -357,7 +357,7 @@ public class RuAdvancementProvider extends AdvancementProvider {
                     .addCriterion("duskmelon", ConsumeItemTrigger.TriggerInstance.usedItem(RUItems.DUSKMELON_SLICE.get()))
                     .save(saver, getAdvancementName(RegionsUnexplored.MOD_ID, "blind_as_a_bat"));
 
-            AdvancementHolder THIS_TREE_BLEEDS_RED = Advancement.Builder.advancement()
+            AdvancementHolder THIS_BLEEDS_RED = Advancement.Builder.advancement()
                     .parent(PARENT)
                     .display(
                             RUBlocks.SOCOTRA_WOOD_SET.getLog(),
@@ -373,7 +373,7 @@ public class RuAdvancementProvider extends AdvancementProvider {
                     .save(saver, getAdvancementName(RegionsUnexplored.MOD_ID, "this_tree_bleeds_red"));
 
             AdvancementHolder GOT_WOOD = Advancement.Builder.advancement()
-                    .parent(THIS_TREE_BLEEDS_RED)
+                    .parent(THIS_BLEEDS_RED)
                     .display(
                             RUBlocks.REDWOOD_WOOD_SET.getLog(),
                             Component.translatable("advancements.regions_unexplored.got_wood.title"),
