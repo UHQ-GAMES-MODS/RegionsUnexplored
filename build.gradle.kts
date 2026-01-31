@@ -67,6 +67,9 @@ cloche {
                 dependency {
                     modId = "biolith"
                 }
+                dependency {
+                    modId = "lithostitched"
+                }
             }
         }
     }
@@ -74,13 +77,13 @@ cloche {
     fabric {
         mixins.from(file("src/fabric/main/regions_unexplored.fabric.mixins.json"))
 
-        loaderVersion = "0.18.3"
+        loaderVersion = "0.18.4"
         minecraftVersion = "1.21.1"
 
         dependencies {
-            fabricApi("0.116.7")
+            fabricApi("0.116.8")
             modApi("com.terraformersmc:biolith-fabric:3.0.10")
-            modImplementation("maven.modrinth:world-preview:qc0AtV3T")
+            modRuntimeOnly("maven.modrinth:world-preview:qc0AtV3T")
             modImplementation("maven.modrinth:lithostitched:1.5.7-fabric-1.21.1")
 
             modImplementation("com.terraformersmc:modmenu:11.0.3")
