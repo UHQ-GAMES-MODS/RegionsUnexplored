@@ -74,8 +74,13 @@ cloche {
         }
     }
 
-    fabric {
-        mixins.from(file("src/fabric/main/regions_unexplored.fabric.mixins.json"))
+    val shared21 = common("shared:21.1") {
+        //mixins.from(file("src/shared/21.1/main/regions_unexplored.21.1.mixins.json"))
+    }
+
+    fabric("fabric:21.1") {
+        dependsOn(shared21)
+        mixins.from(file("src/fabric/21.1/main/regions_unexplored.fabric.mixins.json"))
 
         loaderVersion = "0.18.4"
         minecraftVersion = "1.21.1"
@@ -90,7 +95,7 @@ cloche {
         }
 
         data()
-        datagenDirectory = file("src/common/main/generated")
+        datagenDirectory = file("src/shared/21.1/main/generated")
 
         includedClient()
         runs {
@@ -112,8 +117,10 @@ cloche {
         }
     }
 
-    neoforge {
-        mixins.from(file("src/neoforge/main/regions_unexplored.neoforge.mixins.json"))
+    neoforge("neoforge:21.1") {
+        dependsOn(shared21)
+
+        mixins.from(file("src/neoforge/21.1/main/regions_unexplored.neoforge.mixins.json"))
         loaderVersion = "21.1.218"
         minecraftVersion = "1.21.1"
 
@@ -123,7 +130,7 @@ cloche {
         }
 
         data()
-        datagenDirectory = file("src/common/main/generated")
+        datagenDirectory = file("src/shared/21.1/main/generated")
 
         runs {
             client()
