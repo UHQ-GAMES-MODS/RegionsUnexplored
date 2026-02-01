@@ -13,7 +13,7 @@ public class RuNetherSaplingBlock extends SaplingBlock implements BonemealableBl
 
     public RuNetherSaplingBlock(TreeGrower treeGrower, Properties properties) {
         super(treeGrower, properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(STAGE, Integer.valueOf(0)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(STAGE, 0));
     }
 
     @Override

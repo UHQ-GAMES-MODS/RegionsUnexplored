@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.NetherVines;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 public class KapokVinesBlock extends GrowingPlantHeadBlock {
     public static final MapCodec<? extends KapokVinesBlock> CODEC = simpleCodec(KapokVinesBlock::new);
@@ -31,7 +31,7 @@ public class KapokVinesBlock extends GrowingPlantHeadBlock {
     }
 
     protected Block getBodyBlock() {
-        return RuBlocks.KAPOK_VINES_PLANT.get();
+        return RUBlocks.KAPOK_VINES_PLANT.get();
     }
 
     @Override

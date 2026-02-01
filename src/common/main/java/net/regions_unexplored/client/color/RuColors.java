@@ -6,7 +6,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.config.RuClientConfig;
 import net.regions_unexplored.platform.TintHelper;
 import org.jetbrains.annotations.NotNull;
@@ -16,117 +16,117 @@ import java.awt.*;
 public class RuColors {
     public static void tintBlocks() {
         TintHelper.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? BiomeColors.getAverageGrassColor(blockAndTintGetter, blockPos) : GrassColor.get(0.5D, 1.0D),
-                RuBlocks.PEAT_GRASS_BLOCK.get(),
-                RuBlocks.SILT_GRASS_BLOCK.get(),
-                RuBlocks.STONE_GRASS_BLOCK.get(),
-                RuBlocks.ARGILLITE_GRASS_BLOCK.get(),
-                RuBlocks.DEEPSLATE_GRASS_BLOCK.get(),
-                RuBlocks.CHALK_GRASS_BLOCK.get(),
-                RuBlocks.MEDIUM_GRASS.get(),
-                RuBlocks.STEPPE_GRASS.get(),
-                RuBlocks.STONE_BUD.get(),
-                RuBlocks.ORANGE_CONEFLOWER.get(),
-                RuBlocks.PURPLE_CONEFLOWER.get(),
-                RuBlocks.POTTED_ORANGE_CONEFLOWER.get(),
-                RuBlocks.POTTED_PURPLE_CONEFLOWER.get(),
-                RuBlocks.TASSEL.get(),
-                RuBlocks.CLOVER.get(),
-                RuBlocks.BLADED_GRASS.get(),
-                RuBlocks.BLADED_TALL_GRASS.get()
+                RUBlocks.PEAT_GRASS_BLOCK.get(),
+                RUBlocks.SILT_GRASS_BLOCK.get(),
+                RUBlocks.STONE_GRASS_BLOCK.get(),
+                RUBlocks.ARGILLITE_GRASS_BLOCK.get(),
+                RUBlocks.DEEPSLATE_GRASS_BLOCK.get(),
+                RUBlocks.CHALK_GRASS_BLOCK.get(),
+                RUBlocks.MEDIUM_GRASS.get(),
+                RUBlocks.STEPPE_GRASS.get(),
+                RUBlocks.STONE_BUD.get(),
+                RUBlocks.ORANGE_CONEFLOWER.get(),
+                RUBlocks.PURPLE_CONEFLOWER.get(),
+                RUBlocks.POTTED_ORANGE_CONEFLOWER.get(),
+                RUBlocks.POTTED_PURPLE_CONEFLOWER.get(),
+                RUBlocks.TASSEL.get(),
+                RUBlocks.CLOVER.get(),
+                RUBlocks.BLADED_GRASS.get(),
+                RUBlocks.BLADED_TALL_GRASS.get()
         );
         TintHelper.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? BiomeColors.getAverageFoliageColor(blockAndTintGetter, blockPos) : FoliageColor.get(0.5D, 1.0D),
-                RuBlocks.STEPPE_SHRUB.get(),
-                RuBlocks.STEPPE_TALL_GRASS.get(),
-                RuBlocks.ELEPHANT_EAR.get(),
-                RuBlocks.BAOBAB_NATURAL_SET.getLeaves(),
-                RuBlocks.MAGNOLIA_NATURAL_SET.getLeaves(),
-                RuBlocks.APPLE_OAK_NATURAL_SET.getLeaves(),
-                RuBlocks.FLOWERING_NATURAL_SET.getLeaves(),
-                RuBlocks.CYPRESS_NATURAL_SET.getLeaves(),
-                RuBlocks.EUCALYPTUS_NATURAL_SET.getLeaves(),
-                RuBlocks.PALM_NATURAL_SET.getLeaves(),
-                RuBlocks.JOSHUA_NATURAL_SET.getLeaves(),
-                RuBlocks.PINE_NATURAL_SET.getLeaves(),
-                RuBlocks.REDWOOD_NATURAL_SET.getLeaves(),
-                RuBlocks.WILLOW_NATURAL_SET.getLeaves(),
-                RuBlocks.MAPLE_NATURAL_SET.getLeaves(),
-                RuBlocks.MAPLE_LEAF_PILE.get(),
-                RuBlocks.WINDSWEPT_GRASS.get(),
-                RuBlocks.SOCOTRA_NATURAL_SET.getLeaves(),
-                RuBlocks.KAPOK_NATURAL_SET.getLeaves(),
-                RuBlocks.KAPOK_VINES.get(),
-                RuBlocks.KAPOK_VINES_PLANT.get(),
-                RuBlocks.SMALL_OAK_NATURAL_SET.getLeaves()
+                RUBlocks.STEPPE_SHRUB.get(),
+                RUBlocks.STEPPE_TALL_GRASS.get(),
+                RUBlocks.ELEPHANT_EAR.get(),
+                RUBlocks.BAOBAB_NATURAL_SET.getLeaves(),
+                RUBlocks.MAGNOLIA_NATURAL_SET.getLeaves(),
+                RUBlocks.APPLE_OAK_NATURAL_SET.getLeaves(),
+                RUBlocks.FLOWERING_NATURAL_SET.getLeaves(),
+                RUBlocks.CYPRESS_NATURAL_SET.getLeaves(),
+                RUBlocks.EUCALYPTUS_NATURAL_SET.getLeaves(),
+                RUBlocks.PALM_NATURAL_SET.getLeaves(),
+                RUBlocks.JOSHUA_NATURAL_SET.getLeaves(),
+                RUBlocks.PINE_NATURAL_SET.getLeaves(),
+                RUBlocks.REDWOOD_NATURAL_SET.getLeaves(),
+                RUBlocks.WILLOW_NATURAL_SET.getLeaves(),
+                RUBlocks.MAPLE_NATURAL_SET.getLeaves(),
+                RUBlocks.MAPLE_LEAF_PILE.get(),
+                RUBlocks.WINDSWEPT_GRASS.get(),
+                RUBlocks.SOCOTRA_NATURAL_SET.getLeaves(),
+                RUBlocks.KAPOK_NATURAL_SET.getLeaves(),
+                RUBlocks.KAPOK_VINES.get(),
+                RUBlocks.KAPOK_VINES_PLANT.get(),
+                RUBlocks.SMALL_OAK_NATURAL_SET.getLeaves()
         );
         TintHelper.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getRainbowColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
-                RuBlocks.HANGING_PRISMARITE.get(),
-                RuBlocks.PRISMARITE_CLUSTER.get(),
-                RuBlocks.LARGE_PRISMARITE_CLUSTER.get(),
-                RuBlocks.PRISMOSS.get(),
-                RuBlocks.DEEPSLATE_PRISMOSS.get(),
-                RuBlocks.PRISMOSS_SPROUT.get()
+                RUBlocks.HANGING_PRISMARITE.get(),
+                RUBlocks.PRISMARITE_CLUSTER.get(),
+                RUBlocks.LARGE_PRISMARITE_CLUSTER.get(),
+                RUBlocks.PRISMOSS.get(),
+                RUBlocks.DEEPSLATE_PRISMOSS.get(),
+                RUBlocks.PRISMOSS_SPROUT.get()
         );
 
         TintHelper.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getRainbowGlassColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
-                RuBlocks.PRISMAGLASS.get()
+                RUBlocks.PRISMAGLASS.get()
         );
 
         TintHelper.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getRainbowEucalyptusColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
-                RuBlocks.EUCALYPTUS_WOOD_SET.getLog(),
-                RuBlocks.EUCALYPTUS_WOOD_SET.getWood()
+                RUBlocks.EUCALYPTUS_WOOD_SET.getLog(),
+                RUBlocks.EUCALYPTUS_WOOD_SET.getWood()
         );
 
         TintHelper.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getAspenColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
-                RuBlocks.SILVER_BIRCH_NATURAL_SET.getLeaves(),
-                RuBlocks.SILVER_BIRCH_LEAF_PILE.get()
+                RUBlocks.SILVER_BIRCH_NATURAL_SET.getLeaves(),
+                RUBlocks.SILVER_BIRCH_LEAF_PILE.get()
         );
 
         TintHelper.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getEnchantedAspenColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
-                RuBlocks.ENCHANTED_BIRCH_NATURAL_SET.getLeaves(),
-                RuBlocks.ENCHANTED_BIRCH_LEAF_PILE.get()
+                RUBlocks.ENCHANTED_BIRCH_NATURAL_SET.getLeaves(),
+                RUBlocks.ENCHANTED_BIRCH_LEAF_PILE.get()
         );
     }
 
 
     public static void tintItems() {
         TintHelper.tintItems((itemStack, i) -> GrassColor.get(0.5D, 1.0D),
-                RuBlocks.PEAT_GRASS_BLOCK.get(),
-                RuBlocks.SILT_GRASS_BLOCK.get(),
-                RuBlocks.STONE_GRASS_BLOCK.get(),
-                RuBlocks.ARGILLITE_GRASS_BLOCK.get(),
-                RuBlocks.DEEPSLATE_GRASS_BLOCK.get(),
-                RuBlocks.CHALK_GRASS_BLOCK.get(),
-                RuBlocks.MEDIUM_GRASS.get(),
-                RuBlocks.STEPPE_GRASS.get(),
-                RuBlocks.STONE_BUD.get(),
-                RuBlocks.BLADED_GRASS.get(),
-                RuBlocks.CLOVER.get(),
-                RuBlocks.BLADED_TALL_GRASS.get()
+                RUBlocks.PEAT_GRASS_BLOCK.get(),
+                RUBlocks.SILT_GRASS_BLOCK.get(),
+                RUBlocks.STONE_GRASS_BLOCK.get(),
+                RUBlocks.ARGILLITE_GRASS_BLOCK.get(),
+                RUBlocks.DEEPSLATE_GRASS_BLOCK.get(),
+                RUBlocks.CHALK_GRASS_BLOCK.get(),
+                RUBlocks.MEDIUM_GRASS.get(),
+                RUBlocks.STEPPE_GRASS.get(),
+                RUBlocks.STONE_BUD.get(),
+                RUBlocks.BLADED_GRASS.get(),
+                RUBlocks.CLOVER.get(),
+                RUBlocks.BLADED_TALL_GRASS.get()
         );
 
         TintHelper.tintItems((itemStack, i) -> FoliageColor.get(0.5D, 1.0D),
-                RuBlocks.STEPPE_SHRUB.get(),
-                RuBlocks.STEPPE_TALL_GRASS.get(),
-                RuBlocks.ELEPHANT_EAR.get(),
-                RuBlocks.BAOBAB_NATURAL_SET.getLeaves(),
-                RuBlocks.MAGNOLIA_NATURAL_SET.getLeaves(),
-                RuBlocks.APPLE_OAK_NATURAL_SET.getLeaves(),
-                RuBlocks.FLOWERING_NATURAL_SET.getLeaves(),
-                RuBlocks.JOSHUA_NATURAL_SET.getLeaves(),
-                RuBlocks.CYPRESS_NATURAL_SET.getLeaves(),
-                RuBlocks.EUCALYPTUS_NATURAL_SET.getLeaves(),
-                RuBlocks.PALM_NATURAL_SET.getLeaves(),
-                RuBlocks.PINE_NATURAL_SET.getLeaves(),
-                RuBlocks.REDWOOD_NATURAL_SET.getLeaves(),
-                RuBlocks.WILLOW_NATURAL_SET.getLeaves(),
-                RuBlocks.MAPLE_NATURAL_SET.getLeaves(),
-                RuBlocks.MAPLE_LEAF_PILE.get(),
-                RuBlocks.WINDSWEPT_GRASS.get(),
-                RuBlocks.SOCOTRA_NATURAL_SET.getLeaves(),
-                RuBlocks.KAPOK_NATURAL_SET.getLeaves(),
-                RuBlocks.KAPOK_VINES.get(),
-                RuBlocks.KAPOK_VINES_PLANT.get(),
-                RuBlocks.SMALL_OAK_NATURAL_SET.getLeaves()
+                RUBlocks.STEPPE_SHRUB.get(),
+                RUBlocks.STEPPE_TALL_GRASS.get(),
+                RUBlocks.ELEPHANT_EAR.get(),
+                RUBlocks.BAOBAB_NATURAL_SET.getLeaves(),
+                RUBlocks.MAGNOLIA_NATURAL_SET.getLeaves(),
+                RUBlocks.APPLE_OAK_NATURAL_SET.getLeaves(),
+                RUBlocks.FLOWERING_NATURAL_SET.getLeaves(),
+                RUBlocks.JOSHUA_NATURAL_SET.getLeaves(),
+                RUBlocks.CYPRESS_NATURAL_SET.getLeaves(),
+                RUBlocks.EUCALYPTUS_NATURAL_SET.getLeaves(),
+                RUBlocks.PALM_NATURAL_SET.getLeaves(),
+                RUBlocks.PINE_NATURAL_SET.getLeaves(),
+                RUBlocks.REDWOOD_NATURAL_SET.getLeaves(),
+                RUBlocks.WILLOW_NATURAL_SET.getLeaves(),
+                RUBlocks.MAPLE_NATURAL_SET.getLeaves(),
+                RUBlocks.MAPLE_LEAF_PILE.get(),
+                RUBlocks.WINDSWEPT_GRASS.get(),
+                RUBlocks.SOCOTRA_NATURAL_SET.getLeaves(),
+                RUBlocks.KAPOK_NATURAL_SET.getLeaves(),
+                RUBlocks.KAPOK_VINES.get(),
+                RUBlocks.KAPOK_VINES_PLANT.get(),
+                RUBlocks.SMALL_OAK_NATURAL_SET.getLeaves()
         );
     }
 

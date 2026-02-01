@@ -1,0 +1,148 @@
+package net.regions_unexplored.datagen.provider.registry.configured_feature;
+
+import net.minecraft.core.Direction;
+import net.minecraft.core.HolderGetter;
+import net.minecraft.core.HolderSet;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.features.CaveFeatures;
+import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.valueproviders.ClampedNormalFloat;
+import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.UniformFloat;
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CarvedPumpkinBlock;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.*;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.placement.CaveSurface;
+import net.minecraft.world.level.levelgen.placement.EnvironmentScanPlacement;
+import net.minecraft.world.level.levelgen.placement.RandomOffsetPlacement;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
+import net.regions_unexplored.registry.RUBlocks;
+import net.regions_unexplored.datagen.provider.registry.RUConfiguredFeatureBootstrap;
+import net.regions_unexplored.registry.RUFeatureTypes;
+import net.regions_unexplored.registry.data.RUConfiguredFeatures;
+import net.regions_unexplored.world.level.block.other.AshBlock;
+import net.regions_unexplored.world.level.block.wood.AspenLogBlock;
+import net.regions_unexplored.world.level.feature.configuration.FallenTreeConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.LargePointedRedstoneConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.PointedRedstoneClusterConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.PointedRedstoneConfiguration;
+
+import java.util.List;
+
+public class RuMiscOverworldFeatures {
+    //-----------------------KEYS-----------------------//
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_CLAY = RUConfiguredFeatureBootstrap.createKey("disk_clay");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_GRAVEL = RUConfiguredFeatureBootstrap.createKey("disk_gravel");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_SAND = RUConfiguredFeatureBootstrap.createKey("disk_sand");
+    //ROCKS
+    public static final ResourceKey<ConfiguredFeature<?, ?>> REDWOODS_ROCK = RUConfiguredFeatureBootstrap.createKey("redwoods_rock");
+    //FALLEN_TREES
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LARCH = RUConfiguredFeatureBootstrap.createKey("fallen_larch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_MAPLE = RUConfiguredFeatureBootstrap.createKey("fallen_maple");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_OAK = RUConfiguredFeatureBootstrap.createKey("fallen_oak");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_OAK_WITH_BLOB = RUConfiguredFeatureBootstrap.createKey("fallen_oak_tree_with_blob");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_PINE = RUConfiguredFeatureBootstrap.createKey("fallen_pine");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_SNOW_PINE = RUConfiguredFeatureBootstrap.createKey("fallen_snow_pine");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_SILVER_BIRCH = RUConfiguredFeatureBootstrap.createKey("fallen_silver_birch");
+    //CAVE_FEATURES
+    public static final ResourceKey<ConfiguredFeature<?, ?>> POINTED_REDSTONE = RUConfiguredFeatureBootstrap.createKey("pointed_redstone");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_POINTED_REDSTONE = RUConfiguredFeatureBootstrap.createKey("large_pointed_redstone");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> POINTED_REDSTONE_CLUSTER = RUConfiguredFeatureBootstrap.createKey("pointed_redstone_cluster");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_REDSTONE_LARGE = RUConfiguredFeatureBootstrap.createKey("ore_redstone_large");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PRISMARITE_CLUSTERS = RUConfiguredFeatureBootstrap.createKey("prismarite_clusters");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HANGING_PRISMARITE_CLUSTER = RUConfiguredFeatureBootstrap.createKey("hanging_prismarite_cluster");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MINERAL_POOL = RUConfiguredFeatureBootstrap.createKey("mineral_pool");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LAVA_FALL = RUConfiguredFeatureBootstrap.createKey("lava_fall");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_LAVA_DELTA = RUConfiguredFeatureBootstrap.createKey("overworld_lava_delta");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ASH_VENT = RUConfiguredFeatureBootstrap.createKey("ash_vent");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BASALT_BLOB = RUConfiguredFeatureBootstrap.createKey("basalt_blob");
+    //OTHER_FEATURES
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MOSS_PATCH_WITH_WATER = RUConfiguredFeatureBootstrap.createKey("moss_patch_with_water");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MARSH = RUConfiguredFeatureBootstrap.createKey("marsh");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WATER_EDGE = RUConfiguredFeatureBootstrap.createKey("water_edge");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ICICLE_UP = RUConfiguredFeatureBootstrap.createKey("icicle_up");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SMOULDERING_DIRT = RUConfiguredFeatureBootstrap.createKey("smouldering_dirt");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MEADOW_ROCK = RUConfiguredFeatureBootstrap.createKey("meadow_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ROCK = RUConfiguredFeatureBootstrap.createKey("rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NOISE_PUMPKINS = RUConfiguredFeatureBootstrap.createKey("patch_noise_pumpkins");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NOISE_ROCKS = RUConfiguredFeatureBootstrap.createKey("patch_noise_rocks");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NOISE_BUSH = RUConfiguredFeatureBootstrap.createKey("patch_noise_bush");
+
+    public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
+        HolderGetter<ConfiguredFeature<?, ?>> holderGetter = context.lookup(Registries.CONFIGURED_FEATURE);
+        RuleTest baseStoneTest = new TagMatchTest(BlockTags.BASE_STONE_OVERWORLD);
+        RuleTest stoneOreTest = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
+        RuleTest deepslateOreTest = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
+        List<OreConfiguration.TargetBlockState> ORE_REDSTONE_TARGET_LIST = List.of(OreConfiguration.target(stoneOreTest, Blocks.REDSTONE_ORE.defaultBlockState()), OreConfiguration.target(deepslateOreTest, Blocks.DEEPSLATE_REDSTONE_ORE.defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> STONE_GRASS_TARGET_LIST = List.of(OreConfiguration.target(stoneOreTest, RUBlocks.STONE_GRASS_BLOCK.get().defaultBlockState()), OreConfiguration.target(deepslateOreTest, RUBlocks.DEEPSLATE_GRASS_BLOCK.get().defaultBlockState()));
+
+        //---------------------FEATURES---------------------//
+        register(context, DISK_CLAY, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(Blocks.CLAY), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, RUBlocks.PEAT_DIRT.get(), RUBlocks.SILT_DIRT.get(), RUBlocks.SILT_MUD.get(), RUBlocks.PEAT_MUD.get(), Blocks.CLAY)), UniformInt.of(2, 3), 1));
+        register(context, DISK_GRAVEL, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(Blocks.GRAVEL), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, RUBlocks.PEAT_DIRT.get(), RUBlocks.SILT_DIRT.get(), RUBlocks.SILT_MUD.get(), RUBlocks.PEAT_MUD.get(), RUBlocks.SILT_GRASS_BLOCK.get(), RUBlocks.PEAT_GRASS_BLOCK.get(),  Blocks.GRASS_BLOCK)), UniformInt.of(2, 5), 2));
+        register(context, DISK_SAND, Feature.DISK, new DiskConfiguration(new RuleBasedBlockStateProvider(BlockStateProvider.simple(Blocks.SAND), List.of(new RuleBasedBlockStateProvider.Rule(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.AIR), BlockStateProvider.simple(Blocks.SANDSTONE)))), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, RUBlocks.PEAT_DIRT.get(), RUBlocks.SILT_DIRT.get(), RUBlocks.SILT_MUD.get(), RUBlocks.PEAT_MUD.get(), RUBlocks.SILT_GRASS_BLOCK.get(), RUBlocks.PEAT_GRASS_BLOCK.get(),  Blocks.GRASS_BLOCK)), UniformInt.of(2, 6), 2));
+        //ROCKS
+        register(context, REDWOODS_ROCK, Feature.FOREST_ROCK, new BlockStateConfiguration(Blocks.MOSSY_COBBLESTONE.defaultBlockState()));
+        //FALLEN_TREES
+        register(context, FALLEN_LARCH, RUFeatureTypes.FALLEN_BLOB_TREE.get(), new FallenTreeConfiguration(BlockStateProvider.simple(RUBlocks.LARCH_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RUBlocks.LARCH_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RUBlocks.GOLDEN_LARCH_NATURAL_SET.getLeaves().defaultBlockState()), 5, 9, false));
+        register(context, FALLEN_MAPLE, RUFeatureTypes.FALLEN_BLOB_TREE.get(), new FallenTreeConfiguration(BlockStateProvider.simple(RUBlocks.MAPLE_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RUBlocks.MAPLE_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RUBlocks.MAPLE_NATURAL_SET.getLeaves().defaultBlockState()), 4, 4, false));
+        register(context, FALLEN_OAK, RUFeatureTypes.FALLEN_BLOB_TREE.get(), new FallenTreeConfiguration(BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()), BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()), BlockStateProvider.simple(RUBlocks.DEAD_NATURAL_SET.getLeaves().defaultBlockState()), 4, 4, false));
+        register(context, FALLEN_OAK_WITH_BLOB, RUFeatureTypes.FALLEN_BLOB_TREE.get(), new FallenTreeConfiguration(BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()), BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()), BlockStateProvider.simple(RUBlocks.DEAD_NATURAL_SET.getLeaves().defaultBlockState()), 4, 4, true));
+        register(context, FALLEN_PINE, RUFeatureTypes.FALLEN_BLOB_TREE.get(), new FallenTreeConfiguration(BlockStateProvider.simple(RUBlocks.PINE_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RUBlocks.PINE_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RUBlocks.PINE_NATURAL_SET.getLeaves().defaultBlockState()), 5, 6, false));
+        register(context, FALLEN_SNOW_PINE, RUFeatureTypes.FALLEN_SNOW_TREE.get(), new FallenTreeConfiguration(BlockStateProvider.simple(RUBlocks.PINE_WOOD_SET.getStrippedLog().defaultBlockState()), BlockStateProvider.simple(RUBlocks.PINE_WOOD_SET.getStrippedLog().defaultBlockState()), BlockStateProvider.simple(RUBlocks.PINE_NATURAL_SET.getLeaves().defaultBlockState()), 5, 6, false));
+        register(context, FALLEN_SILVER_BIRCH, RUFeatureTypes.FALLEN_BLOB_TREE.get(), new FallenTreeConfiguration(BlockStateProvider.simple(RUBlocks.SILVER_BIRCH_WOOD_SET.getLog().defaultBlockState().setValue(AspenLogBlock.IS_BASE, true)), BlockStateProvider.simple(RUBlocks.SILVER_BIRCH_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RUBlocks.SILVER_BIRCH_NATURAL_SET.getLeaves().defaultBlockState()), 4, 3, false));
+        //CAVE_FEATURES
+        register(context, POINTED_REDSTONE, Feature.SIMPLE_RANDOM_SELECTOR, new SimpleRandomFeatureConfiguration(HolderSet.direct(PlacementUtils.inlinePlaced(RUFeatureTypes.POINTED_REDSTONE.get(), new PointedRedstoneConfiguration(0.5F, 0.7F, 0.5F, 0.5F), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_OR_WATER_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1))), PlacementUtils.inlinePlaced(RUFeatureTypes.POINTED_REDSTONE.get(), new PointedRedstoneConfiguration(0.5F, 0.7F, 0.5F, 0.5F), EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_OR_WATER_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(-1))))));
+        register(context, LARGE_POINTED_REDSTONE, RUFeatureTypes.LARGE_POINTED_REDSTONE.get(), new LargePointedRedstoneConfiguration(30, UniformInt.of(1, 6), UniformFloat.of(0.4F, 2.0F), 0.33F, UniformFloat.of(0.3F, 0.9F), UniformFloat.of(0.4F, 1.0F), UniformFloat.of(0.0F, 0.3F), 4, 0.6F));
+        register(context, POINTED_REDSTONE_CLUSTER, RUFeatureTypes.POINTED_REDSTONE_CLUSTER.get(), new PointedRedstoneClusterConfiguration(12, UniformInt.of(3, 6), UniformInt.of(2, 8), 1, 3, UniformInt.of(2, 4), UniformFloat.of(0.3F, 0.7F), ClampedNormalFloat.of(0.1F, 0.3F, 0.1F, 0.9F), 0.1F, 3, 8));
+        register(context, ORE_REDSTONE_LARGE, Feature.ORE, new OreConfiguration(ORE_REDSTONE_TARGET_LIST, 20));
+
+        register(context, PRISMARITE_CLUSTERS, Feature.RANDOM_PATCH, grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(RUBlocks.LARGE_PRISMARITE_CLUSTER.get().defaultBlockState(), 1).add(RUBlocks.PRISMARITE_CLUSTER.get().defaultBlockState(), 5)), 32));
+        register(context, HANGING_PRISMARITE_CLUSTER, RUFeatureTypes.HANGING_PRISMARITE.get(), FeatureConfiguration.NONE);
+
+        register(context, MINERAL_POOL, Feature.WATERLOGGED_VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.LUSH_GROUND_REPLACEABLE, BlockStateProvider.simple(Blocks.CALCITE), PlacementUtils.inlinePlaced(holderGetter.getOrThrow(CaveFeatures.POINTED_DRIPSTONE)), CaveSurface.FLOOR, ConstantInt.of(3), 0.8F, 5, 0.1F, UniformInt.of(4, 7), 0.7F));
+
+        register(context, LAVA_FALL, RUFeatureTypes.LAVA_FALL.get(), FeatureConfiguration.NONE);
+        register(context, OVERWORLD_LAVA_DELTA, RUFeatureTypes.OVERWORLD_LAVA_DELTA.get(), new VegetationPatchConfiguration(BlockTags.LUSH_GROUND_REPLACEABLE, BlockStateProvider.simple(RUBlocks.VOLCANIC_ASH.get().defaultBlockState().setValue(AshBlock.HAS_GRAVITY, false)), PlacementUtils.inlinePlaced(holderGetter.getOrThrow(CaveFeatures.POINTED_DRIPSTONE)), CaveSurface.FLOOR, ConstantInt.of(3), 0.8F, 5, 0.1F, UniformInt.of(4, 7), 0.7F));
+        register(context, ASH_VENT, RUFeatureTypes.ASH_VENT.get(), FeatureConfiguration.NONE);
+        register(context, BASALT_BLOB, RUFeatureTypes.BASALT_BLOB.get(), new ColumnFeatureConfiguration(ConstantInt.of(1), UniformInt.of(1, 4)));
+        //OTHER_FEATURES
+        register(context, MOSS_PATCH_WITH_WATER, Feature.WATERLOGGED_VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.LUSH_GROUND_REPLACEABLE, BlockStateProvider.simple(Blocks.MOSS_BLOCK), PlacementUtils.inlinePlaced(holderGetter.getOrThrow(RuVegetationFeatures.PATCH_GRASS)), CaveSurface.FLOOR, ConstantInt.of(3), 0.8F, 5, 0.1F, UniformInt.of(4, 7), 0.7F));
+        register(context, MARSH, RUFeatureTypes.MARSH.get(), FeatureConfiguration.NONE);
+        register(context, WATER_EDGE, RUFeatureTypes.WATER_EDGE.get(), FeatureConfiguration.NONE);
+        register(context, ICICLE_UP, RUFeatureTypes.ICICLE_UP.get(), FeatureConfiguration.NONE);
+        register(context, SMOULDERING_DIRT, RUFeatureTypes.SMOULDERING_DIRT.get(), FeatureConfiguration.NONE);
+        register(context, MEADOW_ROCK, RUFeatureTypes.MEADOW_ROCK.get(), FeatureConfiguration.NONE);
+        register(context, ROCK, RUFeatureTypes.ROCK.get(), FeatureConfiguration.NONE);
+        register(context, PATCH_NOISE_PUMPKINS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.PUMPKIN.defaultBlockState(), 96).add(Blocks.CARVED_PUMPKIN.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, Direction.NORTH), 1).add(Blocks.CARVED_PUMPKIN.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, Direction.SOUTH), 1).add(Blocks.CARVED_PUMPKIN.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, Direction.EAST), 1).add(Blocks.CARVED_PUMPKIN.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, Direction.WEST), 1))), List.of(RUBlocks.SILT_PODZOL.get(), Blocks.SNOW_BLOCK), 16));
+        register(context, PATCH_NOISE_ROCKS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(RUBlocks.STONE_GRASS_BLOCK.get().defaultBlockState(), 1).add(RUBlocks.MOSSY_STONE.get().defaultBlockState(), 1).add(Blocks.STONE.defaultBlockState(), 1).add(Blocks.COBBLESTONE.defaultBlockState(), 1).add(Blocks.AIR.defaultBlockState(), 75))), List.of(Blocks.GRASS_BLOCK), 125));
+        register(context, PATCH_NOISE_BUSH, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(RUBlocks.MAPLE_NATURAL_SET.getLeaves().defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2).add(Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2).add(Blocks.AIR.defaultBlockState(), 75))), List.of(Blocks.GRASS_BLOCK), 125));
+
+        register(context, RUConfiguredFeatures.BONEMEAL_ALPHA_GRASS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RUBlocks.ALPHA_ROSE.get())));
+    }
+
+    private static RandomPatchConfiguration grassPatch(BlockStateProvider stateProvider, int i) {
+        return FeatureUtils.simpleRandomPatchConfiguration(i, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(stateProvider)));
+    }
+
+    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC config) {
+        context.register(key, new ConfiguredFeature<>(feature, config));
+    }
+}

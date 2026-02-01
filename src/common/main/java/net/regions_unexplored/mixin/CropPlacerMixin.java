@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -14,8 +14,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class CropPlacerMixin {
     @Inject(at = @At("HEAD"), method = "mayPlaceOn(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Z", cancellable = true)
     private void regions_unexplored$mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        if(level.getBlockState(pos).is(RuTags.CROP_PLANTABLE_BLOCKS)){
-            cir.setReturnValue(state.is(RuTags.CROP_PLANTABLE_BLOCKS));
+        if(level.getBlockState(pos).is(RUBlockTags.CROP_PLANTABLE_BLOCKS)){
+            cir.setReturnValue(state.is(RUBlockTags.CROP_PLANTABLE_BLOCKS));
         }
     }
 }

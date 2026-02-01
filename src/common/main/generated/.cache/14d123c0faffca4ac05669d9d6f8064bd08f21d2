@@ -1,4 +1,4 @@
-// 1.21.1	2026-01-08T18:58:47.2484295	Tags for minecraft:block mod id regions_unexplored
+// 1.21.1	2026-01-25T20:57:03.6114205	Tags for minecraft:block mod id regions_unexplored
 47322f6e871d59e5581ad5e9b47c6737a5af3480 data/c/tags/block/fences/wooden.json
 543d30a38bbd7deef12bbc96a461b70e01314374 data/c/tags/block/fence_gates/wooden.json
 fbd3b5574bd57030107ab08e4b239ea1520ad7e1 data/c/tags/block/glass_blocks.json
@@ -28,7 +28,7 @@ e51fdb21f599ddfcb4554f202adfc06fbdc4034a data/minecraft/tags/block/dirt.json
 c4fbcda450fc6b25cdcf57b1ced175e4589d611e data/minecraft/tags/block/fall_damage_resetting.json
 543d30a38bbd7deef12bbc96a461b70e01314374 data/minecraft/tags/block/fence_gates.json
 ba2ed8f9c587f6b188097391ad42b971d1671107 data/minecraft/tags/block/flowers.json
-af1e3944d046f59c3254df21b07a56b801bc93d6 data/minecraft/tags/block/flower_pots.json
+eadeacd6c49f13c87a725f153543d391845f1fba data/minecraft/tags/block/flower_pots.json
 2db4f617b91120432280c0dfaa4a7dc6ca6de062 data/minecraft/tags/block/foxes_spawnable_on.json
 1a5e527e1c00f11e85222c0730b05c98b2475018 data/minecraft/tags/block/frogs_spawnable_on.json
 3f32cd200f8ba7f80aa2d2bbd0741477ed4ec0e4 data/minecraft/tags/block/frog_prefer_jump_to.json
@@ -60,7 +60,7 @@ e34eebe339ed90e6e56ae1767c26477ce69b4781 data/minecraft/tags/block/planks.json
 f61622d9599936d67e5a29c34b207da1173145f7 data/minecraft/tags/block/rabbits_spawnable_on.json
 d01e32f051639230f3d48f4b2b6d1aa19406f348 data/minecraft/tags/block/replaceable.json
 73f407203137e03ff7a02e18d4669515964bd2f8 data/minecraft/tags/block/replaceable_by_trees.json
-025dced40f69690ced844d74bab97a08d9318c18 data/minecraft/tags/block/saplings.json
+ce29f8517f5c267a49d12aa2c5a51a982d86c790 data/minecraft/tags/block/saplings.json
 8ec272c54edc1df8941d6e1e627a2c3f2bce813d data/minecraft/tags/block/slabs.json
 7a4dec34e932546179edd4bac8a97db6f52f9b07 data/minecraft/tags/block/small_dripleaf_placeable.json
 1c86fe39400cbf1598145303db01b8111f357d96 data/minecraft/tags/block/small_flowers.json

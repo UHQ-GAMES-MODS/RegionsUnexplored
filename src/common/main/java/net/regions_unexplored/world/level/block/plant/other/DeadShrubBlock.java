@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 public class DeadShrubBlock extends BushBlock {
     public static final MapCodec<DeadShrubBlock> CODEC = simpleCodec(DeadShrubBlock::new);
@@ -27,7 +27,7 @@ public class DeadShrubBlock extends BushBlock {
     }
 
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-        if(state== RuBlocks.SMALL_DESERT_SHRUB.get().defaultBlockState()){
+        if(state== RUBlocks.SMALL_DESERT_SHRUB.get().defaultBlockState()){
             return SHAPE_SMALL_DESERT_SHRUB;
         }
         else{

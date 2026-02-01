@@ -9,16 +9,15 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.IceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.WaterlilyBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
 
 public class DuckweedBlock extends WaterlilyBlock {
-
-    public DuckweedBlock() {
-        super(Properties.of().sound(SoundType.CORAL_BLOCK).instabreak().noCollission().noOcclusion().pushReaction(PushReaction.DESTROY).ignitedByLava()
-                .isRedstoneConductor((bs, br, bp) -> false));
+    public DuckweedBlock(BlockBehaviour.Properties properties) {
+        super(properties);
         this.registerDefaultState(this.stateDefinition.any());
     }
 

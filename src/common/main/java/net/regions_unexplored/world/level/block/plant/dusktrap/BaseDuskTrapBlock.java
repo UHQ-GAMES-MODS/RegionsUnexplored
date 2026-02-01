@@ -22,7 +22,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.entity.RuDamageTypes;
+import net.regions_unexplored.registry.data.RUDamageTypes;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -66,7 +66,7 @@ public abstract class BaseDuskTrapBlock extends DoublePlantBlock {
         }
         if (!level.isClientSide && entity instanceof LivingEntity) {
             if(entity.isAlive()){
-                if(isInside)entity.hurt(level.damageSources().source(RuDamageTypes.DUSK_TRAP), 3.0F);
+                if(isInside)entity.hurt(level.damageSources().source(RUDamageTypes.DUSK_TRAP), 3.0F);
             }
             entity.makeStuckInBlock(state, new Vec3(0.4D, 0.1D, 0.4D));
             int i = this.getSignalForState(state);

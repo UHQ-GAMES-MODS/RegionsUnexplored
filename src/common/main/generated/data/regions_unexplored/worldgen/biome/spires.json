@@ -86,8 +86,8 @@
       "minecraft:patch_sugar_cane",
       "minecraft:patch_pumpkin",
       "regions_unexplored:icicle_up",
-      "regions_unexplored:ice_spire",
-      "regions_unexplored:spruce_tree_tall_on_snow",
+      "regions_unexplored:tree/ice_spire",
+      "regions_unexplored:tree/spruce_tall_on_snow",
       "regions_unexplored:frozen_flowers",
       "regions_unexplored:snow_grass"
     ],

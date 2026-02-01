@@ -83,7 +83,7 @@
     ],
     [
       "minecraft:glow_lichen",
-      "regions_unexplored:scotts_pine_tree_on_dirt",
+      "regions_unexplored:tree/scotts_pine_on_dirt",
       "regions_unexplored:fallen_pine_tree_on_dirt",
       "regions_unexplored:mountain_vegetation",
       "regions_unexplored:pine_shrub"

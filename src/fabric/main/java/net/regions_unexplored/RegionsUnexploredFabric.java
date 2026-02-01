@@ -2,39 +2,46 @@ package net.regions_unexplored;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.registry.FabricRegistry;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
-import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.regions_unexplored.block.RuBlockEntitiesFabric;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.config.RuClientConfig;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.block.compat.FurnaceBurnTimesFabric;
-import net.regions_unexplored.mixin.invoke.FoliagePlacerTypeInvoker;
-import net.regions_unexplored.mixin.invoke.TreeDecoratorTypeInvoker;
-import net.regions_unexplored.world.features.foliageplacers.SakuraFoliagePlacer;
-import net.regions_unexplored.world.features.foliageplacers.WillowFoliagePlacer;
-import net.regions_unexplored.world.features.treedecorators.*;
+import net.regions_unexplored.registry.RUCreativeModeTabs;
+import net.regions_unexplored.registry.RUItems;
 
 public class RegionsUnexploredFabric implements ModInitializer {
-    public static final FoliagePlacerType<SakuraFoliagePlacer> SAKURA_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("regions_unexplored:sakura_foliage_placer", SakuraFoliagePlacer.CODEC);
-    public static final FoliagePlacerType<WillowFoliagePlacer> WILLOW_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("regions_unexplored:willow_foliage_placer", WillowFoliagePlacer.CODEC);
-    public static final TreeDecoratorType<BlackwoodBioshroom> BLACKWOOD_BIOSHROOM = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:blackwood_bioshrooms", BlackwoodBioshroom.CODEC);
-    public static final TreeDecoratorType<ChanceWillowTrunkDecorator> CHANCE_WILLOW_TRUNK_DECORATOR = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:chance_willow_trunk_decorator", ChanceWillowTrunkDecorator.CODEC);
-    public static final TreeDecoratorType<WillowTrunkDecorator> WILLOW_TRUNK_DECORATOR = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:willow_trunk_decorator", WillowTrunkDecorator.CODEC);
-    public static final TreeDecoratorType<BranchDecorator> BRANCH_DECORATOR = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:branch", BranchDecorator.CODEC);
-    public static final TreeDecoratorType<PlaceOnGroundDecorator> PLACE_ON_GROUND_DECORATOR = TreeDecoratorTypeInvoker.callRegister("regions_unexplored:place_on_ground", PlaceOnGroundDecorator.CODEC);
-
     @Override
     public void onInitialize() {
         RegionsUnexplored.init();
         RuBlockEntitiesFabric.addBlockEntities();
         RegionsUnexploredFabric.afterRegistriesFreeze();
-        for (var entry : RuBlocks.BLOCK_ALIASES.entrySet()) {
-            ((FabricRegistry)Registries.BLOCK).addAlias(entry.getKey(), entry.getValue());
-        }
+
+        RUBlocks.applyAliases((a, b) -> ((FabricRegistry) BuiltInRegistries.BLOCK).addAlias(a, b));
+        RUItems.applyAliases((a, b) -> ((FabricRegistry) BuiltInRegistries.ITEM).addAlias(a, b));
     }
 
     public static void afterRegistriesFreeze() {
         RegionsUnexplored.afterRegistriesFreeze();
         FurnaceBurnTimesFabric.setup();
+        if (RuClientConfig.CUSTOM_ITEMS_IN_VANILLA_CREATIVE_TABS.get()) {
+            ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> {
+                RUCreativeModeTabs.addToBuildingBlocks(entries::addAfter);
+            });
+            ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COLORED_BLOCKS).register(entries -> {
+                RUCreativeModeTabs.addToColoredBlocks(entries::addAfter);
+            });
+            ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
+                RUCreativeModeTabs.addToFunctionalBlocks(entries::addAfter);
+            });
+            ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> {
+                RUCreativeModeTabs.addToToolsAndUtilities(entries::addAfter);
+            });
+            ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(entries -> {
+                RUCreativeModeTabs.addToFoodAndDrinks(entries::addAfter);
+            });
+        }
     }
 }

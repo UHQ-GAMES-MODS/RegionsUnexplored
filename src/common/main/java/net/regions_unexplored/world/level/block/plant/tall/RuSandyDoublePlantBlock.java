@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.FluidState;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 import net.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
 import org.jetbrains.annotations.Nullable;
 
@@ -28,7 +28,7 @@ public class RuSandyDoublePlantBlock extends DoublePlantBlock {
 
     @Override
     public boolean mayPlaceOn(BlockState state, BlockGetter getter, BlockPos pos) {
-        return state.is(RuTags.SANDY_PLANT_CAN_SURVIVE_ON);
+        return state.is(RUBlockTags.SANDY_PLANT_CAN_SURVIVE_ON);
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_52901_) {

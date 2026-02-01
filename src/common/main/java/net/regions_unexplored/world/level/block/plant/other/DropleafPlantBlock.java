@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 public class DropleafPlantBlock extends GrowingPlantBodyBlock {
     public static final MapCodec<? extends DropleafPlantBlock> CODEC = simpleCodec(DropleafPlantBlock::new);
@@ -27,7 +27,7 @@ public class DropleafPlantBlock extends GrowingPlantBodyBlock {
     }
 
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) RuBlocks.DROPLEAF.get();
+        return (GrowingPlantHeadBlock) RUBlocks.DROPLEAF.get();
     }
 
     @Override

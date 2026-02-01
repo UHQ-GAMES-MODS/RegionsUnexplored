@@ -94,9 +94,9 @@
       "minecraft:seagrass_swamp",
       "regions_unexplored:duckweed",
       "regions_unexplored:cattail_fen",
-      "regions_unexplored:pine_tree",
-      "regions_unexplored:dead_scotts_pine_tree",
-      "regions_unexplored:dead_bog_tree",
+      "regions_unexplored:tree/pine",
+      "regions_unexplored:tree/dead_scotts_pine",
+      "regions_unexplored:tree/dead_bog",
       "regions_unexplored:fallen_oak_tree_dense",
       "regions_unexplored:fen_vegetation",
       "regions_unexplored:pine_dead_shrub_mix"

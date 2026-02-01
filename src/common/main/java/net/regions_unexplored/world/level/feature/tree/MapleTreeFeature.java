@@ -3,11 +3,8 @@ package net.regions_unexplored.world.level.feature.tree;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.WorldGenLevel;
@@ -20,8 +17,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
-import net.regions_unexplored.block.RuBlocks;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.RUBlocks;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 import net.regions_unexplored.world.level.block.plant.branch.BranchBlock;
 import net.regions_unexplored.world.level.feature.configuration.RuTreeConfiguration;
 
@@ -85,13 +82,13 @@ public class MapleTreeFeature extends Feature<RuTreeConfiguration> {
         if(level.isOutsideBuildHeight(pos)){
             return true;
         }
-        if(level.getBlockState(pos).is(RuBlocks.PEAT_GRASS_BLOCK.get())){
-            level.setBlock(pos, RuBlocks.PEAT_DIRT.get().defaultBlockState(), 2);
+        if(level.getBlockState(pos).is(RUBlocks.PEAT_GRASS_BLOCK.get())){
+            level.setBlock(pos, RUBlocks.PEAT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.SILT_GRASS_BLOCK.get())){
-            level.setBlock(pos, RuBlocks.SILT_DIRT.get().defaultBlockState(), 2);
+        else if(level.getBlockState(pos).is(RUBlocks.SILT_GRASS_BLOCK.get())){
+            level.setBlock(pos, RUBlocks.SILT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.ALPHA_GRASS_BLOCK.get())){
+        else if(level.getBlockState(pos).is(RUBlocks.ALPHA_GRASS_BLOCK.get())){
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(level.getBlockState(pos).is(Blocks.GRASS_BLOCK)){
@@ -105,13 +102,13 @@ public class MapleTreeFeature extends Feature<RuTreeConfiguration> {
             return true;
         }
 
-        if(level.getBlockState(pos.below()).is(RuBlocks.PEAT_GRASS_BLOCK.get())){
-            level.setBlock(pos.below(), RuBlocks.PEAT_DIRT.get().defaultBlockState(), 2);
+        if(level.getBlockState(pos.below()).is(RUBlocks.PEAT_GRASS_BLOCK.get())){
+            level.setBlock(pos.below(), RUBlocks.PEAT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.SILT_GRASS_BLOCK.get())){
-            level.setBlock(pos.below(), RuBlocks.SILT_DIRT.get().defaultBlockState(), 2);
+        else if(level.getBlockState(pos.below()).is(RUBlocks.SILT_GRASS_BLOCK.get())){
+            level.setBlock(pos.below(), RUBlocks.SILT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.ALPHA_GRASS_BLOCK.get())){
+        else if(level.getBlockState(pos.below()).is(RUBlocks.ALPHA_GRASS_BLOCK.get())){
             level.setBlock(pos.below(), Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(level.getBlockState(pos.below()).is(Blocks.GRASS_BLOCK)){
@@ -359,7 +356,7 @@ public class MapleTreeFeature extends Feature<RuTreeConfiguration> {
     }
     
     public static boolean isReplaceableDirtBlock(BlockState state) {
-        return state.is(RuTags.TREE_GRASS_REPLACEABLES);
+        return state.is(RUBlockTags.TREE_GRASS_REPLACEABLES);
     }
 
 
@@ -368,7 +365,7 @@ public class MapleTreeFeature extends Feature<RuTreeConfiguration> {
     }
 
     public static boolean isReplaceableBlock(BlockState state) {
-        return state.is(RuTags.REPLACEABLE_BLOCKS);
+        return state.is(RUBlockTags.REPLACEABLE_BLOCKS);
     }
 
     public static boolean isReplaceable(LevelSimulatedReader reader, BlockPos pos) {

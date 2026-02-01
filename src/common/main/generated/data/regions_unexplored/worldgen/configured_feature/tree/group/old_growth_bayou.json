@@ -2,14 +2,14 @@
   "type": "minecraft:random_selector",
   "config": {
     "default": {
-      "feature": "regions_unexplored:giant_cypress_tree",
+      "feature": "regions_unexplored:tree/giant_cypress",
       "placement": []
     },
     "features": [
       {
         "chance": 0.4,
         "feature": {
-          "feature": "regions_unexplored:cypress_tree",
+          "feature": "regions_unexplored:tree/cypress",
           "placement": []
         }
       }

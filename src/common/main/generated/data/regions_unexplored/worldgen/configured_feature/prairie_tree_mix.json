@@ -2,14 +2,14 @@
   "type": "minecraft:random_selector",
   "config": {
     "default": {
-      "feature": "regions_unexplored:oak_tree",
+      "feature": "regions_unexplored:tree/oak",
       "placement": []
     },
     "features": [
       {
         "chance": 0.33333334,
         "feature": {
-          "feature": "regions_unexplored:big_oak_tree",
+          "feature": "regions_unexplored:tree/big_oak",
           "placement": []
         }
       }

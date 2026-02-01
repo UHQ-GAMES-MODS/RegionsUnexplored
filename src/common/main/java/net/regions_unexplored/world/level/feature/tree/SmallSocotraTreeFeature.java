@@ -14,8 +14,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.regions_unexplored.block.RuBlocks;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.RUBlocks;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 
 import java.util.Random;
 
@@ -99,32 +99,32 @@ public class SmallSocotraTreeFeature extends Feature<NoneFeatureConfiguration> {
         if(level.isOutsideBuildHeight(pos)){
             return;
         }
-        if(level.getBlockState(pos).is(RuBlocks.PEAT_GRASS_BLOCK.get())){
-            level.setBlock(pos, RuBlocks.PEAT_DIRT.get().defaultBlockState(), 2);
+        if(level.getBlockState(pos).is(RUBlocks.PEAT_GRASS_BLOCK.get())){
+            level.setBlock(pos, RUBlocks.PEAT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.SILT_GRASS_BLOCK.get())){
-            level.setBlock(pos, RuBlocks.SILT_DIRT.get().defaultBlockState(), 2);
+        else if(level.getBlockState(pos).is(RUBlocks.SILT_GRASS_BLOCK.get())){
+            level.setBlock(pos, RUBlocks.SILT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.ALPHA_GRASS_BLOCK.get())){
+        else if(level.getBlockState(pos).is(RUBlocks.ALPHA_GRASS_BLOCK.get())){
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(level.getBlockState(pos).is(Blocks.GRASS_BLOCK)){
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos)) {
-            level.setBlock(pos, RuBlocks.SOCOTRA_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
+            level.setBlock(pos, RUBlocks.SOCOTRA_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
         }
         else{
             return;
         }
 
-        if(level.getBlockState(pos.below()).is(RuBlocks.PEAT_GRASS_BLOCK.get())){
-            level.setBlock(pos.below(), RuBlocks.PEAT_DIRT.get().defaultBlockState(), 2);
+        if(level.getBlockState(pos.below()).is(RUBlocks.PEAT_GRASS_BLOCK.get())){
+            level.setBlock(pos.below(), RUBlocks.PEAT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.SILT_GRASS_BLOCK.get())){
-            level.setBlock(pos.below(), RuBlocks.SILT_DIRT.get().defaultBlockState(), 2);
+        else if(level.getBlockState(pos.below()).is(RUBlocks.SILT_GRASS_BLOCK.get())){
+            level.setBlock(pos.below(), RUBlocks.SILT_DIRT.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.ALPHA_GRASS_BLOCK.get())){
+        else if(level.getBlockState(pos.below()).is(RUBlocks.ALPHA_GRASS_BLOCK.get())){
             level.setBlock(pos.below(), Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(level.getBlockState(pos.below()).is(Blocks.GRASS_BLOCK)){
@@ -138,7 +138,7 @@ public class SmallSocotraTreeFeature extends Feature<NoneFeatureConfiguration> {
             return;
         }
         if(level.getBlockState(pos).canBeReplaced()) {
-            level.setBlock(pos, RuBlocks.SOCOTRA_NATURAL_SET.getLeaves().defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), 2);
+            level.setBlock(pos, RUBlocks.SOCOTRA_NATURAL_SET.getLeaves().defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), 2);
         }
     }
 
@@ -153,7 +153,7 @@ public class SmallSocotraTreeFeature extends Feature<NoneFeatureConfiguration> {
     }
     
     public static boolean isReplaceableDirtBlock(BlockState state) {
-        return state.is(RuTags.TREE_GRASS_REPLACEABLES);
+        return state.is(RUBlockTags.TREE_GRASS_REPLACEABLES);
     }
 
 
@@ -162,7 +162,7 @@ public class SmallSocotraTreeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     public static boolean isReplaceableBlock(BlockState state) {
-        return state.is(RuTags.REPLACEABLE_BLOCKS);
+        return state.is(RUBlockTags.REPLACEABLE_BLOCKS);
     }
 
     public static boolean isReplaceable(LevelSimulatedReader reader, BlockPos pos) {

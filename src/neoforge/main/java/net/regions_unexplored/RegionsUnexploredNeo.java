@@ -1,5 +1,6 @@
 package net.regions_unexplored;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -13,9 +14,10 @@ import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.regions_unexplored.client.RegionsUnexploredClient;
 import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.block.set.WoodSet;
 import net.regions_unexplored.internal.config.gui.ConfigSelectionScreen;
+import net.regions_unexplored.registry.RUItems;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -24,7 +26,6 @@ import java.util.Map;
 
 @Mod(value = RegionsUnexplored.MOD_ID)
 public class RegionsUnexploredNeo {
-    public static final Logger LOGGER = LogManager.getLogger(RegionsUnexploredNeo.class);
     public static final Map<ResourceKey, DeferredRegister> REGISTER_CACHE = new HashMap<>();
 
     public RegionsUnexploredNeo(ModContainer container) {
@@ -40,17 +41,18 @@ public class RegionsUnexploredNeo {
         RegionsUnexploredNeoClient.regionsUnexploredNeoClient(bus);
 
         var blockRegistry = DeferredRegister.create(Registries.BLOCK, RegionsUnexplored.MOD_ID);
-        for (var entry : RuBlocks.BLOCK_ALIASES.entrySet()) {
-            blockRegistry.addAlias(entry.getKey(), entry.getValue());
-        }
+        var itemRegistry = DeferredRegister.create(Registries.ITEM, RegionsUnexplored.MOD_ID);
+        RUBlocks.applyAliases(blockRegistry::addAlias);
+        RUItems.applyAliases(itemRegistry::addAlias);
+
         container.registerExtensionPoint(
-                IConfigScreenFactory.class,
-                (minecraft, parent) -> new ConfigSelectionScreen(parent)
+            IConfigScreenFactory.class,
+            (minecraft, parent) -> new ConfigSelectionScreen(parent)
         );
     }
 
     private void setupBlockEntities(BlockEntityTypeAddBlocksEvent event) {
-        for (WoodSet set : RuBlocks.WOOD_SETS) {
+        for (WoodSet set : RUBlocks.WOOD_SETS) {
             if (set.getSign() != null) {
                 event.modify(BlockEntityType.SIGN, set.getSign());
             }

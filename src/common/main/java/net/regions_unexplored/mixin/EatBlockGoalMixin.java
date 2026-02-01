@@ -6,7 +6,7 @@ import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -34,7 +34,7 @@ public class EatBlockGoalMixin {
     private void regions_unexplored$canUse(CallbackInfoReturnable<Boolean> cir) {
         BlockPos pos = this.mob.blockPosition();
 
-        if (this.level.getBlockState(pos.below()).is(RuBlocks.SILT_GRASS_BLOCK.get()) || this.level.getBlockState(pos.below()).is(RuBlocks.PEAT_GRASS_BLOCK.get())) {
+        if (this.level.getBlockState(pos.below()).is(RUBlocks.SILT_GRASS_BLOCK.get()) || this.level.getBlockState(pos.below()).is(RUBlocks.PEAT_GRASS_BLOCK.get())) {
             cir.setReturnValue(true);
         }
     }
@@ -48,11 +48,11 @@ public class EatBlockGoalMixin {
         BlockState down = this.level.getBlockState(downPos);
 
         // Modded Dirt likes
-        if (down.is(RuBlocks.PEAT_GRASS_BLOCK.get())) {
+        if (down.is(RUBlocks.PEAT_GRASS_BLOCK.get())) {
             if (this.level.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)) {
-                this.level.levelEvent(2001, downPos, Block.getId(RuBlocks.PEAT_GRASS_BLOCK.get().defaultBlockState()));
+                this.level.levelEvent(2001, downPos, Block.getId(RUBlocks.PEAT_GRASS_BLOCK.get().defaultBlockState()));
 
-                Block replacement = RuBlocks.PEAT_DIRT.get();
+                Block replacement = RUBlocks.PEAT_DIRT.get();
 
                 this.level.setBlock(downPos, replacement.defaultBlockState(), 2);
             }
@@ -60,11 +60,11 @@ public class EatBlockGoalMixin {
             this.mob.ate();
         }
 
-        if (down.is(RuBlocks.SILT_GRASS_BLOCK.get())) {
+        if (down.is(RUBlocks.SILT_GRASS_BLOCK.get())) {
             if (this.level.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)) {
-                this.level.levelEvent(2001, downPos, Block.getId(RuBlocks.SILT_GRASS_BLOCK.get().defaultBlockState()));
+                this.level.levelEvent(2001, downPos, Block.getId(RUBlocks.SILT_GRASS_BLOCK.get().defaultBlockState()));
 
-                Block replacement = RuBlocks.SILT_DIRT.get();
+                Block replacement = RUBlocks.SILT_DIRT.get();
 
                 this.level.setBlock(downPos, replacement.defaultBlockState(), 2);
             }

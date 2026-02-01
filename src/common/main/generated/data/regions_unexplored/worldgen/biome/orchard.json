@@ -86,9 +86,9 @@
       "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane",
       "minecraft:patch_pumpkin",
-      "regions_unexplored:apple_oak_tree",
-      "regions_unexplored:big_apple_oak_tree",
-      "regions_unexplored:big_oak_tree_sparse",
+      "regions_unexplored:tree/apple_oak",
+      "regions_unexplored:tree/big_apple_oak",
+      "regions_unexplored:tree/big_oak_sparse",
       "regions_unexplored:tassel_sparse",
       "regions_unexplored:grass",
       "regions_unexplored:oak_shrub"

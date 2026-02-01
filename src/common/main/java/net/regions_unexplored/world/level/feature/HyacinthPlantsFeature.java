@@ -10,7 +10,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 public class HyacinthPlantsFeature extends Feature<ProbabilityFeatureConfiguration> {
    public HyacinthPlantsFeature(Codec<ProbabilityFeatureConfiguration> p_66768_) {
@@ -29,7 +29,7 @@ public class HyacinthPlantsFeature extends Feature<ProbabilityFeatureConfigurati
       if (worldgenlevel.getBlockState(blockpos1).is(Blocks.WATER)) {
          if (blockstate.canSurvive(worldgenlevel, blockpos1)) {
             if(randomsource.nextInt(7)==0){
-               blockstate = RuBlocks.HYACINTH_BLOOM.get().defaultBlockState();
+               blockstate = RUBlocks.HYACINTH_BLOOM.get().defaultBlockState();
             }
             else{
                blockstate = Blocks.SEAGRASS.defaultBlockState();

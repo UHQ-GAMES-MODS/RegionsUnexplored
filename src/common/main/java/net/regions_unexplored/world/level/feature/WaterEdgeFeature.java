@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 import java.util.Random;
 
@@ -66,7 +66,7 @@ public class WaterEdgeFeature extends Feature<NoneFeatureConfiguration> {
     public boolean placeBlock(LevelAccessor level, BlockPos pos) {
         if (level.getBlockState(pos.below()).is(Blocks.DIRT)&&level.isWaterAt(pos)) {
             level.setBlock(pos, Blocks.GRASS_BLOCK.defaultBlockState(), 2);
-            if (level.getBlockState(pos.above())== RuBlocks.CATTAIL.get().defaultBlockState().setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)||level.getBlockState(pos.above()).is(RuBlocks.DUCKWEED.get())) {
+            if (level.getBlockState(pos.above())== RUBlocks.CATTAIL.get().defaultBlockState().setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)||level.getBlockState(pos.above()).is(RUBlocks.DUCKWEED.get())) {
                 level.setBlock(pos.above(), Blocks.AIR.defaultBlockState(), 2);
             }
         }

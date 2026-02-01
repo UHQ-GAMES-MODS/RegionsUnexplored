@@ -3,7 +3,7 @@ package net.regions_unexplored.client.renderer;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.regions_unexplored.entity.RuEntities;
+import net.regions_unexplored.registry.RUEntityTypes;
 import net.regions_unexplored.entity.client.RuBoatRenderer;
 import net.regions_unexplored.entity.custom.RuBoat;
 import net.regions_unexplored.platform.RenderHelper;
@@ -20,7 +20,7 @@ public class RuEntityRenderer {
 
 
 
-        RenderHelper.registerEntityRenderer(RuEntities.BOAT.get(), context -> new RuBoatRenderer(context, false));
-        RenderHelper.registerEntityRenderer(RuEntities.CHEST_BOAT.get(), context -> new RuBoatRenderer(context, true));
+        RenderHelper.registerEntityRenderer(RUEntityTypes.BOAT.get(), context -> new RuBoatRenderer(context, false));
+        RenderHelper.registerEntityRenderer(RUEntityTypes.CHEST_BOAT.get(), context -> new RuBoatRenderer(context, true));
     }
 }

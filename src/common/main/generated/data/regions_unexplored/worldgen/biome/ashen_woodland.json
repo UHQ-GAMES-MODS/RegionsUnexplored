@@ -89,8 +89,8 @@
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "regions_unexplored:smouldering_dirt",
-      "regions_unexplored:ashen_tree",
-      "regions_unexplored:ashen_pine_tree",
+      "regions_unexplored:tree/ashen",
+      "regions_unexplored:tree/ashen_pine",
       "regions_unexplored:wilting_trillium",
       "regions_unexplored:ashen_grass",
       "regions_unexplored:ashen_shrub"

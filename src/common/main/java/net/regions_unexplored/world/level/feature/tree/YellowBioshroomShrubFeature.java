@@ -14,8 +14,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.regions_unexplored.block.RuBlocks;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.RUBlocks;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 
 import java.util.Random;
 
@@ -73,28 +73,28 @@ public class YellowBioshroomShrubFeature extends Feature<NoneFeatureConfiguratio
         if(level.isOutsideBuildHeight(pos)){
             return;
         }
-        if(level.getBlockState(pos).is(RuBlocks.GLISTERING_NYLIUM.get())||level.getBlockState(pos).is(RuBlocks.MYCOTOXIC_NYLIUM.get())||level.getBlockState(pos).is(RuBlocks.BRIMSPROUT_NYLIUM.get())){
+        if(level.getBlockState(pos).is(RUBlocks.GLISTERING_NYLIUM.get())||level.getBlockState(pos).is(RUBlocks.MYCOTOXIC_NYLIUM.get())||level.getBlockState(pos).is(RUBlocks.BRIMSPROUT_NYLIUM.get())){
             level.setBlock(pos, Blocks.NETHERRACK.defaultBlockState(), 2);
         }
-        if(level.getBlockState(pos).is(RuBlocks.COBALT_NYLIUM.get())){
+        if(level.getBlockState(pos).is(RUBlocks.COBALT_NYLIUM.get())){
             level.setBlock(pos, Blocks.BLACKSTONE.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos)) {
-                level.setBlock(pos, RuBlocks.YELLOW_BIOSHROOM_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
+                level.setBlock(pos, RUBlocks.YELLOW_BIOSHROOM_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
         }
         else{
             return;
         }
 
 
-        if(level.getBlockState(pos.below()).is(RuBlocks.GLISTERING_NYLIUM.get())||level.getBlockState(pos.below()).is(RuBlocks.MYCOTOXIC_NYLIUM.get())||level.getBlockState(pos.below()).is(RuBlocks.BRIMSPROUT_NYLIUM.get())){
+        if(level.getBlockState(pos.below()).is(RUBlocks.GLISTERING_NYLIUM.get())||level.getBlockState(pos.below()).is(RUBlocks.MYCOTOXIC_NYLIUM.get())||level.getBlockState(pos.below()).is(RUBlocks.BRIMSPROUT_NYLIUM.get())){
             level.setBlock(pos.below(), Blocks.NETHERRACK.defaultBlockState(), 2);
         }
-        if(level.getBlockState(pos.below()).is(RuBlocks.COBALT_NYLIUM.get())){
+        if(level.getBlockState(pos.below()).is(RUBlocks.COBALT_NYLIUM.get())){
             level.setBlock(pos.below(), Blocks.BLACKSTONE.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos.below())) {
-            level.setBlock(pos.below(), RuBlocks.YELLOW_BIOSHROOM_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
+            level.setBlock(pos.below(), RUBlocks.YELLOW_BIOSHROOM_WOOD_SET.getLog().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 2);
         }
     }
 
@@ -104,7 +104,7 @@ public class YellowBioshroomShrubFeature extends Feature<NoneFeatureConfiguratio
             return;
         }
         if(level.getBlockState(pos).canBeReplaced()) {
-            level.setBlock(pos, RuBlocks.YELLOW_BIOSHROOM_BLOCK.get().defaultBlockState(), 2);
+            level.setBlock(pos, RUBlocks.YELLOW_BIOSHROOM_BLOCK.get().defaultBlockState(), 2);
         }
     }
 
@@ -119,7 +119,7 @@ public class YellowBioshroomShrubFeature extends Feature<NoneFeatureConfiguratio
     }
     
     public static boolean isReplaceableDirtBlock(BlockState state) {
-        return state.is(RuTags.TREE_GRASS_REPLACEABLES);
+        return state.is(RUBlockTags.TREE_GRASS_REPLACEABLES);
     }
 
 
@@ -128,7 +128,7 @@ public class YellowBioshroomShrubFeature extends Feature<NoneFeatureConfiguratio
     }
 
     public static boolean isReplaceableBlock(BlockState state) {
-        return state.is(RuTags.REPLACEABLE_BLOCKS);
+        return state.is(RUBlockTags.REPLACEABLE_BLOCKS);
     }
 
     public static boolean isReplaceable(LevelSimulatedReader reader, BlockPos pos) {

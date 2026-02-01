@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm") version "2.1.21"
-    id("earth.terrarium.cloche") version "0.17.1"
+    id("earth.terrarium.cloche") version "0.18.0"
 }
 
 repositories {
@@ -27,10 +27,9 @@ cloche {
     targets.all {
         mappings {
             official()
-            // TODO: Re-enable when Terrablender is removed
-            //custom(minecraftVersion.map {
-            //    project.dependencies.create(files("mappings/$it.tiny"))
-            //})
+            custom(minecraftVersion.map {
+                project.dependencies.create(files("mappings/$it.tiny"))
+            })
         }
     }
 
@@ -58,7 +57,7 @@ cloche {
             compileOnly("org.spongepowered:mixin:0.8.5")
             implementation("com.electronwill.night-config:core:3.8.3")
             implementation("com.electronwill.night-config:toml:3.8.3")
-            modCompileOnly("com.terraformersmc:biolith-neoforge:3.0.10")
+            modImplementation("com.terraformersmc:biolith-neoforge:3.0.10")
         }
 
         data()
@@ -68,6 +67,9 @@ cloche {
                 dependency {
                     modId = "biolith"
                 }
+                dependency {
+                    modId = "lithostitched"
+                }
             }
         }
     }
@@ -75,13 +77,13 @@ cloche {
     fabric {
         mixins.from(file("src/fabric/main/regions_unexplored.fabric.mixins.json"))
 
-        loaderVersion = "0.18.3"
+        loaderVersion = "0.18.4"
         minecraftVersion = "1.21.1"
 
         dependencies {
-            fabricApi("0.116.7")
+            fabricApi("0.116.8")
             modApi("com.terraformersmc:biolith-fabric:3.0.10")
-            modImplementation("maven.modrinth:world-preview:qc0AtV3T")
+            modRuntimeOnly("maven.modrinth:world-preview:qc0AtV3T")
             modImplementation("maven.modrinth:lithostitched:1.5.7-fabric-1.21.1")
 
             modImplementation("com.terraformersmc:modmenu:11.0.3")
@@ -112,7 +114,7 @@ cloche {
 
     neoforge {
         mixins.from(file("src/neoforge/main/regions_unexplored.neoforge.mixins.json"))
-        loaderVersion = "21.1.209"
+        loaderVersion = "21.1.218"
         minecraftVersion = "1.21.1"
 
         dependencies {

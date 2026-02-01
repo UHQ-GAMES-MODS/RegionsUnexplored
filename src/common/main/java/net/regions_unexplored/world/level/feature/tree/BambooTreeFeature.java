@@ -12,8 +12,8 @@ import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.regions_unexplored.block.RuBlocks;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.RUBlocks;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 import net.regions_unexplored.world.level.feature.configuration.RuTreeConfiguration;
 
 import java.util.Random;
@@ -60,13 +60,13 @@ public class BambooTreeFeature extends Feature<RuTreeConfiguration> {
         if(level.isOutsideBuildHeight(pos)){
             return;
         }
-        if(level.getBlockState(pos).is(RuBlocks.PEAT_GRASS_BLOCK.get())){
-            level.setBlock(pos, RuBlocks.PEAT_PODZOL.get().defaultBlockState(), 2);
+        if(level.getBlockState(pos).is(RUBlocks.PEAT_GRASS_BLOCK.get())){
+            level.setBlock(pos, RUBlocks.PEAT_PODZOL.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.SILT_GRASS_BLOCK.get())){
-            level.setBlock(pos, RuBlocks.SILT_PODZOL.get().defaultBlockState(), 2);
+        else if(level.getBlockState(pos).is(RUBlocks.SILT_GRASS_BLOCK.get())){
+            level.setBlock(pos, RUBlocks.SILT_PODZOL.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos).is(RuBlocks.ALPHA_GRASS_BLOCK.get())){
+        else if(level.getBlockState(pos).is(RUBlocks.ALPHA_GRASS_BLOCK.get())){
             level.setBlock(pos, Blocks.PODZOL.defaultBlockState(), 2);
         }
         else if(level.getBlockState(pos).is(Blocks.GRASS_BLOCK)){
@@ -76,13 +76,13 @@ public class BambooTreeFeature extends Feature<RuTreeConfiguration> {
             level.setBlock(pos, treeConfiguration.trunkProvider.getState(randomSource, pos), 2);
         }
 
-        if(level.getBlockState(pos.below()).is(RuBlocks.PEAT_GRASS_BLOCK.get())){
-            level.setBlock(pos.below(), RuBlocks.PEAT_PODZOL.get().defaultBlockState(), 2);
+        if(level.getBlockState(pos.below()).is(RUBlocks.PEAT_GRASS_BLOCK.get())){
+            level.setBlock(pos.below(), RUBlocks.PEAT_PODZOL.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.SILT_GRASS_BLOCK.get())){
-            level.setBlock(pos.below(), RuBlocks.SILT_PODZOL.get().defaultBlockState(), 2);
+        else if(level.getBlockState(pos.below()).is(RUBlocks.SILT_GRASS_BLOCK.get())){
+            level.setBlock(pos.below(), RUBlocks.SILT_PODZOL.get().defaultBlockState(), 2);
         }
-        else if(level.getBlockState(pos.below()).is(RuBlocks.ALPHA_GRASS_BLOCK.get())){
+        else if(level.getBlockState(pos.below()).is(RUBlocks.ALPHA_GRASS_BLOCK.get())){
             level.setBlock(pos.below(), Blocks.PODZOL.defaultBlockState(), 2);
         }
         else if(level.getBlockState(pos.below()).is(Blocks.GRASS_BLOCK)){
@@ -223,7 +223,7 @@ public class BambooTreeFeature extends Feature<RuTreeConfiguration> {
     }
     
     public static boolean isReplaceableDirtBlock(BlockState state) {
-        return state.is(RuTags.TREE_GRASS_REPLACEABLES);
+        return state.is(RUBlockTags.TREE_GRASS_REPLACEABLES);
     }
 
 
@@ -232,7 +232,7 @@ public class BambooTreeFeature extends Feature<RuTreeConfiguration> {
     }
 
     public static boolean isReplaceableBlock(BlockState state) {
-        return state.is(RuTags.REPLACEABLE_BLOCKS);
+        return state.is(RUBlockTags.REPLACEABLE_BLOCKS);
     }
 
     public static boolean isReplaceable(LevelSimulatedReader reader, BlockPos pos) {

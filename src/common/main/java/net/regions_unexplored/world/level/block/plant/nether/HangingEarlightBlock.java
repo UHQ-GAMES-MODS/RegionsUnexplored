@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.NetherVines;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 public class HangingEarlightBlock extends GrowingPlantHeadBlock {
     public static final MapCodec<? extends HangingEarlightBlock> CODEC = simpleCodec(HangingEarlightBlock::new);
@@ -28,7 +28,7 @@ public class HangingEarlightBlock extends GrowingPlantHeadBlock {
     }
 
     protected Block getBodyBlock() {
-        return RuBlocks.HANGING_EARLIGHT_PLANT.get();
+        return RUBlocks.HANGING_EARLIGHT_PLANT.get();
     }
 
     protected boolean canGrowInto(BlockState state) {

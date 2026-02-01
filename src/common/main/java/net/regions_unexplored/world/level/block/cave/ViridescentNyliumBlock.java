@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 public class ViridescentNyliumBlock extends Block implements BonemealableBlock {
    public ViridescentNyliumBlock(Properties properties) {
@@ -29,7 +29,7 @@ public class ViridescentNyliumBlock extends Block implements BonemealableBlock {
       //NORTH
       if(level.getBlockState(pos.north()).is(BlockTags.STONE_ORE_REPLACEABLES)){
          if(random.nextInt(2)==0){
-         level.setBlock(pos.north(), RuBlocks.VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
+         level.setBlock(pos.north(), RUBlocks.VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
             if(level.getBlockState(pos.north().above()).isAir() & random.nextInt(2)==0){
                level.setBlock(pos.north().above(), Blocks.SHORT_GRASS.defaultBlockState(), 2);
             }
@@ -37,7 +37,7 @@ public class ViridescentNyliumBlock extends Block implements BonemealableBlock {
       }
       else if(level.getBlockState(pos.north()).is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)){
          if(random.nextInt(2)==0){
-            level.setBlock(pos.north(), RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
+            level.setBlock(pos.north(), RUBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
             if(level.getBlockState(pos.north().above()).isAir() & random.nextInt(2)==0){
                level.setBlock(pos.north().above(), Blocks.SHORT_GRASS.defaultBlockState(), 2);
             }
@@ -46,7 +46,7 @@ public class ViridescentNyliumBlock extends Block implements BonemealableBlock {
       //SOUTH
       if(level.getBlockState(pos.south()).is(BlockTags.STONE_ORE_REPLACEABLES)){
          if(random.nextInt(2)==0){
-            level.setBlock(pos.south(), RuBlocks.VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
+            level.setBlock(pos.south(), RUBlocks.VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
             if(level.getBlockState(pos.south().above()).isAir() & random.nextInt(2)==0){
                level.setBlock(pos.south().above(), Blocks.SHORT_GRASS.defaultBlockState(), 2);
             }
@@ -54,7 +54,7 @@ public class ViridescentNyliumBlock extends Block implements BonemealableBlock {
       }
       else if(level.getBlockState(pos.south()).is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)){
          if(random.nextInt(2)==0){
-            level.setBlock(pos.south(), RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
+            level.setBlock(pos.south(), RUBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
             if(level.getBlockState(pos.south().above()).isAir() & random.nextInt(2)==0){
                level.setBlock(pos.south().above(), Blocks.SHORT_GRASS.defaultBlockState(), 2);
             }
@@ -63,7 +63,7 @@ public class ViridescentNyliumBlock extends Block implements BonemealableBlock {
       //EAST
       if(level.getBlockState(pos.east()).is(BlockTags.STONE_ORE_REPLACEABLES)){
          if(random.nextInt(2)==0){
-            level.setBlock(pos.east(), RuBlocks.VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
+            level.setBlock(pos.east(), RUBlocks.VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
             if(level.getBlockState(pos.east().above()).isAir() & random.nextInt(2)==0){
                level.setBlock(pos.east().above(), Blocks.SHORT_GRASS.defaultBlockState(), 2);
             }
@@ -71,7 +71,7 @@ public class ViridescentNyliumBlock extends Block implements BonemealableBlock {
       }
       else if(level.getBlockState(pos.east()).is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)){
          if(random.nextInt(2)==0){
-            level.setBlock(pos.east(), RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
+            level.setBlock(pos.east(), RUBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
             if(level.getBlockState(pos.east().above()).isAir() & random.nextInt(2)==0){
                level.setBlock(pos.east().above(), Blocks.SHORT_GRASS.defaultBlockState(), 2);
             }
@@ -80,7 +80,7 @@ public class ViridescentNyliumBlock extends Block implements BonemealableBlock {
       //WEST
       if(level.getBlockState(pos.west()).is(BlockTags.STONE_ORE_REPLACEABLES)){
          if(random.nextInt(2)==0){
-            level.setBlock(pos.west(), RuBlocks.VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
+            level.setBlock(pos.west(), RUBlocks.VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
             if(level.getBlockState(pos.west().above()).isAir() & random.nextInt(2)==0){
                level.setBlock(pos.west().above(), Blocks.SHORT_GRASS.defaultBlockState(), 2);
             }
@@ -88,7 +88,7 @@ public class ViridescentNyliumBlock extends Block implements BonemealableBlock {
       }
       else if(level.getBlockState(pos.west()).is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)){
          if(random.nextInt(2)==0){
-            level.setBlock(pos.west(), RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
+            level.setBlock(pos.west(), RUBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
             if(level.getBlockState(pos.west().above()).isAir() & random.nextInt(2)==0){
                level.setBlock(pos.west().above(), Blocks.SHORT_GRASS.defaultBlockState(), 2);
             }
@@ -97,7 +97,7 @@ public class ViridescentNyliumBlock extends Block implements BonemealableBlock {
       //NORTH-EAST
       if(level.getBlockState(pos.north().east()).is(BlockTags.STONE_ORE_REPLACEABLES)){
          if(random.nextInt(2)==0){
-            level.setBlock(pos.north().east(), RuBlocks.VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
+            level.setBlock(pos.north().east(), RUBlocks.VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
             if(level.getBlockState(pos.north().east().above()).isAir() & random.nextInt(2)==0){
                level.setBlock(pos.north().east().above(), Blocks.SHORT_GRASS.defaultBlockState(), 2);
             }
@@ -105,7 +105,7 @@ public class ViridescentNyliumBlock extends Block implements BonemealableBlock {
       }
       else if(level.getBlockState(pos.north().east()).is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)){
          if(random.nextInt(2)==0){
-            level.setBlock(pos.north().east(), RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
+            level.setBlock(pos.north().east(), RUBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
             if(level.getBlockState(pos.north().east().above()).isAir() & random.nextInt(2)==0){
                level.setBlock(pos.north().east().above(), Blocks.SHORT_GRASS.defaultBlockState(), 2);
             }
@@ -114,7 +114,7 @@ public class ViridescentNyliumBlock extends Block implements BonemealableBlock {
       //NORTH-WEST
       if(level.getBlockState(pos.north().west()).is(BlockTags.STONE_ORE_REPLACEABLES)){
          if(random.nextInt(2)==0){
-            level.setBlock(pos.north().west(), RuBlocks.VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
+            level.setBlock(pos.north().west(), RUBlocks.VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
             if(level.getBlockState(pos.north().west().above()).isAir() & random.nextInt(2)==0){
                level.setBlock(pos.north().west().above(), Blocks.SHORT_GRASS.defaultBlockState(), 2);
             }
@@ -122,7 +122,7 @@ public class ViridescentNyliumBlock extends Block implements BonemealableBlock {
       }
       else if(level.getBlockState(pos.north().west()).is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)){
          if(random.nextInt(2)==0){
-            level.setBlock(pos.north().west(), RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
+            level.setBlock(pos.north().west(), RUBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
             if(level.getBlockState(pos.north().west().above()).isAir() & random.nextInt(2)==0){
                level.setBlock(pos.north().west().above(), Blocks.SHORT_GRASS.defaultBlockState(), 2);
             }
@@ -131,7 +131,7 @@ public class ViridescentNyliumBlock extends Block implements BonemealableBlock {
       //SOUTH-EAST
       if(level.getBlockState(pos.south().east()).is(BlockTags.STONE_ORE_REPLACEABLES)){
          if(random.nextInt(2)==0){
-            level.setBlock(pos.south().east(), RuBlocks.VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
+            level.setBlock(pos.south().east(), RUBlocks.VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
             if(level.getBlockState(pos.south().east().above()).isAir() & random.nextInt(2)==0){
                level.setBlock(pos.south().east().above(), Blocks.SHORT_GRASS.defaultBlockState(), 2);
             }
@@ -139,7 +139,7 @@ public class ViridescentNyliumBlock extends Block implements BonemealableBlock {
       }
       else if(level.getBlockState(pos.south().east()).is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)){
          if(random.nextInt(2)==0){
-            level.setBlock(pos.south().east(), RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
+            level.setBlock(pos.south().east(), RUBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
             if(level.getBlockState(pos.south().east().above()).isAir() & random.nextInt(2)==0){
                level.setBlock(pos.south().east().above(), Blocks.SHORT_GRASS.defaultBlockState(), 2);
             }
@@ -148,7 +148,7 @@ public class ViridescentNyliumBlock extends Block implements BonemealableBlock {
       //SOUTH-WEST
       if(level.getBlockState(pos.south().west()).is(BlockTags.STONE_ORE_REPLACEABLES)){
          if(random.nextInt(2)==0){
-            level.setBlock(pos.south().west(), RuBlocks.VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
+            level.setBlock(pos.south().west(), RUBlocks.VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
             if(level.getBlockState(pos.south().west().above()).isAir() & random.nextInt(2)==0){
                level.setBlock(pos.south().west().above(), Blocks.SHORT_GRASS.defaultBlockState(), 2);
             }
@@ -156,7 +156,7 @@ public class ViridescentNyliumBlock extends Block implements BonemealableBlock {
       }
       else if(level.getBlockState(pos.south().west()).is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)){
          if(random.nextInt(2)==0){
-            level.setBlock(pos.south().west(), RuBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
+            level.setBlock(pos.south().west(), RUBlocks.DEEPSLATE_VIRIDESCENT_NYLIUM.get().defaultBlockState(), 2);
             if(level.getBlockState(pos.south().west().above()).isAir() & random.nextInt(2)==0){
                level.setBlock(pos.south().west().above(), Blocks.SHORT_GRASS.defaultBlockState(), 2);
             }

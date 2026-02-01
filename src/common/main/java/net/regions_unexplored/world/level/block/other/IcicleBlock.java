@@ -31,7 +31,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
@@ -233,10 +233,10 @@ public class IcicleBlock extends Block implements SimpleWaterloggedBlock {
     private static Optional<BlockPos> findRootBlock(Level level, BlockPos pos, BlockState state, int i) {
         Direction direction = state.getValue(TIP_DIRECTION);
         BiPredicate<BlockPos, BlockState> bipredicate = (pos1, state1) -> {
-            return state1.is(RuBlocks.ICICLE.get()) && state1.getValue(TIP_DIRECTION) == direction;
+            return state1.is(RUBlocks.ICICLE.get()) && state1.getValue(TIP_DIRECTION) == direction;
         };
         return findBlockVertical(level, pos, direction.getOpposite().getAxisDirection(), bipredicate, (state1) -> {
-            return !state1.is(RuBlocks.ICICLE.get());
+            return !state1.is(RUBlocks.ICICLE.get());
         }, i);
     }
 
@@ -259,7 +259,7 @@ public class IcicleBlock extends Block implements SimpleWaterloggedBlock {
     }
 
     private static boolean isPointedDripstoneWithDirection(BlockState state, Direction direction) {
-        return state.is(RuBlocks.ICICLE.get()) && state.getValue(TIP_DIRECTION) == direction;
+        return state.is(RUBlocks.ICICLE.get()) && state.getValue(TIP_DIRECTION) == direction;
     }
 
     private static Optional<FluidInfo> getFluidAboveStalactite(Level level, BlockPos pos, BlockState state) {

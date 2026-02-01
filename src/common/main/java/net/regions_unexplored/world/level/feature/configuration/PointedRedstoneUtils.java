@@ -9,7 +9,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DripstoneThickness;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.world.level.block.cave.PointedRedstoneBlock;
 
 import java.util.function.Consumer;
@@ -80,7 +80,7 @@ public class PointedRedstoneUtils {
         if (isRedstoneBase(level.getBlockState(pos.relative(direction.getOpposite())))) {
             BlockPos.MutableBlockPos pos1 = pos.mutable();
             buildBaseToTipColumn(direction, i, bool, (p_190846_) -> {
-                if (p_190846_.is(RuBlocks.POINTED_REDSTONE.get())) {
+                if (p_190846_.is(RUBlocks.POINTED_REDSTONE.get())) {
                     p_190846_ = p_190846_.setValue(PointedRedstoneBlock.WATERLOGGED, Boolean.valueOf(level.isWaterAt(pos1)));
                 }
 
@@ -93,7 +93,7 @@ public class PointedRedstoneUtils {
     public static boolean placeRedstoneBlockIfPossible(LevelAccessor level, BlockPos pos) {
         BlockState blockstate = level.getBlockState(pos);
         if (blockstate.is(BlockTags.DRIPSTONE_REPLACEABLE)) {
-            level.setBlock(pos, RuBlocks.RAW_REDSTONE_BLOCK.get().defaultBlockState(), 2);
+            level.setBlock(pos, RUBlocks.RAW_REDSTONE_BLOCK.get().defaultBlockState(), 2);
             return true;
         } else {
             return false;
@@ -101,7 +101,7 @@ public class PointedRedstoneUtils {
     }
 
     public static BlockState createPointedRedstone(Direction direction, DripstoneThickness thickness) {
-        return RuBlocks.POINTED_REDSTONE.get().defaultBlockState().setValue(PointedRedstoneBlock.TIP_DIRECTION, direction).setValue(PointedRedstoneBlock.THICKNESS, thickness);
+        return RUBlocks.POINTED_REDSTONE.get().defaultBlockState().setValue(PointedRedstoneBlock.TIP_DIRECTION, direction).setValue(PointedRedstoneBlock.THICKNESS, thickness);
     }
 
     public static boolean isRedstoneBaseOrLava(BlockState state) {
@@ -109,7 +109,7 @@ public class PointedRedstoneUtils {
     }
 
     public static boolean isRedstoneBase(BlockState state) {
-        return state.is(RuBlocks.RAW_REDSTONE_BLOCK.get()) || state.is(BlockTags.DRIPSTONE_REPLACEABLE);
+        return state.is(RUBlocks.RAW_REDSTONE_BLOCK.get()) || state.is(BlockTags.DRIPSTONE_REPLACEABLE);
     }
 
     public static boolean isEmptyOrWater(BlockState state) {

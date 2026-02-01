@@ -3,9 +3,6 @@ package net.regions_unexplored.entity.custom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
-import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityDimensions;
@@ -18,8 +15,7 @@ import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import net.regions_unexplored.entity.RuEntities;
-import net.regions_unexplored.item.RuItems;
+import net.regions_unexplored.registry.RUEntityTypes;
 import org.jetbrains.annotations.NotNull;
 
 public class RuChestBoat extends ChestBoat
@@ -30,7 +26,7 @@ public class RuChestBoat extends ChestBoat
     }
 
     public RuChestBoat(Level level, double x, double y, double z) {
-        this(RuEntities.CHEST_BOAT.get(), level);
+        this(RUEntityTypes.CHEST_BOAT.get(), level);
         this.setPos(x, y, z); this.xo = x; this.yo = y; this.zo = z;
     }
 

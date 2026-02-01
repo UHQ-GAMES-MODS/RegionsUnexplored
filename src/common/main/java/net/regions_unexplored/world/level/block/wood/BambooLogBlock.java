@@ -14,23 +14,21 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
 
 import javax.annotation.Nullable;
@@ -40,9 +38,8 @@ public class BambooLogBlock extends Block implements BonemealableBlock, SimpleWa
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.AXIS;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    public BambooLogBlock() {
-        super(Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).instrument(NoteBlockInstrument.BASS).sound(SoundType.BAMBOO).strength(2f, 3f).noOcclusion()
-                .isRedstoneConductor((bs, br, bp) -> false));
+    public BambooLogBlock(BlockBehaviour.Properties properties) {
+        super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Direction.Axis.Y).setValue(LEAVES, false).setValue(WATERLOGGED, Boolean.valueOf(false)));
     }
 
@@ -146,7 +143,7 @@ public class BambooLogBlock extends Block implements BonemealableBlock, SimpleWa
     private BlockState evaluateStrippedState(Level level, BlockPos pos, @Nullable Player player, BlockState state) {
         boolean isWaterlogged = state.getValue(WATERLOGGED);
         Direction.Axis direction = state.getValue(AXIS);
-        BlockState strippedState = RuBlocks.STRIPPED_BAMBOO_LOG.get().defaultBlockState().setValue(AXIS, direction).setValue(WATERLOGGED, Boolean.valueOf(isWaterlogged));
+        BlockState strippedState = RUBlocks.STRIPPED_BAMBOO_LOG.get().defaultBlockState().setValue(AXIS, direction).setValue(WATERLOGGED, Boolean.valueOf(isWaterlogged));
         level.playSound(player, pos, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1.0F, 1.0F);
         return strippedState;
     }
@@ -154,7 +151,7 @@ public class BambooLogBlock extends Block implements BonemealableBlock, SimpleWa
     private BlockState evaluateTilledState(Level level, BlockPos pos, @Nullable Player player, BlockState state) {
         boolean isWaterlogged = state.getValue(WATERLOGGED);
         Direction.Axis direction = state.getValue(AXIS);
-        BlockState tilledState = RuBlocks.BAMBOO_LOG.get().defaultBlockState().setValue(LEAVES, false).setValue(AXIS, direction).setValue(WATERLOGGED, isWaterlogged);
+        BlockState tilledState = RUBlocks.BAMBOO_LOG.get().defaultBlockState().setValue(LEAVES, false).setValue(AXIS, direction).setValue(WATERLOGGED, isWaterlogged);
         level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
         return tilledState;
     }

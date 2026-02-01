@@ -4,7 +4,7 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
@@ -20,8 +20,8 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.block.RuBlocks;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.RUBlocks;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 import net.regions_unexplored.world.level.block.plant.tall.RuSandyDoublePlantBlock;
 import net.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
 
@@ -49,10 +49,10 @@ public class RuSandyPlantBlock extends BushBlock implements BonemealableBlock {
 
     public BlockState updateShape(BlockState state, Direction direction, BlockState state1, LevelAccessor level, BlockPos pos, BlockPos pos2) {
         if(level.getBlockState(pos.below()).is(Blocks.RED_SAND)||level.getBlockState(pos.below()).is(Blocks.RED_SANDSTONE)
-                ||level.getBlockState(pos.below()).is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "red_sandstone")))
-                ||level.getBlockState(pos.below()).is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "sandstone/red")))
-                ||level.getBlockState(pos.below()).is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "red_sand")))
-                ||level.getBlockState(pos.below()).is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "sand/red")))){
+                ||level.getBlockState(pos.below()).is(TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("c", "red_sandstone")))
+                ||level.getBlockState(pos.below()).is(TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("c", "sandstone/red")))
+                ||level.getBlockState(pos.below()).is(TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("c", "red_sand")))
+                ||level.getBlockState(pos.below()).is(TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("c", "sand/red")))){
             state.setValue(IS_RED, true);
         }
         else{
@@ -68,10 +68,10 @@ public class RuSandyPlantBlock extends BushBlock implements BonemealableBlock {
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         boolean isRed = context.getLevel().getBlockState(context.getClickedPos().below()).is(Blocks.RED_SAND)
                 ||context.getLevel().getBlockState(context.getClickedPos().below()).is(Blocks.RED_SANDSTONE)
-                ||context.getLevel().getBlockState(context.getClickedPos().below()).is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "red_sandstone")))
-                ||context.getLevel().getBlockState(context.getClickedPos().below()).is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "sandstone/red")))
-                ||context.getLevel().getBlockState(context.getClickedPos().below()).is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "red_sand")))
-                ||context.getLevel().getBlockState(context.getClickedPos().below()).is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "sand/red")));
+                ||context.getLevel().getBlockState(context.getClickedPos().below()).is(TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("c", "red_sandstone")))
+                ||context.getLevel().getBlockState(context.getClickedPos().below()).is(TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("c", "sandstone/red")))
+                ||context.getLevel().getBlockState(context.getClickedPos().below()).is(TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("c", "red_sand")))
+                ||context.getLevel().getBlockState(context.getClickedPos().below()).is(TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("c", "sand/red")));
         return (this.defaultBlockState().setValue(IS_RED, isRed));
     }
 
@@ -89,14 +89,14 @@ public class RuSandyPlantBlock extends BushBlock implements BonemealableBlock {
 
     @Override
     public boolean mayPlaceOn(BlockState state, BlockGetter getter, BlockPos pos) {
-        return state.is(RuTags.SANDY_PLANT_CAN_SURVIVE_ON);
+        return state.is(RUBlockTags.SANDY_PLANT_CAN_SURVIVE_ON);
     }
 
 
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
         boolean isRed = state.getValue(IS_RED);
-        if(state.is(RuBlocks.SANDY_GRASS.get())){
-            Block sandyTallGrassBlock = RuBlocks.SANDY_TALL_GRASS.get();
+        if(state.is(RUBlocks.SANDY_GRASS.get())){
+            Block sandyTallGrassBlock = RUBlocks.SANDY_TALL_GRASS.get();
             if (sandyTallGrassBlock instanceof DoublePlantBlock sandyTallGrass) {
                 if (sandyTallGrass.defaultBlockState().canSurvive(level, pos) && level.isEmptyBlock(pos.above())) {
                     placeAt(level, sandyTallGrass.defaultBlockState().setValue(IS_RED, isRed), pos, 2);

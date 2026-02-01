@@ -28,7 +28,9 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.phys.BlockHitResult;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
+import net.regions_unexplored.registry.data.RUPlacedFeatures;
+import net.regions_unexplored.world.level.block.RUBlockActions;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -47,48 +49,9 @@ public class PeatGrassBlock extends SpreadingForestDirtBlock implements Bonemeal
       return true;
    }
 
+   @Override
    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
-      BlockPos blockPos = pos.above();
-      BlockState blockState = Blocks.SHORT_GRASS.defaultBlockState();
-      Optional<Holder.Reference<PlacedFeature>> optional = level.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(VegetationPlacements.GRASS_BONEMEAL);
-
-      label46:
-      for (int i = 0; i < 128; ++i) {
-         BlockPos blockPos1 = blockPos;
-
-         for (int j = 0; j < i / 16; ++j) {
-            blockPos1 = blockPos1.offset(random.nextInt(3) - 1, (random.nextInt(3) - 1) * random.nextInt(3) / 2, random.nextInt(3) - 1);
-            if (!level.getBlockState(blockPos1.below()).is(this) || level.getBlockState(blockPos1).isCollisionShapeFullBlock(level, blockPos1)) {
-               continue label46;
-            }
-         }
-
-         BlockState blockState1 = level.getBlockState(blockPos1);
-         if (blockState1.is(blockState.getBlock()) && random.nextInt(10) == 0) {
-            ((BonemealableBlock) blockState.getBlock()).performBonemeal(level, random, blockPos1, blockState1);
-         }
-
-         if (blockState1.isAir()) {
-            Holder<PlacedFeature> holder;
-            if (random.nextInt(8) == 0) {
-               List<ConfiguredFeature<?, ?>> list = level.getBiome(blockPos1).value().getGenerationSettings().getFlowerFeatures();
-               if (list.isEmpty()) {
-                  continue;
-               }
-
-               holder = ((RandomPatchConfiguration) list.get(0).config()).feature();
-            } else {
-               if (!optional.isPresent()) {
-                  continue;
-               }
-
-               holder = optional.get();
-            }
-
-            holder.value().place(level, level.getChunkSource().getGenerator(), random, blockPos1);
-         }
-      }
-
+      RUBlockActions.performBonemeal(this, level, random, pos, RUPlacedFeatures.BONEMEAL_PEAT_GRASS);
    }
 
    @Override
@@ -123,13 +86,13 @@ public class PeatGrassBlock extends SpreadingForestDirtBlock implements Bonemeal
    }
 
    private BlockState evaluateFlattenedState(Level level, BlockPos pos, @Nullable Player player, BlockState state) {
-      BlockState flattenedState = RuBlocks.PEAT_DIRT_PATH.get().defaultBlockState();
+      BlockState flattenedState = RUBlocks.PEAT_DIRT_PATH.get().defaultBlockState();
       level.playSound(player, pos, SoundEvents.SHOVEL_FLATTEN, SoundSource.BLOCKS, 1.0F, 1.0F);
       return flattenedState;
    }
 
    private BlockState evaluateTilledState(Level level, BlockPos pos, @Nullable Player player, BlockState state) {
-      BlockState tilledState = RuBlocks.PEAT_FARMLAND.get().defaultBlockState();
+      BlockState tilledState = RUBlocks.PEAT_FARMLAND.get().defaultBlockState();
       level.playSound(player, pos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
       return tilledState;
    }

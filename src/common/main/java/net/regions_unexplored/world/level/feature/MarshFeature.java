@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 import java.util.Random;
 
@@ -61,7 +61,7 @@ public class MarshFeature extends Feature<NoneFeatureConfiguration> {
         if(chance== 0){
             if (!level.getFluidState(pos.below(5)).is(FluidTags.WATER)&&level.isWaterAt(pos)) {
                 level.setBlock(pos, Blocks.GRASS_BLOCK.defaultBlockState(), 2);
-                if(level.getBlockState(pos.above()).is(Blocks.LILY_PAD)||level.getBlockState(pos.above()).is(RuBlocks.DUCKWEED.get())||level.getBlockState(pos.above()).is(RuBlocks.FLOWERING_LILY_PAD.get())){
+                if(level.getBlockState(pos.above()).is(Blocks.LILY_PAD)||level.getBlockState(pos.above()).is(RUBlocks.DUCKWEED.get())||level.getBlockState(pos.above()).is(RUBlocks.FLOWERING_LILY_PAD.get())){
                     level.setBlock(pos.above(), Blocks.AIR.defaultBlockState(), 2);
                 }
                 if(level.getBlockState(pos.above()).isAir()&&level.getBlockState(pos.above(2)).isAir()){

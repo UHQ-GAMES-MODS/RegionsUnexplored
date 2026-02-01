@@ -11,7 +11,6 @@ import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -21,21 +20,19 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 import javax.annotation.Nullable;
 
@@ -43,9 +40,8 @@ public class SmallOakLogBlock extends Block implements SimpleWaterloggedBlock{
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.AXIS;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    public SmallOakLogBlock() {
-        super(Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).strength(2f, 3f).noOcclusion()
-                .isRedstoneConductor((bs, br, bp) -> false));
+    public SmallOakLogBlock(BlockBehaviour.Properties properties) {
+        super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Direction.Axis.Y).setValue(WATERLOGGED, Boolean.valueOf(false)));
     }
 
@@ -127,7 +123,7 @@ public class SmallOakLogBlock extends Block implements SimpleWaterloggedBlock{
     private BlockState evaluateStrippedState(Level level, BlockPos pos, @Nullable Player player, BlockState state) {
         boolean isWaterlogged = state.getValue(WATERLOGGED);
         Direction.Axis direction = state.getValue(AXIS);
-        BlockState strippedState = RuBlocks.STRIPPED_SMALL_OAK_LOG.get().defaultBlockState().setValue(AXIS, direction).setValue(WATERLOGGED, Boolean.valueOf(isWaterlogged));
+        BlockState strippedState = RUBlocks.STRIPPED_SMALL_OAK_LOG.get().defaultBlockState().setValue(AXIS, direction).setValue(WATERLOGGED, Boolean.valueOf(isWaterlogged));
         level.playSound(player, pos, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1.0F, 1.0F);
         return strippedState;
     }

@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 
 import java.util.Objects;
 
@@ -79,7 +79,7 @@ public class BranchBlock extends BushBlock {
 
     @Override
     public boolean mayPlaceOn(BlockState state, BlockGetter getter, BlockPos pos) {
-        return state.is(RuTags.BRANCHES_CAN_SURVIVE_ON);
+        return state.is(RUBlockTags.BRANCHES_CAN_SURVIVE_ON);
     }
 
     @Override

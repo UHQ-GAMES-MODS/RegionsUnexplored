@@ -2,21 +2,18 @@ package net.regions_unexplored;
 
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
-import net.regions_unexplored.block.RuBlocks;
+import net.minecraft.resources.Identifier;
+import net.regions_unexplored.registry.*;
 import net.regions_unexplored.block.compat.BlockToolCompat;
 import net.regions_unexplored.block.compat.FlammableBlocks;
-import net.regions_unexplored.client.particle.RuParticleTypes;
+import net.regions_unexplored.registry.RUParticleTypes;
 import net.regions_unexplored.config.RuClientConfig;
 import net.regions_unexplored.config.RuCommonConfig;
-import net.regions_unexplored.entity.RuEntities;
+import net.regions_unexplored.registry.RUEntityTypes;
 import net.regions_unexplored.internal.config.Config;
 import net.regions_unexplored.internal.config.ConfigManager;
 import net.regions_unexplored.internal.config.gui.ConfigScreenRegistry;
-import net.regions_unexplored.item.RuItems;
-import net.regions_unexplored.item.tab.RuTabs;
-import net.regions_unexplored.registry.BiomeRegistry;
-import net.regions_unexplored.registry.FeatureRegistry;
+import net.regions_unexplored.registry.data.RUBiomes;
 import net.regions_unexplored.world.RuBiolith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,13 +27,15 @@ public class RegionsUnexplored {
 		registerConfig("regions unexplored/regions_unexplored-client", "Client", RuClientConfig.class);
 		registerConfig("regions unexplored/regions_unexplored-common", "Common", RuCommonConfig.class);
 
-		FeatureRegistry.addFeatures();
-		RuParticleTypes.addParticles();
-		BiomeRegistry.addBiomes();
-		RuBlocks.addBlocks();
-		RuItems.addItems();
-		RuTabs.init();
-		RuEntities.addEntities();
+		RUBiomes.init();
+		RUBlocks.init();
+		RUCreativeModeTabs.init();
+		RUEntityTypes.init();
+		RUFeatureTypes.init();
+		RUFoliagePlacerTypes.init();
+		RUItems.init();
+		RUParticleTypes.init();
+		RUTreeDecoratorTypes.init();
 	}
 
 	public static void afterRegistriesFreeze(){
@@ -47,8 +46,8 @@ public class RegionsUnexplored {
 		RuBiolith.init();
 	}
 
-	public static ResourceLocation id(String path) {
-		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+	public static Identifier id(String path) {
+		return Identifier.fromNamespaceAndPath(MOD_ID, path);
 	}
 
 	public static <T> ResourceKey<T> key(ResourceKey<? extends Registry<T>> key, String name) {

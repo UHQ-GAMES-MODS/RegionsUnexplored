@@ -5,14 +5,15 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
-import net.regions_unexplored.registry.BlockRegistry;
+import net.regions_unexplored.block.RUBlockUtils;
 
 public class BrimwoodLeavesBlock extends LeavesBlock {
-    public BrimwoodLeavesBlock() {
-        super(Properties.of().mapColor(MapColor.COLOR_BROWN).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(BrimwoodLeavesBlock::ocelotOrParrot).isSuffocating(BrimwoodLeavesBlock::never).isViewBlocking(BrimwoodLeavesBlock::never).pushReaction(PushReaction.DESTROY).isRedstoneConductor(BlockRegistry::never));
+    public BrimwoodLeavesBlock(BlockBehaviour.Properties properties) {
+        super(Properties.of().mapColor(MapColor.COLOR_BROWN).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(BrimwoodLeavesBlock::ocelotOrParrot).isSuffocating(BrimwoodLeavesBlock::never).isViewBlocking(BrimwoodLeavesBlock::never).pushReaction(PushReaction.DESTROY).isRedstoneConductor(RUBlockUtils::never));
     }
 
     @Override

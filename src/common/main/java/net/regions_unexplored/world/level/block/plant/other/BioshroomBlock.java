@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 
 public class BioshroomBlock extends SaplingBlock {
     protected static final float AABB_OFFSET = 3.0F;
@@ -51,7 +51,7 @@ public class BioshroomBlock extends SaplingBlock {
 
     @Override
     public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
-        if(level.getBlockState(pos.below()).is(RuTags.BIOSHROOM_GROW_BLOCK)) {
+        if(level.getBlockState(pos.below()).is(RUBlockTags.BIOSHROOM_GROW_BLOCK)) {
             return true;
         }
         else{

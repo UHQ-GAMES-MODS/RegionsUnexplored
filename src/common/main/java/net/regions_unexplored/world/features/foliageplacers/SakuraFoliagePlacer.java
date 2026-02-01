@@ -25,10 +25,10 @@ public class SakuraFoliagePlacer extends FoliagePlacer {
             )
             .apply(placer, SakuraFoliagePlacer::new)
     );
-    public static FoliagePlacerType<?> SAKURA_FOLIAGE_PLACER = new FoliagePlacerType<>(CODEC);
+    public static FoliagePlacerType<SakuraFoliagePlacer> TYPE = new FoliagePlacerType<>(CODEC);
 
     protected FoliagePlacerType<?> type() {
-        return SAKURA_FOLIAGE_PLACER;
+        return TYPE;
     }
 
     private final IntProvider height;

@@ -11,8 +11,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.regions_unexplored.block.RuBlocks;
-import net.regions_unexplored.data.tags.RuTags;
+import net.regions_unexplored.registry.RUBlocks;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 import net.regions_unexplored.world.level.block.plant.aquatic.TallHyacinthStockBlock;
 import net.regions_unexplored.world.level.block.state.properties.TallHyacinthStockShape;
 import net.regions_unexplored.world.level.feature.configuration.HyacinthStockConfiguration;
@@ -56,19 +56,19 @@ public class HyacinthStockFeature extends Feature<HyacinthStockConfiguration> {
         if(level.isOutsideBuildHeight(pos)){
             return true;
         }
-        if(!level.getBlockState(pos.below()).is(RuBlocks.TALL_HYACINTH_STOCK.get())){
+        if(!level.getBlockState(pos.below()).is(RUBlocks.TALL_HYACINTH_STOCK.get())){
             level.setBlock(pos, stockConfiguration.stockProvider.getState(randomSource, pos), 2);
         }
-        if(level.getBlockState(pos.below())== RuBlocks.TALL_HYACINTH_STOCK.get().defaultBlockState()){
+        if(level.getBlockState(pos.below())== RUBlocks.TALL_HYACINTH_STOCK.get().defaultBlockState()){
             level.setBlock(pos, stockConfiguration.stockProvider.getState(randomSource, pos).setValue(TallHyacinthStockBlock.SHAPE, TallHyacinthStockShape.TIP), 2);
             level.setBlock(pos.below(), stockConfiguration.stockProvider.getState(randomSource, pos.below()).setValue(TallHyacinthStockBlock.SHAPE, TallHyacinthStockShape.BASE_FRUSTUM), 2);
         }
-        if(level.getBlockState(pos.below().below())== RuBlocks.TALL_HYACINTH_STOCK.get().defaultBlockState().setValue(TallHyacinthStockBlock.SHAPE, TallHyacinthStockShape.BASE_FRUSTUM)){
+        if(level.getBlockState(pos.below().below())== RUBlocks.TALL_HYACINTH_STOCK.get().defaultBlockState().setValue(TallHyacinthStockBlock.SHAPE, TallHyacinthStockShape.BASE_FRUSTUM)){
             level.setBlock(pos, stockConfiguration.stockProvider.getState(randomSource, pos).setValue(TallHyacinthStockBlock.SHAPE, TallHyacinthStockShape.TIP), 2);
             level.setBlock(pos.below(), stockConfiguration.stockProvider.getState(randomSource, pos.below()).setValue(TallHyacinthStockBlock.SHAPE, TallHyacinthStockShape.FRUSTUM), 2);
             level.setBlock(pos.below().below(), stockConfiguration.stockProvider.getState(randomSource, pos.below().below()).setValue(TallHyacinthStockBlock.SHAPE, TallHyacinthStockShape.BASE), 2);
         }
-        if(level.getBlockState(pos.below().below())== RuBlocks.TALL_HYACINTH_STOCK.get().defaultBlockState().setValue(TallHyacinthStockBlock.SHAPE, TallHyacinthStockShape.FRUSTUM)){
+        if(level.getBlockState(pos.below().below())== RUBlocks.TALL_HYACINTH_STOCK.get().defaultBlockState().setValue(TallHyacinthStockBlock.SHAPE, TallHyacinthStockShape.FRUSTUM)){
             level.setBlock(pos, stockConfiguration.stockProvider.getState(randomSource, pos).setValue(TallHyacinthStockBlock.SHAPE, TallHyacinthStockShape.TIP), 2);
             level.setBlock(pos.below(), stockConfiguration.stockProvider.getState(randomSource, pos.below()).setValue(TallHyacinthStockBlock.SHAPE, TallHyacinthStockShape.FRUSTUM), 2);
             level.setBlock(pos.below().below(), stockConfiguration.stockProvider.getState(randomSource, pos.below().below()).setValue(TallHyacinthStockBlock.SHAPE, TallHyacinthStockShape.MIDDLE), 2);
@@ -77,7 +77,7 @@ public class HyacinthStockFeature extends Feature<HyacinthStockConfiguration> {
     }
     
     public static boolean isReplaceableDirtBlock(BlockState state) {
-        return state.is(RuTags.TREE_GRASS_REPLACEABLES);
+        return state.is(RUBlockTags.TREE_GRASS_REPLACEABLES);
     }
 
 
@@ -86,7 +86,7 @@ public class HyacinthStockFeature extends Feature<HyacinthStockConfiguration> {
     }
 
     public static boolean isReplaceableBlock(BlockState state) {
-        return state.is(RuTags.REPLACEABLE_BLOCKS);
+        return state.is(RUBlockTags.REPLACEABLE_BLOCKS);
     }
 
     public static boolean isReplaceable(LevelSimulatedReader reader, BlockPos pos) {

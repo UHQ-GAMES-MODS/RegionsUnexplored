@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.GrowingPlantBodyBlock;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.regions_unexplored.block.RuBlocks;
+import net.regions_unexplored.registry.RUBlocks;
 
 public class HangingEarlightPlantBlock extends GrowingPlantBodyBlock {
     public static final MapCodec<? extends HangingEarlightPlantBlock> CODEC = simpleCodec(HangingEarlightPlantBlock::new);
@@ -17,7 +17,7 @@ public class HangingEarlightPlantBlock extends GrowingPlantBodyBlock {
     }
 
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) RuBlocks.HANGING_EARLIGHT.get();
+        return (GrowingPlantHeadBlock) RUBlocks.HANGING_EARLIGHT.get();
     }
 
     @Override
