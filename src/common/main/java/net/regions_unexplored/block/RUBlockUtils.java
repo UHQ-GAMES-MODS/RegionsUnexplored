@@ -143,11 +143,6 @@ public class RUBlockUtils {
         return copiedBlock != null ? BlockBehaviour.Properties.ofFullCopy(copiedBlock.get()) : BlockBehaviour.Properties.of();
     }
 
-    //Configure leaves blocks
-    public static Block leaves(BlockBehaviour.Properties properties, MapColor colour) {
-        return leaves(properties, colour, false, LeavesBlock::new);
-    }
-
     public static Block leaves(BlockBehaviour.Properties properties, MapColor colour, boolean fireproof, BlockFactory factory) {
         properties.mapColor(colour).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(RUBlockUtils::ocelotOrParrot).isSuffocating(RUBlockUtils::never).isViewBlocking(RUBlockUtils::never).pushReaction(PushReaction.DESTROY).isRedstoneConductor(RUBlockUtils::never);
         if (!fireproof) properties.ignitedByLava();

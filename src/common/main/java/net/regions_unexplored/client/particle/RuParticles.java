@@ -6,13 +6,13 @@ import net.regions_unexplored.registry.RUParticleTypes;
 public class RuParticles {
     public static void init() {
         ParticleRegistry.register(RUParticleTypes.MYCOTOXIC_SPORE.get(), MycotoxicSporeParticle.MycotoxicSporeParticleProvider::new);
-        ParticleRegistry.register(RUParticleTypes.MAUVE_LEAVES.get(), spriteSet -> (simpleParticleType, clientLevel, d, e, f, g, h, i) -> new LeafParticle(clientLevel, d, e, f, spriteSet));
-        ParticleRegistry.register(RUParticleTypes.PINK_MAGNOLIA_LEAVES.get(), spriteSet -> (simpleParticleType, clientLevel, d, e, f, g, h, i) -> new LeafParticle(clientLevel, d, e, f, spriteSet));
-        ParticleRegistry.register(RUParticleTypes.WHITE_MAGNOLIA_LEAVES.get(), spriteSet -> (simpleParticleType, clientLevel, d, e, f, g, h, i) -> new LeafParticle(clientLevel, d, e, f, spriteSet));
-        ParticleRegistry.register(RUParticleTypes.BLUE_MAGNOLIA_LEAVES.get(), spriteSet -> (simpleParticleType, clientLevel, d, e, f, g, h, i) -> new LeafParticle(clientLevel, d, e, f, spriteSet));
-        ParticleRegistry.register(RUParticleTypes.ENCHANTED_BIRCH_LEAVES.get(), spriteSet -> (simpleParticleType, clientLevel, d, e, f, g, h, i) -> new LeafParticle(clientLevel, d, e, f, spriteSet));
-        ParticleRegistry.register(RUParticleTypes.SILVER_BIRCH_LEAVES.get(), spriteSet -> (simpleParticleType, clientLevel, d, e, f, g, h, i) -> new LeafParticle(clientLevel, d, e, f, spriteSet));
-        ParticleRegistry.register(RUParticleTypes.ORANGE_MAPLE_LEAVES.get(), spriteSet -> (simpleParticleType, clientLevel, d, e, f, g, h, i) -> new LeafParticle(clientLevel, d, e, f, spriteSet));
-        ParticleRegistry.register(RUParticleTypes.RED_MAPLE_LEAVES.get(), spriteSet -> (simpleParticleType, clientLevel, d, e, f, g, h, i) -> new LeafParticle(clientLevel, d, e, f, spriteSet));
+        ParticleRegistry.register(RUParticleTypes.SMALL_LEAVES.get(), RULeavesParticle.Provider::flowing);
+        ParticleRegistry.register(RUParticleTypes.STANDARD_LEAVES.get(), RULeavesParticle.Provider::swirling);
+        ParticleRegistry.register(RUParticleTypes.MAGNOLIA_LEAVES.get(), RULeavesParticle.Provider::magnolia);
+        ParticleRegistry.register(RUParticleTypes.PINK_MAGNOLIA_LEAVES.get(), RULeavesParticle.Provider::magnolia);
+        ParticleRegistry.register(RUParticleTypes.WHITE_MAGNOLIA_LEAVES.get(), RULeavesParticle.Provider::magnolia);
+        ParticleRegistry.register(RUParticleTypes.BLUE_MAGNOLIA_LEAVES.get(), RULeavesParticle.Provider::magnolia);
+        ParticleRegistry.register(RUParticleTypes.PINE_LEAVES.get(), RULeavesParticle.Provider::pine);
+
     }
 }
