@@ -10,12 +10,6 @@ public class RuClientConfig extends Config {
     public static final ConfigValue<Boolean> CUSTOM_ITEMS_IN_VANILLA_CREATIVE_TABS = bool(true);
     @ConfigOption(category = "client_options")
     public static final ConfigValue<Boolean> LEAVES_PARTICLES = bool(true);
-    @ConfigOption(category = "client_options")
-    public static final ConfigValue<Boolean> TOGGLE_BLUE_MAGNOLIA_LEAVES_PARTICLE = bool(true);
-    @ConfigOption(category = "client_options")
-    public static final ConfigValue<Boolean> TOGGLE_PINK_MAGNOLIA_LEAVES_PARTICLE = bool(true);
-    @ConfigOption(category = "client_options")
-    public static final ConfigValue<Boolean> TOGGLE_WHITE_MAGNOLIA_LEAVES_PARTICLE = bool(true);
 
     @Range(min = 0.0, max = 200.0)
     @ConfigOption(category = "block_color_options", comment = "Sets Eucalyptus colour transition size. Bigger number = bigger distance between colours.")

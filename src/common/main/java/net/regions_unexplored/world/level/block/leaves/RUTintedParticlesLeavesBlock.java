@@ -24,10 +24,6 @@ public class RUTintedParticlesLeavesBlock extends LeavesBlock {
     private final Supplier<ParticleType<ColorParticleOption>> particle;
     private final TintGetter tintGetter;
 
-    public RUTintedParticlesLeavesBlock(Properties properties, Supplier<ParticleType<ColorParticleOption>> particle, int tint) {
-        this(properties, particle, TintGetter.constant(tint));
-    }
-
     public RUTintedParticlesLeavesBlock(Properties properties, Supplier<ParticleType<ColorParticleOption>> particle, TintGetter getter) {
         super(properties);
         this.particle = particle;
