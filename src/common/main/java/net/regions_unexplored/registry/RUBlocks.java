@@ -361,7 +361,7 @@ public interface RUBlocks {
 
     WoodSet ALPHA_WOOD_SET = WoodSet.alpha();
     WoodSet ASHEN_WOOD_SET = WoodSet.onlyLogs("ashen", SoundType.NETHER_WOOD, MapColor.COLOR_LIGHT_GRAY, MapColor.COLOR_GRAY, true, RotatedPillarBlock::new);
-    WoodSet BAOBAB_WOOD_SET = WoodSet.simple("baobab", RuWoodTypes.BAOBAB, SoundType.CHERRY_WOOD, MapColor.WOOD, MapColor.TERRACOTTA_LIGHT_GRAY, false);
+    WoodSet BAOBAB_WOOD_SET = WoodSet.simple("baobab", RuWoodTypes.BAOBAB, RUSoundEvents.BAOBAB_SET.baseType(), MapColor.WOOD, MapColor.TERRACOTTA_LIGHT_GRAY, false);
     WoodSet BLACKWOOD_WOOD_SET = WoodSet.simple("blackwood", RuWoodTypes.BLACKWOOD, SoundType.NETHER_WOOD, MapColor.TERRACOTTA_BLACK, MapColor.TERRACOTTA_BROWN, false);
     BrimwoodWoodSet BRIMWOOD_WOOD_SET = BrimwoodWoodSet.brimwood("brimwood", RuWoodTypes.BRIMWOOD, SoundType.NETHER_WOOD, MapColor.COLOR_BROWN, MapColor.COLOR_ORANGE, true);
     WoodSet COBALT_WOOD_SET = WoodSet.simple("cobalt", RuWoodTypes.COBALT, SoundType.NETHER_WOOD, MapColor.COLOR_BLUE, MapColor.COLOR_BLACK, true, RotatedPillarBlock::new, false);
@@ -376,7 +376,7 @@ public interface RUBlocks {
     WoodSet MAUVE_WOOD_SET = WoodSet.simple("mauve", RuWoodTypes.MAUVE, SoundType.CHERRY_WOOD, MapColor.TERRACOTTA_PURPLE, MapColor.PODZOL, false);
     WoodSet PALM_WOOD_SET = WoodSet.simple("palm", RuWoodTypes.PALM, SoundType.BAMBOO_WOOD, MapColor.WOOD, MapColor.WOOD, false);
     WoodSet PINE_WOOD_SET = WoodSet.simple("pine", RuWoodTypes.PINE, SoundType.BAMBOO_WOOD, MapColor.WOOD, MapColor.WOOD, false, PineLogBlock::new, true);
-    WoodSet REDWOOD_WOOD_SET = WoodSet.simple("redwood", RuWoodTypes.REDWOOD, SoundType.CHERRY_WOOD, MapColor.TERRACOTTA_RED, MapColor.TERRACOTTA_RED, false);
+    WoodSet REDWOOD_WOOD_SET = WoodSet.simple("redwood", RuWoodTypes.REDWOOD, RUSoundEvents.REDWOOD_SET.baseType(), MapColor.TERRACOTTA_RED, MapColor.TERRACOTTA_RED, false);
     WoodSet SILVER_BIRCH_WOOD_SET = WoodSet.onlyLogs("silver_birch", SoundType.WOOD, MapColor.SAND, MapColor.QUARTZ, false, AspenLogBlock::new);
     WoodSet SOCOTRA_WOOD_SET = WoodSet.simple("socotra", RuWoodTypes.SOCOTRA, SoundType.CHERRY_WOOD, MapColor.TERRACOTTA_ORANGE, MapColor.TERRACOTTA_ORANGE, false);
     WoodSet WILLOW_WOOD_SET = WoodSet.simple("willow", RuWoodTypes.WILLOW, SoundType.WOOD, MapColor.WOOD, MapColor.WOOD, false);

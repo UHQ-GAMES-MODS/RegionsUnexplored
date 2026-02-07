@@ -7,11 +7,6 @@ import net.regions_unexplored.RegionsUnexplored;
 
 public class BlockHelperActual {
     @Actual
-    public static BlockSetType setBlockSetType(String path) {
-        return BlockSetType.register(new BlockSetType(RegionsUnexplored.id(path).toString()));
-    }
-
-    @Actual
     public static WoodType setWoodType(String path, BlockSetType blockSetType) {
         return WoodType.register(new WoodType(RegionsUnexplored.id(path).toString(), blockSetType));
     }
