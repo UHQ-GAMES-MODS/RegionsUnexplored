@@ -121,12 +121,16 @@ public class RULeavesParticle extends TextureSheetParticle {
             return new Provider<>(sprites, 0.07f, 10.0f, true, false, 2.0f, 0.021f);
         }
 
+        public static <T extends ParticleOptions> Provider<T> large(SpriteSet sprites) {
+            return new Provider<>(sprites, 0.12f, 6.0f, true, false, 2.5f, 0.04f);
+        }
+
         public static <T extends ParticleOptions> Provider<T> magnolia(SpriteSet sprites) {
             return new Provider<>(sprites, 0.1f, 4.0f, false, true, 2.0f, 0.03f);
         }
 
         public static <T extends ParticleOptions> Provider<T> pine(SpriteSet sprites) {
-            return new Provider<>(sprites, 0.3f, 3.0f, true, false, 2.0f, 0.04f);
+            return new Provider<>(sprites, 0.3f, 3.0f, true, false, 2.0f, 0.0f);
         }
 
         @Nullable

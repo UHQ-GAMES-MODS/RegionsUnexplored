@@ -44,6 +44,7 @@ import java.util.function.Supplier;
 
 import static net.regions_unexplored.RegionsUnexplored.id;
 import static net.regions_unexplored.block.RUBlockUtils.*;
+import static net.regions_unexplored.world.level.block.leaves.RUTintedParticlesLeavesBlock.*;
 
 
 public interface RUBlocks {
@@ -150,7 +151,7 @@ public interface RUBlocks {
 
     /* MODDED */
     NaturalSet ALPHA_NATURAL_SET = NaturalSet.create("alpha")
-        .withLeaves()
+        .withLeaves(LeavesBlock::new)
         .withSapling(RuTreeGrowers.ALPHA_OAK);
     NaturalSet APPLE_OAK_NATURAL_SET = NaturalSet.create("apple_oak")
         .withLeaves(AppleLeavesBlock::new)
@@ -164,7 +165,7 @@ public interface RUBlocks {
         .withSapling(p -> new RuUltraFromMegaSaplingBlock(RuTreeGrowers.BAOBAB, p));
     NaturalSet BLACKWOOD_NATURAL_SET = NaturalSet.create("blackwood", false)
         .withBranch().withShrub()
-        .withLeaves(MapColor.TERRACOTTA_GREEN)
+        .withLeaves(MapColor.TERRACOTTA_GREEN, pine(0x273c16))
         .withSapling(RuTreeGrowers.BLACKWOOD);
     NaturalSet BLUE_MAGNOLIA_NATURAL_SET = NaturalSet.create("blue_magnolia")
         .withShrub()
@@ -176,60 +177,60 @@ public interface RUBlocks {
         .withSapling(p -> new RuBrimSaplingBlock(RuTreeGrowers.BRIMWOOD, p));
     NaturalSet COBALT_NATURAL_SET = NaturalSet.cobalt();
     NaturalSet CYPRESS_NATURAL_SET = NaturalSet.create("cypress")
-        .withBranch().withShrub().withLeaves()
+        .withBranch().withShrub().withLeaves(standard(TintGetter.defaultDarken(0.7f)))
         .withSapling(RuTreeGrowers.CYPRESS);
     NaturalSet DEAD_PINE_NATURAL_SET = NaturalSet.create("dead_pine", true)
         .withShrub()
-        .withLeaves(MapColor.TERRACOTTA_GRAY)
+        .withLeaves(MapColor.TERRACOTTA_GRAY, pine(0x5B4333))
         .withSapling(RuTreeGrowers.DEAD_PINE);
     NaturalSet DEAD_NATURAL_SET = NaturalSet.create("dead", true)
         .withBranch().withShrub()
-        .withLeaves(MapColor.TERRACOTTA_GRAY)
+        .withLeaves(MapColor.TERRACOTTA_GRAY, standard(TintGetter.constant(0x654630)))
         .withSapling(RuTreeGrowers.DEAD);
     NaturalSet ENCHANTED_BIRCH_NATURAL_SET = NaturalSet.create("enchanted_birch")
         .withShrub()
         .withLeaves(MapColor.COLOR_LIGHT_BLUE)
         .withSapling(RuTreeGrowers.ENCHANTED_BIRCH);
     NaturalSet EUCALYPTUS_NATURAL_SET = NaturalSet.create("eucalyptus")
-        .withBranch().withShrub().withLeaves()
+        .withBranch().withShrub().withLeaves(large(TintGetter.defaultDarken(0.8f)))
         .withSapling(RuTreeGrowers.EUCALYPTUS);
     NaturalSet FLOWERING_NATURAL_SET = NaturalSet.create("flowering")
         .withShrub().withLeaves()
         .withSapling(RuTreeGrowers.FLOWERING_OAK);
     NaturalSet GOLDEN_LARCH_NATURAL_SET = NaturalSet.create("golden_larch")
-        .withShrub().withLeaves()
+        .withShrub().withLeaves(pine(0x897237))
         .withSapling(RuTreeGrowers.GOLDEN_LARCH);
     NaturalSet JOSHUA_NATURAL_SET = NaturalSet.create("joshua")
         .withBeard().withShrub()
         .withLeaves(JoshuaLeavesBlock::new)
         .withSapling(RuTreeGrowers.JOSHUA);
     NaturalSet KAPOK_NATURAL_SET = NaturalSet.create("kapok")
-        .withBranch().withShrub().withLeaves()
+        .withBranch().withShrub().withLeaves(large(TintGetter.defaultDarken(0.8f)))
         .withSapling(p -> new RuUltraFromSuperSaplingBlock(RuTreeGrowers.KAPOK, p));
     NaturalSet LARCH_NATURAL_SET = NaturalSet.create("larch")
-        .withBranch().withShrub().withLeaves()
+        .withBranch().withShrub().withLeaves(pine(0x424C2E))
         .withSapling(RuTreeGrowers.LARCH);
     NaturalSet MAGNOLIA_NATURAL_SET = NaturalSet.create("magnolia")
         .withBranch().withShrub()
-        .withLeaves(MapColor.GRASS, RUTintedParticlesLeavesBlock.standard(RUParticleTypes.MAGNOLIA_LEAVES, TintGetter.DEFAULT))
+        .withLeaves(MapColor.GRASS, standard(RUParticleTypes.MAGNOLIA_LEAVES, TintGetter.DEFAULT))
         .withSapling(RuTreeGrowers.MAGNOLIA);
     NaturalSet MAPLE_NATURAL_SET = NaturalSet.create("maple")
         .withBranch().withShrub()
-        .withLeaves(RUTintedParticlesLeavesBlock.small(TintGetter.defaultDarken(0.6f)))
+        .withLeaves(small(TintGetter.defaultDarken(0.6f)))
         .withSapling(RuTreeGrowers.MAPLE);
     NaturalSet MAUVE_NATURAL_SET = NaturalSet.create("mauve")
         .withBranch().withShrub()
-        .withLeaves(MapColor.COLOR_PURPLE, RUTintedParticlesLeavesBlock.small(TintGetter.constant(0xDA73f8)))
+        .withLeaves(MapColor.COLOR_PURPLE, small(TintGetter.constant(0xDA73f8)))
         .withSapling(RuTreeGrowers.MAUVE);
     NaturalSet ORANGE_MAPLE_NATURAL_SET = NaturalSet.create("orange_maple")
         .withShrub()
-        .withLeaves(MapColor.COLOR_ORANGE, RUTintedParticlesLeavesBlock.small(TintGetter.constant(0x98541F)))
+        .withLeaves(MapColor.COLOR_ORANGE, small(TintGetter.constant(0x98541F)))
         .withSapling(RuTreeGrowers.ORANGE_MAPLE);
     NaturalSet PALM_NATURAL_SET = NaturalSet.create("palm", false)
-        .withBeard().withShrub().withLeaves()
+        .withBeard().withShrub().withLeaves(large(TintGetter.defaultDarken(0.8f)))
         .withSapling(RuTreeGrowers.PALM);
     NaturalSet PINE_NATURAL_SET = NaturalSet.create("pine")
-        .withBranch().withShrub().withLeaves()
+        .withBranch().withShrub().withLeaves(pine(0x313A1E))
         .withSapling(RuTreeGrowers.PINE);
     NaturalSet PINK_MAGNOLIA_NATURAL_SET = NaturalSet.create("pink_magnolia")
         .withShrub()
@@ -245,7 +246,7 @@ public interface RUBlocks {
     NaturalSet SAGUARO_CACTUS_NATURAL_SET = NaturalSet.saguaroCactus();
     NaturalSet SILVER_BIRCH_NATURAL_SET = NaturalSet.create("silver_birch")
         .withBranch().withShrub()
-        .withLeaves(RUTintedParticlesLeavesBlock.standard(RuColors::getAspenColor))
+        .withLeaves(standard(RuColors::getAspenColor))
         .withSapling(RuTreeGrowers.SILVER_BIRCH);
     NaturalSet SMALL_OAK_NATURAL_SET = NaturalSet.create("small_oak")
         .withLeaves()
@@ -258,7 +259,7 @@ public interface RUBlocks {
         .withLeaves(MapColor.TERRACOTTA_WHITE, RUUntintedParticlesLeavesBlock.of(RUParticleTypes.WHITE_MAGNOLIA_LEAVES))
         .withSapling(RuTreeGrowers.WHITE_MAGNOLIA);
     NaturalSet WILLOW_NATURAL_SET = NaturalSet.create("willow")
-        .withBranch().withShrub().withLeaves()
+        .withBranch().withShrub().withLeaves(standard(TintGetter.defaultDarken(0.7f)))
         .withSapling(RuTreeGrowers.WILLOW);
 
     //MUSHROOMS

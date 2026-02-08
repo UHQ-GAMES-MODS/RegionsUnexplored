@@ -1,4 +1,4 @@
-// 1.21.1	2026-02-01T15:12:30.8242651	Registries
+// 1.21.1	2026-02-08T00:42:46.3166367	Registries
 7160b581d0e9c894f25f3d6f26a93cd78c42e0cd data/regions_unexplored/damage_type/dorcel.json
 d22fdc0aeef6a23fc29b12a9ebabe7e22aea59c4 data/regions_unexplored/damage_type/dusk_trap.json
 68992d0fbc20f71d83f372a40cf21c82cbab8e18 data/regions_unexplored/worldgen/biome/alpha_grove.json
@@ -12,7 +12,7 @@ d05b1afba28a27c5360c9e4f4076d2a1dc3b7d83 data/regions_unexplored/worldgen/biome/
 4c8dbf965245281f33626e5774e995b22c1c4b5b data/regions_unexplored/worldgen/biome/bayou.json
 9c2e12791a130489f56ff5a02003f9984f538850 data/regions_unexplored/worldgen/biome/bioshroom_caves.json
 c001707e30a85ec980151b9a0e498439f3863b78 data/regions_unexplored/worldgen/biome/blackstone_basin.json
-e81d79491ad78d07d6829900f4de5961ccb1fe79 data/regions_unexplored/worldgen/biome/blackwood_taiga.json
+0832fa2a3cf12dda2c642312cb03e390ac78d511 data/regions_unexplored/worldgen/biome/blackwood_taiga.json
 2c0dafc11be49c8999de098792f876129e1e3788 data/regions_unexplored/worldgen/biome/boreal_taiga.json
 3589b7489ad352aab13c2ebdb685bfc59b6193ef data/regions_unexplored/worldgen/biome/chalk_cliffs.json
 1e5883ad194ce55990101743c5c091744fcf5b8a data/regions_unexplored/worldgen/biome/clover_plains.json

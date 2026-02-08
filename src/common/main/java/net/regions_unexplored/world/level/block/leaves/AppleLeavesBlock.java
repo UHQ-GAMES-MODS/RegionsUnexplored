@@ -30,7 +30,7 @@ public class AppleLeavesBlock extends RUTintedParticlesLeavesBlock implements Bo
     protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
 
     public AppleLeavesBlock(Properties properties) {
-        super(properties, RUParticleTypes.STANDARD_LEAVES, TintGetter.DEFAULT);
+        super(properties, RUParticleTypes.STANDARD_LEAVES, TintGetter.DEFAULT, RUTintedParticlesLeavesBlock.DEFAULT_PARTICLE_CHANCE);
         this.registerDefaultState(
             this.stateDefinition.any()
                 .setValue(DISTANCE, 7)

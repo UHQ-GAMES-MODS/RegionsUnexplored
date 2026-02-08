@@ -58,7 +58,6 @@ public class TaigaBiomes {
                 .waterFogColor(4220035)
                 .foliageColorOverride(4347179)
                 .grassColorOverride(4089639)
-                .ambientParticle(new AmbientParticleSettings(ParticleTypes.WHITE_ASH, 0.005F))
                 .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
                 .backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_BIOME_OLD_GROWTH_TAIGA));
 

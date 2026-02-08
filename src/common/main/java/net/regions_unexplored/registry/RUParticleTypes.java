@@ -15,6 +15,7 @@ import java.util.function.Supplier;
 public interface RUParticleTypes {
     Supplier<ParticleType<ColorParticleOption>> SMALL_LEAVES = registerColored("leaves/small", false);
     Supplier<ParticleType<ColorParticleOption>> STANDARD_LEAVES = registerColored("leaves/standard", false);
+    Supplier<ParticleType<ColorParticleOption>> LARGE_LEAVES = registerColored("leaves/large", false);
     Supplier<ParticleType<ColorParticleOption>> PINE_LEAVES = registerColored("leaves/pine", false);
     Supplier<ParticleType<ColorParticleOption>> MAGNOLIA_LEAVES = registerColored("leaves/magnolia", false);
     Supplier<SimpleParticleType> PINK_MAGNOLIA_LEAVES = registerSimple("leaves/magnolia_pink", false);

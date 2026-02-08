@@ -19,19 +19,29 @@ import java.util.function.BiFunction;
 import java.util.function.Supplier;
 
 public class RUTintedParticlesLeavesBlock extends LeavesBlock {
-    public static final float PARTICLE_CHANCE = 0.025f;
+    public static final float DEFAULT_PARTICLE_CHANCE = 0.025f;
 
     private final Supplier<ParticleType<ColorParticleOption>> particle;
     private final TintGetter tintGetter;
+    private final float particleChance;
 
-    public RUTintedParticlesLeavesBlock(Properties properties, Supplier<ParticleType<ColorParticleOption>> particle, TintGetter getter) {
+    public RUTintedParticlesLeavesBlock(Properties properties, Supplier<ParticleType<ColorParticleOption>> particle, TintGetter getter, float particleChance) {
         super(properties);
         this.particle = particle;
         this.tintGetter = getter;
+        this.particleChance = particleChance;
     }
 
     public static BlockFactory small(TintGetter tint) {
-        return p -> new RUTintedParticlesLeavesBlock(p, RUParticleTypes.SMALL_LEAVES, tint);
+        return p -> new RUTintedParticlesLeavesBlock(p, RUParticleTypes.SMALL_LEAVES, tint, DEFAULT_PARTICLE_CHANCE);
+    }
+
+    public static BlockFactory large(TintGetter tint) {
+        return p -> new RUTintedParticlesLeavesBlock(p, RUParticleTypes.LARGE_LEAVES, tint, 0.01f);
+    }
+
+    public static BlockFactory pine(int tint) {
+        return p -> new RUTintedParticlesLeavesBlock(p, RUParticleTypes.PINE_LEAVES, TintGetter.constant(tint), 0.01f);
     }
 
     public static BlockFactory standard() {
@@ -43,7 +53,11 @@ public class RUTintedParticlesLeavesBlock extends LeavesBlock {
     }
 
     public static BlockFactory standard(Supplier<ParticleType<ColorParticleOption>> type, TintGetter tint) {
-        return p -> new RUTintedParticlesLeavesBlock(p, type, tint);
+        return standard(type, tint, DEFAULT_PARTICLE_CHANCE);
+    }
+
+    public static BlockFactory standard(Supplier<ParticleType<ColorParticleOption>> type, TintGetter tint, float particleChance) {
+        return p -> new RUTintedParticlesLeavesBlock(p, type, tint, particleChance);
     }
 
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
@@ -52,7 +66,7 @@ public class RUTintedParticlesLeavesBlock extends LeavesBlock {
         BlockState belowState = level.getBlockState(below);
 
         if (!(level instanceof ClientLevel clientLevel)) return;
-        if (random.nextFloat() >= PARTICLE_CHANCE) return;
+        if (random.nextFloat() >= this.particleChance) return;
         if (isFaceFull(belowState.getCollisionShape(level, below), Direction.UP)) return;
         if (!RuClientConfig.LEAVES_PARTICLES.get()) return;
 
