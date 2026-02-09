@@ -33,7 +33,7 @@ public class PrismariteSparkleParticle extends SimpleAnimatedParticle {
         public Particle createParticle(SimpleParticleType options, ClientLevel level, double x, double y, double z, double xa, double ya, double za) {
             var particle = new PrismariteSparkleParticle(level, x, y, z, xa, ya, za, this.sprites);
             particle.setAlpha(0.99f);
-            int color = RuColors.getRainbowColor(BlockPos.containing(x, y, z));
+            int color = RuColors.getPrismariteSparkleColor(BlockPos.containing(x, y, z));
             particle.setColor(color);
             return particle;
         }

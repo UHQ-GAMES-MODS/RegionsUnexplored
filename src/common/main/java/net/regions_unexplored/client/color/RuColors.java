@@ -157,4 +157,15 @@ public class RuColors {
         Color rainbow = Color.getHSBColor(((float)pos.getX() + (float)pos.getY() + (float)pos.getZ()) / 35.0F, 1.0F, 1.0F);
         return rainbow.getRGB();
     }
+
+
+    public static int getPrismariteSparkleColor(BlockPos pos) {
+        Color baseColor = new Color(getRainbowColor(pos));
+        int average = (baseColor.getRed() + baseColor.getGreen() + baseColor.getBlue()) / 3;
+        return new Color(
+            Math.min(255, baseColor.getRed() + average),
+            Math.min(255, baseColor.getGreen() + average),
+            Math.min(255, baseColor.getBlue() + average)
+        ).getRGB();
+    }
 }
