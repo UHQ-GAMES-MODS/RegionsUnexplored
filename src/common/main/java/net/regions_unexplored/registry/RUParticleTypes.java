@@ -26,6 +26,7 @@ public interface RUParticleTypes {
     Supplier<ParticleType<ColorParticleOption>> FALLING_SPORE = registerColored("spore/falling", false);
     Supplier<ParticleType<ColorParticleOption>> FLOATING_SPORE = registerColored("spore/floating", false);
 
+    Supplier<SimpleParticleType> PRISMARITE_SPARKLE = registerSimple("prismarite_sparkle", false);
     Supplier<SimpleParticleType> MYCOTOXIC_SPORE = registerSimple("mycotoxic_spore", false);
 
     private static Supplier<SimpleParticleType> registerSimple(String name, boolean alwaysSpawn) {

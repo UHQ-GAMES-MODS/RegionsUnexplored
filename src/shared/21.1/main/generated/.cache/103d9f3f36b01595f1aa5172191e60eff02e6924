@@ -1,4 +1,4 @@
-// 1.21.1	2026-02-08T21:25:42.2815506	Registries
+// 1.21.1	2026-02-09T01:15:13.2770767	Registries
 7160b581d0e9c894f25f3d6f26a93cd78c42e0cd data/regions_unexplored/damage_type/dorcel.json
 d22fdc0aeef6a23fc29b12a9ebabe7e22aea59c4 data/regions_unexplored/damage_type/dusk_trap.json
 68992d0fbc20f71d83f372a40cf21c82cbab8e18 data/regions_unexplored/worldgen/biome/alpha_grove.json
@@ -51,7 +51,7 @@ cb319d6d0d05bb8bff64935ee2812574b70a6d23 data/regions_unexplored/worldgen/biome/
 dd322be4548f7a93f58218d16106c491372e97c9 data/regions_unexplored/worldgen/biome/pine_taiga.json
 9cd01bf12a1acdd9ae6dfe4e540c98f02af27ab6 data/regions_unexplored/worldgen/biome/poppy_fields.json
 9a8dac6569977a948a2c750879c112f55bba79e2 data/regions_unexplored/worldgen/biome/prairie.json
-4e1beefc0613acdbf7e99dca61050ed349b3374e data/regions_unexplored/worldgen/biome/prismachasm.json
+9d5b3ba2f1a05e6b835932572f63f95c3b2ff1ea data/regions_unexplored/worldgen/biome/prismachasm.json
 7fbbfe4dde1a0a447265b728afac36f3655a41c7 data/regions_unexplored/worldgen/biome/pumpkin_fields.json
 de45a91586f78ea56361c339c599796056b9e2e3 data/regions_unexplored/worldgen/biome/rainforest.json
 a3f557277cae0f79b245163fbcc053b709ed9045 data/regions_unexplored/worldgen/biome/redstone_abyss.json
