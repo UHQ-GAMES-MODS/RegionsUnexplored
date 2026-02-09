@@ -1,10 +1,10 @@
-// 1.21.1	2026-02-08T00:42:46.3166367	Registries
+// 1.21.1	2026-02-08T20:41:21.3431317	Registries
 7160b581d0e9c894f25f3d6f26a93cd78c42e0cd data/regions_unexplored/damage_type/dorcel.json
 d22fdc0aeef6a23fc29b12a9ebabe7e22aea59c4 data/regions_unexplored/damage_type/dusk_trap.json
 68992d0fbc20f71d83f372a40cf21c82cbab8e18 data/regions_unexplored/worldgen/biome/alpha_grove.json
 c87da73fdb27cdc21c19db7029fe5241265442dc data/regions_unexplored/worldgen/biome/ancient_delta.json
 4061467ea3965f0ca1a369e56f220eb5315b42d7 data/regions_unexplored/worldgen/biome/arid_mountains.json
-a118ba67d43c88793ae5336eeac490b1a14ebe37 data/regions_unexplored/worldgen/biome/ashen_woodland.json
+7a58f34e4b2fbd61b460a73b492b0c6ef51b5ccc data/regions_unexplored/worldgen/biome/ashen_woodland.json
 15dfd88cf396c8bc4f939b2dfb0ef2f9ec6d4af8 data/regions_unexplored/worldgen/biome/autumnal_maple_forest.json
 d05b1afba28a27c5360c9e4f4076d2a1dc3b7d83 data/regions_unexplored/worldgen/biome/bamboo_forest.json
 59fb68c5f62ed20291210ae8bf4af469d9d04096 data/regions_unexplored/worldgen/biome/baobab_savanna.json

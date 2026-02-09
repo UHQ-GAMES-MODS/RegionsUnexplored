@@ -327,7 +327,7 @@ public class AquaticBiomes {
                 .waterFogColor(-11585236)
                 .foliageColorOverride(15326658)
                 .grassColorOverride(12434605)
-                .ambientParticle(new AmbientParticleSettings(ParticleTypes.ASH, 0.05F))
+                .ambientParticle(new AmbientParticleSettings(ParticleTypes.ASH, 0.005F))
                 .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
                 .backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_BIOME_FOREST));
 

@@ -230,7 +230,7 @@ public interface RUBlocks {
         .withBeard().withShrub().withLeaves(large(TintGetter.defaultDarken(0.8f)))
         .withSapling(RuTreeGrowers.PALM);
     NaturalSet PINE_NATURAL_SET = NaturalSet.create("pine")
-        .withBranch().withShrub().withLeaves(pine(0x313A1E))
+        .withBranch().withShrub().withLeaves(standard(RUParticleTypes.PINE_LEAVES, TintGetter.defaultDarken(0.5f)))
         .withSapling(RuTreeGrowers.PINE);
     NaturalSet PINK_MAGNOLIA_NATURAL_SET = NaturalSet.create("pink_magnolia")
         .withShrub()
