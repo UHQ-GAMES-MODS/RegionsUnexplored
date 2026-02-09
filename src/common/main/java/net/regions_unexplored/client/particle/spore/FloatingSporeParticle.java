@@ -4,7 +4,6 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.ColorParticleOption;
 import net.minecraft.core.particles.ParticleGroup;
-import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.Mth;
 
 import java.util.Optional;
@@ -34,14 +33,14 @@ public class FloatingSporeParticle extends TextureSheetParticle {
     }
 
     public static class Provider implements ParticleProvider<ColorParticleOption> {
-        private final SpriteSet sprite;
+        private final SpriteSet sprites;
 
-        public Provider(SpriteSet $$0) {
-            this.sprite = $$0;
+        public Provider(SpriteSet sprites) {
+            this.sprites = sprites;
         }
 
         public Particle createParticle(ColorParticleOption options, ClientLevel level, double x, double y, double z, double xa, double ya, double za) {
-            var particle = new FloatingSporeParticle(level, this.sprite, x, y, z, 0.0F, -0.8F, 0.0F);
+            var particle = new FloatingSporeParticle(level, this.sprites, x, y, z, 0.0F, -0.8F, 0.0F);
             particle.lifetime = Mth.randomBetweenInclusive(level.random, 500, 1000);
             particle.gravity = 0.01F;
             particle.setColor(options.getRed(), options.getGreen(), options.getBlue());

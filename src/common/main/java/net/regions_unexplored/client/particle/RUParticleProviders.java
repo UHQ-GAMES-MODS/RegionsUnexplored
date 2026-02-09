@@ -22,6 +22,7 @@ public interface RUParticleProviders {
         register(RUParticleTypes.FALLING_SPORE.get(), FallingSporeParticle.Provider::new);
         register(RUParticleTypes.FLOATING_SPORE.get(), FloatingSporeParticle.Provider::new);
 
+        register(RUParticleTypes.PRISMARITE_SPARKLE.get(), PrismariteSparkleParticle.Provider::new);
         register(RUParticleTypes.MYCOTOXIC_SPORE.get(), MycotoxicSporeParticle.MycotoxicSporeParticleProvider::new);
     }
 }

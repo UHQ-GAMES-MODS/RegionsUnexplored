@@ -58,7 +58,7 @@ public class RuColors {
                 RUBlocks.KAPOK_VINES_PLANT.get(),
                 RUBlocks.SMALL_OAK_NATURAL_SET.getLeaves()
         );
-        TintHelper.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getRainbowColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
+        TintHelper.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getRainbowColor(blockPos) : FoliageColor.getDefaultColor(),
                 RUBlocks.HANGING_PRISMARITE.get(),
                 RUBlocks.PRISMARITE_CLUSTER.get(),
                 RUBlocks.LARGE_PRISMARITE_CLUSTER.get(),
@@ -140,7 +140,7 @@ public class RuColors {
         return aspen.getRGB();
     }
 
-    private static int getRainbowColor(BlockAndTintGetter world, BlockPos pos) {
+    public static int getRainbowColor(BlockPos pos) {
         Color rainbow = Color.getHSBColor(((float)pos.getX() + (float)pos.getZ()) / 50.0F, 0.9F, 1.0F);
         return rainbow.getRGB();
     }
