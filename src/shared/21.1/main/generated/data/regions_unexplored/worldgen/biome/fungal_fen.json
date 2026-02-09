@@ -24,12 +24,6 @@
       "replace_current_music": false,
       "sound": "minecraft:music.overworld.swamp"
     },
-    "particle": {
-      "options": {
-        "type": "minecraft:warped_spore"
-      },
-      "probability": 0.01
-    },
     "sky_color": 7254527,
     "water_color": 6338444,
     "water_fog_color": 25674

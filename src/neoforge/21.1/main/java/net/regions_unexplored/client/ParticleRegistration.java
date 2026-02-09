@@ -7,7 +7,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.regions_unexplored.RegionsUnexplored;
-import net.regions_unexplored.client.particle.RuParticles;
+import net.regions_unexplored.client.particle.RUParticleProviders;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +18,7 @@ public class ParticleRegistration {
 
     @SubscribeEvent
     public static void registerParticleProviders(RegisterParticleProvidersEvent event) {
-        RuParticles.init();
+        RUParticleProviders.init();
         spriteParticleRegistrationMap.forEach(event::registerSpriteSet);
     }
 }

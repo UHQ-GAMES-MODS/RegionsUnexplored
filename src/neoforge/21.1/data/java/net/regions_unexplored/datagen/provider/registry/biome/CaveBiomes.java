@@ -113,7 +113,6 @@ public class CaveBiomes {
                 .waterFogColor(NORMAL_WATER_FOG_COLOR)
                 .foliageColorOverride(-11093361)
                 .grassColorOverride(-11093410)
-                .ambientParticle(new AmbientParticleSettings(ParticleTypes.SPORE_BLOSSOM_AIR, 0.01F))
                 .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
                 .backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_BIOME_LUSH_CAVES));
 

@@ -22,6 +22,10 @@ public interface RUParticleTypes {
     Supplier<SimpleParticleType> WHITE_MAGNOLIA_LEAVES = registerSimple("leaves/magnolia_white", false);
     Supplier<SimpleParticleType> BLUE_MAGNOLIA_LEAVES = registerSimple("leaves/magnolia_blue", false);
 
+    Supplier<SimpleParticleType> GROUND_SPORE = registerSimple("spore/ground", false);
+    Supplier<ParticleType<ColorParticleOption>> FALLING_SPORE = registerColored("spore/falling", false);
+    Supplier<ParticleType<ColorParticleOption>> FLOATING_SPORE = registerColored("spore/floating", false);
+
     Supplier<SimpleParticleType> MYCOTOXIC_SPORE = registerSimple("mycotoxic_spore", false);
 
     private static Supplier<SimpleParticleType> registerSimple(String name, boolean alwaysSpawn) {

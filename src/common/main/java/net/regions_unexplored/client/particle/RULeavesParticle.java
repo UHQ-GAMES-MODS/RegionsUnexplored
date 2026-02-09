@@ -21,9 +21,9 @@ public class RULeavesParticle extends TextureSheetParticle {
     private final double zaFlowScale;
     private final double swirlPeriod;
 
-    protected RULeavesParticle(ClientLevel level, double x, double y, double z, SpriteSet spriteSet, float fallAcceleration, float sideAcceleration, boolean swirl, boolean flowAway, float scale, float startVelocity) {
+    protected RULeavesParticle(ClientLevel level, double x, double y, double z, SpriteSet sprites, float fallAcceleration, float sideAcceleration, boolean swirl, boolean flowAway, float scale, float startVelocity) {
         super(level, x, y, z);
-        this.setSprite(spriteSet.get(this.random.nextInt(4), 4));
+        this.pickSprite(sprites);
         float size;
         this.rotSpeed = (float)Math.toRadians(this.random.nextBoolean() ? -30.0 : 30.0);
         this.spinAcceleration = (float)Math.toRadians(this.random.nextBoolean() ? -5.0 : 5.0);

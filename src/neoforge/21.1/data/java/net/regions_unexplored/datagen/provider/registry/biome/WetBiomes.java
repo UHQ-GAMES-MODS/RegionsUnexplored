@@ -100,7 +100,6 @@ public class WetBiomes {
                 .waterFogColor(-10450614)
                 .foliageColorOverride(-9333940)
                 .grassColorOverride(-8609196)
-                .ambientParticle(new AmbientParticleSettings(ParticleTypes.WHITE_ASH, 0.01F))
                 .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
                 .backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SWAMP));
 
@@ -254,7 +253,6 @@ public class WetBiomes {
                 .waterFogColor(25674)
                 .foliageColorOverride(10667597)
                 .grassColorOverride(8173383)
-                .ambientParticle(new AmbientParticleSettings(ParticleTypes.WARPED_SPORE, 0.01F))
                 .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
                 .backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SWAMP));
 
@@ -298,7 +296,6 @@ public class WetBiomes {
                 .waterFogColor(-10450614)
                 .foliageColorOverride(-9333940)
                 .grassColorOverride(-8609196)
-                .ambientParticle(new AmbientParticleSettings(ParticleTypes.WHITE_ASH, 0.01F))
                 .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
                 .backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SWAMP));
 
