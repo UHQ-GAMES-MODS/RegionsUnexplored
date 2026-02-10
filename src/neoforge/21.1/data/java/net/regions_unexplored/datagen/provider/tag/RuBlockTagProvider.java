@@ -502,7 +502,12 @@ public class RuBlockTagProvider extends BlockTagsProvider {
                 .add(RUBlocks.RED_MAPLE_LEAF_LITTER.get())
                 .add(RUBlocks.ORANGE_MAPLE_LEAF_LITTER.get())
         ;
-        //this.tag(BlockTags.INVALID_SPAWN_INSIDE);
+        this.tag(BlockTags.COMBINATION_STEP_SOUND_BLOCKS)
+            .add(RUBlocks.STEPPE_TALL_GRASS.get())
+            .add(RUBlocks.WINDSWEPT_GRASS.get())
+            .add(RUBlocks.BLADED_TALL_GRASS.get())
+            .add(RUBlocks.MEADOW_SAGE.get())
+            .add(RUBlocks.BARLEY.get());
         //this.tag(BlockTags.IRON_ORES);
         //this.tag(BlockTags.JUNGLE_LOGS);
         //this.tag(BlockTags.LAPIS_ORES);

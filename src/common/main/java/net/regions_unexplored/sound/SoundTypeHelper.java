@@ -18,14 +18,16 @@ public class SoundTypeHelper {
     }
 
     public static SoundType createSimple(String name) {
+        var place = register(id(name, ".place"));
+        var step = register(id(name, ".step"));
         return new SoundType(
             1f,
             1f,
-            register(id(name, ".place")),
-            register(id(name, ".step")),
-            register(id(name, ".place")),
-            register(id(name, ".step")),
-            register(id(name, ".step"))
+            place,
+            step,
+            place,
+            step,
+            step
         );
     }
 

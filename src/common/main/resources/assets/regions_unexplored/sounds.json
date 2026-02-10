@@ -413,5 +413,26 @@
       "regions_unexplored:block/leaf_litter/step6"
     ],
     "subtitle": "subtitles.block.generic.footsteps"
+  },
+
+
+
+
+
+  "block.tall_grass.place": {
+    "sounds": [
+      "dig/grass1",
+      "dig/grass2",
+      "dig/grass3",
+      "dig/grass4"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.tall_grass.step": {
+    "sounds": [
+      "regions_unexplored:block/tall_grass/step1",
+      "regions_unexplored:block/tall_grass/step3"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
   }
 }

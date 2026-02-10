@@ -1,4 +1,4 @@
-// 1.21.1	2026-02-09T23:54:16.1430238	Tags for minecraft:block mod id regions_unexplored
+// 1.21.1	2026-02-10T17:31:51.195577	Tags for minecraft:block mod id regions_unexplored
 47322f6e871d59e5581ad5e9b47c6737a5af3480 data/c/tags/block/fences/wooden.json
 543d30a38bbd7deef12bbc96a461b70e01314374 data/c/tags/block/fence_gates/wooden.json
 fbd3b5574bd57030107ab08e4b239ea1520ad7e1 data/c/tags/block/glass_blocks.json
@@ -19,6 +19,7 @@ e66784e2aab07f25408ee5347aa6acaf325e458c data/minecraft/tags/block/base_stone_ov
 97f41cb82157199dc7c5cf445da6a766663cb647 data/minecraft/tags/block/birch_logs.json
 e3d802435533c14d6d842c50c0f1d69142e807e2 data/minecraft/tags/block/ceiling_hanging_signs.json
 ecfed8bd3500264a38f6410c3d764c99d06392ed data/minecraft/tags/block/climbable.json
+ebd7e9d7e0fab2869593c9f9c247945d7e61e2b9 data/minecraft/tags/block/combination_step_sound_blocks.json
 aed2d5c4edbfff92c5c4482aacc9d45f85eaae1a data/minecraft/tags/block/convertable_to_mud.json
 ba46759feb6064dab9e10929c1506fa73ab3f527 data/minecraft/tags/block/crystal_sound_blocks.json
 e51fdb21f599ddfcb4554f202adfc06fbdc4034a data/minecraft/tags/block/dirt.json
