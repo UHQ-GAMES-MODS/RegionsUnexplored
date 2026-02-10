@@ -104,11 +104,11 @@ public class CompostableBlocks {
         }
 
         // Leaf piles (0.1F)
-        COMPOSTABLES.put(RUBlocks.MAPLE_LEAF_PILE.get(), 0.1F);
-        COMPOSTABLES.put(RUBlocks.RED_MAPLE_LEAF_PILE.get(), 0.1F);
-        COMPOSTABLES.put(RUBlocks.ORANGE_MAPLE_LEAF_PILE.get(), 0.1F);
-        COMPOSTABLES.put(RUBlocks.SILVER_BIRCH_LEAF_PILE.get(), 0.1F);
-        COMPOSTABLES.put(RUBlocks.ENCHANTED_BIRCH_LEAF_PILE.get(), 0.1F);
+        COMPOSTABLES.put(RUBlocks.MAPLE_LEAF_LITTER.get(), 0.1F);
+        COMPOSTABLES.put(RUBlocks.RED_MAPLE_LEAF_LITTER.get(), 0.1F);
+        COMPOSTABLES.put(RUBlocks.ORANGE_MAPLE_LEAF_LITTER.get(), 0.1F);
+        COMPOSTABLES.put(RUBlocks.SILVER_BIRCH_LEAF_LITTER.get(), 0.1F);
+        COMPOSTABLES.put(RUBlocks.ENCHANTED_BIRCH_LEAF_LITTER.get(), 0.1F);
 
         // Tall plants (0.6F)
         COMPOSTABLES.put(RUBlocks.MEADOW_SAGE.get(), 0.6F);

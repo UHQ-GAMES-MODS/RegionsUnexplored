@@ -50,7 +50,7 @@ public class RuColors {
                 RUBlocks.REDWOOD_NATURAL_SET.getLeaves(),
                 RUBlocks.WILLOW_NATURAL_SET.getLeaves(),
                 RUBlocks.MAPLE_NATURAL_SET.getLeaves(),
-                RUBlocks.MAPLE_LEAF_PILE.get(),
+                RUBlocks.MAPLE_LEAF_LITTER.get(),
                 RUBlocks.WINDSWEPT_GRASS.get(),
                 RUBlocks.SOCOTRA_NATURAL_SET.getLeaves(),
                 RUBlocks.KAPOK_NATURAL_SET.getLeaves(),
@@ -78,12 +78,12 @@ public class RuColors {
 
         TintHelper.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getAspenColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
                 RUBlocks.SILVER_BIRCH_NATURAL_SET.getLeaves(),
-                RUBlocks.SILVER_BIRCH_LEAF_PILE.get()
+                RUBlocks.SILVER_BIRCH_LEAF_LITTER.get()
         );
 
         TintHelper.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getEnchantedAspenColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
                 RUBlocks.ENCHANTED_BIRCH_NATURAL_SET.getLeaves(),
-                RUBlocks.ENCHANTED_BIRCH_LEAF_PILE.get()
+                RUBlocks.ENCHANTED_BIRCH_LEAF_LITTER.get()
         );
     }
 
@@ -120,7 +120,7 @@ public class RuColors {
                 RUBlocks.REDWOOD_NATURAL_SET.getLeaves(),
                 RUBlocks.WILLOW_NATURAL_SET.getLeaves(),
                 RUBlocks.MAPLE_NATURAL_SET.getLeaves(),
-                RUBlocks.MAPLE_LEAF_PILE.get(),
+                RUBlocks.MAPLE_LEAF_LITTER.get(),
                 RUBlocks.WINDSWEPT_GRASS.get(),
                 RUBlocks.SOCOTRA_NATURAL_SET.getLeaves(),
                 RUBlocks.KAPOK_NATURAL_SET.getLeaves(),

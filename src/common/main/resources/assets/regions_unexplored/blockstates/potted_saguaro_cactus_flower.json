@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "regions_unexplored:block/saguaro_potted_cactus_flower"
+      "model": "regions_unexplored:block/potted_saguaro_cactus_flower"
     }
   }
 }

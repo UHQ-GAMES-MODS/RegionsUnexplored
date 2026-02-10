@@ -81,11 +81,11 @@ public class RuBlockCropCutouts {
                 RUBlocks.PINK_MAGNOLIA_FLOWERS.get(),
                 RUBlocks.WHITE_MAGNOLIA_FLOWERS.get(),
 
-                RUBlocks.MAPLE_LEAF_PILE.get(),
-                RUBlocks.RED_MAPLE_LEAF_PILE.get(),
-                RUBlocks.ORANGE_MAPLE_LEAF_PILE.get(),
-                RUBlocks.SILVER_BIRCH_LEAF_PILE.get(),
-                RUBlocks.ENCHANTED_BIRCH_LEAF_PILE.get(),
+                RUBlocks.MAPLE_LEAF_LITTER.get(),
+                RUBlocks.RED_MAPLE_LEAF_LITTER.get(),
+                RUBlocks.ORANGE_MAPLE_LEAF_LITTER.get(),
+                RUBlocks.SILVER_BIRCH_LEAF_LITTER.get(),
+                RUBlocks.ENCHANTED_BIRCH_LEAF_LITTER.get(),
                 //TALL_PLANTS
                 RUBlocks.MEADOW_SAGE.get(),
                 RUBlocks.BARLEY.get(),

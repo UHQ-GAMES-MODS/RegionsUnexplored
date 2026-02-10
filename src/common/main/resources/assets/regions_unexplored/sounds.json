@@ -175,6 +175,11 @@
     ],
     "subtitle": "subtitles.block.pressure_plate.click"
   },
+  
+  
+  
+  
+  
   "block.redwood.button_click_off": {
     "sounds": [
       {
@@ -350,5 +355,63 @@
       }
     ],
     "subtitle": "subtitles.block.pressure_plate.click"
+  },
+
+
+
+  
+
+  "block.leaf_litter.break": {
+    "sounds": [
+      "regions_unexplored:block/leaf_litter/break1",
+      "regions_unexplored:block/leaf_litter/break2",
+      "regions_unexplored:block/leaf_litter/break3",
+      "regions_unexplored:block/leaf_litter/break4",
+      "regions_unexplored:block/leaf_litter/break5"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.leaf_litter.fall": {
+    "sounds": [
+      "regions_unexplored:block/leaf_litter/step1",
+      "regions_unexplored:block/leaf_litter/step2",
+      "regions_unexplored:block/leaf_litter/step3",
+      "regions_unexplored:block/leaf_litter/step4",
+      "regions_unexplored:block/leaf_litter/step5",
+      "regions_unexplored:block/leaf_litter/step6"
+    ],
+    "subtitle": "subtitles.block.generic.fall"
+  },
+  "block.leaf_litter.hit": {
+    "sounds": [
+      "regions_unexplored:block/leaf_litter/step1",
+      "regions_unexplored:block/leaf_litter/step2",
+      "regions_unexplored:block/leaf_litter/step3",
+      "regions_unexplored:block/leaf_litter/step4",
+      "regions_unexplored:block/leaf_litter/step5",
+      "regions_unexplored:block/leaf_litter/step6"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.leaf_litter.place": {
+    "sounds": [
+      "regions_unexplored:block/leaf_litter/place1",
+      "regions_unexplored:block/leaf_litter/place2",
+      "regions_unexplored:block/leaf_litter/place3",
+      "regions_unexplored:block/leaf_litter/place4",
+      "regions_unexplored:block/leaf_litter/place5"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.leaf_litter.step": {
+    "sounds": [
+      "regions_unexplored:block/leaf_litter/step1",
+      "regions_unexplored:block/leaf_litter/step2",
+      "regions_unexplored:block/leaf_litter/step3",
+      "regions_unexplored:block/leaf_litter/step4",
+      "regions_unexplored:block/leaf_litter/step5",
+      "regions_unexplored:block/leaf_litter/step6"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
   }
 }

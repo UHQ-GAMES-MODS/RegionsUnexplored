@@ -122,11 +122,11 @@ public interface RUBlocks {
     Supplier<Block> WHITE_MAGNOLIA_FLOWERS = register("white_magnolia_flowers", GlowLichenBlock::new, BLUE_MAGNOLIA_FLOWERS);
     //SNOWBELLE
 
-    Supplier<Block> MAPLE_LEAF_PILE = register("maple_leaf_pile", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
-    Supplier<Block> RED_MAPLE_LEAF_PILE = register("red_maple_leaf_pile", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
-    Supplier<Block> ORANGE_MAPLE_LEAF_PILE = register("orange_maple_leaf_pile", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
-    Supplier<Block> SILVER_BIRCH_LEAF_PILE = register("silver_birch_leaf_pile", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
-    Supplier<Block> ENCHANTED_BIRCH_LEAF_PILE = register("enchanted_birch_leaf_pile", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
+    Supplier<Block> MAPLE_LEAF_LITTER = register("maple_leaf_litter", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(RUSoundEvents.LEAF_LITTER)));
+    Supplier<Block> RED_MAPLE_LEAF_LITTER = register("red_maple_leaf_litter", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(RUSoundEvents.LEAF_LITTER)));
+    Supplier<Block> ORANGE_MAPLE_LEAF_LITTER = register("orange_maple_leaf_litter", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(RUSoundEvents.LEAF_LITTER)));
+    Supplier<Block> SILVER_BIRCH_LEAF_LITTER = register("silver_birch_leaf_litter", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(RUSoundEvents.LEAF_LITTER)));
+    Supplier<Block> ENCHANTED_BIRCH_LEAF_LITTER = register("enchanted_birch_leaf_litter", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(RUSoundEvents.LEAF_LITTER)));
     //TALL_PLANTS
     Supplier<Block> MEADOW_SAGE = RUBlockUtils.registerNoItem("meadow_sage", RuDoublePlantBlock::new, Blocks.ROSE_BUSH);
     Supplier<Block> BARLEY = register("barley", RuDoublePlantBlock::new, Blocks.SUNFLOWER);
@@ -479,6 +479,11 @@ public interface RUBlocks {
     static void applyAliases(BiConsumer<Identifier, Identifier> consumer) {
         consumer.accept(id("cactus_flower"), id("saguaro_cactus_flower"));
         consumer.accept(id("potted_cactus_flower"), id("potted_saguaro_cactus_flower"));
+        consumer.accept(id("maple_leaf_pile"), id("maple_leaf_litter"));
+        consumer.accept(id("red_maple_leaf_pile"), id("red_maple_leaf_litter"));
+        consumer.accept(id("orange_maple_leaf_pile"), id("orange_maple_leaf_litter"));
+        consumer.accept(id("silver_birch_leaf_pile"), id("silver_birch_leaf_litter"));
+        consumer.accept(id("enchanted_birch_leaf_pile"), id("enchanted_birch_leaf_litter"));
     }
 
     static void init() {

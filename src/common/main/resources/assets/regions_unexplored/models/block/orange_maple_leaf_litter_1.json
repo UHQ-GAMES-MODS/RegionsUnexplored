@@ -1,0 +1,8 @@
+{
+  "parent": "regions_unexplored:block/leaf_litter_1",
+  "textures": {
+    "flowerbed": "regions_unexplored:block/orange_maple_leaf_litter",
+    "particle": "regions_unexplored:block/orange_maple_leaf_litter"
+  },
+  "render_type": "cutout"
+}
