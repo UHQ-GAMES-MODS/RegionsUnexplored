@@ -110,11 +110,11 @@ public interface RUCreativeModeTabs {
             output.accept(RUBlocks.PINK_MAGNOLIA_FLOWERS.get().asItem());
             output.accept(RUBlocks.WHITE_MAGNOLIA_FLOWERS.get().asItem());
 
-            output.accept(RUBlocks.MAPLE_LEAF_PILE.get().asItem());
-            output.accept(RUBlocks.RED_MAPLE_LEAF_PILE.get().asItem());
-            output.accept(RUBlocks.ORANGE_MAPLE_LEAF_PILE.get().asItem());
-            output.accept(RUBlocks.ENCHANTED_BIRCH_LEAF_PILE.get().asItem());
-            output.accept(RUBlocks.SILVER_BIRCH_LEAF_PILE.get().asItem());
+            output.accept(RUBlocks.MAPLE_LEAF_LITTER.get().asItem());
+            output.accept(RUBlocks.RED_MAPLE_LEAF_LITTER.get().asItem());
+            output.accept(RUBlocks.ORANGE_MAPLE_LEAF_LITTER.get().asItem());
+            output.accept(RUBlocks.ENCHANTED_BIRCH_LEAF_LITTER.get().asItem());
+            output.accept(RUBlocks.SILVER_BIRCH_LEAF_LITTER.get().asItem());
 
             //TALL_PLANTS
             output.accept(RUBlocks.BARLEY.get().asItem());

@@ -69,11 +69,11 @@ public class FlammableBlocks {
             registerFlammableBlock(snowbelle, 60, 100);
         }
 
-        registerFlammableBlock(RUBlocks.MAPLE_LEAF_PILE.get(), 60, 100);
-        registerFlammableBlock(RUBlocks.RED_MAPLE_LEAF_PILE.get(), 60, 100);
-        registerFlammableBlock(RUBlocks.ORANGE_MAPLE_LEAF_PILE.get(), 60, 100);
-        registerFlammableBlock(RUBlocks.SILVER_BIRCH_LEAF_PILE.get(), 60, 100);
-        registerFlammableBlock(RUBlocks.ENCHANTED_BIRCH_LEAF_PILE.get(), 60, 100);
+        registerFlammableBlock(RUBlocks.MAPLE_LEAF_LITTER.get(), 60, 100);
+        registerFlammableBlock(RUBlocks.RED_MAPLE_LEAF_LITTER.get(), 60, 100);
+        registerFlammableBlock(RUBlocks.ORANGE_MAPLE_LEAF_LITTER.get(), 60, 100);
+        registerFlammableBlock(RUBlocks.SILVER_BIRCH_LEAF_LITTER.get(), 60, 100);
+        registerFlammableBlock(RUBlocks.ENCHANTED_BIRCH_LEAF_LITTER.get(), 60, 100);
         //TALL_PLANTS
         registerFlammableBlock(RUBlocks.MEADOW_SAGE.get(), 60, 100);
         registerFlammableBlock(RUBlocks.BARLEY.get(), 60, 100);

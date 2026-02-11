@@ -16,6 +16,7 @@ import net.regions_unexplored.datagen.provider.registry.RUBiomeFeatures;
 import net.regions_unexplored.datagen.provider.registry.placed_feature.RuMiscOverworldPlacements;
 import net.regions_unexplored.datagen.provider.registry.placed_feature.RuTreePlacements;
 import net.regions_unexplored.datagen.provider.registry.placed_feature.RuVegetationPlacements;
+import net.regions_unexplored.registry.RUParticleTypes;
 
 public class CaveBiomes {
     protected static final int NORMAL_WATER_COLOR = 4159204;
@@ -113,7 +114,6 @@ public class CaveBiomes {
                 .waterFogColor(NORMAL_WATER_FOG_COLOR)
                 .foliageColorOverride(-11093361)
                 .grassColorOverride(-11093410)
-                .ambientParticle(new AmbientParticleSettings(ParticleTypes.SPORE_BLOSSOM_AIR, 0.01F))
                 .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
                 .backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_BIOME_LUSH_CAVES));
 
@@ -151,7 +151,7 @@ public class CaveBiomes {
                 .waterFogColor(NORMAL_WATER_FOG_COLOR)
                 .foliageColorOverride(-16737793)
                 .grassColorOverride(-6625354)
-                .ambientParticle(new AmbientParticleSettings(ParticleTypes.FIREWORK, 0.002f))
+                .ambientParticle(new AmbientParticleSettings(RUParticleTypes.PRISMARITE_SPARKLE.get(), 0.001f))
                 .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
                 .backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_BIOME_DRIPSTONE_CAVES));
 

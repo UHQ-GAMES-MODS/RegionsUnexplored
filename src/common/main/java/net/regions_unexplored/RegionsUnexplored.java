@@ -35,6 +35,7 @@ public class RegionsUnexplored {
 		RUFoliagePlacerTypes.init();
 		RUItems.init();
 		RUParticleTypes.init();
+		RUSoundEvents.init();
 		RUTreeDecoratorTypes.init();
 	}
 
@@ -48,6 +49,10 @@ public class RegionsUnexplored {
 
 	public static Identifier id(String path) {
 		return Identifier.fromNamespaceAndPath(MOD_ID, path);
+	}
+
+	public static String stringId(String path) {
+		return id(path).toString();
 	}
 
 	public static <T> ResourceKey<T> key(ResourceKey<? extends Registry<T>> key, String name) {

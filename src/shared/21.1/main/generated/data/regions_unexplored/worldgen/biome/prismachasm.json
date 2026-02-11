@@ -25,9 +25,9 @@
     },
     "particle": {
       "options": {
-        "type": "minecraft:firework"
+        "type": "regions_unexplored:prismarite_sparkle"
       },
-      "probability": 0.002
+      "probability": 0.001
     },
     "sky_color": 7972607,
     "water_color": 4159204,

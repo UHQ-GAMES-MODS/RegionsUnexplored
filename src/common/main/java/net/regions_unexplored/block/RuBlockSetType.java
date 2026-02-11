@@ -1,11 +1,14 @@
 package net.regions_unexplored.block;
 
 import net.minecraft.world.level.block.state.properties.BlockSetType;
-import net.regions_unexplored.platform.BlockHelper;
+import net.regions_unexplored.registry.RUSoundEvents;
+import net.regions_unexplored.sound.WoodSoundSet;
+
+import static net.regions_unexplored.RegionsUnexplored.stringId;
 
 public class RuBlockSetType {
     public static final BlockSetType ALPHA = register("alpha");
-    public static final BlockSetType BAOBAB = register("baobab");
+    public static final BlockSetType BAOBAB = register("baobab", RUSoundEvents.BAOBAB_SET);
     public static final BlockSetType BLACKWOOD = register("blackwood");
     public static final BlockSetType BLUE_BIOSHROOM = register("blue_bioshroom");
     public static final BlockSetType BRIMWOOD = register("brimwood");
@@ -23,12 +26,26 @@ public class RuBlockSetType {
     public static final BlockSetType PALM = register("palm");
     public static final BlockSetType PINE = register("pine");
     public static final BlockSetType PINK_BIOSHROOM = register("pink_bioshroom");
-    public static final BlockSetType REDWOOD = register("redwood");
+    public static final BlockSetType REDWOOD = register("redwood", RUSoundEvents.REDWOOD_SET);
     public static final BlockSetType SOCOTRA = register("socotra");
     public static final BlockSetType WILLOW = register("willow");
     public static final BlockSetType YELLOW_BIOSHROOM = register("yellow_bioshroom");
 
     private static BlockSetType register(String name) {
-        return BlockHelper.setBlockSetType(name);
+        return register(new BlockSetType(stringId(name)));
+    }
+
+    private static BlockSetType register(String name, WoodSoundSet soundSet) {
+        return register(new BlockSetType(
+            stringId(name), true, true, true, BlockSetType.PressurePlateSensitivity.EVERYTHING, soundSet.baseType(),
+            soundSet.doorClose(), soundSet.doorOpen(),
+            soundSet.trapdoorClose(), soundSet.trapdoorOpen(),
+            soundSet.pressurePlateOff(), soundSet.pressurePlateOn(),
+            soundSet.buttonOff(), soundSet.buttonOn()
+        ));
+    }
+
+    private static BlockSetType register(BlockSetType type) {
+        return BlockSetType.register(type);
     }
 }

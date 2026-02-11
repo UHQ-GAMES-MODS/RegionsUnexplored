@@ -2,6 +2,7 @@ package net.regions_unexplored.datagen.provider.registry.biome;
 
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.Carvers;
 import net.minecraft.data.worldgen.placement.NetherPlacements;
@@ -193,7 +194,7 @@ public class NetherBiomes {
                 .waterFogColor(10717988)
                 .foliageColorOverride(10717988)
                 .grassColorOverride(10717988)
-                .ambientParticle(new AmbientParticleSettings((RUParticleTypes.MYCOTOXIC_SPORE.get()), 0.01f))
+                .ambientParticle(new AmbientParticleSettings((SimpleParticleType)RUParticleTypes.MYCOTOXIC_SPORE.get(), 0.01f))
                 .ambientLoopSound(SoundEvents.AMBIENT_WARPED_FOREST_LOOP)
                 .ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_WARPED_FOREST_MOOD, 6000, 8, 2.0D))
                 .ambientAdditionsSound(new AmbientAdditionsSettings(SoundEvents.AMBIENT_WARPED_FOREST_ADDITIONS, 0.0111D))

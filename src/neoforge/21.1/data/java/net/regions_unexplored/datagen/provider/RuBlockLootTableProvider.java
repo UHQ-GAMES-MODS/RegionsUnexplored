@@ -143,11 +143,11 @@ public class RuBlockLootTableProvider extends BlockLootSubProvider {
             dropSelf(snowbelle);
         }
 
-        add(RUBlocks.MAPLE_LEAF_PILE.get(), this::createPetalsDrops);
-        add(RUBlocks.RED_MAPLE_LEAF_PILE.get(), this::createPetalsDrops);
-        add(RUBlocks.ORANGE_MAPLE_LEAF_PILE.get(), this::createPetalsDrops);
-        add(RUBlocks.SILVER_BIRCH_LEAF_PILE.get(), this::createPetalsDrops);
-        add(RUBlocks.ENCHANTED_BIRCH_LEAF_PILE.get(), this::createPetalsDrops);
+        add(RUBlocks.MAPLE_LEAF_LITTER.get(), this::createPetalsDrops);
+        add(RUBlocks.RED_MAPLE_LEAF_LITTER.get(), this::createPetalsDrops);
+        add(RUBlocks.ORANGE_MAPLE_LEAF_LITTER.get(), this::createPetalsDrops);
+        add(RUBlocks.SILVER_BIRCH_LEAF_LITTER.get(), this::createPetalsDrops);
+        add(RUBlocks.ENCHANTED_BIRCH_LEAF_LITTER.get(), this::createPetalsDrops);
         //TALL_PLANTS
         add(RUBlocks.MEADOW_SAGE.get(), (block) -> createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
         add(RUBlocks.BARLEY.get(), (block) -> createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));

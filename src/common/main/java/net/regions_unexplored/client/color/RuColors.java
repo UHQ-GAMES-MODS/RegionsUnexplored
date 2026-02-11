@@ -50,7 +50,7 @@ public class RuColors {
                 RUBlocks.REDWOOD_NATURAL_SET.getLeaves(),
                 RUBlocks.WILLOW_NATURAL_SET.getLeaves(),
                 RUBlocks.MAPLE_NATURAL_SET.getLeaves(),
-                RUBlocks.MAPLE_LEAF_PILE.get(),
+                RUBlocks.MAPLE_LEAF_LITTER.get(),
                 RUBlocks.WINDSWEPT_GRASS.get(),
                 RUBlocks.SOCOTRA_NATURAL_SET.getLeaves(),
                 RUBlocks.KAPOK_NATURAL_SET.getLeaves(),
@@ -58,7 +58,7 @@ public class RuColors {
                 RUBlocks.KAPOK_VINES_PLANT.get(),
                 RUBlocks.SMALL_OAK_NATURAL_SET.getLeaves()
         );
-        TintHelper.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getRainbowColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
+        TintHelper.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getRainbowColor(blockPos) : FoliageColor.getDefaultColor(),
                 RUBlocks.HANGING_PRISMARITE.get(),
                 RUBlocks.PRISMARITE_CLUSTER.get(),
                 RUBlocks.LARGE_PRISMARITE_CLUSTER.get(),
@@ -78,12 +78,12 @@ public class RuColors {
 
         TintHelper.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getAspenColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
                 RUBlocks.SILVER_BIRCH_NATURAL_SET.getLeaves(),
-                RUBlocks.SILVER_BIRCH_LEAF_PILE.get()
+                RUBlocks.SILVER_BIRCH_LEAF_LITTER.get()
         );
 
         TintHelper.tintBlocks((blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? getEnchantedAspenColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor(),
                 RUBlocks.ENCHANTED_BIRCH_NATURAL_SET.getLeaves(),
-                RUBlocks.ENCHANTED_BIRCH_LEAF_PILE.get()
+                RUBlocks.ENCHANTED_BIRCH_LEAF_LITTER.get()
         );
     }
 
@@ -120,7 +120,7 @@ public class RuColors {
                 RUBlocks.REDWOOD_NATURAL_SET.getLeaves(),
                 RUBlocks.WILLOW_NATURAL_SET.getLeaves(),
                 RUBlocks.MAPLE_NATURAL_SET.getLeaves(),
-                RUBlocks.MAPLE_LEAF_PILE.get(),
+                RUBlocks.MAPLE_LEAF_LITTER.get(),
                 RUBlocks.WINDSWEPT_GRASS.get(),
                 RUBlocks.SOCOTRA_NATURAL_SET.getLeaves(),
                 RUBlocks.KAPOK_NATURAL_SET.getLeaves(),
@@ -140,7 +140,7 @@ public class RuColors {
         return aspen.getRGB();
     }
 
-    private static int getRainbowColor(BlockAndTintGetter world, BlockPos pos) {
+    public static int getRainbowColor(BlockPos pos) {
         Color rainbow = Color.getHSBColor(((float)pos.getX() + (float)pos.getZ()) / 50.0F, 0.9F, 1.0F);
         return rainbow.getRGB();
     }
@@ -156,5 +156,16 @@ public class RuColors {
     private static int getRainbowGlassColor(BlockAndTintGetter world, BlockPos pos) {
         Color rainbow = Color.getHSBColor(((float)pos.getX() + (float)pos.getY() + (float)pos.getZ()) / 35.0F, 1.0F, 1.0F);
         return rainbow.getRGB();
+    }
+
+
+    public static int getPrismariteSparkleColor(BlockPos pos) {
+        Color baseColor = new Color(getRainbowColor(pos));
+        int average = (baseColor.getRed() + baseColor.getGreen() + baseColor.getBlue()) / 3;
+        return new Color(
+            Math.min(255, baseColor.getRed() + average),
+            Math.min(255, baseColor.getGreen() + average),
+            Math.min(255, baseColor.getBlue() + average)
+        ).getRGB();
     }
 }

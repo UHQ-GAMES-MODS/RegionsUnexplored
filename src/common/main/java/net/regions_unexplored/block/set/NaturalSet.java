@@ -9,6 +9,8 @@ import net.regions_unexplored.block.BlockFactory;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.block.sapling.RuTreeGrowers;
 import net.regions_unexplored.block.RUBlockUtils;
+import net.regions_unexplored.world.level.block.leaves.RUTintedParticlesLeavesBlock;
+import net.regions_unexplored.world.level.block.leaves.RUUntintedParticlesLeavesBlock;
 import net.regions_unexplored.world.level.block.plant.branch.BranchBlock;
 import net.regions_unexplored.world.level.block.plant.sapling.RuCactusSaplingBlock;
 import net.regions_unexplored.world.level.block.plant.sapling.RuNetherSaplingBlock;
@@ -34,83 +36,76 @@ public class NaturalSet {
         RUBlocks.NATURAL_SETS.add(this);
     }
 
-    public static NaturalSet vanilla(String name) {
-        NaturalSet set = new NaturalSet(name, false);
-        set.branch = RUBlockUtils.register(name + "_branch", p -> new BranchBlock(BRANCH_PROPERTIES.apply(p), BranchBlock.BranchType.BRANCH));
-        set.shrub = RUBlockUtils.register(name + "_shrub", p -> new ShrubBlock(SHRUB_PROPERTIES.apply(p)));
-        return set;
-    }
-
-    public static NaturalSet full(String name, TreeGrower grower) {
-        return full(name, MapColor.PLANT, BranchBlock.BranchType.BRANCH, false, properties -> new SaplingBlock(grower, properties));
-    }
-
-    public static NaturalSet full(String name, MapColor leavesColour, BranchBlock.BranchType branchType, boolean fireproof, TreeGrower grower) {
-        return full(name, leavesColour, branchType, fireproof, properties -> new SaplingBlock(grower, properties));
-    }
-
-    public static NaturalSet full(String name, MapColor leavesColour, BranchBlock.BranchType branchType, boolean fireproof, BlockFactory saplingFactory) {
-        return full(name, branchType, fireproof, p -> RUBlockUtils.leaves(p, leavesColour, fireproof, LeavesBlock::new), saplingFactory);
-    }
-
-    public static NaturalSet full(String name, BranchBlock.BranchType branchType, boolean fireproof, BlockFactory leavesFactory, BlockFactory saplingFactory) {
-        NaturalSet set = new NaturalSet(name, fireproof);
-        set.branch = RUBlockUtils.register(name + "_" + branchType.getSerializedName(), p -> new BranchBlock(BRANCH_PROPERTIES.apply(p), branchType));
-        set.shrub = RUBlockUtils.register(name + "_shrub", p -> new ShrubBlock(SHRUB_PROPERTIES.apply(p)));
-        set.leaves = RUBlockUtils.register(name + "_leaves", leavesFactory);
-        set.sapling = RUBlockUtils.register(name + "_sapling", saplingFactory, Blocks.OAK_SAPLING);
-        set.pottedSapling = RUBlockUtils.registerNoItem("potted_" + name + "_sapling", p -> new FlowerPotBlock(set.sapling.get(), p), Blocks.POTTED_OAK_SAPLING);
-        return set;
-    }
-
-    public static NaturalSet fullWithoutBranch(String name, MapColor leavesColour, boolean fireproof, TreeGrower grower) {
-        return fullWithoutBranch(name, leavesColour, fireproof, properties -> new SaplingBlock(grower, properties));
-    }
-
-    public static NaturalSet fullWithoutBranch(String name, MapColor leavesColour, boolean fireproof, BlockFactory saplingFactory) {
-        return fullWithoutBranch(name, fireproof, p -> RUBlockUtils.leaves(p, leavesColour, fireproof, LeavesBlock::new), saplingFactory);
-    }
-
-    public static NaturalSet fullWithoutBranch(String name, boolean fireproof, BlockFactory leavesFactory, BlockFactory saplingFactory) {
-        NaturalSet set = new NaturalSet(name, fireproof);
-        set.shrub = RUBlockUtils.register(name + "_shrub", p -> new ShrubBlock(SHRUB_PROPERTIES.apply(p)));
-        set.leaves = RUBlockUtils.register(name + "_leaves", leavesFactory);
-        set.sapling = RUBlockUtils.register(name + "_sapling", saplingFactory, Blocks.OAK_SAPLING);
-        set.pottedSapling = RUBlockUtils.registerNoItem("potted_" + name + "_sapling", p -> new FlowerPotBlock(set.sapling.get(), p), Blocks.POTTED_OAK_SAPLING);
-        return set;
-    }
-
-    public static NaturalSet leavesAndSaplings(String name, BlockFactory leavesFactory, TreeGrower grower) {
-        NaturalSet set = new NaturalSet(name, false);
-        set.leaves = RUBlockUtils.register(name + "_leaves", p -> RUBlockUtils.leaves(p, MapColor.PLANT, false, leavesFactory));
-        set.sapling = RUBlockUtils.register(name + "_sapling", p -> new SaplingBlock(grower, p), Blocks.OAK_SAPLING);
-        set.pottedSapling = RUBlockUtils.registerNoItem("potted_" + name + "_sapling", p -> new FlowerPotBlock(set.sapling.get(), p), Blocks.POTTED_OAK_SAPLING);
-        return set;
-    }
-
     public static NaturalSet saguaroCactus() {
-        NaturalSet set = new NaturalSet("saguaro_cactus", false);
+        NaturalSet set = NaturalSet.create("saguaro_cactus");
         set.sapling = RUBlockUtils.register("saguaro_cactus_flower", p -> new RuCactusSaplingBlock(RuTreeGrowers.SAGUARO_CACTUS, p), Blocks.OAK_SAPLING);
         set.pottedSapling = RUBlockUtils.registerNoItem("potted_saguaro_cactus_flower", p -> new FlowerPotBlock(set.sapling.get(), p), Blocks.POTTED_OAK_SAPLING);
         return set;
     }
 
     public static NaturalSet ashen() {
-        NaturalSet set = new NaturalSet("ashen", false);
+        NaturalSet set = NaturalSet.create("ashen").withLeaves(MapColor.COLOR_LIGHT_GRAY, RUTintedParticlesLeavesBlock.small(RUTintedParticlesLeavesBlock.TintGetter.constant(0x767470))).withSapling(RuTreeGrowers.ASHEN);
         set.shrub = RUBlockUtils.register("ashen_shrub", p -> new ShrubBlock(SHRUB_PROPERTIES.apply(p).sound(SoundType.ROOTED_DIRT).offsetType(BlockBehaviour.OffsetType.XZ).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true)));
-        set.leaves = RUBlockUtils.register("ashen_leaves", p -> RUBlockUtils.leaves(p, MapColor.COLOR_LIGHT_GRAY));
-        set.sapling = RUBlockUtils.register("ashen_sapling", p -> new SaplingBlock(RuTreeGrowers.ASHEN, p), Blocks.OAK_SAPLING);
-        set.pottedSapling = RUBlockUtils.registerNoItem("potted_ashen_sapling", p -> new FlowerPotBlock(set.sapling.get(), p), Blocks.POTTED_OAK_SAPLING);
         return set;
     }
 
     public static NaturalSet cobalt() {
-        NaturalSet set = new NaturalSet("cobalt", false);
+        NaturalSet set = NaturalSet.create("cobalt");
         set.leaves = RUBlockUtils.register("cobalt_webbing", p -> RUBlockUtils.leaves(p, MapColor.COLOR_BLUE, true, LeavesBlock::new));
-        set.sapling = RUBlockUtils.register("cobalt_sapling", p -> new RuNetherSaplingBlock(RuTreeGrowers.COBALT, p.sound(SoundType.NETHER_SPROUTS)), Blocks.OAK_SAPLING);
-        set.pottedSapling = RUBlockUtils.registerNoItem("potted_cobalt_sapling", p -> new FlowerPotBlock(set.sapling.get(), p), Blocks.POTTED_OAK_SAPLING);
+        set.withSapling(p -> new RuNetherSaplingBlock(RuTreeGrowers.COBALT, p.sound(SoundType.NETHER_SPROUTS)));
         return set;
     }
+
+    public static NaturalSet create(String name) {
+        return new NaturalSet(name, false);
+    }
+
+    public static NaturalSet create(String name, boolean fireproof) {
+        return new NaturalSet(name, fireproof);
+    }
+
+    public NaturalSet withShrub() {
+        this.shrub = RUBlockUtils.register(this.name + "_shrub", p -> new ShrubBlock(SHRUB_PROPERTIES.apply(p)));
+        return this;
+    }
+
+    public NaturalSet withBranch() {
+        this.branch = RUBlockUtils.register(this.name + "_branch", p -> new BranchBlock(BRANCH_PROPERTIES.apply(p), BranchBlock.BranchType.BRANCH));
+        return this;
+    }
+
+    public NaturalSet withBeard() {
+        this.branch = RUBlockUtils.register(this.name + "_beard", p -> new BranchBlock(BRANCH_PROPERTIES.apply(p), BranchBlock.BranchType.BEARD));
+        return this;
+    }
+
+    public NaturalSet withLeaves() {
+        return withLeaves(MapColor.PLANT, RUTintedParticlesLeavesBlock.standard());
+    }
+
+    public NaturalSet withLeaves(MapColor color) {
+        return withLeaves(color, RUTintedParticlesLeavesBlock.standard());
+    }
+
+    public NaturalSet withLeaves(BlockFactory factory) {
+        return withLeaves(MapColor.PLANT, factory);
+    }
+
+    public NaturalSet withLeaves(MapColor color, BlockFactory factory) {
+        this.leaves = RUBlockUtils.register(this.name + "_leaves", p -> RUBlockUtils.leaves(p, color, this.fireproof, factory));
+        return this;
+    }
+
+    public NaturalSet withSapling(TreeGrower grower) {
+        return withSapling(p -> new SaplingBlock(grower, p));
+    }
+
+    public NaturalSet withSapling(BlockFactory factory) {
+        this.sapling = RUBlockUtils.register(this.name + "_sapling", factory, Blocks.OAK_SAPLING);
+        this.pottedSapling = RUBlockUtils.registerNoItem("potted_" + this.name + "_sapling", p -> new FlowerPotBlock(this.getSapling(), p), Blocks.POTTED_OAK_SAPLING);
+        return this;
+    }
+
 
     public Block getBranch() {
         return branch != null ? branch.get() : null;

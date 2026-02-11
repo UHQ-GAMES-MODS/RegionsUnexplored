@@ -2,11 +2,14 @@ package net.regions_unexplored.block;
 
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
-import net.regions_unexplored.platform.BlockHelper;
+import net.regions_unexplored.registry.RUSoundEvents;
+import net.regions_unexplored.sound.WoodSoundSet;
+
+import static net.regions_unexplored.RegionsUnexplored.stringId;
 
 public class RuWoodTypes {
     public static WoodType ALPHA = register("alpha", RuBlockSetType.ALPHA);
-    public static WoodType BAOBAB = register("baobab", RuBlockSetType.BAOBAB);
+    public static WoodType BAOBAB = register("baobab", RuBlockSetType.BAOBAB, RUSoundEvents.BAOBAB_SET);
     public static WoodType BLACKWOOD = register("blackwood", RuBlockSetType.BLACKWOOD);
     public static WoodType BLUE_BIOSHROOM = register("blue_bioshroom", RuBlockSetType.BLUE_BIOSHROOM);
     public static WoodType BRIMWOOD = register("brimwood", RuBlockSetType.BRIMWOOD);
@@ -24,12 +27,20 @@ public class RuWoodTypes {
     public static WoodType PALM = register("palm", RuBlockSetType.PALM);
     public static WoodType PINE = register("pine", RuBlockSetType.PINE);
     public static WoodType PINK_BIOSHROOM = register("pink_bioshroom", RuBlockSetType.PINK_BIOSHROOM);
-    public static WoodType REDWOOD = register("redwood", RuBlockSetType.REDWOOD);
+    public static WoodType REDWOOD = register("redwood", RuBlockSetType.REDWOOD, RUSoundEvents.REDWOOD_SET);
     public static WoodType SOCOTRA = register("socotra", RuBlockSetType.SOCOTRA);
     public static WoodType WILLOW = register("willow", RuBlockSetType.WILLOW);
     public static WoodType YELLOW_BIOSHROOM = register("yellow_bioshroom", RuBlockSetType.YELLOW_BIOSHROOM);
 
-    private static WoodType register(String name, BlockSetType blockSetType) {
-        return BlockHelper.setWoodType(name, blockSetType);
+    private static WoodType register(String name, BlockSetType type, WoodSoundSet soundSet) {
+        return register(new WoodType(stringId(name), type, type.soundType(), soundSet.hangingSignType(), soundSet.fenceGateClose(), soundSet.fenceGateOpen()));
+    }
+
+    private static WoodType register(String name, BlockSetType type) {
+        return register(new WoodType(stringId(name), type));
+    }
+
+    private static WoodType register(WoodType type) {
+        return WoodType.register(type);
     }
 }

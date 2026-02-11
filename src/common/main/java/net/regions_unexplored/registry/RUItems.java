@@ -21,6 +21,11 @@ public interface RUItems {
 
     static void applyAliases(BiConsumer<Identifier, Identifier> consumer) {
         consumer.accept(id("cactus_flower"), id("saguaro_cactus_flower"));
+        consumer.accept(id("maple_leaf_pile"), id("maple_leaf_litter"));
+        consumer.accept(id("red_maple_leaf_pile"), id("red_maple_leaf_litter"));
+        consumer.accept(id("orange_maple_leaf_pile"), id("orange_maple_leaf_litter"));
+        consumer.accept(id("silver_birch_leaf_pile"), id("silver_birch_leaf_litter"));
+        consumer.accept(id("enchanted_birch_leaf_pile"), id("enchanted_birch_leaf_litter"));
     }
 
     static void init() {

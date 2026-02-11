@@ -8,22 +8,12 @@ import net.regions_unexplored.internal.config.annotation.Range;
 public class RuClientConfig extends Config {
     @ConfigOption(category = "client_options")
     public static final ConfigValue<Boolean> CUSTOM_ITEMS_IN_VANILLA_CREATIVE_TABS = bool(true);
-    @ConfigOption(category = "client_options")
-    public static final ConfigValue<Boolean> TOGGLE_MAUVE_LEAVES_PARTICLE = bool(true);
-    @ConfigOption(category = "client_options")
-    public static final ConfigValue<Boolean> TOGGLE_BLUE_MAGNOLIA_LEAVES_PARTICLE = bool(true);
-    @ConfigOption(category = "client_options")
-    public static final ConfigValue<Boolean> TOGGLE_PINK_MAGNOLIA_LEAVES_PARTICLE = bool(true);
-    @ConfigOption(category = "client_options")
-    public static final ConfigValue<Boolean> TOGGLE_WHITE_MAGNOLIA_LEAVES_PARTICLE = bool(true);
-    @ConfigOption(category = "client_options")
-    public static final ConfigValue<Boolean> TOGGLE_RED_MAPLE_LEAVES_PARTICLE = bool(true);
-    @ConfigOption(category = "client_options")
-    public static final ConfigValue<Boolean> TOGGLE_ORANGE_MAPLE_LEAVES_PARTICLE = bool(true);
-    @ConfigOption(category = "client_options")
-    public static final ConfigValue<Boolean> TOGGLE_SILVER_BIRCH_LEAVES_PARTICLE = bool(true);
-    @ConfigOption(category = "client_options")
-    public static final ConfigValue<Boolean> TOGGLE_ENCHANTED_BIRCH_LEAVES_PARTICLE = bool(true);
+
+    @ConfigOption(category = "particles")
+    public static final ConfigValue<Boolean> LEAVES_PARTICLES = bool(true);
+    @Range(min = 0.0, max = 5.0)
+    @ConfigOption(category = "particles")
+    public static final ConfigValue<Float> PRISMARITE_SPARKLE_RATE = decimal(1f);
 
     @Range(min = 0.0, max = 200.0)
     @ConfigOption(category = "block_color_options", comment = "Sets Eucalyptus colour transition size. Bigger number = bigger distance between colours.")

@@ -14,18 +14,19 @@ import net.regions_unexplored.block.set.ColoredSet;
 import net.regions_unexplored.block.set.NaturalSet;
 import net.regions_unexplored.block.set.WoodSet;
 import net.regions_unexplored.block.RuWoodTypes;
+import net.regions_unexplored.client.color.RuColors;
 import net.regions_unexplored.item.RUItemUtils;
 import net.regions_unexplored.registry.data.RUConfiguredFeatures;
 import net.regions_unexplored.world.level.block.alpha.*;
 import net.regions_unexplored.world.level.block.cave.*;
 import net.regions_unexplored.world.level.block.forest_dirt.*;
 import net.regions_unexplored.world.level.block.leaves.*;
+import net.regions_unexplored.world.level.block.leaves.RUTintedParticlesLeavesBlock.TintGetter;
 import net.regions_unexplored.world.level.block.nether.*;
 import net.regions_unexplored.world.level.block.other.*;
 import net.regions_unexplored.world.level.block.other_dirt.*;
 import net.regions_unexplored.world.level.block.plains_dirt.*;
 import net.regions_unexplored.world.level.block.plant.aquatic.*;
-import net.regions_unexplored.world.level.block.plant.branch.BranchBlock.BranchType;
 import net.regions_unexplored.world.level.block.plant.flower.*;
 import net.regions_unexplored.world.level.block.plant.food.*;
 import net.regions_unexplored.world.level.block.plant.grass.*;
@@ -38,12 +39,12 @@ import net.regions_unexplored.world.level.block.plant.dusktrap.DuskTrapBlock;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 import static net.regions_unexplored.RegionsUnexplored.id;
 import static net.regions_unexplored.block.RUBlockUtils.*;
+import static net.regions_unexplored.world.level.block.leaves.RUTintedParticlesLeavesBlock.*;
 
 
 public interface RUBlocks {
@@ -121,11 +122,11 @@ public interface RUBlocks {
     Supplier<Block> WHITE_MAGNOLIA_FLOWERS = register("white_magnolia_flowers", GlowLichenBlock::new, BLUE_MAGNOLIA_FLOWERS);
     //SNOWBELLE
 
-    Supplier<Block> MAPLE_LEAF_PILE = register("maple_leaf_pile", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
-    Supplier<Block> RED_MAPLE_LEAF_PILE = register("red_maple_leaf_pile", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
-    Supplier<Block> ORANGE_MAPLE_LEAF_PILE = register("orange_maple_leaf_pile", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
-    Supplier<Block> SILVER_BIRCH_LEAF_PILE = register("silver_birch_leaf_pile", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
-    Supplier<Block> ENCHANTED_BIRCH_LEAF_PILE = register("enchanted_birch_leaf_pile", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(SoundType.AZALEA)));
+    Supplier<Block> MAPLE_LEAF_LITTER = register("maple_leaf_litter", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(RUSoundEvents.LEAF_LITTER)));
+    Supplier<Block> RED_MAPLE_LEAF_LITTER = register("red_maple_leaf_litter", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(RUSoundEvents.LEAF_LITTER)));
+    Supplier<Block> ORANGE_MAPLE_LEAF_LITTER = register("orange_maple_leaf_litter", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(RUSoundEvents.LEAF_LITTER)));
+    Supplier<Block> SILVER_BIRCH_LEAF_LITTER = register("silver_birch_leaf_litter", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(RUSoundEvents.LEAF_LITTER)));
+    Supplier<Block> ENCHANTED_BIRCH_LEAF_LITTER = register("enchanted_birch_leaf_litter", p -> new RULeafLitterBlock(p.pushReaction(PushReaction.DESTROY).replaceable().ignitedByLava().noCollission().sound(RUSoundEvents.LEAF_LITTER)));
     //TALL_PLANTS
     Supplier<Block> MEADOW_SAGE = RUBlockUtils.registerNoItem("meadow_sage", RuDoublePlantBlock::new, Blocks.ROSE_BUSH);
     Supplier<Block> BARLEY = register("barley", RuDoublePlantBlock::new, Blocks.SUNFLOWER);
@@ -136,61 +137,140 @@ public interface RUBlocks {
 
     // NATURAL SETS
     List<NaturalSet> NATURAL_SETS = new ArrayList<>();
+
     /* VANILLA */
-    NaturalSet ACACIA_NATURAL_SET = NaturalSet.vanilla("acacia");
-    NaturalSet BIRCH_NATURAL_SET = NaturalSet.vanilla("birch");
-    NaturalSet CHERRY_NATURAL_SET = NaturalSet.vanilla("cherry");
-    NaturalSet DARK_OAK_NATURAL_SET = NaturalSet.vanilla("dark_oak");
-    NaturalSet JUNGLE_NATURAL_SET = NaturalSet.vanilla("jungle");
-    NaturalSet MANGROVE_NATURAL_SET = NaturalSet.vanilla("mangrove");
-    NaturalSet OAK_NATURAL_SET = NaturalSet.vanilla("oak");
-    //public static final NaturalSet PALE_OAK_NATURAL_SET = NaturalSet.vanilla("pale_oak");
-    NaturalSet SPRUCE_NATURAL_SET = NaturalSet.vanilla("spruce");
+    NaturalSet ACACIA_NATURAL_SET = NaturalSet.create("acacia").withBranch().withShrub();
+    NaturalSet BIRCH_NATURAL_SET = NaturalSet.create("birch").withBranch().withShrub();
+    NaturalSet CHERRY_NATURAL_SET = NaturalSet.create("cherry").withBranch().withShrub();
+    NaturalSet DARK_OAK_NATURAL_SET = NaturalSet.create("dark_oak").withBranch().withShrub();
+    NaturalSet JUNGLE_NATURAL_SET = NaturalSet.create("jungle").withBranch().withShrub();
+    NaturalSet MANGROVE_NATURAL_SET = NaturalSet.create("mangrove").withBranch().withShrub();
+    NaturalSet OAK_NATURAL_SET = NaturalSet.create("oak").withBranch().withShrub();
+    //public static final NaturalSet PALE_OAK_NATURAL_SET = NaturalSet.create("pale_oak").createBranch().createShrub();
+    NaturalSet SPRUCE_NATURAL_SET = NaturalSet.create("spruce").withBranch().withShrub();
+
     /* MODDED */
-    NaturalSet ALPHA_NATURAL_SET = NaturalSet.leavesAndSaplings("alpha", LeavesBlock::new, RuTreeGrowers.ALPHA_OAK);
-    NaturalSet APPLE_OAK_NATURAL_SET = NaturalSet.leavesAndSaplings("apple_oak", AppleLeavesBlock::new, RuTreeGrowers.APPLE_OAK);
+    NaturalSet ALPHA_NATURAL_SET = NaturalSet.create("alpha")
+        .withLeaves(LeavesBlock::new)
+        .withSapling(RuTreeGrowers.ALPHA_OAK);
+    NaturalSet APPLE_OAK_NATURAL_SET = NaturalSet.create("apple_oak")
+        .withLeaves(AppleLeavesBlock::new)
+        .withSapling(RuTreeGrowers.APPLE_OAK);
     NaturalSet ASHEN_NATURAL_SET = NaturalSet.ashen();
-    NaturalSet BAMBOO_NATURAL_SET = NaturalSet.leavesAndSaplings("bamboo", LeavesBlock::new, RuTreeGrowers.BAMBOO);
-    NaturalSet BAOBAB_NATURAL_SET = NaturalSet.full("baobab", MapColor.PLANT, BranchType.BRANCH, false, p -> new RuUltraFromMegaSaplingBlock(RuTreeGrowers.BAOBAB, p));
-    NaturalSet BLACKWOOD_NATURAL_SET = NaturalSet.full("blackwood", MapColor.TERRACOTTA_GREEN, BranchType.BRANCH, false, RuTreeGrowers.BLACKWOOD);
-    NaturalSet BLUE_MAGNOLIA_NATURAL_SET = NaturalSet.fullWithoutBranch("blue_magnolia", false, p -> RUBlockUtils.leaves(p, MapColor.COLOR_LIGHT_BLUE, false, BlueMagnoliaLeavesBlock::new), p -> new SaplingBlock(RuTreeGrowers.BLUE_MAGNOLIA, p));
-    NaturalSet BRIMWOOD_NATURAL_SET = NaturalSet.fullWithoutBranch("brimwood", false, p -> RUBlockUtils.leaves(p, MapColor.COLOR_BROWN, false, BrimwoodLeavesBlock::new), p -> new RuBrimSaplingBlock(RuTreeGrowers.BRIMWOOD, p));
+    NaturalSet BAMBOO_NATURAL_SET = NaturalSet.create("bamboo")
+        .withLeaves(LeavesBlock::new)
+        .withSapling(RuTreeGrowers.BAMBOO);
+    NaturalSet BAOBAB_NATURAL_SET = NaturalSet.create("baobab")
+        .withBranch().withShrub().withLeaves()
+        .withSapling(p -> new RuUltraFromMegaSaplingBlock(RuTreeGrowers.BAOBAB, p));
+    NaturalSet BLACKWOOD_NATURAL_SET = NaturalSet.create("blackwood", false)
+        .withBranch().withShrub()
+        .withLeaves(MapColor.TERRACOTTA_GREEN, pine(0x273c16))
+        .withSapling(RuTreeGrowers.BLACKWOOD);
+    NaturalSet BLUE_MAGNOLIA_NATURAL_SET = NaturalSet.create("blue_magnolia")
+        .withShrub()
+        .withLeaves(MapColor.COLOR_LIGHT_BLUE, RUUntintedParticlesLeavesBlock.of(RUParticleTypes.BLUE_MAGNOLIA_LEAVES))
+        .withSapling(RuTreeGrowers.BLUE_MAGNOLIA);
+    NaturalSet BRIMWOOD_NATURAL_SET = NaturalSet.create("brimwood")
+        .withShrub()
+        .withLeaves(MapColor.COLOR_BROWN, BrimwoodLeavesBlock::new)
+        .withSapling(p -> new RuBrimSaplingBlock(RuTreeGrowers.BRIMWOOD, p));
     NaturalSet COBALT_NATURAL_SET = NaturalSet.cobalt();
-    NaturalSet CYPRESS_NATURAL_SET = NaturalSet.full("cypress", RuTreeGrowers.CYPRESS);
-    NaturalSet DEAD_PINE_NATURAL_SET = NaturalSet.fullWithoutBranch("dead_pine", MapColor.TERRACOTTA_GRAY, true, RuTreeGrowers.DEAD_PINE);
-    NaturalSet DEAD_NATURAL_SET = NaturalSet.full("dead", MapColor.TERRACOTTA_GRAY, BranchType.BRANCH, true, RuTreeGrowers.DEAD);
-    NaturalSet ENCHANTED_BIRCH_NATURAL_SET = NaturalSet.fullWithoutBranch("enchanted_birch", MapColor.COLOR_LIGHT_BLUE, false, RuTreeGrowers.ENCHANTED_BIRCH);
-    NaturalSet EUCALYPTUS_NATURAL_SET = NaturalSet.full("eucalyptus", RuTreeGrowers.EUCALYPTUS);
-    NaturalSet FLOWERING_NATURAL_SET = NaturalSet.fullWithoutBranch("flowering", MapColor.PLANT, false, RuTreeGrowers.FLOWERING_OAK);
-    NaturalSet GOLDEN_LARCH_NATURAL_SET = NaturalSet.fullWithoutBranch("golden_larch", MapColor.PLANT, false, RuTreeGrowers.GOLDEN_LARCH);
-    NaturalSet JOSHUA_NATURAL_SET = NaturalSet.full("joshua", BranchType.BEARD, false, p -> RUBlockUtils.leaves(p, MapColor.PLANT, false, JoshuaLeavesBlock::new), p -> new SaplingBlock(RuTreeGrowers.JOSHUA, p));
-    NaturalSet KAPOK_NATURAL_SET = NaturalSet.full("kapok", MapColor.PLANT, BranchType.BRANCH, false, p -> new RuUltraFromSuperSaplingBlock(RuTreeGrowers.KAPOK, p));
-    NaturalSet LARCH_NATURAL_SET = NaturalSet.full("larch", RuTreeGrowers.LARCH);
-    NaturalSet MAGNOLIA_NATURAL_SET = NaturalSet.full("magnolia", RuTreeGrowers.MAGNOLIA);
-    NaturalSet MAPLE_NATURAL_SET = NaturalSet.full("maple", RuTreeGrowers.MAPLE);
-    NaturalSet MAUVE_NATURAL_SET = NaturalSet.full("mauve", BranchType.BRANCH, false, p -> RUBlockUtils.leaves(p, MapColor.COLOR_PURPLE, false, MauveLeavesBlock::new), p -> new SaplingBlock(RuTreeGrowers.MAUVE, p));
-    NaturalSet ORANGE_MAPLE_NATURAL_SET = NaturalSet.fullWithoutBranch("orange_maple", false, p -> RUBlockUtils.leaves(p, MapColor.COLOR_ORANGE, false, OrangeMapleLeavesBlock::new), p -> new SaplingBlock(RuTreeGrowers.ORANGE_MAPLE, p));
-    NaturalSet PALM_NATURAL_SET = NaturalSet.full("palm", MapColor.PLANT, BranchType.BEARD, false, RuTreeGrowers.PALM);
-    NaturalSet PINE_NATURAL_SET = NaturalSet.full("pine", RuTreeGrowers.PINE);
-    NaturalSet PINK_MAGNOLIA_NATURAL_SET = NaturalSet.fullWithoutBranch("pink_magnolia", false, p -> RUBlockUtils.leaves(p, MapColor.COLOR_PINK, false, PinkMagnoliaLeavesBlock::new), p -> new SaplingBlock(RuTreeGrowers.PINK_MAGNOLIA, p));
-    NaturalSet RED_MAPLE_NATURAL_SET = NaturalSet.fullWithoutBranch("red_maple", false, p -> RUBlockUtils.leaves(p, MapColor.COLOR_RED, false, RedMapleLeavesBlock::new), p -> new SaplingBlock(RuTreeGrowers.RED_MAPLE, p));
-    NaturalSet REDWOOD_NATURAL_SET = NaturalSet.full("redwood", MapColor.PLANT, BranchType.BRANCH, false, p -> new RuUltraFromSuperSaplingBlock(RuTreeGrowers.REDWOOD, p));
+    NaturalSet CYPRESS_NATURAL_SET = NaturalSet.create("cypress")
+        .withBranch().withShrub().withLeaves(standard(TintGetter.defaultDarken(0.7f)))
+        .withSapling(RuTreeGrowers.CYPRESS);
+    NaturalSet DEAD_PINE_NATURAL_SET = NaturalSet.create("dead_pine", true)
+        .withShrub()
+        .withLeaves(MapColor.TERRACOTTA_GRAY, pine(0x5B4333))
+        .withSapling(RuTreeGrowers.DEAD_PINE);
+    NaturalSet DEAD_NATURAL_SET = NaturalSet.create("dead", true)
+        .withBranch().withShrub()
+        .withLeaves(MapColor.TERRACOTTA_GRAY, standard(TintGetter.constant(0x654630)))
+        .withSapling(RuTreeGrowers.DEAD);
+    NaturalSet ENCHANTED_BIRCH_NATURAL_SET = NaturalSet.create("enchanted_birch")
+        .withShrub()
+        .withLeaves(MapColor.COLOR_LIGHT_BLUE)
+        .withSapling(RuTreeGrowers.ENCHANTED_BIRCH);
+    NaturalSet EUCALYPTUS_NATURAL_SET = NaturalSet.create("eucalyptus")
+        .withBranch().withShrub().withLeaves(large(TintGetter.defaultDarken(0.8f)))
+        .withSapling(RuTreeGrowers.EUCALYPTUS);
+    NaturalSet FLOWERING_NATURAL_SET = NaturalSet.create("flowering")
+        .withShrub().withLeaves()
+        .withSapling(RuTreeGrowers.FLOWERING_OAK);
+    NaturalSet GOLDEN_LARCH_NATURAL_SET = NaturalSet.create("golden_larch")
+        .withShrub().withLeaves(pine(0x897237))
+        .withSapling(RuTreeGrowers.GOLDEN_LARCH);
+    NaturalSet JOSHUA_NATURAL_SET = NaturalSet.create("joshua")
+        .withBeard().withShrub()
+        .withLeaves(JoshuaLeavesBlock::new)
+        .withSapling(RuTreeGrowers.JOSHUA);
+    NaturalSet KAPOK_NATURAL_SET = NaturalSet.create("kapok")
+        .withBranch().withShrub().withLeaves(large(TintGetter.defaultDarken(0.8f)))
+        .withSapling(p -> new RuUltraFromSuperSaplingBlock(RuTreeGrowers.KAPOK, p));
+    NaturalSet LARCH_NATURAL_SET = NaturalSet.create("larch")
+        .withBranch().withShrub().withLeaves(pine(0x424C2E))
+        .withSapling(RuTreeGrowers.LARCH);
+    NaturalSet MAGNOLIA_NATURAL_SET = NaturalSet.create("magnolia")
+        .withBranch().withShrub()
+        .withLeaves(MapColor.GRASS, standard(RUParticleTypes.MAGNOLIA_LEAVES, TintGetter.DEFAULT))
+        .withSapling(RuTreeGrowers.MAGNOLIA);
+    NaturalSet MAPLE_NATURAL_SET = NaturalSet.create("maple")
+        .withBranch().withShrub()
+        .withLeaves(small(TintGetter.defaultDarken(0.6f)))
+        .withSapling(RuTreeGrowers.MAPLE);
+    NaturalSet MAUVE_NATURAL_SET = NaturalSet.create("mauve")
+        .withBranch().withShrub()
+        .withLeaves(MapColor.COLOR_PURPLE, small(TintGetter.constant(0xDA73f8)))
+        .withSapling(RuTreeGrowers.MAUVE);
+    NaturalSet ORANGE_MAPLE_NATURAL_SET = NaturalSet.create("orange_maple")
+        .withShrub()
+        .withLeaves(MapColor.COLOR_ORANGE, small(TintGetter.constant(0x98541F)))
+        .withSapling(RuTreeGrowers.ORANGE_MAPLE);
+    NaturalSet PALM_NATURAL_SET = NaturalSet.create("palm", false)
+        .withBeard().withShrub().withLeaves(large(TintGetter.defaultDarken(0.8f)))
+        .withSapling(RuTreeGrowers.PALM);
+    NaturalSet PINE_NATURAL_SET = NaturalSet.create("pine")
+        .withBranch().withShrub().withLeaves(standard(RUParticleTypes.PINE_LEAVES, TintGetter.defaultDarken(0.5f)))
+        .withSapling(RuTreeGrowers.PINE);
+    NaturalSet PINK_MAGNOLIA_NATURAL_SET = NaturalSet.create("pink_magnolia")
+        .withShrub()
+        .withLeaves(MapColor.COLOR_PINK, RUUntintedParticlesLeavesBlock.of(RUParticleTypes.PINK_MAGNOLIA_LEAVES))
+        .withSapling(RuTreeGrowers.PINK_MAGNOLIA);
+    NaturalSet RED_MAPLE_NATURAL_SET = NaturalSet.create("red_maple")
+        .withShrub()
+        .withLeaves(MapColor.COLOR_RED, RUTintedParticlesLeavesBlock.small(TintGetter.constant(0x8F2320)))
+        .withSapling(RuTreeGrowers.RED_MAPLE);
+    NaturalSet REDWOOD_NATURAL_SET = NaturalSet.create("redwood")
+        .withBranch().withShrub().withLeaves()
+        .withSapling(p -> new RuUltraFromSuperSaplingBlock(RuTreeGrowers.REDWOOD, p));
     NaturalSet SAGUARO_CACTUS_NATURAL_SET = NaturalSet.saguaroCactus();
-    NaturalSet SILVER_BIRCH_NATURAL_SET = NaturalSet.full("silver_birch", BranchType.BRANCH, false, p -> RUBlockUtils.leaves(p, MapColor.COLOR_YELLOW, false, SilverBirchLeavesBlock::new), p -> new SaplingBlock(RuTreeGrowers.SILVER_BIRCH, p));
-    NaturalSet SMALL_OAK_NATURAL_SET = NaturalSet.leavesAndSaplings("small_oak", LeavesBlock::new, RuTreeGrowers.SMALL_OAK);
-    NaturalSet SOCOTRA_NATURAL_SET = NaturalSet.full("socotra", RuTreeGrowers.SOCOTRA);
-    NaturalSet WHITE_MAGNOLIA_NATURAL_SET = NaturalSet.fullWithoutBranch("white_magnolia", false, p -> RUBlockUtils.leaves(p, MapColor.TERRACOTTA_WHITE, false, WhiteMagnoliaLeavesBlock::new), p -> new SaplingBlock(RuTreeGrowers.WHITE_MAGNOLIA, p));
-    NaturalSet WILLOW_NATURAL_SET = NaturalSet.full("willow", RuTreeGrowers.WILLOW);
+    NaturalSet SILVER_BIRCH_NATURAL_SET = NaturalSet.create("silver_birch")
+        .withBranch().withShrub()
+        .withLeaves(standard(RuColors::getAspenColor))
+        .withSapling(RuTreeGrowers.SILVER_BIRCH);
+    NaturalSet SMALL_OAK_NATURAL_SET = NaturalSet.create("small_oak")
+        .withLeaves()
+        .withSapling(RuTreeGrowers.SMALL_OAK);
+    NaturalSet SOCOTRA_NATURAL_SET = NaturalSet.create("socotra")
+        .withBranch().withShrub().withLeaves()
+        .withSapling(RuTreeGrowers.SOCOTRA);
+    NaturalSet WHITE_MAGNOLIA_NATURAL_SET = NaturalSet.create("white_magnolia")
+        .withShrub()
+        .withLeaves(MapColor.TERRACOTTA_WHITE, RUUntintedParticlesLeavesBlock.of(RUParticleTypes.WHITE_MAGNOLIA_LEAVES))
+        .withSapling(RuTreeGrowers.WHITE_MAGNOLIA);
+    NaturalSet WILLOW_NATURAL_SET = NaturalSet.create("willow")
+        .withBranch().withShrub().withLeaves(standard(TintGetter.defaultDarken(0.7f)))
+        .withSapling(RuTreeGrowers.WILLOW);
 
     //MUSHROOMS
-    Supplier<Block> BLUE_BIOSHROOM = register("blue_bioshroom", p -> new BioshroomBlock(RuTreeGrowers.BLUE_BIOSHROOM, MobEffects.POISON, 10, p.mapColor(MapColor.COLOR_LIGHT_BLUE).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).lightLevel(s -> 10)));
-    Supplier<Block> GREEN_BIOSHROOM = register("green_bioshroom", p -> new BioshroomBlock(RuTreeGrowers.GREEN_BIOSHROOM, MobEffects.POISON, 10, p.mapColor(MapColor.COLOR_LIGHT_GREEN)), BLUE_BIOSHROOM);
-    Supplier<Block> PINK_BIOSHROOM = register("pink_bioshroom", p -> new BioshroomBlock(RuTreeGrowers.PINK_BIOSHROOM, MobEffects.POISON, 10, p.mapColor(MapColor.COLOR_PINK)), BLUE_BIOSHROOM);
-    Supplier<Block> YELLOW_BIOSHROOM = register("yellow_bioshroom", p -> new BioshroomBlock(RuTreeGrowers.YELLOW_BIOSHROOM, MobEffects.POISON, 10, p.mapColor(MapColor.COLOR_YELLOW)), BLUE_BIOSHROOM);
-    Supplier<Block> TALL_BLUE_BIOSHROOM = register("tall_blue_bioshroom", p -> new DoubleBioshroomBlock(p.pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).lightLevel(s -> 10)));
-    Supplier<Block> TALL_GREEN_BIOSHROOM = register("tall_green_bioshroom", DoubleBioshroomBlock::new, TALL_BLUE_BIOSHROOM);
-    Supplier<Block> TALL_PINK_BIOSHROOM = register("tall_pink_bioshroom", DoubleBioshroomBlock::new, TALL_BLUE_BIOSHROOM);
-    Supplier<Block> TALL_YELLOW_BIOSHROOM = register("tall_yellow_bioshroom", DoubleBioshroomBlock::new, TALL_BLUE_BIOSHROOM);
+    Supplier<Block> BLUE_BIOSHROOM = register("blue_bioshroom", p -> new BioshroomBlock(RuTreeGrowers.BLUE_BIOSHROOM, MobEffects.POISON, 10, 0x8EE5FF, p.mapColor(MapColor.COLOR_LIGHT_BLUE).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).lightLevel(s -> 10)));
+    Supplier<Block> GREEN_BIOSHROOM = register("green_bioshroom", p -> new BioshroomBlock(RuTreeGrowers.GREEN_BIOSHROOM, MobEffects.POISON, 10, 0x97ED75, p.mapColor(MapColor.COLOR_LIGHT_GREEN)), BLUE_BIOSHROOM);
+    Supplier<Block> PINK_BIOSHROOM = register("pink_bioshroom", p -> new BioshroomBlock(RuTreeGrowers.PINK_BIOSHROOM, MobEffects.POISON, 10, 0xFEA4EA, p.mapColor(MapColor.COLOR_PINK)), BLUE_BIOSHROOM);
+    Supplier<Block> YELLOW_BIOSHROOM = register("yellow_bioshroom", p -> new BioshroomBlock(RuTreeGrowers.YELLOW_BIOSHROOM, MobEffects.POISON, 10, 0xEBD67C, p.mapColor(MapColor.COLOR_YELLOW)), BLUE_BIOSHROOM);
+    Supplier<Block> TALL_BLUE_BIOSHROOM = register("tall_blue_bioshroom", p -> new DoubleBioshroomBlock(0x8EE5FF, p.pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).lightLevel(s -> 10)));
+    Supplier<Block> TALL_GREEN_BIOSHROOM = register("tall_green_bioshroom", p -> new DoubleBioshroomBlock(0x97ED75, p), TALL_BLUE_BIOSHROOM);
+    Supplier<Block> TALL_PINK_BIOSHROOM = register("tall_pink_bioshroom", p -> new DoubleBioshroomBlock(0xFEA4EA, p), TALL_BLUE_BIOSHROOM);
+    Supplier<Block> TALL_YELLOW_BIOSHROOM = register("tall_yellow_bioshroom", p -> new DoubleBioshroomBlock(0xEBD67C, p), TALL_BLUE_BIOSHROOM);
     //OTHER_PLANT_BLOCKS
     Supplier<Block> ICICLE = register("icicle", p -> new IcicleBlock(p.mapColor(MapColor.COLOR_LIGHT_BLUE).noOcclusion().sound(SoundType.GLASS).strength(1F, 0.6F).dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ)));
     Supplier<Block> BARREL_CACTUS = register("barrel_cactus", p -> new BarrelCactusBlock(p.pushReaction(PushReaction.DESTROY).ignitedByLava().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
@@ -212,10 +292,10 @@ public interface RUBlocks {
     Supplier<Block> GREEN_BIOSHROOM_BLOCK = register("green_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_GREEN)), BLUE_BIOSHROOM_BLOCK);
     Supplier<Block> PINK_BIOSHROOM_BLOCK = register("pink_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_PINK)), BLUE_BIOSHROOM_BLOCK);
     Supplier<Block> YELLOW_BIOSHROOM_BLOCK = register("yellow_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_YELLOW)), BLUE_BIOSHROOM_BLOCK);
-    Supplier<Block> GLOWING_BLUE_BIOSHROOM_BLOCK = register("glowing_blue_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_BLUE).sound(SoundType.WART_BLOCK).instrument(NoteBlockInstrument.BASS).strength(0.6f).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).lightLevel(s -> 15)));
-    Supplier<Block> GLOWING_GREEN_BIOSHROOM_BLOCK = register("glowing_green_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_GREEN)), GLOWING_BLUE_BIOSHROOM_BLOCK);
-    Supplier<Block> GLOWING_PINK_BIOSHROOM_BLOCK = register("glowing_pink_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_PINK)), GLOWING_BLUE_BIOSHROOM_BLOCK);
-    Supplier<Block> GLOWING_YELLOW_BIOSHROOM_BLOCK = register("glowing_yellow_bioshroom_block", p -> new Block(p.mapColor(MapColor.COLOR_YELLOW)), GLOWING_BLUE_BIOSHROOM_BLOCK);
+    Supplier<Block> GLOWING_BLUE_BIOSHROOM_BLOCK = register("glowing_blue_bioshroom_block", p -> new GlowingBioshroomBlock(0x8EE5FF, 0.05f, p.mapColor(MapColor.COLOR_BLUE).sound(SoundType.WART_BLOCK).instrument(NoteBlockInstrument.BASS).strength(0.6f).hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).lightLevel(s -> 15)));
+    Supplier<Block> GLOWING_GREEN_BIOSHROOM_BLOCK = register("glowing_green_bioshroom_block", p -> new GlowingBioshroomBlock(0x97ED75, 0.05f, p.mapColor(MapColor.COLOR_GREEN)), GLOWING_BLUE_BIOSHROOM_BLOCK);
+    Supplier<Block> GLOWING_PINK_BIOSHROOM_BLOCK = register("glowing_pink_bioshroom_block", p -> new GlowingBioshroomBlock(0xFEA4EA, 0.25f, p.mapColor(MapColor.COLOR_PINK)), GLOWING_BLUE_BIOSHROOM_BLOCK);
+    Supplier<Block> GLOWING_YELLOW_BIOSHROOM_BLOCK = register("glowing_yellow_bioshroom_block", p -> new GlowingBioshroomBlock(0xEBD67C, 0.25f, p.mapColor(MapColor.COLOR_YELLOW)), GLOWING_BLUE_BIOSHROOM_BLOCK);
     //BAMBOO
     Supplier<Block> BAMBOO_LOG = register("bamboo_log", p -> new BambooLogBlock(p.mapColor(MapColor.COLOR_LIGHT_GREEN).instrument(NoteBlockInstrument.BASS).sound(SoundType.BAMBOO).strength(2f, 3f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
     Supplier<Block> STRIPPED_BAMBOO_LOG = register("stripped_bamboo_log", p -> new StrippedBambooLogBlock(p.mapColor(MapColor.SAND).instrument(NoteBlockInstrument.BASS).sound(SoundType.BAMBOO).strength(2f, 3f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
@@ -282,7 +362,7 @@ public interface RUBlocks {
 
     WoodSet ALPHA_WOOD_SET = WoodSet.alpha();
     WoodSet ASHEN_WOOD_SET = WoodSet.onlyLogs("ashen", SoundType.NETHER_WOOD, MapColor.COLOR_LIGHT_GRAY, MapColor.COLOR_GRAY, true, RotatedPillarBlock::new);
-    WoodSet BAOBAB_WOOD_SET = WoodSet.simple("baobab", RuWoodTypes.BAOBAB, SoundType.CHERRY_WOOD, MapColor.WOOD, MapColor.TERRACOTTA_LIGHT_GRAY, false);
+    WoodSet BAOBAB_WOOD_SET = WoodSet.simple("baobab", RuWoodTypes.BAOBAB, RUSoundEvents.BAOBAB_SET.baseType(), MapColor.WOOD, MapColor.TERRACOTTA_LIGHT_GRAY, false);
     WoodSet BLACKWOOD_WOOD_SET = WoodSet.simple("blackwood", RuWoodTypes.BLACKWOOD, SoundType.NETHER_WOOD, MapColor.TERRACOTTA_BLACK, MapColor.TERRACOTTA_BROWN, false);
     BrimwoodWoodSet BRIMWOOD_WOOD_SET = BrimwoodWoodSet.brimwood("brimwood", RuWoodTypes.BRIMWOOD, SoundType.NETHER_WOOD, MapColor.COLOR_BROWN, MapColor.COLOR_ORANGE, true);
     WoodSet COBALT_WOOD_SET = WoodSet.simple("cobalt", RuWoodTypes.COBALT, SoundType.NETHER_WOOD, MapColor.COLOR_BLUE, MapColor.COLOR_BLACK, true, RotatedPillarBlock::new, false);
@@ -297,7 +377,7 @@ public interface RUBlocks {
     WoodSet MAUVE_WOOD_SET = WoodSet.simple("mauve", RuWoodTypes.MAUVE, SoundType.CHERRY_WOOD, MapColor.TERRACOTTA_PURPLE, MapColor.PODZOL, false);
     WoodSet PALM_WOOD_SET = WoodSet.simple("palm", RuWoodTypes.PALM, SoundType.BAMBOO_WOOD, MapColor.WOOD, MapColor.WOOD, false);
     WoodSet PINE_WOOD_SET = WoodSet.simple("pine", RuWoodTypes.PINE, SoundType.BAMBOO_WOOD, MapColor.WOOD, MapColor.WOOD, false, PineLogBlock::new, true);
-    WoodSet REDWOOD_WOOD_SET = WoodSet.simple("redwood", RuWoodTypes.REDWOOD, SoundType.CHERRY_WOOD, MapColor.TERRACOTTA_RED, MapColor.TERRACOTTA_RED, false);
+    WoodSet REDWOOD_WOOD_SET = WoodSet.simple("redwood", RuWoodTypes.REDWOOD, RUSoundEvents.REDWOOD_SET.baseType(), MapColor.TERRACOTTA_RED, MapColor.TERRACOTTA_RED, false);
     WoodSet SILVER_BIRCH_WOOD_SET = WoodSet.onlyLogs("silver_birch", SoundType.WOOD, MapColor.SAND, MapColor.QUARTZ, false, AspenLogBlock::new);
     WoodSet SOCOTRA_WOOD_SET = WoodSet.simple("socotra", RuWoodTypes.SOCOTRA, SoundType.CHERRY_WOOD, MapColor.TERRACOTTA_ORANGE, MapColor.TERRACOTTA_ORANGE, false);
     WoodSet WILLOW_WOOD_SET = WoodSet.simple("willow", RuWoodTypes.WILLOW, SoundType.WOOD, MapColor.WOOD, MapColor.WOOD, false);
@@ -399,6 +479,11 @@ public interface RUBlocks {
     static void applyAliases(BiConsumer<Identifier, Identifier> consumer) {
         consumer.accept(id("cactus_flower"), id("saguaro_cactus_flower"));
         consumer.accept(id("potted_cactus_flower"), id("potted_saguaro_cactus_flower"));
+        consumer.accept(id("maple_leaf_pile"), id("maple_leaf_litter"));
+        consumer.accept(id("red_maple_leaf_pile"), id("red_maple_leaf_litter"));
+        consumer.accept(id("orange_maple_leaf_pile"), id("orange_maple_leaf_litter"));
+        consumer.accept(id("silver_birch_leaf_pile"), id("silver_birch_leaf_litter"));
+        consumer.accept(id("enchanted_birch_leaf_pile"), id("enchanted_birch_leaf_litter"));
     }
 
     static void init() {

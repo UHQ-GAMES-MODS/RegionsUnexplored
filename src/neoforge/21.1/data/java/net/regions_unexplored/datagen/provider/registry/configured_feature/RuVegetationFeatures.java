@@ -209,11 +209,11 @@ public class RuVegetationFeatures {
         duskMelon.add(RUBlocks.DUSKMELON.get().defaultBlockState().setValue(DuskmelonBlock.AGE, 1), 3).add(RUBlocks.DUSKMELON.get().defaultBlockState().setValue(DuskmelonBlock.AGE, 2), 2);
         for(int i = 1; i <= 4; ++i) {
             for(Direction direction : Direction.Plane.HORIZONTAL) {
-                mapleLeafPileBuilder.add(RUBlocks.MAPLE_LEAF_PILE.get().defaultBlockState().setValue(GroundCoverBlock.AMOUNT, Integer.valueOf(i)).setValue(GroundCoverBlock.FACING, direction), 1);
-                redMapleLeafPileBuilder.add(RUBlocks.RED_MAPLE_LEAF_PILE.get().defaultBlockState().setValue(GroundCoverBlock.AMOUNT, Integer.valueOf(i)).setValue(GroundCoverBlock.FACING, direction), 1);
-                orangeMapleLeafPileBuilder.add(RUBlocks.ORANGE_MAPLE_LEAF_PILE.get().defaultBlockState().setValue(GroundCoverBlock.AMOUNT, Integer.valueOf(i)).setValue(GroundCoverBlock.FACING, direction), 1);
-                silverBirchLeafPileBuilder.add(RUBlocks.SILVER_BIRCH_LEAF_PILE.get().defaultBlockState().setValue(GroundCoverBlock.AMOUNT, Integer.valueOf(i)).setValue(GroundCoverBlock.FACING, direction), 1);
-                enchantedBirchLeafPileBuilder.add(RUBlocks.ENCHANTED_BIRCH_LEAF_PILE.get().defaultBlockState().setValue(GroundCoverBlock.AMOUNT, Integer.valueOf(i)).setValue(GroundCoverBlock.FACING, direction), 1);
+                mapleLeafPileBuilder.add(RUBlocks.MAPLE_LEAF_LITTER.get().defaultBlockState().setValue(GroundCoverBlock.AMOUNT, Integer.valueOf(i)).setValue(GroundCoverBlock.FACING, direction), 1);
+                redMapleLeafPileBuilder.add(RUBlocks.RED_MAPLE_LEAF_LITTER.get().defaultBlockState().setValue(GroundCoverBlock.AMOUNT, Integer.valueOf(i)).setValue(GroundCoverBlock.FACING, direction), 1);
+                orangeMapleLeafPileBuilder.add(RUBlocks.ORANGE_MAPLE_LEAF_LITTER.get().defaultBlockState().setValue(GroundCoverBlock.AMOUNT, Integer.valueOf(i)).setValue(GroundCoverBlock.FACING, direction), 1);
+                silverBirchLeafPileBuilder.add(RUBlocks.SILVER_BIRCH_LEAF_LITTER.get().defaultBlockState().setValue(GroundCoverBlock.AMOUNT, Integer.valueOf(i)).setValue(GroundCoverBlock.FACING, direction), 1);
+                enchantedBirchLeafPileBuilder.add(RUBlocks.ENCHANTED_BIRCH_LEAF_LITTER.get().defaultBlockState().setValue(GroundCoverBlock.AMOUNT, Integer.valueOf(i)).setValue(GroundCoverBlock.FACING, direction), 1);
                 orangeConeflowerBuilder.add(RUBlocks.ORANGE_CONEFLOWER.get().defaultBlockState().setValue(GroundCoverBlock.AMOUNT, Integer.valueOf(i)).setValue(GroundCoverBlock.FACING, direction), 1);
                 purpleConeflowerBuilder.add(RUBlocks.PURPLE_CONEFLOWER.get().defaultBlockState().setValue(GroundCoverBlock.AMOUNT, Integer.valueOf(i)).setValue(GroundCoverBlock.FACING, direction), 1);
                 magnoliaFlowerBuilder.add(Blocks.PINK_PETALS.defaultBlockState().setValue(GroundCoverBlock.AMOUNT, Integer.valueOf(i)).setValue(GroundCoverBlock.FACING, direction), 1);

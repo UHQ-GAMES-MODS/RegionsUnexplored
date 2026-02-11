@@ -2,9 +2,13 @@ package net.regions_unexplored.world.level.block.plant.aquatic;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ColorParticleOption;
+import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -19,7 +23,9 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.regions_unexplored.RegionsUnexplored;
 import net.regions_unexplored.registry.RUBlocks;
+import net.regions_unexplored.registry.RUParticleTypes;
 import net.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
 import net.regions_unexplored.world.level.block.state.properties.TallHyacinthStockShape;
 import org.jetbrains.annotations.Nullable;
@@ -109,6 +115,22 @@ public class TallHyacinthStockBlock extends Block implements LiquidBlockContaine
 
     public boolean placeLiquid(LevelAccessor p_154520_, BlockPos p_154521_, BlockState p_154522_, FluidState p_154523_) {
         return false;
+    }
+
+    @Override
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        if (random.nextFloat() >= 0.0667) return;
+
+        int plantX = pos.getX();
+        int plantY = pos.getY();
+        int plantZ = pos.getZ();
+
+        BlockPos ambientPos = new BlockPos(plantX + Mth.nextInt(random, -2, 2), plantY + random.nextInt(3), plantZ + Mth.nextInt(random, -2, 2));
+        BlockState particlePosState = level.getBlockState(ambientPos);
+        if (particlePosState.isCollisionShapeFullBlock(level, ambientPos)) return;
+
+        ColorParticleOption particle = ColorParticleOption.create(RUParticleTypes.FLOATING_HYACINTH.get(), 0xCCDDFF);
+        level.addParticle(particle, (double)ambientPos.getX() + random.nextDouble(), (double)ambientPos.getY() + random.nextDouble(), (double)ambientPos.getZ() + random.nextDouble(), 0.0, 0.0, 0.0);
     }
 }
 
