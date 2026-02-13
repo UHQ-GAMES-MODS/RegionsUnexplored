@@ -13,7 +13,7 @@ public interface RUSoundEvents {
     WoodSoundSet REDWOOD_SET = WoodSoundSet.create("redwood");
 
     SoundType LEAF_LITTER = SoundTypeHelper.create("leaf_litter");
-    SoundType TALL_GRASS = SoundTypeHelper.createSimple("tall_grass");
+    SoundType TALL_GRASS = SoundTypeHelper.create("tall_grass");
 
     static SoundEvent register(String name) {
         SoundEvent event = SoundEvent.createVariableRangeEvent(RegionsUnexplored.id(name));

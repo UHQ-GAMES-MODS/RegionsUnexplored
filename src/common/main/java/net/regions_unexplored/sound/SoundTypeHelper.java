@@ -17,20 +17,6 @@ public class SoundTypeHelper {
         );
     }
 
-    public static SoundType createSimple(String name) {
-        var place = register(id(name, ".place"));
-        var step = register(id(name, ".step"));
-        return new SoundType(
-            1f,
-            1f,
-            place,
-            step,
-            place,
-            step,
-            step
-        );
-    }
-
     private static String id(String baseName, String suffix) {
         return "block." + baseName + suffix;
     }

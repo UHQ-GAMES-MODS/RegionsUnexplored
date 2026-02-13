@@ -419,6 +419,30 @@
 
 
 
+
+  "block.tall_grass.break": {
+    "sounds": [
+      "dig/grass1",
+      "dig/grass2",
+      "dig/grass3",
+      "dig/grass4"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.tall_grass.fall": {
+    "sounds": [
+      "regions_unexplored:block/tall_grass/step1",
+      "regions_unexplored:block/tall_grass/step3"
+    ],
+    "subtitle": "subtitles.block.generic.fall"
+  },
+  "block.tall_grass.hit": {
+    "sounds": [
+      "regions_unexplored:block/tall_grass/step1",
+      "regions_unexplored:block/tall_grass/step3"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
   "block.tall_grass.place": {
     "sounds": [
       "dig/grass1",
