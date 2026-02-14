@@ -96,12 +96,11 @@ public class RuBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(RUBlocks.DEAD_STEPPE_SHRUB.get());
         add(RUBlocks.ASHEN_GRASS.get(), this::createGrassDrops);
         add(RUBlocks.FROZEN_GRASS.get(), this::createGrassDrops);
-        add(RUBlocks.MEDIUM_GRASS.get(), this::createGrassDrops);
         add(RUBlocks.SANDY_GRASS.get(), this::createGrassDrops);
         add(RUBlocks.SMALL_DESERT_SHRUB.get(), RuBlockLootTableProvider::createShearsOnlyDrop);
         add(RUBlocks.STEPPE_GRASS.get(), this::createGrassDrops);
         add(RUBlocks.STEPPE_SHRUB.get(), this::createGrassDrops);
-        add(RUBlocks.STONE_BUD.get(), this::createGrassDrops);
+        add(RUBlocks.GRASS_SPROUTS.get(), this::createGrassDrops);
         //TALL_GRASS_BLOCKS
         add(RUBlocks.ELEPHANT_EAR.get(), (block) -> createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
         add(RUBlocks.SANDY_TALL_GRASS.get(), (block) -> createDoublePlantWithSeedDrops(block, RUBlocks.SANDY_GRASS.get()));

@@ -1,15 +1,10 @@
 {
   "values": [
-    "regions_unexplored:autumnal_maple_forest",
-    "regions_unexplored:bamboo_forest",
-    "regions_unexplored:alpha_grove",
-    "regions_unexplored:magnolia_woodland",
-    "regions_unexplored:deciduous_forest",
-    "regions_unexplored:maple_forest",
-    "regions_unexplored:mauve_hills",
-    "regions_unexplored:orchard",
-    "regions_unexplored:silver_birch_forest",
-    "regions_unexplored:temperate_grove",
-    "regions_unexplored:willow_forest"
+    "minecraft:forest",
+    "minecraft:flower_forest",
+    "minecraft:birch_forest",
+    "minecraft:old_growth_birch_forest",
+    "minecraft:dark_forest",
+    "minecraft:grove"
   ]
 }

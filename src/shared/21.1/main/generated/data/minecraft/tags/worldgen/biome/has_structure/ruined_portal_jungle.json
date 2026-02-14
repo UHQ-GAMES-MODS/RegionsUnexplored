@@ -1,6 +1,5 @@
 {
   "values": [
-    "regions_unexplored:bamboo_forest",
-    "regions_unexplored:fungal_fen"
+    "#minecraft:is_jungle"
   ]
 }

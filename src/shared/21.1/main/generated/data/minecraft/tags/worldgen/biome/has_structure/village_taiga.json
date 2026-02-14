@@ -1,9 +1,5 @@
 {
   "values": [
-    "regions_unexplored:shrubland",
-    "regions_unexplored:blackwood_taiga",
-    "regions_unexplored:boreal_taiga",
-    "regions_unexplored:golden_boreal_taiga",
-    "regions_unexplored:sparse_redwoods"
+    "minecraft:taiga"
   ]
 }

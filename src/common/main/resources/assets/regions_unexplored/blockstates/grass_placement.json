@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "regions_unexplored:block/stone_bud"
+      "model": "regions_unexplored:block/grass_sprouts"
     }
   }
 }

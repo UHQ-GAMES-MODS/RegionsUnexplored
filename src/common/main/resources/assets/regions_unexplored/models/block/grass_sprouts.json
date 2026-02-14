@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/tinted_cross",
+  "textures": {
+    "cross": "regions_unexplored:block/grass_sprouts"
+  },
+  "render_type": "cutout"
+}

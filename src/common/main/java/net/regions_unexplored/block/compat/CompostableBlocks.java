@@ -51,12 +51,11 @@ public class CompostableBlocks {
         // Small grass/shrubs (0.3F)
         COMPOSTABLES.put(RUBlocks.DEAD_STEPPE_SHRUB.get(), 0.3F);
         COMPOSTABLES.put(RUBlocks.FROZEN_GRASS.get(), 0.3F);
-        COMPOSTABLES.put(RUBlocks.MEDIUM_GRASS.get(), 0.3F);
         COMPOSTABLES.put(RUBlocks.SANDY_GRASS.get(), 0.3F);
         COMPOSTABLES.put(RUBlocks.SMALL_DESERT_SHRUB.get(), 0.3F);
         COMPOSTABLES.put(RUBlocks.STEPPE_GRASS.get(), 0.3F);
         COMPOSTABLES.put(RUBlocks.STEPPE_SHRUB.get(), 0.3F);
-        COMPOSTABLES.put(RUBlocks.STONE_BUD.get(), 0.3F);
+        COMPOSTABLES.put(RUBlocks.GRASS_SPROUTS.get(), 0.3F);
 
         // Tall grass (0.5F)
         COMPOSTABLES.put(RUBlocks.ELEPHANT_EAR.get(), 0.5F);

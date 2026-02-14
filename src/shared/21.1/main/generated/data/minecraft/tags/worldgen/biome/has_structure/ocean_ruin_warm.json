@@ -1,5 +1,7 @@
 {
   "values": [
-    "regions_unexplored:rocky_reef"
+    "minecraft:lukewarm_ocean",
+    "minecraft:warm_ocean",
+    "minecraft:deep_lukewarm_ocean"
   ]
 }

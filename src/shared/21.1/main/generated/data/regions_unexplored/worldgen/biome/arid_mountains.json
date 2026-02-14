@@ -84,7 +84,7 @@
     [
       "minecraft:glow_lichen",
       "regions_unexplored:tree/oak_shrub_on_stone",
-      "regions_unexplored:stone_bud_sparse"
+      "regions_unexplored:patch/grass_sprouts_sparse"
     ],
     [
       "minecraft:freeze_top_layer"

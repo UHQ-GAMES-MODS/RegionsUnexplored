@@ -24,12 +24,11 @@ public class FlammableBlocks {
         //GRASS_BLOCKS
         registerFlammableBlock(RUBlocks.DEAD_STEPPE_SHRUB.get(), 60, 100);
         registerFlammableBlock(RUBlocks.FROZEN_GRASS.get(), 60, 100);
-        registerFlammableBlock(RUBlocks.MEDIUM_GRASS.get(), 60, 100);
         registerFlammableBlock(RUBlocks.SANDY_GRASS.get(), 60, 100);
         registerFlammableBlock(RUBlocks.SMALL_DESERT_SHRUB.get(), 60, 100);
         registerFlammableBlock(RUBlocks.STEPPE_GRASS.get(), 60, 100);
         registerFlammableBlock(RUBlocks.STEPPE_SHRUB.get(), 60, 100);
-        registerFlammableBlock(RUBlocks.STONE_BUD.get(), 60, 100);
+        registerFlammableBlock(RUBlocks.GRASS_SPROUTS.get(), 60, 100);
         //TALL_GRASS_BLOCKS
         registerFlammableBlock(RUBlocks.ELEPHANT_EAR.get(), 60, 100);
         registerFlammableBlock(RUBlocks.SANDY_TALL_GRASS.get(), 60, 100);

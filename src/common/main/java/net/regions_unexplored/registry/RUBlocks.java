@@ -78,12 +78,11 @@ public interface RUBlocks {
     //GRASS_BLOCKS
     Supplier<Block> DEAD_STEPPE_SHRUB = register("dead_steppe_shrub", p -> new DeadShrubBlock(p.pushReaction(PushReaction.DESTROY).ignitedByLava().replaceable().mapColor(MapColor.WOOD).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
     Supplier<Block> FROZEN_GRASS = register("frozen_grass", RuSnowyPlantBlock::new, Blocks.SHORT_GRASS);
-    Supplier<Block> MEDIUM_GRASS = register("medium_grass", RuPlantBlock::new, Blocks.SHORT_GRASS);
     Supplier<Block> SANDY_GRASS = register("sandy_grass", RuSandyPlantBlock::new, Blocks.SHORT_GRASS);
     Supplier<Block> SMALL_DESERT_SHRUB = register("small_desert_shrub", DeadShrubBlock::new, Blocks.DEAD_BUSH);
     Supplier<Block> STEPPE_GRASS = register("steppe_grass", p -> new RuPlantBlock(p.pushReaction(PushReaction.DESTROY).ignitedByLava().replaceable().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
     Supplier<Block> STEPPE_SHRUB = register("steppe_shrub", RuPlantBlock::new, STEPPE_GRASS);
-    Supplier<Block> STONE_BUD = register("stone_bud", RuStonePlantBlock::new, Blocks.SHORT_GRASS);
+    Supplier<Block> GRASS_SPROUTS = register("grass_sprouts", GrassSproutsBlock::new, Blocks.SHORT_GRASS);
     //TALL_GRASS_BLOCKS
     Supplier<Block> ELEPHANT_EAR = register("elephant_ear", ElephantEarBlock::new, Blocks.TALL_GRASS);
     Supplier<Block> SANDY_TALL_GRASS = register("sandy_tall_grass", RuSandyDoublePlantBlock::new, Blocks.TALL_GRASS);
@@ -484,6 +483,8 @@ public interface RUBlocks {
         consumer.accept(id("orange_maple_leaf_pile"), id("orange_maple_leaf_litter"));
         consumer.accept(id("silver_birch_leaf_pile"), id("silver_birch_leaf_litter"));
         consumer.accept(id("enchanted_birch_leaf_pile"), id("enchanted_birch_leaf_litter"));
+        consumer.accept(id("medium_grass"), id("grass_sprouts"));
+        consumer.accept(id("stone"), id("grass_sprouts"));
     }
 
     static void init() {

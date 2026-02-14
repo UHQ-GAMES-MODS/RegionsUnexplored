@@ -291,6 +291,9 @@
     "regions_unexplored:golden_larch_shrub": {
       "chance": 0.65
     },
+    "regions_unexplored:grass_sprouts": {
+      "chance": 0.3
+    },
     "regions_unexplored:gray_snowbelle": {
       "chance": 0.4
     },
@@ -416,9 +419,6 @@
     },
     "regions_unexplored:meadow_sage": {
       "chance": 0.6
-    },
-    "regions_unexplored:medium_grass": {
-      "chance": 0.3
     },
     "regions_unexplored:mycotoxic_daisy": {
       "chance": 0.3
@@ -611,9 +611,6 @@
     },
     "regions_unexplored:steppe_tall_grass": {
       "chance": 0.5
-    },
-    "regions_unexplored:stone_bud": {
-      "chance": 0.3
     },
     "regions_unexplored:tall_blue_bioshroom": {
       "chance": 0.65

@@ -1,9 +1,9 @@
 {
   "values": [
-    "regions_unexplored:mycotoxic_undergrowth",
-    "regions_unexplored:blackstone_basin",
-    "regions_unexplored:infernal_holt",
-    "regions_unexplored:glistering_meadow",
-    "regions_unexplored:redstone_abyss"
+    "minecraft:nether_wastes",
+    "minecraft:soul_sand_valley",
+    "minecraft:crimson_forest",
+    "minecraft:warped_forest",
+    "minecraft:basalt_deltas"
   ]
 }

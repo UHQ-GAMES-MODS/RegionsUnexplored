@@ -1,7 +1,5 @@
 {
   "values": [
-    "regions_unexplored:outback",
-    "regions_unexplored:steppe",
-    "regions_unexplored:dry_bushland"
+    "minecraft:savanna"
   ]
 }

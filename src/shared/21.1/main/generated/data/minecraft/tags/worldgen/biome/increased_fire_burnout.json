@@ -1,16 +1,12 @@
 {
   "values": [
-    "regions_unexplored:bayou",
-    "regions_unexplored:fen",
-    "regions_unexplored:fungal_fen",
-    "regions_unexplored:marsh",
-    "regions_unexplored:old_growth_bayou",
-    "regions_unexplored:redwoods",
-    "regions_unexplored:sparse_redwoods",
-    "regions_unexplored:bamboo_forest",
-    "regions_unexplored:rainforest",
-    "regions_unexplored:sparse_rainforest",
-    "regions_unexplored:eucalyptus_forest",
-    "regions_unexplored:rocky_reef"
+    "minecraft:bamboo_jungle",
+    "minecraft:mushroom_fields",
+    "minecraft:mangrove_swamp",
+    "minecraft:snowy_slopes",
+    "minecraft:frozen_peaks",
+    "minecraft:jagged_peaks",
+    "minecraft:swamp",
+    "minecraft:jungle"
   ]
 }

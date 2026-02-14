@@ -1,12 +1,11 @@
 {
   "values": [
-    "regions_unexplored:joshua_desert",
-    "regions_unexplored:saguaro_desert",
-    "regions_unexplored:outback",
-    "regions_unexplored:tropics",
-    "regions_unexplored:bamboo_forest",
-    "regions_unexplored:old_growth_bayou",
-    "regions_unexplored:marsh",
-    "regions_unexplored:fungal_fen"
+    "minecraft:desert",
+    "minecraft:warm_ocean",
+    "#minecraft:is_jungle",
+    "#minecraft:is_savanna",
+    "#minecraft:is_nether",
+    "#minecraft:is_badlands",
+    "minecraft:mangrove_swamp"
   ]
 }

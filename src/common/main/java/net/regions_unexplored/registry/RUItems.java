@@ -26,6 +26,8 @@ public interface RUItems {
         consumer.accept(id("orange_maple_leaf_pile"), id("orange_maple_leaf_litter"));
         consumer.accept(id("silver_birch_leaf_pile"), id("silver_birch_leaf_litter"));
         consumer.accept(id("enchanted_birch_leaf_pile"), id("enchanted_birch_leaf_litter"));
+        consumer.accept(id("medium_grass"), id("grass_sprouts"));
+        consumer.accept(id("stone"), id("grass_sprouts"));
     }
 
     static void init() {

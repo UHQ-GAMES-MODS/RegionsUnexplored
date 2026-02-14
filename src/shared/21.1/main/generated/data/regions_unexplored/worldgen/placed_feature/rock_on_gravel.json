@@ -17,7 +17,7 @@
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "regions_unexplored:stone_bud"
+          "Name": "regions_unexplored:grass_sprouts"
         }
       }
     },

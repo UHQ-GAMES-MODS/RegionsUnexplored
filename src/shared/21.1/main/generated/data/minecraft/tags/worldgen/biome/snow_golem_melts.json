@@ -1,11 +1,16 @@
 {
   "values": [
-    "regions_unexplored:joshua_desert",
-    "regions_unexplored:saguaro_desert",
-    "regions_unexplored:outback",
-    "regions_unexplored:arid_mountains",
-    "regions_unexplored:steppe",
-    "regions_unexplored:baobab_savanna",
-    "regions_unexplored:dry_bushland"
+    "minecraft:badlands",
+    "minecraft:basalt_deltas",
+    "minecraft:crimson_forest",
+    "minecraft:desert",
+    "minecraft:eroded_badlands",
+    "minecraft:nether_wastes",
+    "minecraft:savanna",
+    "minecraft:savanna_plateau",
+    "minecraft:soul_sand_valley",
+    "minecraft:warped_forest",
+    "minecraft:windswept_savanna",
+    "minecraft:wooded_badlands"
   ]
 }
