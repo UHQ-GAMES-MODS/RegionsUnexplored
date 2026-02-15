@@ -63,7 +63,6 @@ public class RuMiscOverworldPlacements {
     public static final ResourceKey<PlacedFeature> MARSH = RUPlacedFeatureBootstrap.key("marsh");
     public static final ResourceKey<PlacedFeature> WATER_EDGE = RUPlacedFeatureBootstrap.key("water_edge");
     public static final ResourceKey<PlacedFeature> ICICLE_UP = RUPlacedFeatureBootstrap.key("icicle_up");
-    public static final ResourceKey<PlacedFeature> SMOULDERING_DIRT = RUPlacedFeatureBootstrap.key("smouldering_dirt");
     public static final ResourceKey<PlacedFeature> MEADOW_ROCK = RUPlacedFeatureBootstrap.key("meadow_rock");
     public static final ResourceKey<PlacedFeature> ROCK = RUPlacedFeatureBootstrap.key("rock");
     public static final ResourceKey<PlacedFeature> ROCK_ON_GRAVEL = RUPlacedFeatureBootstrap.key("rock_on_gravel");
@@ -108,7 +107,6 @@ public class RuMiscOverworldPlacements {
         final Holder<ConfiguredFeature<?, ?>>  MARSH = featureGetter.getOrThrow(RuMiscOverworldFeatures.MARSH);
         final Holder<ConfiguredFeature<?, ?>>  WATER_EDGE = featureGetter.getOrThrow(RuMiscOverworldFeatures.WATER_EDGE);
         final Holder<ConfiguredFeature<?, ?>>  ICICLE_UP = featureGetter.getOrThrow(RuMiscOverworldFeatures.ICICLE_UP);
-        final Holder<ConfiguredFeature<?, ?>>  SMOULDERING_DIRT = featureGetter.getOrThrow(RuMiscOverworldFeatures.SMOULDERING_DIRT);
         final Holder<ConfiguredFeature<?, ?>>  MEADOW_ROCK = featureGetter.getOrThrow(RuMiscOverworldFeatures.MEADOW_ROCK);
         final Holder<ConfiguredFeature<?, ?>>  ROCK = featureGetter.getOrThrow(RuMiscOverworldFeatures.ROCK);
         final Holder<ConfiguredFeature<?, ?>>  NOISE_PUMPKINS = featureGetter.getOrThrow(RuMiscOverworldFeatures.PATCH_NOISE_PUMPKINS);
@@ -169,7 +167,6 @@ public class RuMiscOverworldPlacements {
         register(context, RuMiscOverworldPlacements.MARSH, MARSH, CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
         register(context, RuMiscOverworldPlacements.WATER_EDGE, WATER_EDGE, CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,  BiomeFilter.biome());
         register(context, RuMiscOverworldPlacements.ICICLE_UP, ICICLE_UP, List.of(CountPlacement.of(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BlockPredicateFilter.forPredicate(RUPlacedFeatureBootstrap.onSnowPredicate), BiomeFilter.biome()));
-        register(context, RuMiscOverworldPlacements.SMOULDERING_DIRT, SMOULDERING_DIRT, CountPlacement.of(25), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE,  BiomeFilter.biome());
         register(context, RuMiscOverworldPlacements.MEADOW_ROCK, MEADOW_ROCK, List.of(CountPlacement.of(1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuMiscOverworldPlacements.ROCK, ROCK, List.of(CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuMiscOverworldPlacements.ROCK_ON_GRAVEL, ROCK, List.of(CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(RUBlocks.GRASS_SPROUTS.get()), BiomeFilter.biome()));

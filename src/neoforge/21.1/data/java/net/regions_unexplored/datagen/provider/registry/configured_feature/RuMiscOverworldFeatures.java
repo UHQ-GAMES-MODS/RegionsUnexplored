@@ -79,7 +79,6 @@ public class RuMiscOverworldFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> MARSH = RUConfiguredFeatureBootstrap.createKey("marsh");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WATER_EDGE = RUConfiguredFeatureBootstrap.createKey("water_edge");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ICICLE_UP = RUConfiguredFeatureBootstrap.createKey("icicle_up");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SMOULDERING_DIRT = RUConfiguredFeatureBootstrap.createKey("smouldering_dirt");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MEADOW_ROCK = RUConfiguredFeatureBootstrap.createKey("meadow_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROCK = RUConfiguredFeatureBootstrap.createKey("rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NOISE_PUMPKINS = RUConfiguredFeatureBootstrap.createKey("patch_noise_pumpkins");
@@ -88,11 +87,9 @@ public class RuMiscOverworldFeatures {
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<ConfiguredFeature<?, ?>> holderGetter = context.lookup(Registries.CONFIGURED_FEATURE);
-        RuleTest baseStoneTest = new TagMatchTest(BlockTags.BASE_STONE_OVERWORLD);
         RuleTest stoneOreTest = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateOreTest = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
         List<OreConfiguration.TargetBlockState> ORE_REDSTONE_TARGET_LIST = List.of(OreConfiguration.target(stoneOreTest, Blocks.REDSTONE_ORE.defaultBlockState()), OreConfiguration.target(deepslateOreTest, Blocks.DEEPSLATE_REDSTONE_ORE.defaultBlockState()));
-        List<OreConfiguration.TargetBlockState> STONE_GRASS_TARGET_LIST = List.of(OreConfiguration.target(stoneOreTest, RUBlocks.STONE_GRASS_BLOCK.get().defaultBlockState()), OreConfiguration.target(deepslateOreTest, RUBlocks.DEEPSLATE_GRASS_BLOCK.get().defaultBlockState()));
 
         //---------------------FEATURES---------------------//
         register(context, DISK_CLAY, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(Blocks.CLAY), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, RUBlocks.PEAT_DIRT.get(), RUBlocks.SILT_DIRT.get(), RUBlocks.SILT_MUD.get(), RUBlocks.PEAT_MUD.get(), Blocks.CLAY)), UniformInt.of(2, 3), 1));
@@ -128,7 +125,6 @@ public class RuMiscOverworldFeatures {
         register(context, MARSH, RUFeatureTypes.MARSH.get(), FeatureConfiguration.NONE);
         register(context, WATER_EDGE, RUFeatureTypes.WATER_EDGE.get(), FeatureConfiguration.NONE);
         register(context, ICICLE_UP, RUFeatureTypes.ICICLE_UP.get(), FeatureConfiguration.NONE);
-        register(context, SMOULDERING_DIRT, RUFeatureTypes.SMOULDERING_DIRT.get(), FeatureConfiguration.NONE);
         register(context, MEADOW_ROCK, RUFeatureTypes.MEADOW_ROCK.get(), FeatureConfiguration.NONE);
         register(context, ROCK, RUFeatureTypes.ROCK.get(), FeatureConfiguration.NONE);
         register(context, PATCH_NOISE_PUMPKINS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.PUMPKIN.defaultBlockState(), 96).add(Blocks.CARVED_PUMPKIN.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, Direction.NORTH), 1).add(Blocks.CARVED_PUMPKIN.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, Direction.SOUTH), 1).add(Blocks.CARVED_PUMPKIN.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, Direction.EAST), 1).add(Blocks.CARVED_PUMPKIN.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, Direction.WEST), 1))), List.of(RUBlocks.SILT_PODZOL.get(), Blocks.SNOW_BLOCK), 16));

@@ -49,6 +49,10 @@ public class AshenDirtBlock extends Block {
 
 
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-                    return (this.defaultBlockState().setValue(SMOULDERING, false));
+        return this.defaultBlockState();
+    }
+
+    public static BlockState getSmouldering() {
+        return RUBlocks.ASHEN_DIRT.get().defaultBlockState().setValue(SMOULDERING, true);
     }
 }

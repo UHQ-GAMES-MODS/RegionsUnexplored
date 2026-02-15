@@ -3,6 +3,7 @@ package net.regions_unexplored.registry.data;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.regions_unexplored.RegionsUnexplored;
 
 public interface RUConfiguredFeatures {
@@ -108,10 +109,6 @@ public interface RUConfiguredFeatures {
     ResourceKey<ConfiguredFeature<?,?>> TREE_WILLOW = tree("willow");
     ResourceKey<ConfiguredFeature<?,?>> TREE_BIG_WILLOW = tree("big_willow");
     ResourceKey<ConfiguredFeature<?,?>> TREE_WILLOW_VINES = tree("willow_vines");
-    // Tree Groups
-    ResourceKey<ConfiguredFeature<?,?>> TREE_GROUP_OLD_GROWTH_BAYOU = treeGroup("old_growth_bayou");
-    ResourceKey<ConfiguredFeature<?,?>> TREE_GROUP_AUTUMNAL_MAPLE_FOREST = treeGroup("autumnal_maple");
-    ResourceKey<ConfiguredFeature<?,?>> TREE_GROUP_PUMPKIN_FIELDS = treeGroup("pumpkin_fields");
     // Bonemealables
     ResourceKey<ConfiguredFeature<?,?>> BONEMEAL_ALPHA_GRASS = key("bonemeal/grass/alpha");
     ResourceKey<ConfiguredFeature<?,?>> BONEMEAL_MYCOTOXIC_NYLIUM = key("bonemeal/nylium/mycotoxic");
@@ -129,5 +126,9 @@ public interface RUConfiguredFeatures {
     
     static ResourceKey<ConfiguredFeature<?,?>> key(String name) {
         return RegionsUnexplored.key(Registries.CONFIGURED_FEATURE, name);
+    }
+
+    static ResourceKey<ConfiguredFeature<?,?>> fromPlaced(ResourceKey<PlacedFeature> key) {
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, key.identifier());
     }
 }

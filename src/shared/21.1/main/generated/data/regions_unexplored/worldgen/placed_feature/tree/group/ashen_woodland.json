@@ -1,9 +1,13 @@
 {
-  "feature": "regions_unexplored:tree/ashen_pine",
+  "feature": "regions_unexplored:tree/group/ashen_woodland",
   "placement": [
     {
-      "type": "minecraft:count",
-      "count": 10
+      "type": "lithostitched:noise_slope",
+      "noise": "regions_unexplored:tree_density",
+      "offset": 8,
+      "slope": -5,
+      "xz_scale": 1.0,
+      "y_scale": 0.0
     },
     {
       "type": "minecraft:in_square"
@@ -21,7 +25,7 @@
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "minecraft:oak_sapling",
+          "Name": "regions_unexplored:ashen_sapling",
           "Properties": {
             "stage": "0"
           }

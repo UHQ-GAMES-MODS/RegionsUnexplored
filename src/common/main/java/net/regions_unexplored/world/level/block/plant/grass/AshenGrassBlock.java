@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.regions_unexplored.registry.RUBlocks;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 import net.regions_unexplored.world.level.block.state.properties.RuBlockStateProperties;
 
 public class AshenGrassBlock extends BushBlock {
@@ -42,12 +43,10 @@ public class AshenGrassBlock extends BushBlock {
     }
 
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        if(state== RUBlocks.ASHEN_GRASS.get().defaultBlockState().setValue(SMOULDERING, true)){
-            super.animateTick(state, level, pos, random);
-            if (random.nextInt(20) == 0) {
-                level.addParticle(ParticleTypes.FLAME, (double)pos.getX() + random.nextDouble(), (double)pos.getY() + 0.25D, (double)pos.getZ() + random.nextDouble(), 0.0D, 0.0D, 0.0D);
-                level.addParticle(ParticleTypes.SMOKE, (double)pos.getX() + random.nextDouble(), (double)pos.getY() + 0.25D, (double)pos.getZ() + random.nextDouble(), 0.0D, 0.0D, 0.0D);
-            }
+        super.animateTick(state, level, pos, random);
+        if (state.getValue(SMOULDERING) && random.nextInt(20) == 0) {
+            level.addParticle(ParticleTypes.FLAME, (double)pos.getX() + random.nextDouble(), (double)pos.getY() + 0.25D, (double)pos.getZ() + random.nextDouble(), 0.0D, 0.0D, 0.0D);
+            level.addParticle(ParticleTypes.SMOKE, (double)pos.getX() + random.nextDouble(), (double)pos.getY() + 0.25D, (double)pos.getZ() + random.nextDouble(), 0.0D, 0.0D, 0.0D);
         }
     }
 
@@ -55,8 +54,8 @@ public class AshenGrassBlock extends BushBlock {
         return state.getValue(SMOULDERING);
     }
 
-
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return (this.defaultBlockState().setValue(SMOULDERING, false));
+    @Override
+    public boolean mayPlaceOn(BlockState state, BlockGetter getter, BlockPos pos) {
+        return state.is(RUBlockTags.SUPPORTS_ASHEN_GRASS);
     }
 }

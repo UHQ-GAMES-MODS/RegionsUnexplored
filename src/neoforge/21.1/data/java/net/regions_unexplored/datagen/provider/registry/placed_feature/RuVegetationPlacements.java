@@ -16,8 +16,10 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
+import net.regions_unexplored.datagen.provider.registry.RUFeatureUtils;
 import net.regions_unexplored.datagen.provider.registry.configured_feature.RuVegetationFeatures;
 import net.regions_unexplored.datagen.provider.registry.RUPlacedFeatureBootstrap;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.registry.data.RUConfiguredFeatures;
 import net.regions_unexplored.registry.data.RUPlacedFeatures;
 
@@ -40,7 +42,9 @@ public class RuVegetationPlacements {
     public static final ResourceKey<PlacedFeature> WINDSWEPT_GRASS = RUPlacedFeatureBootstrap.key("windswept_grass");
     public static final ResourceKey<PlacedFeature> PATCH_GRASS_SPROUTS_DENSE = RUPlacedFeatureBootstrap.key("patch/grass_sprouts_dense");
     public static final ResourceKey<PlacedFeature> PATCH_GRASS_SPROUTS_SPARSE = RUPlacedFeatureBootstrap.key("patch/grass_sprouts_sparse");
-    public static final ResourceKey<PlacedFeature> ASHEN_GRASS = RUPlacedFeatureBootstrap.key("ashen_grass");
+    public static final ResourceKey<PlacedFeature> PATCH_ASHEN_GRASS = RUPlacedFeatureBootstrap.key("patch/ashen_grass");
+    public static final ResourceKey<PlacedFeature> PATCH_ASHEN_GRASS_SMOULDERING = RUPlacedFeatureBootstrap.key("patch/smouldering_ashen_grass");
+    public static final ResourceKey<PlacedFeature> PATCH_ASH_VENTS = RUPlacedFeatureBootstrap.key("patch/ash_vents");
     public static final ResourceKey<PlacedFeature> REDWOODS_VEGETATION = RUPlacedFeatureBootstrap.key("redwoods_vegetation");
     public static final ResourceKey<PlacedFeature> BLACKWOOD_VEGETATION = RUPlacedFeatureBootstrap.key("blackwood_vegetation");
     public static final ResourceKey<PlacedFeature> DECIDUOUS_VEGETATION = RUPlacedFeatureBootstrap.key("deciduous_vegetation");
@@ -191,7 +195,6 @@ public class RuVegetationPlacements {
         final Holder<ConfiguredFeature<?, ?>> TALL_GRASS = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_TALL_GRASS);
         final Holder<ConfiguredFeature<?, ?>> WINDSWEPT_GRASS = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_WINDSWEPT_GRASS);
         final Holder<ConfiguredFeature<?, ?>> PATCH_GRASS_SPROUTS = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_GRASS_SPROUTS);
-        final Holder<ConfiguredFeature<?, ?>> ASHEN_GRASS = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_ASHEN_GRASS);
         final Holder<ConfiguredFeature<?, ?>> REDWOODS_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_REDWOODS_VEGETATION);
         final Holder<ConfiguredFeature<?, ?>> BLACKWOOD_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_BLACKWOOD_VEGETATION);
         final Holder<ConfiguredFeature<?, ?>> DECIDUOUS_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_DECIDUOUS_VEGETATION);
@@ -336,7 +339,9 @@ public class RuVegetationPlacements {
         register(context, RuVegetationPlacements.WINDSWEPT_GRASS, WINDSWEPT_GRASS, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.PATCH_GRASS_SPROUTS_DENSE, PATCH_GRASS_SPROUTS, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.PATCH_GRASS_SPROUTS_SPARSE, PATCH_GRASS_SPROUTS, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
-        register(context, RuVegetationPlacements.ASHEN_GRASS, ASHEN_GRASS, CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+        register(context, RuVegetationPlacements.PATCH_ASHEN_GRASS, count(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, RUFeatureUtils.airAndBlocksBelow(RUBlocks.ASHEN_DIRT.get()), BiomeFilter.biome());
+        register(context, RuVegetationPlacements.PATCH_ASHEN_GRASS_SMOULDERING, count(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, RUFeatureUtils.airAndBlocksBelow(RUBlocks.ASHEN_DIRT.get(), Blocks.BASALT, Blocks.SMOOTH_BASALT), BiomeFilter.biome());
+        register(context, RuVegetationPlacements.PATCH_ASH_VENTS, count(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, RUFeatureUtils.airAndBlocksBelow(RUBlocks.ASH.get()), BiomeFilter.biome());
         register(context, RuVegetationPlacements.REDWOODS_VEGETATION, REDWOODS_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 14), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.BLACKWOOD_VEGETATION, BLACKWOOD_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.DECIDUOUS_VEGETATION, DECIDUOUS_VEGETATION, NoiseThresholdCountPlacement.of(-0.8D, 5, 24), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
@@ -478,6 +483,19 @@ public class RuVegetationPlacements {
         register(context, RuVegetationPlacements.PRAIRIE_TREES, PRAIRIE_MIX, NoiseBasedCountPlacement.of(60, 30.0D, -0.5D), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(RUPlacedFeatureBootstrap.onGrassBlockPredicate), BiomeFilter.biome());
         //BONE MEALS
         register(context, RuVegetationPlacements.BLADED_GRASS_BONEMEAL, BLADED_GRASS_BONEMEAL, PlacementUtils.isEmpty());
+    }
+
+    protected static PlacementModifier count(int count) {
+        return CountPlacement.of(count);
+    }
+
+    protected static PlacementModifier airAnd(BlockPredicate predicate) {
+        return BlockPredicateFilter.forPredicate(BlockPredicate.allOf(BlockPredicate.ONLY_IN_AIR_PREDICATE, predicate));
+    }
+
+    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, PlacementModifier... placement) {
+        var featureGetter = context.lookup(Registries.CONFIGURED_FEATURE);
+        register(context, key, featureGetter.getOrThrow(RUConfiguredFeatures.fromPlaced(key)), List.of(placement));
     }
 
     protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> feature, PlacementModifier... placement) {

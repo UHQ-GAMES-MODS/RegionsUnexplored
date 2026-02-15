@@ -1,4 +1,4 @@
-// 1.21.1	2026-02-14T15:44:31.3630927	Tags for minecraft:block mod id regions_unexplored
+// 1.21.1	2026-02-15T03:13:03.9818371	Tags for minecraft:block mod id regions_unexplored
 47322f6e871d59e5581ad5e9b47c6737a5af3480 data/c/tags/block/fences/wooden.json
 543d30a38bbd7deef12bbc96a461b70e01314374 data/c/tags/block/fence_gates/wooden.json
 fbd3b5574bd57030107ab08e4b239ea1520ad7e1 data/c/tags/block/glass_blocks.json
@@ -122,6 +122,7 @@ bad9e0deb4c1548ac1165e6f47f1042270900ee7 data/regions_unexplored/tags/block/palm
 69c396cb051bbe9a130e6979b67065e5041b179d data/regions_unexplored/tags/block/shrub_can_survive_on.json
 45b84718284ec8d0a55cec33592469bdd56812e8 data/regions_unexplored/tags/block/snow_plant_can_survive_on.json
 79ea432d1fc4280e19dd780dde88f36fd705e846 data/regions_unexplored/tags/block/socotra_logs.json
+9a140dbcf4cd94a208d4a8999ba7b55602b674bb data/regions_unexplored/tags/block/supports_ashen_grass.json
 968a2b6c71138be5f80195a3952c9a285e8bb230 data/regions_unexplored/tags/block/supports_grass_sprouts.json
 ed1edeb3c82000dbb812130de9ffa1e3acbc3167 data/regions_unexplored/tags/block/willow_logs.json
 a30f857e667b61591cb10407147dab747f179cd1 data/regions_unexplored/tags/block/yellow_bioshroom_logs.json

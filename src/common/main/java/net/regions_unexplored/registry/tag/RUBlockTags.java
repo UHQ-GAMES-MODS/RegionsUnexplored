@@ -12,6 +12,7 @@ public interface RUBlockTags {
    TagKey<Block> SANDY_PLANT_CAN_SURVIVE_ON = key("sandy_plant_can_survive_on");
    TagKey<Block> SHRUB_CAN_SURVIVE_ON = key("shrub_can_survive_on");
    TagKey<Block> SNOW_PLANT_CAN_SURVIVE_ON = key("snow_plant_can_survive_on");
+   TagKey<Block> SUPPORTS_ASHEN_GRASS = key("supports_ashen_grass");
    TagKey<Block> SUPPORTS_GRASS_SPROUTS = key("supports_grass_sprouts");
    TagKey<Block> BIOSHROOM_GROW_BLOCK = key("bioshroom_grow_block");
    TagKey<Block> REPLACEABLE_BLOCKS = key("replaceable_blocks");
