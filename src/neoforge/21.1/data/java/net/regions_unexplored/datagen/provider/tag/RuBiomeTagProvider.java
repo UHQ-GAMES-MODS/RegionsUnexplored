@@ -27,7 +27,7 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
         super(output, completableFuture, modId, existingFileHelper);
     }
 
-    public void addTag(HolderLookup.@NotNull Provider provider) {
+    public void addTags(HolderLookup.@NotNull Provider provider) {
         addWolfTags();
         addStructureTags();
         addCommonTags();

@@ -1,6 +1,8 @@
 {
   "values": [
-    "minecraft:swamp",
-    "minecraft:mangrove_swamp"
+    "regions_unexplored:bayou",
+    "regions_unexplored:old_growth_bayou",
+    "regions_unexplored:fen",
+    "regions_unexplored:marsh"
   ]
 }

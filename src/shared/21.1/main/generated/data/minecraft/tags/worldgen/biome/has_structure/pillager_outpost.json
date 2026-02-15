@@ -1,11 +1,16 @@
 {
   "values": [
-    "minecraft:desert",
-    "minecraft:plains",
-    "minecraft:savanna",
-    "minecraft:snowy_plains",
-    "minecraft:taiga",
-    "#minecraft:is_mountain",
-    "minecraft:grove"
+    "regions_unexplored:poppy_fields",
+    "regions_unexplored:shrubland",
+    "regions_unexplored:grassland",
+    "regions_unexplored:steppe",
+    "regions_unexplored:prairie",
+    "regions_unexplored:joshua_desert",
+    "regions_unexplored:outback",
+    "regions_unexplored:barley_fields",
+    "regions_unexplored:flower_fields",
+    "regions_unexplored:temperate_grove",
+    "regions_unexplored:dry_bushland",
+    "regions_unexplored:rocky_meadow"
   ]
 }

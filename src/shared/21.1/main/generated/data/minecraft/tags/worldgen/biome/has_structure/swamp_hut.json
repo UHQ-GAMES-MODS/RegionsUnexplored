@@ -1,5 +1,7 @@
 {
   "values": [
-    "minecraft:swamp"
+    "regions_unexplored:bayou",
+    "regions_unexplored:fen",
+    "regions_unexplored:marsh"
   ]
 }

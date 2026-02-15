@@ -1,5 +1,6 @@
 {
   "values": [
-    "minecraft:warm_ocean"
+    "regions_unexplored:tropics",
+    "regions_unexplored:rocky_reef"
   ]
 }

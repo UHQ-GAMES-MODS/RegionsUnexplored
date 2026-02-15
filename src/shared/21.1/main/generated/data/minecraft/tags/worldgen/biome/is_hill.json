@@ -1,7 +1,7 @@
 {
   "values": [
-    "minecraft:windswept_hills",
-    "minecraft:windswept_forest",
-    "minecraft:windswept_gravelly_hills"
+    "regions_unexplored:mauve_hills",
+    "regions_unexplored:towering_cliffs",
+    "regions_unexplored:icy_heights"
   ]
 }

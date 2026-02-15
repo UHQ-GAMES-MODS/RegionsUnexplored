@@ -1,14 +1,10 @@
 {
   "values": [
-    "minecraft:snowy_plains",
-    "minecraft:ice_spikes",
-    "minecraft:frozen_ocean",
-    "minecraft:snowy_taiga",
-    "minecraft:frozen_river",
-    "minecraft:snowy_beach",
-    "minecraft:frozen_peaks",
-    "minecraft:jagged_peaks",
-    "minecraft:snowy_slopes",
-    "minecraft:grove"
+    "regions_unexplored:spires",
+    "regions_unexplored:cold_deciduous_forest",
+    "regions_unexplored:cold_boreal_taiga",
+    "regions_unexplored:icy_heights",
+    "regions_unexplored:frozen_pine_taiga",
+    "regions_unexplored:frozen_tundra"
   ]
 }

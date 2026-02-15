@@ -1,6 +1,12 @@
 {
   "values": [
-    "minecraft:plains",
-    "minecraft:meadow"
+    "regions_unexplored:grassland",
+    "regions_unexplored:prairie",
+    "regions_unexplored:willow_forest",
+    "regions_unexplored:temperate_grove",
+    "regions_unexplored:highland_fields",
+    "regions_unexplored:deciduous_forest",
+    "regions_unexplored:rocky_meadow",
+    "regions_unexplored:eucalyptus_forest"
   ]
 }
