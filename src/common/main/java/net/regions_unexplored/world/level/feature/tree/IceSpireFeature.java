@@ -29,7 +29,7 @@ public class IceSpireFeature extends Feature<RuTreeConfiguration> {
         BlockPos pos = context.origin();
         RandomSource randomSource = context.random();
         WorldGenLevel level = context.level();
-        int height_main = context.random().nextInt(treeConfiguration.sizeVariation) + treeConfiguration.minimumSize;
+        int height_main = context.random().nextInt(treeConfiguration.sizeVariation()) + treeConfiguration.minimumSize();
         int height_2n = height_main>10 ? (height_main/2)+randomSource.nextInt(3) : (height_main/2);
         int height_2s = height_main>10 ? (height_main/2)+randomSource.nextInt(3) : (height_main/2);
         int height_2e = height_main>10 ? (height_main/2)+randomSource.nextInt(3) : (height_main/2);
@@ -194,7 +194,7 @@ public class IceSpireFeature extends Feature<RuTreeConfiguration> {
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos)) {
-            level.setBlock(pos, treeConfiguration.trunkProvider.getState(randomSource, pos), 2);
+            level.setBlock(pos, treeConfiguration.trunkProvider().getState(randomSource, pos), 2);
         }
         else{
             return true;
@@ -248,7 +248,7 @@ public class IceSpireFeature extends Feature<RuTreeConfiguration> {
             return true;
         }
         if(level.getBlockState(pos).canBeReplaced()) {
-            level.setBlock(pos, treeConfiguration.foliageProvider.getState(randomSource, pos), 2);
+            level.setBlock(pos, treeConfiguration.foliageProvider().getState(randomSource, pos), 2);
         }
         return true;
     }

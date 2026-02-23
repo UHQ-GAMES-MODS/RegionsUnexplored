@@ -31,7 +31,7 @@ public class SaguaroCactusFeature extends Feature<RuTreeConfiguration> {
         BlockPos pos = context.origin();
         RandomSource randomSource = context.random();
         WorldGenLevel level = context.level();
-        int height_main = context.random().nextInt(treeConfiguration.sizeVariation) + treeConfiguration.minimumSize;
+        int height_main = context.random().nextInt(treeConfiguration.sizeVariation()) + treeConfiguration.minimumSize();
 
         BlockPos checkCactus = pos.above(3);
         if(level.getBlockState(checkCactus.north()).is(RUBlocks.SAGUARO_CACTUS.get())||
@@ -131,7 +131,7 @@ public class SaguaroCactusFeature extends Feature<RuTreeConfiguration> {
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos)) {
-            level.setBlock(pos, treeConfiguration.trunkProvider.getState(randomSource, pos).setValue(SaguaroCactusBlock.SHAPE, shape), 2);
+            level.setBlock(pos, treeConfiguration.trunkProvider().getState(randomSource, pos).setValue(SaguaroCactusBlock.SHAPE, shape), 2);
         }
         else{
             return true;
@@ -177,7 +177,7 @@ public class SaguaroCactusFeature extends Feature<RuTreeConfiguration> {
             return true;
         }
         if(level.getBlockState(pos).canBeReplaced()&&randomSource.nextInt(4)==0) {
-            level.setBlock(pos, treeConfiguration.foliageProvider.getState(randomSource, pos), 2);
+            level.setBlock(pos, treeConfiguration.foliageProvider().getState(randomSource, pos), 2);
         }
         return true;
     }

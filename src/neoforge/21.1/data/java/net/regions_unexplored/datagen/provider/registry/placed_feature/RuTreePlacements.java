@@ -7,6 +7,7 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Blocks;
@@ -21,6 +22,8 @@ import net.regions_unexplored.registry.data.RUConfiguredFeatures;
 import net.regions_unexplored.registry.data.RUNoises;
 
 import java.util.List;
+
+import static net.regions_unexplored.datagen.provider.registry.RUFeatureUtils.*;
 
 public class RuTreePlacements {
     //-----------------------KEYS-----------------------//
@@ -41,7 +44,8 @@ public class RuTreePlacements {
 
     public static final ResourceKey<PlacedFeature> TREE_GROUP_ASHEN_WOODLAND = group("ashen_woodland");
 
-    public static final ResourceKey<PlacedFeature> BAMBOO = key("bamboo");
+    public static final ResourceKey<PlacedFeature> TREE_GROUP_BAMBOO_FOREST_PRIMARY = group("bamboo_forest_primary");
+    public static final ResourceKey<PlacedFeature> TREE_GROUP_BAMBOO_FOREST_SECONDARY = group("bamboo_forest_secondary");
 
     public static final ResourceKey<PlacedFeature> MEGA_BAOBAB = key("mega_baobab");
     public static final ResourceKey<PlacedFeature> ULTRA_BAOBAB = key("ultra_baobab");
@@ -335,7 +339,25 @@ public class RuTreePlacements {
             BiomeFilter.biome()
         );
 
-        register(context, RuTreePlacements.BAMBOO, BAMBOO, List.of(CountPlacement.of(15), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
+        register(context, RuTreePlacements.TREE_GROUP_BAMBOO_FOREST_PRIMARY, getter.getOrThrow(RUConfiguredFeatures.TREE_BAMBOO),
+            treeDensity(-5, 6),
+            count(4),
+            InSquarePlacement.spread(),
+            SurfaceWaterDepthFilter.forMaxDepth(0),
+            PlacementUtils.HEIGHTMAP_TOP_SOLID,
+            BlockPredicateFilter.forPredicate(saplingWouldSurvive(RUBlocks.BAMBOO_NATURAL_SET)),
+            BiomeFilter.biome()
+        );
+
+        register(context, RuTreePlacements.TREE_GROUP_BAMBOO_FOREST_SECONDARY, getter.getOrThrow(VegetationFeatures.BAMBOO_SOME_PODZOL),
+            treeDensity(3, 0),
+            count(4),
+            InSquarePlacement.spread(),
+            SurfaceWaterDepthFilter.forMaxDepth(0),
+            PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
+            BlockPredicateFilter.forPredicate(saplingWouldSurvive(RUBlocks.BAMBOO_NATURAL_SET)),
+            BiomeFilter.biome()
+        );
 
         register(context, RuTreePlacements.MEGA_BAOBAB, MEGA_BAOBAB, List.of(PlacementUtils.countExtra(2, 0.1F, 1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.ULTRA_BAOBAB, ULTRA_BAOBAB, List.of(PlacementUtils.countExtra(1, 0.1F, 1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));

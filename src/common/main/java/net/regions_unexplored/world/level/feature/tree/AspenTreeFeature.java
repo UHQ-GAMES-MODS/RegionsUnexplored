@@ -35,7 +35,7 @@ public class AspenTreeFeature extends Feature<RuTreeConfiguration> {
         BlockPos origin = context.origin();
         RandomSource randomSource = context.random();
         WorldGenLevel level = context.level();
-        int height_main = context.random().nextInt(config.sizeVariation) + config.minimumSize;
+        int height_main = context.random().nextInt(config.sizeVariation()) + config.minimumSize();
 
         int check = 0;
         BlockPos.MutableBlockPos checkPos = origin.mutable();
@@ -69,9 +69,9 @@ public class AspenTreeFeature extends Feature<RuTreeConfiguration> {
         BiConsumer<BlockPos, BlockState> decorationSetter = (pos, state) -> {
             level.setBlock(pos, state, 19);
         };
-        if (!config.decorators.isEmpty()) {
+        if (!config.decorators().isEmpty()) {
             TreeDecorator.Context decoratorContext = new TreeDecorator.Context(level, decorationSetter, randomSource, logPositions, leafPositions, new HashSet<>());
-            for (TreeDecorator decorator : config.decorators) {
+            for (TreeDecorator decorator : config.decorators()) {
                 decorator.place(decoratorContext);
             }
         }
@@ -86,7 +86,7 @@ public class AspenTreeFeature extends Feature<RuTreeConfiguration> {
                 placeLog(level, logPositions, pos.north(), randomSource, treeConfiguration, Direction.Axis.Z);
             }
             else {
-                level.setBlock(pos.north(), treeConfiguration.branchProvider.getState(randomSource, pos).setValue(BranchBlock.FACING, Direction.NORTH), 2);
+                level.setBlock(pos.north(), treeConfiguration.branchProvider().getState(randomSource, pos).setValue(BranchBlock.FACING, Direction.NORTH), 2);
                 if(randomSource.nextInt(2)==0){
                     placeLeavesBlock(level, leafPositions, pos.north().above(), randomSource, treeConfiguration);
                     placeLeavesBlock(level, leafPositions, pos.north().north(), randomSource, treeConfiguration);
@@ -101,7 +101,7 @@ public class AspenTreeFeature extends Feature<RuTreeConfiguration> {
                 placeLog(level, logPositions, pos.south(), randomSource, treeConfiguration, Direction.Axis.Z);
             }
             else {
-                level.setBlock(pos.south(), treeConfiguration.branchProvider.getState(randomSource, pos).setValue(BranchBlock.FACING, Direction.SOUTH), 2);
+                level.setBlock(pos.south(), treeConfiguration.branchProvider().getState(randomSource, pos).setValue(BranchBlock.FACING, Direction.SOUTH), 2);
                 if(randomSource.nextInt(2)==0){
                     placeLeavesBlock(level, leafPositions, pos.south().above(), randomSource, treeConfiguration);
                     placeLeavesBlock(level, leafPositions, pos.south().south(), randomSource, treeConfiguration);
@@ -115,7 +115,7 @@ public class AspenTreeFeature extends Feature<RuTreeConfiguration> {
                 placeLog(level, logPositions, pos.east(), randomSource, treeConfiguration, Direction.Axis.X);
             }
             else {
-                level.setBlock(pos.east(), treeConfiguration.branchProvider.getState(randomSource, pos).setValue(BranchBlock.FACING, Direction.EAST), 2);
+                level.setBlock(pos.east(), treeConfiguration.branchProvider().getState(randomSource, pos).setValue(BranchBlock.FACING, Direction.EAST), 2);
                 if(randomSource.nextInt(2)==0){
                     placeLeavesBlock(level, leafPositions, pos.east().above(), randomSource, treeConfiguration);
                     placeLeavesBlock(level, leafPositions, pos.east().east(), randomSource, treeConfiguration);
@@ -129,7 +129,7 @@ public class AspenTreeFeature extends Feature<RuTreeConfiguration> {
                 placeLog(level, logPositions, pos.west(), randomSource, treeConfiguration, Direction.Axis.X);
             }
             else {
-                level.setBlock(pos.west(), treeConfiguration.branchProvider.getState(randomSource, pos).setValue(BranchBlock.FACING, Direction.WEST), 2);
+                level.setBlock(pos.west(), treeConfiguration.branchProvider().getState(randomSource, pos).setValue(BranchBlock.FACING, Direction.WEST), 2);
                 if(randomSource.nextInt(2)==0){
                     placeLeavesBlock(level, leafPositions, pos.west().above(), randomSource, treeConfiguration);
                     placeLeavesBlock(level, leafPositions, pos.west().west(), randomSource, treeConfiguration);
@@ -292,13 +292,13 @@ public class AspenTreeFeature extends Feature<RuTreeConfiguration> {
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos)) {
-            if(treeConfiguration.trunkProvider.getState(randomSource, pos).getBlock() instanceof AspenLogBlock){
+            if(treeConfiguration.trunkProvider().getState(randomSource, pos).getBlock() instanceof AspenLogBlock){
                 logPositions.add(pos.immutable());
-                level.setBlock(pos, treeConfiguration.trunkProvider.getState(randomSource, pos).setValue(RotatedPillarBlock.AXIS, axis).setValue(AspenLogBlock.IS_BASE, isBase), 2);
+                level.setBlock(pos, treeConfiguration.trunkProvider().getState(randomSource, pos).setValue(RotatedPillarBlock.AXIS, axis).setValue(AspenLogBlock.IS_BASE, isBase), 2);
             }
             else{
                 logPositions.add(pos.immutable());
-                level.setBlock(pos, treeConfiguration.trunkProvider.getState(randomSource, pos).setValue(RotatedPillarBlock.AXIS, axis), 2);
+                level.setBlock(pos, treeConfiguration.trunkProvider().getState(randomSource, pos).setValue(RotatedPillarBlock.AXIS, axis), 2);
             }
         }
         else{
@@ -326,7 +326,7 @@ public class AspenTreeFeature extends Feature<RuTreeConfiguration> {
         }
         if(level.getBlockState(pos).canBeReplaced()) {
             leafPositions.add(pos);
-            level.setBlock(pos, treeConfiguration.foliageProvider.getState(randomSource, pos).setValue(LeavesBlock.DISTANCE, 1), 2);
+            level.setBlock(pos, treeConfiguration.foliageProvider().getState(randomSource, pos).setValue(LeavesBlock.DISTANCE, 1), 2);
         }
         return true;
     }
