@@ -12,13 +12,7 @@
                 "data": {
                   "Name": "minecraft:fern"
                 },
-                "weight": 30
-              },
-              {
-                "data": {
-                  "Name": "minecraft:short_grass"
-                },
-                "weight": 15
+                "weight": 5
               },
               {
                 "data": {
@@ -26,6 +20,18 @@
                   "Properties": {
                     "half": "lower"
                   }
+                },
+                "weight": 3
+              },
+              {
+                "data": {
+                  "Name": "minecraft:short_grass"
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "regions_unexplored:grass_sprouts"
                 },
                 "weight": 1
               }
@@ -43,7 +49,7 @@
         }
       ]
     },
-    "tries": 32,
+    "tries": 128,
     "xz_spread": 7,
     "y_spread": 3
   }

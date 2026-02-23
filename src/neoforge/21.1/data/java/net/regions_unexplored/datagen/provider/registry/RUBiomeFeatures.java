@@ -21,7 +21,7 @@ public class RUBiomeFeatures {
     }
     public static void redwoodDecoration(BiomeGenerationSettings.Builder biomeBuilder) {
         biomeBuilder.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RuMiscOverworldPlacements.REDWOODS_ROCK);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.REDWOODS_VEGETATION);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.PATCH_FERNS_DENSE);
         addRareSalmonberryBush(biomeBuilder);
     }
     public static void pointedRedstone(BiomeGenerationSettings.Builder biomeBuilder) {

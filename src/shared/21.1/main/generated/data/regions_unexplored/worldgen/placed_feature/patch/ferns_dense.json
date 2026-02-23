@@ -1,11 +1,9 @@
 {
-  "feature": "regions_unexplored:patch_redwoods_vegetation",
+  "feature": "regions_unexplored:patch/ferns_dense",
   "placement": [
     {
-      "type": "minecraft:noise_threshold_count",
-      "above_noise": 14,
-      "below_noise": 5,
-      "noise_level": -0.8
+      "type": "minecraft:count",
+      "count": 20
     },
     {
       "type": "minecraft:in_square"

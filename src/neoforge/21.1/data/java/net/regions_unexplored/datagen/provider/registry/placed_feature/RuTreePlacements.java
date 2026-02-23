@@ -144,6 +144,8 @@ public class RuTreePlacements {
 
     public static final ResourceKey<PlacedFeature> LUSH_PINE = key("lush_pine");
 
+    public static final ResourceKey<PlacedFeature> TREE_GROUP_REDWOODS_PRIMARY = group("redwoods_primary");
+    public static final ResourceKey<PlacedFeature> TREE_GROUP_REDWOODS_SECONDARY = group("redwoods_secondary");
     public static final ResourceKey<PlacedFeature> ULTRA_REDWOOD = key("ultra_redwood");
     public static final ResourceKey<PlacedFeature> GIANT_REDWOOD_DENSE = key("giant_redwood_dense");
     public static final ResourceKey<PlacedFeature> GIANT_REDWOOD_SPARSE = key("giant_redwood_sparse");
@@ -487,6 +489,17 @@ public class RuTreePlacements {
 
         register(context, RuTreePlacements.LUSH_PINE, LUSH_PINE, List.of(CountPlacement.of(2), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
 
+        register(context, getter, RuTreePlacements.TREE_GROUP_REDWOODS_PRIMARY,
+            NoiseThresholdCountPlacement.of(0, 5, 8),
+            InSquarePlacement.spread(),
+            SurfaceWaterDepthFilter.forMaxDepth(0),
+            PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
+            BlockPredicateFilter.forPredicate(BlockPredicate.allOf(
+                saplingWouldSurvive(RUBlocks.MAPLE_NATURAL_SET),
+                RUPlacedFeatureBootstrap.onGrassBlockPredicate
+            )),
+            BiomeFilter.biome()
+        );
         register(context, RuTreePlacements.ULTRA_REDWOOD, ULTRA_REDWOOD, List.of(NoiseBasedCountPlacement.of(1, 80.0D, 0.3D), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.GIANT_REDWOOD_DENSE, GIANT_REDWOOD, List.of(CountPlacement.of(6), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.GIANT_REDWOOD_SPARSE, GIANT_REDWOOD, List.of(NoiseBasedCountPlacement.of(1, 80.0D, 0.3D), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));

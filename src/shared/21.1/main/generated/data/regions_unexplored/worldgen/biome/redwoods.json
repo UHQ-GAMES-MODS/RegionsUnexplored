@@ -9,8 +9,8 @@
   "downfall": 0.8,
   "effects": {
     "fog_color": 12638463,
-    "foliage_color": 7512632,
-    "grass_color": 8240185,
+    "foliage_color": 8295737,
+    "grass_color": 8101689,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
@@ -89,8 +89,8 @@
       "regions_unexplored:tree/ultra_redwood",
       "regions_unexplored:tree/giant_redwood_dense",
       "regions_unexplored:tree/redwood",
-      "regions_unexplored:tree/oak_bush_dense",
-      "regions_unexplored:redwoods_vegetation",
+      "regions_unexplored:tree/oak_bush_single",
+      "regions_unexplored:patch/ferns_dense",
       "regions_unexplored:rare_salmonberry_bush",
       "regions_unexplored:redwood_shrub"
     ],

@@ -42,6 +42,7 @@ import net.regions_unexplored.world.level.feature.configuration.ShrubConfigurati
 import java.util.List;
 
 import static net.regions_unexplored.datagen.provider.registry.RUConfiguredFeatureBootstrap.createKey;
+import static net.regions_unexplored.datagen.provider.registry.RUFeatureUtils.*;
 
 public class RuVegetationFeatures {
     //-----------------------KEYS-----------------------//
@@ -61,8 +62,8 @@ public class RuVegetationFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_ASHEN_GRASS = createKey("patch/ashen_grass");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_SMOULDERING_ASHEN_GRASS = createKey("patch/smouldering_ashen_grass");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_ASH_VENTS = createKey("patch/ash_vents");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_FERNS_DENSE = createKey("patch/ferns_dense");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_BLADED_GRASS = createKey("patch_bladed_grass");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_REDWOODS_VEGETATION = createKey("patch_redwoods_vegetation");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_BLACKWOOD_VEGETATION = createKey("patch_blackwood_vegetation");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_DECIDUOUS_VEGETATION = createKey("patch_deciduous_vegetation");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_FEN_VEGETATION = createKey("patch_fen_vegetation");
@@ -190,7 +191,6 @@ public class RuVegetationFeatures {
         HolderGetter<ConfiguredFeature<?, ?>> featureGetter = context.lookup(Registries.CONFIGURED_FEATURE);
         Holder<ConfiguredFeature<?, ?>> OAK_TREE = featureGetter.getOrThrow(RUConfiguredFeatures.TREE_OAK);
         Holder<ConfiguredFeature<?, ?>> BIG_OAK_TREE = featureGetter.getOrThrow(RUConfiguredFeatures.TREE_BIG_OAK);
-        HolderGetter<PlacedFeature> placedGetter = context.lookup(Registries.PLACED_FEATURE);
         //GroundCover Builders
         SimpleWeightedRandomList.Builder<BlockState> mapleLeafPileBuilder = SimpleWeightedRandomList.builder();
         SimpleWeightedRandomList.Builder<BlockState> redMapleLeafPileBuilder = SimpleWeightedRandomList.builder();
@@ -283,7 +283,12 @@ public class RuVegetationFeatures {
         register(context, PATCH_PRISMOSS_SPROUT, Feature.RANDOM_PATCH, patch(BlockStateProvider.simple(RUBlocks.PRISMOSS_SPROUT.get().defaultBlockState()), 32));
         register(context, PATCH_REDSTONE_BUD, Feature.RANDOM_PATCH, patch(BlockStateProvider.simple(RUBlocks.REDSTONE_BUD.get().defaultBlockState()), 128));
         register(context, PATCH_REDSTONE_BULB, Feature.RANDOM_PATCH, patch(BlockStateProvider.simple(RUBlocks.REDSTONE_BULB.get().defaultBlockState()), 64));
-        register(context, PATCH_REDWOODS_VEGETATION, Feature.RANDOM_PATCH, patch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.FERN.defaultBlockState(), 30).add(Blocks.SHORT_GRASS.defaultBlockState(), 15).add(Blocks.LARGE_FERN.defaultBlockState(), 1)), 32));
+        register(context, PATCH_FERNS_DENSE, Feature.RANDOM_PATCH, patch(weighted(
+            pair(Blocks.FERN, 5),
+            pair(Blocks.LARGE_FERN, 2),
+            pair(Blocks.SHORT_GRASS, 2),
+            pair(RUBlocks.GRASS_SPROUTS.get())
+        ), 128));
         register(context, PATCH_SHRUBLAND_VEGETATION, Feature.RANDOM_PATCH, patch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.FERN.defaultBlockState(), 15).add(Blocks.SHORT_GRASS.defaultBlockState(), 30).add(Blocks.TALL_GRASS.defaultBlockState(), 15)), 32));
         register(context, PATCH_MOUNTAIN_VEGETATION, Feature.RANDOM_PATCH, patch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.FERN.defaultBlockState(), 30).add(Blocks.LARGE_FERN.defaultBlockState(), 15).add(Blocks.SHORT_GRASS.defaultBlockState(), 20).add(Blocks.TALL_GRASS.defaultBlockState(), 5)), 32));
         register(context, PATCH_STEPPE_VEGETATION, Feature.RANDOM_PATCH, patch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(RUBlocks.STEPPE_GRASS.get().defaultBlockState(), 10).add(RUBlocks.STEPPE_SHRUB.get().defaultBlockState(), 10).add(RUBlocks.SMALL_DESERT_SHRUB.get().defaultBlockState(), 1).add(RUBlocks.STEPPE_TALL_GRASS.get().defaultBlockState(), 1).add(RUBlocks.DEAD_STEPPE_SHRUB.get().defaultBlockState(), 10)), 32));
