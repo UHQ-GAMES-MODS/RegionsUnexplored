@@ -20,20 +20,20 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.registry.tag.RUBlockTags;
 import net.regions_unexplored.world.level.block.plant.branch.BranchBlock;
-import net.regions_unexplored.world.level.feature.configuration.RuTreeConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.RUTreeConfiguration;
 
 import java.util.HashSet;
 import java.util.Random;
 import java.util.function.BiConsumer;
 
-public class MapleTreeFeature extends Feature<RuTreeConfiguration> {
+public class MapleTreeFeature extends Feature<RUTreeConfiguration> {
 
-    public MapleTreeFeature(Codec<RuTreeConfiguration> codec) {
+    public MapleTreeFeature(Codec<RUTreeConfiguration> codec) {
         super(codec);
     }
 
-    public boolean place(FeaturePlaceContext<RuTreeConfiguration> context) {
-        RuTreeConfiguration config = context.config();
+    public boolean place(FeaturePlaceContext<RUTreeConfiguration> context) {
+        RUTreeConfiguration config = context.config();
         BlockPos origin = context.origin();
         RandomSource randomSource = context.random();
         WorldGenLevel level = context.level();
@@ -77,7 +77,7 @@ public class MapleTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public boolean placeLog(LevelAccessor level, HashSet<BlockPos> logPositions, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLog(LevelAccessor level, HashSet<BlockPos> logPositions, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         if(level.isOutsideBuildHeight(pos)){
             return true;
@@ -116,7 +116,7 @@ public class MapleTreeFeature extends Feature<RuTreeConfiguration> {
         }
         return true;
     }
-    public boolean placeBranches(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeBranches(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         if(isReplaceable(level, pos.north())&&!level.isOutsideBuildHeight(pos.north())){
             level.setBlock(pos.north(), treeConfiguration.branchProvider().getState(randomSource, pos).setValue(BranchBlock.FACING, Direction.NORTH), 2);
         }
@@ -132,7 +132,7 @@ public class MapleTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public void placeRoot(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeRoot(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         int rd = random.nextInt(2)+4;
         int i = 0;
@@ -153,7 +153,7 @@ public class MapleTreeFeature extends Feature<RuTreeConfiguration> {
         }
     }
 
-    public boolean placeLeavesBlobLayer(LevelAccessor level, HashSet<BlockPos> leafPositions, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLeavesBlobLayer(LevelAccessor level, HashSet<BlockPos> leafPositions, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         int i = random.nextInt(3);
         int j = random.nextInt(3);
@@ -194,7 +194,7 @@ public class MapleTreeFeature extends Feature<RuTreeConfiguration> {
         }
         return true;
     }
-    public boolean placeLeavesBlob(LevelAccessor level, HashSet<BlockPos> leafPositions, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLeavesBlob(LevelAccessor level, HashSet<BlockPos> leafPositions, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         int n = random.nextInt(3);
         if(n==0){
@@ -267,7 +267,7 @@ public class MapleTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public boolean placeLeavesBlock(LevelAccessor level, HashSet<BlockPos> leafPositions, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLeavesBlock(LevelAccessor level, HashSet<BlockPos> leafPositions, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         if(level.isOutsideBuildHeight(pos)){
             return true;
@@ -289,7 +289,7 @@ public class MapleTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public boolean placeBeehiveOrLeaves(LevelAccessor level, HashSet<BlockPos> leafPositions, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration){
+    public boolean placeBeehiveOrLeaves(LevelAccessor level, HashSet<BlockPos> leafPositions, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration){
         Random random = new Random();
         int chance = random.nextInt(500);
         if (level.getBlockState(pos.north()).isAir()) {

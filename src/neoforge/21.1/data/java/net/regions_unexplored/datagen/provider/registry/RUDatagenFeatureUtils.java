@@ -17,7 +17,7 @@ import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 
 import java.util.List;
 
-public class RUFeatureUtils {
+public class RUDatagenFeatureUtils {
     public static Holder<PlacedFeature> direct(Holder.Reference<ConfiguredFeature<?, ?>> feature) {
         return Holder.direct(new PlacedFeature(feature, List.of()));
     }

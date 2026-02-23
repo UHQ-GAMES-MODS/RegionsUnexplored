@@ -1,0 +1,21 @@
+{
+  "type": "lithostitched:weighted_selector",
+  "config": {
+    "features": [
+      {
+        "data": {
+          "feature": "regions_unexplored:tree/giant_redwood",
+          "placement": []
+        },
+        "weight": 7
+      },
+      {
+        "data": {
+          "feature": "regions_unexplored:tree/ultra_redwood",
+          "placement": []
+        },
+        "weight": 1
+      }
+    ]
+  }
+}

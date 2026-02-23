@@ -17,18 +17,18 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.registry.tag.RUBlockTags;
 import net.regions_unexplored.world.level.block.plant.branch.BranchBlock;
-import net.regions_unexplored.world.level.feature.configuration.RuTreeConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.RUTreeConfiguration;
 
 import java.util.Random;
 
-public class LarchTreeFeature extends Feature<RuTreeConfiguration> {
+public class LarchTreeFeature extends Feature<RUTreeConfiguration> {
 
-    public LarchTreeFeature(Codec<RuTreeConfiguration> codec) {
+    public LarchTreeFeature(Codec<RUTreeConfiguration> codec) {
         super(codec);
     }
 
-    public boolean place(FeaturePlaceContext<RuTreeConfiguration> context) {
-        RuTreeConfiguration treeConfiguration = context.config();
+    public boolean place(FeaturePlaceContext<RUTreeConfiguration> context) {
+        RUTreeConfiguration treeConfiguration = context.config();
         BlockPos pos = context.origin();
         RandomSource randomSource = context.random();
         WorldGenLevel level = context.level();
@@ -64,7 +64,7 @@ public class LarchTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public void placeTop(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeTop(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         BlockPos.MutableBlockPos placePos = new BlockPos.MutableBlockPos(pos.getX(),pos.getY()-6,pos.getZ());
         placeLeavesBlobTop(level, pos, randomSource, treeConfiguration);
         placeBranchesShort(level, placePos, randomSource, treeConfiguration);
@@ -84,7 +84,7 @@ public class LarchTreeFeature extends Feature<RuTreeConfiguration> {
         }
     }
 
-    public void placeBranchesShort(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeBranchesShort(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         int type = randomSource.nextInt(2);
 
         placeLog(level, pos.north(), randomSource, treeConfiguration, Direction.Axis.Z);
@@ -97,7 +97,7 @@ public class LarchTreeFeature extends Feature<RuTreeConfiguration> {
         placeLog(level, pos.west(), randomSource, treeConfiguration, Direction.Axis.X);
         placeLeavesBlobWest(level,pos.west(), randomSource, treeConfiguration);
     }
-    public void placeBranchesLong(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeBranchesLong(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         int type = randomSource.nextInt(2);
         placeLeavesBlock(level, pos.north(), randomSource, treeConfiguration);
         placeLeavesBlock(level, pos.north().east(), randomSource, treeConfiguration);
@@ -144,7 +144,7 @@ public class LarchTreeFeature extends Feature<RuTreeConfiguration> {
         placeLog(level, pos.west(2), randomSource, treeConfiguration, Direction.Axis.X);
         placeLeavesBlobWest(level,pos.west(2), randomSource, treeConfiguration);
     }
-    public void placeBranchesXLong(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeBranchesXLong(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         int type = randomSource.nextInt(2);
         placeLeavesBlock(level, pos.north(), randomSource, treeConfiguration);
         placeLeavesBlock(level, pos.north().east(), randomSource, treeConfiguration);
@@ -196,7 +196,7 @@ public class LarchTreeFeature extends Feature<RuTreeConfiguration> {
         placeLeavesBlobWest(level,pos.west(3), randomSource, treeConfiguration);
     }
 
-    public boolean placeLeavesBlobTop(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLeavesBlobTop(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         BlockPos pos2 = pos.below(3);
         int top = random.nextInt(2);
@@ -261,7 +261,7 @@ public class LarchTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public boolean placeLeavesBlobNorth(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLeavesBlobNorth(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         int n = random.nextInt(3);
 
@@ -297,7 +297,7 @@ public class LarchTreeFeature extends Feature<RuTreeConfiguration> {
 
         return true;
     }
-    public boolean placeLeavesBlobSouth(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLeavesBlobSouth(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         int n = random.nextInt(3);
 
@@ -331,7 +331,7 @@ public class LarchTreeFeature extends Feature<RuTreeConfiguration> {
 
         return true;
     }
-    public boolean placeLeavesBlobEast(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLeavesBlobEast(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         int n = random.nextInt(3);
 
@@ -365,7 +365,7 @@ public class LarchTreeFeature extends Feature<RuTreeConfiguration> {
 
         return true;
     }
-    public boolean placeLeavesBlobWest(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLeavesBlobWest(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         int n = random.nextInt(3);
 
@@ -400,7 +400,7 @@ public class LarchTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public boolean placeLog(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration, Direction.Axis axis) {
+    public boolean placeLog(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration, Direction.Axis axis) {
         Random random = new Random();
         if(level.isOutsideBuildHeight(pos)){
             return true;
@@ -439,7 +439,7 @@ public class LarchTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public void placeBranchDecorator(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeBranchDecorator(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         if(randomSource.nextInt(10)==0){
             int rd = random.nextInt(4);
@@ -457,7 +457,7 @@ public class LarchTreeFeature extends Feature<RuTreeConfiguration> {
             }
         }
     }
-    public void placeNorthBranch(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeNorthBranch(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         if(level.getBlockState(pos.north()).canBeReplaced()&&!level.isOutsideBuildHeight(pos.north())){
             level.setBlock(pos.north(), treeConfiguration.branchProvider().getState(randomSource, pos).setValue(BranchBlock.FACING, Direction.NORTH), 2);
         }
@@ -475,7 +475,7 @@ public class LarchTreeFeature extends Feature<RuTreeConfiguration> {
         }
 
     }
-    public void placeSouthBranch(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeSouthBranch(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         if(level.getBlockState(pos.south()).canBeReplaced()&&!level.isOutsideBuildHeight(pos.south())){
             level.setBlock(pos.south(), treeConfiguration.branchProvider().getState(randomSource, pos).setValue(BranchBlock.FACING, Direction.SOUTH), 2);
         }
@@ -493,7 +493,7 @@ public class LarchTreeFeature extends Feature<RuTreeConfiguration> {
         }
 
     }
-    public void placeEastBranch(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeEastBranch(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         if(level.getBlockState(pos.east()).canBeReplaced()&&!level.isOutsideBuildHeight(pos.east())){
             level.setBlock(pos.east(), treeConfiguration.branchProvider().getState(randomSource, pos).setValue(BranchBlock.FACING, Direction.EAST), 2);
         }
@@ -511,7 +511,7 @@ public class LarchTreeFeature extends Feature<RuTreeConfiguration> {
         }
 
     }
-    public void placeWestBranch(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeWestBranch(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         if(level.getBlockState(pos.west()).canBeReplaced()&&!level.isOutsideBuildHeight(pos.west())){
             level.setBlock(pos.west(), treeConfiguration.branchProvider().getState(randomSource, pos).setValue(BranchBlock.FACING, Direction.WEST), 2);
         }
@@ -530,7 +530,7 @@ public class LarchTreeFeature extends Feature<RuTreeConfiguration> {
 
     }
 
-    public void placeRoot(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeRoot(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         int rd = random.nextInt(2)+4;
         int i = 0;
@@ -551,7 +551,7 @@ public class LarchTreeFeature extends Feature<RuTreeConfiguration> {
         }
     }
 
-    public boolean placeLeavesBlock(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLeavesBlock(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         if(level.isOutsideBuildHeight(pos)){
             return true;

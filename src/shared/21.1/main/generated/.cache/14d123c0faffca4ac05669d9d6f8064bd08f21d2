@@ -1,4 +1,4 @@
-// 1.21.1	2026-02-15T03:13:03.9818371	Tags for minecraft:block mod id regions_unexplored
+// 1.21.1	2026-02-23T20:41:30.4960484	Tags for minecraft:block mod id regions_unexplored
 47322f6e871d59e5581ad5e9b47c6737a5af3480 data/c/tags/block/fences/wooden.json
 543d30a38bbd7deef12bbc96a461b70e01314374 data/c/tags/block/fence_gates/wooden.json
 fbd3b5574bd57030107ab08e4b239ea1520ad7e1 data/c/tags/block/glass_blocks.json
@@ -117,6 +117,8 @@ bad9e0deb4c1548ac1165e6f47f1042270900ee7 data/regions_unexplored/tags/block/palm
 9dc848c4573262deb3589f2593a6e3f5129aea22 data/regions_unexplored/tags/block/prismarite_crystals.json
 4d231c78e96822dfb6afa0c0f613279035a1c30a data/regions_unexplored/tags/block/redwood_logs.json
 93f8e7e675369851996dbe670d4eb50403044f97 data/regions_unexplored/tags/block/replaceable_blocks.json
+1f4dce6589341da3e1bfe928b4636fe41d16f976 data/regions_unexplored/tags/block/replaceable_by_peat_dirt.json
+e19b880744eef3885511d6773d84bcdb7fc961f6 data/regions_unexplored/tags/block/replaceable_by_silt_dirt.json
 2df5501a1dba7441a72bc5beece552f1eee0e5fb data/regions_unexplored/tags/block/sandy_plant_can_survive_on.json
 7c395209eb137bd2458dd1c890caf3c95c9a57a1 data/regions_unexplored/tags/block/shrubs.json
 69c396cb051bbe9a130e6979b67065e5041b179d data/regions_unexplored/tags/block/shrub_can_survive_on.json

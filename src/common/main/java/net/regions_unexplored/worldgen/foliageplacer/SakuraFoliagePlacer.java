@@ -1,4 +1,4 @@
-package net.regions_unexplored.world.features.foliageplacers;
+package net.regions_unexplored.worldgen.foliageplacer;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;

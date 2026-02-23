@@ -28,7 +28,7 @@ import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.RandomOffsetPlacement;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
-import net.regions_unexplored.datagen.provider.registry.RUFeatureUtils;
+import net.regions_unexplored.datagen.provider.registry.RUDatagenFeatureUtils;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.registry.RUFeatureTypes;
 import net.regions_unexplored.registry.data.RUConfiguredFeatures;
@@ -42,7 +42,7 @@ import net.regions_unexplored.world.level.feature.configuration.ShrubConfigurati
 import java.util.List;
 
 import static net.regions_unexplored.datagen.provider.registry.RUConfiguredFeatureBootstrap.createKey;
-import static net.regions_unexplored.datagen.provider.registry.RUFeatureUtils.*;
+import static net.regions_unexplored.datagen.provider.registry.RUDatagenFeatureUtils.*;
 
 public class RuVegetationFeatures {
     //-----------------------KEYS-----------------------//
@@ -263,7 +263,7 @@ public class RuVegetationFeatures {
                 )))
             ))),
             List.of(
-                RUFeatureUtils.airAndBlocksBelow(RUBlocks.ASH.get()),
+                RUDatagenFeatureUtils.airAndBlocksBelow(RUBlocks.ASH.get()),
                 RandomOffsetPlacement.vertical(ConstantInt.of(-1))
             )
         ))));

@@ -10,10 +10,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.BiFunction;
 
 public class RUUtils {
-    public static <T> T getRandom(List<T> list, RandomSource random) {
-        return list.get(random.nextInt(list.size()));
-    }
-
     public static <T> List<T> shuffledCopy(ObjectArrayList<T> list, RandomSource random) {
         ObjectArrayList<T> copy = new ObjectArrayList<T>(list);
         shuffle(copy, random);

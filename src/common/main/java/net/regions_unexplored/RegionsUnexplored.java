@@ -37,6 +37,7 @@ public class RegionsUnexplored {
 		RUParticleTypes.init();
 		RUSoundEvents.init();
 		RUTreeDecoratorTypes.init();
+		RUTrunkPlacerTypes.init();
 	}
 
 	public static void afterRegistriesFreeze(){

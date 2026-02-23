@@ -1077,6 +1077,16 @@ public class RuBlockTagProvider extends BlockTagsProvider {
             .add(RUBlocks.STONE_GRASS_BLOCK.get().builtInRegistryHolder().key())
             .add(RUBlocks.ARGILLITE_GRASS_BLOCK.get().builtInRegistryHolder().key())
         ;
+
+        this.tag(RUBlockTags.REPLACEABLE_BY_PEAT_DIRT)
+            .add(RUBlocks.PEAT_GRASS_BLOCK.get())
+            .add(RUBlocks.PEAT_DIRT.get())
+        ;
+        this.tag(RUBlockTags.REPLACEABLE_BY_SILT_DIRT)
+            .add(RUBlocks.SILT_GRASS_BLOCK.get())
+            .add(RUBlocks.SILT_DIRT.get())
+        ;
+
         this.tag(RUBlockTags.BIOSHROOM_GROW_BLOCK)
             .addTag(BlockTags.DIRT)
             .addTag(BlockTags.NYLIUM)

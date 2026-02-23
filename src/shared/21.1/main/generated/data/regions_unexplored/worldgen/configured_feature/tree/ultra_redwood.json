@@ -1,14 +1,36 @@
 {
-  "type": "regions_unexplored:ultra_redwood_tree",
+  "type": "minecraft:tree",
   "config": {
-    "branch_provider": {
+    "decorators": [
+      {
+        "type": "regions_unexplored:branch",
+        "block": "regions_unexplored:redwood_branch",
+        "leaves_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "regions_unexplored:redwood_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          }
+        },
+        "probability": 0.12,
+        "required_empty_blocks": 3
+      }
+    ],
+    "dirt_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "regions_unexplored:redwood_branch",
-        "Properties": {
-          "facing": "north"
-        }
+        "Name": "minecraft:dirt"
       }
+    },
+    "foliage_placer": {
+      "type": "regions_unexplored:redwood",
+      "height": 0,
+      "offset": 0,
+      "radius": 2
     },
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
@@ -21,8 +43,60 @@
         }
       }
     },
-    "minimum_size": 45,
-    "size_variation": 9,
+    "force_dirt": false,
+    "ignore_vines": false,
+    "minimum_size": {
+      "type": "minecraft:two_layers_feature_size",
+      "limit": 8,
+      "lower_size": 1,
+      "upper_size": 0
+    },
+    "trunk_placer": {
+      "type": "regions_unexplored:redwood",
+      "base_trunk_heights": [
+        {
+          "type": "minecraft:uniform",
+          "max_inclusive": 42,
+          "min_inclusive": 35
+        },
+        {
+          "type": "minecraft:uniform",
+          "max_inclusive": 21,
+          "min_inclusive": 19
+        },
+        {
+          "type": "minecraft:uniform",
+          "max_inclusive": 12,
+          "min_inclusive": 10
+        },
+        {
+          "type": "minecraft:uniform",
+          "max_inclusive": 6,
+          "min_inclusive": 3
+        }
+      ],
+      "height": {
+        "type": "minecraft:weighted_list",
+        "distribution": [
+          {
+            "data": {
+              "type": "minecraft:uniform",
+              "max_inclusive": 54,
+              "min_inclusive": 45
+            },
+            "weight": 7
+          },
+          {
+            "data": {
+              "type": "minecraft:uniform",
+              "max_inclusive": 70,
+              "min_inclusive": 50
+            },
+            "weight": 1
+          }
+        ]
+      }
+    },
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {

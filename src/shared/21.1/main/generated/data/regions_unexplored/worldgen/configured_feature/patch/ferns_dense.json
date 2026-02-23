@@ -21,13 +21,13 @@
                     "half": "lower"
                   }
                 },
-                "weight": 3
+                "weight": 2
               },
               {
                 "data": {
                   "Name": "minecraft:short_grass"
                 },
-                "weight": 1
+                "weight": 2
               },
               {
                 "data": {

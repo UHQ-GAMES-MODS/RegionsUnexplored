@@ -17,18 +17,18 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.registry.tag.RUBlockTags;
 import net.regions_unexplored.world.level.block.plant.branch.BranchBlock;
-import net.regions_unexplored.world.level.feature.configuration.RuTreeConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.RUTreeConfiguration;
 
 import java.util.Random;
 
-public class MegaBaobabTreeFeature extends Feature<RuTreeConfiguration> {
+public class MegaBaobabTreeFeature extends Feature<RUTreeConfiguration> {
 
-    public MegaBaobabTreeFeature(Codec<RuTreeConfiguration> codec) {
+    public MegaBaobabTreeFeature(Codec<RUTreeConfiguration> codec) {
         super(codec);
     }
 
-    public boolean place(FeaturePlaceContext<RuTreeConfiguration> context) {
-        RuTreeConfiguration treeConfiguration = context.config();
+    public boolean place(FeaturePlaceContext<RUTreeConfiguration> context) {
+        RUTreeConfiguration treeConfiguration = context.config();
         BlockPos pos = context.origin().south();
         RandomSource randomSource = context.random();
         WorldGenLevel level = context.level();
@@ -90,7 +90,7 @@ public class MegaBaobabTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public void placeTop(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeTop(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         BlockPos pos1 = pos.above();
         placeLog(level,pos1,randomSource,treeConfiguration,Direction.Axis.Y);
 
@@ -107,7 +107,7 @@ public class MegaBaobabTreeFeature extends Feature<RuTreeConfiguration> {
         placeBranch(level,pos1.east(),randomSource,treeConfiguration,Direction.SOUTH);
     }
 
-    public void placeBranch(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration, Direction direction) {
+    public void placeBranch(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration, Direction direction) {
         BlockPos.MutableBlockPos placePos = pos.mutable();
         Direction.Axis axis = Direction.Axis.Y;
         if(direction==Direction.NORTH||direction==Direction.SOUTH){
@@ -193,7 +193,7 @@ public class MegaBaobabTreeFeature extends Feature<RuTreeConfiguration> {
         }
     }
 
-    public boolean placeLog(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration, Direction.Axis axis) {
+    public boolean placeLog(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration, Direction.Axis axis) {
         Random random = new Random();
         if(level.isOutsideBuildHeight(pos)){
             return true;
@@ -232,14 +232,14 @@ public class MegaBaobabTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public void placeBranchDecorator(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeBranchDecorator(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         placeNorthBranch(level, pos, randomSource, treeConfiguration);
         placeSouthBranch(level, pos, randomSource, treeConfiguration);
         placeEastBranch(level, pos, randomSource, treeConfiguration);
         placeWestBranch(level, pos, randomSource, treeConfiguration);
     }
-    public void placeNorthBranch(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeNorthBranch(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         level.setBlock(pos, treeConfiguration.trunkProvider().getState(randomSource, pos), 2);
         if(level.getBlockState(pos.north()).canBeReplaced()&&!level.isOutsideBuildHeight(pos.north())){
             level.setBlock(pos.north(), treeConfiguration.branchProvider().getState(randomSource, pos.north()).setValue(BranchBlock.FACING, Direction.NORTH), 2);
@@ -258,7 +258,7 @@ public class MegaBaobabTreeFeature extends Feature<RuTreeConfiguration> {
         }
 
     }
-    public void placeSouthBranch(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeSouthBranch(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         level.setBlock(pos, treeConfiguration.trunkProvider().getState(randomSource, pos), 2);
         if(level.getBlockState(pos.south()).canBeReplaced()&&!level.isOutsideBuildHeight(pos.south())){
             level.setBlock(pos.south(), treeConfiguration.branchProvider().getState(randomSource, pos.south()).setValue(BranchBlock.FACING, Direction.SOUTH), 2);
@@ -277,7 +277,7 @@ public class MegaBaobabTreeFeature extends Feature<RuTreeConfiguration> {
         }
 
     }
-    public void placeEastBranch(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeEastBranch(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         level.setBlock(pos, treeConfiguration.trunkProvider().getState(randomSource, pos), 2);
         if(level.getBlockState(pos.east()).canBeReplaced()&&!level.isOutsideBuildHeight(pos.east())){
             level.setBlock(pos.east(), treeConfiguration.branchProvider().getState(randomSource, pos.east()).setValue(BranchBlock.FACING, Direction.EAST), 2);
@@ -296,7 +296,7 @@ public class MegaBaobabTreeFeature extends Feature<RuTreeConfiguration> {
         }
 
     }
-    public void placeWestBranch(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeWestBranch(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         level.setBlock(pos, treeConfiguration.trunkProvider().getState(randomSource, pos), 2);
         if(level.getBlockState(pos.west()).canBeReplaced()&&!level.isOutsideBuildHeight(pos.west())){
             level.setBlock(pos.west(), treeConfiguration.branchProvider().getState(randomSource, pos.west()).setValue(BranchBlock.FACING, Direction.WEST), 2);
@@ -316,7 +316,7 @@ public class MegaBaobabTreeFeature extends Feature<RuTreeConfiguration> {
 
     }
 
-    public void placeRoot(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeRoot(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         int rd = random.nextInt(2)+4;
         int i = 0;
@@ -337,7 +337,7 @@ public class MegaBaobabTreeFeature extends Feature<RuTreeConfiguration> {
         }
     }
 
-    public void placeLeavesBlob(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeLeavesBlob(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         int n = randomSource.nextInt(3);
 
         placeBranchDecorator(level, pos, randomSource, treeConfiguration);
@@ -382,7 +382,7 @@ public class MegaBaobabTreeFeature extends Feature<RuTreeConfiguration> {
         }
     }
 
-    public boolean placeLeavesBlock(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLeavesBlock(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         if(level.isOutsideBuildHeight(pos)){
             return true;

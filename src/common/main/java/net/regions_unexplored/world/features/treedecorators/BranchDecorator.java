@@ -9,19 +9,22 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
+import net.regions_unexplored.block.set.NaturalSet;
 import net.regions_unexplored.util.RUUtils;
 import net.regions_unexplored.world.level.block.plant.branch.BranchBlock;
 
-import java.util.List;
+import java.util.Optional;
 
 public class BranchDecorator extends TreeDecorator {
-    private static final List<Direction> HORIZONTAL_DIRECTIONS = List.of(Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST);
     public static final MapCodec<BranchDecorator> CODEC = RecordCodecBuilder.<BranchDecorator>mapCodec(i -> i.group(
         Codec.floatRange(0, 1).fieldOf("probability").forGetter(d -> d.probability),
         BuiltInRegistries.BLOCK.byNameCodec().fieldOf("block").forGetter(d -> d.block),
-        Codec.intRange(0, 16).fieldOf("required_empty_blocks").forGetter(d -> d.requiredEmptyBlocks)
+        Codec.intRange(0, 16).fieldOf("required_empty_blocks").forGetter(d -> d.requiredEmptyBlocks),
+        BlockStateProvider.CODEC.optionalFieldOf("leaves_provider").forGetter(d -> d.leavesProvider)
     ).apply(i, BranchDecorator::new)).validate(BranchDecorator::validate);
 
     private static DataResult<BranchDecorator> validate(BranchDecorator decorator) {
@@ -36,11 +39,25 @@ public class BranchDecorator extends TreeDecorator {
     private final float probability;
     private final Block block;
     private final int requiredEmptyBlocks;
+    private final Optional<BlockStateProvider> leavesProvider;
 
-    public BranchDecorator(float probability, Block block, int requiredEmptyBlocks) {
+    private BranchDecorator(float probability, Block block, int requiredEmptyBlocks, Optional<BlockStateProvider> leavesProvider) {
         this.probability = probability;
         this.block = block;
         this.requiredEmptyBlocks = requiredEmptyBlocks;
+        this.leavesProvider = leavesProvider;
+    }
+
+    public static BranchDecorator createWithoutLeaves(float probability, NaturalSet set, int requiredEmptyBlocks) {
+        return new BranchDecorator(probability, set.getBranch(), requiredEmptyBlocks, Optional.empty());
+    }
+
+    public static BranchDecorator create(float probability, NaturalSet set, int requiredEmptyBlocks) {
+        return new BranchDecorator(probability, set.getBranch(), requiredEmptyBlocks, Optional.of(BlockStateProvider.simple(set.getLeaves())));
+    }
+
+    public static BranchDecorator create(float probability, NaturalSet set, int requiredEmptyBlocks, BlockStateProvider leavesProvider) {
+        return new BranchDecorator(probability, set.getBranch(), requiredEmptyBlocks, Optional.of(leavesProvider));
     }
 
     @Override
@@ -52,10 +69,23 @@ public class BranchDecorator extends TreeDecorator {
     public void place(Context context) {
         RandomSource random = context.random();
         for (BlockPos logsPos : RUUtils.shuffledCopy(context.logs(), random)) {
-            Direction direction = RUUtils.getRandom(HORIZONTAL_DIRECTIONS, random);
-            BlockPos placementPos = logsPos.relative(direction);
+            Direction branchDirection = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+            BlockPos placementPos = logsPos.relative(branchDirection);
             if (!(random.nextFloat() <= this.probability) || !hasRequiredEmptyBlocks(context, placementPos)) continue;
-            context.setBlock(placementPos, this.block.defaultBlockState().setValue(BranchBlock.FACING, direction));
+
+            context.setBlock(placementPos, this.block.defaultBlockState().setValue(BranchBlock.FACING, branchDirection));
+            if (this.leavesProvider.isPresent()) {
+                for (Direction direction : Direction.values()) {
+                    if (direction == Direction.DOWN) continue;
+                    placeLeaves(context, placementPos.relative(direction));
+                }
+            }
+        }
+    }
+
+    private void placeLeaves(Context context, BlockPos pos) {
+        if (context.isAir(pos)) {
+            context.setBlock(pos, this.leavesProvider.get().getState(context.random(), pos));
         }
     }
 
