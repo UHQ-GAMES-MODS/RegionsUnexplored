@@ -103,9 +103,10 @@ public interface RUConfiguredFeatures {
     ResourceKey<ConfiguredFeature<?,?>> TREE_SMALL_OAK = tree("small_oak");
     ResourceKey<ConfiguredFeature<?,?>> TREE_LARGE_SOCOTRA = tree("large_socotra");
     ResourceKey<ConfiguredFeature<?,?>> TREE_SMALL_SOCOTRA = tree("small_socotra");
-    ResourceKey<ConfiguredFeature<?,?>> TREE_REDWOOD = tree("redwood");
-    ResourceKey<ConfiguredFeature<?,?>> TREE_GIANT_REDWOOD = tree("giant_redwood");
-    ResourceKey<ConfiguredFeature<?,?>> TREE_ULTRA_REDWOOD = tree("ultra_redwood");
+    ResourceKey<ConfiguredFeature<?,?>> TREE_REDWOOD_SMALL = tree("redwood_small");
+    ResourceKey<ConfiguredFeature<?,?>> TREE_REDWOOD_MEDIUM = tree("redwood_medium");
+    ResourceKey<ConfiguredFeature<?,?>> TREE_REDWOOD_LARGE = tree("redwood_large");
+    ResourceKey<ConfiguredFeature<?,?>> TREE_REDWOOD_EMERGENT = tree("redwood_emergent");
     ResourceKey<ConfiguredFeature<?,?>> TREE_WILLOW = tree("willow");
     ResourceKey<ConfiguredFeature<?,?>> TREE_BIG_WILLOW = tree("big_willow");
     ResourceKey<ConfiguredFeature<?,?>> TREE_WILLOW_VINES = tree("willow_vines");

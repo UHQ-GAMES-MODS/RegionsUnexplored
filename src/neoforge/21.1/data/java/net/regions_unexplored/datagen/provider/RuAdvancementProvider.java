@@ -42,7 +42,7 @@ public class RuAdvancementProvider extends AdvancementProvider {
                             Component.translatable("advancements.regions_unexplored.description"),
                             RegionsUnexplored.id("textures/gui/advancements/backgrounds/argillite.png"),
                             AdvancementType.TASK,
-                            true,
+                            false,
                             false,
                             false
                     )

@@ -253,7 +253,6 @@ public class TaigaBiomes {
 
         //add RU features
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.GIANT_REDWOOD_SPARSE);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.REDWOOD);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.OAK_BUSH_SPARSE);
 
         RUBiomeFeatures.redwoodDecoration(biomeBuilder);

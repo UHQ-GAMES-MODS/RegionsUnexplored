@@ -44,7 +44,7 @@ public interface RuTreeGrowers {
     TreeGrower PINK_MAGNOLIA = new TreeGrower("pink_magnolia", 0.1F, empty(), empty(), of(TREE_PINK_MAGNOLIA), of(TREE_BIG_PINK_MAGNOLIA), empty(), empty());
     TreeGrower BLUE_MAGNOLIA = new TreeGrower("blue_magnolia", 0.1F, empty(), empty(), of(TREE_BLUE_MAGNOLIA), of(TREE_BIG_BLUE_MAGNOLIA), empty(), empty());
     RuUltraFromSuperTreeGrower KAPOK = new RuUltraFromSuperTreeGrower("kapok", empty(), of(TREE_KAPOK), empty(), empty());
-    RuUltraFromSuperTreeGrower REDWOOD = new RuUltraFromSuperTreeGrower("redwood", of(TREE_ULTRA_REDWOOD), of(TREE_GIANT_REDWOOD), of(TREE_REDWOOD), empty());
+    RuUltraFromSuperTreeGrower REDWOOD = new RuUltraFromSuperTreeGrower("redwood", of(TREE_REDWOOD_LARGE), of(TREE_REDWOOD_MEDIUM), of(TREE_REDWOOD_SMALL), empty());
     TreeGrower PALM = new TreeGrower("palm", 0.1F, empty(), empty(), of(TREE_PALM), of(TREE_TALL_PALM), empty(), empty());
     TreeGrower PINE = new TreeGrower("pine", 0.1F, empty(), empty(), of(TREE_PINE), of(TREE_STRIPPED_PINE), of(TREE_PINE_TALL), of(TREE_STRIPPED_PINE_MOUNTAIN));
 }

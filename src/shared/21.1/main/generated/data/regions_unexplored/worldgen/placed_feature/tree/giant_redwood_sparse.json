@@ -1,5 +1,5 @@
 {
-  "feature": "regions_unexplored:tree/giant_redwood",
+  "feature": "regions_unexplored:tree/redwood_medium",
   "placement": [
     {
       "type": "minecraft:noise_based_count",

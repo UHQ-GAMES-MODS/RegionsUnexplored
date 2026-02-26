@@ -206,32 +206,67 @@ public class RuTreeFeatures {
        register(context, TREE_LARGE_SOCOTRA , RUFeatureTypes.LARGE_SOCOTRA_TREE.get(), new RUTreeConfiguration(BlockStateProvider.simple(RUBlocks.SOCOTRA_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RUBlocks.SOCOTRA_NATURAL_SET.getLeaves().defaultBlockState()), BlockStateProvider.simple(RUBlocks.SOCOTRA_NATURAL_SET.getBranch()), 8, 5));
        register(context, TREE_SMALL_SOCOTRA , RUFeatureTypes.SMALL_SOCOTRA_TREE.get(), FeatureConfiguration.NONE);
 
-       var redwood = register(context, TREE_REDWOOD, RUFeatureTypes.REDWOOD_TREE.get(), new RUTreeConfiguration(BlockStateProvider.simple(RUBlocks.REDWOOD_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RUBlocks.REDWOOD_NATURAL_SET.getLeaves().defaultBlockState()), BlockStateProvider.simple(RUBlocks.REDWOOD_NATURAL_SET.getBranch()), 21, 9));
-       var giantRedwood = register(context, TREE_GIANT_REDWOOD, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+       var redwoodSmall = register(context, TREE_REDWOOD_SMALL, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
            BlockStateProvider.simple(RUBlocks.REDWOOD_WOOD_SET.getLog().defaultBlockState()),
-           new RedwoodTrunkPlacer(UniformInt.of(30, 43), List.of(UniformInt.of(15, 21), UniformInt.of(2, 6), BiasedToBottomInt.of(0, 2), ConstantInt.of(0))),
+           new RedwoodTrunkPlacer(
+               UniformInt.of(20, 40),
+               List.of(ConstantInt.of(2), weightedInts(pair(2, 4), pair(3, 1)), weightedInts(pair(0, 4), pair(1, 1))),
+               3,
+               List.of()
+           ),
            BlockStateProvider.simple(RUBlocks.REDWOOD_NATURAL_SET.getLeaves().defaultBlockState()),
            new RedwoodFoliagePlacer(ConstantInt.of(2), ConstantInt.ZERO, 0),
            new TwoLayersFeatureSize(6, 1, 0))
            .decorators(List.of(BranchDecorator.create(0.06f, RUBlocks.REDWOOD_NATURAL_SET, 3)))
            .build()
        );
-       var ultraRedwood = register(context, TREE_ULTRA_REDWOOD, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+       var redwoodMedium = register(context, TREE_REDWOOD_MEDIUM, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
            BlockStateProvider.simple(RUBlocks.REDWOOD_WOOD_SET.getLog().defaultBlockState()),
-           new RedwoodTrunkPlacer(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-               .add(UniformInt.of(45, 54), 7)
-               .add(UniformInt.of(50, 70), 1)
-               .build()
-           ), List.of(UniformInt.of(35, 42), UniformInt.of(19, 21), UniformInt.of(10, 12), UniformInt.of(3, 6))),
+           new RedwoodTrunkPlacer(
+               UniformInt.of(30, 45),
+               List.of(ConstantInt.of(2), weightedInts(pair(2, 4), pair(3, 1)), ConstantInt.of(2)),
+               3,
+               List.of(UniformInt.of(15, 20), UniformInt.of(3, 7), BiasedToBottomInt.of(0, 3))
+           ),
+           BlockStateProvider.simple(RUBlocks.REDWOOD_NATURAL_SET.getLeaves().defaultBlockState()),
+           new RedwoodFoliagePlacer(ConstantInt.of(2), ConstantInt.ZERO, 0),
+           new TwoLayersFeatureSize(6, 1, 0))
+           .decorators(List.of(BranchDecorator.create(0.06f, RUBlocks.REDWOOD_NATURAL_SET, 3)))
+           .build()
+       );
+       var redwoodLarge = register(context, TREE_REDWOOD_LARGE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+           BlockStateProvider.simple(RUBlocks.REDWOOD_WOOD_SET.getLog().defaultBlockState()),
+           new RedwoodTrunkPlacer(
+               UniformInt.of(40, 55),
+               List.of(ConstantInt.of(1), weightedInts(pair(2, 4), pair(3, 1)), weightedInts(pair(2, 4), pair(3, 1)), ConstantInt.of(1)),
+               3,
+               List.of(UniformInt.of(35, 42), UniformInt.of(19, 21), UniformInt.of(10, 12), UniformInt.of(3, 6))
+           ),
            BlockStateProvider.simple(RUBlocks.REDWOOD_NATURAL_SET.getLeaves().defaultBlockState()),
            new RedwoodFoliagePlacer(ConstantInt.of(2), ConstantInt.ZERO, 0),
            new TwoLayersFeatureSize(8, 1, 0))
            .decorators(List.of(BranchDecorator.create(0.12f, RUBlocks.REDWOOD_NATURAL_SET, 3)))
            .build()
        );
+       var redwoodEmergent = register(context, TREE_REDWOOD_EMERGENT, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+           BlockStateProvider.simple(RUBlocks.REDWOOD_WOOD_SET.getLog().defaultBlockState()),
+           new RedwoodTrunkPlacer(
+               BiasedToBottomInt.of(60, 90),
+               List.of(ConstantInt.of(2), weightedInts(pair(3, 4), pair(4, 1)), weightedInts(pair(3, 4), pair(4, 1)), ConstantInt.of(1)),
+               3,
+               List.of(UniformInt.of(40, 55), UniformInt.of(25, 35), UniformInt.of(10, 20), UniformInt.of(4, 8))
+           ),
+           BlockStateProvider.simple(RUBlocks.REDWOOD_NATURAL_SET.getLeaves().defaultBlockState()),
+           new RedwoodFoliagePlacer(ConstantInt.of(2), ConstantInt.ZERO, 0),
+           new TwoLayersFeatureSize(8, 1, 0))
+           .decorators(List.of(BranchDecorator.create(0.12f, RUBlocks.REDWOOD_NATURAL_SET, 3)))
+           .build()
+       );
+
        registerPlaced(context, TREE_GROUP_REDWOODS_PRIMARY, WeightedSelectorFeature.FEATURE, new WeightedSelectorConfig(WeightedList.<Holder<PlacedFeature>>builder()
-           .add(direct(giantRedwood), 7)
-           .add(direct(ultraRedwood))
+           .add(direct(redwoodMedium), 14)
+           .add(direct(redwoodLarge), 4)
+           .add(direct(redwoodEmergent), 1)
         .build()));
 
        register(context, TREE_WILLOW , Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(

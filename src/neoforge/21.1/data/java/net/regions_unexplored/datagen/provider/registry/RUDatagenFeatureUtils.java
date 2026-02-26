@@ -4,6 +4,9 @@ import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Vec3i;
 import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.util.valueproviders.WeightedListInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -31,12 +34,21 @@ public class RUDatagenFeatureUtils {
     }
 
     @SafeVarargs
-    public static BlockStateProvider weighted(Pair<BlockState, Integer>... entries) {
+    public static BlockStateProvider weightedStates(Pair<BlockState, Integer>... entries) {
         SimpleWeightedRandomList.Builder<BlockState> builder = SimpleWeightedRandomList.builder();
         for (var pair : entries) {
             builder.add(pair.getFirst(), pair.getSecond());
         }
         return new WeightedStateProvider(builder);
+    }
+
+    @SafeVarargs
+    public static WeightedListInt weightedInts(Pair<Integer, Integer>... entries) {
+        SimpleWeightedRandomList.Builder<IntProvider> builder = SimpleWeightedRandomList.builder();
+        for (var pair : entries) {
+            builder.add(ConstantInt.of(pair.getFirst()), pair.getSecond());
+        }
+        return new WeightedListInt(builder.build());
     }
 
     public static Pair<BlockState, Integer> pair(Block block) {
@@ -47,11 +59,11 @@ public class RUDatagenFeatureUtils {
         return pair(block.defaultBlockState(), weight);
     }
 
-    public static Pair<BlockState, Integer> pair(BlockState state) {
+    public static <T> Pair<T, Integer> pair(T state) {
         return pair(state, 1);
     }
 
-    public static Pair<BlockState, Integer> pair(BlockState state, int weight) {
-        return Pair.of(state, weight);
+    public static <T> Pair<T, Integer> pair(T object, int weight) {
+        return Pair.of(object, weight);
     }
 }

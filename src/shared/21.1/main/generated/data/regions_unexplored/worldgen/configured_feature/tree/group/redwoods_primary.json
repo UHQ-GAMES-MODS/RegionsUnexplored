@@ -4,14 +4,21 @@
     "features": [
       {
         "data": {
-          "feature": "regions_unexplored:tree/giant_redwood",
+          "feature": "regions_unexplored:tree/redwood_medium",
           "placement": []
         },
-        "weight": 7
+        "weight": 14
       },
       {
         "data": {
-          "feature": "regions_unexplored:tree/ultra_redwood",
+          "feature": "regions_unexplored:tree/redwood_large",
+          "placement": []
+        },
+        "weight": 4
+      },
+      {
+        "data": {
+          "feature": "regions_unexplored:tree/redwood_emergent",
           "placement": []
         },
         "weight": 1

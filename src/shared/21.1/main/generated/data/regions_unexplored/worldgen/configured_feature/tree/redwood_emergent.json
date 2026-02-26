@@ -16,7 +16,7 @@
             }
           }
         },
-        "probability": 0.06,
+        "probability": 0.12,
         "required_empty_blocks": 3
       }
     ],
@@ -47,7 +47,7 @@
     "ignore_vines": false,
     "minimum_size": {
       "type": "minecraft:two_layers_feature_size",
-      "limit": 6,
+      "limit": 8,
       "lower_size": 1,
       "upper_size": 0
     },
@@ -56,25 +56,60 @@
       "base_trunk_heights": [
         {
           "type": "minecraft:uniform",
-          "max_inclusive": 21,
-          "min_inclusive": 15
+          "max_inclusive": 55,
+          "min_inclusive": 40
         },
         {
           "type": "minecraft:uniform",
-          "max_inclusive": 6,
-          "min_inclusive": 2
+          "max_inclusive": 35,
+          "min_inclusive": 25
         },
         {
-          "type": "minecraft:biased_to_bottom",
-          "max_inclusive": 2,
-          "min_inclusive": 0
+          "type": "minecraft:uniform",
+          "max_inclusive": 20,
+          "min_inclusive": 10
         },
-        0
+        {
+          "type": "minecraft:uniform",
+          "max_inclusive": 8,
+          "min_inclusive": 4
+        }
       ],
+      "branch_counts": [
+        2,
+        {
+          "type": "minecraft:weighted_list",
+          "distribution": [
+            {
+              "data": 3,
+              "weight": 4
+            },
+            {
+              "data": 4,
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "type": "minecraft:weighted_list",
+          "distribution": [
+            {
+              "data": 3,
+              "weight": 4
+            },
+            {
+              "data": 4,
+              "weight": 1
+            }
+          ]
+        },
+        1
+      ],
+      "branch_offset": 3,
       "height": {
-        "type": "minecraft:uniform",
-        "max_inclusive": 43,
-        "min_inclusive": 30
+        "type": "minecraft:biased_to_bottom",
+        "max_inclusive": 90,
+        "min_inclusive": 60
       }
     },
     "trunk_provider": {

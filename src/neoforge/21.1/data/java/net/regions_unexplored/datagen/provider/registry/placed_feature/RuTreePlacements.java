@@ -2,6 +2,7 @@ package net.regions_unexplored.datagen.provider.registry.placed_feature;
 
 import dev.worldgen.lithostitched.worldgen.blockpredicate.RandomChancePredicate;
 import dev.worldgen.lithostitched.worldgen.placementmodifier.NoiseSlopePlacement;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.Vec3i;
@@ -146,10 +147,7 @@ public class RuTreePlacements {
 
     public static final ResourceKey<PlacedFeature> TREE_GROUP_REDWOODS_PRIMARY = group("redwoods_primary");
     public static final ResourceKey<PlacedFeature> TREE_GROUP_REDWOODS_SECONDARY = group("redwoods_secondary");
-    public static final ResourceKey<PlacedFeature> ULTRA_REDWOOD = key("ultra_redwood");
-    public static final ResourceKey<PlacedFeature> GIANT_REDWOOD_DENSE = key("giant_redwood_dense");
     public static final ResourceKey<PlacedFeature> GIANT_REDWOOD_SPARSE = key("giant_redwood_sparse");
-    public static final ResourceKey<PlacedFeature> REDWOOD = key("redwood");
 
     public static final ResourceKey<PlacedFeature> MAGNOLIA = key("magnolia");
     public static final ResourceKey<PlacedFeature> BLUE_MAGNOLIA = key("blue_magnolia");
@@ -285,9 +283,7 @@ public class RuTreePlacements {
 
         final Holder<ConfiguredFeature<?, ?>> LUSH_PINE = getter.getOrThrow(RUConfiguredFeatures.TREE_LUSH_PINE);
 
-        final Holder<ConfiguredFeature<?, ?>> ULTRA_REDWOOD = getter.getOrThrow(RUConfiguredFeatures.TREE_ULTRA_REDWOOD);
-        final Holder<ConfiguredFeature<?, ?>> GIANT_REDWOOD = getter.getOrThrow(RUConfiguredFeatures.TREE_GIANT_REDWOOD);
-        final Holder<ConfiguredFeature<?, ?>> REDWOOD = getter.getOrThrow(RUConfiguredFeatures.TREE_REDWOOD);
+        final Holder<ConfiguredFeature<?, ?>> REDWOOD_MEDIUM = getter.getOrThrow(RUConfiguredFeatures.TREE_REDWOOD_MEDIUM);
 
         final Holder<ConfiguredFeature<?, ?>> MAGNOLIA = getter.getOrThrow(RUConfiguredFeatures.TREE_MAGNOLIA);
         final Holder<ConfiguredFeature<?, ?>> BLUE_MAGNOLIA = getter.getOrThrow(RUConfiguredFeatures.TREE_BLUE_MAGNOLIA);
@@ -498,19 +494,25 @@ public class RuTreePlacements {
             BlockPredicateFilter.forPredicate(saplingWouldSurvive(RUBlocks.REDWOOD_NATURAL_SET)),
             BiomeFilter.biome()
         );
-        register(context, RuTreePlacements.TREE_GROUP_REDWOODS_SECONDARY, getter.getOrThrow(RUConfiguredFeatures.TREE_REDWOOD),
-            treeDensity(-2, 5),
-            count(2),
+        register(context, RuTreePlacements.TREE_GROUP_REDWOODS_SECONDARY, getter.getOrThrow(RUConfiguredFeatures.TREE_REDWOOD_SMALL),
+            treeDensity(-2, 6),
+            count(4),
             InSquarePlacement.spread(),
             SurfaceWaterDepthFilter.forMaxDepth(0),
-            PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
-            BlockPredicateFilter.forPredicate(saplingWouldSurvive(RUBlocks.REDWOOD_NATURAL_SET)),
+            PlacementUtils.HEIGHTMAP_TOP_SOLID,
+            BlockPredicateFilter.forPredicate(BlockPredicate.allOf(
+                saplingWouldSurvive(RUBlocks.REDWOOD_NATURAL_SET),
+                BlockPredicate.not(BlockPredicate.anyOf(
+                    BlockPredicate.matchesBlocks(Vec3i.ZERO.above().north(), RUBlocks.REDWOOD_WOOD_SET.getLog()),
+                    BlockPredicate.matchesBlocks(Vec3i.ZERO.above().south(), RUBlocks.REDWOOD_WOOD_SET.getLog()),
+                    BlockPredicate.matchesBlocks(Vec3i.ZERO.above().east(), RUBlocks.REDWOOD_WOOD_SET.getLog()),
+                    BlockPredicate.matchesBlocks(Vec3i.ZERO.above().west(), RUBlocks.REDWOOD_WOOD_SET.getLog())
+                ))
+            )),
             BiomeFilter.biome()
         );
-        register(context, RuTreePlacements.ULTRA_REDWOOD, ULTRA_REDWOOD, List.of(NoiseBasedCountPlacement.of(1, 80.0D, 0.3D), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
-        register(context, RuTreePlacements.GIANT_REDWOOD_DENSE, GIANT_REDWOOD, List.of(CountPlacement.of(6), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
-        register(context, RuTreePlacements.GIANT_REDWOOD_SPARSE, GIANT_REDWOOD, List.of(NoiseBasedCountPlacement.of(1, 80.0D, 0.3D), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
-        register(context, RuTreePlacements.REDWOOD, REDWOOD, List.of(CountPlacement.of(2), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
+
+        register(context, RuTreePlacements.GIANT_REDWOOD_SPARSE, REDWOOD_MEDIUM, List.of(NoiseBasedCountPlacement.of(1, 80.0D, 0.3D), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
 
         register(context, RuTreePlacements.MAGNOLIA, MAGNOLIA, List.of(CountPlacement.of(1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.BLUE_MAGNOLIA, BLUE_MAGNOLIA, List.of(PlacementUtils.countExtra(1, 0.1F, 1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));

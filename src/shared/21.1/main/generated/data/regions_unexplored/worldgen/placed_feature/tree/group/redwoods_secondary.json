@@ -1,17 +1,17 @@
 {
-  "feature": "regions_unexplored:tree/redwood",
+  "feature": "regions_unexplored:tree/redwood_small",
   "placement": [
     {
       "type": "lithostitched:noise_slope",
       "noise": "regions_unexplored:tree_density",
-      "offset": 5,
+      "offset": 6,
       "slope": -2,
       "xz_scale": 1.0,
       "y_scale": 0.0
     },
     {
       "type": "minecraft:count",
-      "count": 2
+      "count": 4
     },
     {
       "type": "minecraft:in_square"
@@ -22,18 +22,67 @@
     },
     {
       "type": "minecraft:heightmap",
-      "heightmap": "OCEAN_FLOOR"
+      "heightmap": "OCEAN_FLOOR_WG"
     },
     {
       "type": "minecraft:block_predicate_filter",
       "predicate": {
-        "type": "minecraft:would_survive",
-        "state": {
-          "Name": "regions_unexplored:redwood_sapling",
-          "Properties": {
-            "stage": "0"
+        "type": "minecraft:all_of",
+        "predicates": [
+          {
+            "type": "minecraft:would_survive",
+            "state": {
+              "Name": "regions_unexplored:redwood_sapling",
+              "Properties": {
+                "stage": "0"
+              }
+            }
+          },
+          {
+            "type": "minecraft:not",
+            "predicate": {
+              "type": "minecraft:any_of",
+              "predicates": [
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "regions_unexplored:redwood_log",
+                  "offset": [
+                    0,
+                    1,
+                    -1
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "regions_unexplored:redwood_log",
+                  "offset": [
+                    0,
+                    1,
+                    1
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "regions_unexplored:redwood_log",
+                  "offset": [
+                    1,
+                    1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "regions_unexplored:redwood_log",
+                  "offset": [
+                    -1,
+                    1,
+                    0
+                  ]
+                }
+              ]
+            }
           }
-        }
+        ]
       }
     },
     {

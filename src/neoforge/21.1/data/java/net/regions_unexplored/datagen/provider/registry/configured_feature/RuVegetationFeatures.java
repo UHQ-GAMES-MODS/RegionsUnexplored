@@ -283,7 +283,7 @@ public class RuVegetationFeatures {
         register(context, PATCH_PRISMOSS_SPROUT, Feature.RANDOM_PATCH, patch(BlockStateProvider.simple(RUBlocks.PRISMOSS_SPROUT.get().defaultBlockState()), 32));
         register(context, PATCH_REDSTONE_BUD, Feature.RANDOM_PATCH, patch(BlockStateProvider.simple(RUBlocks.REDSTONE_BUD.get().defaultBlockState()), 128));
         register(context, PATCH_REDSTONE_BULB, Feature.RANDOM_PATCH, patch(BlockStateProvider.simple(RUBlocks.REDSTONE_BULB.get().defaultBlockState()), 64));
-        register(context, PATCH_FERNS_DENSE, Feature.RANDOM_PATCH, patch(weighted(
+        register(context, PATCH_FERNS_DENSE, Feature.RANDOM_PATCH, patch(weightedStates(
             pair(Blocks.FERN, 5),
             pair(Blocks.LARGE_FERN, 2),
             pair(Blocks.SHORT_GRASS, 2),

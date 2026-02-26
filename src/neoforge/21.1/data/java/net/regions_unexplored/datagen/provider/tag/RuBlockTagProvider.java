@@ -302,9 +302,6 @@ public class RuBlockTagProvider extends BlockTagsProvider {
         this.tag(BlockTags.BASE_STONE_NETHER)
             .add(RUBlocks.OVERGROWN_BONE_BLOCK.get())
         ;
-        this.tag(BlockTags.BASE_STONE_OVERWORLD)
-            .add(RUBlocks.CHALK.get())
-        ;
         this.tag(BlockTags.BEE_GROWABLES)
             .add(RUBlocks.SALMONBERRY_BUSH.get())
             .add(RUBlocks.DUSKMELON.get())

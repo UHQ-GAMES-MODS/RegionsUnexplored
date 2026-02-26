@@ -1,4 +1,4 @@
-// 1.21.1	2026-02-01T15:12:30.8431331	Advancements
+// 1.21.1	2026-02-25T01:41:30.8741573	Advancements
 762c6dedc677a44f65adc2ae0b917a09046bea5d data/regions_unexplored/advancement/ancient_specimens.json
 1bfabc0116ff7e08a36c722fce41df8d260ff4b7 data/regions_unexplored/advancement/blind_as_a_bat.json
 ac64123435535b64b4ddca507b72152135ca5ee0 data/regions_unexplored/advancement/downer.json
@@ -9,7 +9,7 @@ e28503d9ef4a2919044008ad30fbe2bfb4e75c42 data/regions_unexplored/advancement/got
 ad82d1acf8f154bbb5bb008d5effa7f18d701925 data/regions_unexplored/advancement/light_as_a_frog.json
 da4c3b8ecedc0f9b573d24f660a1d7fb598a93a7 data/regions_unexplored/advancement/light_snack.json
 065058c2cfce57430359a15090ba6a6c90f7a2f8 data/regions_unexplored/advancement/mycologist.json
-ff7f6306deee6b24c8c9e694e0aa9cfb6bac5fb5 data/regions_unexplored/advancement/parent.json
+eab2bb9686c388810c2821de8e42bc0fc108f112 data/regions_unexplored/advancement/parent.json
 c4692b94b55b128e193e5e16353cfaf8173188fc data/regions_unexplored/advancement/pioneer.json
 7dc5404fb44ca06fcd60b4e5e99c34487d835584 data/regions_unexplored/advancement/regions_explored.json
 1dca17c94dc75e3001a8ed5920821b5a56a66812 data/regions_unexplored/advancement/spelunker.json

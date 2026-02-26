@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
@@ -20,15 +21,21 @@ import java.util.List;
 import java.util.function.BiConsumer;
 
 public class RedwoodTrunkPlacer extends RUTrunkPlacer {
-    public static final MapCodec<RedwoodTrunkPlacer> CODEC = RecordCodecBuilder.mapCodec(i -> RedwoodTrunkPlacer.heightField(i).and(
-        IntProvider.NON_NEGATIVE_CODEC.listOf(4, 4).fieldOf("base_trunk_heights").forGetter(p -> p.baseTrunkHeights)
-    ).apply(i, RedwoodTrunkPlacer::new));
+    public static final MapCodec<RedwoodTrunkPlacer> CODEC = RecordCodecBuilder.mapCodec(i -> RedwoodTrunkPlacer.heightField(i).and(i.group(
+        IntProvider.NON_NEGATIVE_CODEC.listOf().fieldOf("branch_counts").forGetter(p -> p.branchCounts),
+        ExtraCodecs.POSITIVE_INT.fieldOf("branch_offset").forGetter(p -> p.branchOffset),
+        IntProvider.NON_NEGATIVE_CODEC.listOf(0, 4).fieldOf("base_trunk_heights").forGetter(p -> p.baseTrunkHeights)
+    )).apply(i, RedwoodTrunkPlacer::new));
     public static final TrunkPlacerType<RedwoodTrunkPlacer> TYPE = new TrunkPlacerType<>(CODEC);
 
+    protected final List<IntProvider> branchCounts;
+    protected final int branchOffset;
     protected final List<IntProvider> baseTrunkHeights;
 
-    public RedwoodTrunkPlacer(IntProvider height, List<IntProvider> baseTrunkHeights) {
+    public RedwoodTrunkPlacer(IntProvider height, List<IntProvider> branchCounts, int branchOffset, List<IntProvider> baseTrunkHeights) {
         super(height);
+        this.branchCounts = branchCounts;
+        this.branchOffset = branchOffset;
         this.baseTrunkHeights = baseTrunkHeights;
     }
 
@@ -54,30 +61,23 @@ public class RedwoodTrunkPlacer extends RUTrunkPlacer {
         BlockPos.MutableBlockPos placePos = origin.mutable().move(Direction.UP, treeHeight);
         attachments.add(attachment(placePos.immutable()));
 
-        for (int i = 0; i < 2; i++) {
-            placePos.move(Direction.DOWN, 3);
-            placeBranch(placePos, random, trunkSetter, attachments, config, 1);
+        int length = 1;
+        for (IntProvider branchLength : this.branchCounts) {
+            for (int i = 0; i < branchLength.sample(random); i++) {
+                placePos.move(Direction.DOWN, this.branchOffset);
+                placeBranch(placePos, random, trunkSetter, attachments, config, length);
+                if (length > 2) {
+                    placeBlobsAround(attachments, placePos);
+                }
+            }
+            length++;
         }
-
-        for (int i = 0; i < (random.nextInt(6) == 0 ? 3 : 2); i++) {
-            placePos.move(Direction.DOWN, 3);
-            placeBranch(placePos, random, trunkSetter, attachments, config, 2);
-        }
-
-        for (int i = 0; i < (random.nextInt(6) == 0 ? 3 : 2); i++) {
-            placePos.move(Direction.DOWN, 3);
-            placeBlobsAround(attachments, placePos);
-            placeBranch(placePos, random, trunkSetter, attachments, config, 3);
-        }
-
-        placePos.move(Direction.DOWN, 3);
-        placeBlobsAround(attachments, placePos);
-        placeBranch(placePos, random, trunkSetter, attachments, config, 4);
 
         return attachments;
     }
 
     private int getTrunkHeight(RandomSource random, int index) {
+        if (this.baseTrunkHeights.size() <= index) return 0;
         return this.baseTrunkHeights.get(index).sample(random);
     }
 

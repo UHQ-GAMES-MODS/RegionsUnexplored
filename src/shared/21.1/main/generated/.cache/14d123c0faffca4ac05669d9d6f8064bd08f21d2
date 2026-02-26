@@ -1,4 +1,4 @@
-// 1.21.1	2026-02-23T20:41:30.4960484	Tags for minecraft:block mod id regions_unexplored
+// 1.21.1	2026-02-24T02:54:00.1757833	Tags for minecraft:block mod id regions_unexplored
 47322f6e871d59e5581ad5e9b47c6737a5af3480 data/c/tags/block/fences/wooden.json
 543d30a38bbd7deef12bbc96a461b70e01314374 data/c/tags/block/fence_gates/wooden.json
 fbd3b5574bd57030107ab08e4b239ea1520ad7e1 data/c/tags/block/glass_blocks.json
@@ -14,7 +14,6 @@ ebcf7881dcf42cb3d8c8b5c2e92ebf16fd9d7284 data/minecraft/tags/block/axolotls_spaw
 56d739d9964d88d8d57ed225feeb6df1914c9106 data/minecraft/tags/block/azalea_grows_on.json
 1cc6465fdc3acf8fe7b1b7222366b5ac6a51047f data/minecraft/tags/block/bamboo_blocks.json
 290f9c5b08e0c6d280807616e1e324e4434614f5 data/minecraft/tags/block/base_stone_nether.json
-e66784e2aab07f25408ee5347aa6acaf325e458c data/minecraft/tags/block/base_stone_overworld.json
 5ecfd72ac3e8a18c7e0a3cf586faa87f3e79974b data/minecraft/tags/block/bee_growables.json
 97f41cb82157199dc7c5cf445da6a766663cb647 data/minecraft/tags/block/birch_logs.json
 e3d802435533c14d6d842c50c0f1d69142e807e2 data/minecraft/tags/block/ceiling_hanging_signs.json
