@@ -694,6 +694,8 @@ public class RuBiomeTagProvider extends BiomeTagsProvider {
         ;
         this.tag(BiomeTags.HAS_VILLAGE_PLAINS)
                 .add(RUBiomes.GRASSLAND)
+                .add(RUBiomes.FLOWER_FIELDS)
+                .add(RUBiomes.CLOVER_PLAINS)
                 .add(RUBiomes.PRAIRIE)
                 .add(RUBiomes.WILLOW_FOREST)
                 .add(RUBiomes.TEMPERATE_GROVE)

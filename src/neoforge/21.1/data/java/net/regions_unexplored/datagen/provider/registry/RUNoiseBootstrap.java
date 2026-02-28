@@ -12,6 +12,7 @@ public class RUNoiseBootstrap {
         register(context, SHIELD, -5, 1, 1, 1);
         register(context, SURFACE_MEDIUM, -6, 1, 2, 1.5, 1.0);
         register(context, TREE_DENSITY, -7, 2.5);
+        register(context, FLOWER_DENSITY, -6, 1.75);
     }
 
     private static void register(BootstrapContext<NormalNoise.NoiseParameters> context, ResourceKey<NormalNoise.NoiseParameters> key, int i, double v, double... doubles) {
