@@ -2,7 +2,6 @@ package net.regions_unexplored.datagen.provider.registry.placed_feature;
 
 import dev.worldgen.lithostitched.worldgen.blockpredicate.RandomChancePredicate;
 import dev.worldgen.lithostitched.worldgen.placementmodifier.NoiseSlopePlacement;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.Vec3i;
@@ -80,9 +79,7 @@ public class RuTreePlacements {
     public static final ResourceKey<PlacedFeature> SMALL_EUCALYPTUS = key("small_eucalyptus");
     public static final ResourceKey<PlacedFeature> EUCALYPTUS = key("eucalyptus");
 
-    public static final ResourceKey<PlacedFeature> LARGE_JOSHUA = key("large_joshua");
-    public static final ResourceKey<PlacedFeature> MEDIUM_JOSHUA = key("medium_joshua");
-    public static final ResourceKey<PlacedFeature> JOSHUA_SHRUB = key("joshua_shrub");
+    public static final ResourceKey<PlacedFeature> TREE_GROUP_JOSHUA_DESERT = group("joshua_desert");
 
     public static final ResourceKey<PlacedFeature> JUNGLE_SPARSE = key("jungle_sparse");
     public static final ResourceKey<PlacedFeature> BIG_JUNGLE_SPARSE = key("big_jungle_sparse");
@@ -212,8 +209,6 @@ public class RuTreePlacements {
         final Holder<ConfiguredFeature<?, ?>> TALL_BLACKWOOD = getter.getOrThrow(RUConfiguredFeatures.TREE_BIG_BLACKWOOD);
         final Holder<ConfiguredFeature<?, ?>> BLACKWOOD = getter.getOrThrow(RUConfiguredFeatures.TREE_BLACKWOOD);
 
-        final Holder<ConfiguredFeature<?, ?>> BAMBOO = getter.getOrThrow(RUConfiguredFeatures.TREE_BAMBOO);
-
         final Holder<ConfiguredFeature<?, ?>> MEGA_BAOBAB = getter.getOrThrow(RUConfiguredFeatures.TREE_MEGA_BAOBAB);
         final Holder<ConfiguredFeature<?, ?>> ULTRA_BAOBAB = getter.getOrThrow(RUConfiguredFeatures.TREE_ULTRA_BAOBAB);
 
@@ -239,10 +234,6 @@ public class RuTreePlacements {
         final Holder<ConfiguredFeature<?, ?>> SMALL_EUCALYPTUS = getter.getOrThrow(RUConfiguredFeatures.TREE_SMALL_EUCALYPTUS);
         final Holder<ConfiguredFeature<?, ?>> EUCALYPTUS = getter.getOrThrow(RUConfiguredFeatures.TREE_EUCALYPTUS);
 
-        final Holder<ConfiguredFeature<?, ?>> LARGE_JOSHUA = getter.getOrThrow(RUConfiguredFeatures.TREE_LARGE_JOSHUA);
-        final Holder<ConfiguredFeature<?, ?>> MEDIUM_JOSHUA = getter.getOrThrow(RUConfiguredFeatures.TREE_MEDIUM_JOSHUA);
-        final Holder<ConfiguredFeature<?, ?>> JOSHUA_SHRUB = getter.getOrThrow(RUConfiguredFeatures.TREE_JOSHUA_SHRUB);
-
         final Holder<ConfiguredFeature<?, ?>> JUNGLE = getter.getOrThrow(RUConfiguredFeatures.TREE_JUNGLE);
         final Holder<ConfiguredFeature<?, ?>> BIG_JUNGLE = getter.getOrThrow(RUConfiguredFeatures.TREE_BIG_JUNGLE);
 
@@ -255,8 +246,6 @@ public class RuTreePlacements {
         final Holder<ConfiguredFeature<?, ?>> BIG_MAPLE = getter.getOrThrow(RUConfiguredFeatures.TREE_BIG_MAPLE);
         final Holder<ConfiguredFeature<?, ?>> RED_MAPLE = getter.getOrThrow(RUConfiguredFeatures.TREE_RED_MAPLE);
         final Holder<ConfiguredFeature<?, ?>> BIG_RED_MAPLE = getter.getOrThrow(RUConfiguredFeatures.TREE_BIG_RED_MAPLE);
-        final Holder<ConfiguredFeature<?, ?>> ORANGE_MAPLE = getter.getOrThrow(RUConfiguredFeatures.TREE_ORANGE_MAPLE);
-        final Holder<ConfiguredFeature<?, ?>> BIG_ORANGE_MAPLE = getter.getOrThrow(RUConfiguredFeatures.TREE_BIG_ORANGE_MAPLE);
 
         final Holder<ConfiguredFeature<?, ?>> MAUVE = getter.getOrThrow(RUConfiguredFeatures.TREE_MAUVE_OAK);
         final Holder<ConfiguredFeature<?, ?>> BIG_MAUVE = getter.getOrThrow(RUConfiguredFeatures.TREE_BIG_MAUVE_OAK);
@@ -396,9 +385,14 @@ public class RuTreePlacements {
         register(context, RuTreePlacements.SMALL_EUCALYPTUS, SMALL_EUCALYPTUS, List.of(CountPlacement.of(9), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.EUCALYPTUS, EUCALYPTUS, List.of(CountPlacement.of(9), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
 
-        register(context, RuTreePlacements.LARGE_JOSHUA, LARGE_JOSHUA, List.of(PlacementUtils.countExtra(0, 0.1F, 3), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(RUBlocks.SMALL_DESERT_SHRUB.get()), BiomeFilter.biome()));
-        register(context, RuTreePlacements.MEDIUM_JOSHUA, MEDIUM_JOSHUA, List.of(CountPlacement.of(1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(RUBlocks.SMALL_DESERT_SHRUB.get()), BiomeFilter.biome()));
-        register(context, RuTreePlacements.JOSHUA_SHRUB, JOSHUA_SHRUB, List.of(CountPlacement.of(1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(RUBlocks.SMALL_DESERT_SHRUB.get()), BiomeFilter.biome()));
+        register(context, getter, RuTreePlacements.TREE_GROUP_JOSHUA_DESERT,
+            count(4),
+            InSquarePlacement.spread(),
+            SurfaceWaterDepthFilter.forMaxDepth(0),
+            PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
+            PlacementUtils.filteredByBlockSurvival(RUBlocks.JOSHUA_NATURAL_SET.getSapling()),
+            BiomeFilter.biome()
+        );
 
         register(context, RuTreePlacements.JUNGLE_SPARSE, JUNGLE, List.of(NoiseBasedCountPlacement.of(2, 55.0D, 0.0D), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.BIG_JUNGLE_SPARSE, BIG_JUNGLE, List.of(NoiseBasedCountPlacement.of(2, 50.0D, 0.0D), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));

@@ -14,6 +14,8 @@ import net.minecraft.util.valueproviders.ClampedInt;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
@@ -43,6 +45,8 @@ public class RuVegetationPlacements {
     public static final ResourceKey<PlacedFeature> CAVE_TALL_GRASS = RUPlacedFeatureBootstrap.key("cave_tall_grass");
     public static final ResourceKey<PlacedFeature> SNOW_GRASS = RUPlacedFeatureBootstrap.key("snow_grass");
     public static final ResourceKey<PlacedFeature> WINDSWEPT_GRASS = RUPlacedFeatureBootstrap.key("windswept_grass");
+
+
     public static final ResourceKey<PlacedFeature> PATCH_GRASS_SPROUTS_DENSE = RUPlacedFeatureBootstrap.key("patch/grass_sprouts_dense");
     public static final ResourceKey<PlacedFeature> PATCH_GRASS_SPROUTS_SPARSE = RUPlacedFeatureBootstrap.key("patch/grass_sprouts_sparse");
     public static final ResourceKey<PlacedFeature> PATCH_ASHEN_GRASS = RUPlacedFeatureBootstrap.key("patch/ashen_grass");
@@ -51,13 +55,18 @@ public class RuVegetationPlacements {
     public static final ResourceKey<PlacedFeature> PATCH_ASH_VENTS = RUPlacedFeatureBootstrap.key("patch/ash_vents");
     public static final ResourceKey<PlacedFeature> PATCH_FERNS_DENSE = RUPlacedFeatureBootstrap.key("patch/ferns_dense");
     public static final ResourceKey<PlacedFeature> PATCH_CLOVERS_DENSE = RUPlacedFeatureBootstrap.key("patch/clovers_dense");
+
+    public static final ResourceKey<PlacedFeature> PATCH_GRASS_SPARSE = RUPlacedFeatureBootstrap.key("patch/grass_sparse");
+    public static final ResourceKey<PlacedFeature> PATCH_SANDY_GRASS_SPARSE = RUPlacedFeatureBootstrap.key("patch/sandy_grass_sparse");
+    public static final ResourceKey<PlacedFeature> PATCH_DESERT_SHRUB_SPARSE = RUPlacedFeatureBootstrap.key("patch/desert_shrub_sparse");
+
+
     public static final ResourceKey<PlacedFeature> BLACKWOOD_VEGETATION = RUPlacedFeatureBootstrap.key("blackwood_vegetation");
     public static final ResourceKey<PlacedFeature> DECIDUOUS_VEGETATION = RUPlacedFeatureBootstrap.key("deciduous_vegetation");
     public static final ResourceKey<PlacedFeature> FEN_VEGETATION = RUPlacedFeatureBootstrap.key("fen_vegetation");
     public static final ResourceKey<PlacedFeature> SHRUBLAND_VEGETATION = RUPlacedFeatureBootstrap.key("shrubland_vegetation");
     public static final ResourceKey<PlacedFeature> MOUNTAIN_VEGETATION = RUPlacedFeatureBootstrap.key("mountain_vegetation");
     public static final ResourceKey<PlacedFeature> OUTBACK_VEGETATION = RUPlacedFeatureBootstrap.key("outback_vegetation");
-    public static final ResourceKey<PlacedFeature> JOSHUA_VEGETATION = RUPlacedFeatureBootstrap.key("joshua_vegetation");
     public static final ResourceKey<PlacedFeature> STEPPE_VEGETATION = RUPlacedFeatureBootstrap.key("steppe_vegetation");
     public static final ResourceKey<PlacedFeature> SOCOTRA_VEGETATION = RUPlacedFeatureBootstrap.key("socotra_vegetation");
     public static final ResourceKey<PlacedFeature> BAYOU_VEGETATION = RUPlacedFeatureBootstrap.key("bayou_vegetation");
@@ -206,7 +215,6 @@ public class RuVegetationPlacements {
         final Holder<ConfiguredFeature<?, ?>> STEPPE_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_STEPPE_VEGETATION);
         final Holder<ConfiguredFeature<?, ?>> SOCOTRA_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_SOCOTRA_VEGETATION);
         final Holder<ConfiguredFeature<?, ?>> OUTBACK_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_OUTBACK_VEGETATION);
-        final Holder<ConfiguredFeature<?, ?>> JOSHUA_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_JOSHUA_VEGETATION);
         final Holder<ConfiguredFeature<?, ?>> BAYOU_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_BAYOU_VEGETATION);
         final Holder<ConfiguredFeature<?, ?>> SANDY_GRASS_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_SANDY_GRASS_VEGETATION);
         final Holder<ConfiguredFeature<?, ?>> DIRT_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_DIRT_VEGETATION);
@@ -355,6 +363,9 @@ public class RuVegetationPlacements {
             PlacementUtils.HEIGHTMAP,
             BiomeFilter.biome()
         );
+        register(context, RuVegetationPlacements.PATCH_GRASS_SPARSE, simpleSpread(2, Types.WORLD_SURFACE_WG));
+        register(context, RuVegetationPlacements.PATCH_SANDY_GRASS_SPARSE, simpleSpread(2, Types.WORLD_SURFACE_WG));
+        register(context, RuVegetationPlacements.PATCH_DESERT_SHRUB_SPARSE, simpleSpread(2, Types.WORLD_SURFACE_WG));
 
         register(context, RuVegetationPlacements.BLACKWOOD_VEGETATION, BLACKWOOD_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.DECIDUOUS_VEGETATION, DECIDUOUS_VEGETATION, NoiseThresholdCountPlacement.of(-0.8D, 5, 24), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
@@ -362,7 +373,6 @@ public class RuVegetationPlacements {
         register(context, RuVegetationPlacements.SHRUBLAND_VEGETATION, SHRUBLAND_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.MOUNTAIN_VEGETATION, MOUNTAIN_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.OUTBACK_VEGETATION, OUTBACK_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 16), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
-        register(context, RuVegetationPlacements.JOSHUA_VEGETATION, JOSHUA_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 24), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.STEPPE_VEGETATION, STEPPE_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 24), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.SOCOTRA_VEGETATION, SOCOTRA_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 24), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.SANDY_GRASS_VEGETATION, SANDY_GRASS_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));

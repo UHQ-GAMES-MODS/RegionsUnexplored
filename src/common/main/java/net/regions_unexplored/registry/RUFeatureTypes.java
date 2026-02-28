@@ -85,7 +85,6 @@ public interface RUFeatureTypes {
     Supplier<Feature<RUTreeConfiguration>> SMALL_JOSHUA_TREE = register("small_joshua_tree", new SmallJoshuaTreeFeature(RUTreeConfiguration.CODEC));
     Supplier<Feature<RUTreeConfiguration>> SMALL_OAK_TREE = register("small_oak_tree", new SmallOakTreeFeature(RUTreeConfiguration.CODEC));
     Supplier<Feature<RUTreeConfiguration>> STRIPPED_PINE_TREE = register("stripped_pine_tree", new StrippedPineTreeFeature(RUTreeConfiguration.CODEC));
-    Supplier<Feature<RUTreeConfiguration>> REDWOOD_TREE = register("redwood_tree", new RedwoodTreeFeature(RUTreeConfiguration.CODEC));
     Supplier<Feature<RUTreeConfiguration>> SAGUARO_CACTUS = register("saguaro_cactus", new SaguaroCactusFeature(RUTreeConfiguration.CODEC));
     Supplier<Feature<RUTreeConfiguration>> SAKURA_TREE = register("sakura_tree", new SakuraTreeFeature(RUTreeConfiguration.CODEC));
     Supplier<Feature<RUTreeConfiguration>> LARGE_SOCOTRA_TREE = register("large_socotra_tree", new LargeSocotraTreeFeature(RUTreeConfiguration.CODEC));

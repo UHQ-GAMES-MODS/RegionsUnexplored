@@ -3,20 +3,19 @@ package net.regions_unexplored.datagen.provider.registry;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Vec3i;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.WeightedListInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
-import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
-import net.minecraft.world.level.levelgen.placement.CountPlacement;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.placement.*;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -32,6 +31,15 @@ public class RUDatagenFeatureUtils {
 
     public static PlacementModifier count(int count) {
         return CountPlacement.of(count);
+    }
+
+    public static PlacementModifier[] simpleSpread(int count, Heightmap.Types heightmap) {
+        return new PlacementModifier[] {
+            count(count),
+            InSquarePlacement.spread(),
+            HeightmapPlacement.onHeightmap(heightmap),
+            BiomeFilter.biome()
+        };
     }
 
     public static BlockState state(Supplier<Block> block) {

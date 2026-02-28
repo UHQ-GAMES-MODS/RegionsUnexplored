@@ -1,11 +1,9 @@
 {
-  "feature": "regions_unexplored:patch_joshua_vegetation",
+  "feature": "regions_unexplored:patch/sandy_grass_sparse",
   "placement": [
     {
-      "type": "minecraft:noise_threshold_count",
-      "above_noise": 24,
-      "below_noise": 5,
-      "noise_level": -0.8
+      "type": "minecraft:count",
+      "count": 2
     },
     {
       "type": "minecraft:in_square"

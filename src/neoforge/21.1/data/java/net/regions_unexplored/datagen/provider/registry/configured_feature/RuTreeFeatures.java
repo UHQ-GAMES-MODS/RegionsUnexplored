@@ -121,9 +121,15 @@ public class RuTreeFeatures {
        register(context, TREE_SMALL_EUCALYPTUS , RUFeatureTypes.SMALL_EUCALYPTUS_TREE.get(), new RUTreeConfiguration(BlockStateProvider.simple(RUBlocks.EUCALYPTUS_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RUBlocks.EUCALYPTUS_NATURAL_SET.getLeaves().defaultBlockState()), BlockStateProvider.simple(RUBlocks.EUCALYPTUS_NATURAL_SET.getBranch().defaultBlockState()), 13, 8));
        register(context, TREE_EUCALYPTUS , RUFeatureTypes.EUCALYPTUS_TREE.get(), new RUTreeConfiguration(BlockStateProvider.simple(RUBlocks.EUCALYPTUS_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RUBlocks.EUCALYPTUS_NATURAL_SET.getLeaves().defaultBlockState()), BlockStateProvider.simple(RUBlocks.EUCALYPTUS_NATURAL_SET.getBranch().defaultBlockState()), 14, 8));
 
-       register(context, TREE_MEDIUM_JOSHUA , RUFeatureTypes.MEDIUM_JOSHUA_TREE.get(), FeatureConfiguration.NONE);
-       register(context, TREE_LARGE_JOSHUA , RUFeatureTypes.LARGE_JOSHUA_TREE.get(), FeatureConfiguration.NONE);
-       register(context, TREE_JOSHUA_SHRUB, RUFeatureTypes.SMALL_JOSHUA_TREE.get(), new RUTreeConfiguration(BlockStateProvider.simple(RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RUBlocks.JOSHUA_NATURAL_SET.getLeaves().defaultBlockState()), BlockStateProvider.simple(RUBlocks.JOSHUA_NATURAL_SET.getBranch().defaultBlockState()), 1, 1));
+       var joshuaSmall = register(context, TREE_JOSHUA_SMALL, RUFeatureTypes.SMALL_JOSHUA_TREE.get(), new RUTreeConfiguration(BlockStateProvider.simple(RUBlocks.JOSHUA_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RUBlocks.JOSHUA_NATURAL_SET.getLeaves().defaultBlockState()), BlockStateProvider.simple(RUBlocks.JOSHUA_NATURAL_SET.getBranch().defaultBlockState()), 1, 1));
+       var joshuaMedium = register(context, TREE_JOSHUA_MEDIUM, RUFeatureTypes.MEDIUM_JOSHUA_TREE.get(), FeatureConfiguration.NONE);
+       var joshuaLarge = register(context, TREE_JOSHUA_LARGE, RUFeatureTypes.LARGE_JOSHUA_TREE.get(), FeatureConfiguration.NONE);
+
+       registerPlaced(context, TREE_GROUP_JOSHUA_DESERT, WeightedSelectorFeature.FEATURE, new WeightedSelectorConfig(WeightedList.<Holder<PlacedFeature>>builder()
+           .add(direct(joshuaSmall), 4)
+           .add(direct(joshuaMedium), 3)
+           .add(direct(joshuaLarge), 2)
+       .build()));
 
        register(context, TREE_JUNGLE , Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(Blocks.JUNGLE_LOG.defaultBlockState()), new StraightTrunkPlacer(6, 5, 0), BlockStateProvider.simple(Blocks.JUNGLE_LEAVES.defaultBlockState()), new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3), new TwoLayersFeatureSize(1, 0, 1)).decorators(ImmutableList.of(new LeaveVineDecorator(0.25f))).build());
        register(context, TREE_BIG_JUNGLE , Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(Blocks.JUNGLE_LOG.defaultBlockState()), new FancyTrunkPlacer(9, 11, 0), BlockStateProvider.simple(Blocks.JUNGLE_LEAVES.defaultBlockState()), new FancyFoliagePlacer(ConstantInt.of(2), ConstantInt.of(4), 4), new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(4))).ignoreVines().decorators(ImmutableList.of(new LeaveVineDecorator(0.25f))).build());

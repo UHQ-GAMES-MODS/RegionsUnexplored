@@ -55,9 +55,9 @@ public interface RUConfiguredFeatures {
     ResourceKey<ConfiguredFeature<?,?>> TREE_DEAD_STRIPPED_PINE_MOUNTAIN = tree("dead_stripped_pine_mountain");
     ResourceKey<ConfiguredFeature<?,?>> TREE_SMALL_EUCALYPTUS = tree("small_eucalyptus");
     ResourceKey<ConfiguredFeature<?,?>> TREE_EUCALYPTUS = tree("eucalyptus");
-    ResourceKey<ConfiguredFeature<?,?>> TREE_LARGE_JOSHUA = tree("large_joshua");
-    ResourceKey<ConfiguredFeature<?,?>> TREE_MEDIUM_JOSHUA = tree("medium_joshua");
-    ResourceKey<ConfiguredFeature<?,?>> TREE_JOSHUA_SHRUB = tree("joshua_shrub");
+    ResourceKey<ConfiguredFeature<?,?>> TREE_JOSHUA_SMALL = tree("joshua_small");
+    ResourceKey<ConfiguredFeature<?,?>> TREE_JOSHUA_MEDIUM = tree("joshua_medium");
+    ResourceKey<ConfiguredFeature<?,?>> TREE_JOSHUA_LARGE = tree("joshua_large");
     ResourceKey<ConfiguredFeature<?,?>> TREE_JUNGLE = tree("jungle");
     ResourceKey<ConfiguredFeature<?,?>> TREE_BIG_JUNGLE = tree("big_jungle");
     ResourceKey<ConfiguredFeature<?,?>> TREE_KAPOK = tree("kapok");

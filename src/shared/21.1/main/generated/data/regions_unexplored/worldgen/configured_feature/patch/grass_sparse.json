@@ -12,22 +12,13 @@
                 "data": {
                   "Name": "minecraft:short_grass"
                 },
-                "weight": 10
+                "weight": 1
               },
               {
                 "data": {
-                  "Name": "regions_unexplored:sandy_grass",
-                  "Properties": {
-                    "is_red": "false"
-                  }
+                  "Name": "regions_unexplored:grass_sprouts"
                 },
-                "weight": 8
-              },
-              {
-                "data": {
-                  "Name": "regions_unexplored:small_desert_shrub"
-                },
-                "weight": 10
+                "weight": 1
               }
             ]
           }
@@ -43,7 +34,7 @@
         }
       ]
     },
-    "tries": 32,
+    "tries": 64,
     "xz_spread": 7,
     "y_spread": 3
   }

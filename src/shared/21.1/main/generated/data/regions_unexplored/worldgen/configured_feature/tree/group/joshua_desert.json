@@ -1,0 +1,28 @@
+{
+  "type": "lithostitched:weighted_selector",
+  "config": {
+    "features": [
+      {
+        "data": {
+          "feature": "regions_unexplored:tree/joshua_shrub",
+          "placement": []
+        },
+        "weight": 4
+      },
+      {
+        "data": {
+          "feature": "regions_unexplored:tree/medium_joshua",
+          "placement": []
+        },
+        "weight": 3
+      },
+      {
+        "data": {
+          "feature": "regions_unexplored:tree/large_joshua",
+          "placement": []
+        },
+        "weight": 2
+      }
+    ]
+  }
+}

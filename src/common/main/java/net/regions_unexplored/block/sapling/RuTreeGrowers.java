@@ -27,7 +27,7 @@ public interface RuTreeGrowers {
     TreeGrower FLOWERING_OAK = new TreeGrower("flowering_oak", 0.2F, empty(), empty(), of(TREE_FLOWERING_OAK), of(TREE_BIG_FLOWERING_OAK), empty(), empty());
     TreeGrower GOLDEN_LARCH = new TreeGrower("golden_larch", 0.25F, empty(), empty(), of(TREE_GOLDEN_LARCH), of(TREE_BIG_GOLDEN_LARCH), empty(), empty());
     TreeGrower LARCH = new TreeGrower("larch", 0.25F, empty(), empty(), of(TREE_LARCH), of(TREE_BIG_LARCH), empty(), empty());
-    TreeGrower JOSHUA = new TreeGrower("joshua", 0.33F, empty(), empty(), of(TREE_MEDIUM_JOSHUA), of(TREE_LARGE_JOSHUA), empty(), empty());
+    TreeGrower JOSHUA = new TreeGrower("joshua", 0.33F, empty(), empty(), of(TREE_JOSHUA_MEDIUM), of(TREE_JOSHUA_LARGE), empty(), empty());
     TreeGrower MAPLE = new TreeGrower("maple", 0.1F, empty(), empty(), of(TREE_MAPLE), of(TREE_BIG_MAPLE), empty(), empty());
     TreeGrower RED_MAPLE = new TreeGrower("red_maple", 0.1F, empty(), empty(), of(TREE_RED_MAPLE), of(TREE_BIG_RED_MAPLE), empty(), empty());
     TreeGrower ORANGE_MAPLE = new TreeGrower("orange_maple", 0.1F, empty(), empty(), of(TREE_ORANGE_MAPLE), of(TREE_BIG_ORANGE_MAPLE), empty(), empty());
