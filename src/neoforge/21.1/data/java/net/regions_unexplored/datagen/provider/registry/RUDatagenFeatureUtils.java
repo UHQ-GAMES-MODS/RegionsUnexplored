@@ -19,6 +19,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 public class RUDatagenFeatureUtils {
     public static Holder<PlacedFeature> direct(Holder.Reference<ConfiguredFeature<?, ?>> feature) {
@@ -31,6 +32,10 @@ public class RUDatagenFeatureUtils {
 
     public static PlacementModifier count(int count) {
         return CountPlacement.of(count);
+    }
+
+    public static BlockState state(Supplier<Block> block) {
+        return block.get().defaultBlockState();
     }
 
     @SafeVarargs

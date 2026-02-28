@@ -1,5 +1,6 @@
 package net.regions_unexplored.datagen.provider.registry.placed_feature;
 
+import dev.worldgen.lithostitched.worldgen.placementmodifier.NoiseSlopePlacement;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
@@ -21,7 +22,10 @@ import net.regions_unexplored.datagen.provider.registry.configured_feature.RuVeg
 import net.regions_unexplored.datagen.provider.registry.RUPlacedFeatureBootstrap;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.registry.data.RUConfiguredFeatures;
+import net.regions_unexplored.registry.data.RUNoises;
 import net.regions_unexplored.registry.data.RUPlacedFeatures;
+
+import static net.regions_unexplored.datagen.provider.registry.RUDatagenFeatureUtils.*;
 
 import java.util.List;
 
@@ -29,7 +33,6 @@ public class RuVegetationPlacements {
     //-----------------------KEYS-----------------------//
     public static final ResourceKey<PlacedFeature> BLACKWOOD_MUSHROOMS = RUPlacedFeatureBootstrap.key("blackwood_mushrooms");
     public static final ResourceKey<PlacedFeature> BLACKWOOD_DECORATION = RUPlacedFeatureBootstrap.key("blackwood_decoration");
-    public static final ResourceKey<PlacedFeature> LUPINE_VEGETATION = RUPlacedFeatureBootstrap.key("lupine_vegetation");
     public static final ResourceKey<PlacedFeature> MEADOW_VEGETATION = RUPlacedFeatureBootstrap.key("meadow_vegetation");
     //GRASS
     public static final ResourceKey<PlacedFeature> SANDY_GRASS = RUPlacedFeatureBootstrap.key("sandy_grass");
@@ -44,8 +47,10 @@ public class RuVegetationPlacements {
     public static final ResourceKey<PlacedFeature> PATCH_GRASS_SPROUTS_SPARSE = RUPlacedFeatureBootstrap.key("patch/grass_sprouts_sparse");
     public static final ResourceKey<PlacedFeature> PATCH_ASHEN_GRASS = RUPlacedFeatureBootstrap.key("patch/ashen_grass");
     public static final ResourceKey<PlacedFeature> PATCH_ASHEN_GRASS_SMOULDERING = RUPlacedFeatureBootstrap.key("patch/smouldering_ashen_grass");
+    public static final ResourceKey<PlacedFeature> PATCH_LUPINES = RUPlacedFeatureBootstrap.key("patch/lupines");
     public static final ResourceKey<PlacedFeature> PATCH_ASH_VENTS = RUPlacedFeatureBootstrap.key("patch/ash_vents");
     public static final ResourceKey<PlacedFeature> PATCH_FERNS_DENSE = RUPlacedFeatureBootstrap.key("patch/ferns_dense");
+    public static final ResourceKey<PlacedFeature> PATCH_CLOVERS_DENSE = RUPlacedFeatureBootstrap.key("patch/clovers_dense");
     public static final ResourceKey<PlacedFeature> BLACKWOOD_VEGETATION = RUPlacedFeatureBootstrap.key("blackwood_vegetation");
     public static final ResourceKey<PlacedFeature> DECIDUOUS_VEGETATION = RUPlacedFeatureBootstrap.key("deciduous_vegetation");
     public static final ResourceKey<PlacedFeature> FEN_VEGETATION = RUPlacedFeatureBootstrap.key("fen_vegetation");
@@ -102,7 +107,6 @@ public class RuVegetationPlacements {
     public static final ResourceKey<PlacedFeature> SPARSE_ORANGE_CONEFLOWER = RUPlacedFeatureBootstrap.key("sparse_orange_coneflower");
     public static final ResourceKey<PlacedFeature> PURPLE_CONEFLOWER = RUPlacedFeatureBootstrap.key("purple_coneflower");
     public static final ResourceKey<PlacedFeature> MAGNOLIA_FLOWERS = RUPlacedFeatureBootstrap.key("magnolia_flowers");
-    public static final ResourceKey<PlacedFeature> CLOVER = RUPlacedFeatureBootstrap.key("clover");
     public static final ResourceKey<PlacedFeature> CLOVER_SPARSE = RUPlacedFeatureBootstrap.key("clover_sparse");
     //MULTIFACE FLOWERS
     public static final ResourceKey<PlacedFeature> PINK_MAGNOLIA_FLOWERS = RUPlacedFeatureBootstrap.key("pink_magnolia_flowers");
@@ -185,7 +189,6 @@ public class RuVegetationPlacements {
         //---------------------FEATURES---------------------//
         final Holder<ConfiguredFeature<?, ?>> BLACKWOOD_MUSHROOMS = featureGetter.getOrThrow(RuVegetationFeatures.BLACKWOOD_BIOSHROOMS);
         final Holder<ConfiguredFeature<?, ?>> BLACKWOOD_DECORATION = featureGetter.getOrThrow(RuVegetationFeatures.BLACKWOOD_DECORATION);
-        final Holder<ConfiguredFeature<?, ?>> LUPINE_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_LUPINE_VEGETATION);
         final Holder<ConfiguredFeature<?, ?>> MEADOW_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_MEADOW_VEGETATION);
         //GRASS
         final Holder<ConfiguredFeature<?, ?>> SANDY_GRASS = featureGetter.getOrThrow(RuVegetationFeatures.SANDY_GRASS);
@@ -325,7 +328,6 @@ public class RuVegetationPlacements {
         register(context, RuVegetationPlacements.FROZEN_FLOWERS, FROZEN_FLOWERS, RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, RuVegetationPlacements.BLACKWOOD_MUSHROOMS, BLACKWOOD_MUSHROOMS, List.of(CountPlacement.of(2), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuVegetationPlacements.BLACKWOOD_DECORATION, BLACKWOOD_DECORATION, List.of(CountPlacement.of(8), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
-        register(context, RuVegetationPlacements.LUPINE_VEGETATION, LUPINE_VEGETATION, CountPlacement.of(16), RarityFilter.onAverageOnceEvery(10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, RuVegetationPlacements.MEADOW_VEGETATION, MEADOW_VEGETATION, NoiseThresholdCountPlacement.of(-0.8D, 5, 8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         //GRASS
         register(context, RuVegetationPlacements.SANDY_GRASS, SANDY_GRASS, CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BlockPredicateFilter.forPredicate(BlockPredicate.ONLY_IN_AIR_PREDICATE), BiomeFilter.biome());
@@ -347,6 +349,13 @@ public class RuVegetationPlacements {
             PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
             BiomeFilter.biome()
         );
+        register(context, RuVegetationPlacements.PATCH_LUPINES,
+            new NoiseSlopePlacement(RUNoises.FLOWER_DENSITY, 2, 1, 1, 0),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome()
+        );
+
         register(context, RuVegetationPlacements.BLACKWOOD_VEGETATION, BLACKWOOD_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.DECIDUOUS_VEGETATION, DECIDUOUS_VEGETATION, NoiseThresholdCountPlacement.of(-0.8D, 5, 24), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, RuVegetationPlacements.FEN_VEGETATION, FEN_VEGETATION, NoiseThresholdCountPlacement.of(-0.8D, 5, 24), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
@@ -403,7 +412,12 @@ public class RuVegetationPlacements {
         register(context, RuVegetationPlacements.SPARSE_ORANGE_CONEFLOWER, ORANGE_CONEFLOWER, NoiseThresholdCountPlacement.of(-0.8D, 5, 10), RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, RuVegetationPlacements.PURPLE_CONEFLOWER, PURPLE_CONEFLOWER, NoiseThresholdCountPlacement.of(-0.8D, 5, 10), RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, RuVegetationPlacements.MAGNOLIA_FLOWERS, MAGNOLIA_FLOWERS, NoiseThresholdCountPlacement.of(-0.8D, 5, 10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
-        register(context, RuVegetationPlacements.CLOVER, CLOVER, NoiseThresholdCountPlacement.of(-0.8D, 5, 12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+        register(context, RuVegetationPlacements.PATCH_CLOVERS_DENSE, CLOVER,
+            count(3),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome()
+        );
         register(context, RuVegetationPlacements.CLOVER_SPARSE, CLOVER, List.of(RarityFilter.onAverageOnceEvery(2),  NoiseThresholdCountPlacement.of(-0.8D, 5, 12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         //MULTIFACE FLOWERS
         register(context, RuVegetationPlacements.PINK_MAGNOLIA_FLOWERS, PINK_MAGNOLIA_FLOWERS, CountPlacement.of(15), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BiomeFilter.biome());
@@ -493,10 +507,6 @@ public class RuVegetationPlacements {
         register(context, RuVegetationPlacements.PRAIRIE_TREES, PRAIRIE_MIX, NoiseBasedCountPlacement.of(60, 30.0D, -0.5D), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(RUPlacedFeatureBootstrap.onGrassBlockPredicate), BiomeFilter.biome());
         //BONE MEALS
         register(context, RuVegetationPlacements.BLADED_GRASS_BONEMEAL, BLADED_GRASS_BONEMEAL, PlacementUtils.isEmpty());
-    }
-
-    protected static PlacementModifier count(int count) {
-        return CountPlacement.of(count);
     }
 
     protected static PlacementModifier airAnd(BlockPredicate predicate) {

@@ -1,0 +1,23 @@
+{
+  "feature": "regions_unexplored:patch/lupines",
+  "placement": [
+    {
+      "type": "lithostitched:noise_slope",
+      "noise": "regions_unexplored:flower_density",
+      "offset": 1,
+      "slope": 2,
+      "xz_scale": 1.0,
+      "y_scale": 0.0
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "MOTION_BLOCKING"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

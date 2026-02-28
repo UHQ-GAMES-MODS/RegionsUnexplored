@@ -173,7 +173,7 @@ public class RuBiolith {
             BiomePlacement.replaceOverworld(Biomes.SUNFLOWER_PLAINS, RUBiomes.FLOWER_FIELDS, 0.3f);
         }
         if (RuCommonConfig.TOGGLE_CLOVER_PLAINS.get()) {
-            BiomePlacement.replaceOverworld(Biomes.SUNFLOWER_PLAINS, RUBiomes.CLOVER_PLAINS, 0.3f);
+            BiomePlacement.replaceOverworld(Biomes.SUNFLOWER_PLAINS, RUBiomes.CLOVER_PLAINS, 0.7f);
         }
         if (RuCommonConfig.TOGGLE_SHRUBLAND.get()) {
             BiomePlacement.replaceOverworld(Biomes.PLAINS, RUBiomes.SHRUBLAND, 0.2f);
