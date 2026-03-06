@@ -59,7 +59,7 @@ public class RUBiomeFeatures {
     }
 
     public static void addDaisies(BiomeGenerationSettings.Builder p_194721_) {
-        p_194721_.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.DAISIES);
+        p_194721_.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.PATCH_DAISIES);
     }
 
     public static void addBamboo(BiomeGenerationSettings.Builder p_194721_) {

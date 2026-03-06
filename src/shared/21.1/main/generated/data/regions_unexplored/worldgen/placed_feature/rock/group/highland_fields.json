@@ -1,11 +1,9 @@
 {
-  "feature": "regions_unexplored:patch_daisies",
+  "feature": "regions_unexplored:rock/group/highland_fields",
   "placement": [
     {
-      "type": "minecraft:noise_threshold_count",
-      "above_noise": 9,
-      "below_noise": 5,
-      "noise_level": -0.8
+      "type": "minecraft:count",
+      "count": 1
     },
     {
       "type": "minecraft:in_square"

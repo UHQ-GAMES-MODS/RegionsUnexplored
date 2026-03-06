@@ -10,7 +10,9 @@
     "NetherrackBlockMixin",
     "TrunkPlacerDirtMixin"
   ],
-  "client": [],
+  "client": [
+    "client.TerrainParticleMixin"
+  ],
   "server": [],
   "injectors": {
     "defaultRequire": 1

@@ -1,9 +1,8 @@
 package net.regions_unexplored.datagen.provider.registry.configured_feature;
 
 import com.google.common.collect.ImmutableList;
-import dev.worldgen.lithostitched.util.weighted.WeightedList;
-import dev.worldgen.lithostitched.worldgen.feature.WeightedSelectorFeature;
-import dev.worldgen.lithostitched.worldgen.feature.config.WeightedSelectorConfig;
+import dev.worldgen.lithostitched.api.util.WeightedList;
+import dev.worldgen.lithostitched.api.worldgen.feature.LithostitchedFeatures;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -32,9 +31,9 @@ import net.regions_unexplored.registry.data.RUConfiguredFeatures;
 import net.regions_unexplored.worldgen.foliageplacer.RedwoodFoliagePlacer;
 import net.regions_unexplored.worldgen.foliageplacer.SakuraFoliagePlacer;
 import net.regions_unexplored.worldgen.foliageplacer.WillowFoliagePlacer;
-import net.regions_unexplored.world.features.treedecorators.BranchDecorator;
-import net.regions_unexplored.world.features.treedecorators.PlaceOnGroundDecorator;
-import net.regions_unexplored.world.features.treedecorators.WillowTrunkDecorator;
+import net.regions_unexplored.worldgen.treedecorator.BranchDecorator;
+import net.regions_unexplored.worldgen.treedecorator.PlaceOnGroundDecorator;
+import net.regions_unexplored.worldgen.treedecorator.WillowTrunkDecorator;
 import net.regions_unexplored.world.level.block.leaves.AppleLeavesBlock;
 import net.regions_unexplored.world.level.block.wood.BambooLogBlock;
 import net.regions_unexplored.world.level.feature.configuration.GiantBioshroomConfiguration;
@@ -125,7 +124,7 @@ public class RuTreeFeatures {
        var joshuaMedium = register(context, TREE_JOSHUA_MEDIUM, RUFeatureTypes.MEDIUM_JOSHUA_TREE.get(), FeatureConfiguration.NONE);
        var joshuaLarge = register(context, TREE_JOSHUA_LARGE, RUFeatureTypes.LARGE_JOSHUA_TREE.get(), FeatureConfiguration.NONE);
 
-       registerPlaced(context, TREE_GROUP_JOSHUA_DESERT, WeightedSelectorFeature.FEATURE, new WeightedSelectorConfig(WeightedList.<Holder<PlacedFeature>>builder()
+       registerPlaced(context, TREE_GROUP_JOSHUA_DESERT, LithostitchedFeatures.WEIGHTED_SELECTOR, LithostitchedFeatures.weightedSelector(WeightedList.<Holder<PlacedFeature>>builder()
            .add(direct(joshuaSmall), 4)
            .add(direct(joshuaMedium), 3)
            .add(direct(joshuaLarge), 2)
@@ -152,7 +151,7 @@ public class RuTreeFeatures {
        var silverBirch = register(context, TREE_SILVER_BIRCH , RUFeatureTypes.ASPEN_TREE.get(), new RUTreeConfiguration(BlockStateProvider.simple(RUBlocks.SILVER_BIRCH_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RUBlocks.SILVER_BIRCH_NATURAL_SET.getLeaves().defaultBlockState()), BlockStateProvider.simple(RUBlocks.SILVER_BIRCH_NATURAL_SET.getBranch().defaultBlockState()), List.of(PlaceOnGroundDecorator.leafLitter(RUBlocks.SILVER_BIRCH_LEAF_LITTER.get(), 96)), 4, 4));
        register(context, TREE_SILVER_BIRCH_TALL, RUFeatureTypes.ASPEN_TREE.get(), new RUTreeConfiguration(BlockStateProvider.simple(RUBlocks.SILVER_BIRCH_WOOD_SET.getLog().defaultBlockState()), BlockStateProvider.simple(RUBlocks.SILVER_BIRCH_NATURAL_SET.getLeaves().defaultBlockState()), BlockStateProvider.simple(RUBlocks.SILVER_BIRCH_NATURAL_SET.getBranch().defaultBlockState()), List.of(PlaceOnGroundDecorator.leafLitter(RUBlocks.SILVER_BIRCH_LEAF_LITTER.get(), 96)), 5, 5));
 
-       registerPlaced(context, TREE_GROUP_AUTUMNAL_MAPLE_FOREST, WeightedSelectorFeature.FEATURE, new WeightedSelectorConfig(WeightedList.<Holder<PlacedFeature>>builder()
+       registerPlaced(context, TREE_GROUP_AUTUMNAL_MAPLE_FOREST, LithostitchedFeatures.WEIGHTED_SELECTOR, LithostitchedFeatures.weightedSelector(WeightedList.<Holder<PlacedFeature>>builder()
            .add(direct(maple), 2)
            .add(direct(redMaple), 2)
            .add(direct(orangeMaple), 2)
@@ -160,7 +159,7 @@ public class RuTreeFeatures {
            .add(direct(bigRedMaple))
            .add(direct(bigOrangeMaple))
        .build()));
-       registerPlaced(context, TREE_GROUP_PUMPKIN_FIELDS, WeightedSelectorFeature.FEATURE, new WeightedSelectorConfig(WeightedList.<Holder<PlacedFeature>>builder()
+       registerPlaced(context, TREE_GROUP_PUMPKIN_FIELDS, LithostitchedFeatures.WEIGHTED_SELECTOR, LithostitchedFeatures.weightedSelector(WeightedList.<Holder<PlacedFeature>>builder()
            .add(direct(bigMaple), 3)
            .add(direct(bigRedMaple), 3)
            .add(direct(bigOrangeMaple), 3)
@@ -223,7 +222,7 @@ public class RuTreeFeatures {
            BlockStateProvider.simple(RUBlocks.REDWOOD_NATURAL_SET.getLeaves().defaultBlockState()),
            new RedwoodFoliagePlacer(ConstantInt.of(2), ConstantInt.ZERO, 0),
            new TwoLayersFeatureSize(6, 1, 0))
-           .decorators(List.of(BranchDecorator.create(0.06f, RUBlocks.REDWOOD_NATURAL_SET, 3)))
+           .decorators(List.of(BranchDecorator.create(0.06f, RUBlocks.REDWOOD_NATURAL_SET, RUBlocks.REDWOOD_WOOD_SET, 3)))
            .build()
        );
        var redwoodMedium = register(context, TREE_REDWOOD_MEDIUM, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
@@ -237,7 +236,7 @@ public class RuTreeFeatures {
            BlockStateProvider.simple(RUBlocks.REDWOOD_NATURAL_SET.getLeaves().defaultBlockState()),
            new RedwoodFoliagePlacer(ConstantInt.of(2), ConstantInt.ZERO, 0),
            new TwoLayersFeatureSize(6, 1, 0))
-           .decorators(List.of(BranchDecorator.create(0.06f, RUBlocks.REDWOOD_NATURAL_SET, 3)))
+           .decorators(List.of(BranchDecorator.create(0.06f, RUBlocks.REDWOOD_NATURAL_SET, RUBlocks.REDWOOD_WOOD_SET, 3)))
            .build()
        );
        var redwoodLarge = register(context, TREE_REDWOOD_LARGE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
@@ -251,7 +250,7 @@ public class RuTreeFeatures {
            BlockStateProvider.simple(RUBlocks.REDWOOD_NATURAL_SET.getLeaves().defaultBlockState()),
            new RedwoodFoliagePlacer(ConstantInt.of(2), ConstantInt.ZERO, 0),
            new TwoLayersFeatureSize(8, 1, 0))
-           .decorators(List.of(BranchDecorator.create(0.12f, RUBlocks.REDWOOD_NATURAL_SET, 3)))
+           .decorators(List.of(BranchDecorator.create(0.12f, RUBlocks.REDWOOD_NATURAL_SET, RUBlocks.REDWOOD_WOOD_SET, 3)))
            .build()
        );
        var redwoodEmergent = register(context, TREE_REDWOOD_EMERGENT, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
@@ -265,11 +264,11 @@ public class RuTreeFeatures {
            BlockStateProvider.simple(RUBlocks.REDWOOD_NATURAL_SET.getLeaves().defaultBlockState()),
            new RedwoodFoliagePlacer(ConstantInt.of(2), ConstantInt.ZERO, 0),
            new TwoLayersFeatureSize(8, 1, 0))
-           .decorators(List.of(BranchDecorator.create(0.12f, RUBlocks.REDWOOD_NATURAL_SET, 3)))
+           .decorators(List.of(BranchDecorator.create(0.12f, RUBlocks.REDWOOD_NATURAL_SET, RUBlocks.REDWOOD_WOOD_SET, 3)))
            .build()
        );
 
-       registerPlaced(context, TREE_GROUP_REDWOODS_PRIMARY, WeightedSelectorFeature.FEATURE, new WeightedSelectorConfig(WeightedList.<Holder<PlacedFeature>>builder()
+       registerPlaced(context, TREE_GROUP_REDWOODS_PRIMARY, LithostitchedFeatures.WEIGHTED_SELECTOR, LithostitchedFeatures.weightedSelector(WeightedList.<Holder<PlacedFeature>>builder()
            .add(direct(redwoodMedium), 14)
            .add(direct(redwoodLarge), 4)
            .add(direct(redwoodEmergent), 1)
@@ -288,8 +287,8 @@ public class RuTreeFeatures {
 
     }
 
-    private static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder.Reference<ConfiguredFeature<?, ?>> registerPlaced(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<PlacedFeature> key, F feature, FC config) {
-       return context.register(RUConfiguredFeatures.fromPlaced(key), new ConfiguredFeature<>(feature, config));
+    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void registerPlaced(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<PlacedFeature> key, F feature, FC config) {
+       context.register(RUConfiguredFeatures.fromPlaced(key), new ConfiguredFeature<>(feature, config));
     }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder.Reference<ConfiguredFeature<?, ?>> register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC config) {

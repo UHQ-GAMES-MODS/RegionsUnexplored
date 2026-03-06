@@ -3,7 +3,9 @@ package net.regions_unexplored.datagen.provider.registry;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Vec3i;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
@@ -16,11 +18,30 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.placement.*;
+import net.regions_unexplored.registry.data.RUConfiguredFeatures;
 
 import java.util.List;
 import java.util.function.Supplier;
 
 public class RUDatagenFeatureUtils {
+
+    public static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, PlacementModifier... placement) {
+        register(context, key, RUConfiguredFeatures.fromPlaced(key), placement);
+    }
+
+    public static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, ResourceKey<ConfiguredFeature<?, ?>> feature, PlacementModifier... placement) {
+        register(context, key, context.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(feature), placement);
+    }
+
+    public static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> feature, PlacementModifier... placement) {
+        context.register(key, new PlacedFeature(feature, List.of(placement)));
+    }
+
+    public static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> feature, List<PlacementModifier> placement) {
+        context.register(key, new PlacedFeature(feature, placement));
+    }
+
+
     public static Holder<PlacedFeature> direct(Holder.Reference<ConfiguredFeature<?, ?>> feature) {
         return Holder.direct(new PlacedFeature(feature, List.of()));
     }
@@ -44,6 +65,10 @@ public class RUDatagenFeatureUtils {
 
     public static BlockState state(Supplier<Block> block) {
         return block.get().defaultBlockState();
+    }
+
+    public static BlockState state(Block block) {
+        return block.defaultBlockState();
     }
 
     @SafeVarargs

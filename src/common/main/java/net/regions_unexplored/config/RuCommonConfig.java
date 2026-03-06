@@ -5,6 +5,9 @@ import net.regions_unexplored.internal.config.ConfigValue;
 import net.regions_unexplored.internal.config.annotation.ConfigOption;
 
 public class RuCommonConfig extends Config {
+    @ConfigOption(category = "features")
+    public static final ConfigValue<Boolean> USE_LOGS_FOR_BRANCHES = bool(false);
+
     @ConfigOption(category = "overworld_biome_toggles")
     public static final ConfigValue<Boolean> TOGGLE_ALPHA_GROVE = bool(true);
     @ConfigOption(category = "overworld_biome_toggles")

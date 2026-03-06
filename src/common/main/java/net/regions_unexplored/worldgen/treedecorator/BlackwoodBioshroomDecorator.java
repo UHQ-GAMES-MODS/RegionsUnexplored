@@ -1,4 +1,4 @@
-package net.regions_unexplored.world.features.treedecorators;
+package net.regions_unexplored.worldgen.treedecorator;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -10,10 +10,10 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorTy
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.registry.tag.RUBlockTags;
 
-public class BlackwoodBioshroom extends TreeDecorator {
-	public static BlackwoodBioshroom INSTANCE = new BlackwoodBioshroom();
-	public static MapCodec<BlackwoodBioshroom> CODEC = MapCodec.unit(BlackwoodBioshroom::new);
-	public static TreeDecoratorType<BlackwoodBioshroom> TYPE = new TreeDecoratorType<>(CODEC);
+public class BlackwoodBioshroomDecorator extends TreeDecorator {
+	public static BlackwoodBioshroomDecorator INSTANCE = new BlackwoodBioshroomDecorator();
+	public static MapCodec<BlackwoodBioshroomDecorator> CODEC = MapCodec.unit(BlackwoodBioshroomDecorator::new);
+	public static TreeDecoratorType<BlackwoodBioshroomDecorator> TYPE = new TreeDecoratorType<>(CODEC);
 
 	@Override
 	protected TreeDecoratorType<?> type() {
@@ -205,7 +205,7 @@ public class BlackwoodBioshroom extends TreeDecorator {
 		}
 
 		public static boolean isReplaceable(LevelSimulatedReader levelSimulatedReader, BlockPos blockPos) {
-			return levelSimulatedReader.isStateAtPosition(blockPos, BlackwoodBioshroom::isReplaceablePlant);
+			return levelSimulatedReader.isStateAtPosition(blockPos, BlackwoodBioshroomDecorator::isReplaceablePlant);
 		}
 	}
 

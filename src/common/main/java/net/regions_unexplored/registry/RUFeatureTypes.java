@@ -4,57 +4,15 @@ import java.util.function.Supplier;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.MultifaceGrowthConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.regions_unexplored.platform.Registrar;
-import net.regions_unexplored.world.level.feature.AirMultifaceGrowthFeature;
-import net.regions_unexplored.world.level.feature.AshVentFeature;
-import net.regions_unexplored.world.level.feature.BasaltBlobFeature;
-import net.regions_unexplored.world.level.feature.FallenBlobTreeFeature;
-import net.regions_unexplored.world.level.feature.FallenSnowTreeFeature;
-import net.regions_unexplored.world.level.feature.FenCattailFeature;
-import net.regions_unexplored.world.level.feature.FloorIcicleFeature;
-import net.regions_unexplored.world.level.feature.GiantLilyPadFeature;
-import net.regions_unexplored.world.level.feature.GlisteringIvyFeature;
-import net.regions_unexplored.world.level.feature.HangingEarlightFeature;
-import net.regions_unexplored.world.level.feature.HangingPrismariteFeature;
-import net.regions_unexplored.world.level.feature.HyacinthPlantsFeature;
-import net.regions_unexplored.world.level.feature.HyacinthStockFeature;
-import net.regions_unexplored.world.level.feature.LargePointedRedstoneFeature;
-import net.regions_unexplored.world.level.feature.LavaDeltaFeature;
-import net.regions_unexplored.world.level.feature.LavaFallFeature;
-import net.regions_unexplored.world.level.feature.MarshFeature;
-import net.regions_unexplored.world.level.feature.MeadowRockFeature;
-import net.regions_unexplored.world.level.feature.NetherRockFeature;
-import net.regions_unexplored.world.level.feature.ObsidianSpireFeature;
-import net.regions_unexplored.world.level.feature.PointedRedstoneClusterFeature;
-import net.regions_unexplored.world.level.feature.PointedRedstoneFeature;
-import net.regions_unexplored.world.level.feature.RockFeature;
-import net.regions_unexplored.world.level.feature.RockPillarFeature;
-import net.regions_unexplored.world.level.feature.SeaRockFeature;
-import net.regions_unexplored.world.level.feature.ShrubFeature;
-import net.regions_unexplored.world.level.feature.SmoulderingDirtFeature;
-import net.regions_unexplored.world.level.feature.WaterCattailFeature;
-import net.regions_unexplored.world.level.feature.WaterEdgeFeature;
-import net.regions_unexplored.world.level.feature.bioshroom.GiantBlueBioshroomFeature;
-import net.regions_unexplored.world.level.feature.bioshroom.GiantGreenBioshroomFeature;
-import net.regions_unexplored.world.level.feature.bioshroom.GiantPinkBioshroomFeature;
-import net.regions_unexplored.world.level.feature.bioshroom.GiantYellowBioshroomFeature;
-import net.regions_unexplored.world.level.feature.configuration.FallenTreeConfiguration;
-import net.regions_unexplored.world.level.feature.configuration.GiantBioshroomConfiguration;
-import net.regions_unexplored.world.level.feature.configuration.HyacinthStockConfiguration;
-import net.regions_unexplored.world.level.feature.configuration.LargePointedRedstoneConfiguration;
-import net.regions_unexplored.world.level.feature.configuration.PointedRedstoneClusterConfiguration;
-import net.regions_unexplored.world.level.feature.configuration.PointedRedstoneConfiguration;
-import net.regions_unexplored.world.level.feature.configuration.RUTreeConfiguration;
-import net.regions_unexplored.world.level.feature.configuration.SeaRockConfiguration;
-import net.regions_unexplored.world.level.feature.configuration.ShrubConfiguration;
+import net.regions_unexplored.world.level.feature.*;
+import net.regions_unexplored.world.level.feature.bioshroom.*;
+import net.regions_unexplored.world.level.feature.configuration.*;
 import net.regions_unexplored.world.level.feature.tree.*;
 import net.regions_unexplored.world.level.feature.tree.nether.*;
+import net.regions_unexplored.worldgen.feature.NewRockFeature;
+import net.regions_unexplored.worldgen.feature.config.RockFeatureConfig;
 
 public interface RUFeatureTypes {
     Supplier<Feature<GiantBioshroomConfiguration>> GIANT_BLUE_BIOSHROOM = register("giant_blue_bioshroom", new GiantBlueBioshroomFeature(GiantBioshroomConfiguration.CODEC));
@@ -106,7 +64,6 @@ public interface RUFeatureTypes {
     Supplier<Feature<MultifaceGrowthConfiguration>> AIR_MULTIFACE_GROWTH = register("air_multiface_growth", new AirMultifaceGrowthFeature(MultifaceGrowthConfiguration.CODEC));
     Supplier<Feature<FallenTreeConfiguration>> FALLEN_BLOB_TREE = register("fallen_blob_tree", new FallenBlobTreeFeature(FallenTreeConfiguration.CODEC));
     Supplier<Feature<FallenTreeConfiguration>> FALLEN_SNOW_TREE = register("fallen_snow_tree", new FallenSnowTreeFeature(FallenTreeConfiguration.CODEC));
-    Supplier<Feature<NoneFeatureConfiguration>> SMOULDERING_DIRT = register("smouldering_dirt", new SmoulderingDirtFeature(NoneFeatureConfiguration.CODEC));
     Supplier<Feature<NoneFeatureConfiguration>> MEADOW_ROCK = register("meadow_rock", new MeadowRockFeature(NoneFeatureConfiguration.CODEC));
     Supplier<Feature<NoneFeatureConfiguration>> ROCK = register("rock", new RockFeature(NoneFeatureConfiguration.CODEC));
     Supplier<Feature<RUTreeConfiguration>> SPIRE = register("spire", new IceSpireFeature(RUTreeConfiguration.CODEC));
@@ -122,6 +79,8 @@ public interface RUFeatureTypes {
     Supplier<Feature<NoneFeatureConfiguration>> GLISTERING_IVY = register("glistering_ivy", new GlisteringIvyFeature(NoneFeatureConfiguration.CODEC));
     Supplier<Feature<NoneFeatureConfiguration>> HANGING_EARLIGHT = register("hanging_earlight", new HangingEarlightFeature(NoneFeatureConfiguration.CODEC));
     Supplier<Feature<NoneFeatureConfiguration>> OBSIDIAN_SPIRE = register("obsidian_spire", new ObsidianSpireFeature(NoneFeatureConfiguration.CODEC));
+
+    Supplier<Feature<RockFeatureConfig>> NEW_ROCK = register("new_rock", new NewRockFeature());
 
     private static <FC extends FeatureConfiguration> Supplier<Feature<FC>> register(String name, Feature<FC> feature) {
         Registrar.register(BuiltInRegistries.FEATURE, name, () -> feature);

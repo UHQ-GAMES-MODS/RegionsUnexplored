@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.regions_unexplored.RegionsUnexplored;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.registry.tag.RUBlockTags;
 import net.regions_unexplored.world.level.block.plant.branch.BranchBlock;
@@ -69,14 +70,20 @@ public class PineTreeFeature extends Feature<RUTreeConfiguration> {
                 placeRoot(level, placePos, randomSource, treeConfiguration);
             }
             if(placeCheck == height_main){
-                if(randomSource.nextInt(11)==0){
-                    placeTop3(level, placePos, randomSource, treeConfiguration);
-                }
-                else if(randomSource.nextInt(11)<=5){
-                    placeTop2(level, placePos, randomSource, treeConfiguration);
-                }
-                else{
-                    placeTop1(level, placePos, randomSource, treeConfiguration);
+                int type = Math.abs(pos.getY()) % 3;
+                switch (type) {
+                    case 0: {
+                        placeTop1(level, placePos, randomSource, treeConfiguration);
+                        break;
+                    }
+                    case 1: {
+                        placeTop2(level, placePos, randomSource, treeConfiguration);
+                        break;
+                    }
+                    case 2: {
+                        placeTop3(level, placePos, randomSource, treeConfiguration);
+                        break;
+                    }
                 }
             }
             placePos.move(Direction.UP);

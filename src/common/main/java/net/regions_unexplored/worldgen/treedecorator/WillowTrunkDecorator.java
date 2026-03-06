@@ -1,4 +1,4 @@
-package net.regions_unexplored.world.features.treedecorators;
+package net.regions_unexplored.worldgen.treedecorator;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;

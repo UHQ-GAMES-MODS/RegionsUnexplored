@@ -1,7 +1,7 @@
 package net.regions_unexplored.datagen.provider.registry.placed_feature;
 
-import dev.worldgen.lithostitched.worldgen.blockpredicate.RandomChancePredicate;
-import dev.worldgen.lithostitched.worldgen.placementmodifier.NoiseSlopePlacement;
+import dev.worldgen.lithostitched.api.worldgen.blockpredicate.LithostitchedBlockPredicates;
+import dev.worldgen.lithostitched.api.worldgen.placementmodifier.LithostitchedPlacementModifiers;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.Vec3i;
@@ -427,7 +427,7 @@ public class RuTreePlacements {
                 saplingWouldSurvive(RUBlocks.MAPLE_NATURAL_SET),
                 BlockPredicate.anyOf(
                     RUPlacedFeatureBootstrap.onGrassBlockPredicate,
-                    new RandomChancePredicate(0.02f)
+                    LithostitchedBlockPredicates.randomChance(0.02f)
                 )
             )),
             BiomeFilter.biome()
@@ -543,7 +543,7 @@ public class RuTreePlacements {
     }
 
     protected static PlacementModifier treeDensity(int slope, int offset) {
-        return new NoiseSlopePlacement(RUNoises.TREE_DENSITY, slope, offset, 1, 0);
+        return LithostitchedPlacementModifiers.noiseSlope(RUNoises.TREE_DENSITY, slope, offset, 1, 0);
     }
 
     private static BlockPredicate saplingWouldSurvive(NaturalSet set) {

@@ -4,7 +4,7 @@
     "decorators": [
       {
         "type": "regions_unexplored:branch",
-        "block": "regions_unexplored:redwood_branch",
+        "branch_block": "regions_unexplored:redwood_branch",
         "leaves_provider": {
           "type": "minecraft:simple_state_provider",
           "state": {
@@ -16,6 +16,7 @@
             }
           }
         },
+        "log_block": "regions_unexplored:redwood_log",
         "probability": 0.06,
         "required_empty_blocks": 3
       }

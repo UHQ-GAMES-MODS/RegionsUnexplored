@@ -1,4 +1,4 @@
-package net.regions_unexplored.world.features.treedecorators;
+package net.regions_unexplored.worldgen.treedecorator;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
@@ -7,57 +7,57 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.regions_unexplored.block.set.NaturalSet;
+import net.regions_unexplored.block.set.WoodSet;
+import net.regions_unexplored.config.RuCommonConfig;
 import net.regions_unexplored.util.RUUtils;
 import net.regions_unexplored.world.level.block.plant.branch.BranchBlock;
 
 import java.util.Optional;
 
 public class BranchDecorator extends TreeDecorator {
-    public static final MapCodec<BranchDecorator> CODEC = RecordCodecBuilder.<BranchDecorator>mapCodec(i -> i.group(
+    public static final MapCodec<BranchDecorator> CODEC = RecordCodecBuilder.mapCodec(i -> i.group(
         Codec.floatRange(0, 1).fieldOf("probability").forGetter(d -> d.probability),
-        BuiltInRegistries.BLOCK.byNameCodec().fieldOf("block").forGetter(d -> d.block),
+        BuiltInRegistries.BLOCK.byNameCodec().fieldOf("branch_block").forGetter(d -> d.branchBlock),
+        BuiltInRegistries.BLOCK.byNameCodec().fieldOf("log_block").forGetter(d -> d.logBlock),
         Codec.intRange(0, 16).fieldOf("required_empty_blocks").forGetter(d -> d.requiredEmptyBlocks),
         BlockStateProvider.CODEC.optionalFieldOf("leaves_provider").forGetter(d -> d.leavesProvider)
-    ).apply(i, BranchDecorator::new)).validate(BranchDecorator::validate);
-
-    private static DataResult<BranchDecorator> validate(BranchDecorator decorator) {
-        if (decorator.block instanceof BranchBlock) {
-            return DataResult.success(decorator);
-        }
-        return DataResult.error(() -> "Block must be instance of BranchBlock, got " + decorator.block.getClass().getName());
-    }
+    ).apply(i, BranchDecorator::new));
 
     public static final TreeDecoratorType<BranchDecorator> TYPE = new TreeDecoratorType<>(CODEC);
 
     private final float probability;
-    private final Block block;
+    private final Block branchBlock;
+    private final Block logBlock;
     private final int requiredEmptyBlocks;
     private final Optional<BlockStateProvider> leavesProvider;
 
-    private BranchDecorator(float probability, Block block, int requiredEmptyBlocks, Optional<BlockStateProvider> leavesProvider) {
+    private BranchDecorator(float probability, Block branchBlock, Block logBlock, int requiredEmptyBlocks, Optional<BlockStateProvider> leavesProvider) {
         this.probability = probability;
-        this.block = block;
+        this.branchBlock = branchBlock;
+        this.logBlock = logBlock;
         this.requiredEmptyBlocks = requiredEmptyBlocks;
         this.leavesProvider = leavesProvider;
     }
 
-    public static BranchDecorator createWithoutLeaves(float probability, NaturalSet set, int requiredEmptyBlocks) {
-        return new BranchDecorator(probability, set.getBranch(), requiredEmptyBlocks, Optional.empty());
+    public static BranchDecorator createWithoutLeaves(float probability, NaturalSet naturalSet, WoodSet woodSet, int requiredEmptyBlocks) {
+        return new BranchDecorator(probability, naturalSet.getBranch(), woodSet.getLog(), requiredEmptyBlocks, Optional.empty());
     }
 
-    public static BranchDecorator create(float probability, NaturalSet set, int requiredEmptyBlocks) {
-        return new BranchDecorator(probability, set.getBranch(), requiredEmptyBlocks, Optional.of(BlockStateProvider.simple(set.getLeaves())));
+    public static BranchDecorator create(float probability, NaturalSet naturalSet, WoodSet woodSet, int requiredEmptyBlocks) {
+        return create(probability, naturalSet, woodSet, requiredEmptyBlocks, BlockStateProvider.simple(naturalSet.getLeaves()));
     }
 
-    public static BranchDecorator create(float probability, NaturalSet set, int requiredEmptyBlocks, BlockStateProvider leavesProvider) {
-        return new BranchDecorator(probability, set.getBranch(), requiredEmptyBlocks, Optional.of(leavesProvider));
+    public static BranchDecorator create(float probability, NaturalSet naturalSet, WoodSet woodSet, int requiredEmptyBlocks, BlockStateProvider leavesProvider) {
+        return new BranchDecorator(probability, naturalSet.getBranch(), woodSet.getLog(), requiredEmptyBlocks, Optional.of(leavesProvider));
     }
 
     @Override
@@ -73,7 +73,13 @@ public class BranchDecorator extends TreeDecorator {
             BlockPos placementPos = logsPos.relative(branchDirection);
             if (!(random.nextFloat() <= this.probability) || !hasRequiredEmptyBlocks(context, placementPos)) continue;
 
-            context.setBlock(placementPos, this.block.defaultBlockState().setValue(BranchBlock.FACING, branchDirection));
+            BlockState toPlace = (RuCommonConfig.USE_LOGS_FOR_BRANCHES.get() ? this.logBlock : this.branchBlock).defaultBlockState();
+            if (toPlace.hasProperty(BlockStateProperties.AXIS)) {
+                toPlace = toPlace.setValue(BlockStateProperties.AXIS, branchDirection.getAxis());
+            } else if (toPlace.hasProperty(BlockStateProperties.HORIZONTAL_FACING)) {
+                toPlace = toPlace.setValue(BlockStateProperties.HORIZONTAL_FACING, branchDirection);
+            }
+            context.setBlock(placementPos, toPlace);
             if (this.leavesProvider.isPresent()) {
                 for (Direction direction : Direction.values()) {
                     if (direction == Direction.DOWN) continue;
@@ -92,7 +98,9 @@ public class BranchDecorator extends TreeDecorator {
     private boolean hasRequiredEmptyBlocks(TreeDecorator.Context context, BlockPos branchPos) {
         for (int i = 0; i <= this.requiredEmptyBlocks; ++i) {
             BlockPos offsetPos = branchPos.below(i);
-            if (context.isAir(offsetPos)) continue;
+            if (context.level().isStateAtPosition(offsetPos, state -> state.isAir() || state.is(BlockTags.LEAVES))) {
+                continue;
+            }
             return false;
         }
         return true;

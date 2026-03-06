@@ -1,0 +1,21 @@
+{
+  "type": "regions_unexplored:new_rock",
+  "config": {
+    "blob_count": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 4,
+      "min_inclusive": 3
+    },
+    "blob_offset_xz": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 1,
+      "min_inclusive": -1
+    },
+    "state_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:cobblestone"
+      }
+    }
+  }
+}

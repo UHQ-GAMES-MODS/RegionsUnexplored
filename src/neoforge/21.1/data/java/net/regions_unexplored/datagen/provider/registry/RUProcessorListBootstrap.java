@@ -1,6 +1,6 @@
 package net.regions_unexplored.datagen.provider.registry;
 
-import dev.worldgen.lithostitched.worldgen.processor.BlockSwapStructureProcessor;
+import dev.worldgen.lithostitched.api.worldgen.processor.LithostitchedProcessors;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Block;
@@ -85,7 +85,7 @@ public class RUProcessorListBootstrap {
     
     private static StructureProcessorList create(Block primaryLog, Block primaryPlanks, Block primaryStairs, Block primarySlab, Block primaryFence, Block primaryDoor, Block primaryTrapdoor, Block secondaryPlanks, Block secondaryStairs, Block secondarySlab, Block secondaryFence) {
         return new StructureProcessorList(List.of(
-            new BlockSwapStructureProcessor(Map.ofEntries(
+            LithostitchedProcessors.blockSwap(Map.ofEntries(
                 Map.entry(id(Blocks.OAK_LOG), id(primaryLog)),
                 Map.entry(id(Blocks.OAK_PLANKS), id(primaryPlanks)),
                 Map.entry(id(Blocks.OAK_STAIRS), id(primaryStairs)),

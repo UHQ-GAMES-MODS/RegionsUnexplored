@@ -1,7 +1,8 @@
 package net.regions_unexplored.world.surface;
 
 import com.google.common.collect.ImmutableList;
-import dev.worldgen.lithostitched.worldgen.surface.condition.SlopeCondition;
+import dev.worldgen.lithostitched.api.tag.LithostitchedTemplatePoolTags;
+import dev.worldgen.lithostitched.api.worldgen.surface.LithostitchedConditionSources;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.InclusiveRange;
 import net.minecraft.world.level.block.Block;
@@ -331,7 +332,7 @@ public class RUSurfaceRuleBuilder {
 
                 ifTrue(isBiome(RUBiomes.REDWOODS), PODZOL),
 
-                ifTrue(isBiome(RUBiomes.CHALK_CLIFFS), ifTrue(not(new SlopeCondition(new InclusiveRange<>(3, Integer.MAX_VALUE))), ChalkSurface)),
+                ifTrue(isBiome(RUBiomes.CHALK_CLIFFS), ifTrue(not(LithostitchedConditionSources.slope(new InclusiveRange<>(3, Integer.MAX_VALUE))), ChalkSurface)),
                 ifTrue(isPeatBiome, PeatGrassSurface),
                 ifTrue(isSiltBiome, SiltGrassSurface),
                 ifTrue(isGrassBiome, GrassSurface)

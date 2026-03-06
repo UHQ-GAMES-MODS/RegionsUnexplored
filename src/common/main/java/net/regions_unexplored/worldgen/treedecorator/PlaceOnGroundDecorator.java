@@ -1,4 +1,4 @@
-package net.regions_unexplored.world.features.treedecorators;
+package net.regions_unexplored.worldgen.treedecorator;
 
 import com.google.common.collect.Lists;
 import com.mojang.serialization.MapCodec;
@@ -16,7 +16,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;

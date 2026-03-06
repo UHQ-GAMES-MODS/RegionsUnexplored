@@ -4,24 +4,24 @@
     "features": [
       {
         "data": {
-          "feature": "regions_unexplored:tree/joshua_small",
+          "feature": "regions_unexplored:rock/cobblestone",
           "placement": []
         },
-        "weight": 4
+        "weight": 1
       },
       {
         "data": {
-          "feature": "regions_unexplored:tree/joshua_medium",
-          "placement": []
-        },
-        "weight": 3
-      },
-      {
-        "data": {
-          "feature": "regions_unexplored:tree/joshua_large",
+          "feature": "regions_unexplored:rock/stone_large",
           "placement": []
         },
         "weight": 2
+      },
+      {
+        "data": {
+          "feature": "regions_unexplored:rock/mossy_stone_large",
+          "placement": []
+        },
+        "weight": 3
       }
     ]
   }
