@@ -1,4 +1,4 @@
-// 1.21.1	2026-02-24T02:54:00.1757833	Tags for minecraft:block mod id regions_unexplored
+// 1.21.1	2026-03-06T23:58:28.1676161	Tags for minecraft:block mod id regions_unexplored
 47322f6e871d59e5581ad5e9b47c6737a5af3480 data/c/tags/block/fences/wooden.json
 543d30a38bbd7deef12bbc96a461b70e01314374 data/c/tags/block/fence_gates/wooden.json
 fbd3b5574bd57030107ab08e4b239ea1520ad7e1 data/c/tags/block/glass_blocks.json
@@ -100,6 +100,7 @@ adfa45d9d26dbf014552adba23eeede475f07fd0 data/regions_unexplored/tags/block/catt
 290567e9f2cc2c3c765244cc99cb009af2d0fac5 data/regions_unexplored/tags/block/crop_plantable_blocks.json
 a80909545cb6695cf2660332dfda8d54445f8172 data/regions_unexplored/tags/block/cypress_logs.json
 f5252ff413c0acb9c0670b12e04c37e02f241c0b data/regions_unexplored/tags/block/dead_logs.json
+51a3712f63b06aba0b220844b47a3a3716a1bbf2 data/regions_unexplored/tags/block/dirt_and_podzol.json
 99c78e980701f3d7791da998970f8544c6dd5fa8 data/regions_unexplored/tags/block/eucalyptus_logs.json
 992027cfca33e7a2eed6bf4aa1102d9ec1e82c5f data/regions_unexplored/tags/block/grass.json
 32834a3e3670826ecf10e70a13c2651a6dabf028 data/regions_unexplored/tags/block/green_bioshroom_logs.json

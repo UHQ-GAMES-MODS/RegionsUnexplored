@@ -86,6 +86,8 @@ public interface RUConfiguredFeatures {
     ResourceKey<ConfiguredFeature<?,?>> TREE_TALL_PALM = tree("tall_palm");
     ResourceKey<ConfiguredFeature<?,?>> TREE_PALM_SHRUB = tree("palm_shrub");
     ResourceKey<ConfiguredFeature<?,?>> TREE_PINE = tree("pine");
+    ResourceKey<ConfiguredFeature<?,?>> TREE_PINE_SKINNY = tree("pine_skinny");
+    ResourceKey<ConfiguredFeature<?,?>> TREE_PINE_SKINNY_TALL = tree("pine_skinny_tall");
     ResourceKey<ConfiguredFeature<?,?>> TREE_PINE_TALL = tree("pine_tall");
     ResourceKey<ConfiguredFeature<?,?>> TREE_STRIPPED_PINE = tree("stripped_pine");
     ResourceKey<ConfiguredFeature<?,?>> TREE_STRIPPED_PINE_TALL = tree("stripped_pine_tall");

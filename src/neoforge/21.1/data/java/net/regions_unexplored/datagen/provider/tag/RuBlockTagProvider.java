@@ -1084,6 +1084,18 @@ public class RuBlockTagProvider extends BlockTagsProvider {
             .add(RUBlocks.SILT_DIRT.get())
         ;
 
+        this.tag(RUBlockTags.DIRT_AND_PODZOL)
+            .add(Blocks.DIRT)
+            .add(Blocks.COARSE_DIRT)
+            .add(Blocks.PODZOL)
+            .add(RUBlocks.PEAT_DIRT.get())
+            .add(RUBlocks.PEAT_COARSE_DIRT.get())
+            .add(RUBlocks.PEAT_PODZOL.get())
+            .add(RUBlocks.SILT_DIRT.get())
+            .add(RUBlocks.SILT_COARSE_DIRT.get())
+            .add(RUBlocks.SILT_PODZOL.get())
+        ;
+
         this.tag(RUBlockTags.BIOSHROOM_GROW_BLOCK)
             .addTag(BlockTags.DIRT)
             .addTag(BlockTags.NYLIUM)

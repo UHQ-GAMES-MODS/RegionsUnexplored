@@ -58,6 +58,7 @@ cloche {
             implementation("com.electronwill.night-config:core:3.8.3")
             implementation("com.electronwill.night-config:toml:3.8.3")
             modImplementation("com.terraformersmc:biolith-neoforge:3.0.10")
+            compileOnly("maven.modrinth:lithostitched:1.6.0-neoforge-1.21.11")
         }
 
         data()

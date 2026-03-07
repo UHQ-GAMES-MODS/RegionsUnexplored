@@ -28,7 +28,7 @@
       }
     },
     "foliage_placer": {
-      "type": "regions_unexplored:pine",
+      "type": "regions_unexplored:skinny_pine",
       "offset": {
         "type": "minecraft:uniform",
         "max_inclusive": 1,

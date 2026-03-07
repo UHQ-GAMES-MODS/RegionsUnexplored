@@ -151,7 +151,7 @@ public class MountainBiomes {
                 .build();
     }
 
-    public static Biome mountainsAndSlopes(HolderGetter<PlacedFeature> featureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean b) {
+    public static Biome mountainsAndSlopes(HolderGetter<PlacedFeature> featureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean slopes) {
         BiomeSpecialEffects.Builder effectBuilder = (new BiomeSpecialEffects.Builder())
                 .skyColor(calculateSkyColor(0.4F))
                 .fogColor(OVERWORLD_FOG_COLOR)
@@ -166,7 +166,7 @@ public class MountainBiomes {
         BiomeGenerationSettings.Builder biomeBuilder = baseMountainGeneration(featureGetter, carverGetter);
 
         //add RU features
-        if(!b){
+        if(!slopes){
             biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.PINE_ON_DIRT);
         }
         else{

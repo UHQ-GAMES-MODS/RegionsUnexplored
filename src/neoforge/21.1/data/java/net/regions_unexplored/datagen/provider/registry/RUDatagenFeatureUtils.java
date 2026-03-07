@@ -19,11 +19,13 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.regions_unexplored.registry.data.RUConfiguredFeatures;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 
 import java.util.List;
 import java.util.function.Supplier;
 
 public class RUDatagenFeatureUtils {
+    public static final BlockPredicate DIRT_OR_PODZOL_BELOW = BlockPredicate.matchesTag(Vec3i.ZERO.below(), RUBlockTags.DIRT_AND_PODZOL);
 
     public static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, PlacementModifier... placement) {
         register(context, key, RUConfiguredFeatures.fromPlaced(key), placement);

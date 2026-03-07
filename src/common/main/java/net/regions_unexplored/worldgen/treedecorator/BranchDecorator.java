@@ -68,7 +68,14 @@ public class BranchDecorator extends TreeDecorator {
     @Override
     public void place(Context context) {
         RandomSource random = context.random();
+        int topLogY = Integer.MIN_VALUE;
+        for (BlockPos pos : context.logs()) {
+            if (pos.getY() > topLogY) {
+                topLogY = pos.getY();
+            }
+        }
         for (BlockPos logsPos : RUUtils.shuffledCopy(context.logs(), random)) {
+            if (!(logsPos.getY() + 2 < topLogY)) continue;
             Direction branchDirection = Direction.Plane.HORIZONTAL.getRandomDirection(random);
             BlockPos placementPos = logsPos.relative(branchDirection);
             if (!(random.nextFloat() <= this.probability) || !hasRequiredEmptyBlocks(context, placementPos)) continue;

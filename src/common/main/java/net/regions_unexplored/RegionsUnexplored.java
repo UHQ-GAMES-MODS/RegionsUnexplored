@@ -34,6 +34,7 @@ public class RegionsUnexplored {
 		RUFeatureTypes.init();
 		RUFoliagePlacerTypes.init();
 		RUItems.init();
+		RULoadPredicateTypes.init();
 		RUParticleTypes.init();
 		RUSoundEvents.init();
 		RUTreeDecoratorTypes.init();

@@ -26,7 +26,6 @@ import net.regions_unexplored.datagen.provider.registry.RUPlacedFeatureBootstrap
 import net.regions_unexplored.registry.data.RUPlacedFeatures;
 
 import java.util.List;
-import java.util.Optional;
 
 import static net.regions_unexplored.datagen.provider.registry.RUDatagenFeatureUtils.*;
 import static net.regions_unexplored.registry.data.RUPlacedFeatures.key;

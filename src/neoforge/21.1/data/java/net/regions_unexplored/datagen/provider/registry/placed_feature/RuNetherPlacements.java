@@ -13,40 +13,41 @@ import net.minecraft.world.level.levelgen.placement.*;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.datagen.provider.registry.configured_feature.RuNetherFeatures;
 import net.regions_unexplored.datagen.provider.registry.configured_feature.RuVegetationFeatures;
-import net.regions_unexplored.datagen.provider.registry.RUPlacedFeatureBootstrap;
+
+import static net.regions_unexplored.registry.data.RUPlacedFeatures.key;
 
 import java.util.List;
 
 public class RuNetherPlacements {
-    public static final ResourceKey<PlacedFeature> SMALL_YELLOW_BIOSHROOM = RUPlacedFeatureBootstrap.key("small_yellow_bioshroom");
-    public static final ResourceKey<PlacedFeature> MYCOTOXIC_MUSHROOMS = RUPlacedFeatureBootstrap.key("mycotoxic_mushrooms");
-    public static final ResourceKey<PlacedFeature> MYCOTOXIC_GRASS = RUPlacedFeatureBootstrap.key("mycotoxic_grass");
-    public static final ResourceKey<PlacedFeature> MYCOTOXIC_DAISY = RUPlacedFeatureBootstrap.key("mycotoxic_daisy");
-    public static final ResourceKey<PlacedFeature> MYCOTOXIC_BIOSHROOM = RUPlacedFeatureBootstrap.key("mycotoxic_bioshroom");
+    public static final ResourceKey<PlacedFeature> SMALL_YELLOW_BIOSHROOM = key("small_yellow_bioshroom");
+    public static final ResourceKey<PlacedFeature> MYCOTOXIC_MUSHROOMS = key("mycotoxic_mushrooms");
+    public static final ResourceKey<PlacedFeature> MYCOTOXIC_GRASS = key("mycotoxic_grass");
+    public static final ResourceKey<PlacedFeature> MYCOTOXIC_DAISY = key("mycotoxic_daisy");
+    public static final ResourceKey<PlacedFeature> MYCOTOXIC_BIOSHROOM = key("mycotoxic_bioshroom");
 
-    public static final ResourceKey<PlacedFeature> BRIMSPROUT = RUPlacedFeatureBootstrap.key("brimsprout");
-    public static final ResourceKey<PlacedFeature> BRIM_FLAMES = RUPlacedFeatureBootstrap.key("brim_flames");
-    public static final ResourceKey<PlacedFeature> DORCEL = RUPlacedFeatureBootstrap.key("dorcel");
-    public static final ResourceKey<PlacedFeature> BRIMWOOD_SHRUB = RUPlacedFeatureBootstrap.key("brimwood_shrub");
+    public static final ResourceKey<PlacedFeature> BRIMSPROUT = key("brimsprout");
+    public static final ResourceKey<PlacedFeature> BRIM_FLAMES = key("brim_flames");
+    public static final ResourceKey<PlacedFeature> DORCEL = key("dorcel");
+    public static final ResourceKey<PlacedFeature> BRIMWOOD_SHRUB = key("brimwood_shrub");
 
-    public static final ResourceKey<PlacedFeature> GLISTERING_MEADOW_ROCK = RUPlacedFeatureBootstrap.key("glistering_meadow_rock");
-    public static final ResourceKey<PlacedFeature> GLISTERING_IVY = RUPlacedFeatureBootstrap.key("glistering_ivy");
-    public static final ResourceKey<PlacedFeature> GLISTERING_SPROUT = RUPlacedFeatureBootstrap.key("glistering_sprout");
-    public static final ResourceKey<PlacedFeature> GLISTERING_FERN = RUPlacedFeatureBootstrap.key("glistering_fern");
-    public static final ResourceKey<PlacedFeature> GLISTERING_BLOOM = RUPlacedFeatureBootstrap.key("glistering_bloom");
-    public static final ResourceKey<PlacedFeature> GLISTER_SPIRE = RUPlacedFeatureBootstrap.key("glister_spire");
-    public static final ResourceKey<PlacedFeature> GLISTER_BULB = RUPlacedFeatureBootstrap.key("glister_bulb");
+    public static final ResourceKey<PlacedFeature> GLISTERING_MEADOW_ROCK = key("glistering_meadow_rock");
+    public static final ResourceKey<PlacedFeature> GLISTERING_IVY = key("glistering_ivy");
+    public static final ResourceKey<PlacedFeature> GLISTERING_SPROUT = key("glistering_sprout");
+    public static final ResourceKey<PlacedFeature> GLISTERING_FERN = key("glistering_fern");
+    public static final ResourceKey<PlacedFeature> GLISTERING_BLOOM = key("glistering_bloom");
+    public static final ResourceKey<PlacedFeature> GLISTER_SPIRE = key("glister_spire");
+    public static final ResourceKey<PlacedFeature> GLISTER_BULB = key("glister_bulb");
 
-    public static final ResourceKey<PlacedFeature> HANGING_EARLIGHT = RUPlacedFeatureBootstrap.key("hanging_earlight");
-    public static final ResourceKey<PlacedFeature> COBALT_ROOTS = RUPlacedFeatureBootstrap.key("cobalt_roots");
-    public static final ResourceKey<PlacedFeature> BLACKSTONE_CLUSTER = RUPlacedFeatureBootstrap.key("blackstone_cluster");
-    public static final ResourceKey<PlacedFeature> COBALT_EARLIGHT = RUPlacedFeatureBootstrap.key("cobalt_earlight");
-    public static final ResourceKey<PlacedFeature> TALL_COBALT_EARLIGHT = RUPlacedFeatureBootstrap.key("tall_cobalt_earlight");
-    public static final ResourceKey<PlacedFeature> OBSIDIAN_SPIRE = RUPlacedFeatureBootstrap.key("obsidian_spire");
+    public static final ResourceKey<PlacedFeature> HANGING_EARLIGHT = key("hanging_earlight");
+    public static final ResourceKey<PlacedFeature> COBALT_ROOTS = key("cobalt_roots");
+    public static final ResourceKey<PlacedFeature> BLACKSTONE_CLUSTER = key("blackstone_cluster");
+    public static final ResourceKey<PlacedFeature> COBALT_EARLIGHT = key("cobalt_earlight");
+    public static final ResourceKey<PlacedFeature> TALL_COBALT_EARLIGHT = key("tall_cobalt_earlight");
+    public static final ResourceKey<PlacedFeature> OBSIDIAN_SPIRE = key("obsidian_spire");
 
-    public static final ResourceKey<PlacedFeature>  POINTED_REDSTONE_NETHER = RUPlacedFeatureBootstrap.key("pointed_redstone_nether");
-    public static final ResourceKey<PlacedFeature>  LARGE_POINTED_REDSTONE_NETHER = RUPlacedFeatureBootstrap.key("large_pointed_redstone_nether");
-    public static final ResourceKey<PlacedFeature>  POINTED_REDSTONE_CLUSTER_NETHER = RUPlacedFeatureBootstrap.key("pointed_redstone_cluster_nether");
+    public static final ResourceKey<PlacedFeature>  POINTED_REDSTONE_NETHER = key("pointed_redstone_nether");
+    public static final ResourceKey<PlacedFeature>  LARGE_POINTED_REDSTONE_NETHER = key("large_pointed_redstone_nether");
+    public static final ResourceKey<PlacedFeature>  POINTED_REDSTONE_CLUSTER_NETHER = key("pointed_redstone_cluster_nether");
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> featureGetter = context.lookup(Registries.CONFIGURED_FEATURE);
 

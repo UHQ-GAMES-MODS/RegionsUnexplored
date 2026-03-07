@@ -4,16 +4,16 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.regions_unexplored.platform.Registrar;
-import net.regions_unexplored.worldgen.foliageplacer.RedwoodFoliagePlacer;
-import net.regions_unexplored.worldgen.foliageplacer.SakuraFoliagePlacer;
-import net.regions_unexplored.worldgen.foliageplacer.WillowFoliagePlacer;
+import net.regions_unexplored.worldgen.foliageplacer.*;
 
 import java.util.function.Supplier;
 
 public interface RUFoliagePlacerTypes {
-    Supplier<FoliagePlacerType<SakuraFoliagePlacer>> SAKURA = register("sakura", SakuraFoliagePlacer.TYPE);
-    Supplier<FoliagePlacerType<WillowFoliagePlacer>> WILLOW = register("willow", WillowFoliagePlacer.TYPE);
+    Supplier<FoliagePlacerType<PineFoliagePlacer>> PINE = register("pine", PineFoliagePlacer.TYPE);
     Supplier<FoliagePlacerType<RedwoodFoliagePlacer>> REDWOOD = register("redwood", RedwoodFoliagePlacer.TYPE);
+    Supplier<FoliagePlacerType<SakuraFoliagePlacer>> SAKURA = register("sakura", SakuraFoliagePlacer.TYPE);
+    Supplier<FoliagePlacerType<SkinnyPineFoliagePlacer>> SKINNY_PINE = register("skinny_pine", SkinnyPineFoliagePlacer.TYPE);
+    Supplier<FoliagePlacerType<WillowFoliagePlacer>> WILLOW = register("willow", WillowFoliagePlacer.TYPE);
 
     static <T extends FoliagePlacer> Supplier<FoliagePlacerType<T>> register(String name, FoliagePlacerType<T> type) {
         Registrar.register(BuiltInRegistries.FOLIAGE_PLACER_TYPE, name, () -> type);

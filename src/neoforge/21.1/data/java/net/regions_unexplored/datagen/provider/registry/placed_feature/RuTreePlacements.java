@@ -15,11 +15,13 @@ import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.regions_unexplored.RegionsUnexplored;
+import net.regions_unexplored.datagen.provider.registry.RUDatagenFeatureUtils;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.block.set.NaturalSet;
 import net.regions_unexplored.datagen.provider.registry.RUPlacedFeatureBootstrap;
 import net.regions_unexplored.registry.data.RUConfiguredFeatures;
 import net.regions_unexplored.registry.data.RUNoises;
+import net.regions_unexplored.registry.tag.RUBlockTags;
 
 import java.util.List;
 
@@ -128,9 +130,9 @@ public class RuTreePlacements {
     public static final ResourceKey<PlacedFeature> PALM_DENSE_TALL = key("palm_dense_tall");
     public static final ResourceKey<PlacedFeature> PALM_SHRUB = key("palm_shrub");
 
+    public static final ResourceKey<PlacedFeature> TREE_GROUP_PINE_TAIGA = group("pine_taiga");
     public static final ResourceKey<PlacedFeature> PINE = key("pine");
     public static final ResourceKey<PlacedFeature> PINE_ON_DIRT = key("pine_on_dirt");
-    public static final ResourceKey<PlacedFeature> PINE_TALL_ON_DIRT = key("pine_tall_on_dirt");
     public static final ResourceKey<PlacedFeature> PINE_SHRUB_ON_GRASS = key("pine_shrub_on_grass");
     public static final ResourceKey<PlacedFeature> SCOTTS_PINE_MOUNTAIN = key("scotts_pine_mountain");
     public static final ResourceKey<PlacedFeature> SCOTTS_PINE_ON_SNOW = key("scotts_pine_on_snow");
@@ -464,9 +466,19 @@ public class RuTreePlacements {
         register(context, RuTreePlacements.PALM_DENSE_TALL, PALM_TALL, List.of(CountPlacement.of(4), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.PALM_SHRUB, PALM_SHRUB, List.of(CountPlacement.of(1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
 
+        register(context, getter, RuTreePlacements.TREE_GROUP_PINE_TAIGA,
+            count(16),
+            InSquarePlacement.spread(),
+            SurfaceWaterDepthFilter.forMaxDepth(0),
+            PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
+            BlockPredicateFilter.forPredicate(BlockPredicate.allOf(
+                saplingWouldSurvive(RUBlocks.PINE_NATURAL_SET),
+                DIRT_OR_PODZOL_BELOW
+            )),
+            BiomeFilter.biome()
+        );
         register(context, RuTreePlacements.PINE, PINE, List.of(CountPlacement.of(6), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.PINE_ON_DIRT, PINE, List.of(CountPlacement.of(13), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(RUPlacedFeatureBootstrap.onDirtPredicate), BiomeFilter.biome()));
-        register(context, RuTreePlacements.PINE_TALL_ON_DIRT, PINE_TALL, List.of(CountPlacement.of(5), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(RUPlacedFeatureBootstrap.onDirtPredicate), BiomeFilter.biome()));
         register(context, RuTreePlacements.SCOTTS_PINE_ON_DIRT, SCOTTS_PINE, List.of(CountPlacement.of(11), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(RUPlacedFeatureBootstrap.onDirtPredicate), BiomeFilter.biome()));
         register(context, RuTreePlacements.SCOTTS_PINE_MOUNTAIN, SCOTTS_PINE_MOUNTAIN, List.of(PlacementUtils.countExtra(2, 0.1F, 1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuTreePlacements.PINE_SHRUB_ON_GRASS, PINE_SHRUB, List.of(CountPlacement.of(2), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(RUPlacedFeatureBootstrap.onGrassBlockPredicate), BiomeFilter.biome()));

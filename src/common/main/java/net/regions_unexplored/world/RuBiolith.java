@@ -190,7 +190,7 @@ public class RuBiolith {
         if (RuCommonConfig.TOGGLE_HIGHLAND_FIELDS.get()) {
             BiomePlacement.replaceOverworld(Biomes.MEADOW, RUBiomes.HIGHLAND_FIELDS, 0.3f);
         }
-        if (RuCommonConfig.TOGGLE_MEADOW.get()) {
+        if (RuCommonConfig.TOGGLE_ROCKY_MEADOW.get()) {
             BiomePlacement.replaceOverworld(Biomes.MEADOW, RUBiomes.ROCKY_MEADOW, 0.3f);
         }
         if (RuCommonConfig.TOGGLE_FROZEN_TUNDRA.get()) {

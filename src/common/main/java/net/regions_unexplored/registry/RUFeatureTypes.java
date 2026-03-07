@@ -39,7 +39,6 @@ public interface RUFeatureTypes {
     Supplier<Feature<NoneFeatureConfiguration>> MEDIUM_JOSHUA_TREE = register("medium_joshua_tree", new MediumJoshuaTreeFeature(NoneFeatureConfiguration.CODEC));
     Supplier<Feature<RUTreeConfiguration>> PALM_TREE = register("palm_tree", new PalmTreeFeature(RUTreeConfiguration.CODEC));
     Supplier<Feature<RUTreeConfiguration>> LUSH_PINE_TREE = register("lush_pine_tree", new LushPineTreeFeature(RUTreeConfiguration.CODEC));
-    Supplier<Feature<RUTreeConfiguration>> PINE_TREE = register("pine_tree", new PineTreeFeature(RUTreeConfiguration.CODEC));
     Supplier<Feature<RUTreeConfiguration>> SMALL_JOSHUA_TREE = register("small_joshua_tree", new SmallJoshuaTreeFeature(RUTreeConfiguration.CODEC));
     Supplier<Feature<RUTreeConfiguration>> SMALL_OAK_TREE = register("small_oak_tree", new SmallOakTreeFeature(RUTreeConfiguration.CODEC));
     Supplier<Feature<RUTreeConfiguration>> STRIPPED_PINE_TREE = register("stripped_pine_tree", new StrippedPineTreeFeature(RUTreeConfiguration.CODEC));
