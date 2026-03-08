@@ -8,6 +8,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.regions_unexplored.RegionsUnexplored;
+import net.regions_unexplored.internal.config.gui.ConfigScreen;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.registry.data.RUBiomes;
 import net.regions_unexplored.registry.RUEntityTypes;
@@ -20,6 +21,17 @@ public class RuLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
+        // Config translations
+        category("client_options");
+        category("particles");
+        category("block_color_options");
+        category("features");
+        category("overworld_biome_toggles", "Biome Toggles (Overworld)");
+        category("overworld_cave_biome_toggles", "Biome Toggles (Caves)");
+        category("nether_biome_toggles", "Biome Toggles (Nether)");
+        category("worldgen_surface_rules");
+
+
         this.add("item_group.regions_unexplored.main", "Regions Unexplored");
         // Advancement translations
         this.add("advancements.regions_unexplored.title", "Regions Unexplored");
@@ -244,5 +256,13 @@ public class RuLanguageProvider extends LanguageProvider {
     // used to create a biome translation string
     private void add(ResourceKey<Biome> key, String translation) {
         this.add("biome." + key.identifier().toLanguageKey(), translation);
+    }
+
+    private void category(String name) {
+        category(name, capitalizeString(name.replace("_", " ")));
+    }
+
+    private void category(String id, String name) {
+        this.add("config.regions_unexplored.category." + id, name);
     }
 }

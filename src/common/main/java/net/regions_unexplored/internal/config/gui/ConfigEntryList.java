@@ -1,19 +1,20 @@
 package net.regions_unexplored.internal.config.gui;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.components.AbstractWidget;
-import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.components.ContainerObjectSelectionList;
-import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.client.gui.components.*;
 import net.minecraft.client.gui.narration.NarratableEntry;
+import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
+import net.regions_unexplored.RegionsUnexplored;
 import net.regions_unexplored.internal.config.ConfigValue;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Scrollable list container for config entries.
@@ -21,8 +22,8 @@ import java.util.List;
 public class ConfigEntryList extends ContainerObjectSelectionList<ConfigEntryList.Entry> {
     private final int listWidth;
 
-    public ConfigEntryList(Minecraft minecraft, int width, int height, int pY, int itemHeight) {
-        super(minecraft, width, height, pY, itemHeight);
+    public ConfigEntryList(Minecraft minecraft, ConfigScreen screen) {
+        super(minecraft, screen.width, screen.layout.getContentHeight(), screen.layout.getHeaderHeight(), 25);
         this.listWidth = 400;
     }
 
@@ -31,34 +32,16 @@ public class ConfigEntryList extends ContainerObjectSelectionList<ConfigEntryLis
         return this.listWidth;
     }
 
-    @Override
-    public int getBottom() {
-        return this.height - 32;
-    }
-
-    @Override
-    protected int getScrollbarPosition() {
-        return this.width / 2 + this.listWidth / 2 + 10;
-    }
-
-    @Override
-    public int getMaxScroll() {
-        return Math.max(0, this.getMaxPosition() - (this.getBottom() - this.getY() - 4));
-    }
-
-    @Override
-    public void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-        pGuiGraphics.enableScissor(0, this.getY(), this.width, this.getBottom());
-        super.renderWidget(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
-        pGuiGraphics.disableScissor();
-    }
-
     /**
      * Public wrapper for adding entries to the list.
      * @param entry The entry to add
      */
     public void addConfigEntry(Entry entry) {
         super.addEntry(entry);
+    }
+
+    private static Component text(String prefix, String value) {
+        return Component.translatable(String.format("config.%s.%s.%s", RegionsUnexplored.MOD_ID, prefix, value));
     }
 
     /**
@@ -92,7 +75,7 @@ public class ConfigEntryList extends ContainerObjectSelectionList<ConfigEntryLis
             // Draw category name centered
             graphics.drawCenteredString(
                     Minecraft.getInstance().font,
-                    Component.literal("=== " + category + " ==="),
+                    text("category", category),
                     left + width / 2,
                     top + 5,
                     0xFFFFFF
@@ -123,56 +106,42 @@ public class ConfigEntryList extends ContainerObjectSelectionList<ConfigEntryLis
         }
     }
 
-    /**
-     * Boolean toggle entry
-     */
-    public static class BooleanEntry extends Entry {
-        private final ConfigScreen screen;
-        private final ConfigValue<Boolean> configValue;
-        private final Button toggleButton;
-        private final List<AbstractWidget> widgets;
+    public abstract static class ConfigEntry<T> extends Entry {
+        protected final ConfigValue<T> configValue;
+        protected final List<AbstractWidget> widgets;
+        protected final String comment;
 
-        @SuppressWarnings("unchecked")
-        public BooleanEntry(ConfigScreen screen, ConfigValue<?> configValue) {
-            this.screen = screen;
-            this.configValue = (ConfigValue<Boolean>) configValue;
-
-            this.toggleButton = Button.builder(
-                    Component.literal(this.configValue.get() ? "ON" : "OFF"),
-                    button -> {
-                        boolean newValue = !this.configValue.get();
-                        this.configValue.setValue(newValue);
-                        button.setMessage(Component.literal(newValue ? "ON" : "OFF"));
-                        if (this.configValue.requiresRestart()) {
-                            screen.markUnsavedChanges();
-                        }
-                    }
-            ).bounds(0, 0, 60, 20).build();
-
+        public ConfigEntry(ConfigValue<T> configValue) {
+            this.configValue = configValue;
             this.widgets = new ArrayList<>();
-            this.widgets.add(toggleButton);
+            this.comment = configValue.getComment();
         }
 
         @Override
-        public void render(GuiGraphics graphics, int index, int top, int left, int width, int height,
-                           int mouseX, int mouseY, boolean isMouseOver, float partialTick) {
-            // Draw label
+        public void render(GuiGraphics graphics, int index, int top, int left, int width, int height, int mouseX, int mouseY, boolean isMouseOver, float partialTick) {
             String label = ConfigScreen.toDisplayName(configValue.getKey());
             if (configValue.requiresRestart()) {
                 label += " *";
             }
+            Font font = Minecraft.getInstance().font;
             graphics.drawString(
-                    Minecraft.getInstance().font,
-                    label,
-                    left + 5,
-                    top + 5,
-                    0xFFFFFF
+                font,
+                label,
+                left + 5,
+                top + 5,
+                0xFFFFFF
             );
 
-            // Position and render button
-            toggleButton.setX(left + width - 70);
-            toggleButton.setY(top);
-            toggleButton.render(graphics, mouseX, mouseY, partialTick);
+            if (comment != null) {
+                if (
+                    mouseX > left + 5 &&
+                    mouseX < left + width * 0.4 &&
+                    mouseY > top &&
+                    mouseY < top + 20
+                ) {
+                    graphics.renderTooltip(font, font.split(Component.literal(comment), 200), mouseX, mouseY);
+                }
+            }
         }
 
         @Override
@@ -187,22 +156,49 @@ public class ConfigEntryList extends ContainerObjectSelectionList<ConfigEntryLis
     }
 
     /**
+     * Boolean toggle entry
+     */
+    public static class BooleanEntry extends ConfigEntry<Boolean> {
+        private final Button toggleButton;
+
+        public BooleanEntry(ConfigScreen screen, ConfigValue<Boolean> configValue) {
+            super(configValue);
+            this.toggleButton = Button.builder(
+                this.configValue.get() ? CommonComponents.OPTION_ON : CommonComponents.OPTION_OFF,
+                button -> {
+                    boolean newValue = !this.configValue.get();
+                    this.configValue.setValue(newValue);
+                    button.setMessage(newValue ? CommonComponents.OPTION_ON : CommonComponents.OPTION_OFF);
+                    if (this.configValue.requiresRestart()) {
+                        screen.markUnsavedChanges();
+                    }
+                }
+            ).bounds(0, 0, 60, 20).build();
+            this.widgets.add(toggleButton);
+        }
+
+        @Override
+        public void render(GuiGraphics graphics, int index, int top, int left, int width, int height, int mouseX, int mouseY, boolean isMouseOver, float partialTick) {
+            super.render(graphics, index, top, left, width, height, mouseX, mouseY, isMouseOver, partialTick);
+            // Position and render button
+            toggleButton.setX(left + width - 70);
+            toggleButton.setY(top);
+            toggleButton.render(graphics, mouseX, mouseY, partialTick);
+        }
+    }
+
+    /**
      * Integer slider/field entry
      */
-    public static class IntegerEntry extends Entry {
-        private final ConfigScreen screen;
-        private final ConfigValue<Integer> configValue;
+    public static class IntegerEntry extends ConfigEntry<Integer> {
         private final EditBox textField;
         private final Button decrementButton;
         private final Button incrementButton;
-        private final List<AbstractWidget> widgets;
         private final int min;
         private final int max;
 
-        @SuppressWarnings("unchecked")
-        public IntegerEntry(ConfigScreen screen, ConfigValue<?> configValue) {
-            this.screen = screen;
-            this.configValue = (ConfigValue<Integer>) configValue;
+        public IntegerEntry(ConfigScreen screen, ConfigValue<Integer> configValue) {
+            super(configValue);
             this.min = configValue.getMinValue() != null ? configValue.getMinValue().intValue() : Integer.MIN_VALUE;
             this.max = configValue.getMaxValue() != null ? configValue.getMaxValue().intValue() : Integer.MAX_VALUE;
 
@@ -248,27 +244,14 @@ public class ConfigEntryList extends ContainerObjectSelectionList<ConfigEntryLis
                 }
             }).bounds(0, 0, 20, 20).build();
 
-            this.widgets = new ArrayList<>();
             this.widgets.add(textField);
             this.widgets.add(decrementButton);
             this.widgets.add(incrementButton);
         }
 
         @Override
-        public void render(GuiGraphics graphics, int index, int top, int left, int width, int height,
-                           int mouseX, int mouseY, boolean isMouseOver, float partialTick) {
-            // Draw label
-            String label = ConfigScreen.toDisplayName(configValue.getKey());
-            if (configValue.requiresRestart()) {
-                label += " *";
-            }
-            graphics.drawString(
-                    Minecraft.getInstance().font,
-                    label,
-                    left + 5,
-                    top + 5,
-                    0xFFFFFF
-            );
+        public void render(GuiGraphics graphics, int index, int top, int left, int width, int height, int mouseX, int mouseY, boolean isMouseOver, float partialTick) {
+            super.render(graphics, index, top, left, width, height, mouseX, mouseY, isMouseOver, partialTick);
 
             // Position widgets
             decrementButton.setX(left + width - 155);
@@ -300,16 +283,11 @@ public class ConfigEntryList extends ContainerObjectSelectionList<ConfigEntryLis
     /**
      * Long number field entry
      */
-    public static class LongEntry extends Entry {
-        private final ConfigScreen screen;
-        private final ConfigValue<Long> configValue;
+    public static class LongEntry extends ConfigEntry<Long> {
         private final EditBox textField;
-        private final List<AbstractWidget> widgets;
 
-        @SuppressWarnings("unchecked")
-        public LongEntry(ConfigScreen screen, ConfigValue<?> configValue) {
-            this.screen = screen;
-            this.configValue = (ConfigValue<Long>) configValue;
+        public LongEntry(ConfigScreen screen, ConfigValue<Long> configValue) {
+            super(configValue);
 
             this.textField = new EditBox(
                     Minecraft.getInstance().font,
@@ -330,24 +308,12 @@ public class ConfigEntryList extends ContainerObjectSelectionList<ConfigEntryLis
                 }
             });
 
-            this.widgets = new ArrayList<>();
             this.widgets.add(textField);
         }
 
         @Override
-        public void render(GuiGraphics graphics, int index, int top, int left, int width, int height,
-                           int mouseX, int mouseY, boolean isMouseOver, float partialTick) {
-            String label = ConfigScreen.toDisplayName(configValue.getKey());
-            if (configValue.requiresRestart()) {
-                label += " *";
-            }
-            graphics.drawString(
-                    Minecraft.getInstance().font,
-                    label,
-                    left + 5,
-                    top + 5,
-                    0xFFFFFF
-            );
+        public void render(GuiGraphics graphics, int index, int top, int left, int width, int height, int mouseX, int mouseY, boolean isMouseOver, float partialTick) {
+            super.render(graphics, index, top, left, width, height, mouseX, mouseY, isMouseOver, partialTick);
 
             textField.setX(left + width - 110);
             textField.setY(top);
@@ -368,16 +334,11 @@ public class ConfigEntryList extends ContainerObjectSelectionList<ConfigEntryLis
     /**
      * Double number field entry
      */
-    public static class DoubleEntry extends Entry {
-        private final ConfigScreen screen;
-        private final ConfigValue<Double> configValue;
+    public static class DoubleEntry extends ConfigEntry<Double> {
         private final EditBox textField;
-        private final List<AbstractWidget> widgets;
 
-        @SuppressWarnings("unchecked")
-        public DoubleEntry(ConfigScreen screen, ConfigValue<?> configValue) {
-            this.screen = screen;
-            this.configValue = (ConfigValue<Double>) configValue;
+        public DoubleEntry(ConfigScreen screen, ConfigValue<Double> configValue) {
+            super(configValue);
 
             this.textField = new EditBox(
                     Minecraft.getInstance().font,
@@ -398,24 +359,12 @@ public class ConfigEntryList extends ContainerObjectSelectionList<ConfigEntryLis
                 }
             });
 
-            this.widgets = new ArrayList<>();
             this.widgets.add(textField);
         }
 
         @Override
-        public void render(GuiGraphics graphics, int index, int top, int left, int width, int height,
-                           int mouseX, int mouseY, boolean isMouseOver, float partialTick) {
-            String label = ConfigScreen.toDisplayName(configValue.getKey());
-            if (configValue.requiresRestart()) {
-                label += " *";
-            }
-            graphics.drawString(
-                    Minecraft.getInstance().font,
-                    label,
-                    left + 5,
-                    top + 5,
-                    0xFFFFFF
-            );
+        public void render(GuiGraphics graphics, int index, int top, int left, int width, int height, int mouseX, int mouseY, boolean isMouseOver, float partialTick) {
+            super.render(graphics, index, top, left, width, height, mouseX, mouseY, isMouseOver, partialTick);
 
             textField.setX(left + width - 110);
             textField.setY(top);
@@ -436,16 +385,11 @@ public class ConfigEntryList extends ContainerObjectSelectionList<ConfigEntryLis
     /**
      * Float number field entry
      */
-    public static class FloatEntry extends Entry {
-        private final ConfigScreen screen;
-        private final ConfigValue<Float> configValue;
+    public static class FloatEntry extends ConfigEntry<Float> {
         private final EditBox textField;
-        private final List<AbstractWidget> widgets;
 
-        @SuppressWarnings("unchecked")
-        public FloatEntry(ConfigScreen screen, ConfigValue<?> configValue) {
-            this.screen = screen;
-            this.configValue = (ConfigValue<Float>) configValue;
+        public FloatEntry(ConfigScreen screen, ConfigValue<Float> configValue) {
+            super(configValue);
 
             this.textField = new EditBox(
                     Minecraft.getInstance().font,
@@ -466,24 +410,12 @@ public class ConfigEntryList extends ContainerObjectSelectionList<ConfigEntryLis
                 }
             });
 
-            this.widgets = new ArrayList<>();
             this.widgets.add(textField);
         }
 
         @Override
-        public void render(GuiGraphics graphics, int index, int top, int left, int width, int height,
-                           int mouseX, int mouseY, boolean isMouseOver, float partialTick) {
-            String label = ConfigScreen.toDisplayName(configValue.getKey());
-            if (configValue.requiresRestart()) {
-                label += " *";
-            }
-            graphics.drawString(
-                    Minecraft.getInstance().font,
-                    label,
-                    left + 5,
-                    top + 5,
-                    0xFFFFFF
-            );
+        public void render(GuiGraphics graphics, int index, int top, int left, int width, int height, int mouseX, int mouseY, boolean isMouseOver, float partialTick) {
+            super.render(graphics, index, top, left, width, height, mouseX, mouseY, isMouseOver, partialTick);
 
             textField.setX(left + width - 110);
             textField.setY(top);
@@ -504,17 +436,13 @@ public class ConfigEntryList extends ContainerObjectSelectionList<ConfigEntryLis
     /**
      * String text field entry (with dropdown for allowed values)
      */
-    public static class StringEntry extends Entry {
-        private final ConfigScreen screen;
-        private final ConfigValue<String> configValue;
+    public static class StringEntry extends ConfigEntry<String> {
         private final EditBox textField;
         private final Button cycleButton;
-        private final List<AbstractWidget> widgets;
 
         @SuppressWarnings("unchecked")
-        public StringEntry(ConfigScreen screen, ConfigValue<?> configValue) {
-            this.screen = screen;
-            this.configValue = (ConfigValue<String>) configValue;
+        public StringEntry(ConfigScreen screen, ConfigValue<String> configValue) {
+            super(configValue);
 
             // Check if it has allowed values
             boolean hasAllowedValues = this.configValue.getAllowedValues() != null
@@ -557,7 +485,6 @@ public class ConfigEntryList extends ContainerObjectSelectionList<ConfigEntryLis
                 this.cycleButton = null;
             }
 
-            this.widgets = new ArrayList<>();
             if (textField != null) {
                 this.widgets.add(textField);
             }
@@ -567,19 +494,8 @@ public class ConfigEntryList extends ContainerObjectSelectionList<ConfigEntryLis
         }
 
         @Override
-        public void render(GuiGraphics graphics, int index, int top, int left, int width, int height,
-                           int mouseX, int mouseY, boolean isMouseOver, float partialTick) {
-            String label = ConfigScreen.toDisplayName(configValue.getKey());
-            if (configValue.requiresRestart()) {
-                label += " *";
-            }
-            graphics.drawString(
-                    Minecraft.getInstance().font,
-                    label,
-                    left + 5,
-                    top + 5,
-                    0xFFFFFF
-            );
+        public void render(GuiGraphics graphics, int index, int top, int left, int width, int height, int mouseX, int mouseY, boolean isMouseOver, float partialTick) {
+            super.render(graphics, index, top, left, width, height, mouseX, mouseY, isMouseOver, partialTick);
 
             if (textField != null) {
                 textField.setX(left + width - 130);
