@@ -7,6 +7,7 @@ import net.minecraft.client.gui.components.*;
 import net.minecraft.client.gui.narration.NarratableEntry;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.StringRepresentable;
 import net.regions_unexplored.RegionsUnexplored;
 import net.regions_unexplored.internal.config.ConfigValue;
 import org.jetbrains.annotations.NotNull;
@@ -159,21 +160,17 @@ public class ConfigEntryList extends ContainerObjectSelectionList<ConfigEntryLis
      * Boolean toggle entry
      */
     public static class BooleanEntry extends ConfigEntry<Boolean> {
-        private final Button toggleButton;
+        private final CycleButton<Boolean> toggleButton;
 
         public BooleanEntry(ConfigScreen screen, ConfigValue<Boolean> configValue) {
             super(configValue);
-            this.toggleButton = Button.builder(
-                this.configValue.get() ? CommonComponents.OPTION_ON : CommonComponents.OPTION_OFF,
-                button -> {
-                    boolean newValue = !this.configValue.get();
-                    this.configValue.setValue(newValue);
-                    button.setMessage(newValue ? CommonComponents.OPTION_ON : CommonComponents.OPTION_OFF);
-                    if (this.configValue.requiresRestart()) {
-                        screen.markUnsavedChanges();
-                    }
+            this.toggleButton = CycleButton.onOffBuilder(configValue.get()).displayOnlyValue().create(0, 0, 100, 20, Component.empty(), (button, bool) -> {
+                boolean newValue = !this.configValue.get();
+                this.configValue.setValue(newValue);
+                if (this.configValue.requiresRestart()) {
+                    screen.markUnsavedChanges();
                 }
-            ).bounds(0, 0, 60, 20).build();
+            });
             this.widgets.add(toggleButton);
         }
 
@@ -181,7 +178,7 @@ public class ConfigEntryList extends ContainerObjectSelectionList<ConfigEntryLis
         public void render(GuiGraphics graphics, int index, int top, int left, int width, int height, int mouseX, int mouseY, boolean isMouseOver, float partialTick) {
             super.render(graphics, index, top, left, width, height, mouseX, mouseY, isMouseOver, partialTick);
             // Position and render button
-            toggleButton.setX(left + width - 70);
+            toggleButton.setX(left + width - 110);
             toggleButton.setY(top);
             toggleButton.render(graphics, mouseX, mouseY, partialTick);
         }
