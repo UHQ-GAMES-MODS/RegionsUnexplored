@@ -14,7 +14,6 @@ import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.block.set.NaturalSet;
 import net.regions_unexplored.block.set.WoodSet;
 import net.regions_unexplored.registry.tag.RUItemTags;
-import net.regions_unexplored.registry.tag.RUItemTags;
 import net.regions_unexplored.registry.RUItems;
 import org.jetbrains.annotations.Nullable;
 
@@ -31,7 +30,7 @@ public class RuItemTagProvider extends ItemTagsProvider {
     public void addTags(HolderLookup.Provider provider) {
         addCommonTags(provider);
 
-        this.tag(ItemTags.BAMBOO_BLOCKS).addTags(RUItemTags.BAMBOO_LOGS);
+        this.tag(ItemTags.BAMBOO_BLOCKS).addTag(RUItemTags.BAMBOO_LOGS);
         this.tag(ItemTags.BIRCH_LOGS).add(RUBlocks.SILVER_BIRCH_WOOD_SET.getLog().asItem());
 
 
@@ -186,11 +185,10 @@ public class RuItemTagProvider extends ItemTagsProvider {
         ;
         this.tag(RUItemTags.GRASS)
                 .add(RUBlocks.FROZEN_GRASS.get().asItem())
-                .add(RUBlocks.MEDIUM_GRASS.get().asItem())
                 .add(RUBlocks.SANDY_GRASS.get().asItem())
                 .add(RUBlocks.STEPPE_GRASS.get().asItem())
                 .add(RUBlocks.STEPPE_SHRUB.get().asItem())
-                .add(RUBlocks.STONE_BUD.get().asItem())
+                .add(RUBlocks.GRASS_SPROUTS.get().asItem())
                 .add(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("minecraft", "short_grass")))
                 .add(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("minecraft", "fern")))
         ;

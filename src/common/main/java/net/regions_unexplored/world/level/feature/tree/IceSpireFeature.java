@@ -14,22 +14,22 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.registry.tag.RUBlockTags;
-import net.regions_unexplored.world.level.feature.configuration.RuTreeConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.RUTreeConfiguration;
 
 import java.util.Random;
 
-public class IceSpireFeature extends Feature<RuTreeConfiguration> {
+public class IceSpireFeature extends Feature<RUTreeConfiguration> {
 
-    public IceSpireFeature(Codec<RuTreeConfiguration> codec) {
+    public IceSpireFeature(Codec<RUTreeConfiguration> codec) {
         super(codec);
     }
 
-    public boolean place(FeaturePlaceContext<RuTreeConfiguration> context) {
-        RuTreeConfiguration treeConfiguration = context.config();
+    public boolean place(FeaturePlaceContext<RUTreeConfiguration> context) {
+        RUTreeConfiguration treeConfiguration = context.config();
         BlockPos pos = context.origin();
         RandomSource randomSource = context.random();
         WorldGenLevel level = context.level();
-        int height_main = context.random().nextInt(treeConfiguration.sizeVariation) + treeConfiguration.minimumSize;
+        int height_main = context.random().nextInt(treeConfiguration.sizeVariation()) + treeConfiguration.minimumSize();
         int height_2n = height_main>10 ? (height_main/2)+randomSource.nextInt(3) : (height_main/2);
         int height_2s = height_main>10 ? (height_main/2)+randomSource.nextInt(3) : (height_main/2);
         int height_2e = height_main>10 ? (height_main/2)+randomSource.nextInt(3) : (height_main/2);
@@ -144,7 +144,7 @@ public class IceSpireFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public void generateSmallSpire(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void generateSmallSpire(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         BlockPos.MutableBlockPos placePos = pos.mutable();
         int size = randomSource.nextInt(3)+5;
 
@@ -176,7 +176,7 @@ public class IceSpireFeature extends Feature<RuTreeConfiguration> {
         placeLeavesBlob(level, pos.west().above(), randomSource, treeConfiguration);
     }
 
-    public boolean placeLog(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLog(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         if(level.isOutsideBuildHeight(pos)){
             return true;
@@ -194,7 +194,7 @@ public class IceSpireFeature extends Feature<RuTreeConfiguration> {
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos)) {
-            level.setBlock(pos, treeConfiguration.trunkProvider.getState(randomSource, pos), 2);
+            level.setBlock(pos, treeConfiguration.trunkProvider().getState(randomSource, pos), 2);
         }
         else{
             return true;
@@ -215,7 +215,7 @@ public class IceSpireFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public void placeRoot(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeRoot(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         int rd = random.nextInt(2)+4;
         int i = 0;
@@ -230,7 +230,7 @@ public class IceSpireFeature extends Feature<RuTreeConfiguration> {
         }
     }
 
-    public boolean placeLeavesBlob(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLeavesBlob(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         int n = random.nextInt(3);
 
@@ -242,13 +242,13 @@ public class IceSpireFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public boolean placeLeavesBlock(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLeavesBlock(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         if(level.isOutsideBuildHeight(pos)){
             return true;
         }
         if(level.getBlockState(pos).canBeReplaced()) {
-            level.setBlock(pos, treeConfiguration.foliageProvider.getState(randomSource, pos), 2);
+            level.setBlock(pos, treeConfiguration.foliageProvider().getState(randomSource, pos), 2);
         }
         return true;
     }

@@ -3,6 +3,7 @@ package net.regions_unexplored.registry.data;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.regions_unexplored.RegionsUnexplored;
 
 public interface RUConfiguredFeatures {
@@ -54,9 +55,9 @@ public interface RUConfiguredFeatures {
     ResourceKey<ConfiguredFeature<?,?>> TREE_DEAD_STRIPPED_PINE_MOUNTAIN = tree("dead_stripped_pine_mountain");
     ResourceKey<ConfiguredFeature<?,?>> TREE_SMALL_EUCALYPTUS = tree("small_eucalyptus");
     ResourceKey<ConfiguredFeature<?,?>> TREE_EUCALYPTUS = tree("eucalyptus");
-    ResourceKey<ConfiguredFeature<?,?>> TREE_LARGE_JOSHUA = tree("large_joshua");
-    ResourceKey<ConfiguredFeature<?,?>> TREE_MEDIUM_JOSHUA = tree("medium_joshua");
-    ResourceKey<ConfiguredFeature<?,?>> TREE_JOSHUA_SHRUB = tree("joshua_shrub");
+    ResourceKey<ConfiguredFeature<?,?>> TREE_JOSHUA_SMALL = tree("joshua_small");
+    ResourceKey<ConfiguredFeature<?,?>> TREE_JOSHUA_MEDIUM = tree("joshua_medium");
+    ResourceKey<ConfiguredFeature<?,?>> TREE_JOSHUA_LARGE = tree("joshua_large");
     ResourceKey<ConfiguredFeature<?,?>> TREE_JUNGLE = tree("jungle");
     ResourceKey<ConfiguredFeature<?,?>> TREE_BIG_JUNGLE = tree("big_jungle");
     ResourceKey<ConfiguredFeature<?,?>> TREE_KAPOK = tree("kapok");
@@ -85,6 +86,8 @@ public interface RUConfiguredFeatures {
     ResourceKey<ConfiguredFeature<?,?>> TREE_TALL_PALM = tree("tall_palm");
     ResourceKey<ConfiguredFeature<?,?>> TREE_PALM_SHRUB = tree("palm_shrub");
     ResourceKey<ConfiguredFeature<?,?>> TREE_PINE = tree("pine");
+    ResourceKey<ConfiguredFeature<?,?>> TREE_PINE_SKINNY = tree("pine_skinny");
+    ResourceKey<ConfiguredFeature<?,?>> TREE_PINE_SKINNY_TALL = tree("pine_skinny_tall");
     ResourceKey<ConfiguredFeature<?,?>> TREE_PINE_TALL = tree("pine_tall");
     ResourceKey<ConfiguredFeature<?,?>> TREE_STRIPPED_PINE = tree("stripped_pine");
     ResourceKey<ConfiguredFeature<?,?>> TREE_STRIPPED_PINE_TALL = tree("stripped_pine_tall");
@@ -102,16 +105,13 @@ public interface RUConfiguredFeatures {
     ResourceKey<ConfiguredFeature<?,?>> TREE_SMALL_OAK = tree("small_oak");
     ResourceKey<ConfiguredFeature<?,?>> TREE_LARGE_SOCOTRA = tree("large_socotra");
     ResourceKey<ConfiguredFeature<?,?>> TREE_SMALL_SOCOTRA = tree("small_socotra");
-    ResourceKey<ConfiguredFeature<?,?>> TREE_REDWOOD = tree("redwood");
-    ResourceKey<ConfiguredFeature<?,?>> TREE_GIANT_REDWOOD = tree("giant_redwood");
-    ResourceKey<ConfiguredFeature<?,?>> TREE_ULTRA_REDWOOD = tree("ultra_redwood");
+    ResourceKey<ConfiguredFeature<?,?>> TREE_REDWOOD_SMALL = tree("redwood_small");
+    ResourceKey<ConfiguredFeature<?,?>> TREE_REDWOOD_MEDIUM = tree("redwood_medium");
+    ResourceKey<ConfiguredFeature<?,?>> TREE_REDWOOD_LARGE = tree("redwood_large");
+    ResourceKey<ConfiguredFeature<?,?>> TREE_REDWOOD_EMERGENT = tree("redwood_emergent");
     ResourceKey<ConfiguredFeature<?,?>> TREE_WILLOW = tree("willow");
     ResourceKey<ConfiguredFeature<?,?>> TREE_BIG_WILLOW = tree("big_willow");
     ResourceKey<ConfiguredFeature<?,?>> TREE_WILLOW_VINES = tree("willow_vines");
-    // Tree Groups
-    ResourceKey<ConfiguredFeature<?,?>> TREE_GROUP_OLD_GROWTH_BAYOU = treeGroup("old_growth_bayou");
-    ResourceKey<ConfiguredFeature<?,?>> TREE_GROUP_AUTUMNAL_MAPLE_FOREST = treeGroup("autumnal_maple");
-    ResourceKey<ConfiguredFeature<?,?>> TREE_GROUP_PUMPKIN_FIELDS = treeGroup("pumpkin_fields");
     // Bonemealables
     ResourceKey<ConfiguredFeature<?,?>> BONEMEAL_ALPHA_GRASS = key("bonemeal/grass/alpha");
     ResourceKey<ConfiguredFeature<?,?>> BONEMEAL_MYCOTOXIC_NYLIUM = key("bonemeal/nylium/mycotoxic");
@@ -129,5 +129,9 @@ public interface RUConfiguredFeatures {
     
     static ResourceKey<ConfiguredFeature<?,?>> key(String name) {
         return RegionsUnexplored.key(Registries.CONFIGURED_FEATURE, name);
+    }
+
+    static ResourceKey<ConfiguredFeature<?,?>> fromPlaced(ResourceKey<PlacedFeature> key) {
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, key.identifier());
     }
 }

@@ -1,6 +1,8 @@
 {
   "values": [
     "regions_unexplored:grassland",
+    "regions_unexplored:flower_fields",
+    "regions_unexplored:clover_plains",
     "regions_unexplored:prairie",
     "regions_unexplored:willow_forest",
     "regions_unexplored:temperate_grove",

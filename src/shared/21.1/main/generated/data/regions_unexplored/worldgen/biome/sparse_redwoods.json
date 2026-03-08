@@ -82,14 +82,13 @@
     ],
     [
       "minecraft:glow_lichen",
-      "regions_unexplored:medium_grass",
+      "regions_unexplored:patch/grass_sprouts_sparse",
       "minecraft:patch_large_fern",
       "minecraft:patch_sugar_cane",
       "minecraft:patch_pumpkin",
       "regions_unexplored:tree/giant_redwood_sparse",
-      "regions_unexplored:tree/redwood",
       "regions_unexplored:tree/oak_bush_sparse",
-      "regions_unexplored:redwoods_vegetation",
+      "regions_unexplored:patch/ferns_dense",
       "regions_unexplored:rare_salmonberry_bush",
       "regions_unexplored:redwood_shrub"
     ],

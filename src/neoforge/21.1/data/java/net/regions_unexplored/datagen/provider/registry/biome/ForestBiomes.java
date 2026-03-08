@@ -38,7 +38,7 @@ public class ForestBiomes {
     private static BiomeGenerationSettings.Builder baseForestGeneration(HolderGetter<PlacedFeature> featureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean addDefaultFlowers) {
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(featureGetter, carverGetter);
         RUBiomeFeatures.globalOverworldGeneration(biomeBuilder);
-        RUBiomeFeatures.mediumGrass(biomeBuilder);
+        RUBiomeFeatures.grassSprouts(biomeBuilder);
         if(addDefaultFlowers){
             BiomeDefaultFeatures.addForestFlowers(biomeBuilder);
         }
@@ -97,7 +97,8 @@ public class ForestBiomes {
         BiomeGenerationSettings.Builder biomeBuilder = baseForestGeneration(featureGetter, carverGetter, true);
 
         //add RU features
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.BAMBOO);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.TREE_GROUP_BAMBOO_FOREST_PRIMARY);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.TREE_GROUP_BAMBOO_FOREST_SECONDARY);
 
         RUBiomeFeatures.addPinkFlowers(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.GRASS);

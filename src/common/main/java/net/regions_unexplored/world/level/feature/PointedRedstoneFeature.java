@@ -12,7 +12,7 @@ import net.regions_unexplored.world.level.feature.configuration.PointedRedstoneU
 
 import java.util.Optional;
 
-public class PointedRedstoneFeature<P> extends Feature<PointedRedstoneConfiguration> {
+public class PointedRedstoneFeature extends Feature<PointedRedstoneConfiguration> {
     public PointedRedstoneFeature(Codec<PointedRedstoneConfiguration> codec) {
         super(codec);
     }

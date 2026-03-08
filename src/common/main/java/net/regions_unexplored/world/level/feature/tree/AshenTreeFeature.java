@@ -16,22 +16,22 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.registry.tag.RUBlockTags;
-import net.regions_unexplored.world.level.feature.configuration.RuTreeConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.RUTreeConfiguration;
 
 import java.util.Random;
 
-public class AshenTreeFeature extends Feature<RuTreeConfiguration> {
+public class AshenTreeFeature extends Feature<RUTreeConfiguration> {
 
-    public AshenTreeFeature(Codec<RuTreeConfiguration> codec) {
+    public AshenTreeFeature(Codec<RUTreeConfiguration> codec) {
         super(codec);
     }
 
-    public boolean place(FeaturePlaceContext<RuTreeConfiguration> context) {
-        RuTreeConfiguration treeConfiguration = context.config();
+    public boolean place(FeaturePlaceContext<RUTreeConfiguration> context) {
+        RUTreeConfiguration treeConfiguration = context.config();
         BlockPos pos = context.origin();
         RandomSource randomSource = context.random();
         WorldGenLevel level = context.level();
-        int height_main = context.random().nextInt(treeConfiguration.sizeVariation) + treeConfiguration.minimumSize;
+        int height_main = context.random().nextInt(treeConfiguration.sizeVariation()) + treeConfiguration.minimumSize();
         int min_leaves = randomSource.nextInt(2)+3;
 
         int check = 0;
@@ -67,7 +67,7 @@ public class AshenTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public boolean placeLogX(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLogX(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         if(level.isOutsideBuildHeight(pos)){
             return true;
@@ -85,7 +85,7 @@ public class AshenTreeFeature extends Feature<RuTreeConfiguration> {
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos)) {
-            level.setBlock(pos, treeConfiguration.trunkProvider.getState(randomSource, pos).setValue(RotatedPillarBlock.AXIS, Direction.Axis.X), 2);
+            level.setBlock(pos, treeConfiguration.trunkProvider().getState(randomSource, pos).setValue(RotatedPillarBlock.AXIS, Direction.Axis.X), 2);
         }
         else{
             return true;
@@ -105,7 +105,7 @@ public class AshenTreeFeature extends Feature<RuTreeConfiguration> {
         }
         return true;
     }
-    public boolean placeLogZ(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLogZ(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         if(level.isOutsideBuildHeight(pos)){
             return true;
@@ -123,7 +123,7 @@ public class AshenTreeFeature extends Feature<RuTreeConfiguration> {
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos)) {
-            level.setBlock(pos, treeConfiguration.trunkProvider.getState(randomSource, pos).setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z), 2);
+            level.setBlock(pos, treeConfiguration.trunkProvider().getState(randomSource, pos).setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z), 2);
         }
         else{
             return true;
@@ -143,7 +143,7 @@ public class AshenTreeFeature extends Feature<RuTreeConfiguration> {
         }
         return true;
     }
-    public boolean placeLog(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLog(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         if(level.isOutsideBuildHeight(pos)){
             return true;
@@ -161,7 +161,7 @@ public class AshenTreeFeature extends Feature<RuTreeConfiguration> {
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos)) {
-            level.setBlock(pos, treeConfiguration.trunkProvider.getState(randomSource, pos), 2);
+            level.setBlock(pos, treeConfiguration.trunkProvider().getState(randomSource, pos), 2);
         }
         else{
             return true;
@@ -182,7 +182,7 @@ public class AshenTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public boolean placeBranches(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration, int height_main, int min_leaves) {
+    public boolean placeBranches(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration, int height_main, int min_leaves) {
         int n = randomSource.nextInt(height_main-min_leaves);
         int s = randomSource.nextInt(height_main-min_leaves);
         int e = randomSource.nextInt(height_main-min_leaves);
@@ -214,7 +214,7 @@ public class AshenTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public void placeRoot(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeRoot(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         int rd = random.nextInt(2)+2;
         int i = 0;
@@ -235,7 +235,7 @@ public class AshenTreeFeature extends Feature<RuTreeConfiguration> {
         }
     }
 
-    public boolean placeRandomChanceLeaves(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeRandomChanceLeaves(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         if(random.nextInt(3)==0){
             placeLeavesBlock(level,pos,randomSource,treeConfiguration);
@@ -243,7 +243,7 @@ public class AshenTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public boolean placeLeavesTop(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLeavesTop(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         placeLeavesBlock(level,pos,randomSource,treeConfiguration);
         placeLeavesBlock(level,pos.above(),randomSource,treeConfiguration);
@@ -255,13 +255,13 @@ public class AshenTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public boolean placeLeavesBlock(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLeavesBlock(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         if(level.isOutsideBuildHeight(pos)){
             return true;
         }
         if(level.getBlockState(pos).canBeReplaced()) {
-            level.setBlock(pos, treeConfiguration.foliageProvider.getState(randomSource, pos).setValue(LeavesBlock.DISTANCE, 1), 2);
+            level.setBlock(pos, treeConfiguration.foliageProvider().getState(randomSource, pos).setValue(LeavesBlock.DISTANCE, 1), 2);
         }
         return true;
     }

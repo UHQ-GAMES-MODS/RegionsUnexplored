@@ -1,0 +1,13 @@
+{
+  "values": [
+    "minecraft:dirt",
+    "minecraft:coarse_dirt",
+    "minecraft:podzol",
+    "regions_unexplored:peat_dirt",
+    "regions_unexplored:peat_coarse_dirt",
+    "regions_unexplored:peat_podzol",
+    "regions_unexplored:silt_dirt",
+    "regions_unexplored:silt_coarse_dirt",
+    "regions_unexplored:silt_podzol"
+  ]
+}

@@ -61,7 +61,7 @@ public class MountainBiomes {
     private static BiomeGenerationSettings.Builder baseSlopeGeneration(HolderGetter<PlacedFeature> featureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(featureGetter, carverGetter);
         RUBiomeFeatures.globalOverworldGeneration(biomeBuilder);
-        RUBiomeFeatures.mediumGrass(biomeBuilder);
+        RUBiomeFeatures.grassSprouts(biomeBuilder);
         BiomeDefaultFeatures.addPlainGrass(biomeBuilder);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
         RUBiomeFeatures.addDefaultSoftDisks(biomeBuilder);
@@ -98,7 +98,7 @@ public class MountainBiomes {
         //add RU features
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.OAK_SHRUB_ON_STONE);
 
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.STONE_BUD_SPARSE);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.PATCH_GRASS_SPROUTS_SPARSE);
 
         //add mob spawns
         MobSpawnSettings.Builder spawnBuilder = baseExtremeHillsSpawning();
@@ -126,16 +126,17 @@ public class MountainBiomes {
                 .backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_BIOME_MEADOW));
 
         //add features
-        BiomeGenerationSettings.Builder biomeBuilder = baseSlopeGeneration(featureGetter, carverGetter);
+        BiomeGenerationSettings.Builder builder = baseSlopeGeneration(featureGetter, carverGetter);
 
         //add RU features
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuMiscOverworldPlacements.ROCK);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuMiscOverworldPlacements.NOISE_ROCKS);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuMiscOverworldPlacements.NOISE_BUSH);
+        builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuMiscOverworldPlacements.ROCK_GROUP_HIGHLAND_FIELDS);
+        //builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuMiscOverworldPlacements.ROCK);
+        //builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuMiscOverworldPlacements.NOISE_ROCKS);
+        //builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuMiscOverworldPlacements.NOISE_BUSH);
 
-        RUBiomeFeatures.addDaisies(biomeBuilder);
+        RUBiomeFeatures.addDaisies(builder);
 
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.GRASS);
+        builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.GRASS);
 
         //add mob spawns
         MobSpawnSettings.Builder spawnBuilder = baseSlopeSpawning();
@@ -146,11 +147,11 @@ public class MountainBiomes {
                 .downfall(0.6f)
                 .specialEffects(effectBuilder.build())
                 .mobSpawnSettings(spawnBuilder.build())
-                .generationSettings(biomeBuilder.build())
+                .generationSettings(builder.build())
                 .build();
     }
 
-    public static Biome mountainsAndSlopes(HolderGetter<PlacedFeature> featureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean b) {
+    public static Biome mountainsAndSlopes(HolderGetter<PlacedFeature> featureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean slopes) {
         BiomeSpecialEffects.Builder effectBuilder = (new BiomeSpecialEffects.Builder())
                 .skyColor(calculateSkyColor(0.4F))
                 .fogColor(OVERWORLD_FOG_COLOR)
@@ -165,7 +166,7 @@ public class MountainBiomes {
         BiomeGenerationSettings.Builder biomeBuilder = baseMountainGeneration(featureGetter, carverGetter);
 
         //add RU features
-        if(!b){
+        if(!slopes){
             biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.PINE_ON_DIRT);
         }
         else{

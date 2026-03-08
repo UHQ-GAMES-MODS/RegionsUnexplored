@@ -11,28 +11,28 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.regions_unexplored.datagen.provider.registry.configured_feature.RuAquaticFeatures;
 import net.regions_unexplored.datagen.provider.registry.configured_feature.RuVegetationFeatures;
-import net.regions_unexplored.datagen.provider.registry.RUPlacedFeatureBootstrap;
+
+import static net.regions_unexplored.registry.data.RUPlacedFeatures.key;
 
 import java.util.List;
 
 public class RuAquaticPlacements {
+    public static final ResourceKey<PlacedFeature> CATTAIL_FEN = key("cattail_fen");
+    public static final ResourceKey<PlacedFeature> CATTAIL_RIVER = key("cattail_river");
 
-    public static final ResourceKey<PlacedFeature> CATTAIL_FEN = RUPlacedFeatureBootstrap.key("cattail_fen");
-    public static final ResourceKey<PlacedFeature> CATTAIL_RIVER = RUPlacedFeatureBootstrap.key("cattail_river");
+    public static final ResourceKey<PlacedFeature> TALL_HYACINTH_STOCK = key("tall_hyacinth_stock");
+    public static final ResourceKey<PlacedFeature> HYACINTH_PLANTS = key("hyacinth_plants");
+    public static final ResourceKey<PlacedFeature> HYACINTH_FLOWERS = key("hyacinth_flowers");
+    public static final ResourceKey<PlacedFeature> HYACINTH_ROCKS = key("hyacinth_rocks");
 
-    public static final ResourceKey<PlacedFeature> TALL_HYACINTH_STOCK = RUPlacedFeatureBootstrap.key("tall_hyacinth_stock");
-    public static final ResourceKey<PlacedFeature> HYACINTH_PLANTS = RUPlacedFeatureBootstrap.key("hyacinth_plants");
-    public static final ResourceKey<PlacedFeature> HYACINTH_FLOWERS = RUPlacedFeatureBootstrap.key("hyacinth_flowers");
-    public static final ResourceKey<PlacedFeature> HYACINTH_ROCKS = RUPlacedFeatureBootstrap.key("hyacinth_rocks");
-
-    public static final ResourceKey<PlacedFeature> MOSSY_SEA_ROCKS = RUPlacedFeatureBootstrap.key("mossy_sea_rocks");
-    public static final ResourceKey<PlacedFeature> BLUE_MAGNOLIA_FLOWERS_AQUATIC = RUPlacedFeatureBootstrap.key("red_magnolia_flowers_aquatic");
-    public static final ResourceKey<PlacedFeature> PINK_MAGNOLIA_FLOWERS_AQUATIC = RUPlacedFeatureBootstrap.key("pink_magnolia_flowers_aquatic");
-    public static final ResourceKey<PlacedFeature> WHITE_MAGNOLIA_FLOWERS_AQUATIC = RUPlacedFeatureBootstrap.key("white_magnolia_flowers_aquatic");
-    public static final ResourceKey<PlacedFeature> JUNGLE_AQUATIC = RUPlacedFeatureBootstrap.key("jungle_tree_aquatic");
-    public static final ResourceKey<PlacedFeature> PALM_AQUATIC = RUPlacedFeatureBootstrap.key("palm_tree_aquatic");
-    public static final ResourceKey<PlacedFeature> ELEPHANT_EAR_AQUATIC = RUPlacedFeatureBootstrap.key("elephant_ear_aquatic");
-    public static final ResourceKey<PlacedFeature> PALM_SAPLING_AQUATIC = RUPlacedFeatureBootstrap.key("palm_sapling_aquatic");
+    public static final ResourceKey<PlacedFeature> MOSSY_SEA_ROCKS = key("mossy_sea_rocks");
+    public static final ResourceKey<PlacedFeature> BLUE_MAGNOLIA_FLOWERS_AQUATIC = key("red_magnolia_flowers_aquatic");
+    public static final ResourceKey<PlacedFeature> PINK_MAGNOLIA_FLOWERS_AQUATIC = key("pink_magnolia_flowers_aquatic");
+    public static final ResourceKey<PlacedFeature> WHITE_MAGNOLIA_FLOWERS_AQUATIC = key("white_magnolia_flowers_aquatic");
+    public static final ResourceKey<PlacedFeature> JUNGLE_AQUATIC = key("jungle_tree_aquatic");
+    public static final ResourceKey<PlacedFeature> PALM_AQUATIC = key("palm_tree_aquatic");
+    public static final ResourceKey<PlacedFeature> ELEPHANT_EAR_AQUATIC = key("elephant_ear_aquatic");
+    public static final ResourceKey<PlacedFeature> PALM_SAPLING_AQUATIC = key("palm_sapling_aquatic");
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> featureGetter = context.lookup(Registries.CONFIGURED_FEATURE);

@@ -83,12 +83,10 @@
     ],
     [
       "minecraft:glow_lichen",
-      "regions_unexplored:medium_grass",
+      "regions_unexplored:patch/grass_sprouts_sparse",
       "minecraft:patch_tall_grass_2",
-      "regions_unexplored:rock",
-      "regions_unexplored:noise_rocks",
-      "regions_unexplored:noise_bush",
-      "regions_unexplored:daisies",
+      "regions_unexplored:rock/group/highland_fields",
+      "regions_unexplored:patch/daisies",
       "regions_unexplored:grass"
     ],
     [

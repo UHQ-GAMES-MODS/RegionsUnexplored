@@ -1,0 +1,60 @@
+{
+  "type": "minecraft:flower",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:dual_noise_provider",
+            "noise": {
+              "amplitudes": [
+                1.0
+              ],
+              "firstOctave": -4
+            },
+            "scale": 1.0,
+            "seed": 9989,
+            "slow_noise": {
+              "amplitudes": [
+                1.0
+              ],
+              "firstOctave": -7
+            },
+            "slow_scale": 0.75,
+            "states": [
+              {
+                "Name": "regions_unexplored:yellow_lupine"
+              },
+              {
+                "Name": "regions_unexplored:red_lupine"
+              },
+              {
+                "Name": "regions_unexplored:blue_lupine"
+              },
+              {
+                "Name": "regions_unexplored:purple_lupine"
+              },
+              {
+                "Name": "regions_unexplored:pink_lupine"
+              }
+            ],
+            "variety": 2
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          }
+        }
+      ]
+    },
+    "tries": 64,
+    "xz_spread": 7,
+    "y_spread": 3
+  }
+}

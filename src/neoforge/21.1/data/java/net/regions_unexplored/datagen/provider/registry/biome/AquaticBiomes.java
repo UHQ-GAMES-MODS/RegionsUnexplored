@@ -323,7 +323,7 @@ public class AquaticBiomes {
         BiomeSpecialEffects.Builder effectBuilder = (new BiomeSpecialEffects.Builder())
                 .skyColor(11644572)
                 .fogColor(-6384241)
-                .waterColor(-10073800)
+                .waterColor(0x8B949A)
                 .waterFogColor(-11585236)
                 .foliageColorOverride(15326658)
                 .grassColorOverride(12434605)
@@ -335,11 +335,12 @@ public class AquaticBiomes {
         BiomeGenerationSettings.Builder biomeBuilder = baseIslandGeneration(featureGetter, carverGetter, false);
 
         //add RU features
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuMiscOverworldPlacements.SMOULDERING_DIRT);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.ASHEN);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.ASHEN_PINE);
+        biomeBuilder.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, RuVegetationPlacements.PATCH_ASH_VENTS);
+
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.TREE_GROUP_ASHEN_WOODLAND);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.WILTING_TRILLIUM);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.ASHEN_GRASS);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.PATCH_ASHEN_GRASS);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.PATCH_ASHEN_GRASS_SMOULDERING);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.ASHEN_SHRUB);
 
 

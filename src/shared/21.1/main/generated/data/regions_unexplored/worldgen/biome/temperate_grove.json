@@ -80,7 +80,7 @@
     ],
     [
       "minecraft:glow_lichen",
-      "regions_unexplored:medium_grass",
+      "regions_unexplored:patch/grass_sprouts_sparse",
       "minecraft:forest_flowers",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",

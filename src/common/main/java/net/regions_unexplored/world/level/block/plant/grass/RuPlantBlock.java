@@ -20,7 +20,6 @@ public class RuPlantBlock extends BushBlock implements BonemealableBlock {
     public static final MapCodec<? extends RuPlantBlock> CODEC = simpleCodec(RuPlantBlock::new);
     protected static final float AABB_OFFSET = 6.0F;
     protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
-    protected static final VoxelShape SHAPE_MEDIUM_GRASS = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 9.0D, 14.0D);
 
     public RuPlantBlock(Properties properties) {
         super(properties);
@@ -32,12 +31,7 @@ public class RuPlantBlock extends BushBlock implements BonemealableBlock {
     }
 
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-        if(state== RUBlocks.MEDIUM_GRASS.get().defaultBlockState()){
-            return SHAPE_MEDIUM_GRASS;
-        }
-        else{
-            return SHAPE;
-        }
+        return SHAPE;
     }
 
     public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
@@ -48,18 +42,8 @@ public class RuPlantBlock extends BushBlock implements BonemealableBlock {
         return true;
     }
 
-    public static void placeAt(LevelAccessor level, BlockState state, BlockPos pos, int i) {
-        level.setBlock(pos, copyWaterloggedFrom(level, pos, state), i);
-    }
-
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
-        if(state.is(RUBlocks.MEDIUM_GRASS.get())){
-            TallGrassBlock grass = (TallGrassBlock) Blocks.SHORT_GRASS;
-            if (grass.defaultBlockState().canSurvive(level, pos)) {
-                placeAt(level, grass.defaultBlockState(), pos, 2);
-            }
-        }
-        else if(state.is(RUBlocks.STEPPE_GRASS.get())||state.is(RUBlocks.STEPPE_SHRUB.get())){
+        if(state.is(RUBlocks.STEPPE_GRASS.get())||state.is(RUBlocks.STEPPE_SHRUB.get())){
             Block steppe_tall_grass = RUBlocks.STEPPE_TALL_GRASS.get();
             if (steppe_tall_grass instanceof DoublePlantBlock tallSteppeGrass) {
                 if (tallSteppeGrass.defaultBlockState().canSurvive(level, pos) && level.isEmptyBlock(pos.above())) {

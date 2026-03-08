@@ -1,4 +1,4 @@
-// 1.21.1	2026-02-01T15:12:30.8381446	Tags for minecraft:worldgen/biome mod id regions_unexplored
+// 1.21.1	2026-02-27T20:45:16.2951791	Tags for minecraft:worldgen/biome mod id regions_unexplored
 8d156d72ef8a23249d1b4daacebeae371ee9e1da data/c/tags/worldgen/biome/has_wolf_variant/ashen.json
 3f4edc8db4b1d27358677fe8a8ddd2ea645e6671 data/c/tags/worldgen/biome/has_wolf_variant/black.json
 678b5589cab20b0eb152dda5986bf246674305fb data/c/tags/worldgen/biome/has_wolf_variant/chestnut.json
@@ -69,7 +69,7 @@ d8af867fea2d1ee2f73bff0853e016a29798d594 data/minecraft/tags/worldgen/biome/has_
 c50d53164356d12a116c632c00c6993573f85d10 data/minecraft/tags/worldgen/biome/has_structure/swamp_hut.json
 952776203235ed3ed2a746d459e232056353b2f9 data/minecraft/tags/worldgen/biome/has_structure/trial_chambers.json
 6ec005e4cd3c0f1f3213d749f8bab1b9d9033173 data/minecraft/tags/worldgen/biome/has_structure/village_desert.json
-71d0c729f06abcdd66249c8f8da34178d98ee72b data/minecraft/tags/worldgen/biome/has_structure/village_plains.json
+e45f88209de1acbca841664e28d6e814431fa466 data/minecraft/tags/worldgen/biome/has_structure/village_plains.json
 5eea38b3e6c517b1c8b2c3d08f925f0fd1e150ea data/minecraft/tags/worldgen/biome/has_structure/village_savanna.json
 01f5aca0c0fd7680980371eebbbef9a3d35dd8b3 data/minecraft/tags/worldgen/biome/has_structure/village_snowy.json
 de4dc22f94a9eb03a30b94fdd2dd2351772a7792 data/minecraft/tags/worldgen/biome/has_structure/village_taiga.json

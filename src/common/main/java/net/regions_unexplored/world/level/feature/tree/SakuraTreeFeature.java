@@ -19,24 +19,24 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.registry.tag.RUBlockTags;
-import net.regions_unexplored.world.level.feature.configuration.RuTreeConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.RUTreeConfiguration;
 
 import java.util.Random;
 
-public class SakuraTreeFeature extends Feature<RuTreeConfiguration> {
+public class SakuraTreeFeature extends Feature<RUTreeConfiguration> {
 
-    public SakuraTreeFeature(Codec<RuTreeConfiguration> codec) {
+    public SakuraTreeFeature(Codec<RUTreeConfiguration> codec) {
         super(codec);
     }
 
-    public boolean place(FeaturePlaceContext<RuTreeConfiguration> context) {
-        RuTreeConfiguration treeConfiguration = context.config();
+    public boolean place(FeaturePlaceContext<RUTreeConfiguration> context) {
+        RUTreeConfiguration treeConfiguration = context.config();
         BlockPos pos = context.origin();
         RandomSource randomSource = context.random();
         WorldGenLevel level = context.level();
 
         int limbDirection = context.random().nextInt(12);
-        int height_main = context.random().nextInt(treeConfiguration.sizeVariation) + treeConfiguration.minimumSize;
+        int height_main = context.random().nextInt(treeConfiguration.sizeVariation()) + treeConfiguration.minimumSize();
 
         int check = 0;
         BlockPos.MutableBlockPos checkPos = pos.mutable();
@@ -70,7 +70,7 @@ public class SakuraTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public boolean placeLimbs(LevelAccessor level, BlockPos pos, int limbDirection, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLimbs(LevelAccessor level, BlockPos pos, int limbDirection, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         if(limbDirection==0){
             placeLog(level, pos.north(), randomSource, treeConfiguration);
             placeLog(level, pos.north().above(), randomSource, treeConfiguration);
@@ -242,7 +242,7 @@ public class SakuraTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public boolean placeBase(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeBase(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         int rot = random.nextInt(8);
         if(rot==0){
@@ -296,7 +296,7 @@ public class SakuraTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public boolean placeLog(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLog(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         if(level.isOutsideBuildHeight(pos)){
             return true;
@@ -314,7 +314,7 @@ public class SakuraTreeFeature extends Feature<RuTreeConfiguration> {
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos)) {
-            level.setBlock(pos, treeConfiguration.trunkProvider.getState(randomSource, pos), 2);
+            level.setBlock(pos, treeConfiguration.trunkProvider().getState(randomSource, pos), 2);
         }
         else{
             return true;
@@ -334,7 +334,7 @@ public class SakuraTreeFeature extends Feature<RuTreeConfiguration> {
         }
         return true;
     }
-    public boolean placeLogX(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLogX(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         if(level.isOutsideBuildHeight(pos)){
             return true;
@@ -352,7 +352,7 @@ public class SakuraTreeFeature extends Feature<RuTreeConfiguration> {
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos)) {
-            level.setBlock(pos, treeConfiguration.trunkProvider.getState(randomSource, pos).setValue(RotatedPillarBlock.AXIS, Direction.Axis.X), 2);
+            level.setBlock(pos, treeConfiguration.trunkProvider().getState(randomSource, pos).setValue(RotatedPillarBlock.AXIS, Direction.Axis.X), 2);
         }
         else{
             return true;
@@ -372,7 +372,7 @@ public class SakuraTreeFeature extends Feature<RuTreeConfiguration> {
         }
         return true;
     }
-    public boolean placeLogZ(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLogZ(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         if(level.isOutsideBuildHeight(pos)){
             return true;
@@ -390,7 +390,7 @@ public class SakuraTreeFeature extends Feature<RuTreeConfiguration> {
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos)) {
-            level.setBlock(pos, treeConfiguration.trunkProvider.getState(randomSource, pos).setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z), 2);
+            level.setBlock(pos, treeConfiguration.trunkProvider().getState(randomSource, pos).setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z), 2);
         }
         else{
             return true;
@@ -411,7 +411,7 @@ public class SakuraTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public void placeRoot(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeRoot(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         int rd = 2;
         int i = 0;
         BlockPos.MutableBlockPos placePos = pos.below().mutable();
@@ -431,14 +431,14 @@ public class SakuraTreeFeature extends Feature<RuTreeConfiguration> {
         }
     }
 
-    public boolean placeLeavesBlobLeft(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLeavesBlobLeft(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         placeLeavesTopLeft(level, pos, randomSource, treeConfiguration);
         placeLeavesMiddle(level, pos.above(), randomSource, treeConfiguration);
         placeLeavesTopLeft(level, pos.above().above(), randomSource, treeConfiguration);
         return true;
     }
-    public boolean placeLeavesBlobRight(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLeavesBlobRight(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         placeLeavesTopRight(level, pos, randomSource, treeConfiguration);
         placeLeavesMiddle(level, pos.above(), randomSource, treeConfiguration);
@@ -446,7 +446,7 @@ public class SakuraTreeFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public boolean placeLeavesMiddle(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLeavesMiddle(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         placeLeavesBlock(level,pos, randomSource, treeConfiguration);
 
@@ -502,7 +502,7 @@ public class SakuraTreeFeature extends Feature<RuTreeConfiguration> {
         placeLeavesBlock(level,pos.west().west().west(), randomSource, treeConfiguration);
         return true;
     }
-    public boolean placeLeavesTopLeft(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeLeavesTopLeft(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         placeLeavesBlock(level,pos, randomSource, treeConfiguration);
         placeLeavesBlock(level,pos.north(), randomSource, treeConfiguration);
@@ -523,7 +523,7 @@ public class SakuraTreeFeature extends Feature<RuTreeConfiguration> {
         placeLeavesBlock(level,pos.west().west().south(), randomSource, treeConfiguration);
         return true;
     }
-    public void placeLeavesTopRight(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeLeavesTopRight(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         placeLeavesBlock(level,pos, randomSource, treeConfiguration);
         placeLeavesBlock(level,pos.north(), randomSource, treeConfiguration);
         placeLeavesBlock(level,pos.north().north(), randomSource, treeConfiguration);
@@ -543,12 +543,12 @@ public class SakuraTreeFeature extends Feature<RuTreeConfiguration> {
         placeLeavesBlock(level,pos.west().west().north(), randomSource, treeConfiguration);
     }
 
-    public void placeLeavesBlock(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeLeavesBlock(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         if(level.isOutsideBuildHeight(pos)){
             return;
         }
         if(level.getBlockState(pos).canBeReplaced()) {
-            level.setBlock(pos, treeConfiguration.foliageProvider.getState(randomSource, pos).setValue(LeavesBlock.DISTANCE, 1), 2);
+            level.setBlock(pos, treeConfiguration.foliageProvider().getState(randomSource, pos).setValue(LeavesBlock.DISTANCE, 1), 2);
 
         }
     }

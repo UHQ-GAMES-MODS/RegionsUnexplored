@@ -37,7 +37,7 @@ public class PlainsBiomes {
     private static BiomeGenerationSettings.Builder basePlainsGeneration(HolderGetter<PlacedFeature> featureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(featureGetter, carverGetter);
         RUBiomeFeatures.globalOverworldGeneration(biomeBuilder);
-        RUBiomeFeatures.mediumGrass(biomeBuilder);
+        RUBiomeFeatures.grassSprouts(biomeBuilder);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
         RUBiomeFeatures.addDefaultSoftDisks(biomeBuilder);
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
@@ -163,7 +163,7 @@ public class PlainsBiomes {
 
         //add RU features
         RUBiomeFeatures.addLupineVegetation(biomeBuilder);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.CLOVER);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.PATCH_CLOVERS_DENSE);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuVegetationPlacements.GRASS);
 
 

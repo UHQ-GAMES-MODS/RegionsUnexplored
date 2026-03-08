@@ -91,11 +91,11 @@
       "minecraft:patch_sugar_cane_desert",
       "minecraft:patch_pumpkin",
       "minecraft:patch_cactus_desert",
-      "regions_unexplored:tree/large_joshua",
-      "regions_unexplored:tree/medium_joshua",
-      "regions_unexplored:tree/joshua_shrub",
+      "regions_unexplored:tree/group/joshua_desert",
       "regions_unexplored:mallow",
-      "regions_unexplored:joshua_vegetation",
+      "regions_unexplored:patch/grass_sparse",
+      "regions_unexplored:patch/desert_shrub_sparse",
+      "regions_unexplored:patch/sandy_grass_sparse",
       "regions_unexplored:joshua_shrub"
     ],
     [

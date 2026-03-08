@@ -39,12 +39,11 @@ public class RuBlockCropCutouts {
                 //GRASS_BLOCKS
                 RUBlocks.DEAD_STEPPE_SHRUB.get(),
                 RUBlocks.FROZEN_GRASS.get(),
-                RUBlocks.MEDIUM_GRASS.get(),
                 RUBlocks.SANDY_GRASS.get(),
                 RUBlocks.SMALL_DESERT_SHRUB.get(),
                 RUBlocks.STEPPE_GRASS.get(),
                 RUBlocks.STEPPE_SHRUB.get(),
-                RUBlocks.STONE_BUD.get(),
+                RUBlocks.GRASS_SPROUTS.get(),
                 //TALL_GRASS_BLOCKS
                 RUBlocks.ELEPHANT_EAR.get(),
                 RUBlocks.SANDY_TALL_GRASS.get(),

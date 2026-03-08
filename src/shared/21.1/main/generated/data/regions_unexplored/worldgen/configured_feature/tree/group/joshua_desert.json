@@ -1,0 +1,28 @@
+{
+  "type": "lithostitched:weighted_selector",
+  "config": {
+    "features": [
+      {
+        "data": {
+          "feature": "regions_unexplored:tree/joshua_small",
+          "placement": []
+        },
+        "weight": 4
+      },
+      {
+        "data": {
+          "feature": "regions_unexplored:tree/joshua_medium",
+          "placement": []
+        },
+        "weight": 3
+      },
+      {
+        "data": {
+          "feature": "regions_unexplored:tree/joshua_large",
+          "placement": []
+        },
+        "weight": 2
+      }
+    ]
+  }
+}

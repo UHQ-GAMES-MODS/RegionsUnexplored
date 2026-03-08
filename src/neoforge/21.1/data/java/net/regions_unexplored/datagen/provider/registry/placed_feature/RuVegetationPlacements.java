@@ -1,5 +1,6 @@
 package net.regions_unexplored.datagen.provider.registry.placed_feature;
 
+import dev.worldgen.lithostitched.api.worldgen.placementmodifier.LithostitchedPlacementModifiers;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
@@ -13,167 +14,182 @@ import net.minecraft.util.valueproviders.ClampedInt;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
+import net.regions_unexplored.datagen.provider.registry.RUDatagenFeatureUtils;
 import net.regions_unexplored.datagen.provider.registry.configured_feature.RuVegetationFeatures;
 import net.regions_unexplored.datagen.provider.registry.RUPlacedFeatureBootstrap;
+import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.registry.data.RUConfiguredFeatures;
+import net.regions_unexplored.registry.data.RUNoises;
 import net.regions_unexplored.registry.data.RUPlacedFeatures;
+
+import static net.regions_unexplored.datagen.provider.registry.RUDatagenFeatureUtils.*;
+import static net.regions_unexplored.registry.data.RUPlacedFeatures.key;
 
 import java.util.List;
 
 public class RuVegetationPlacements {
     //-----------------------KEYS-----------------------//
-    public static final ResourceKey<PlacedFeature> BLACKWOOD_MUSHROOMS = RUPlacedFeatureBootstrap.key("blackwood_mushrooms");
-    public static final ResourceKey<PlacedFeature> BLACKWOOD_DECORATION = RUPlacedFeatureBootstrap.key("blackwood_decoration");
-    public static final ResourceKey<PlacedFeature> LUPINE_VEGETATION = RUPlacedFeatureBootstrap.key("lupine_vegetation");
-    public static final ResourceKey<PlacedFeature> MEADOW_VEGETATION = RUPlacedFeatureBootstrap.key("meadow_vegetation");
+    public static final ResourceKey<PlacedFeature> BLACKWOOD_MUSHROOMS = key("blackwood_mushrooms");
+    public static final ResourceKey<PlacedFeature> BLACKWOOD_DECORATION = key("blackwood_decoration");
+    public static final ResourceKey<PlacedFeature> MEADOW_VEGETATION = key("meadow_vegetation");
     //GRASS
-    public static final ResourceKey<PlacedFeature> SANDY_GRASS = RUPlacedFeatureBootstrap.key("sandy_grass");
-    public static final ResourceKey<PlacedFeature> FERNS = RUPlacedFeatureBootstrap.key("ferns");
-    public static final ResourceKey<PlacedFeature> GRASS = RUPlacedFeatureBootstrap.key("grass");
-    public static final ResourceKey<PlacedFeature> CAVE_GRASS = RUPlacedFeatureBootstrap.key("cave_grass");
-    public static final ResourceKey<PlacedFeature> TALL_GRASS = RUPlacedFeatureBootstrap.key("tall_grass");
-    public static final ResourceKey<PlacedFeature> CAVE_TALL_GRASS = RUPlacedFeatureBootstrap.key("cave_tall_grass");
-    public static final ResourceKey<PlacedFeature> SNOW_GRASS = RUPlacedFeatureBootstrap.key("snow_grass");
-    public static final ResourceKey<PlacedFeature> MEDIUM_GRASS = RUPlacedFeatureBootstrap.key("medium_grass");
-    public static final ResourceKey<PlacedFeature> WINDSWEPT_GRASS = RUPlacedFeatureBootstrap.key("windswept_grass");
-    public static final ResourceKey<PlacedFeature> STONE_BUD_DENSE = RUPlacedFeatureBootstrap.key("stone_bud_dense");
-    public static final ResourceKey<PlacedFeature> STONE_BUD_SPARSE = RUPlacedFeatureBootstrap.key("stone_bud_sparse");
-    public static final ResourceKey<PlacedFeature> ASHEN_GRASS = RUPlacedFeatureBootstrap.key("ashen_grass");
-    public static final ResourceKey<PlacedFeature> REDWOODS_VEGETATION = RUPlacedFeatureBootstrap.key("redwoods_vegetation");
-    public static final ResourceKey<PlacedFeature> BLACKWOOD_VEGETATION = RUPlacedFeatureBootstrap.key("blackwood_vegetation");
-    public static final ResourceKey<PlacedFeature> DECIDUOUS_VEGETATION = RUPlacedFeatureBootstrap.key("deciduous_vegetation");
-    public static final ResourceKey<PlacedFeature> FEN_VEGETATION = RUPlacedFeatureBootstrap.key("fen_vegetation");
-    public static final ResourceKey<PlacedFeature> SHRUBLAND_VEGETATION = RUPlacedFeatureBootstrap.key("shrubland_vegetation");
-    public static final ResourceKey<PlacedFeature> MOUNTAIN_VEGETATION = RUPlacedFeatureBootstrap.key("mountain_vegetation");
-    public static final ResourceKey<PlacedFeature> OUTBACK_VEGETATION = RUPlacedFeatureBootstrap.key("outback_vegetation");
-    public static final ResourceKey<PlacedFeature> JOSHUA_VEGETATION = RUPlacedFeatureBootstrap.key("joshua_vegetation");
-    public static final ResourceKey<PlacedFeature> STEPPE_VEGETATION = RUPlacedFeatureBootstrap.key("steppe_vegetation");
-    public static final ResourceKey<PlacedFeature> SOCOTRA_VEGETATION = RUPlacedFeatureBootstrap.key("socotra_vegetation");
-    public static final ResourceKey<PlacedFeature> BAYOU_VEGETATION = RUPlacedFeatureBootstrap.key("bayou_vegetation");
-    public static final ResourceKey<PlacedFeature> DIRT_VEGETATION = RUPlacedFeatureBootstrap.key("dirt_vegetation");
-    public static final ResourceKey<PlacedFeature> SANDY_GRASS_VEGETATION = RUPlacedFeatureBootstrap.key("sandy_grass_vegetation");
-    public static final ResourceKey<PlacedFeature> GRASS_VEGETATION = RUPlacedFeatureBootstrap.key("grass_vegetation");
-    public static final ResourceKey<PlacedFeature> REDSTONE_BUD = RUPlacedFeatureBootstrap.key("redstone_bud");
-    public static final ResourceKey<PlacedFeature> PRISMOSS_SPROUT = RUPlacedFeatureBootstrap.key("prismoss_sprout");
-    public static final ResourceKey<PlacedFeature> BLADED_GRASS = RUPlacedFeatureBootstrap.key("bladed_grass");
-    public static final ResourceKey<PlacedFeature> BLADED_GRASS_BONEMEAL = RUPlacedFeatureBootstrap.key("bladed_grass_bonemeal");
+    public static final ResourceKey<PlacedFeature> SANDY_GRASS = key("sandy_grass");
+    public static final ResourceKey<PlacedFeature> FERNS = key("ferns");
+    public static final ResourceKey<PlacedFeature> GRASS = key("grass");
+    public static final ResourceKey<PlacedFeature> CAVE_GRASS = key("cave_grass");
+    public static final ResourceKey<PlacedFeature> TALL_GRASS = key("tall_grass");
+    public static final ResourceKey<PlacedFeature> CAVE_TALL_GRASS = key("cave_tall_grass");
+    public static final ResourceKey<PlacedFeature> SNOW_GRASS = key("snow_grass");
+    public static final ResourceKey<PlacedFeature> WINDSWEPT_GRASS = key("windswept_grass");
+
+
+    public static final ResourceKey<PlacedFeature> PATCH_GRASS_SPROUTS_DENSE = key("patch/grass_sprouts_dense");
+    public static final ResourceKey<PlacedFeature> PATCH_GRASS_SPROUTS_SPARSE = key("patch/grass_sprouts_sparse");
+    public static final ResourceKey<PlacedFeature> PATCH_ASHEN_GRASS = key("patch/ashen_grass");
+    public static final ResourceKey<PlacedFeature> PATCH_ASHEN_GRASS_SMOULDERING = key("patch/smouldering_ashen_grass");
+    public static final ResourceKey<PlacedFeature> PATCH_LUPINES = key("patch/lupines");
+    public static final ResourceKey<PlacedFeature> PATCH_ASH_VENTS = key("patch/ash_vents");
+    public static final ResourceKey<PlacedFeature> PATCH_FERNS_DENSE = key("patch/ferns_dense");
+    public static final ResourceKey<PlacedFeature> PATCH_CLOVERS_DENSE = key("patch/clovers_dense");
+    public static final ResourceKey<PlacedFeature> PATCH_DAISIES = key("patch/daisies");
+
+    public static final ResourceKey<PlacedFeature> PATCH_GRASS_SPARSE = key("patch/grass_sparse");
+    public static final ResourceKey<PlacedFeature> PATCH_SANDY_GRASS_SPARSE = key("patch/sandy_grass_sparse");
+    public static final ResourceKey<PlacedFeature> PATCH_DESERT_SHRUB_SPARSE = key("patch/desert_shrub_sparse");
+
+
+    public static final ResourceKey<PlacedFeature> BLACKWOOD_VEGETATION = key("blackwood_vegetation");
+    public static final ResourceKey<PlacedFeature> DECIDUOUS_VEGETATION = key("deciduous_vegetation");
+    public static final ResourceKey<PlacedFeature> FEN_VEGETATION = key("fen_vegetation");
+    public static final ResourceKey<PlacedFeature> SHRUBLAND_VEGETATION = key("shrubland_vegetation");
+    public static final ResourceKey<PlacedFeature> MOUNTAIN_VEGETATION = key("mountain_vegetation");
+    public static final ResourceKey<PlacedFeature> OUTBACK_VEGETATION = key("outback_vegetation");
+    public static final ResourceKey<PlacedFeature> STEPPE_VEGETATION = key("steppe_vegetation");
+    public static final ResourceKey<PlacedFeature> SOCOTRA_VEGETATION = key("socotra_vegetation");
+    public static final ResourceKey<PlacedFeature> BAYOU_VEGETATION = key("bayou_vegetation");
+    public static final ResourceKey<PlacedFeature> DIRT_VEGETATION = key("dirt_vegetation");
+    public static final ResourceKey<PlacedFeature> SANDY_GRASS_VEGETATION = key("sandy_grass_vegetation");
+    public static final ResourceKey<PlacedFeature> GRASS_VEGETATION = key("grass_vegetation");
+    public static final ResourceKey<PlacedFeature> REDSTONE_BUD = key("redstone_bud");
+    public static final ResourceKey<PlacedFeature> PRISMOSS_SPROUT = key("prismoss_sprout");
+    public static final ResourceKey<PlacedFeature> BLADED_GRASS = key("bladed_grass");
+    public static final ResourceKey<PlacedFeature> BLADED_GRASS_BONEMEAL = key("bladed_grass_bonemeal");
     //FLOWERS
-    public static final ResourceKey<PlacedFeature> CAVE_HYSSOP = RUPlacedFeatureBootstrap.key("cave_hyssop");
-    public static final ResourceKey<PlacedFeature> ASTER = RUPlacedFeatureBootstrap.key("aster");
-    public static final ResourceKey<PlacedFeature> TULIPS = RUPlacedFeatureBootstrap.key("tulips");
-    public static final ResourceKey<PlacedFeature> SMALL_FLOWERS = RUPlacedFeatureBootstrap.key("small_flowers");
-    public static final ResourceKey<PlacedFeature> TALL_FLOWERS = RUPlacedFeatureBootstrap.key("tall_flowers");
-    public static final ResourceKey<PlacedFeature> ALPHA_DANDELION = RUPlacedFeatureBootstrap.key("alpha_dandelion");
-    public static final ResourceKey<PlacedFeature> ALPHA_ROSE = RUPlacedFeatureBootstrap.key("alpha_rose");
-    public static final ResourceKey<PlacedFeature> WILTING_TRILLIUM = RUPlacedFeatureBootstrap.key("wilting_trillium");
-    public static final ResourceKey<PlacedFeature> WHITE_TRILLIUM = RUPlacedFeatureBootstrap.key("white_trillium");
-    public static final ResourceKey<PlacedFeature> AZURE_DAISY = RUPlacedFeatureBootstrap.key("azure_daisy");
-    public static final ResourceKey<PlacedFeature> DAISY = RUPlacedFeatureBootstrap.key("daisy");
-    public static final ResourceKey<PlacedFeature> DAISIES = RUPlacedFeatureBootstrap.key("daisies");
-    public static final ResourceKey<PlacedFeature> WARATAH = RUPlacedFeatureBootstrap.key("waratah");
-    public static final ResourceKey<PlacedFeature> PRAIRIE_FLOWERS = RUPlacedFeatureBootstrap.key("prairie_flowers");
-    public static final ResourceKey<PlacedFeature> SHRUBLAND_FLOWERS = RUPlacedFeatureBootstrap.key("shrubland_flowers");
-    public static final ResourceKey<PlacedFeature> WILLOW_FLOWERS = RUPlacedFeatureBootstrap.key("willow_flowers");
-    public static final ResourceKey<PlacedFeature> POPPIES = RUPlacedFeatureBootstrap.key("poppies");
-    public static final ResourceKey<PlacedFeature> TASSEL_SPARSE = RUPlacedFeatureBootstrap.key("tassel_sparse");
-    public static final ResourceKey<PlacedFeature> TASSEL_DENSE = RUPlacedFeatureBootstrap.key("tassel_dense");
-    public static final ResourceKey<PlacedFeature> CORPSE_FLOWER = RUPlacedFeatureBootstrap.key("corpse_flower");
-    public static final ResourceKey<PlacedFeature> DUSKTRAP = RUPlacedFeatureBootstrap.key("dusktrap");
-    public static final ResourceKey<PlacedFeature> DAY_LILY = RUPlacedFeatureBootstrap.key("day_lily");
-    public static final ResourceKey<PlacedFeature> TSUBAKI = RUPlacedFeatureBootstrap.key("tsubaki");
-    public static final ResourceKey<PlacedFeature> HIBISCUS = RUPlacedFeatureBootstrap.key("hibiscus");
-    public static final ResourceKey<PlacedFeature> MALLOW = RUPlacedFeatureBootstrap.key("mallow");
-    public static final ResourceKey<PlacedFeature> HYSSOP = RUPlacedFeatureBootstrap.key("hyssop");
-    public static final ResourceKey<PlacedFeature> FROZEN_FLOWERS = RUPlacedFeatureBootstrap.key("frozen_flowers");
-    public static final ResourceKey<PlacedFeature> PINK_FLOWERS = RUPlacedFeatureBootstrap.key("pink_flowers");
-    public static final ResourceKey<PlacedFeature> SNOWBELLE = RUPlacedFeatureBootstrap.key("snowbelle");
-    public static final ResourceKey<PlacedFeature> BARLEY_SPARSE = RUPlacedFeatureBootstrap.key("barley_sparse");
-    public static final ResourceKey<PlacedFeature> BARLEY_DENSE = RUPlacedFeatureBootstrap.key("barley_dense");
-    public static final ResourceKey<PlacedFeature> MEADOW_SAGE = RUPlacedFeatureBootstrap.key("meadow_sage");
-    public static final ResourceKey<PlacedFeature> REDSTONE_BULB = RUPlacedFeatureBootstrap.key("redstone_bulb");
+    public static final ResourceKey<PlacedFeature> CAVE_HYSSOP = key("cave_hyssop");
+    public static final ResourceKey<PlacedFeature> ASTER = key("aster");
+    public static final ResourceKey<PlacedFeature> TULIPS = key("tulips");
+    public static final ResourceKey<PlacedFeature> SMALL_FLOWERS = key("small_flowers");
+    public static final ResourceKey<PlacedFeature> TALL_FLOWERS = key("tall_flowers");
+    public static final ResourceKey<PlacedFeature> ALPHA_DANDELION = key("alpha_dandelion");
+    public static final ResourceKey<PlacedFeature> ALPHA_ROSE = key("alpha_rose");
+    public static final ResourceKey<PlacedFeature> WILTING_TRILLIUM = key("wilting_trillium");
+    public static final ResourceKey<PlacedFeature> WHITE_TRILLIUM = key("white_trillium");
+    public static final ResourceKey<PlacedFeature> AZURE_DAISY = key("azure_daisy");
+    public static final ResourceKey<PlacedFeature> DAISY = key("daisy");
+    public static final ResourceKey<PlacedFeature> WARATAH = key("waratah");
+    public static final ResourceKey<PlacedFeature> PRAIRIE_FLOWERS = key("prairie_flowers");
+    public static final ResourceKey<PlacedFeature> SHRUBLAND_FLOWERS = key("shrubland_flowers");
+    public static final ResourceKey<PlacedFeature> WILLOW_FLOWERS = key("willow_flowers");
+    public static final ResourceKey<PlacedFeature> POPPIES = key("poppies");
+    public static final ResourceKey<PlacedFeature> TASSEL_SPARSE = key("tassel_sparse");
+    public static final ResourceKey<PlacedFeature> TASSEL_DENSE = key("tassel_dense");
+    public static final ResourceKey<PlacedFeature> CORPSE_FLOWER = key("corpse_flower");
+    public static final ResourceKey<PlacedFeature> DUSKTRAP = key("dusktrap");
+    public static final ResourceKey<PlacedFeature> DAY_LILY = key("day_lily");
+    public static final ResourceKey<PlacedFeature> TSUBAKI = key("tsubaki");
+    public static final ResourceKey<PlacedFeature> HIBISCUS = key("hibiscus");
+    public static final ResourceKey<PlacedFeature> MALLOW = key("mallow");
+    public static final ResourceKey<PlacedFeature> HYSSOP = key("hyssop");
+    public static final ResourceKey<PlacedFeature> FROZEN_FLOWERS = key("frozen_flowers");
+    public static final ResourceKey<PlacedFeature> PINK_FLOWERS = key("pink_flowers");
+    public static final ResourceKey<PlacedFeature> SNOWBELLE = key("snowbelle");
+    public static final ResourceKey<PlacedFeature> BARLEY_SPARSE = key("barley_sparse");
+    public static final ResourceKey<PlacedFeature> BARLEY_DENSE = key("barley_dense");
+    public static final ResourceKey<PlacedFeature> MEADOW_SAGE = key("meadow_sage");
+    public static final ResourceKey<PlacedFeature> REDSTONE_BULB = key("redstone_bulb");
 
-    public static final ResourceKey<PlacedFeature> ORANGE_CONEFLOWER = RUPlacedFeatureBootstrap.key("orange_coneflower");
-    public static final ResourceKey<PlacedFeature> SPARSE_ORANGE_CONEFLOWER = RUPlacedFeatureBootstrap.key("sparse_orange_coneflower");
-    public static final ResourceKey<PlacedFeature> PURPLE_CONEFLOWER = RUPlacedFeatureBootstrap.key("purple_coneflower");
-    public static final ResourceKey<PlacedFeature> MAGNOLIA_FLOWERS = RUPlacedFeatureBootstrap.key("magnolia_flowers");
-    public static final ResourceKey<PlacedFeature> CLOVER = RUPlacedFeatureBootstrap.key("clover");
-    public static final ResourceKey<PlacedFeature> CLOVER_SPARSE = RUPlacedFeatureBootstrap.key("clover_sparse");
+    public static final ResourceKey<PlacedFeature> ORANGE_CONEFLOWER = key("orange_coneflower");
+    public static final ResourceKey<PlacedFeature> SPARSE_ORANGE_CONEFLOWER = key("sparse_orange_coneflower");
+    public static final ResourceKey<PlacedFeature> PURPLE_CONEFLOWER = key("purple_coneflower");
+    public static final ResourceKey<PlacedFeature> MAGNOLIA_FLOWERS = key("magnolia_flowers");
+    public static final ResourceKey<PlacedFeature> CLOVER_SPARSE = key("clover_sparse");
     //MULTIFACE FLOWERS
-    public static final ResourceKey<PlacedFeature> PINK_MAGNOLIA_FLOWERS = RUPlacedFeatureBootstrap.key("pink_magnolia_flowers");
-    public static final ResourceKey<PlacedFeature> WHITE_MAGNOLIA_FLOWERS = RUPlacedFeatureBootstrap.key("white_magnolia_flowers");
+    public static final ResourceKey<PlacedFeature> PINK_MAGNOLIA_FLOWERS = key("pink_magnolia_flowers");
+    public static final ResourceKey<PlacedFeature> WHITE_MAGNOLIA_FLOWERS = key("white_magnolia_flowers");
     //FOOD_PLANTS
-    public static final ResourceKey<PlacedFeature> RARE_SALMONBERRY_BUSH = RUPlacedFeatureBootstrap.key("rare_salmonberry_bush");
-    public static final ResourceKey<PlacedFeature> COMMON_SALMONBERRY_BUSH = RUPlacedFeatureBootstrap.key("common_salmonberry_bush");
-    public static final ResourceKey<PlacedFeature> DUSKMELON = RUPlacedFeatureBootstrap.key("duskmelon");
+    public static final ResourceKey<PlacedFeature> RARE_SALMONBERRY_BUSH = key("rare_salmonberry_bush");
+    public static final ResourceKey<PlacedFeature> COMMON_SALMONBERRY_BUSH = key("common_salmonberry_bush");
+    public static final ResourceKey<PlacedFeature> DUSKMELON = key("duskmelon");
     //BIOSHROOM
-    public static final ResourceKey<PlacedFeature> BLUE_BIOSHROOM = RUPlacedFeatureBootstrap.key("blue_bioshroom");
-    public static final ResourceKey<PlacedFeature> GREEN_BIOSHROOM = RUPlacedFeatureBootstrap.key("green_bioshroom");
-    public static final ResourceKey<PlacedFeature> PINK_BIOSHROOM = RUPlacedFeatureBootstrap.key("pink_bioshroom");
-    public static final ResourceKey<PlacedFeature> PINK_BIOSHROOM_DENSE = RUPlacedFeatureBootstrap.key("pink_bioshroom_dense");
+    public static final ResourceKey<PlacedFeature> BLUE_BIOSHROOM = key("blue_bioshroom");
+    public static final ResourceKey<PlacedFeature> GREEN_BIOSHROOM = key("green_bioshroom");
+    public static final ResourceKey<PlacedFeature> PINK_BIOSHROOM = key("pink_bioshroom");
+    public static final ResourceKey<PlacedFeature> PINK_BIOSHROOM_DENSE = key("pink_bioshroom_dense");
     //OTHER
-    public static final ResourceKey<PlacedFeature> CACTUS_DENSE = RUPlacedFeatureBootstrap.key("cactus_dense");
-    public static final ResourceKey<PlacedFeature> BARREL_CACTUS = RUPlacedFeatureBootstrap.key("barrel_cactus");
-    public static final ResourceKey<PlacedFeature> BAMBOO = RUPlacedFeatureBootstrap.key("bamboo");
-    public static final ResourceKey<PlacedFeature> FLOWERING_LILY = RUPlacedFeatureBootstrap.key("flowering_lily");
-    public static final ResourceKey<PlacedFeature> GIANT_LILY = RUPlacedFeatureBootstrap.key("giant_lily");
-    public static final ResourceKey<PlacedFeature> ELEPHANT_EAR_SPARSE = RUPlacedFeatureBootstrap.key("elephant_ear_sparse");
-    public static final ResourceKey<PlacedFeature> ELEPHANT_EAR_DENSE = RUPlacedFeatureBootstrap.key("elephant_ear_dense");
-    public static final ResourceKey<PlacedFeature> DROPLEAF = RUPlacedFeatureBootstrap.key("dropleaf");
-    public static final ResourceKey<PlacedFeature> DUCKWEED = RUPlacedFeatureBootstrap.key("duckweed");
+    public static final ResourceKey<PlacedFeature> CACTUS_DENSE = key("cactus_dense");
+    public static final ResourceKey<PlacedFeature> BARREL_CACTUS = key("barrel_cactus");
+    public static final ResourceKey<PlacedFeature> BAMBOO = key("bamboo");
+    public static final ResourceKey<PlacedFeature> FLOWERING_LILY = key("flowering_lily");
+    public static final ResourceKey<PlacedFeature> GIANT_LILY = key("giant_lily");
+    public static final ResourceKey<PlacedFeature> ELEPHANT_EAR_SPARSE = key("elephant_ear_sparse");
+    public static final ResourceKey<PlacedFeature> ELEPHANT_EAR_DENSE = key("elephant_ear_dense");
+    public static final ResourceKey<PlacedFeature> DROPLEAF = key("dropleaf");
+    public static final ResourceKey<PlacedFeature> DUCKWEED = key("duckweed");
     //SHRUBS
-    public static final ResourceKey<PlacedFeature> ASHEN_SHRUB = RUPlacedFeatureBootstrap.key("ashen_shrub");
-    public static final ResourceKey<PlacedFeature> ACACIA_SHRUB = RUPlacedFeatureBootstrap.key("acacia_shrub");
-    public static final ResourceKey<PlacedFeature> BAOBAB_SHRUB = RUPlacedFeatureBootstrap.key("baobab_shrub");
-    public static final ResourceKey<PlacedFeature> BIRCH_SHRUB = RUPlacedFeatureBootstrap.key("birch_shrub");
-    public static final ResourceKey<PlacedFeature> BLACKWOOD_SHRUB = RUPlacedFeatureBootstrap.key("blackwood_shrub");
-    public static final ResourceKey<PlacedFeature> CHERRY_SHRUB = RUPlacedFeatureBootstrap.key("cherry_shrub");
-    public static final ResourceKey<PlacedFeature> MAGNOLIA_SHRUB = RUPlacedFeatureBootstrap.key("magnolia_shrub");
-    public static final ResourceKey<PlacedFeature> PINK_MAGNOLIA_SHRUB = RUPlacedFeatureBootstrap.key("pink_magnolia_shrub");
-    public static final ResourceKey<PlacedFeature> WHITE_MAGNOLIA_SHRUB = RUPlacedFeatureBootstrap.key("white_magnolia_shrub");
-    public static final ResourceKey<PlacedFeature> CYPRESS_SHRUB = RUPlacedFeatureBootstrap.key("cypress_shrub");
-    public static final ResourceKey<PlacedFeature> DARK_OAK_SHRUB = RUPlacedFeatureBootstrap.key("dark_oak_shrub");
-    public static final ResourceKey<PlacedFeature> DEAD_SHRUB = RUPlacedFeatureBootstrap.key("dead_shrub");
-    public static final ResourceKey<PlacedFeature> DEAD_PINE_SHRUB = RUPlacedFeatureBootstrap.key("dead_pine_shrub");
-    public static final ResourceKey<PlacedFeature> EUCALYPTUS_SHRUB = RUPlacedFeatureBootstrap.key("eucalyptus_shrub");
-    public static final ResourceKey<PlacedFeature> FLOWERING_SHRUB = RUPlacedFeatureBootstrap.key("flowering_shrub");
-    public static final ResourceKey<PlacedFeature> JOSHUA_SHRUB = RUPlacedFeatureBootstrap.key("joshua_shrub");
-    public static final ResourceKey<PlacedFeature> JUNGLE_SHRUB = RUPlacedFeatureBootstrap.key("jungle_shrub");
-    public static final ResourceKey<PlacedFeature> LARCH_SHRUB = RUPlacedFeatureBootstrap.key("larch_shrub");
-    public static final ResourceKey<PlacedFeature> GOLDEN_LARCH_SHRUB = RUPlacedFeatureBootstrap.key("golden_larch_shrub");
-    public static final ResourceKey<PlacedFeature> MANGROVE_SHRUB = RUPlacedFeatureBootstrap.key("mangrove_shrub");
-    public static final ResourceKey<PlacedFeature> MAPLE_SHRUB = RUPlacedFeatureBootstrap.key("maple_shrub");
-    public static final ResourceKey<PlacedFeature> RED_MAPLE_SHRUB = RUPlacedFeatureBootstrap.key("red_maple_shrub");
-    public static final ResourceKey<PlacedFeature> ORANGE_MAPLE_SHRUB = RUPlacedFeatureBootstrap.key("orange_maple_shrub");
-    public static final ResourceKey<PlacedFeature> MAUVE_SHRUB = RUPlacedFeatureBootstrap.key("mauve_shrub");
-    public static final ResourceKey<PlacedFeature> OAK_SHRUB = RUPlacedFeatureBootstrap.key("oak_shrub");
-    public static final ResourceKey<PlacedFeature> PALM_SHRUB = RUPlacedFeatureBootstrap.key("palm_shrub");
-    public static final ResourceKey<PlacedFeature> PINE_SHRUB = RUPlacedFeatureBootstrap.key("pine_shrub");
-    public static final ResourceKey<PlacedFeature> REDWOOD_SHRUB = RUPlacedFeatureBootstrap.key("redwood_shrub");
-    public static final ResourceKey<PlacedFeature> SILVER_BIRCH_SHRUB = RUPlacedFeatureBootstrap.key("silver_birch_shrub");
-    public static final ResourceKey<PlacedFeature> SOCOTRA_SHRUB = RUPlacedFeatureBootstrap.key("socotra_shrub");
-    public static final ResourceKey<PlacedFeature> SPRUCE_SHRUB = RUPlacedFeatureBootstrap.key("spruce_shrub");
-    public static final ResourceKey<PlacedFeature> WILLOW_SHRUB = RUPlacedFeatureBootstrap.key("willow_shrub");
+    public static final ResourceKey<PlacedFeature> ASHEN_SHRUB = key("ashen_shrub");
+    public static final ResourceKey<PlacedFeature> ACACIA_SHRUB = key("acacia_shrub");
+    public static final ResourceKey<PlacedFeature> BAOBAB_SHRUB = key("baobab_shrub");
+    public static final ResourceKey<PlacedFeature> BIRCH_SHRUB = key("birch_shrub");
+    public static final ResourceKey<PlacedFeature> BLACKWOOD_SHRUB = key("blackwood_shrub");
+    public static final ResourceKey<PlacedFeature> CHERRY_SHRUB = key("cherry_shrub");
+    public static final ResourceKey<PlacedFeature> MAGNOLIA_SHRUB = key("magnolia_shrub");
+    public static final ResourceKey<PlacedFeature> PINK_MAGNOLIA_SHRUB = key("pink_magnolia_shrub");
+    public static final ResourceKey<PlacedFeature> WHITE_MAGNOLIA_SHRUB = key("white_magnolia_shrub");
+    public static final ResourceKey<PlacedFeature> CYPRESS_SHRUB = key("cypress_shrub");
+    public static final ResourceKey<PlacedFeature> DARK_OAK_SHRUB = key("dark_oak_shrub");
+    public static final ResourceKey<PlacedFeature> DEAD_SHRUB = key("dead_shrub");
+    public static final ResourceKey<PlacedFeature> DEAD_PINE_SHRUB = key("dead_pine_shrub");
+    public static final ResourceKey<PlacedFeature> EUCALYPTUS_SHRUB = key("eucalyptus_shrub");
+    public static final ResourceKey<PlacedFeature> FLOWERING_SHRUB = key("flowering_shrub");
+    public static final ResourceKey<PlacedFeature> JOSHUA_SHRUB = key("joshua_shrub");
+    public static final ResourceKey<PlacedFeature> JUNGLE_SHRUB = key("jungle_shrub");
+    public static final ResourceKey<PlacedFeature> LARCH_SHRUB = key("larch_shrub");
+    public static final ResourceKey<PlacedFeature> GOLDEN_LARCH_SHRUB = key("golden_larch_shrub");
+    public static final ResourceKey<PlacedFeature> MANGROVE_SHRUB = key("mangrove_shrub");
+    public static final ResourceKey<PlacedFeature> MAPLE_SHRUB = key("maple_shrub");
+    public static final ResourceKey<PlacedFeature> RED_MAPLE_SHRUB = key("red_maple_shrub");
+    public static final ResourceKey<PlacedFeature> ORANGE_MAPLE_SHRUB = key("orange_maple_shrub");
+    public static final ResourceKey<PlacedFeature> MAUVE_SHRUB = key("mauve_shrub");
+    public static final ResourceKey<PlacedFeature> OAK_SHRUB = key("oak_shrub");
+    public static final ResourceKey<PlacedFeature> PALM_SHRUB = key("palm_shrub");
+    public static final ResourceKey<PlacedFeature> PINE_SHRUB = key("pine_shrub");
+    public static final ResourceKey<PlacedFeature> REDWOOD_SHRUB = key("redwood_shrub");
+    public static final ResourceKey<PlacedFeature> SILVER_BIRCH_SHRUB = key("silver_birch_shrub");
+    public static final ResourceKey<PlacedFeature> SOCOTRA_SHRUB = key("socotra_shrub");
+    public static final ResourceKey<PlacedFeature> SPRUCE_SHRUB = key("spruce_shrub");
+    public static final ResourceKey<PlacedFeature> WILLOW_SHRUB = key("willow_shrub");
     //mixes
-    public static final ResourceKey<PlacedFeature> BAOBAB_ACACIA_SHRUB_MIX = RUPlacedFeatureBootstrap.key("baobab_acacia_shrub_mix");
-    public static final ResourceKey<PlacedFeature> AUTUMNAL_SHRUB_MIX = RUPlacedFeatureBootstrap.key("autumnal_shrub_mix");
-    public static final ResourceKey<PlacedFeature> BIRCH_SHRUB_MIX = RUPlacedFeatureBootstrap.key("birch_shrub_mix");
-    public static final ResourceKey<PlacedFeature> BLACKWOOD_DARK_OAK_SHRUB_MIX = RUPlacedFeatureBootstrap.key("blackwood_dark_oak_shrub_mix");
-    public static final ResourceKey<PlacedFeature> MAGNOLIA_SHRUB_MIX = RUPlacedFeatureBootstrap.key("magnolia_shrub_mix");
-    public static final ResourceKey<PlacedFeature> DEAD_SHRUB_MIX = RUPlacedFeatureBootstrap.key("dead_shrub_mix");
-    public static final ResourceKey<PlacedFeature> LARCH_SHRUB_MIX = RUPlacedFeatureBootstrap.key("larch_shrub_mix");
-    public static final ResourceKey<PlacedFeature> GOLDEN_LARCH_SHRUB_MIX = RUPlacedFeatureBootstrap.key("golden_larch_shrub_mix");
-    public static final ResourceKey<PlacedFeature> MAPLE_SHRUB_MIX = RUPlacedFeatureBootstrap.key("maple_shrub_mix");
-    public static final ResourceKey<PlacedFeature> MAUVE_ENCHANTED_SHRUB_MIX = RUPlacedFeatureBootstrap.key("mauve_enchanted_shrub_mix");
-    public static final ResourceKey<PlacedFeature> PALM_JUNGLE_SHRUB_MIX = RUPlacedFeatureBootstrap.key("palm_jungle_shrub_mix");
-    public static final ResourceKey<PlacedFeature> PINE_SPRUCE_SHRUB_MIX = RUPlacedFeatureBootstrap.key("pine_spruce_shrub_mix");
-    public static final ResourceKey<PlacedFeature> PINE_DEAD_SHRUB_MIX = RUPlacedFeatureBootstrap.key("pine_dead_shrub_mix");
-    public static final ResourceKey<PlacedFeature> WILLOW_CYPRESS_SHRUB_MIX = RUPlacedFeatureBootstrap.key("willow_cypress_shrub_mix");
-    public static final ResourceKey<PlacedFeature> WILLOW_MAGNOLIA_SHRUB_MIX = RUPlacedFeatureBootstrap.key("willow_magnolia_shrub_mix");
+    public static final ResourceKey<PlacedFeature> BAOBAB_ACACIA_SHRUB_MIX = key("baobab_acacia_shrub_mix");
+    public static final ResourceKey<PlacedFeature> AUTUMNAL_SHRUB_MIX = key("autumnal_shrub_mix");
+    public static final ResourceKey<PlacedFeature> BIRCH_SHRUB_MIX = key("birch_shrub_mix");
+    public static final ResourceKey<PlacedFeature> BLACKWOOD_DARK_OAK_SHRUB_MIX = key("blackwood_dark_oak_shrub_mix");
+    public static final ResourceKey<PlacedFeature> MAGNOLIA_SHRUB_MIX = key("magnolia_shrub_mix");
+    public static final ResourceKey<PlacedFeature> DEAD_SHRUB_MIX = key("dead_shrub_mix");
+    public static final ResourceKey<PlacedFeature> LARCH_SHRUB_MIX = key("larch_shrub_mix");
+    public static final ResourceKey<PlacedFeature> GOLDEN_LARCH_SHRUB_MIX = key("golden_larch_shrub_mix");
+    public static final ResourceKey<PlacedFeature> MAPLE_SHRUB_MIX = key("maple_shrub_mix");
+    public static final ResourceKey<PlacedFeature> MAUVE_ENCHANTED_SHRUB_MIX = key("mauve_enchanted_shrub_mix");
+    public static final ResourceKey<PlacedFeature> PALM_JUNGLE_SHRUB_MIX = key("palm_jungle_shrub_mix");
+    public static final ResourceKey<PlacedFeature> PINE_SPRUCE_SHRUB_MIX = key("pine_spruce_shrub_mix");
+    public static final ResourceKey<PlacedFeature> PINE_DEAD_SHRUB_MIX = key("pine_dead_shrub_mix");
+    public static final ResourceKey<PlacedFeature> WILLOW_CYPRESS_SHRUB_MIX = key("willow_cypress_shrub_mix");
+    public static final ResourceKey<PlacedFeature> WILLOW_MAGNOLIA_SHRUB_MIX = key("willow_magnolia_shrub_mix");
 
-    public static final ResourceKey<PlacedFeature> PRAIRIE_TREES = RUPlacedFeatureBootstrap.key("prairie_trees");
+    public static final ResourceKey<PlacedFeature> PRAIRIE_TREES = key("prairie_trees");
 
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
@@ -182,19 +198,15 @@ public class RuVegetationPlacements {
         //---------------------FEATURES---------------------//
         final Holder<ConfiguredFeature<?, ?>> BLACKWOOD_MUSHROOMS = featureGetter.getOrThrow(RuVegetationFeatures.BLACKWOOD_BIOSHROOMS);
         final Holder<ConfiguredFeature<?, ?>> BLACKWOOD_DECORATION = featureGetter.getOrThrow(RuVegetationFeatures.BLACKWOOD_DECORATION);
-        final Holder<ConfiguredFeature<?, ?>> LUPINE_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_LUPINE_VEGETATION);
         final Holder<ConfiguredFeature<?, ?>> MEADOW_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_MEADOW_VEGETATION);
         //GRASS
         final Holder<ConfiguredFeature<?, ?>> SANDY_GRASS = featureGetter.getOrThrow(RuVegetationFeatures.SANDY_GRASS);
-        final Holder<ConfiguredFeature<?, ?>> MEDIUM_GRASS = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_MEDIUM_GRASS);
         final Holder<ConfiguredFeature<?, ?>> SNOW_GRASS = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_SNOW_GRASS);
         final Holder<ConfiguredFeature<?, ?>> FERNS = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_FERNS);
         final Holder<ConfiguredFeature<?, ?>> GRASS = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_GRASS);
         final Holder<ConfiguredFeature<?, ?>> TALL_GRASS = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_TALL_GRASS);
         final Holder<ConfiguredFeature<?, ?>> WINDSWEPT_GRASS = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_WINDSWEPT_GRASS);
-        final Holder<ConfiguredFeature<?, ?>> STONE_BUD = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_STONE_BUD);
-        final Holder<ConfiguredFeature<?, ?>> ASHEN_GRASS = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_ASHEN_GRASS);
-        final Holder<ConfiguredFeature<?, ?>> REDWOODS_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_REDWOODS_VEGETATION);
+        final Holder<ConfiguredFeature<?, ?>> PATCH_GRASS_SPROUTS = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_GRASS_SPROUTS);
         final Holder<ConfiguredFeature<?, ?>> BLACKWOOD_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_BLACKWOOD_VEGETATION);
         final Holder<ConfiguredFeature<?, ?>> DECIDUOUS_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_DECIDUOUS_VEGETATION);
         final Holder<ConfiguredFeature<?, ?>> FEN_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_FEN_VEGETATION);
@@ -203,7 +215,6 @@ public class RuVegetationPlacements {
         final Holder<ConfiguredFeature<?, ?>> STEPPE_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_STEPPE_VEGETATION);
         final Holder<ConfiguredFeature<?, ?>> SOCOTRA_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_SOCOTRA_VEGETATION);
         final Holder<ConfiguredFeature<?, ?>> OUTBACK_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_OUTBACK_VEGETATION);
-        final Holder<ConfiguredFeature<?, ?>> JOSHUA_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_JOSHUA_VEGETATION);
         final Holder<ConfiguredFeature<?, ?>> BAYOU_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_BAYOU_VEGETATION);
         final Holder<ConfiguredFeature<?, ?>> SANDY_GRASS_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_SANDY_GRASS_VEGETATION);
         final Holder<ConfiguredFeature<?, ?>> DIRT_VEGETATION = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_DIRT_VEGETATION);
@@ -225,7 +236,6 @@ public class RuVegetationPlacements {
         final Holder<ConfiguredFeature<?, ?>> AZURE_DAISY = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_AZURE_DAISY);
         final Holder<ConfiguredFeature<?, ?>> WARATAH = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_WARATAH);
         final Holder<ConfiguredFeature<?, ?>> DAISY = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_DAISY);
-        final Holder<ConfiguredFeature<?, ?>> DAISIES = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_DAISIES);
         final Holder<ConfiguredFeature<?, ?>> PRAIRIE_FLOWERS = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_PRAIRIE_FLOWERS);
         final Holder<ConfiguredFeature<?, ?>> SHRUBLAND_FLOWERS = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_SHRUBLAND_FLOWERS);
         final Holder<ConfiguredFeature<?, ?>> WILLOW_FLOWERS = featureGetter.getOrThrow(RuVegetationFeatures.PATCH_WILLOW_FLOWERS);
@@ -325,7 +335,6 @@ public class RuVegetationPlacements {
         register(context, RuVegetationPlacements.FROZEN_FLOWERS, FROZEN_FLOWERS, RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, RuVegetationPlacements.BLACKWOOD_MUSHROOMS, BLACKWOOD_MUSHROOMS, List.of(CountPlacement.of(2), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
         register(context, RuVegetationPlacements.BLACKWOOD_DECORATION, BLACKWOOD_DECORATION, List.of(CountPlacement.of(8), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome()));
-        register(context, RuVegetationPlacements.LUPINE_VEGETATION, LUPINE_VEGETATION, CountPlacement.of(16), RarityFilter.onAverageOnceEvery(10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, RuVegetationPlacements.MEADOW_VEGETATION, MEADOW_VEGETATION, NoiseThresholdCountPlacement.of(-0.8D, 5, 8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         //GRASS
         register(context, RuVegetationPlacements.SANDY_GRASS, SANDY_GRASS, CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BlockPredicateFilter.forPredicate(BlockPredicate.ONLY_IN_AIR_PREDICATE), BiomeFilter.biome());
@@ -334,20 +343,35 @@ public class RuVegetationPlacements {
         register(context, RuVegetationPlacements.CAVE_GRASS, GRASS, List.of(CountOnEveryLayerPlacement.of(70), BlockPredicateFilter.forPredicate(BlockPredicate.ONLY_IN_AIR_PREDICATE),  BiomeFilter.biome()));
         register(context, RuVegetationPlacements.TALL_GRASS, TALL_GRASS, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 7), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.CAVE_TALL_GRASS, TALL_GRASS, List.of(CountOnEveryLayerPlacement.of(15), BlockPredicateFilter.forPredicate(BlockPredicate.ONLY_IN_AIR_PREDICATE), BiomeFilter.biome()));
-        register(context, RuVegetationPlacements.MEDIUM_GRASS, MEDIUM_GRASS, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 7), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.SNOW_GRASS, SNOW_GRASS, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 7), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.WINDSWEPT_GRASS, WINDSWEPT_GRASS, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
-        register(context, RuVegetationPlacements.STONE_BUD_DENSE, STONE_BUD, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
-        register(context, RuVegetationPlacements.STONE_BUD_SPARSE, STONE_BUD, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
-        register(context, RuVegetationPlacements.ASHEN_GRASS, ASHEN_GRASS, CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
-        register(context, RuVegetationPlacements.REDWOODS_VEGETATION, REDWOODS_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 14), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
+        register(context, RuVegetationPlacements.PATCH_GRASS_SPROUTS_DENSE, PATCH_GRASS_SPROUTS, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
+        register(context, RuVegetationPlacements.PATCH_GRASS_SPROUTS_SPARSE, PATCH_GRASS_SPROUTS, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
+        register(context, RuVegetationPlacements.PATCH_ASHEN_GRASS, count(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, RUDatagenFeatureUtils.airAndBlocksBelow(RUBlocks.ASHEN_DIRT.get()), BiomeFilter.biome());
+        register(context, RuVegetationPlacements.PATCH_ASHEN_GRASS_SMOULDERING, count(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, RUDatagenFeatureUtils.airAndBlocksBelow(RUBlocks.ASHEN_DIRT.get(), Blocks.BASALT, Blocks.SMOOTH_BASALT), BiomeFilter.biome());
+        register(context, RuVegetationPlacements.PATCH_ASH_VENTS, count(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, RUDatagenFeatureUtils.airAndBlocksBelow(RUBlocks.ASH.get()), BiomeFilter.biome());
+        register(context, RuVegetationPlacements.PATCH_FERNS_DENSE,
+            count(20),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+            BiomeFilter.biome()
+        );
+        register(context, RuVegetationPlacements.PATCH_LUPINES,
+            LithostitchedPlacementModifiers.noiseSlope(RUNoises.FLOWER_DENSITY, 2, 1, 1, 0),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome()
+        );
+        register(context, RuVegetationPlacements.PATCH_GRASS_SPARSE, simpleSpread(2, Types.WORLD_SURFACE_WG));
+        register(context, RuVegetationPlacements.PATCH_SANDY_GRASS_SPARSE, simpleSpread(2, Types.WORLD_SURFACE_WG));
+        register(context, RuVegetationPlacements.PATCH_DESERT_SHRUB_SPARSE, simpleSpread(2, Types.WORLD_SURFACE_WG));
+
         register(context, RuVegetationPlacements.BLACKWOOD_VEGETATION, BLACKWOOD_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.DECIDUOUS_VEGETATION, DECIDUOUS_VEGETATION, NoiseThresholdCountPlacement.of(-0.8D, 5, 24), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, RuVegetationPlacements.FEN_VEGETATION, FEN_VEGETATION, NoiseThresholdCountPlacement.of(-0.8D, 5, 24), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, RuVegetationPlacements.SHRUBLAND_VEGETATION, SHRUBLAND_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.MOUNTAIN_VEGETATION, MOUNTAIN_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.OUTBACK_VEGETATION, OUTBACK_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 16), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
-        register(context, RuVegetationPlacements.JOSHUA_VEGETATION, JOSHUA_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 24), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.STEPPE_VEGETATION, STEPPE_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 24), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.SOCOTRA_VEGETATION, SOCOTRA_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 24), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.SANDY_GRASS_VEGETATION, SANDY_GRASS_VEGETATION, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
@@ -373,7 +397,7 @@ public class RuVegetationPlacements {
         register(context, RuVegetationPlacements.AZURE_DAISY, AZURE_DAISY, List.of(RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.DAISY, DAISY, List.of(RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.WARATAH, WARATAH, List.of(RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-        register(context, RuVegetationPlacements.DAISIES, DAISIES, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 9), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
+        register(context, RuVegetationPlacements.PATCH_DAISIES, simpleSpread(5, Types.WORLD_SURFACE_WG));
         register(context, RuVegetationPlacements.PRAIRIE_FLOWERS, PRAIRIE_FLOWERS, List.of(RarityFilter.onAverageOnceEvery(16), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.SHRUBLAND_FLOWERS, SHRUBLAND_FLOWERS, List.of(RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         register(context, RuVegetationPlacements.WILLOW_FLOWERS, WILLOW_FLOWERS, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
@@ -397,7 +421,12 @@ public class RuVegetationPlacements {
         register(context, RuVegetationPlacements.SPARSE_ORANGE_CONEFLOWER, ORANGE_CONEFLOWER, NoiseThresholdCountPlacement.of(-0.8D, 5, 10), RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, RuVegetationPlacements.PURPLE_CONEFLOWER, PURPLE_CONEFLOWER, NoiseThresholdCountPlacement.of(-0.8D, 5, 10), RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, RuVegetationPlacements.MAGNOLIA_FLOWERS, MAGNOLIA_FLOWERS, NoiseThresholdCountPlacement.of(-0.8D, 5, 10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
-        register(context, RuVegetationPlacements.CLOVER, CLOVER, NoiseThresholdCountPlacement.of(-0.8D, 5, 12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+        register(context, RuVegetationPlacements.PATCH_CLOVERS_DENSE, CLOVER,
+            count(3),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome()
+        );
         register(context, RuVegetationPlacements.CLOVER_SPARSE, CLOVER, List.of(RarityFilter.onAverageOnceEvery(2),  NoiseThresholdCountPlacement.of(-0.8D, 5, 12), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
         //MULTIFACE FLOWERS
         register(context, RuVegetationPlacements.PINK_MAGNOLIA_FLOWERS, PINK_MAGNOLIA_FLOWERS, CountPlacement.of(15), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BiomeFilter.biome());
@@ -456,7 +485,13 @@ public class RuVegetationPlacements {
         register(context, RuVegetationPlacements.OAK_SHRUB, OAK_SHRUB, RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome());
         register(context, RuVegetationPlacements.PALM_SHRUB, PALM_SHRUB, CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome());
         register(context, RuVegetationPlacements.PINE_SHRUB, PINE_SHRUB, CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome());
-        register(context, RuVegetationPlacements.REDWOOD_SHRUB, REDWOOD_SHRUB, CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome());
+        register(context, RuVegetationPlacements.REDWOOD_SHRUB, REDWOOD_SHRUB,
+            count(2),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+            PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING),
+            BiomeFilter.biome()
+        );
         register(context, RuVegetationPlacements.SILVER_BIRCH_SHRUB, SILVER_BIRCH_SHRUB, CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome());
         register(context, RuVegetationPlacements.SOCOTRA_SHRUB, SOCOTRA_SHRUB, CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome());
         register(context, RuVegetationPlacements.SPRUCE_SHRUB, SPRUCE_SHRUB, CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, PlacementUtils.filteredByBlockSurvival(Blocks.OAK_SAPLING), BiomeFilter.biome());
@@ -481,6 +516,15 @@ public class RuVegetationPlacements {
         register(context, RuVegetationPlacements.PRAIRIE_TREES, PRAIRIE_MIX, NoiseBasedCountPlacement.of(60, 30.0D, -0.5D), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(RUPlacedFeatureBootstrap.onGrassBlockPredicate), BiomeFilter.biome());
         //BONE MEALS
         register(context, RuVegetationPlacements.BLADED_GRASS_BONEMEAL, BLADED_GRASS_BONEMEAL, PlacementUtils.isEmpty());
+    }
+
+    protected static PlacementModifier airAnd(BlockPredicate predicate) {
+        return BlockPredicateFilter.forPredicate(BlockPredicate.allOf(BlockPredicate.ONLY_IN_AIR_PREDICATE, predicate));
+    }
+
+    protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, PlacementModifier... placement) {
+        var featureGetter = context.lookup(Registries.CONFIGURED_FEATURE);
+        register(context, key, featureGetter.getOrThrow(RUConfiguredFeatures.fromPlaced(key)), List.of(placement));
     }
 
     protected static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> feature, PlacementModifier... placement) {

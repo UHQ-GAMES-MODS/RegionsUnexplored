@@ -6,13 +6,20 @@ import net.minecraft.tags.TagKey;
 import net.regions_unexplored.RegionsUnexplored;
 
 public interface RUBlockTags {
+   TagKey<Block> SUPPORTS_ASHEN_GRASS = key("supports_ashen_grass");
+   TagKey<Block> SUPPORTS_GRASS_SPROUTS = key("supports_grass_sprouts");
+
+   TagKey<Block> REPLACEABLE_BY_PEAT_DIRT = key("replaceable_by_peat_dirt");
+   TagKey<Block> REPLACEABLE_BY_SILT_DIRT = key("replaceable_by_silt_dirt");
+
+   TagKey<Block> DIRT_AND_PODZOL = key("dirt_and_podzol");
+
    TagKey<Block> BRANCHES_CAN_SURVIVE_ON = key("branches_can_survive_on");
    TagKey<Block> BRIM_PLANT_CAN_SURVIVE_ON = key("brim_plant_can_survive_on");
    TagKey<Block> CATTAIL_CAN_SURVIVE_ON = key("cattail_can_survive_on");
    TagKey<Block> SANDY_PLANT_CAN_SURVIVE_ON = key("sandy_plant_can_survive_on");
    TagKey<Block> SHRUB_CAN_SURVIVE_ON = key("shrub_can_survive_on");
    TagKey<Block> SNOW_PLANT_CAN_SURVIVE_ON = key("snow_plant_can_survive_on");
-   TagKey<Block> STONE_PLANT_CAN_SURVIVE_ON = key("stone_plant_can_survive_on");
    TagKey<Block> BIOSHROOM_GROW_BLOCK = key("bioshroom_grow_block");
    TagKey<Block> REPLACEABLE_BLOCKS = key("replaceable_blocks");
    TagKey<Block> PRISMARITE_CRYSTALS = key("prismarite_crystals");

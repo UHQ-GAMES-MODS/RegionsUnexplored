@@ -16,22 +16,22 @@ import net.regions_unexplored.registry.RUBlocks;
 import net.regions_unexplored.registry.tag.RUBlockTags;
 import net.regions_unexplored.world.level.block.plant.other.SaguaroCactusBlock;
 import net.regions_unexplored.world.level.block.state.properties.SaguaroCactusShape;
-import net.regions_unexplored.world.level.feature.configuration.RuTreeConfiguration;
+import net.regions_unexplored.world.level.feature.configuration.RUTreeConfiguration;
 
 import java.util.Random;
 
-public class SaguaroCactusFeature extends Feature<RuTreeConfiguration> {
+public class SaguaroCactusFeature extends Feature<RUTreeConfiguration> {
 
-    public SaguaroCactusFeature(Codec<RuTreeConfiguration> codec) {
+    public SaguaroCactusFeature(Codec<RUTreeConfiguration> codec) {
         super(codec);
     }
 
-    public boolean place(FeaturePlaceContext<RuTreeConfiguration> context) {
-        RuTreeConfiguration treeConfiguration = context.config();
+    public boolean place(FeaturePlaceContext<RUTreeConfiguration> context) {
+        RUTreeConfiguration treeConfiguration = context.config();
         BlockPos pos = context.origin();
         RandomSource randomSource = context.random();
         WorldGenLevel level = context.level();
-        int height_main = context.random().nextInt(treeConfiguration.sizeVariation) + treeConfiguration.minimumSize;
+        int height_main = context.random().nextInt(treeConfiguration.sizeVariation()) + treeConfiguration.minimumSize();
 
         BlockPos checkCactus = pos.above(3);
         if(level.getBlockState(checkCactus.north()).is(RUBlocks.SAGUARO_CACTUS.get())||
@@ -73,7 +73,7 @@ public class SaguaroCactusFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public void placeLimbs(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration){
+    public void placeLimbs(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration){
         int bpx1 = randomSource.nextInt(2)+3;
         int bpx2 = randomSource.nextInt(2)+3;
         int bpx3 = randomSource.nextInt(2)+3;
@@ -113,7 +113,7 @@ public class SaguaroCactusFeature extends Feature<RuTreeConfiguration> {
         placeChanceFlowerBlock(level, newpos3.south().above().above().above(), randomSource, treeConfiguration);
     }
 
-    public boolean placeCactusBlock(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration, SaguaroCactusShape shape) {
+    public boolean placeCactusBlock(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration, SaguaroCactusShape shape) {
         Random random = new Random();
         if(level.isOutsideBuildHeight(pos)){
             return true;
@@ -131,7 +131,7 @@ public class SaguaroCactusFeature extends Feature<RuTreeConfiguration> {
             level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
         }
         else if(isReplaceable(level, pos)) {
-            level.setBlock(pos, treeConfiguration.trunkProvider.getState(randomSource, pos).setValue(SaguaroCactusBlock.SHAPE, shape), 2);
+            level.setBlock(pos, treeConfiguration.trunkProvider().getState(randomSource, pos).setValue(SaguaroCactusBlock.SHAPE, shape), 2);
         }
         else{
             return true;
@@ -152,7 +152,7 @@ public class SaguaroCactusFeature extends Feature<RuTreeConfiguration> {
         return true;
     }
 
-    public void placeRoot(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public void placeRoot(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         Random random = new Random();
         int rd = random.nextInt(2)+4;
         int i = 0;
@@ -172,12 +172,12 @@ public class SaguaroCactusFeature extends Feature<RuTreeConfiguration> {
             i++;
         }
     }
-    public boolean placeChanceFlowerBlock(LevelAccessor level, BlockPos pos, RandomSource randomSource, RuTreeConfiguration treeConfiguration) {
+    public boolean placeChanceFlowerBlock(LevelAccessor level, BlockPos pos, RandomSource randomSource, RUTreeConfiguration treeConfiguration) {
         if(level.isOutsideBuildHeight(pos)){
             return true;
         }
         if(level.getBlockState(pos).canBeReplaced()&&randomSource.nextInt(4)==0) {
-            level.setBlock(pos, treeConfiguration.foliageProvider.getState(randomSource, pos), 2);
+            level.setBlock(pos, treeConfiguration.foliageProvider().getState(randomSource, pos), 2);
         }
         return true;
     }

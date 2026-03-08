@@ -1,6 +1,9 @@
 package net.regions_unexplored.datagen.provider.registry.configured_feature;
 
+import dev.worldgen.lithostitched.api.util.WeightedList;
+import dev.worldgen.lithostitched.api.worldgen.feature.LithostitchedFeatures;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
@@ -28,11 +31,11 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockS
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.placement.EnvironmentScanPlacement;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.RandomOffsetPlacement;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.regions_unexplored.registry.RUBlocks;
-import net.regions_unexplored.datagen.provider.registry.RUConfiguredFeatureBootstrap;
 import net.regions_unexplored.registry.RUFeatureTypes;
 import net.regions_unexplored.registry.data.RUConfiguredFeatures;
 import net.regions_unexplored.world.level.block.other.AshBlock;
@@ -41,58 +44,65 @@ import net.regions_unexplored.world.level.feature.configuration.FallenTreeConfig
 import net.regions_unexplored.world.level.feature.configuration.LargePointedRedstoneConfiguration;
 import net.regions_unexplored.world.level.feature.configuration.PointedRedstoneClusterConfiguration;
 import net.regions_unexplored.world.level.feature.configuration.PointedRedstoneConfiguration;
+import net.regions_unexplored.worldgen.feature.config.RockFeatureConfig;
 
 import java.util.List;
 
+import static net.regions_unexplored.datagen.provider.registry.RUDatagenFeatureUtils.direct;
+import static net.regions_unexplored.registry.data.RUConfiguredFeatures.key;
+
 public class RuMiscOverworldFeatures {
     //-----------------------KEYS-----------------------//
-    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_CLAY = RUConfiguredFeatureBootstrap.createKey("disk_clay");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_GRAVEL = RUConfiguredFeatureBootstrap.createKey("disk_gravel");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_SAND = RUConfiguredFeatureBootstrap.createKey("disk_sand");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_CLAY = key("disk_clay");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_GRAVEL = key("disk_gravel");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DISK_SAND = key("disk_sand");
     //ROCKS
-    public static final ResourceKey<ConfiguredFeature<?, ?>> REDWOODS_ROCK = RUConfiguredFeatureBootstrap.createKey("redwoods_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> REDWOODS_ROCK = key("redwoods_rock");
     //FALLEN_TREES
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LARCH = RUConfiguredFeatureBootstrap.createKey("fallen_larch");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_MAPLE = RUConfiguredFeatureBootstrap.createKey("fallen_maple");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_OAK = RUConfiguredFeatureBootstrap.createKey("fallen_oak");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_OAK_WITH_BLOB = RUConfiguredFeatureBootstrap.createKey("fallen_oak_tree_with_blob");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_PINE = RUConfiguredFeatureBootstrap.createKey("fallen_pine");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_SNOW_PINE = RUConfiguredFeatureBootstrap.createKey("fallen_snow_pine");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_SILVER_BIRCH = RUConfiguredFeatureBootstrap.createKey("fallen_silver_birch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LARCH = key("fallen_larch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_MAPLE = key("fallen_maple");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_OAK = key("fallen_oak");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_OAK_WITH_BLOB = key("fallen_oak_tree_with_blob");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_PINE = key("fallen_pine");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_SNOW_PINE = key("fallen_snow_pine");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_SILVER_BIRCH = key("fallen_silver_birch");
     //CAVE_FEATURES
-    public static final ResourceKey<ConfiguredFeature<?, ?>> POINTED_REDSTONE = RUConfiguredFeatureBootstrap.createKey("pointed_redstone");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_POINTED_REDSTONE = RUConfiguredFeatureBootstrap.createKey("large_pointed_redstone");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> POINTED_REDSTONE_CLUSTER = RUConfiguredFeatureBootstrap.createKey("pointed_redstone_cluster");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_REDSTONE_LARGE = RUConfiguredFeatureBootstrap.createKey("ore_redstone_large");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> POINTED_REDSTONE = key("pointed_redstone");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_POINTED_REDSTONE = key("large_pointed_redstone");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> POINTED_REDSTONE_CLUSTER = key("pointed_redstone_cluster");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_REDSTONE_LARGE = key("ore_redstone_large");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PRISMARITE_CLUSTERS = RUConfiguredFeatureBootstrap.createKey("prismarite_clusters");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> HANGING_PRISMARITE_CLUSTER = RUConfiguredFeatureBootstrap.createKey("hanging_prismarite_cluster");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PRISMARITE_CLUSTERS = key("prismarite_clusters");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HANGING_PRISMARITE_CLUSTER = key("hanging_prismarite_cluster");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> MINERAL_POOL = RUConfiguredFeatureBootstrap.createKey("mineral_pool");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MINERAL_POOL = key("mineral_pool");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LAVA_FALL = RUConfiguredFeatureBootstrap.createKey("lava_fall");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_LAVA_DELTA = RUConfiguredFeatureBootstrap.createKey("overworld_lava_delta");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ASH_VENT = RUConfiguredFeatureBootstrap.createKey("ash_vent");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> BASALT_BLOB = RUConfiguredFeatureBootstrap.createKey("basalt_blob");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LAVA_FALL = key("lava_fall");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_LAVA_DELTA = key("overworld_lava_delta");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ASH_VENT = key("ash_vent");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BASALT_BLOB = key("basalt_blob");
     //OTHER_FEATURES
-    public static final ResourceKey<ConfiguredFeature<?, ?>> MOSS_PATCH_WITH_WATER = RUConfiguredFeatureBootstrap.createKey("moss_patch_with_water");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> MARSH = RUConfiguredFeatureBootstrap.createKey("marsh");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> WATER_EDGE = RUConfiguredFeatureBootstrap.createKey("water_edge");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ICICLE_UP = RUConfiguredFeatureBootstrap.createKey("icicle_up");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SMOULDERING_DIRT = RUConfiguredFeatureBootstrap.createKey("smouldering_dirt");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> MEADOW_ROCK = RUConfiguredFeatureBootstrap.createKey("meadow_rock");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ROCK = RUConfiguredFeatureBootstrap.createKey("rock");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NOISE_PUMPKINS = RUConfiguredFeatureBootstrap.createKey("patch_noise_pumpkins");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NOISE_ROCKS = RUConfiguredFeatureBootstrap.createKey("patch_noise_rocks");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NOISE_BUSH = RUConfiguredFeatureBootstrap.createKey("patch_noise_bush");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MOSS_PATCH_WITH_WATER = key("moss_patch_with_water");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MARSH = key("marsh");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WATER_EDGE = key("water_edge");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ICICLE_UP = key("icicle_up");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MEADOW_ROCK = key("meadow_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ROCK = key("rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NOISE_PUMPKINS = key("patch_noise_pumpkins");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NOISE_ROCKS = key("patch_noise_rocks");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NOISE_BUSH = key("patch_noise_bush");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ROCK_GROUP_HIGHLAND_FIELDS = key("rock/group/highland_fields");
+    
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ROCK_COBBLESTONE = key("rock/cobblestone");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ROCK_STONE_LARGE = key("rock/stone_large");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ROCK_MOSSY_STONE_LARGE = key("rock/mossy_stone_large");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<ConfiguredFeature<?, ?>> holderGetter = context.lookup(Registries.CONFIGURED_FEATURE);
-        RuleTest baseStoneTest = new TagMatchTest(BlockTags.BASE_STONE_OVERWORLD);
         RuleTest stoneOreTest = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateOreTest = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
         List<OreConfiguration.TargetBlockState> ORE_REDSTONE_TARGET_LIST = List.of(OreConfiguration.target(stoneOreTest, Blocks.REDSTONE_ORE.defaultBlockState()), OreConfiguration.target(deepslateOreTest, Blocks.DEEPSLATE_REDSTONE_ORE.defaultBlockState()));
-        List<OreConfiguration.TargetBlockState> STONE_GRASS_TARGET_LIST = List.of(OreConfiguration.target(stoneOreTest, RUBlocks.STONE_GRASS_BLOCK.get().defaultBlockState()), OreConfiguration.target(deepslateOreTest, RUBlocks.DEEPSLATE_GRASS_BLOCK.get().defaultBlockState()));
 
         //---------------------FEATURES---------------------//
         register(context, DISK_CLAY, Feature.DISK, new DiskConfiguration(RuleBasedBlockStateProvider.simple(Blocks.CLAY), BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, RUBlocks.PEAT_DIRT.get(), RUBlocks.SILT_DIRT.get(), RUBlocks.SILT_MUD.get(), RUBlocks.PEAT_MUD.get(), Blocks.CLAY)), UniformInt.of(2, 3), 1));
@@ -128,12 +138,20 @@ public class RuMiscOverworldFeatures {
         register(context, MARSH, RUFeatureTypes.MARSH.get(), FeatureConfiguration.NONE);
         register(context, WATER_EDGE, RUFeatureTypes.WATER_EDGE.get(), FeatureConfiguration.NONE);
         register(context, ICICLE_UP, RUFeatureTypes.ICICLE_UP.get(), FeatureConfiguration.NONE);
-        register(context, SMOULDERING_DIRT, RUFeatureTypes.SMOULDERING_DIRT.get(), FeatureConfiguration.NONE);
         register(context, MEADOW_ROCK, RUFeatureTypes.MEADOW_ROCK.get(), FeatureConfiguration.NONE);
         register(context, ROCK, RUFeatureTypes.ROCK.get(), FeatureConfiguration.NONE);
         register(context, PATCH_NOISE_PUMPKINS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.PUMPKIN.defaultBlockState(), 96).add(Blocks.CARVED_PUMPKIN.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, Direction.NORTH), 1).add(Blocks.CARVED_PUMPKIN.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, Direction.SOUTH), 1).add(Blocks.CARVED_PUMPKIN.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, Direction.EAST), 1).add(Blocks.CARVED_PUMPKIN.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, Direction.WEST), 1))), List.of(RUBlocks.SILT_PODZOL.get(), Blocks.SNOW_BLOCK), 16));
         register(context, PATCH_NOISE_ROCKS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(RUBlocks.STONE_GRASS_BLOCK.get().defaultBlockState(), 1).add(RUBlocks.MOSSY_STONE.get().defaultBlockState(), 1).add(Blocks.STONE.defaultBlockState(), 1).add(Blocks.COBBLESTONE.defaultBlockState(), 1).add(Blocks.AIR.defaultBlockState(), 75))), List.of(Blocks.GRASS_BLOCK), 125));
         register(context, PATCH_NOISE_BUSH, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(RUBlocks.MAPLE_NATURAL_SET.getLeaves().defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2).add(Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true), 2).add(Blocks.AIR.defaultBlockState(), 75))), List.of(Blocks.GRASS_BLOCK), 125));
+
+        var rockCobblestone = register(context, ROCK_COBBLESTONE, RUFeatureTypes.NEW_ROCK.get(), RockFeatureConfig.create(Blocks.COBBLESTONE));
+        var rockStoneLarge = register(context, ROCK_STONE_LARGE, RUFeatureTypes.NEW_ROCK.get(), RockFeatureConfig.createLarge(Blocks.STONE));
+        var rockMossyStoneLarge = register(context, ROCK_MOSSY_STONE_LARGE, RUFeatureTypes.NEW_ROCK.get(), RockFeatureConfig.createLarge(RUBlocks.MOSSY_STONE.get()));
+        register(context, ROCK_GROUP_HIGHLAND_FIELDS, LithostitchedFeatures.WEIGHTED_SELECTOR, LithostitchedFeatures.weightedSelector(WeightedList.<Holder<PlacedFeature>>builder()
+            .add(direct(rockCobblestone), 1)
+            .add(direct(rockStoneLarge), 2)
+            .add(direct(rockMossyStoneLarge), 3)
+        .build()));
 
         register(context, RUConfiguredFeatures.BONEMEAL_ALPHA_GRASS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(RUBlocks.ALPHA_ROSE.get())));
     }
@@ -142,7 +160,7 @@ public class RuMiscOverworldFeatures {
         return FeatureUtils.simpleRandomPatchConfiguration(i, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(stateProvider)));
     }
 
-    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC config) {
-        context.register(key, new ConfiguredFeature<>(feature, config));
+    private static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder.Reference<ConfiguredFeature<?, ?>> register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC config) {
+        return context.register(key, new ConfiguredFeature<>(feature, config));
     }
 }

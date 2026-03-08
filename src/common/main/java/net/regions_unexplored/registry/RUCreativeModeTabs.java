@@ -52,12 +52,11 @@ public interface RUCreativeModeTabs {
             output.accept(RUBlocks.BLADED_GRASS.get().asItem());
             output.accept(RUBlocks.DEAD_STEPPE_SHRUB.get().asItem());
             output.accept(RUBlocks.FROZEN_GRASS.get().asItem());
-            output.accept(RUBlocks.MEDIUM_GRASS.get().asItem());
             output.accept(RUBlocks.SANDY_GRASS.get().asItem());
             output.accept(RUBlocks.SMALL_DESERT_SHRUB.get().asItem());
             output.accept(RUBlocks.STEPPE_GRASS.get().asItem());
             output.accept(RUBlocks.STEPPE_SHRUB.get().asItem());
-            output.accept(RUBlocks.STONE_BUD.get().asItem());
+            output.accept(RUBlocks.GRASS_SPROUTS.get().asItem());
 
             output.accept(RUBlocks.BRIMSPROUT.get().asItem());
             output.accept(RUBlocks.COBALT_ROOTS.get().asItem());

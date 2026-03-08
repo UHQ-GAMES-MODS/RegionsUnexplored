@@ -1,7 +1,6 @@
 package net.regions_unexplored.datagen.provider.registry.biome;
 
 import net.minecraft.core.HolderGetter;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.sounds.Musics;
 import net.minecraft.sounds.SoundEvents;
@@ -39,7 +38,7 @@ public class TaigaBiomes {
     private static BiomeGenerationSettings.Builder baseTaigaGeneration(HolderGetter<PlacedFeature> featureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean hasSweetBerries) {
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(featureGetter, carverGetter);
         RUBiomeFeatures.globalOverworldGeneration(biomeBuilder);
-        RUBiomeFeatures.mediumGrass(biomeBuilder);
+        RUBiomeFeatures.grassSprouts(biomeBuilder);
         BiomeDefaultFeatures.addFerns(biomeBuilder);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
         RUBiomeFeatures.addDefaultSoftDisks(biomeBuilder);
@@ -178,8 +177,7 @@ public class TaigaBiomes {
         BiomeGenerationSettings.Builder biomeBuilder = baseTaigaGeneration(featureGetter, carverGetter, true);
 
         //add RU features
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.PINE_ON_DIRT);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.PINE_TALL_ON_DIRT);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.TREE_GROUP_PINE_TAIGA);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.PINE_SHRUB_ON_GRASS);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuMiscOverworldPlacements.FALLEN_PINE_ON_DIRT);
 
@@ -208,8 +206,8 @@ public class TaigaBiomes {
                 .fogColor(OVERWORLD_FOG_COLOR)
                 .waterColor(NORMAL_WATER_COLOR)
                 .waterFogColor(NORMAL_WATER_FOG_COLOR)
-                .foliageColorOverride(7512632)
-                .grassColorOverride(8240185)
+                .foliageColorOverride(0x7e9539)
+                .grassColorOverride(0x7b9f39)
                 .ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
                 .backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_BIOME_OLD_GROWTH_TAIGA));
 
@@ -217,10 +215,9 @@ public class TaigaBiomes {
         BiomeGenerationSettings.Builder biomeBuilder = baseTaigaGeneration(featureGetter, carverGetter, false);
 
         //add RU features
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.ULTRA_REDWOOD);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.GIANT_REDWOOD_DENSE);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.REDWOOD);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.OAK_BUSH_DENSE);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.TREE_GROUP_REDWOODS_PRIMARY);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.TREE_GROUP_REDWOODS_SECONDARY);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.OAK_BUSH_SINGLE);
 
         RUBiomeFeatures.redwoodDecoration(biomeBuilder);
 
@@ -255,7 +252,6 @@ public class TaigaBiomes {
 
         //add RU features
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.GIANT_REDWOOD_SPARSE);
-        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.REDWOOD);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RuTreePlacements.OAK_BUSH_SPARSE);
 
         RUBiomeFeatures.redwoodDecoration(biomeBuilder);

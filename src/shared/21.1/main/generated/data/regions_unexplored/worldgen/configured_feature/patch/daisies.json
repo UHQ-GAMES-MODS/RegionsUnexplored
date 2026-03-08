@@ -1,0 +1,54 @@
+{
+  "type": "minecraft:flower",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:dual_noise_provider",
+            "noise": {
+              "amplitudes": [
+                1.0
+              ],
+              "firstOctave": -4
+            },
+            "scale": 1.0,
+            "seed": 9987,
+            "slow_noise": {
+              "amplitudes": [
+                2.5
+              ],
+              "firstOctave": -7
+            },
+            "slow_scale": 0.6,
+            "states": [
+              {
+                "Name": "regions_unexplored:daisy"
+              },
+              {
+                "Name": "minecraft:short_grass"
+              },
+              {
+                "Name": "regions_unexplored:felicia_daisy"
+              }
+            ],
+            "variety": 2
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          }
+        }
+      ]
+    },
+    "tries": 32,
+    "xz_spread": 7,
+    "y_spread": 3
+  }
+}

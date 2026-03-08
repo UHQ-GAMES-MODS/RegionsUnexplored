@@ -80,13 +80,13 @@
     ],
     [
       "minecraft:glow_lichen",
-      "regions_unexplored:medium_grass",
+      "regions_unexplored:patch/grass_sprouts_sparse",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane",
       "minecraft:patch_pumpkin",
-      "regions_unexplored:lupine_vegetation",
-      "regions_unexplored:clover",
+      "regions_unexplored:patch/lupines",
+      "regions_unexplored:patch/clovers_dense",
       "regions_unexplored:grass"
     ],
     [

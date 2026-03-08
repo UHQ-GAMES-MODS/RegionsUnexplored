@@ -30,7 +30,7 @@
       "probability": 0.005
     },
     "sky_color": 11644572,
-    "water_color": -10073800,
+    "water_color": 9147546,
     "water_fog_color": -11585236
   },
   "features": [
@@ -40,7 +40,8 @@
       "minecraft:lake_lava_surface"
     ],
     [
-      "minecraft:amethyst_geode"
+      "minecraft:amethyst_geode",
+      "regions_unexplored:patch/ash_vents"
     ],
     [
       "minecraft:monster_room",
@@ -88,11 +89,10 @@
       "minecraft:glow_lichen",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
-      "regions_unexplored:smouldering_dirt",
-      "regions_unexplored:tree/ashen",
-      "regions_unexplored:tree/ashen_pine",
+      "regions_unexplored:tree/group/ashen_woodland",
       "regions_unexplored:wilting_trillium",
-      "regions_unexplored:ashen_grass",
+      "regions_unexplored:patch/ashen_grass",
+      "regions_unexplored:patch/smouldering_ashen_grass",
       "regions_unexplored:ashen_shrub"
     ],
     [
