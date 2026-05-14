@@ -71,7 +71,7 @@ public class RegionsUnexploredNeo {
 
     //set up client side features
     public void clientSetup(final FMLClientSetupEvent event) {
-        RegionsUnexploredClient.clientInit();
+        event.enqueueWork(RegionsUnexploredClient::clientInit);
     }
 
     //set up non-client side features
